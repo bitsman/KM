@@ -1,0 +1,17 @@
+#+title: 比克曼的博客
+#+author: 比克曼
+#+latex_class: org-latex-pdf
+#+latex: \newpage
+
+[[./mylearning.html][我的知识管理]]
+
+
+
+
+
+
+
+
+
+
+
