@@ -129,7 +129,7 @@ y' & = & -x\sin(\Theta) + ycos(\Theta) \\
 \right.
 $$
 也可以写成矩阵形式：
-$$ {x' \choose y'}={cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)}{x \choose y}\\ $$
+$$ {x' \choose y'}={cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)}{x \choose y} $$
 如何旋转呢，可以借鉴二分查找法的思想。我们知道θ的范围是0到90度。那么就先旋转45度试试。
 $$ {212.13 \choose 70.711} = {cos(45^{\circ}) \quad sin(45^{\circ}) \choose -sin(45^{\circ}) \quad cos(45^{\circ})}{100 \choose 200}$$ 
 旋转之后纵坐标为70.71，还是大于0，说明旋转的度数不够，接着再旋转22.5度（45度的一半）。
