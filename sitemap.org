@@ -1,4 +1,4 @@
 #+TITLE: Sitemap
 
-   + [[file:mylearning.org][2015-08-24 知识管理]]
+   + [[file:mylearning.org][2015-08-31 知识管理]]
    + [[file:index.org][2015-08-23 比克曼的博客]]

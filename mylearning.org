@@ -468,11 +468,12 @@ z = 16238
 计算 atan 函数，其他的像 sin，cos，sinh，cosh 等一系列的函数都可以计算，不过那些都不在本文的讨论范围内了。另外，每次旋转
 时到原点的距离都会发生变化，而这个变化是确定的，因此可以在循环运算结束后以此补偿回来，这样的话我们就同时将（ρ,θ）都计
 算出来了。 
-*** K临近算法
+*** k临近算法
 K临近算法主要采用将一定的样本，规划为已知的标签，每个样本针对标签有若干的特征值，然后当有新的样本点时，计算新样本点到已
-知样本的距离，然后选取前K个距离最近的样本的标签作为该样本的标签。实例代码如下，我们有由createDataSet函数生成一个测试样本
-和标签集，其中array的每个元素代表一个已知样本，而每个已知样本的各个元素代表其特征值，labels给出了group的每个样本的标签；
-现通过classify0函数将新样本inX归类到某个标签上。 *注意:* 要运行必须要删除所有的中文注释。
+知样本的距离，然后选取前K个距离最近的样本的标签进行投票，得票最多的标签作为该样本的标签。实例代码如下，我们有由
+createDataSet函数生成一个测试样本和标签集，其中array的每个元素代表一个已知样本，而每个已知样本的各个元素代表其特征值，
+labels给出了group的每个样本的标签；现通过classify0函数将新样本inX归类到某个标签上。 *注意:* 要运行必须要删除所有的中文注
+释。 
 #+begin_src python
 import numpy as np
 import scipy as sp
@@ -502,6 +503,7 @@ def classify0(inX, dataSet, labels, k):
     sortedDistInddicies = distances.argsort() 
     # 建立一个空字典/哈希表/映射:键值为label;值为每个label出现的频率
     classCount={}
+    # 这里主要进行投票
     for i in range(k):
         # 寻找到前K个距离最近点的标签，然后对每个标签在字典classCount里面统计出现的次数
         voteIlabel = labels[sortedDistInddicies[i]]
@@ -2067,6 +2069,7 @@ menu标签中item标签的主要属性见表\ref{tbl-menu-bar}
   Path\gnuclientw.exe，并加上"%1"
 - emacs配置立马生效: 可以M-x eval-current-buffer立马生效; 
 *** org-mode
+# <<org-mode>>
 - 插入公式：
   1. 公式：$a^2+b^2=c^2$
   2. 公式：\(a^2 + b^2 = c^2\)
@@ -2126,6 +2129,9 @@ menu标签中item标签的主要属性见表\ref{tbl-menu-bar}
 	        tabsize=4, %设置tab空格数
 	        showspaces=false} %不显示空格
 #+end_src
+- 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再在使用的地方，使用像[[][]]这样的格式去定位标点，
+  并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
+  [[org-mode]], 并且可以使用C-c &返回来。
 
 *** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
