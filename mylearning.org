@@ -1680,6 +1680,9 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
   #+end_src
 *** JAVA语言
 *** PYTHON语言
+**** numpy
+- array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和
+  data.max(0)是从每列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行中获得min和max；
 * 系统
 ** android
 *** base
@@ -2132,6 +2135,7 @@ menu标签中item标签的主要属性见表\ref{tbl-menu-bar}
 - 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再在使用的地方，使用像[[][]]这样的格式去定位标点，
   并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
   [[org-mode]], 并且可以使用C-c &返回来。
+- 表格：可以使用table-mode，命令table-insert可以插入一个n行n列的表格，table-span-cell可以合并单元格。
 
 *** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
