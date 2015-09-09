@@ -1,0 +1,113 @@
+#+title: 工具
+#+author: 比克曼
+#+latex_class: org-latex-pdf 
+#+latex: \newpage 
+
+* emacs
+** 安装
+- gnuserv安装：将emacs目录拷贝后，在系统环境变量中增加HOME键值等于emacs路径(d:\emacs)，即可；
+** 基本操作
+- 在eshell中使用$PATH$可以输出当前emacs的路径path；
+- 计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
+  示它们是二进制形式。如果要重新用十进制显示，则输入"d0"即可，同样，也可以用"d8""，"d6"来显示八进制和十六进制的格式。如
+  果要进行进制转换，比如讲二进制的1010转换为十六进制，可以这样先d6设定16进制模式，然后再minibuffer中输入2#1010，回车；
+- 计算器模式2：M-x quick-calc进入，启动后会在minibuffer里提示输入数学计算式，回车就显示结果；
+- 查询当前模式:C-h m或者M-x describe-mode ;
+- 导入图片见图\ref{img-pic-test}:可以通过调节width=.1\ linewidth来限制图片输出的大小, 其中.1表示倍率，或者使用scale=0.2
+  进行调节
+  #+caption: emacs导图测试 
+  #+label: img-pic-test
+  #+attr_latex: placement=[H] scale=0.2
+  [[./img/emacs1.jpg]]
+- 字体：试试 *粗体* ，试试 /斜体/ ,  试试 +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=
+- el源文件编译:对于emacs某些包，有生成的elc的编译文件，emacs启动时，调用elc启动速度会更快，但是如果修改了源文件el，则可
+  以使用M-x：byte-recompile-directory来重新编译，才能将修改的地方起作用。比如org mode中修改latex的生成模式函数
+  org-export-latex-make-header
+- eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn
+- 设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
+  变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+  编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
+- 右键菜单配置打开命令：在注册表\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\下面新建一项Emacs，再在下面新建command项，
+  看起来应该是这样：\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
+  Path\gnuclientw.exe，并加上"%1"
+- emacs配置立马生效: 可以M-x eval-current-buffer立马生效; 
+** org-mode
+# <<org-mode>>
+- 插入公式：
+  1. 公式：$a^2+b^2=c^2$
+  2. 公式：\(a^2 + b^2 = c^2\)
+  3. 公式：$$a^2 + b^2 = c^2$$
+  4. 公式：\[a^2 + b^2 = c^2\]
+  5. 公式5：\(\sqrt{2}\)
+- 表格计算：
+  + 行表示：第2行：@2;
+  + 列表示：第2列：$2;
+  + 表格表示：第2行第2列：@2$2, 或者B2;
+  + 打开表格符号帮助：C-c ?;
+  + 显示行列帮助：C-c };
+  + 公式引用：在表格下方的计算公式上使用C-c C-c，或者在表格中使用C-u C-c *;
+  + 表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；
+  + 在minibuffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
+  + 在单独的buffer中输入公式：C-c ';
+  + 求平均值函数vmean:例如:=vmean($2..$3)；
+- org-mode转换到pdf需要在org-mode文件中头部使用如下头;
+  #+begin_src emacs-lisp
+    #+title: 我的记事本
+    #+author: lxc
+    #+ latex_class: org-latex-pdf
+    #+ latex: \newpage
+  #+end_src
+- 画图测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar时的默认格式, 效果如图\ref{img-test}所示
+  #+caption: 测试画图
+  #+label: img-test
+  #+attr_latex: placement=[H] scale=0.3
+  #+begin_src ditaa :file ./img/img-zhongwen.png :cmdline -r -o
+  +----------------+     +--------------+    /-----------\
+  |  cBLU blue     |     |  cRED        |    |  cGRE     |
+  |                |---> |  red         |--->|  green    |-------+
+  +----------------+     +--------------+    \-----------/       |
+                                                                 |
+                            +------------------+  <--------------+
+                            |    cBLU          |                 :
+                            |    o item1       |                 |
+                            |    o item2       |                 v
+                            |    o item3       |   +--------------+
+                            +------------------+   |   cRED       |
+                                                   +--------------+
+  #+end_src
+- 由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
+  换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
+- 如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下代码"页边距"
+#+begin_src emacs-lisp
+	\lstset{numbers=left, %设置行号位置
+          numberstyle=\\tiny, %设置行号大小
+	 		keywordstyle=\\color{blue}, %设置关键字颜色
+	 		commentstyle=\\color[cmyk]{1,0,1,0}, %设置注释颜色
+	        frame=single, %设置边框格式
+	        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+	        breaklines, %自动折行
+	        extendedchars=false, %解决代码跨页时,章节标题，页眉汉字不显示
+	        xleftmargin=10em,xrightmargin=5em, aboveskip=0.5em, %设置页边距
+	        tabsize=4, %设置tab空格数
+	        showspaces=false} %不显示空格
+#+end_src
+- 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再在使用的地方，使用像[[][]]这样的格式去定位标点，
+  并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
+  [[org-mode]], 并且可以使用C-c &返回来。
+- 表格：可以使用table-mode，命令table-insert可以插入一个n行n列的表格，table-span-cell可以合并单元格。
+
+** python-mode
+- 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
+  C-z直接运行buffer的代码；
+-
+* latex
+- 固定latex插入的图片位置
+  #+begin_src latex
+    \subsubsection{\kai{metis的数据流图}}
+    \begin{figure}[H]%注意是大写的H哦
+        \centering
+        \includegraphics[width=1.2\textwidth]{eps/metis_dataflow.eps}
+        \caption{metis dataflow}
+        \label{metis_dataflaw}
+    \end{figure}
+  #+end_src

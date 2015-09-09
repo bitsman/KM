@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>数学 </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="数学 "/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015-09-09 18:46:38 中国标准时间"/>
+<meta name="author" content="比克曼"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">数学 </h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">概率</a>
+<ul>
+<li><a href="#sec-1-1">概念</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">代数</a>
+<ul>
+<li><a href="#sec-2-1">概念</a></li>
+<li><a href="#sec-2-2">多项式</a>
+<ul>
+<li><a href="#sec-2-2-1">概念</a></li>
+<li><a href="#sec-2-2-2">满足定律</a></li>
+<li><a href="#sec-2-2-3">公式</a></li>
+<li><a href="#sec-2-2-4">应用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">概率</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">概念</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<ul>
+<li>样本空间：随机试验的所有可能结果组成的集合; 
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">代数</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">概念</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<ul>
+<li>自然数：natural number，{0，1，2，3&hellip;}等全体非负整数组成的数的集合称为自然数；
+</li>
+<li>正整数：positive integer，{1，2，3&hellip;}等向前扩充的数称为正整数；
+</li>
+<li>负整数：{1，2，3&hellip;}等向后扩充的数称为妇整数；
+</li>
+<li>中性数：0被称为中性数；
+</li>
+<li>整数： integer，把正整数、负整数、中性数(0)合在一起叫整数，对＋、－、×运算组成一个封闭的数域集合；
+</li>
+<li>有理数：rational number，整数对÷不封闭，有理数则在整数基础上对÷封闭的数域，或者可以表示成两个整数之比;
+</li>
+<li>无理数：irrational number，不能表示成2个整数之比的数，比如\(\sqrt{2}\)和圆周率；
+</li>
+<li>实数：real number，有理数和无理数合到一起称为实数；
+</li>
+<li>虚数：imaginary number，符号用i表示，i = \(\sqrt{-1}\)；
+</li>
+<li>复数：complex number，由实数和虚数构造出的数叫复数；
+</li>
+<li>向量：vector； 
+</li>
+<li>矩阵：matrix；
+</li>
+<li>张量：tensor；
+</li>
+<li>群：group；
+</li>
+<li>环：loop；
+</li>
+<li>域：field；
+</li>
+<li>线性代数：研究未知数更多的一次方程组，引进矩阵、向量、空间等概念形成的方向；
+</li>
+<li>多项式代数：研究未知数次数更高的高次方程，形成的方向；
+
+
+
+<div id="img-number" class="figure">
+<p><img src="./img/img-number.png"  alt="./img/img-number.png" /></p>
+<p>数的归纳</p>
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">多项式</h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+</div>
+
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1">概念</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+<ul>
+<li>最大公因式：设f(x), g(x)是P[x]中两个多项式。P[x]中多项式d(x)称为f(x), g(x)的一个最大公因式，如果它满足
+<ol>
+<li>d(x)是f(x)，g(x)的公因式；
+</li>
+<li>f(x)，g(x) 的公因式全是d(x)的因式；
+</li>
+</ol>
+
+</li>
+<li>多项式互素：P[x]中两个多项式f(x)，g(x)称为互素(互质)，如果(f(x), g(x))=1;  ((f(x), g(x))表示首项系数是1的最大公因式)；
+</li>
+<li>重因式：不可约多项式p(x)称为多项式f(x)的k重因式，如果\(p^{k}x | f(x)\)，而\(p^{k+1}x ! f(x)\); (g(x)|f(x)表示g(x)能整
+  除f(x)) ; 
+</li>
+<li>多项式微商: 对多项式求导；
+</li>
+<li>本原多项式：如果一个非零的整系数多项式\(g(x)=b_{n}x^{n}+b_{n-1}x^{n-1}+……+b_{0}\) 的系数\(b_{n}, b_{n-1}, ……，b_{0}\)
+  没有异于±1的公因子，也就说它们是互素的，这个多项式被称为本原多项式；
+</li>
+<li>本原多项式定理(高斯引理)：两个本原多项式的乘积还是本原多项式；
+</li>
+<li>对称多项式：设\(f(x_{1}, x_{2}, ……, x_{n})\)是数环R上一个n元多项式，如果对于这n个文字\(x_{1}, x_{2}, ……, x_{n}\)的
+  指标集{1, 2, ……, n}施行任意置换后，\(f(x_{1}, x_{2}, ……, x_{n})\)都不改变，那么就称\(f(x_{1}, x_{2}, ……, x_{n})\)
+  是R上一个n元对称多项式；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2">满足定律</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+<ul>
+<li>加法交换律, f(x)+g(x)=g(x)+f(x)；
+</li>
+<li>加法结合律, (f(x)+g(x))+h(x) = f(x)+(g(x)+h(x)); 
+</li>
+<li>乘法交换律, f(x)g(x)=g(x)f(x); 
+</li>
+<li>乘法结合律, (f(x)g(x))h(x)=f(x)(g(x)h(x)); 
+</li>
+<li>乘法对加法的分配律, f(x)(g(x)+h(x))=f(x)g(x)+f(x)h(x); 
+</li>
+<li>乘法消去律, f(x)g(x)=f(x)h(x)且f(x) \(\neq\) 0, 那么g(x)=h(x);
+</li>
+<li>任何n(n&gt;0)次多项式在复数域中有n个根(重根按重数计算)
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3">公式</h4>
+<div class="outline-text-4" id="text-2-2-3">
+
+<ul>
+<li>多项式乘法，f(x)g(x) = \(\sum_{i=0}^{n}a_{i}x^{i}\) \(\sum_{j=0}^{m}b_{j}x^{j}\) = \(\sum\limits_{s=0}^{m+n}(\sum\limits_{i+j}a_{i}b_{j})x^{s}\)
+</li>
+<li>多项式微商：
+<ol>
+<li>(f(x)+g(x))' = f'(x) + g'(x);
+</li>
+<li>(cf(x))' = cf'(x);
+</li>
+<li>(f(x)g(x))' = f'(x)g(x) + f(x)g'(x);
+</li>
+<li>\((f^{m}(x))' = mf^{m-1}(x)f'(x)\)
+</li>
+</ol>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4">应用</h4>
+<div class="outline-text-4" id="text-2-2-4">
+
+<ul>
+<li id="sec-2-2-4-1">多项式拟合<br/>
+<ul>
+<li>概念：根据给定的m个点，并不要求这条曲线经过这些点，而是y=f(x)的近似曲线y=\(\Phi(x)\)；
+</li>
+</ul>
+
+
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2015-09-09 18:46:38 中国标准时间</p>
+<p class="author">Author: 比克曼</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+#+title: 数学 
+#+author: 比克曼
+#+latex_class: org-latex-pdf 
+#+latex: \newpage 
+
+* 概率
+** 概念
+- 样本空间：随机试验的所有可能结果组成的集合; 
+* 代数
+** 概念
+- 自然数：natural number，{0，1，2，3...}等全体非负整数组成的数的集合称为自然数；
+- 正整数：positive integer，{1，2，3...}等向前扩充的数称为正整数；
+- 负整数：{1，2，3...}等向后扩充的数称为妇整数；
+- 中性数：0被称为中性数；
+- 整数： integer，把正整数、负整数、中性数(0)合在一起叫整数，对＋、－、×运算组成一个封闭的数域集合；
+- 有理数：rational number，整数对÷不封闭，有理数则在整数基础上对÷封闭的数域，或者可以表示成两个整数之比;
+- 无理数：irrational number，不能表示成2个整数之比的数，比如\(\sqrt{2}\)和圆周率；
+- 实数：real number，有理数和无理数合到一起称为实数；
+- 虚数：imaginary number，符号用i表示，i = \(\sqrt{-1}\)；
+- 复数：complex number，由实数和虚数构造出的数叫复数；
+- 向量：vector； 
+- 矩阵：matrix；
+- 张量：tensor；
+- 群：group；
+- 环：loop；
+- 域：field；
+- 线性代数：研究未知数更多的一次方程组，引进矩阵、向量、空间等概念形成的方向；
+- 多项式代数：研究未知数次数更高的高次方程，形成的方向；
+  #+caption: 数的归纳
+  #+label: img-number
+  #+attr_latex: placement=[H] scale=0.3
+  #+begin_src ditaa :file ./img/img-number.png :cmdline -S -E
+                                                                                                  +--positive integer
+                                                                                                  |
+                                                                     +--positive rational number--+
+                                                                     |                            |
+                                                 +--rational number--+--0                         +--positive fraction
+                                                 |                   |                          +--native integer
+                                 +--real number--+                   +--native rational number--+
+                                 |               |                                              |
+                                 |               +--irrational number                           +--native fraction
+                                 |
+                                 |
+          +--generalized number--+
+          |                      |
+          |                      +--complex number(a+bi)
+  number--+
+          |                 +--vector
+          |                 |
+          +--narrow number--+--matrix
+                            |
+                            +--other(tensor,group,loop,field)
+  #+end_src
+** 多项式
+*** 概念
+- 最大公因式：设f(x), g(x)是P[x]中两个多项式。P[x]中多项式d(x)称为f(x), g(x)的一个最大公因式，如果它满足
+  1. d(x)是f(x)，g(x)的公因式；
+  2. f(x)，g(x) 的公因式全是d(x)的因式；
+- 多项式互素：P[x]中两个多项式f(x)，g(x)称为互素(互质)，如果(f(x), g(x))=1;  ((f(x), g(x))表示首项系数是1的最大公因式)；
+- 重因式：不可约多项式p(x)称为多项式f(x)的k重因式，如果\(p^{k}x | f(x)\)，而\(p^{k+1}x ! f(x)\); (g(x)|f(x)表示g(x)能整
+  除f(x)) ; 
+- 多项式微商: 对多项式求导；
+- 本原多项式：如果一个非零的整系数多项式\(g(x)=b_{n}x^{n}+b_{n-1}x^{n-1}+……+b_{0}\) 的系数\(b_{n}, b_{n-1}, ……，b_{0}\)
+  没有异于±1的公因子，也就说它们是互素的，这个多项式被称为本原多项式；
+- 本原多项式定理(高斯引理)：两个本原多项式的乘积还是本原多项式；
+- 对称多项式：设\(f(x_{1}, x_{2}, ……, x_{n})\)是数环R上一个n元多项式，如果对于这n个文字\(x_{1}, x_{2}, ……, x_{n}\)的
+  指标集{1, 2, ……, n}施行任意置换后，\(f(x_{1}, x_{2}, ……, x_{n})\)都不改变，那么就称\(f(x_{1}, x_{2}, ……, x_{n})\)
+  是R上一个n元对称多项式；
+*** 满足定律
+- 加法交换律, f(x)+g(x)=g(x)+f(x)；
+- 加法结合律, (f(x)+g(x))+h(x) = f(x)+(g(x)+h(x)); 
+- 乘法交换律, f(x)g(x)=g(x)f(x); 
+- 乘法结合律, (f(x)g(x))h(x)=f(x)(g(x)h(x)); 
+- 乘法对加法的分配律, f(x)(g(x)+h(x))=f(x)g(x)+f(x)h(x); 
+- 乘法消去律, f(x)g(x)=f(x)h(x)且f(x) \(\neq\) 0, 那么g(x)=h(x);
+- 任何n(n>0)次多项式在复数域中有n个根(重根按重数计算)
+*** 公式
+- 多项式乘法，f(x)g(x) = \(\sum_{i=0}^{n}a_{i}x^{i}\) \(\sum_{j=0}^{m}b_{j}x^{j}\) = \(\sum\limits_{s=0}^{m+n}(\sum\limits_{i+j}a_{i}b_{j})x^{s}\)
+- 多项式微商：
+  1. (f(x)+g(x))' = f'(x) + g'(x);
+  2. (cf(x))' = cf'(x);
+  3. (f(x)g(x))' = f'(x)g(x) + f(x)g'(x);
+  4. \((f^{m}(x))' = mf^{m-1}(x)f'(x)\)
+  
+*** 应用
+***** 多项式拟合
+- 概念：根据给定的m个点，并不要求这条曲线经过这些点，而是y=f(x)的近似曲线y=\(\Phi(x)\)；
+  
+

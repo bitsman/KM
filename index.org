@@ -1,11 +1,26 @@
-#+title: 比克曼的博客
+#+title: 比克曼的知识管理
 #+author: 比克曼
 #+latex_class: org-latex-pdf
 #+latex: \newpage
 
-[[./mylearning.html][我的知识管理]]
-
-
+* [[./math.org][数学]]
+汇总工作中需要用到数学知识。
+* [[./ml.org][机器学习]]
+总结各种机器学习,数据挖掘等的理念、工具、算法等。
+* [[./protocol.org][协议]]
+总结工作中遇到的各种协议，包括大族协议，小族协议等。
+* [[./software.org][软件]]
+总结软件开发的一些理论，技巧，编程语言等。
+* [[./hardware.org][硬件]]
+总结硬件中的数字电路、模拟电路、射频、器件、芯片内核等。
+* [[./system.org][操作系统]]
+总结工作中用到的操作系统，Android、Linux等。
+* [[./tool.org][工具]]
+总结工作中用到的工具，emacs、latex、软件工具等。
+* [[./encyclopedia.org][百科知识]]
+总结工作中接触到的百科知识比如GPS等。
+* [[./language.org][外语]]
+总结平时用到的英语知识、短语、翻译技巧等。
 
 
 

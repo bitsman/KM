@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>操作系统</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="操作系统"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015-09-09 18:46:49 中国标准时间"/>
+<meta name="author" content="比克曼"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">操作系统</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">android</a>
+<ul>
+<li><a href="#sec-1-1">base</a>
+<ul>
+<li><a href="#sec-1-1-1">Bundle</a></li>
+<li><a href="#sec-1-1-2">Intent</a></li>
+<li><a href="#sec-1-1-3">系统时间</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">activity</a>
+<ul>
+<li><a href="#sec-1-2-1">Fragment</a></li>
+<li><a href="#sec-1-2-2">button</a></li>
+<li><a href="#sec-1-2-3">下拉菜单</a></li>
+<li><a href="#sec-1-2-4">复选框</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">service</a>
+<ul>
+<li><a href="#sec-1-3-1">Bound Service</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">broadcast</a></li>
+<li><a href="#sec-1-5">消息机制</a>
+<ul>
+<li><a href="#sec-1-5-1">Handler</a></li>
+<li><a href="#sec-1-5-2">Looper</a></li>
+<li><a href="#sec-1-5-3">Message</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-6">menu</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">android</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">base</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<ul>
+<li>上下文context
+<ul>
+<li>getApplicationContext():生命周期是整个应用，应用摧毁，它才摧毁。
+</li>
+<li>this:代表当前,在Activity当中就是代表当前的Activity，换句话说就是Activity.this在Activity当中可以缩写为this.
+</li>
+<li>getApplication():andorid 开发中共享全局数据;
+</li>
+</ul>
+
+<p>  我们在平时的开发中，有时候可能会需要一些全局数据，来让应用中得所有Activity和View都能访问到，大家在遇到这种情况时，可能
+  首先会想到自己定义一个类，然后创建很多静态成员，不过andorid已经为我们提供了这种情况的解决方案：在Android中，有一个名为
+  Application的类，我们可以在Activity中使用getApplication()，方法来获得，它是代表我们的应用程序的类，使用它可以获得当前
+  应用的主题，资源文件中的内容等，这个类更灵活的一个特性就是可以被我们继承，来添加我们自己的全局属性。
+</p></li>
+<li>判断当前Activity
+
+
+
+<pre class="example">ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
+Log.d(TAG, "pkg:"+cn.getPackageName());//显示当前activity所在路径
+Log.d(TAG, "cls:"+cn.getClassName());//路径+类名
+Log.d(TAG, MyActivity.class.getName()); //路径+类名
+Log.d(TAG, MyActivity.class.getSimpleName()); //类名
+</pre>
+
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">Bundle</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+<p>android中的Bundle一般用于携带数据，类似于Map，用于存放key-value键值对，其提供了各种putXx()和getXx()方法，putXx()用于往
+Bundle对象中放入数据，getXx()用于从Bundle对象中获取数据。比如Bundle常用与组件之间进行数据传输，我们可以将Bundle设置好数
+据后，利用Intent的putExtras()方法将Bundle捆绑到Intent中，然后再传递给别的组件；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">Intent</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<p>Intent可以用于启动别的组件比如Activity和Service等，并在Intent中绑定一定的数据，传递给目标组件。
+</p></div>
+
+</div>
+
+<div id="outline-container-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3">系统时间</h4>
+<div class="outline-text-4" id="text-1-1-3">
+
+<ul>
+<li>获取年月日
+
+
+
+<pre class="example">import    java.text.SimpleDateFormat;     
+SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");     
+Date curDate = new Date(System.currentTimeMillis());//获取当前时间     
+String str = formatter.format(curDate);     
+</pre>
+
+</li>
+<li>获取当前的年月时分
+
+
+
+<pre class="example">SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");     
+String date = sDateFormat.format(new java.util.Date());  
+</pre>
+
+</li>
+<li>获取当前的年月
+
+
+
+<pre class="example">SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM");  
+String date=sdf.format(new java.util.Date());  
+</pre>
+
+</li>
+<li>获取指定时区的时间
+
+
+
+<pre class="example">df = DateFormat.getDateTimeInstance(DateFormat.FULL,DateFormat.FULL,Locale.CHINA);
+System.out.println(df.format(new Date()));
+</pre>
+
+</li>
+<li>确定系统时间制式
+
+
+
+<pre class="example">ContentResolver cv = this.getContentResolver();
+String strTimeFormat = android.provider.Settings.System.getString(cv,
+                                                       android.provider.Settings.System.TIME_12_24);
+if(strTimeFormat.equals("24")){
+   Log.i("activity","24");
+}
+</pre>
+
+</li>
+<li>取得系统时间日期
+
+
+
+<pre class="example">Calendar c = Calendar.getInstance();
+year = c.get(Calendar.YEAR) /*取得系统日期*/
+month = c.grt(Calendar.MONTH)
+day = c.get(Calendar.DAY_OF_MONTH)
+hour = c.get(Calendar.HOUR_OF_DAY);/*取得系统时间*/
+minute = c.get(Calendar.MINUTE)
+</pre>
+
+</li>
+<li>利用TIMER获取
+
+
+
+<pre class="example">Time t=new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料。
+t.setToNow(); // 取得系统时间。
+int year = t.year;
+int month = t.month;
+int date = t.monthDay;
+int hour = t.hour; // 0-23
+int minute = t.minute;
+int second = t.second;
+</pre>
+
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">activity</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">Fragment</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<p>Android运行在各种各样的设备中，有小屏幕的手机，超大屏的平板甚至电视。针对屏幕尺寸的差距，很多情况下，都是先针对手机开发
+一套App，然后拷贝一份，修改布局以适应平板神马超级大屏的。难道无法做到一个App可以同时适应手机和平板么，当然了，必须有啊。
+Fragment的出现就是为了解决这样的问题。你可以把Fragment当成Activity的一个界面的一个组成部分，甚至Activity的界面可以完全有
+不同的Fragment组成，更帅气的是Fragment拥有自己的生命周期和接收、处理用户的事件，这样就不必在Activity写一堆控件的事件处理
+的代码了。更为重要的是，你可以动态的添加、替换和移除某个Fragment; Fragment必须是依存与Activity而存在的，因此Activity的生
+命周期会直接影响到Fragment的生命周期, Fragment的生命周期见图<a href="#img-fragment-cycle">img-fragment-cycle</a>;
+</p>
+
+
+<div id="img-fragment-cycle" class="figure">
+<p><img src="./img/img-fragment-cycle.png"  alt="./img/img-fragment-cycle.png" /></p>
+<p>Fragment生命周期</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2">button</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<ul>
+<li>button透明：xml中使用android:background="@android:color/transparent"
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3">下拉菜单</h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+<p>实现某个菜单框里面有多个选项，点击后可以展示各个字符菜单项，点击后可以产生点击事件，可以将某个int值和字符菜单项对应；实
+现方法：
+</p><ol>
+<li>定义两个array资源：
+
+
+
+<pre class="example">//字符菜单项
+&lt;string-array name="gps_type_options"&gt;
+    &lt;item&gt;GPS&lt;/item&gt;
+    &lt;item&gt;GPS and GLONASS&lt;/item&gt;
+    &lt;item&gt;GPS and BEIDOU&lt;/item&gt;
+&lt;/string-array&gt;
+</pre>
+
+
+<pre class="example">//int对应值
+&lt;integer-array name="gps_type_values"&gt;
+    &lt;item&gt;0&lt;/item&gt;
+    &lt;item&gt;1&lt;/item&gt;
+    &lt;item&gt;2&lt;/item&gt;
+&lt;/integer-array&gt;
+</pre>
+
+</li>
+<li>xml中定义器件
+
+
+
+<pre class="example">&lt;Spinner
+    android:id="@+id/spinnerType"
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="8dip"
+    android:layout_weight="1" /&gt;
+</pre>
+
+</li>
+<li>在源文件中获取这2个资源：
+
+
+
+<pre class="example">String[] gpsTypeOptions = getResources().getStringArray(R.array.gps_type_options);
+int[] gpsTypeValues = getResources().getIntArray(R.array.gps_type_values);
+</pre>
+
+</li>
+<li>绑定两者成adapter:
+
+
+
+<pre class="example">private IntArrayAdapter mGPSTypeAdapter;
+mGPSTypeAdapter = new IntArrayAdapter(this, gpsTypeOptions, gpsTypeValues);
+</pre>
+
+</li>
+<li>将adapter装配到view上：
+
+
+
+<pre class="example">private Spinner mSpinnerType;
+mSpinnerType = (Spinner) findViewById(R.id.spinnerType);
+mSpinnerType.setAdapter(mGPSTypeAdapter);
+mSpinnerType.setOnItemSelectedListener(onItemSelectedListener);
+</pre>
+
+</li>
+<li>实现点击事件：
+
+
+
+<pre class="example">private OnItemSelectedListener onItemSelectedListener = new OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(AdapterView&lt;?&gt; adapter,View view,int position,long id) {
+        if (adapter == mSpinnerType) {
+            mGPSTypePostion = position;
+        }
+    }
+    @Override
+    public void onNothingSelected(AdapterView&lt;?&gt; arg0) {}
+};
+</pre>
+
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4">复选框</h4>
+<div class="outline-text-4" id="text-1-2-4">
+
+<p>正方形的复选框选项
+</p><ol>
+<li>xml中定义器件
+
+
+
+<pre class="example">&lt;CheckBox 
+  android:id="@+id/cb"
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content"
+  android:checked="false"
+  android:text="已婚" /&gt;
+</pre>
+
+</li>
+<li>源码中获取器件
+
+
+
+<pre class="example">private CheckBox mCheckKeep;
+mCheckKeep = (CheckBox) findViewById(R.id.checkKeep);
+
+</pre>
+
+</li>
+<li>监听事件
+
+
+
+<pre class="example">//绑定监听器
+cb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+        Toast.makeText(MyActivity.this, 
+         arg1?"选中了":"取消了选中"    , Toast.LENGTH_LONG).show();
+   }
+ });
+</pre>
+
+</li>
+<li>也可以查询获得结果
+
+
+
+<pre class="example">if(!cb.isChecked()){
+}
+</pre>
+
+</li>
+</ol>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3">service</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<ul>
+<li>在service中启动activity：
+
+
+
+<pre class="example">Intent intent = new Intent(getBaseContext(), MtkPlatformTest.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);必须加这句
+startActivity(intent);
+</pre>
+
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">Bound Service</h4>
+<div class="outline-text-4" id="text-1-3-1">
+
+<p>要做绑定服务操作，client需要调用bindService() , 调用后，系统将调用server的onBind()方法，这个方法将返回一个IBinder，这个
+IBinder正是反给client，client使用此IBinder来调用server实现的各种服务接口，client要取得这个IBinder，需要实现一个接口
+ServiceConnection 作为bindService的参数，此ServiceConnection中的方法onServiceConnected将被系统回调(在onBind执行完后)，而
+onBind返回的IBinder正是作为参数传给onServiceConnected，这样client就可以在onServiceConnected里面获得该IBinder；
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4">broadcast</h3>
+<div class="outline-text-3" id="text-1-4">
+
+<p>广播机制可以事务处理异步化，可以将事务的处理放在别的地方，然后在另一个地方发送一个Intent，系统会根据此Intent来找到相应的
+广播处理方法来处理，步骤如下。
+</p><ul>
+<li>设定IntentFilter，可以在manifest文件中设置，也可以在源码中动态设置，实例如下;
+
+
+
+<pre class="example">private static IntentFilter makeIntentFilter() {
+    final IntentFilter intentFilter = new IntentFilter();
+    intentFilter.addAction(ACTION_GATT_CONNECTED);
+    intentFilter.addAction(ACTION_GATT_DISCONNECTED);
+    intentFilter.addAction(ACTION_GATT_SERVICES_DISCOVERED);
+    intentFilter.addAction(ACTION_DATA_AVAILABLE);
+    return intentFilter;
+}
+</pre>
+
+</li>
+<li>设置广播事务处理，实例如下;
+
+
+
+<pre class="example">private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        final String action = intent.getAction();
+        if (ACTION_GATT_CONNECTED.equals(action)) {
+            //...
+        } else if (ACTION_GATT_DISCONNECTED.equals(action)) {
+            //...
+        } else if (ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
+            //...
+        } else if (ACTION_DATA_AVAILABLE.equals(action)) {
+            //...
+        }
+    }
+};
+</pre>
+
+</li>
+<li>注册，将action和事务处理相结合，实例如下;
+
+
+
+<pre class="example">registerReceiver(mReceiver, makeIntentFilter());
+</pre>
+
+</li>
+<li>产生事件源，在别的地方发送消息，实例如下;
+
+
+
+<pre class="example">private void broadcastUpdate(final String action) {
+    final Intent intent = new Intent(action);
+    sendBroadcast(intent);
+}
+</pre>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5">消息机制</h3>
+<div class="outline-text-3" id="text-1-5">
+
+<p>Android应用程序是通过消息来驱动的，系统为每一个应用程序维护一个消息队例，应用程序的主线程不断地从这个消息队例中获取消息
+(Looper)，然后对这些消息进行处理(Handler)，这样就实现了通过消息来驱动应用程序的执行.
+</p><ul>
+<li>Message：消息，其中包含了消息ID，消息处理对象以及处理的数据等，由MessageQueue统一列队，终由Handler处理。
+</li>
+<li>Handler：处理者，负责Message的发送及处理。使用Handler时，需要实现handleMessage(Message msg)方法来对特定的Message进行处理，例如更新UI等。
+</li>
+<li>MessageQueue：消息队列，用来存放Handler发送过来的消息，并按照FIFO规则执行。当然，存放Message并非实际意义的保存，而是将
+  Message以链表的方式串联起来的，等待Looper的抽取。
+</li>
+<li>Looper：消息泵，不断地从MessageQueue中抽取Message执行。因此，一个MessageQueue需要一个Looper。
+</li>
+<li>Thread：线程，负责调度整个消息循环，即消息循环的执行场所。
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1">Handler</h4>
+<div class="outline-text-4" id="text-1-5-1">
+
+<p>功能主要是跟UI线程交互用，主要有：
+</p><ol>
+<li>用handler发送一个message，然后在handler的线程中来接收、处理该消息，以避免直接在UI主线程中处理事务导致影响UI主线程的其
+   他处理工作 ；
+</li>
+<li>你可以将handler对象传给其他进程，以便在其他进程中通过handler给你发送事件；
+</li>
+<li>通过handler的延时发送message，可以延时处理一些事务的处理；
+</li>
+<li>线程处理功能：可以使用Handler的post方法，将要处理的事务放在一个thread里面，然后将该线程post到Handler的线程队列中(其实
+  这个线程和activity主线程是同一个线程，只是运行了线程的run方法)，则该事务将会在thread里面执行，如果使用
+  postDelayed(thread, time)方法，还能设置一个延时time后执行该事务，类似于timer功能；
+  实例如下所示。
+
+
+
+<pre class="example">//使用handler时首先要创建一个handler
+Handler handler = new Handler();
+//要用handler来处理多线程可以使用runnable接口，这里先定义该接口
+//线程中运行该接口的run函数
+Runnable update_thread = new Runnable(){
+    public void run(){
+        //线程每次执行时输出"UpdateThread..."文字,且自动换行
+        //textview的append功能和Qt中的append类似，不会覆盖前面
+        //的内容，只是Qt中的append默认是自动换行模式
+        text_view.append("\nUpdateThread...");
+        //延时1s后又将线程加入到线程队列中
+        handler.postDelayed(update_thread, 1000);
+    }
+};
+//将线程接口立刻送到线程队列中
+handler.post(update_thread);
+//将接口从线程队列中移除
+handler.removeCallbacks(update_thread);
+</pre>
+
+</li>
+<li>异步消息处理功能：同样也是使用上面线程处理功能，将某个线程thread，post到handler的线程队列中，线程队列中处理事务，并可
+  以使用handler的sendMessage()，方法向handler中发送message，然后在handler中可以使用handleMessage来处理这个消息；实例如下：
+
+
+
+<pre class="example">//创建一个handler，内部完成处理消息方法
+Handler update_progress_bar = new Handler(){
+    public void handleMessage(Message msg) {
+        super.handleMessage(msg);
+        //显示进度条
+        progress_bar.setProgress(msg.arg1);
+        //重新把进程加入到进程队列中
+        update_progress_bar.post(update_thread);
+    }
+};
+update_progress_bar.post(update_thread);//post线程
+Runnable update_thread = new Runnable() {
+    int i = 0;
+    public void run() {
+        i += 10;
+        //首先获得一个消息结构
+        Message msg = update_progress_bar.obtainMessage();
+        //给消息结构的arg1参数赋值
+        msg.arg1 = i;
+        //延时1s
+        Thread.sleep(1000);
+        //把消息发送到消息队列中
+        update_progress_bar.sendMessage(msg);
+        if(i == 100)
+            update_progress_bar.removeCallbacks(update_thread);//移除
+    }
+};
+</pre>
+
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2">Looper</h4>
+<div class="outline-text-4" id="text-1-5-2">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3">Message</h4>
+<div class="outline-text-4" id="text-1-5-3">
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6">menu</h3>
+<div class="outline-text-3" id="text-1-6">
+
+<p>menu标签中item标签的主要属性见表<a href="#tbl-menu-bar">tbl-menu-bar</a>
+</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-menu-bar">
+<caption>android menu bar xml属性说明</caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">属性名</th><th scope="col" class="left">说明</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">android:orderInCategory</td><td class="left">指每个item优先级，值越大越低，地方不够就会放到overflow中。</td></tr>
+<tr><td class="left">android:title</td><td class="left">item的标题。</td></tr>
+<tr><td class="left">android:icon</td><td class="left">item显示的图标。</td></tr>
+<tr><td class="left">app:showAsAction</td><td class="left">item显示的方式。</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2015-09-09 18:46:49 中国标准时间</p>
+<p class="author">Author: 比克曼</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
