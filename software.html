@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="软件 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-09-09 18:46:39 中国标准时间"/>
+<meta name="generated" content="2015-09-10 23:16:02 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -62,6 +62,11 @@
 <li><a href="#sec-1-3">PYTHON语言</a>
 <ul>
 <li><a href="#sec-1-3-1">numpy</a></li>
+<li><a href="#sec-1-3-2">matplotlib</a>
+<ul>
+<li><a href="#sec-1-3-2-1">画XY轴离散点图</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -321,6 +326,44 @@ x = y-x ; x = y-x ; x = x+y ;
 </li>
 </ul>
 
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">matplotlib</h4>
+<div class="outline-text-4" id="text-1-3-2">
+
+<p>此包注意用于画图
+</p>
+
+</div>
+
+<div id="outline-container-1-3-2-1" class="outline-5">
+<h5 id="sec-1-3-2-1">画XY轴离散点图</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+
+<ol>
+<li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3, 10), 其个数要一致；
+</li>
+<li>倒入画图包：import matplotlib.pyplot as plt；
+</li>
+<li>开始画图：plt.plot(x, y, 'o-'), 第3个参数用于对点进行标注；
+</li>
+<li>设置标题：plt.title('x, y test')
+</li>
+<li>设置X轴说明：plt.xlabel('x label')
+</li>
+<li>设置y轴说明：plt.ylabel('y label')
+</li>
+<li>显示图：plt.show()
+</li>
+</ol>
+
+
+
+</div>
 </div>
 </div>
 </div>
@@ -328,7 +371,7 @@ x = y-x ; x = y-x ; x = x+y ;
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-09-09 18:46:39 中国标准时间</p>
+<p class="date">Date: 2015-09-10 23:16:02 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-09-10 14:40:37 中国标准时间"/>
+<meta name="generated" content="2015-09-10 23:16:08 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -106,6 +106,29 @@
 <ul>
 <li><a href="#sec-2-1">概念</a></li>
 <li><a href="#sec-2-2">排列组合</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">概率分布</a>
+<ul>
+<li><a href="#sec-3-1">离散分布</a>
+<ul>
+<li><a href="#sec-3-1-1">二项分布</a>
+<ul>
+<li><a href="#sec-3-1-1-1">python实现</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-1-2">伯努利分布</a></li>
+<li><a href="#sec-3-1-3">泊松分布</a></li>
+<li><a href="#sec-3-1-4">几何分布</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2">连续分布</a>
+<ul>
+<li><a href="#sec-3-2-1">正太分布</a></li>
+<li><a href="#sec-3-2-2">指数分布</a></li>
+<li><a href="#sec-3-2-3">&beta;分布</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -300,7 +323,22 @@
 <div class="outline-text-3" id="text-2-1">
 
 <ul>
-<li>样本空间：随机试验的所有可能结果组成的集合; 
+<li>样本空间：随机试验的所有可能结果组成的集合;
+</li>
+<li>随机变量：打靶打入XY坐标系，打入的位置是个二维随机变量(x, y), 随机变量不是一个概率;随机变量分为：
+<ol>
+<li>离散随机变量：只能取有限个值，虽然可以是无穷多的，但是是离散化的；
+</li>
+<li>连续型随机变量：可以取无穷多的连续值；
+</li>
+</ol>
+
+</li>
+<li>概率函数：对于随机变量X的概率叫概率函数: $$ p_{i} = P(X = a_{i}), i = 1,...,n $$ 
+</li>
+<li>概率分布：概率函数给出了全部概率1是如何在其可能值之间分配的,  <span style="text-decoration:underline;">其实可以将概率分布和概率函数等同认识</span> ；
+</li>
+<li>分布函数： <span style="text-decoration:underline;">可以认为是概率函数在区间段的求和</span> , 设X为一随机变量，则分布函数为 $$P(X \leq x) = F(x), -\infty &lt; x &lt; \infty$$   
 </li>
 <li>等可能概型中事件A的计算公式： $$P(A) = \sum_{j=1}^{k}P({e_{i_{j}}})=\frac{k}{n}=\frac{A包含的基本事件数}{S中基本事件的总数} $$
 </li>
@@ -308,7 +346,20 @@
 </li>
 <li>互斥时间和的概率：等于各事件概率的和： \(P(A_{1}+A_{2}+...+A_{n}) = P(A_{1})+P(A_{2})+...+P(A_{n})\)
 </li>
-<li>对立事件A的概率：\(P(\overline{A}) = 1 - P(A)\)  
+<li>对立事件A的概率：\(P(\overline{A}) = 1 - P(A)\)
+</li>
+<li>独立事件的概率：若干个独立事件 \(A_{1},...,A_{n}\) 之积的概率，等于各事件概率的乘积：\(P(A_{1}...A_{n}) = P(A_{1})...P(A_{n})\)
+</li>
+<li>全概率：其意义在于在校复杂的情况下直接计算A事件概率P(A)不容易，但是A事件总是随某个B<sub>i发生，则适当去构造这组B</sub><sub>i可以简化</sub>
+  计算。其公式如下，其中用到了条件概率公式, 此公式还能从另一个角度去理解，把B<sub>i看做导致事件A发生的一种可能途径，对不同途</sub>
+  径，A发生的概率即条件概率P(A|B)各不同，而采取哪个途径却是随机的。 
+  $$ P(A)=P(AB_{1})+...+P(AB_{n}) = P(B_{1})P(A|B_{1})+...+P(B_{n})P(A|B_{n}) $$
+</li>
+<li>贝叶斯公式：刻画了一些事件B<sub>i其原有发生概率在事件A引入的条件下B</sub><sub>i的概率发生了改变；如果把事件A看成结果，把诸事件B</sub><sub>i看</sub>
+  成导致结果A的可能原因，则全概率公式可以看做为“由原因推结果”，而贝叶斯公式则相反为“由结果推原因”，现在有结果A已经发
+  生了，在众多原因B<sub>i中到底由哪个导致，贝叶斯公式可以给出度量，类似于发生了某个案件A，在不了解案情前，嫌疑人B</sub><sub>i根据以往</sub>
+  的记录其作案的概率为P(B<sub>i</sub>)，但是如果了解了A案情，则P(B<sub>i</sub>)就会变动了；贝叶斯公式如下：在全概率假定下有   
+  $$P(B|A) = \frac{P(AB_{i})}{P(A)} = \frac{P(B_{i})P(A|B_{i})}{\sum_{j}P(B_{j})P(A|B_{j})}$$  
 </li>
 </ul>
 
@@ -329,15 +380,129 @@
 </li>
 </ul>
 
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">概率分布</h2>
+<div class="outline-text-2" id="text-3">
 
 
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">离散分布</h3>
+<div class="outline-text-3" id="text-3-1">
+
+
+</div>
+
+<div id="outline-container-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1">二项分布</h4>
+<div class="outline-text-4" id="text-3-1-1">
+
+<ul>
+<li>定义：服从二项分布的随机变量X表示在n个独立的是/非试验中成功的次数i，其中每次试验的成功概率为p
+  $$ p_{i} = C_{n}^{i}p^{i}(1-p)^{n-i},i=0, 1, ..., n $$
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-3-1-1-1" class="outline-5">
+<h5 id="sec-3-1-1-1">python实现</h5>
+<div class="outline-text-5" id="text-3-1-1-1">
+
+
+
+
+<pre class="example">from scipy import stats         #倒入工具包
+import numpy as np
+import matplotlib.pyplot as plt
+# ...........................
+n = 20                          #定义试验次数
+p = 0.3                         #定义每次事件的概率
+k = np.arange(21)               #模拟多次试验，事件发生的所有次数
+binomial = stats.binom.pmf(k, n, p) #计算每个次数的概率
+# ...........................
+plt.plot(k, binomial, 'o-')     #将每个次数的概率通过图形表示出来
+plt.title('binomial:n=%i, p=%.2f' %(n,p)) #设置标题
+plt.xlabel('k times')           #x轴是次数
+plt.ylabel('probability of k')  #y轴是k次的概率
+plt.show()                      #显示出来
+</pre>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2">伯努利分布</h4>
+<div class="outline-text-4" id="text-3-1-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3">泊松分布</h4>
+<div class="outline-text-4" id="text-3-1-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-1-4" class="outline-4">
+<h4 id="sec-3-1-4">几何分布</h4>
+<div class="outline-text-4" id="text-3-1-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">连续分布</h3>
+<div class="outline-text-3" id="text-3-2">
+
+
+</div>
+
+<div id="outline-container-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">正太分布</h4>
+<div class="outline-text-4" id="text-3-2-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2">指数分布</h4>
+<div class="outline-text-4" id="text-3-2-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3">&beta;分布</h4>
+<div class="outline-text-4" id="text-3-2-3">
+
+
+
+</div>
 </div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-09-10 14:40:37 中国标准时间</p>
+<p class="date">Date: 2015-09-10 23:16:08 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

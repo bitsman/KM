@@ -130,3 +130,17 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
 *** numpy
 - array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和
   data.max(0)是从每列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行中获得min和max；
+
+*** matplotlib
+此包注意用于画图
+
+**** 画XY轴离散点图
+1. 先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3, 10), 其个数要一致；
+2. 倒入画图包：import matplotlib.pyplot as plt；
+3. 开始画图：plt.plot(x, y, 'o-'), 第3个参数用于对点进行标注；
+4. 设置标题：plt.title('x, y test')
+5. 设置X轴说明：plt.xlabel('x label')
+6. 设置y轴说明：plt.ylabel('y label')
+7. 显示图：plt.show()
+
+
