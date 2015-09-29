@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="协议 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-09-09 18:46:30 中国标准时间"/>
+<meta name="generated" content="2015-09-29 19:09:25 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -54,33 +54,34 @@
 <ul>
 <li><a href="#sec-1-1">ble</a>
 <ul>
-<li><a href="#sec-1-1-1">controller物理层</a>
+<li><a href="#sec-1-1-1">器件</a></li>
+<li><a href="#sec-1-1-2">controller物理层</a>
 <ul>
-<li><a href="#sec-1-1-1-1">频率带宽</a></li>
-<li><a href="#sec-1-1-1-2">接收灵敏度</a></li>
-<li><a href="#sec-1-1-1-3">距离</a></li>
+<li><a href="#sec-1-1-2-1">频率带宽</a></li>
+<li><a href="#sec-1-1-2-2">接收灵敏度</a></li>
+<li><a href="#sec-1-1-2-3">距离</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-1-2">controller链路层</a>
+<li><a href="#sec-1-1-3">controller链路层</a>
 <ul>
-<li><a href="#sec-1-1-2-1">standby状态</a></li>
-<li><a href="#sec-1-1-2-2">advertising状态</a></li>
-<li><a href="#sec-1-1-2-3">scanning状态</a></li>
-<li><a href="#sec-1-1-2-4">initiating状态</a></li>
-<li><a href="#sec-1-1-2-5">connecting状态</a></li>
-<li><a href="#sec-1-1-2-6">master</a></li>
-<li><a href="#sec-1-1-2-7">slave</a></li>
-<li><a href="#sec-1-1-2-8">包(package)</a></li>
-<li><a href="#sec-1-1-2-9">配对绑定(pairing bonding)</a></li>
+<li><a href="#sec-1-1-3-1">standby状态</a></li>
+<li><a href="#sec-1-1-3-2">advertising状态</a></li>
+<li><a href="#sec-1-1-3-3">scanning状态</a></li>
+<li><a href="#sec-1-1-3-4">initiating状态</a></li>
+<li><a href="#sec-1-1-3-5">connecting状态</a></li>
+<li><a href="#sec-1-1-3-6">master</a></li>
+<li><a href="#sec-1-1-3-7">slave</a></li>
+<li><a href="#sec-1-1-3-8">包(package)</a></li>
+<li><a href="#sec-1-1-3-9">配对绑定(pairing bonding)</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-1-3">controller HCI层</a></li>
-<li><a href="#sec-1-1-4">host l2cap层</a></li>
-<li><a href="#sec-1-1-5">attribute</a></li>
-<li><a href="#sec-1-1-6">secure</a></li>
-<li><a href="#sec-1-1-7">android</a>
+<li><a href="#sec-1-1-4">controller HCI层</a></li>
+<li><a href="#sec-1-1-5">host l2cap层</a></li>
+<li><a href="#sec-1-1-6">attribute</a></li>
+<li><a href="#sec-1-1-7">secure</a></li>
+<li><a href="#sec-1-1-8">android</a>
 <ul>
-<li><a href="#sec-1-1-7-1">android-ble梳理</a></li>
+<li><a href="#sec-1-1-8-1">android-ble梳理</a></li>
 </ul></li>
 </ul>
 </li>
@@ -117,15 +118,28 @@
 </div>
 
 <div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">controller物理层</h4>
+<h4 id="sec-1-1-1">器件</h4>
 <div class="outline-text-4" id="text-1-1-1">
+
+<ul>
+<li>晶振：一般ble芯片需要一个16MHz和32.768KHz的时钟源，16MHz的时钟源为RF收发器提供频率精度，32.768KHz的时钟源提供协议定时；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">controller物理层</h4>
+<div class="outline-text-4" id="text-1-1-2">
 
 
 </div>
 
-<div id="outline-container-1-1-1-1" class="outline-5">
-<h5 id="sec-1-1-1-1">频率带宽</h5>
-<div class="outline-text-5" id="text-1-1-1-1">
+<div id="outline-container-1-1-2-1" class="outline-5">
+<h5 id="sec-1-1-2-1">频率带宽</h5>
+<div class="outline-text-5" id="text-1-1-2-1">
 
 <ul>
 <li>BLE使用频率为2.4GHz；
@@ -157,9 +171,9 @@
 
 </div>
 
-<div id="outline-container-1-1-1-2" class="outline-5">
-<h5 id="sec-1-1-1-2">接收灵敏度</h5>
-<div class="outline-text-5" id="text-1-1-1-2">
+<div id="outline-container-1-1-2-2" class="outline-5">
+<h5 id="sec-1-1-2-2">接收灵敏度</h5>
+<div class="outline-text-5" id="text-1-1-2-2">
 
 <ul>
 <li>接收灵敏度用 dBm 来衡量，规则规定 BLE 的接收灵敏度至少为 -70dBm，也就是说必须能够接收到 0.0000001mW 的电磁波信号，大多
@@ -171,9 +185,9 @@
 
 </div>
 
-<div id="outline-container-1-1-1-3" class="outline-5">
-<h5 id="sec-1-1-1-3">距离</h5>
-<div class="outline-text-5" id="text-1-1-1-3">
+<div id="outline-container-1-1-2-3" class="outline-5">
+<h5 id="sec-1-1-2-3">距离</h5>
+<div class="outline-text-5" id="text-1-1-2-3">
 
 <ul>
 <li>BLE的电磁波在空中主要的损耗来自路径损耗，经验公式：path loss = 40 + 25log（distance）, 如果发送功率为 -20dBm，接收机灵
@@ -205,9 +219,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">controller链路层</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3">controller链路层</h4>
+<div class="outline-text-4" id="text-1-1-3">
 
 <p>状态机有standby、advertising、scanning、initiating、connecting，其转换状态如图<a href="#img-ll-state-matchine">img-ll-state-matchine</a>
 </p>
@@ -221,9 +235,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-1" class="outline-5">
-<h5 id="sec-1-1-2-1">standby状态</h5>
-<div class="outline-text-5" id="text-1-1-2-1">
+<div id="outline-container-1-1-3-1" class="outline-5">
+<h5 id="sec-1-1-3-1">standby状态</h5>
+<div class="outline-text-5" id="text-1-1-3-1">
 
 <ul>
 <li>使用广播通道
@@ -243,9 +257,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-2" class="outline-5">
-<h5 id="sec-1-1-2-2">advertising状态</h5>
-<div class="outline-text-5" id="text-1-1-2-2">
+<div id="outline-container-1-1-3-2" class="outline-5">
+<h5 id="sec-1-1-3-2">advertising状态</h5>
+<div class="outline-text-5" id="text-1-1-3-2">
 
 <ul>
 <li>使用广播通道，之后设备变成slave；
@@ -312,9 +326,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-3" class="outline-5">
-<h5 id="sec-1-1-2-3">scanning状态</h5>
-<div class="outline-text-5" id="text-1-1-2-3">
+<div id="outline-container-1-1-3-3" class="outline-5">
+<h5 id="sec-1-1-3-3">scanning状态</h5>
+<div class="outline-text-5" id="text-1-1-3-3">
 
 <p>使用广播通道
 </p><ul>
@@ -337,9 +351,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-4" class="outline-5">
-<h5 id="sec-1-1-2-4">initiating状态</h5>
-<div class="outline-text-5" id="text-1-1-2-4">
+<div id="outline-container-1-1-3-4" class="outline-5">
+<h5 id="sec-1-1-3-4">initiating状态</h5>
+<div class="outline-text-5" id="text-1-1-3-4">
 
 <ul>
 <li>使用广播通道；
@@ -352,9 +366,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-5" class="outline-5">
-<h5 id="sec-1-1-2-5">connecting状态</h5>
-<div class="outline-text-5" id="text-1-1-2-5">
+<div id="outline-container-1-1-3-5" class="outline-5">
+<h5 id="sec-1-1-3-5">connecting状态</h5>
+<div class="outline-text-5" id="text-1-1-3-5">
 
 <p>连接过程：当一个设备使用可连接广播包(general型、direct型)进行广播时，设备(初始化者，initiator)可以发起一次连接请求进行连
 接，在每个连接事件期间，mater先发起通信，slave会在150us后做出回应(此150s用于半导体冷却，以便能够无误差的转入接收状态，被
@@ -409,9 +423,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-6" class="outline-5">
-<h5 id="sec-1-1-2-6">master</h5>
-<div class="outline-text-5" id="text-1-1-2-6">
+<div id="outline-container-1-1-3-6" class="outline-5">
+<h5 id="sec-1-1-3-6">master</h5>
+<div class="outline-text-5" id="text-1-1-3-6">
 
 <ul>
 <li>一个设备不能既是master，又是slave；
@@ -424,9 +438,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-7" class="outline-5">
-<h5 id="sec-1-1-2-7">slave</h5>
-<div class="outline-text-5" id="text-1-1-2-7">
+<div id="outline-container-1-1-3-7" class="outline-5">
+<h5 id="sec-1-1-3-7">slave</h5>
+<div class="outline-text-5" id="text-1-1-3-7">
 
 <ul>
 <li>一个设备不能同时是多个master的的slave；
@@ -441,9 +455,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-8" class="outline-5">
-<h5 id="sec-1-1-2-8">包(package)</h5>
-<div class="outline-text-5" id="text-1-1-2-8">
+<div id="outline-container-1-1-3-8" class="outline-5">
+<h5 id="sec-1-1-3-8">包(package)</h5>
+<div class="outline-text-5" id="text-1-1-3-8">
 
 <ul>
 <li>preamble
@@ -543,9 +557,9 @@
 
 </div>
 
-<div id="outline-container-1-1-2-9" class="outline-5">
-<h5 id="sec-1-1-2-9">配对绑定(pairing bonding)</h5>
-<div class="outline-text-5" id="text-1-1-2-9">
+<div id="outline-container-1-1-3-9" class="outline-5">
+<h5 id="sec-1-1-3-9">配对绑定(pairing bonding)</h5>
+<div class="outline-text-5" id="text-1-1-3-9">
 
 <p>详细过程参考<a href="https://community.freescale.com/thread/332191">https://community.freescale.com/thread/332191</a> ;包的CRC值计算加密的payload数据，另外，header和length域不做加
 密，BLE中的加密和认证使用AES引擎，加密时不使用SN、NESN、MD信息，所以加密payload时可以在任何时候，不用在传输时实时加密，
@@ -654,9 +668,9 @@
 
 </div>
 
-<div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3">controller HCI层</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<div id="outline-container-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4">controller HCI层</h4>
+<div class="outline-text-4" id="text-1-1-4">
 
 <p>HCI分物理接口和逻辑接口，逻辑接口定义了一系列的命令包格式，物理接口还定义了这些命令包如何在host和controller间传输；
 </p><ul>
@@ -668,9 +682,9 @@
 
 </div>
 
-<div id="outline-container-1-1-4" class="outline-4">
-<h4 id="sec-1-1-4">host l2cap层</h4>
-<div class="outline-text-4" id="text-1-1-4">
+<div id="outline-container-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5">host l2cap层</h4>
+<div class="outline-text-4" id="text-1-1-5">
 
 <p>L2CAP：logical link control and adaptation protocol，它为上层提供面向连接和无连接的数据服务，并提供多协议功能和分割重组
 操作，L2CAP允许上层协议和应用软件传输和接收最大长度64K的L2CAP数据包；
@@ -678,9 +692,9 @@
 
 </div>
 
-<div id="outline-container-1-1-5" class="outline-4">
-<h4 id="sec-1-1-5">attribute</h4>
-<div class="outline-text-4" id="text-1-1-5">
+<div id="outline-container-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6">attribute</h4>
+<div class="outline-text-4" id="text-1-1-6">
 
 <p>一个attribute包含3要素：attribute handle/attribute type/attribute value，一般还要包含attribute permission；
 </p><ul>
@@ -775,9 +789,9 @@
 
 </div>
 
-<div id="outline-container-1-1-6" class="outline-4">
-<h4 id="sec-1-1-6">secure</h4>
-<div class="outline-text-4" id="text-1-1-6">
+<div id="outline-container-1-1-7" class="outline-4">
+<h4 id="sec-1-1-7">secure</h4>
+<div class="outline-text-4" id="text-1-1-7">
 
 <p>secure mode大体上分为2个级别，security mode 1和security mode 2，其中security mode 1针对于链接的加密与否(encryption)，其
 下又分为3级，security mode 2针对于链接的签名与否(signing &amp; encryption)，其下又分为2级, 在每次连接的生命周期中，都是从
@@ -809,9 +823,9 @@ security mode 1的level 1开始，在以后的进程中可以升级到其他级�
 
 </div>
 
-<div id="outline-container-1-1-7" class="outline-4">
-<h4 id="sec-1-1-7">android</h4>
-<div class="outline-text-4" id="text-1-1-7">
+<div id="outline-container-1-1-8" class="outline-4">
+<h4 id="sec-1-1-8">android</h4>
+<div class="outline-text-4" id="text-1-1-8">
 
 <p>当连接到Server的Gatt时(connectGatt())，将提供一个回调BluetoothGattCallback，里面的各个回调方法用于处理连接后的事务处理，
 具体操作方法对应如表<a href="#tbl-gatt-oper">tbl-gatt-oper</a>。
@@ -839,9 +853,9 @@ security mode 1的level 1开始，在以后的进程中可以升级到其他级�
 
 </div>
 
-<div id="outline-container-1-1-7-1" class="outline-5">
-<h5 id="sec-1-1-7-1">android-ble梳理</h5>
-<div class="outline-text-5" id="text-1-1-7-1">
+<div id="outline-container-1-1-8-1" class="outline-5">
+<h5 id="sec-1-1-8-1">android-ble梳理</h5>
+<div class="outline-text-5" id="text-1-1-8-1">
 
 <ul>
 <li>btle概念 
@@ -1165,7 +1179,7 @@ bluetoothGatt.close();
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-09-09 18:46:30 中国标准时间</p>
+<p class="date">Date: 2015-09-29 19:09:25 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

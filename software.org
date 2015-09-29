@@ -34,11 +34,12 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
 #+end_src
 - 宏调试接口
 #+begin_src c
+#pragma diag_suppress 174 //抑制警告
 #ifdef DEBUG
-#define DbgPrintf printf
+#define printfdbg printf
 #else
-#define DbgPrintf /\
-/DbgPrintf
+#define printfdbg /\
+/printfdbg
 #endif
 #+end_src
 *** 位操作

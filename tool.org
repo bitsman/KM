@@ -291,3 +291,10 @@
 |---------+-------+------+------+---------+---------+------+-------|
 | \arg    | \coth | \dim | \inf | \liminf | \max    | \sin | \tanh |
 |---------+-------+------+------+---------+---------+------+-------|
+* keil
+- 设置emacs编辑器：在Customer Tools Menu菜单中，Command设置emacs路径，在Argument中!E代表编辑当前文件；在Menu Content中新
+  建个命令emacs(&E), 括号里面的代表快捷键.
+* iar
+- 设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&E), 括号里面的代表快捷键，在Command中设置emacs路径，
+  在Argument中 \$FILE_PATH\$ 代表编辑当前文件.   
+

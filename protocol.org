@@ -6,6 +6,8 @@
 * 大族协议
 ** ble
 BLE采用星型拓扑结构，1个master最多连接3个slave，1个slave只能有1个master
+*** 器件
+- 晶振：一般ble芯片需要一个16MHz和32.768KHz的时钟源，16MHz的时钟源为RF收发器提供频率精度，32.768KHz的时钟源提供协议定时；
 *** controller物理层
 **** 频率带宽
 - BLE使用频率为2.4GHz；
