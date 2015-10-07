@@ -17,6 +17,8 @@
 总结工作中用到的操作系统，Android、Linux等。
 * [[./tool.org][工具]]
 总结工作中用到的工具，emacs、latex、软件工具等。
+* [[./renovations.org][装修]]
+介绍一些装修常识和问题点。
 * [[./encyclopedia.org][百科知识]]
 总结工作中接触到的百科知识比如GPS等。
 * [[./language.org][外语]]
