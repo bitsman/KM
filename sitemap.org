@@ -1,6 +1,6 @@
 #+TITLE: Sitemap
 
-   + [[file:renovations.org][2015-10-07 装修日记]]
+   + [[file:renovations.org][2015-10-08 装修日记]]
    + [[file:index.org][2015-10-07 比克曼的知识管理]]
    + [[file:software.org][2015-09-29 软件 ]]
    + [[file:math.org][2015-09-23 数学 ]]
