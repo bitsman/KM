@@ -1,57 +1,57 @@
-#+title: ²Ù×÷ÏµÍ³
-#+author: ±È¿ËÂü
+#+title: æ“ä½œç³»ç»Ÿ
+#+author: æ¯”å…‹æ›¼
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
 
 * android
 ** base
-- ÉÏÏÂÎÄcontext
-  + getApplicationContext():ÉúÃüÖÜÆÚÊÇÕû¸öÓ¦ÓÃ£¬Ó¦ÓÃ´İ»Ù£¬Ëü²Å´İ»Ù¡£
-  + this:´ú±íµ±Ç°,ÔÚActivityµ±ÖĞ¾ÍÊÇ´ú±íµ±Ç°µÄActivity£¬»»¾ä»°Ëµ¾ÍÊÇActivity.thisÔÚActivityµ±ÖĞ¿ÉÒÔËõĞ´Îªthis.
-  + getApplication():andorid ¿ª·¢ÖĞ¹²ÏíÈ«¾ÖÊı¾İ;
-  ÎÒÃÇÔÚÆ½Ê±µÄ¿ª·¢ÖĞ£¬ÓĞÊ±ºò¿ÉÄÜ»áĞèÒªÒ»Ğ©È«¾ÖÊı¾İ£¬À´ÈÃÓ¦ÓÃÖĞµÃËùÓĞActivityºÍView¶¼ÄÜ·ÃÎÊµ½£¬´ó¼ÒÔÚÓöµ½ÕâÖÖÇé¿öÊ±£¬¿ÉÄÜ
-  Ê×ÏÈ»áÏëµ½×Ô¼º¶¨ÒåÒ»¸öÀà£¬È»ºó´´½¨ºÜ¶à¾²Ì¬³ÉÔ±£¬²»¹ıandoridÒÑ¾­ÎªÎÒÃÇÌá¹©ÁËÕâÖÖÇé¿öµÄ½â¾ö·½°¸£ºÔÚAndroidÖĞ£¬ÓĞÒ»¸öÃûÎª
-  ApplicationµÄÀà£¬ÎÒÃÇ¿ÉÒÔÔÚActivityÖĞÊ¹ÓÃgetApplication()£¬·½·¨À´»ñµÃ£¬ËüÊÇ´ú±íÎÒÃÇµÄÓ¦ÓÃ³ÌĞòµÄÀà£¬Ê¹ÓÃËü¿ÉÒÔ»ñµÃµ±Ç°
-  Ó¦ÓÃµÄÖ÷Ìâ£¬×ÊÔ´ÎÄ¼şÖĞµÄÄÚÈİµÈ£¬Õâ¸öÀà¸üÁé»îµÄÒ»¸öÌØĞÔ¾ÍÊÇ¿ÉÒÔ±»ÎÒÃÇ¼Ì³Ğ£¬À´Ìí¼ÓÎÒÃÇ×Ô¼ºµÄÈ«¾ÖÊôĞÔ¡£
-- ÅĞ¶Ïµ±Ç°Activity
+- ä¸Šä¸‹æ–‡context
+  + getApplicationContext():ç”Ÿå‘½å‘¨æœŸæ˜¯æ•´ä¸ªåº”ç”¨ï¼Œåº”ç”¨æ‘§æ¯ï¼Œå®ƒæ‰æ‘§æ¯ã€‚
+  + this:ä»£è¡¨å½“å‰,åœ¨Activityå½“ä¸­å°±æ˜¯ä»£è¡¨å½“å‰çš„Activityï¼Œæ¢å¥è¯è¯´å°±æ˜¯Activity.thisåœ¨Activityå½“ä¸­å¯ä»¥ç¼©å†™ä¸ºthis.
+  + getApplication():andorid å¼€å‘ä¸­å…±äº«å…¨å±€æ•°æ®;
+  æˆ‘ä»¬åœ¨å¹³æ—¶çš„å¼€å‘ä¸­ï¼Œæœ‰æ—¶å€™å¯èƒ½ä¼šéœ€è¦ä¸€äº›å…¨å±€æ•°æ®ï¼Œæ¥è®©åº”ç”¨ä¸­å¾—æ‰€æœ‰Activityå’ŒViewéƒ½èƒ½è®¿é—®åˆ°ï¼Œå¤§å®¶åœ¨é‡åˆ°è¿™ç§æƒ…å†µæ—¶ï¼Œå¯èƒ½
+  é¦–å…ˆä¼šæƒ³åˆ°è‡ªå·±å®šä¹‰ä¸€ä¸ªç±»ï¼Œç„¶ååˆ›å»ºå¾ˆå¤šé™æ€æˆå‘˜ï¼Œä¸è¿‡andoridå·²ç»ä¸ºæˆ‘ä»¬æä¾›äº†è¿™ç§æƒ…å†µçš„è§£å†³æ–¹æ¡ˆï¼šåœ¨Androidä¸­ï¼Œæœ‰ä¸€ä¸ªåä¸º
+  Applicationçš„ç±»ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨Activityä¸­ä½¿ç”¨getApplication()ï¼Œæ–¹æ³•æ¥è·å¾—ï¼Œå®ƒæ˜¯ä»£è¡¨æˆ‘ä»¬çš„åº”ç”¨ç¨‹åºçš„ç±»ï¼Œä½¿ç”¨å®ƒå¯ä»¥è·å¾—å½“å‰
+  åº”ç”¨çš„ä¸»é¢˜ï¼Œèµ„æºæ–‡ä»¶ä¸­çš„å†…å®¹ç­‰ï¼Œè¿™ä¸ªç±»æ›´çµæ´»çš„ä¸€ä¸ªç‰¹æ€§å°±æ˜¯å¯ä»¥è¢«æˆ‘ä»¬ç»§æ‰¿ï¼Œæ¥æ·»åŠ æˆ‘ä»¬è‡ªå·±çš„å…¨å±€å±æ€§ã€‚
+- åˆ¤æ–­å½“å‰Activity
   #+begin_src java
     ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
     ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
-    Log.d(TAG, "pkg:"+cn.getPackageName());//ÏÔÊ¾µ±Ç°activityËùÔÚÂ·¾¶
-    Log.d(TAG, "cls:"+cn.getClassName());//Â·¾¶+ÀàÃû
-    Log.d(TAG, MyActivity.class.getName()); //Â·¾¶+ÀàÃû
-    Log.d(TAG, MyActivity.class.getSimpleName()); //ÀàÃû
+    Log.d(TAG, "pkg:"+cn.getPackageName());//æ˜¾ç¤ºå½“å‰activityæ‰€åœ¨è·¯å¾„
+    Log.d(TAG, "cls:"+cn.getClassName());//è·¯å¾„+ç±»å
+    Log.d(TAG, MyActivity.class.getName()); //è·¯å¾„+ç±»å
+    Log.d(TAG, MyActivity.class.getSimpleName()); //ç±»å
   #+end_src
 *** Bundle
-androidÖĞµÄBundleÒ»°ãÓÃÓÚĞ¯´øÊı¾İ£¬ÀàËÆÓÚMap£¬ÓÃÓÚ´æ·Åkey-value¼üÖµ¶Ô£¬ÆäÌá¹©ÁË¸÷ÖÖputXx()ºÍgetXx()·½·¨£¬putXx()ÓÃÓÚÍù
-Bundle¶ÔÏóÖĞ·ÅÈëÊı¾İ£¬getXx()ÓÃÓÚ´ÓBundle¶ÔÏóÖĞ»ñÈ¡Êı¾İ¡£±ÈÈçBundle³£ÓÃÓë×é¼şÖ®¼ä½øĞĞÊı¾İ´«Êä£¬ÎÒÃÇ¿ÉÒÔ½«BundleÉèÖÃºÃÊı
-¾İºó£¬ÀûÓÃIntentµÄputExtras()·½·¨½«BundleÀ¦°óµ½IntentÖĞ£¬È»ºóÔÙ´«µİ¸ø±ğµÄ×é¼ş£»
+androidä¸­çš„Bundleä¸€èˆ¬ç”¨äºæºå¸¦æ•°æ®ï¼Œç±»ä¼¼äºMapï¼Œç”¨äºå­˜æ”¾key-valueé”®å€¼å¯¹ï¼Œå…¶æä¾›äº†å„ç§putXx()å’ŒgetXx()æ–¹æ³•ï¼ŒputXx()ç”¨äºå¾€
+Bundleå¯¹è±¡ä¸­æ”¾å…¥æ•°æ®ï¼ŒgetXx()ç”¨äºä»Bundleå¯¹è±¡ä¸­è·å–æ•°æ®ã€‚æ¯”å¦‚Bundleå¸¸ç”¨ä¸ç»„ä»¶ä¹‹é—´è¿›è¡Œæ•°æ®ä¼ è¾“ï¼Œæˆ‘ä»¬å¯ä»¥å°†Bundleè®¾ç½®å¥½æ•°
+æ®åï¼Œåˆ©ç”¨Intentçš„putExtras()æ–¹æ³•å°†Bundleæ†ç»‘åˆ°Intentä¸­ï¼Œç„¶åå†ä¼ é€’ç»™åˆ«çš„ç»„ä»¶ï¼›
 *** Intent
-Intent¿ÉÒÔÓÃÓÚÆô¶¯±ğµÄ×é¼ş±ÈÈçActivityºÍServiceµÈ£¬²¢ÔÚIntentÖĞ°ó¶¨Ò»¶¨µÄÊı¾İ£¬´«µİ¸øÄ¿±ê×é¼ş¡£
-*** ÏµÍ³Ê±¼ä
-- »ñÈ¡ÄêÔÂÈÕ
+Intentå¯ä»¥ç”¨äºå¯åŠ¨åˆ«çš„ç»„ä»¶æ¯”å¦‚Activityå’ŒServiceç­‰ï¼Œå¹¶åœ¨Intentä¸­ç»‘å®šä¸€å®šçš„æ•°æ®ï¼Œä¼ é€’ç»™ç›®æ ‡ç»„ä»¶ã€‚
+*** ç³»ç»Ÿæ—¶é—´
+- è·å–å¹´æœˆæ—¥
   #+begin_src java
     import    java.text.SimpleDateFormat;     
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕHH:mm:ss");     
-    Date curDate = new Date(System.currentTimeMillis());//»ñÈ¡µ±Ç°Ê±¼ä     
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥HH:mm:ss");     
+    Date curDate = new Date(System.currentTimeMillis());//è·å–å½“å‰æ—¶é—´     
     String str = formatter.format(curDate);     
   #+end_src
-- »ñÈ¡µ±Ç°µÄÄêÔÂÊ±·Ö
+- è·å–å½“å‰çš„å¹´æœˆæ—¶åˆ†
   #+begin_src java
     SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");     
     String date = sDateFormat.format(new java.util.Date());  
   #+end_src
-- »ñÈ¡µ±Ç°µÄÄêÔÂ
+- è·å–å½“å‰çš„å¹´æœˆ
   #+begin_src java
     SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM");  
     String date=sdf.format(new java.util.Date());  
   #+end_src
-- »ñÈ¡Ö¸¶¨Ê±ÇøµÄÊ±¼ä
+- è·å–æŒ‡å®šæ—¶åŒºçš„æ—¶é—´
   #+begin_src java
     df = DateFormat.getDateTimeInstance(DateFormat.FULL,DateFormat.FULL,Locale.CHINA);
     System.out.println(df.format(new Date()));
   #+end_src
-- È·¶¨ÏµÍ³Ê±¼äÖÆÊ½
+- ç¡®å®šç³»ç»Ÿæ—¶é—´åˆ¶å¼
   #+begin_src java
      ContentResolver cv = this.getContentResolver();
      String strTimeFormat = android.provider.Settings.System.getString(cv,
@@ -60,19 +60,19 @@ Intent¿ÉÒÔÓÃÓÚÆô¶¯±ğµÄ×é¼ş±ÈÈçActivityºÍServiceµÈ£¬²¢ÔÚIntentÖĞ°ó¶¨Ò»¶¨µÄÊı¾İ£¬´
         Log.i("activity","24");
      }
   #+end_src
-- È¡µÃÏµÍ³Ê±¼äÈÕÆÚ
+- å–å¾—ç³»ç»Ÿæ—¶é—´æ—¥æœŸ
   #+begin_src java
     Calendar c = Calendar.getInstance();
-    year = c.get(Calendar.YEAR) /*È¡µÃÏµÍ³ÈÕÆÚ*/
+    year = c.get(Calendar.YEAR) /*å–å¾—ç³»ç»Ÿæ—¥æœŸ*/
     month = c.grt(Calendar.MONTH)
     day = c.get(Calendar.DAY_OF_MONTH)
-    hour = c.get(Calendar.HOUR_OF_DAY);/*È¡µÃÏµÍ³Ê±¼ä*/
+    hour = c.get(Calendar.HOUR_OF_DAY);/*å–å¾—ç³»ç»Ÿæ—¶é—´*/
     minute = c.get(Calendar.MINUTE)
   #+end_src
-- ÀûÓÃTIMER»ñÈ¡
+- åˆ©ç”¨TIMERè·å–
   #+begin_src java
-    Time t=new Time(); // or Time t=new Time("GMT+8"); ¼ÓÉÏTime Zone×ÊÁÏ¡£
-    t.setToNow(); // È¡µÃÏµÍ³Ê±¼ä¡£
+    Time t=new Time(); // or Time t=new Time("GMT+8"); åŠ ä¸ŠTime Zoneèµ„æ–™ã€‚
+    t.setToNow(); // å–å¾—ç³»ç»Ÿæ—¶é—´ã€‚
     int year = t.year;
     int month = t.month;
     int date = t.monthDay;
@@ -82,13 +82,13 @@ Intent¿ÉÒÔÓÃÓÚÆô¶¯±ğµÄ×é¼ş±ÈÈçActivityºÍServiceµÈ£¬²¢ÔÚIntentÖĞ°ó¶¨Ò»¶¨µÄÊı¾İ£¬´
   #+end_src
 ** activity
 *** Fragment
-AndroidÔËĞĞÔÚ¸÷ÖÖ¸÷ÑùµÄÉè±¸ÖĞ£¬ÓĞĞ¡ÆÁÄ»µÄÊÖ»ú£¬³¬´óÆÁµÄÆ½°åÉõÖÁµçÊÓ¡£Õë¶ÔÆÁÄ»³ß´çµÄ²î¾à£¬ºÜ¶àÇé¿öÏÂ£¬¶¼ÊÇÏÈÕë¶ÔÊÖ»ú¿ª·¢
-Ò»Ì×App£¬È»ºó¿½±´Ò»·İ£¬ĞŞ¸Ä²¼¾ÖÒÔÊÊÓ¦Æ½°åÉñÂí³¬¼¶´óÆÁµÄ¡£ÄÑµÀÎŞ·¨×öµ½Ò»¸öApp¿ÉÒÔÍ¬Ê±ÊÊÓ¦ÊÖ»úºÍÆ½°åÃ´£¬µ±È»ÁË£¬±ØĞëÓĞ°¡¡£
-FragmentµÄ³öÏÖ¾ÍÊÇÎªÁË½â¾öÕâÑùµÄÎÊÌâ¡£Äã¿ÉÒÔ°ÑFragmentµ±³ÉActivityµÄÒ»¸ö½çÃæµÄÒ»¸ö×é³É²¿·Ö£¬ÉõÖÁActivityµÄ½çÃæ¿ÉÒÔÍêÈ«ÓĞ
-²»Í¬µÄFragment×é³É£¬¸üË§ÆøµÄÊÇFragmentÓµÓĞ×Ô¼ºµÄÉúÃüÖÜÆÚºÍ½ÓÊÕ¡¢´¦ÀíÓÃ»§µÄÊÂ¼ş£¬ÕâÑù¾Í²»±ØÔÚActivityĞ´Ò»¶Ñ¿Ø¼şµÄÊÂ¼ş´¦Àí
-µÄ´úÂëÁË¡£¸üÎªÖØÒªµÄÊÇ£¬Äã¿ÉÒÔ¶¯Ì¬µÄÌí¼Ó¡¢Ìæ»»ºÍÒÆ³ıÄ³¸öFragment; Fragment±ØĞëÊÇÒÀ´æÓëActivity¶ø´æÔÚµÄ£¬Òò´ËActivityµÄÉú
-ÃüÖÜÆÚ»áÖ±½ÓÓ°Ïìµ½FragmentµÄÉúÃüÖÜÆÚ, FragmentµÄÉúÃüÖÜÆÚ¼ûÍ¼\ref{img-fragment-cycle};
-#+caption: FragmentÉúÃüÖÜÆÚ
+Androidè¿è¡Œåœ¨å„ç§å„æ ·çš„è®¾å¤‡ä¸­ï¼Œæœ‰å°å±å¹•çš„æ‰‹æœºï¼Œè¶…å¤§å±çš„å¹³æ¿ç”šè‡³ç”µè§†ã€‚é’ˆå¯¹å±å¹•å°ºå¯¸çš„å·®è·ï¼Œå¾ˆå¤šæƒ…å†µä¸‹ï¼Œéƒ½æ˜¯å…ˆé’ˆå¯¹æ‰‹æœºå¼€å‘
+ä¸€å¥—Appï¼Œç„¶åæ‹·è´ä¸€ä»½ï¼Œä¿®æ”¹å¸ƒå±€ä»¥é€‚åº”å¹³æ¿ç¥é©¬è¶…çº§å¤§å±çš„ã€‚éš¾é“æ— æ³•åšåˆ°ä¸€ä¸ªAppå¯ä»¥åŒæ—¶é€‚åº”æ‰‹æœºå’Œå¹³æ¿ä¹ˆï¼Œå½“ç„¶äº†ï¼Œå¿…é¡»æœ‰å•Šã€‚
+Fragmentçš„å‡ºç°å°±æ˜¯ä¸ºäº†è§£å†³è¿™æ ·çš„é—®é¢˜ã€‚ä½ å¯ä»¥æŠŠFragmentå½“æˆActivityçš„ä¸€ä¸ªç•Œé¢çš„ä¸€ä¸ªç»„æˆéƒ¨åˆ†ï¼Œç”šè‡³Activityçš„ç•Œé¢å¯ä»¥å®Œå…¨æœ‰
+ä¸åŒçš„Fragmentç»„æˆï¼Œæ›´å¸…æ°”çš„æ˜¯Fragmentæ‹¥æœ‰è‡ªå·±çš„ç”Ÿå‘½å‘¨æœŸå’Œæ¥æ”¶ã€å¤„ç†ç”¨æˆ·çš„äº‹ä»¶ï¼Œè¿™æ ·å°±ä¸å¿…åœ¨Activityå†™ä¸€å †æ§ä»¶çš„äº‹ä»¶å¤„ç†
+çš„ä»£ç äº†ã€‚æ›´ä¸ºé‡è¦çš„æ˜¯ï¼Œä½ å¯ä»¥åŠ¨æ€çš„æ·»åŠ ã€æ›¿æ¢å’Œç§»é™¤æŸä¸ªFragment; Fragmentå¿…é¡»æ˜¯ä¾å­˜ä¸Activityè€Œå­˜åœ¨çš„ï¼Œå› æ­¤Activityçš„ç”Ÿ
+å‘½å‘¨æœŸä¼šç›´æ¥å½±å“åˆ°Fragmentçš„ç”Ÿå‘½å‘¨æœŸ, Fragmentçš„ç”Ÿå‘½å‘¨æœŸè§å›¾\ref{img-fragment-cycle};
+#+caption: Fragmentç”Ÿå‘½å‘¨æœŸ
 #+label: img-fragment-cycle
 #+attr_latex: placement=[H] scale=0.3
 #+begin_src ditaa :file ./img/img-fragment-cycle.png :cmdline -S -E
@@ -126,13 +126,13 @@ FragmentµÄ³öÏÖ¾ÍÊÇÎªÁË½â¾öÕâÑùµÄÎÊÌâ¡£Äã¿ÉÒÔ°ÑFragmentµ±³ÉActivityµÄÒ»¸ö½çÃæµÄÒ»
                    +------+-------+
 #+end_src
 *** button
-- buttonÍ¸Ã÷£ºxmlÖĞÊ¹ÓÃandroid:background="@android:color/transparent"
-*** ÏÂÀ­²Ëµ¥
-ÊµÏÖÄ³¸ö²Ëµ¥¿òÀïÃæÓĞ¶à¸öÑ¡Ïî£¬µã»÷ºó¿ÉÒÔÕ¹Ê¾¸÷¸ö×Ö·û²Ëµ¥Ïî£¬µã»÷ºó¿ÉÒÔ²úÉúµã»÷ÊÂ¼ş£¬¿ÉÒÔ½«Ä³¸öintÖµºÍ×Ö·û²Ëµ¥Ïî¶ÔÓ¦£»Êµ
-ÏÖ·½·¨£º
-1. ¶¨ÒåÁ½¸öarray×ÊÔ´£º
+- buttoné€æ˜ï¼šxmlä¸­ä½¿ç”¨android:background="@android:color/transparent"
+*** ä¸‹æ‹‰èœå•
+å®ç°æŸä¸ªèœå•æ¡†é‡Œé¢æœ‰å¤šä¸ªé€‰é¡¹ï¼Œç‚¹å‡»åå¯ä»¥å±•ç¤ºå„ä¸ªå­—ç¬¦èœå•é¡¹ï¼Œç‚¹å‡»åå¯ä»¥äº§ç”Ÿç‚¹å‡»äº‹ä»¶ï¼Œå¯ä»¥å°†æŸä¸ªintå€¼å’Œå­—ç¬¦èœå•é¡¹å¯¹åº”ï¼›å®
+ç°æ–¹æ³•ï¼š
+1. å®šä¹‰ä¸¤ä¸ªarrayèµ„æºï¼š
   #+begin_src java 
-    //×Ö·û²Ëµ¥Ïî
+    //å­—ç¬¦èœå•é¡¹
     <string-array name="gps_type_options">
         <item>GPS</item>
         <item>GPS and GLONASS</item>
@@ -140,14 +140,14 @@ FragmentµÄ³öÏÖ¾ÍÊÇÎªÁË½â¾öÕâÑùµÄÎÊÌâ¡£Äã¿ÉÒÔ°ÑFragmentµ±³ÉActivityµÄÒ»¸ö½çÃæµÄÒ»
     </string-array>
   #+end_src
   #+begin_src java
-    //int¶ÔÓ¦Öµ
+    //intå¯¹åº”å€¼
     <integer-array name="gps_type_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </integer-array>
   #+end_src
-2. xmlÖĞ¶¨ÒåÆ÷¼ş
+2. xmlä¸­å®šä¹‰å™¨ä»¶
    #+begin_src java
     <Spinner
         android:id="@+id/spinnerType"
@@ -156,24 +156,24 @@ FragmentµÄ³öÏÖ¾ÍÊÇÎªÁË½â¾öÕâÑùµÄÎÊÌâ¡£Äã¿ÉÒÔ°ÑFragmentµ±³ÉActivityµÄÒ»¸ö½çÃæµÄÒ»
         android:layout_marginRight="8dip"
         android:layout_weight="1" />
    #+end_src
-3. ÔÚÔ´ÎÄ¼şÖĞ»ñÈ¡Õâ2¸ö×ÊÔ´£º
+3. åœ¨æºæ–‡ä»¶ä¸­è·å–è¿™2ä¸ªèµ„æºï¼š
    #+begin_src java
     String[] gpsTypeOptions = getResources().getStringArray(R.array.gps_type_options);
 	int[] gpsTypeValues = getResources().getIntArray(R.array.gps_type_values);
    #+end_src
-4. °ó¶¨Á½Õß³Éadapter:
+4. ç»‘å®šä¸¤è€…æˆadapter:
    #+begin_src java
     private IntArrayAdapter mGPSTypeAdapter;
 	mGPSTypeAdapter = new IntArrayAdapter(this, gpsTypeOptions, gpsTypeValues);
    #+end_src
-5. ½«adapter×°Åäµ½viewÉÏ£º
+5. å°†adapterè£…é…åˆ°viewä¸Šï¼š
    #+begin_src java
     private Spinner mSpinnerType;
     mSpinnerType = (Spinner) findViewById(R.id.spinnerType);
     mSpinnerType.setAdapter(mGPSTypeAdapter);
 	mSpinnerType.setOnItemSelectedListener(onItemSelectedListener);
    #+end_src
-6. ÊµÏÖµã»÷ÊÂ¼ş£º
+6. å®ç°ç‚¹å‡»äº‹ä»¶ï¼š
    #+begin_src java
     private OnItemSelectedListener onItemSelectedListener = new OnItemSelectedListener() {
 		@Override
@@ -186,55 +186,55 @@ FragmentµÄ³öÏÖ¾ÍÊÇÎªÁË½â¾öÕâÑùµÄÎÊÌâ¡£Äã¿ÉÒÔ°ÑFragmentµ±³ÉActivityµÄÒ»¸ö½çÃæµÄÒ»
 		public void onNothingSelected(AdapterView<?> arg0) {}
     };
    #+end_src
-*** ¸´Ñ¡¿ò
-Õı·½ĞÎµÄ¸´Ñ¡¿òÑ¡Ïî
-1. xmlÖĞ¶¨ÒåÆ÷¼ş
+*** å¤é€‰æ¡†
+æ­£æ–¹å½¢çš„å¤é€‰æ¡†é€‰é¡¹
+1. xmlä¸­å®šä¹‰å™¨ä»¶
    #+begin_src java
     <CheckBox 
       android:id="@+id/cb"
       android:layout_width="wrap_content" 
       android:layout_height="wrap_content"
       android:checked="false"
-      android:text="ÒÑ»é" />
+      android:text="å·²å©š" />
    #+end_src
-2. Ô´ÂëÖĞ»ñÈ¡Æ÷¼ş
+2. æºç ä¸­è·å–å™¨ä»¶
    #+begin_src java
     private CheckBox mCheckKeep;
     mCheckKeep = (CheckBox) findViewById(R.id.checkKeep);
     
    #+end_src
-3. ¼àÌıÊÂ¼ş
+3. ç›‘å¬äº‹ä»¶
    #+begin_src java
-    //°ó¶¨¼àÌıÆ÷
+    //ç»‘å®šç›‘å¬å™¨
     cb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
             Toast.makeText(MyActivity.this, 
-             arg1?"Ñ¡ÖĞÁË":"È¡ÏûÁËÑ¡ÖĞ"    , Toast.LENGTH_LONG).show();
+             arg1?"é€‰ä¸­äº†":"å–æ¶ˆäº†é€‰ä¸­"    , Toast.LENGTH_LONG).show();
        }
      });
    #+end_src
-4. Ò²¿ÉÒÔ²éÑ¯»ñµÃ½á¹û
+4. ä¹Ÿå¯ä»¥æŸ¥è¯¢è·å¾—ç»“æœ
    #+begin_src java
     if(!cb.isChecked()){
     }
    #+end_src
 ** service
-- ÔÚserviceÖĞÆô¶¯activity£º
+- åœ¨serviceä¸­å¯åŠ¨activityï¼š
   #+begin_src java
     Intent intent = new Intent(getBaseContext(), MtkPlatformTest.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);±ØĞë¼ÓÕâ¾ä
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);å¿…é¡»åŠ è¿™å¥
     startActivity(intent);
   #+end_src
 *** Bound Service
-Òª×ö°ó¶¨·şÎñ²Ù×÷£¬clientĞèÒªµ÷ÓÃbindService() , µ÷ÓÃºó£¬ÏµÍ³½«µ÷ÓÃserverµÄonBind()·½·¨£¬Õâ¸ö·½·¨½«·µ»ØÒ»¸öIBinder£¬Õâ¸ö
-IBinderÕıÊÇ·´¸øclient£¬clientÊ¹ÓÃ´ËIBinderÀ´µ÷ÓÃserverÊµÏÖµÄ¸÷ÖÖ·şÎñ½Ó¿Ú£¬clientÒªÈ¡µÃÕâ¸öIBinder£¬ĞèÒªÊµÏÖÒ»¸ö½Ó¿Ú
-ServiceConnection ×÷ÎªbindServiceµÄ²ÎÊı£¬´ËServiceConnectionÖĞµÄ·½·¨onServiceConnected½«±»ÏµÍ³»Øµ÷(ÔÚonBindÖ´ĞĞÍêºó)£¬¶ø
-onBind·µ»ØµÄIBinderÕıÊÇ×÷Îª²ÎÊı´«¸øonServiceConnected£¬ÕâÑùclient¾Í¿ÉÒÔÔÚonServiceConnectedÀïÃæ»ñµÃ¸ÃIBinder£»
+è¦åšç»‘å®šæœåŠ¡æ“ä½œï¼Œclientéœ€è¦è°ƒç”¨bindService() , è°ƒç”¨åï¼Œç³»ç»Ÿå°†è°ƒç”¨serverçš„onBind()æ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•å°†è¿”å›ä¸€ä¸ªIBinderï¼Œè¿™ä¸ª
+IBinderæ­£æ˜¯åç»™clientï¼Œclientä½¿ç”¨æ­¤IBinderæ¥è°ƒç”¨serverå®ç°çš„å„ç§æœåŠ¡æ¥å£ï¼Œclientè¦å–å¾—è¿™ä¸ªIBinderï¼Œéœ€è¦å®ç°ä¸€ä¸ªæ¥å£
+ServiceConnection ä½œä¸ºbindServiceçš„å‚æ•°ï¼Œæ­¤ServiceConnectionä¸­çš„æ–¹æ³•onServiceConnectedå°†è¢«ç³»ç»Ÿå›è°ƒ(åœ¨onBindæ‰§è¡Œå®Œå)ï¼Œè€Œ
+onBindè¿”å›çš„IBinderæ­£æ˜¯ä½œä¸ºå‚æ•°ä¼ ç»™onServiceConnectedï¼Œè¿™æ ·clientå°±å¯ä»¥åœ¨onServiceConnectedé‡Œé¢è·å¾—è¯¥IBinderï¼›
 ** broadcast
-¹ã²¥»úÖÆ¿ÉÒÔÊÂÎñ´¦ÀíÒì²½»¯£¬¿ÉÒÔ½«ÊÂÎñµÄ´¦Àí·ÅÔÚ±ğµÄµØ·½£¬È»ºóÔÚÁíÒ»¸öµØ·½·¢ËÍÒ»¸öIntent£¬ÏµÍ³»á¸ù¾İ´ËIntentÀ´ÕÒµ½ÏàÓ¦µÄ
-¹ã²¥´¦Àí·½·¨À´´¦Àí£¬²½ÖèÈçÏÂ¡£
-- Éè¶¨IntentFilter£¬¿ÉÒÔÔÚmanifestÎÄ¼şÖĞÉèÖÃ£¬Ò²¿ÉÒÔÔÚÔ´ÂëÖĞ¶¯Ì¬ÉèÖÃ£¬ÊµÀıÈçÏÂ;
+å¹¿æ’­æœºåˆ¶å¯ä»¥äº‹åŠ¡å¤„ç†å¼‚æ­¥åŒ–ï¼Œå¯ä»¥å°†äº‹åŠ¡çš„å¤„ç†æ”¾åœ¨åˆ«çš„åœ°æ–¹ï¼Œç„¶ååœ¨å¦ä¸€ä¸ªåœ°æ–¹å‘é€ä¸€ä¸ªIntentï¼Œç³»ç»Ÿä¼šæ ¹æ®æ­¤Intentæ¥æ‰¾åˆ°ç›¸åº”çš„
+å¹¿æ’­å¤„ç†æ–¹æ³•æ¥å¤„ç†ï¼Œæ­¥éª¤å¦‚ä¸‹ã€‚
+- è®¾å®šIntentFilterï¼Œå¯ä»¥åœ¨manifestæ–‡ä»¶ä¸­è®¾ç½®ï¼Œä¹Ÿå¯ä»¥åœ¨æºç ä¸­åŠ¨æ€è®¾ç½®ï¼Œå®ä¾‹å¦‚ä¸‹;
   #+begin_src java
     private static IntentFilter makeIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
@@ -245,7 +245,7 @@ onBind·µ»ØµÄIBinderÕıÊÇ×÷Îª²ÎÊı´«¸øonServiceConnected£¬ÕâÑùclient¾Í¿ÉÒÔÔÚonServi
         return intentFilter;
     }
   #+end_src
-- ÉèÖÃ¹ã²¥ÊÂÎñ´¦Àí£¬ÊµÀıÈçÏÂ;
+- è®¾ç½®å¹¿æ’­äº‹åŠ¡å¤„ç†ï¼Œå®ä¾‹å¦‚ä¸‹;
   #+begin_src java
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -263,84 +263,84 @@ onBind·µ»ØµÄIBinderÕıÊÇ×÷Îª²ÎÊı´«¸øonServiceConnected£¬ÕâÑùclient¾Í¿ÉÒÔÔÚonServi
         }
     };
   #+end_src
-- ×¢²á£¬½«actionºÍÊÂÎñ´¦ÀíÏà½áºÏ£¬ÊµÀıÈçÏÂ;
+- æ³¨å†Œï¼Œå°†actionå’Œäº‹åŠ¡å¤„ç†ç›¸ç»“åˆï¼Œå®ä¾‹å¦‚ä¸‹;
   #+begin_src java
      registerReceiver(mReceiver, makeIntentFilter());
   #+end_src
-- ²úÉúÊÂ¼şÔ´£¬ÔÚ±ğµÄµØ·½·¢ËÍÏûÏ¢£¬ÊµÀıÈçÏÂ;
+- äº§ç”Ÿäº‹ä»¶æºï¼Œåœ¨åˆ«çš„åœ°æ–¹å‘é€æ¶ˆæ¯ï¼Œå®ä¾‹å¦‚ä¸‹;
   #+begin_src java
     private void broadcastUpdate(final String action) {
         final Intent intent = new Intent(action);
         sendBroadcast(intent);
     }
   #+end_src
-** ÏûÏ¢»úÖÆ
-AndroidÓ¦ÓÃ³ÌĞòÊÇÍ¨¹ıÏûÏ¢À´Çı¶¯µÄ£¬ÏµÍ³ÎªÃ¿Ò»¸öÓ¦ÓÃ³ÌĞòÎ¬»¤Ò»¸öÏûÏ¢¶ÓÀı£¬Ó¦ÓÃ³ÌĞòµÄÖ÷Ïß³Ì²»¶ÏµØ´ÓÕâ¸öÏûÏ¢¶ÓÀıÖĞ»ñÈ¡ÏûÏ¢
-(Looper)£¬È»ºó¶ÔÕâĞ©ÏûÏ¢½øĞĞ´¦Àí(Handler)£¬ÕâÑù¾ÍÊµÏÖÁËÍ¨¹ıÏûÏ¢À´Çı¶¯Ó¦ÓÃ³ÌĞòµÄÖ´ĞĞ.
-- Message£ºÏûÏ¢£¬ÆäÖĞ°üº¬ÁËÏûÏ¢ID£¬ÏûÏ¢´¦Àí¶ÔÏóÒÔ¼°´¦ÀíµÄÊı¾İµÈ£¬ÓÉMessageQueueÍ³Ò»ÁĞ¶Ó£¬ÖÕÓÉHandler´¦Àí¡£
-- Handler£º´¦ÀíÕß£¬¸ºÔğMessageµÄ·¢ËÍ¼°´¦Àí¡£Ê¹ÓÃHandlerÊ±£¬ĞèÒªÊµÏÖhandleMessage(Message msg)·½·¨À´¶ÔÌØ¶¨µÄMessage½øĞĞ´¦Àí£¬ÀıÈç¸üĞÂUIµÈ¡£
-- MessageQueue£ºÏûÏ¢¶ÓÁĞ£¬ÓÃÀ´´æ·ÅHandler·¢ËÍ¹ıÀ´µÄÏûÏ¢£¬²¢°´ÕÕFIFO¹æÔòÖ´ĞĞ¡£µ±È»£¬´æ·ÅMessage²¢·ÇÊµ¼ÊÒâÒåµÄ±£´æ£¬¶øÊÇ½«
-  MessageÒÔÁ´±íµÄ·½Ê½´®ÁªÆğÀ´µÄ£¬µÈ´ıLooperµÄ³éÈ¡¡£
-- Looper£ºÏûÏ¢±Ã£¬²»¶ÏµØ´ÓMessageQueueÖĞ³éÈ¡MessageÖ´ĞĞ¡£Òò´Ë£¬Ò»¸öMessageQueueĞèÒªÒ»¸öLooper¡£
-- Thread£ºÏß³Ì£¬¸ºÔğµ÷¶ÈÕû¸öÏûÏ¢Ñ­»·£¬¼´ÏûÏ¢Ñ­»·µÄÖ´ĞĞ³¡Ëù¡£
+** æ¶ˆæ¯æœºåˆ¶
+Androidåº”ç”¨ç¨‹åºæ˜¯é€šè¿‡æ¶ˆæ¯æ¥é©±åŠ¨çš„ï¼Œç³»ç»Ÿä¸ºæ¯ä¸€ä¸ªåº”ç”¨ç¨‹åºç»´æŠ¤ä¸€ä¸ªæ¶ˆæ¯é˜Ÿä¾‹ï¼Œåº”ç”¨ç¨‹åºçš„ä¸»çº¿ç¨‹ä¸æ–­åœ°ä»è¿™ä¸ªæ¶ˆæ¯é˜Ÿä¾‹ä¸­è·å–æ¶ˆæ¯
+(Looper)ï¼Œç„¶åå¯¹è¿™äº›æ¶ˆæ¯è¿›è¡Œå¤„ç†(Handler)ï¼Œè¿™æ ·å°±å®ç°äº†é€šè¿‡æ¶ˆæ¯æ¥é©±åŠ¨åº”ç”¨ç¨‹åºçš„æ‰§è¡Œ.
+- Messageï¼šæ¶ˆæ¯ï¼Œå…¶ä¸­åŒ…å«äº†æ¶ˆæ¯IDï¼Œæ¶ˆæ¯å¤„ç†å¯¹è±¡ä»¥åŠå¤„ç†çš„æ•°æ®ç­‰ï¼Œç”±MessageQueueç»Ÿä¸€åˆ—é˜Ÿï¼Œç»ˆç”±Handlerå¤„ç†ã€‚
+- Handlerï¼šå¤„ç†è€…ï¼Œè´Ÿè´£Messageçš„å‘é€åŠå¤„ç†ã€‚ä½¿ç”¨Handleræ—¶ï¼Œéœ€è¦å®ç°handleMessage(Message msg)æ–¹æ³•æ¥å¯¹ç‰¹å®šçš„Messageè¿›è¡Œå¤„ç†ï¼Œä¾‹å¦‚æ›´æ–°UIç­‰ã€‚
+- MessageQueueï¼šæ¶ˆæ¯é˜Ÿåˆ—ï¼Œç”¨æ¥å­˜æ”¾Handlerå‘é€è¿‡æ¥çš„æ¶ˆæ¯ï¼Œå¹¶æŒ‰ç…§FIFOè§„åˆ™æ‰§è¡Œã€‚å½“ç„¶ï¼Œå­˜æ”¾Messageå¹¶éå®é™…æ„ä¹‰çš„ä¿å­˜ï¼Œè€Œæ˜¯å°†
+  Messageä»¥é“¾è¡¨çš„æ–¹å¼ä¸²è”èµ·æ¥çš„ï¼Œç­‰å¾…Looperçš„æŠ½å–ã€‚
+- Looperï¼šæ¶ˆæ¯æ³µï¼Œä¸æ–­åœ°ä»MessageQueueä¸­æŠ½å–Messageæ‰§è¡Œã€‚å› æ­¤ï¼Œä¸€ä¸ªMessageQueueéœ€è¦ä¸€ä¸ªLooperã€‚
+- Threadï¼šçº¿ç¨‹ï¼Œè´Ÿè´£è°ƒåº¦æ•´ä¸ªæ¶ˆæ¯å¾ªç¯ï¼Œå³æ¶ˆæ¯å¾ªç¯çš„æ‰§è¡Œåœºæ‰€ã€‚
 *** Handler
-¹¦ÄÜÖ÷ÒªÊÇ¸úUIÏß³Ì½»»¥ÓÃ£¬Ö÷ÒªÓĞ£º
-1. ÓÃhandler·¢ËÍÒ»¸ömessage£¬È»ºóÔÚhandlerµÄÏß³ÌÖĞÀ´½ÓÊÕ¡¢´¦Àí¸ÃÏûÏ¢£¬ÒÔ±ÜÃâÖ±½ÓÔÚUIÖ÷Ïß³ÌÖĞ´¦ÀíÊÂÎñµ¼ÖÂÓ°ÏìUIÖ÷Ïß³ÌµÄÆä
-   Ëû´¦Àí¹¤×÷ £»
-2. Äã¿ÉÒÔ½«handler¶ÔÏó´«¸øÆäËû½ø³Ì£¬ÒÔ±ãÔÚÆäËû½ø³ÌÖĞÍ¨¹ıhandler¸øÄã·¢ËÍÊÂ¼ş£»
-3. Í¨¹ıhandlerµÄÑÓÊ±·¢ËÍmessage£¬¿ÉÒÔÑÓÊ±´¦ÀíÒ»Ğ©ÊÂÎñµÄ´¦Àí£»
-- Ïß³Ì´¦Àí¹¦ÄÜ£º¿ÉÒÔÊ¹ÓÃHandlerµÄpost·½·¨£¬½«Òª´¦ÀíµÄÊÂÎñ·ÅÔÚÒ»¸öthreadÀïÃæ£¬È»ºó½«¸ÃÏß³Ìpostµ½HandlerµÄÏß³Ì¶ÓÁĞÖĞ(ÆäÊµ
-  Õâ¸öÏß³ÌºÍactivityÖ÷Ïß³ÌÊÇÍ¬Ò»¸öÏß³Ì£¬Ö»ÊÇÔËĞĞÁËÏß³ÌµÄrun·½·¨)£¬Ôò¸ÃÊÂÎñ½«»áÔÚthreadÀïÃæÖ´ĞĞ£¬Èç¹ûÊ¹ÓÃ
-  postDelayed(thread, time)·½·¨£¬»¹ÄÜÉèÖÃÒ»¸öÑÓÊ±timeºóÖ´ĞĞ¸ÃÊÂÎñ£¬ÀàËÆÓÚtimer¹¦ÄÜ£»
-  ÊµÀıÈçÏÂËùÊ¾¡£
+åŠŸèƒ½ä¸»è¦æ˜¯è·ŸUIçº¿ç¨‹äº¤äº’ç”¨ï¼Œä¸»è¦æœ‰ï¼š
+1. ç”¨handlerå‘é€ä¸€ä¸ªmessageï¼Œç„¶ååœ¨handlerçš„çº¿ç¨‹ä¸­æ¥æ¥æ”¶ã€å¤„ç†è¯¥æ¶ˆæ¯ï¼Œä»¥é¿å…ç›´æ¥åœ¨UIä¸»çº¿ç¨‹ä¸­å¤„ç†äº‹åŠ¡å¯¼è‡´å½±å“UIä¸»çº¿ç¨‹çš„å…¶
+   ä»–å¤„ç†å·¥ä½œ ï¼›
+2. ä½ å¯ä»¥å°†handlerå¯¹è±¡ä¼ ç»™å…¶ä»–è¿›ç¨‹ï¼Œä»¥ä¾¿åœ¨å…¶ä»–è¿›ç¨‹ä¸­é€šè¿‡handlerç»™ä½ å‘é€äº‹ä»¶ï¼›
+3. é€šè¿‡handlerçš„å»¶æ—¶å‘é€messageï¼Œå¯ä»¥å»¶æ—¶å¤„ç†ä¸€äº›äº‹åŠ¡çš„å¤„ç†ï¼›
+- çº¿ç¨‹å¤„ç†åŠŸèƒ½ï¼šå¯ä»¥ä½¿ç”¨Handlerçš„postæ–¹æ³•ï¼Œå°†è¦å¤„ç†çš„äº‹åŠ¡æ”¾åœ¨ä¸€ä¸ªthreadé‡Œé¢ï¼Œç„¶åå°†è¯¥çº¿ç¨‹poståˆ°Handlerçš„çº¿ç¨‹é˜Ÿåˆ—ä¸­(å…¶å®
+  è¿™ä¸ªçº¿ç¨‹å’Œactivityä¸»çº¿ç¨‹æ˜¯åŒä¸€ä¸ªçº¿ç¨‹ï¼Œåªæ˜¯è¿è¡Œäº†çº¿ç¨‹çš„runæ–¹æ³•)ï¼Œåˆ™è¯¥äº‹åŠ¡å°†ä¼šåœ¨threadé‡Œé¢æ‰§è¡Œï¼Œå¦‚æœä½¿ç”¨
+  postDelayed(thread, time)æ–¹æ³•ï¼Œè¿˜èƒ½è®¾ç½®ä¸€ä¸ªå»¶æ—¶timeåæ‰§è¡Œè¯¥äº‹åŠ¡ï¼Œç±»ä¼¼äºtimeråŠŸèƒ½ï¼›
+  å®ä¾‹å¦‚ä¸‹æ‰€ç¤ºã€‚
   #+begin_src java
-    //Ê¹ÓÃhandlerÊ±Ê×ÏÈÒª´´½¨Ò»¸öhandler
+    //ä½¿ç”¨handleræ—¶é¦–å…ˆè¦åˆ›å»ºä¸€ä¸ªhandler
     Handler handler = new Handler();
-    //ÒªÓÃhandlerÀ´´¦Àí¶àÏß³Ì¿ÉÒÔÊ¹ÓÃrunnable½Ó¿Ú£¬ÕâÀïÏÈ¶¨Òå¸Ã½Ó¿Ú
-    //Ïß³ÌÖĞÔËĞĞ¸Ã½Ó¿ÚµÄrunº¯Êı
+    //è¦ç”¨handleræ¥å¤„ç†å¤šçº¿ç¨‹å¯ä»¥ä½¿ç”¨runnableæ¥å£ï¼Œè¿™é‡Œå…ˆå®šä¹‰è¯¥æ¥å£
+    //çº¿ç¨‹ä¸­è¿è¡Œè¯¥æ¥å£çš„runå‡½æ•°
     Runnable update_thread = new Runnable(){
         public void run(){
-            //Ïß³ÌÃ¿´ÎÖ´ĞĞÊ±Êä³ö"UpdateThread..."ÎÄ×Ö,ÇÒ×Ô¶¯»»ĞĞ
-            //textviewµÄappend¹¦ÄÜºÍQtÖĞµÄappendÀàËÆ£¬²»»á¸²¸ÇÇ°Ãæ
-            //µÄÄÚÈİ£¬Ö»ÊÇQtÖĞµÄappendÄ¬ÈÏÊÇ×Ô¶¯»»ĞĞÄ£Ê½
+            //çº¿ç¨‹æ¯æ¬¡æ‰§è¡Œæ—¶è¾“å‡º"UpdateThread..."æ–‡å­—,ä¸”è‡ªåŠ¨æ¢è¡Œ
+            //textviewçš„appendåŠŸèƒ½å’ŒQtä¸­çš„appendç±»ä¼¼ï¼Œä¸ä¼šè¦†ç›–å‰é¢
+            //çš„å†…å®¹ï¼Œåªæ˜¯Qtä¸­çš„appendé»˜è®¤æ˜¯è‡ªåŠ¨æ¢è¡Œæ¨¡å¼
             text_view.append("\nUpdateThread...");
-            //ÑÓÊ±1sºóÓÖ½«Ïß³Ì¼ÓÈëµ½Ïß³Ì¶ÓÁĞÖĞ
+            //å»¶æ—¶1sååˆå°†çº¿ç¨‹åŠ å…¥åˆ°çº¿ç¨‹é˜Ÿåˆ—ä¸­
             handler.postDelayed(update_thread, 1000);
         }
     };
-    //½«Ïß³Ì½Ó¿ÚÁ¢¿ÌËÍµ½Ïß³Ì¶ÓÁĞÖĞ
+    //å°†çº¿ç¨‹æ¥å£ç«‹åˆ»é€åˆ°çº¿ç¨‹é˜Ÿåˆ—ä¸­
     handler.post(update_thread);
-    //½«½Ó¿Ú´ÓÏß³Ì¶ÓÁĞÖĞÒÆ³ı
+    //å°†æ¥å£ä»çº¿ç¨‹é˜Ÿåˆ—ä¸­ç§»é™¤
     handler.removeCallbacks(update_thread);
   #+end_src
-- Òì²½ÏûÏ¢´¦Àí¹¦ÄÜ£ºÍ¬ÑùÒ²ÊÇÊ¹ÓÃÉÏÃæÏß³Ì´¦Àí¹¦ÄÜ£¬½«Ä³¸öÏß³Ìthread£¬postµ½handlerµÄÏß³Ì¶ÓÁĞÖĞ£¬Ïß³Ì¶ÓÁĞÖĞ´¦ÀíÊÂÎñ£¬²¢¿É
-  ÒÔÊ¹ÓÃhandlerµÄsendMessage()£¬·½·¨ÏòhandlerÖĞ·¢ËÍmessage£¬È»ºóÔÚhandlerÖĞ¿ÉÒÔÊ¹ÓÃhandleMessageÀ´´¦ÀíÕâ¸öÏûÏ¢£»ÊµÀıÈçÏÂ£º
+- å¼‚æ­¥æ¶ˆæ¯å¤„ç†åŠŸèƒ½ï¼šåŒæ ·ä¹Ÿæ˜¯ä½¿ç”¨ä¸Šé¢çº¿ç¨‹å¤„ç†åŠŸèƒ½ï¼Œå°†æŸä¸ªçº¿ç¨‹threadï¼Œpoståˆ°handlerçš„çº¿ç¨‹é˜Ÿåˆ—ä¸­ï¼Œçº¿ç¨‹é˜Ÿåˆ—ä¸­å¤„ç†äº‹åŠ¡ï¼Œå¹¶å¯
+  ä»¥ä½¿ç”¨handlerçš„sendMessage()ï¼Œæ–¹æ³•å‘handlerä¸­å‘é€messageï¼Œç„¶ååœ¨handlerä¸­å¯ä»¥ä½¿ç”¨handleMessageæ¥å¤„ç†è¿™ä¸ªæ¶ˆæ¯ï¼›å®ä¾‹å¦‚ä¸‹ï¼š
   #+begin_src java
-    //´´½¨Ò»¸öhandler£¬ÄÚ²¿Íê³É´¦ÀíÏûÏ¢·½·¨
+    //åˆ›å»ºä¸€ä¸ªhandlerï¼Œå†…éƒ¨å®Œæˆå¤„ç†æ¶ˆæ¯æ–¹æ³•
     Handler update_progress_bar = new Handler(){
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            //ÏÔÊ¾½ø¶ÈÌõ
+            //æ˜¾ç¤ºè¿›åº¦æ¡
             progress_bar.setProgress(msg.arg1);
-            //ÖØĞÂ°Ñ½ø³Ì¼ÓÈëµ½½ø³Ì¶ÓÁĞÖĞ
+            //é‡æ–°æŠŠè¿›ç¨‹åŠ å…¥åˆ°è¿›ç¨‹é˜Ÿåˆ—ä¸­
             update_progress_bar.post(update_thread);
         }
     };
-    update_progress_bar.post(update_thread);//postÏß³Ì
+    update_progress_bar.post(update_thread);//postçº¿ç¨‹
     Runnable update_thread = new Runnable() {
         int i = 0;
         public void run() {
             i += 10;
-            //Ê×ÏÈ»ñµÃÒ»¸öÏûÏ¢½á¹¹
+            //é¦–å…ˆè·å¾—ä¸€ä¸ªæ¶ˆæ¯ç»“æ„
             Message msg = update_progress_bar.obtainMessage();
-            //¸øÏûÏ¢½á¹¹µÄarg1²ÎÊı¸³Öµ
+            //ç»™æ¶ˆæ¯ç»“æ„çš„arg1å‚æ•°èµ‹å€¼
             msg.arg1 = i;
-            //ÑÓÊ±1s
+            //å»¶æ—¶1s
             Thread.sleep(1000);
-            //°ÑÏûÏ¢·¢ËÍµ½ÏûÏ¢¶ÓÁĞÖĞ
+            //æŠŠæ¶ˆæ¯å‘é€åˆ°æ¶ˆæ¯é˜Ÿåˆ—ä¸­
             update_progress_bar.sendMessage(msg);
             if(i == 100)
-                update_progress_bar.removeCallbacks(update_thread);//ÒÆ³ı
+                update_progress_bar.removeCallbacks(update_thread);//ç§»é™¤
         }
     };
   #+end_src
@@ -350,14 +350,14 @@ AndroidÓ¦ÓÃ³ÌĞòÊÇÍ¨¹ıÏûÏ¢À´Çı¶¯µÄ£¬ÏµÍ³ÎªÃ¿Ò»¸öÓ¦ÓÃ³ÌĞòÎ¬»¤Ò»¸öÏûÏ¢¶ÓÀı£¬Ó¦ÓÃ³ÌĞ
 *** Message
 
 ** menu
-menu±êÇ©ÖĞitem±êÇ©µÄÖ÷ÒªÊôĞÔ¼û±í\ref{tbl-menu-bar}
-#+caption: android menu bar xmlÊôĞÔËµÃ÷
+menuæ ‡ç­¾ä¸­itemæ ‡ç­¾çš„ä¸»è¦å±æ€§è§è¡¨\ref{tbl-menu-bar}
+#+caption: android menu bar xmlå±æ€§è¯´æ˜
 #+label: tbl-menu-bar
 |-------------------------+------------------------------------------------------------|
-| ÊôĞÔÃû                  | ËµÃ÷                                                       |
+| å±æ€§å                  | è¯´æ˜                                                       |
 |-------------------------+------------------------------------------------------------|
-| android:orderInCategory | Ö¸Ã¿¸öitemÓÅÏÈ¼¶£¬ÖµÔ½´óÔ½µÍ£¬µØ·½²»¹»¾Í»á·Åµ½overflowÖĞ¡£ |
-| android:title           | itemµÄ±êÌâ¡£                                               |
-| android:icon            | itemÏÔÊ¾µÄÍ¼±ê¡£                                           |
-| app:showAsAction        | itemÏÔÊ¾µÄ·½Ê½¡£                                           |
+| android:orderInCategory | æŒ‡æ¯ä¸ªitemä¼˜å…ˆçº§ï¼Œå€¼è¶Šå¤§è¶Šä½ï¼Œåœ°æ–¹ä¸å¤Ÿå°±ä¼šæ”¾åˆ°overflowä¸­ã€‚ |
+| android:title           | itemçš„æ ‡é¢˜ã€‚                                               |
+| android:icon            | itemæ˜¾ç¤ºçš„å›¾æ ‡ã€‚                                           |
+| app:showAsAction        | itemæ˜¾ç¤ºçš„æ–¹å¼ã€‚                                           |
 |-------------------------+------------------------------------------------------------|

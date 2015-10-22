@@ -1,12 +1,12 @@
-#+title: Èí¼ş 
-#+author: ±È¿ËÂü
+#+title: è½¯ä»¶ 
+#+author: æ¯”å…‹æ›¼
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
 
-* ÓïÑÔ
-** CÓïÑÔ
-*** ºê¶¨ÒåÌØÊâÓÃ·¨
-- ´Ó×¢ÊÍÀ´¿´ÊÇ°Ñx×ª»»³É×Ö·û´®¡£
+* è¯­è¨€
+** Cè¯­è¨€
+*** å®å®šä¹‰ç‰¹æ®Šç”¨æ³•
+- ä»æ³¨é‡Šæ¥çœ‹æ˜¯æŠŠxè½¬æ¢æˆå­—ç¬¦ä¸²ã€‚
 #+begin_src c
 	/*
 	 * Macros to transform values
@@ -15,26 +15,26 @@
 	#define XMK_STR(x)    #x
 	#define MK_STR(x)    XMK_STR(x)
 #+end_src
-ÕÒµ½ÁËÏà¹ØµÄ×ÊÁÏ£¬½â¶ÁÁËÕâ¸ödefine£¬»¹Ë³±ãÈÏÊ¶ÁËÁíÍâÁ½¸ö²»³£ÓÃµÄdefine
+æ‰¾åˆ°äº†ç›¸å…³çš„èµ„æ–™ï¼Œè§£è¯»äº†è¿™ä¸ªdefineï¼Œè¿˜é¡ºä¾¿è®¤è¯†äº†å¦å¤–ä¸¤ä¸ªä¸å¸¸ç”¨çš„define
 #+begin_src c
 	#define Conn(x,y) x##y
 	#define ToChar(x) #@x
 	#define ToString(x) #x
 #+end_src
-x##y±íÊ¾Ê²Ã´£¿±íÊ¾xÁ¬½Óy£¬¾ÙÀıËµ£º
+x##yè¡¨ç¤ºä»€ä¹ˆï¼Ÿè¡¨ç¤ºxè¿æ¥yï¼Œä¸¾ä¾‹è¯´ï¼š
 #+begin_src c
-    int  n = Conn(123,456);  //½á¹û¾ÍÊÇn=123456;
-    char* str = Conn("asdf", "adf")//½á¹û¾ÍÊÇ str = "asdfadf";
+    int  n = Conn(123,456);  //ç»“æœå°±æ˜¯n=123456;
+    char* str = Conn("asdf", "adf")//ç»“æœå°±æ˜¯ str = "asdfadf";
 #+end_src
-ÔÙÀ´¿´#@x£¬ÆäÊµ¾ÍÊÇ¸øx¼ÓÉÏµ¥ÒıºÅ£¬½á¹û·µ»ØÊÇÒ»¸öconst char¡£¾ÙÀıËµ£ºchar a = ToChar(1);½á¹û¾ÍÊÇa='1';×ö¸öÔ½½çÊÔÑéchar a
-= ToChar(123);½á¹ûÊÇa='3'; µ«ÊÇÈç¹ûÄãµÄ²ÎÊı³¬¹ıËÄ¸ö×Ö·û£¬±àÒëÆ÷¾Í¸ø¸øÄã±¨´íÁË£¡error C2015: too many characters in
-constant; ×îºó¿´¿´#x,¹À¼ÆÄãÒ²Ã÷°×ÁË£¬ËûÊÇ¸øx¼ÓË«ÒıºÅ
+å†æ¥çœ‹#@xï¼Œå…¶å®å°±æ˜¯ç»™xåŠ ä¸Šå•å¼•å·ï¼Œç»“æœè¿”å›æ˜¯ä¸€ä¸ªconst charã€‚ä¸¾ä¾‹è¯´ï¼šchar a = ToChar(1);ç»“æœå°±æ˜¯a='1';åšä¸ªè¶Šç•Œè¯•éªŒchar a
+= ToChar(123);ç»“æœæ˜¯a='3'; ä½†æ˜¯å¦‚æœä½ çš„å‚æ•°è¶…è¿‡å››ä¸ªå­—ç¬¦ï¼Œç¼–è¯‘å™¨å°±ç»™ç»™ä½ æŠ¥é”™äº†ï¼error C2015: too many characters in
+constant; æœ€åçœ‹çœ‹#x,ä¼°è®¡ä½ ä¹Ÿæ˜ç™½äº†ï¼Œä»–æ˜¯ç»™xåŠ åŒå¼•å·
 #+begin_src c
-    char* str = ToString(123132);//¾Í³ÉÁËstr="123132";
+    char* str = ToString(123132);//å°±æˆäº†str="123132";
 #+end_src
-- ºêµ÷ÊÔ½Ó¿Ú
+- å®è°ƒè¯•æ¥å£
 #+begin_src c
-#pragma diag_suppress 174 //ÒÖÖÆ¾¯¸æ
+#pragma diag_suppress 174 //æŠ‘åˆ¶è­¦å‘Š
 #ifdef DEBUG
 #define printfdbg printf
 #else
@@ -42,12 +42,12 @@ constant; ×îºó¿´¿´#x,¹À¼ÆÄãÒ²Ã÷°×ÁË£¬ËûÊÇ¸øx¼ÓË«ÒıºÅ
 /printfdbg
 #endif
 #+end_src
-*** Î»²Ù×÷
-- ½«×îÓÒ²à0¸ÄÎª1£º
+*** ä½æ“ä½œ
+- å°†æœ€å³ä¾§0æ”¹ä¸º1ï¼š
   #+begin_src c
     x|(x+1) 
   #+end_src
-- ¼ÆËã¾ø¶ÔÖµ
+- è®¡ç®—ç»å¯¹å€¼
   #+begin_src c
     int abs( int x ) 
     {
@@ -56,34 +56,34 @@ constant; ×îºó¿´¿´#x,¹À¼ÆÄãÒ²Ã÷°×ÁË£¬ËûÊÇ¸øx¼ÓË«ÒıºÅ
         return (x^y)-y ;//or: (x+y)^y
     }
   #+end_src
-- ·ûºÅº¯Êı
+- ç¬¦å·å‡½æ•°
   #+begin_src c
     int sign(int x)
     {
-        return (x>>31) | (unsigned(-x))>>31 ;//x=-2^31Ê±Ê§°Ü(^ÎªÃİ)
+        return (x>>31) | (unsigned(-x))>>31 ;//x=-2^31æ—¶å¤±è´¥(^ä¸ºå¹‚)
     }
   #+end_src
-  1. sign(x) = -1, Ôòx<0;
-  2. sign(x) = 0, Ôòx==0 ;
-  3. sign(x) = 1, Ôòx>0
-- ÈıÖµ±È½Ï
+  1. sign(x) = -1, åˆ™x<0;
+  2. sign(x) = 0, åˆ™x==0 ;
+  3. sign(x) = 1, åˆ™x>0
+- ä¸‰å€¼æ¯”è¾ƒ
   #+begin_src c
     int cmp( int x, int y )
     {
         return (x>y)-(x-y) ;
     }
   #+end_src
-  1. cmp(x,y) = -1, Ôòx<y;
-  2. cmp(x,y) = 0, Ôòx==y;
-  3. cmp(x,y) = 1, Ôòx > y£»
-- ²»Ê¹ÓÃµÚÈı·½½»»»x,y
+  1. cmp(x,y) = -1, åˆ™x<y;
+  2. cmp(x,y) = 0, åˆ™x==y;
+  3. cmp(x,y) = 1, åˆ™x > yï¼›
+- ä¸ä½¿ç”¨ç¬¬ä¸‰æ–¹äº¤æ¢x,y
   #+begin_src c
     x ^= y ; y ^= x ; x ^= y ;
     x = x+y ; y = x-y ; x = x-y ;
     x = x-y ; y = y+x ; x = y-x ;
     x = y-x ; x = y-x ; x = x+y ; 
   #+end_src
-- Í³¼Æ1Î»µÄÊıÁ¿
+- ç»Ÿè®¡1ä½çš„æ•°é‡
   #+begin_src c
     int pop(unsigned x)
     {
@@ -95,7 +95,7 @@ constant; ×îºó¿´¿´#x,¹À¼ÆÄãÒ²Ã÷°×ÁË£¬ËûÊÇ¸øx¼ÓË«ÒıºÅ
         return x & 0x0000003f ;
     }
   #+end_src
-- Î»·´×ª
+- ä½åè½¬
   #+begin_src c
     unsigned rev(unsigned x)
     {
@@ -106,14 +106,14 @@ constant; ×îºó¿´¿´#x,¹À¼ÆÄãÒ²Ã÷°×ÁË£¬ËûÊÇ¸øx¼ÓË«ÒıºÅ
         return x ;
     }
   #+end_src
-- ¶ş½øÖÆÂëµ½GRAYÂëµÄ×ª»»
+- äºŒè¿›åˆ¶ç åˆ°GRAYç çš„è½¬æ¢
   #+begin_src c
     unsigned B2G(unsigned B )
     {
         return B ^ (B>>1) ;
     }
   #+end_src
-- GRAYÂëµ½¶ş½øÖÆÂë
+- GRAYç åˆ°äºŒè¿›åˆ¶ç 
   #+begin_src c
     unsigned G2B(unsigned G)
     {
@@ -126,22 +126,22 @@ constant; ×îºó¿´¿´#x,¹À¼ÆÄãÒ²Ã÷°×ÁË£¬ËûÊÇ¸øx¼ÓË«ÒıºÅ
         return B ;
     }
   #+end_src
-** JAVAÓïÑÔ
-** PYTHONÓïÑÔ
+** JAVAè¯­è¨€
+** PYTHONè¯­è¨€
 *** numpy
-- array¾ØÕóµÄmaxºÍmin¾²Ì¬ÊôĞÔ£º±ÈÈçarray¾ØÕódata=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) ºÍ
-  data.max(0)ÊÇ´ÓÃ¿ÁĞÖĞ»ñÈ¡µÄminºÍmax£¬×é³ÉÒ»¸öÏòÁ¿£¬data.min(1) ºÍdata.max(1)ÊÇ´ÓÃ¿ĞĞÖĞ»ñµÃminºÍmax£»
+- arrayçŸ©é˜µçš„maxå’Œminé™æ€å±æ€§ï¼šæ¯”å¦‚arrayçŸ©é˜µdata=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) å’Œ
+  data.max(0)æ˜¯ä»æ¯åˆ—ä¸­è·å–çš„minå’Œmaxï¼Œç»„æˆä¸€ä¸ªå‘é‡ï¼Œdata.min(1) å’Œdata.max(1)æ˜¯ä»æ¯è¡Œä¸­è·å¾—minå’Œmaxï¼›
 
 *** matplotlib
-´Ë°ü×¢ÒâÓÃÓÚ»­Í¼
+æ­¤åŒ…æ³¨æ„ç”¨äºç”»å›¾
 
-**** »­XYÖáÀëÉ¢µãÍ¼
-1. ÏÈ»ñµÃx,yµÄÈ¡Öµ·¶Î§£¬±ÈÈçx=numpy.arange(0, 10), y=numpy.arange(3, 10), Æä¸öÊıÒªÒ»ÖÂ£»
-2. µ¹Èë»­Í¼°ü£ºimport matplotlib.pyplot as plt£»
-3. ¿ªÊ¼»­Í¼£ºplt.plot(x, y, 'o-'), µÚ3¸ö²ÎÊıÓÃÓÚ¶Ôµã½øĞĞ±ê×¢£»
-4. ÉèÖÃ±êÌâ£ºplt.title('x, y test')
-5. ÉèÖÃXÖáËµÃ÷£ºplt.xlabel('x label')
-6. ÉèÖÃyÖáËµÃ÷£ºplt.ylabel('y label')
-7. ÏÔÊ¾Í¼£ºplt.show()
+**** ç”»XYè½´ç¦»æ•£ç‚¹å›¾
+1. å…ˆè·å¾—x,yçš„å–å€¼èŒƒå›´ï¼Œæ¯”å¦‚x=numpy.arange(0, 10), y=numpy.arange(3, 10), å…¶ä¸ªæ•°è¦ä¸€è‡´ï¼›
+2. å€’å…¥ç”»å›¾åŒ…ï¼šimport matplotlib.pyplot as pltï¼›
+3. å¼€å§‹ç”»å›¾ï¼šplt.plot(x, y, 'o-'), ç¬¬3ä¸ªå‚æ•°ç”¨äºå¯¹ç‚¹è¿›è¡Œæ ‡æ³¨ï¼›
+4. è®¾ç½®æ ‡é¢˜ï¼šplt.title('x, y test')
+5. è®¾ç½®Xè½´è¯´æ˜ï¼šplt.xlabel('x label')
+6. è®¾ç½®yè½´è¯´æ˜ï¼šplt.ylabel('y label')
+7. æ˜¾ç¤ºå›¾ï¼šplt.show()
 
 

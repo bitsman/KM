@@ -1,46 +1,46 @@
-#+title: ����ѧϰ 
-#+author: �ȿ���
+#+title: 机器学习 
+#+author: 比克曼
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
 
-* �㷨
-** cordic�㷨
-���Ǻ����ļ����Ǹ����ӵ����⣬�м����֮ǰ������ͨ��ͨ���������Ǻ���������������Ƕȵ����Ǻ�����ֵ�����ֱ��������Ǹող�
-�����Ǻ����ĸ����ʱ����Ѿ����ˣ�����ͨ����ͨ������ֵ֪������sin(��/2)=1����ʼ���ظ�Ӧ�ð�ǺͺͲʽ�����ɡ���������
-����������Ǻ��������Ƴ�����ʷ����̨����������������ϲ���ٸ��ʵ׵��ˣ�����Ҫ�ʼ����������μ������Ǻ���ֵ���ء���������
-���İ취�������ü���չ��������̩�ռ������ƽ����Ǻ�����ֻҪ����ȡ���㹻�����������ľ������ƽ�����ֵ������̩�ռ����ƽ�֮
-�⣬������������ıƽ������������б�ѩ��ƽ������һ�±ƽ���Pad���ƽ��ȡ�������Щ�ƽ����������϶����ö���ʽ������������
-��Ҫ��������Ǻ�������������б�ȻҪ�漰�������ĸ������㡣��ȱ��Ӳ���˷����ļ��豸�ϣ�����û�и������㵥Ԫ�ĵ�Ƭ������
-����Щ�������������Ǻ�����ǳ��ķ�ʱ��Ϊ�˽��������⣬J. Volder��1959�������һ�ֿ����㷨����֮Ϊcordic(coordinate
-rotation digital computer) �㷨������㷨ֻ������λ�ͼӼ����㣬���ܼ��㳣�����Ǻ���ֵ����sin��cos��sinh��cosh�Ⱥ�����
-J. Walther��1974���������㷨�Ļ����Ͻ�һ���Ľ���ʹ����Լ�������ֳ�Խ�������������չ��Cordic �㷨��Ӧ�á���ΪCordic��
-��ֻ������λ�ͼӷ����������ô�Ӳ����ʵ�֣�������ǳ�����FPGA����ƽ̨�ϼ���������Ӱ�����������������������Ա�Ƕ�û����˵
-�������㷨��Ҳ������������ȥ�������㷨����ʵ����Ƕ��ʽ������������������û�и�������ָ���Ƕ��ʽƽ̨�����綨����DSP����
-������ʱ�����ǻ����Ͽ����õ�cordic �㷨������ģ��������ջ�����cordic�㷨�������õġ�
-*** ����
-���Ǻ����ļ����Ǹ����ӵ����⣬�м����֮ǰ������ͨ��ͨ���������Ǻ���������������Ƕȵ����Ǻ�����ֵ�����ֱ��������Ǹող�
-�����Ǻ����ĸ����ʱ����Ѿ����ˣ�����ͨ����ͨ������ֵ֪������sin(��/2)=1����ʼ���ظ�Ӧ�ð�ǺͺͲʽ�����ɡ� 
-�������˼���������Ǻ��������Ƴ�����ʷ����̨����������������ϲ���ٸ��ʵ׵��ˣ�����Ҫ�ʼ����������μ������Ǻ���ֵ���ء�
-�������뵽�İ취�������ü���չ��������̩�ռ������ƽ����Ǻ�����ֻҪ����ȡ���㹻�����������ľ������ƽ�����ֵ������̩�ռ�
-���ƽ�֮�⣬������������ıƽ������������б�ѩ��ƽ������һ�±ƽ���Pad���ƽ��ȡ� 
-������Щ�ƽ����������϶����ö���ʽ��������������Ҫ��������Ǻ�������������б�ȻҪ�漰�������ĸ������㡣��ȱ��Ӳ���˷���
-�ļ��豸�ϣ�����û�и������㵥Ԫ�ĵ�Ƭ����������Щ�������������Ǻ�����ǳ��ķ�ʱ��Ϊ�˽��������⣬J. Volder��1959��
-�����һ�ֿ����㷨����֮Ϊcordic(coordinate rotation digital computer) �㷨������㷨ֻ������λ�ͼӼ����㣬���ܼ��㳣��
-���Ǻ���ֵ����sin��cos��sinh��cosh�Ⱥ����� J. Walther��1974���������㷨�Ļ����Ͻ�һ���Ľ���ʹ����Լ�������ֳ�Խ������
-�������չ��cordic �㷨��Ӧ�á���Ϊcordic �㷨ֻ������λ�ͼӷ����������ô�Ӳ����ʵ�֣�������ǳ�����fpga����ƽ̨�ϼ�����
-����Ӱ�����������������������Ա�Ƕ�û����˵�������㷨��Ҳ������������ȥ�������㷨����ʵ����Ƕ��ʽ������������������û��
-��������ָ���Ƕ��ʽƽ̨�����綨����dsp����������ʱ�����ǻ����Ͽ����õ�cordic �㷨������ģ��������ջ�����cordic�㷨����
-���õġ� 
-*** �Ӷ��ֲ��ҷ�˵��
-�ȴ�һ������˵��֪��ƽ����һ����ֱ������ϵ�µ����꣨X,Y��=��100��200�����������ڼ�����ϵ�µ����꣨��,�ȣ����ü�����
-����һ�¿�֪���ǣ�223.61��63.435������ͼ\ref{img-cordic1}��ʾ��
-#+caption: ֱ������ϵ��������ϵ��ת��
+* 算法
+** cordic算法
+三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
+生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。现在有了
+计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨根问底的人，不禁要问计算机又是如何计算三角函数值的呢。最容易想
+到的办法就是利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精度来逼近函数值。除了泰勒级数逼近之
+外，还有其他许多的逼近方法，比如切比雪夫逼近、最佳一致逼近和Padé逼近等。所有这些逼近方法本质上都是用多项式函数来近似我
+们要计算的三角函数，计算过程中必然要涉及到大量的浮点运算。在缺乏硬件乘法器的简单设备上（比如没有浮点运算单元的单片机），
+用这些方法来计算三角函数会非常的费时。为了解决这个问题，J. Volder于1959年提出了一种快速算法，称之为cordic(coordinate
+rotation digital computer) 算法，这个算法只利用移位和加减运算，就能计算常用三角函数值，如sin，cos，sinh，cosh等函数。
+J. Walther在1974年在这种算法的基础上进一步改进，使其可以计算出多种超越函数，更大的扩展了Cordic 算法的应用。因为Cordic算
+法只用了移位和加法，很容易用纯硬件来实现，因此我们常能在FPGA运算平台上见到它的身影。不过，大多数的软件程序员们都没有听说
+过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是在没有浮点运算指令的嵌入式平台（比如定点型DSP）上
+做开发时，还是会遇上可以用到cordic 算法的情况的，所以掌握基本的cordic算法还是有用的。
+*** 背景
+三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
+生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。 
+现在有了计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨根问底的人，不禁要问计算机又是如何计算三角函数值的呢。
+最容易想到的办法就是利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精度来逼近函数值。除了泰勒级
+数逼近之外，还有其他许多的逼近方法，比如切比雪夫逼近、最佳一致逼近和Padé逼近等。 
+所有这些逼近方法本质上都是用多项式函数来近似我们要计算的三角函数，计算过程中必然要涉及到大量的浮点运算。在缺乏硬件乘法器
+的简单设备上（比如没有浮点运算单元的单片机），用这些方法来计算三角函数会非常的费时。为了解决这个问题，J. Volder于1959年
+提出了一种快速算法，称之为cordic(coordinate rotation digital computer) 算法，这个算法只利用移位和加减运算，就能计算常用
+三角函数值，如sin，cos，sinh，cosh等函数。 J. Walther在1974年在这种算法的基础上进一步改进，使其可以计算出多种超越函数，
+更大的扩展了cordic 算法的应用。因为cordic 算法只用了移位和加法，很容易用纯硬件来实现，因此我们常能在fpga运算平台上见到它
+的身影。不过，大多数的软件程序员们都没有听说过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是在没有
+浮点运算指令的嵌入式平台（比如定点型dsp）上做开发时，还是会遇上可以用到cordic 算法的情况的，所以掌握基本的cordic算法还是
+有用的。 
+*** 从二分查找法说起
+先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），如何求的在极坐标系下的坐标（ρ,θ）。用计算器
+计算一下可知答案是（223.61，63.435），见图\ref{img-cordic1}所示。
+#+caption: 直角坐标系到极坐标系的转换
 #+label: img-cordic1
 #+attr_latex: placement=[H] scale=0.3
 [[./img/cordic1.jpg]]
-Ϊ��ͻ���ص㣬��������ֻ����X��Y��Ϊ�������������ʱ\(��=atan(y/x)\)����ȵĹ���Ҳ������atan �����Ĺ��̡�cordic�㷨����
-���뷨��ֱ�ӣ�����X��Y����תһ���Ķ����������ת���������Ϊ��0����ô��ת�Ķ������Ǧȡ�������ת�Ĺ�ʽ���ܴ�Ҷ����ˣ���
-��ѹ�ʽ�г��ˡ��裨x,y����ԭʼ����㣬������ԭ��Ϊ���ģ�˳ʱ����ת��֮��������Ϊ��x��,y����,�������¹�ʽ��
+为了突出重点，这里我们只讨论X和Y都为正数的情况。这时\(θ=atan(y/x)\)。求θ的过程也就是求atan 函数的过程。cordic算法采用
+的想法很直接，将（X，Y）旋转一定的度数，如果旋转完纵坐标变为了0，那么旋转的度数就是θ。坐标旋转的公式可能大家都忘了，这
+里把公式列出了。设（x,y）是原始坐标点，将其以原点为中心，顺时针旋转θ之后的坐标记为（x’,y’）,则有如下公式：
 $$ f(x)=\left\{
 \begin{aligned}
 x' & = & x\cos(\Theta) + ysin(\Theta) \\
@@ -48,25 +48,25 @@ y' & = & -x\sin(\Theta) + ycos(\Theta) \\
 \end{aligned}
 \right.
 $$
-Ҳ����д�ɾ�����ʽ��
+也可以写成矩阵形式：
 $$ {x' \choose y'}={cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)}{x \choose y} $$
-�����ת�أ����Խ�����ֲ��ҷ���˼�롣����֪���ȵķ�Χ��0��90�ȡ���ô������ת45�����ԡ�
+如何旋转呢，可以借鉴二分查找法的思想。我们知道θ的范围是0到90度。那么就先旋转45度试试。
 $$ {212.13 \choose 70.711} = {cos(45^{\circ}) \quad sin(45^{\circ}) \choose -sin(45^{\circ}) \quad cos(45^{\circ})}{100 \choose 200}$$ 
-��ת֮��������Ϊ70.71�����Ǵ���0��˵����ת�Ķ�����������������ת22.5�ȣ�45�ȵ�һ�룩��
+旋转之后纵坐标为70.71，还是大于0，说明旋转的度数不够，接着再旋转22.5度（45度的一半）。
 $${223.04 \choose -15.85} = {cos(45^{\circ}/2) \quad sin(45^{\circ}/2) \choose -sin(45^{\circ}/2) \quad cos(45^{\circ}/2)} {212.13 \choose 70.711} $$ 
-��ʱ�ܹ���ת��45+22.5=67.5�ȡ�����������Ϊ�˸�����˵����<67.5�ȣ���ʱ��Ҫ����ת�����Ƕ��ֲ��ҷ���˼�룬���ת11.25�ȡ�
+这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ<67.5度，这时就要往回转，还是二分查找法的思想，这次转11.25度。
 $${221.85 \choose 27.967} = {cos(-45^{\circ}/4) \quad sin(-45^{\circ}/4) \choose -sin(-45^{\circ}/4) \quad cos(-45^{\circ}/4)} {223.04 \choose -15.851} $$ 
-��ʱ�ܹ���ת��45+22.5-11.25=56.25�ȡ���ת��ͷ�ˣ�������ת�����˳ʱ��ת5.625�ȡ�
+这时总共旋转了45+22.5-11.25=56.25度。又转过头了，接着旋转，这次顺时针转5.625度。
 $${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -sin(45^{\circ}/8) \quad cos(45^{\circ}/8)} {221.85 \choose 27.967} $$ 
-��ʱ�ܹ���ת��45+22.5-11.25+5.625=61.875�ȡ���ʱ�������Ѿ��ܽӽ�0�ˡ�����ֻ��˵���㷨��˼�룬��˾Ͳ��������¼����ˡ���
-�㵽�������Ǹ��Ĵ��� 61.875��5.625�����ֲ��ҷ������ϲ��ҵ���һ�����䣬������Ǹ������Ǧ�ֵ��һ����Χ��ͬʱ�����굽ԭ��
-�ľ����Ҳ������ˣ���=223.52�����׼�𰸱Ƚ�һ�¼���Ľ�����ǿ��Եġ���ת�Ĺ���ͼʾ��\ref{img-trans}��
-#+caption: ��ת����ͼ
+这时总共旋转了45+22.5-11.25+5.625=61.875度。这时纵坐标已经很接近0了。我们只是说明算法的思想，因此就不接着往下计算了。计
+算到这里我们给的答案是 61.875±5.625。二分查找法本质上查找的是一个区间，因此我们给出的是θ值的一个范围。同时，坐标到原点
+的距离ρ也求出来了，ρ=223.52。与标准答案比较一下计算的结果还是可以的。旋转的过程图示如\ref{img-trans}。
+#+caption: 旋转过程图
 #+label: img-trans
 #+attr_latex: placement=[H] scale=0.3
 [[./img/cordic2.jpg]]
-�����ж��߻��ʣ��������õ���sin������cos��������Щֵ������ô�����ء��ܼ򵥣�����ֻ�õ����ٵļ���������sin ������
-cos ������ֵ����ǰ����ô���������ʱ�����
+可能有读者会问，计算中用到了sin函数和cos函数，这些值又是怎么计算呢。很简单，我们只用到很少的几个特殊点的sin 函数和
+cos 函数的值，提前计算好存起来，用时查表。
 #+begin_src c
 #include <stdio.h>
 #include <stdlib.h>
@@ -122,7 +122,7 @@ cos ������ֵ����ǰ����ô���������ʱ�����
     return angleSum;
 }
 #+end_src
-�������е����������£�
+程序运行的输出结果如下：
 #+begin_src c
 	Debug: i = 0 angleSum = 45.000000, angle = 45.000000
 	Debug: i = 1 angleSum = 67.500000, angle = 22.500000
@@ -141,14 +141,14 @@ cos ������ֵ����ǰ����ô���������ʱ�����
 	Debug: i = 14 angleSum = 63.432312, angle = 0.002747
 	z = 63.432312
 #+end_src
-*** ���ٳ˷�����
-�����Ѿ��е�cordic�㷨�������ˣ��������ǿ���û��ѭ����Ҫ����4�θ������ĳ˷����㣬����������̫���ˡ�����Ҫ��һ���ĸ�
-�����Ľ�������㵱Ȼ��������任�Ĺ��̡����ǽ�����任��ʽ��һ���Ρ�
+*** 减少乘法运算
+现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法运算，运算量还是太大了。还需要进一步的改
+进。改进的切入点当然还是坐标变换的过程。我们将坐标变换公式变一下形。
 $${x' \choose y'} = {cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)} {x \choose y} = cos(\Theta){1
 \quad tan(\Theta) \choose -tan(\Theta) \quad 1}{x \choose y}$$ 
-���Կ��� cos(��)���ԴӾ�������������������ǿ��������ٳ���Щ��ֱ�Ӱ� cos(��) ��ʡ�Ե���ʡ��cos(��)������ʲô�أ�ÿ����
-ת���������㵽ԭ��ľ��붼�䳤�ˣ�������ϵ����1/cos(��)������û�й�ϵ����������Ǧȣ������Ħѵĸı䡣�����ı��ηǳ���
-�򵥣�����ÿ��ѭ����������һ�¾ʹ�4�γ˷�������2�γ˷��ˡ����Ǹ��� C ���Ե�ʵ�֣�
+可以看出 cos(θ)可以从矩阵运算中提出来。我们可以做的再彻底些，直接把 cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋
+转后的新坐标点到原点的距离都变长了，放缩的系数是1/cos(θ)。不过没有关系，我们求的是θ，不关心ρ的改变。这样的变形非常的
+简单，但是每次循环的运算量一下就从4次乘法降到了2次乘法了。还是给出 C 语言的实现：
 #+begin_src c
 double my_atan3(double x, double y)
 {
@@ -182,41 +182,41 @@ double my_atan3(double x, double y)
             y = y_new;
             angleSum -= angle;
         }
-        printf("Debug: i = %d angleSum = %f, angle = %f, �� = %f\n", i, angleSum, angle, hypot(x,y));
+        printf("Debug: i = %d angleSum = %f, angle = %f, ρ = %f\n", i, angleSum, angle, hypot(x,y));
         angle /= 2;
     }
     return angleSum;
 }
 #+end_src
-����Ľ���ǣ�
+计算的结果是：
 #+begin_src c
-Debug: i = 0 angleSum = 45.000000, angle = 45.000000, �� = 316.227766
-Debug: i = 1 angleSum = 67.500000, angle = 22.500000, �� = 342.282467
-Debug: i = 2 angleSum = 56.250000, angle = 11.250000, �� = 348.988177
-Debug: i = 3 angleSum = 61.875000, angle = 5.625000, �� = 350.676782
-Debug: i = 4 angleSum = 64.687500, angle = 2.812500, �� = 351.099697
-Debug: i = 5 angleSum = 63.281250, angle = 1.406250, �� = 351.205473
-Debug: i = 6 angleSum = 63.984375, angle = 0.703125, �� = 351.231921
-Debug: i = 7 angleSum = 63.632813, angle = 0.351563, �� = 351.238533
-Debug: i = 8 angleSum = 63.457031, angle = 0.175781, �� = 351.240186
-Debug: i = 9 angleSum = 63.369141, angle = 0.087891, �� = 351.240599
-Debug: i = 10 angleSum = 63.413086, angle = 0.043945, �� = 351.240702
-Debug: i = 11 angleSum = 63.435059, angle = 0.021973, �� = 351.240728
-Debug: i = 12 angleSum = 63.424072, angle = 0.010986, �� = 351.240734
-Debug: i = 13 angleSum = 63.429565, angle = 0.005493, �� = 351.240736
-Debug: i = 14 angleSum = 63.432312, angle = 0.002747, �� = 351.240736
+Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
+Debug: i = 1 angleSum = 67.500000, angle = 22.500000, ρ = 342.282467
+Debug: i = 2 angleSum = 56.250000, angle = 11.250000, ρ = 348.988177
+Debug: i = 3 angleSum = 61.875000, angle = 5.625000, ρ = 350.676782
+Debug: i = 4 angleSum = 64.687500, angle = 2.812500, ρ = 351.099697
+Debug: i = 5 angleSum = 63.281250, angle = 1.406250, ρ = 351.205473
+Debug: i = 6 angleSum = 63.984375, angle = 0.703125, ρ = 351.231921
+Debug: i = 7 angleSum = 63.632813, angle = 0.351563, ρ = 351.238533
+Debug: i = 8 angleSum = 63.457031, angle = 0.175781, ρ = 351.240186
+Debug: i = 9 angleSum = 63.369141, angle = 0.087891, ρ = 351.240599
+Debug: i = 10 angleSum = 63.413086, angle = 0.043945, ρ = 351.240702
+Debug: i = 11 angleSum = 63.435059, angle = 0.021973, ρ = 351.240728
+Debug: i = 12 angleSum = 63.424072, angle = 0.010986, ρ = 351.240734
+Debug: i = 13 angleSum = 63.429565, angle = 0.005493, ρ = 351.240736
+Debug: i = 14 angleSum = 63.432312, angle = 0.002747, ρ = 351.240736
 z = 63.432312
 #+end_src
-*** �����˷�����
-�����Ѿ��ɹ��Ľ��˷��Ĵ���������һ�룬����û�п��ܽ�һ�������������أ���Ҫ�Ӽ���ʽ���֡���һ��ѭ��ʱ��tan(45)=1�����Ե�
-һ��ѭ��ʵ�����ǲ���Ҫ�˷�����ġ��ڶ��������أ� 
-tan(22.5)=0.4142135623731,�ܲ��ң��ڶ���ѭ�������Ǹ��ܲ�����С�����Ƿ��ܶ������һ���أ����ǿ϶��ġ��ڶ���ѡ��22.5����
-��Ϊ���ֲ��ҷ��Ĳ���Ч����ߡ����ѡ�ø���22.5��45��֮���ֵ�����ҵ�Ч�ʻή��һЩ�������΢����һ����ҵ�Ч������������
-Ч�ļ��ٳ˷��Ĵ�����ʹ���յļ����ٶ�����ˣ���ô���ָĽ�����ֵ�õġ� 
-���Ƿ���tan(26.565051177078)=0.5��������ǵڶ�����ת����26.565051177078�ȣ���ô������Ϊ0.5��������ǲ��ö���������Ļ�
-��û�и���Э������ʱΪ�˼��ټ������ǻ�����Ĳ��ö������㷨������0.5���൱�ڽ���������һλ�����������Ǻܿ�ģ������ڶ���
-ѭ���еĳ˷�����Ҳ�������ˡ����Ƶķ�����������ѭ���в���11.25�ȣ������� 14.0362434679265 �ȡ�tan(14.0362434679265)= 1/4  
-����������λ�Ϳ����ˡ�ʣ�µĶ��Դ����ơ�
+*** 消除乘法运算
+我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要从计算式入手。第一次循环时，tan(45)=1，所以第
+一次循环实际上是不需要乘法运算的。第二次运算呢？ 
+tan(22.5)=0.4142135623731,很不幸，第二次循环乘数是个很不整的小数。是否能对其改造一下呢？答案是肯定的。第二次选择22.5度是
+因为二分查找法的查找效率最高。如果选用个在22.5到45度之间的值，查找的效率会降低一些。如果稍微降低一点查找的效率能让我们有
+效的减少乘法的次数，使最终的计算速度提高了，那么这种改进就是值得的。 
+我们发现tan(26.565051177078)=0.5，如果我们第二次旋转采用26.565051177078度，那么乘数变为0.5，如果我们采用定点数运算的话
+（没有浮点协处理器时为了加速计算我们会大量的采用定点数算法）乘以0.5就相当于将乘数右移一位。右移运算是很快的，这样第二次
+循环中的乘法运算也被消除了。类似的方法，第三次循环中不用11.25度，而采用 14.0362434679265 度。tan(14.0362434679265)= 1/4  
+乘数右移两位就可以了。剩下的都以此类推。
 #+begin_src c
 tan(45)= 1
 tan(26.565051177078)= 1/2
@@ -228,8 +228,8 @@ tan(0.8951737102111)= 1/64
 tan(0.4476141708606)= 1/128
 tan(0.2238105003685)= 1/256
 #+end_src
-���Ǹ���C���Ե�ʵ�ִ��룬���ǲ���ѭ�򽥽��ķ������ȸ�����������ʵ�֣���Ϊ�õ��˸����������Բ�û�м��ٳ˷������������ҵ�
-Ч��Ҳ�ȶ��ֲ��ҷ�Ҫ�ͣ�������˵����㷨ʵ�ֺܵ�Ч��������������Ŀ�����ڸ����㷨ʵ�ֵ�ʾ����˵��������������ģ���
+还是给出C语言的实现代码，我们采用循序渐进的方法，先给出浮点数的实现（因为用到了浮点数，所以并没有减少乘法运算量，查找的
+效率也比二分查找法要低，理论上说这个算法实现很低效。不过这个代码的目的在于给出算法实现的示意性说明，还是有意义的）。
 #+begin_src  c
 double my_atan4(double x, double y)
 {
@@ -264,34 +264,34 @@ double my_atan4(double x, double y)
             y = y_new;
             angleSum -= angle[i];
         }
-        printf("Debug: i = %d angleSum = %f, angle = %f, �� = %f\n", i, angleSum, angle[i], hypot(x, y));
+        printf("Debug: i = %d angleSum = %f, angle = %f, ρ = %f\n", i, angleSum, angle[i], hypot(x, y));
     }
     return angleSum;
 }
 #+end_src
-�������е����������£�
+程序运行的输出结果如下：
 #+begin_src c
-Debug: i = 0 angleSum = 45.000000, angle = 45.000000, �� = 316.227766
-Debug: i = 1 angleSum = 71.565051, angle = 26.565051, �� = 353.553391
-Debug: i = 2 angleSum = 57.528808, angle = 14.036243, �� = 364.434493
-Debug: i = 3 angleSum = 64.653824, angle = 7.125016, �� = 367.270602
-Debug: i = 4 angleSum = 61.077490, angle = 3.576334, �� = 367.987229
-Debug: i = 5 angleSum = 62.867400, angle = 1.789911, �� = 368.166866
-Debug: i = 6 angleSum = 63.762574, angle = 0.895174, �� = 368.211805
-Debug: i = 7 angleSum = 63.314960, angle = 0.447614, �� = 368.223042
-Debug: i = 8 angleSum = 63.538770, angle = 0.223811, �� = 368.225852
-Debug: i = 9 angleSum = 63.426865, angle = 0.111906, �� = 368.226554
-Debug: i = 10 angleSum = 63.482818, angle = 0.055953, �� = 368.226729
-Debug: i = 11 angleSum = 63.454841, angle = 0.027976, �� = 368.226773
-Debug: i = 12 angleSum = 63.440853, angle = 0.013988, �� = 368.226784
-Debug: i = 13 angleSum = 63.433859, angle = 0.006994, �� = 368.226787
-Debug: i = 14 angleSum = 63.437356, angle = 0.003497, �� = 368.226788
+Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
+Debug: i = 1 angleSum = 71.565051, angle = 26.565051, ρ = 353.553391
+Debug: i = 2 angleSum = 57.528808, angle = 14.036243, ρ = 364.434493
+Debug: i = 3 angleSum = 64.653824, angle = 7.125016, ρ = 367.270602
+Debug: i = 4 angleSum = 61.077490, angle = 3.576334, ρ = 367.987229
+Debug: i = 5 angleSum = 62.867400, angle = 1.789911, ρ = 368.166866
+Debug: i = 6 angleSum = 63.762574, angle = 0.895174, ρ = 368.211805
+Debug: i = 7 angleSum = 63.314960, angle = 0.447614, ρ = 368.223042
+Debug: i = 8 angleSum = 63.538770, angle = 0.223811, ρ = 368.225852
+Debug: i = 9 angleSum = 63.426865, angle = 0.111906, ρ = 368.226554
+Debug: i = 10 angleSum = 63.482818, angle = 0.055953, ρ = 368.226729
+Debug: i = 11 angleSum = 63.454841, angle = 0.027976, ρ = 368.226773
+Debug: i = 12 angleSum = 63.440853, angle = 0.013988, ρ = 368.226784
+Debug: i = 13 angleSum = 63.433859, angle = 0.006994, ρ = 368.226787
+Debug: i = 14 angleSum = 63.437356, angle = 0.003497, ρ = 368.226788
 z = 63.437356
 #+end_src
-���������׼�������ǿ��������۶������㷨�ˡ���ν���������㣬��ʵ�����������㡣������256 ��ʾ1�ȡ������Ļ����ǾͿ��Ծ�ȷ
-��1/256=0.00390625 ���ˣ�����ڴ��������������㹻��ȷ���ˡ�256 ��ʾ1�ȣ���ô45�Ⱦ��� 45*256 = 115200�������Ķ����Դ���
-��, ������������\ref(tbl-dedaicishu)��
-#+caption: ��������
+有了上面的准备，我们可以来讨论定点数算法了。所谓定点数运算，其实就是整数运算。我们用256 表示1度。这样的话我们就可以精确
+到1/256=0.00390625 度了，这对于大多数的情况都是足够精确的了。256 表示1度，那么45度就是 45*256 = 115200。其他的度数以此类
+推, 迭代次数见表\ref(tbl-dedaicishu)。
+#+caption: 迭代次数
 #+label: tbl-dedaicishu
 #+attr_latex: placement=[H] scale=0.3
 |--------+-------------------+------------------+---------|
@@ -327,7 +327,7 @@ z = 63.437356
 |--------+-------------------+------------------+---------|
 |     15 | 0.003497056850704 |  0.8952465537802 |       1 |
 |--------+-------------------+------------------+---------|
-C �������£�
+C 代码如下：
 #+begin_src c
 int my_atan5(int x, int y)
 {
@@ -337,7 +337,7 @@ int my_atan5(int x, int y)
     int x_new, y_new;
     int angleSum = 0;
  
-    x *= 1024;// �� X Y �Ŵ�һЩ��������׼ȷ
+    x *= 1024;// 将 X Y 放大一些，结果会更准确
     y *= 1024;
  
     for(i = 0; i < 15; i++)
@@ -363,7 +363,7 @@ int my_atan5(int x, int y)
     return angleSum;
 }
 #+end_src
-����������:
+计算结果如下:
 #+begin_src c
 Debug: i = 0 angleSum = 11520, angle = 11520
 Debug: i = 1 angleSum = 18321, angle = 6801
@@ -382,17 +382,17 @@ Debug: i = 13 angleSum = 16237, angle = 2
 Debug: i = 14 angleSum = 16238, angle = 1
 z = 16238
 #+end_src
-16238/256=63.4296875�ȣ���ȷ�Ľ����63.4349499�ȣ���������Ĳ�Ϊ0.00526�����Ǻܾ�ȷ�ġ�
-������cordic�㷨������ĵ�˼��ͽ������ˡ���Ȼ��������ܵ�ֻ��cordic�㷨����������ݣ�ʵ���ϣ�����cordic �㷨�������
-���� atan �������������� sin��cos��sinh��cosh ��һϵ�еĺ��������Լ��㣬������Щ�����ڱ��ĵ����۷�Χ���ˡ����⣬ÿ����ת
-ʱ��ԭ��ľ��붼�ᷢ���仯��������仯��ȷ���ģ���˿�����ѭ������������Դ˲��������������Ļ����Ǿ�ͬʱ������,�ȣ�����
-������ˡ� 
-** k�ٽ��㷨
-K�ٽ��㷨��Ҫ���ý�һ�����������滮Ϊ��֪�ı�ǩ��ÿ��������Ա�ǩ�����ɵ�����ֵ��Ȼ�����µ�������ʱ�������������㵽��
-֪�����ľ��룬Ȼ��ѡȡǰK����������������ı�ǩ����ͶƱ����Ʊ���ı�ǩ��Ϊ�������ı�ǩ��ʵ���������£���������
-createDataSet��������һ�����������ͱ�ǩ��������array��ÿ��Ԫ�ش���һ����֪��������ÿ����֪�����ĸ���Ԫ�ش���������ֵ��
-labels������group��ÿ�������ı�ǩ����ͨ��classify0������������inX���ൽĳ����ǩ�ϡ� *ע��:* Ҫ���б���Ҫɾ�����е�����ע
-�͡� 
+16238/256=63.4296875度，精确的结果是63.4349499度，两个结果的差为0.00526，还是很精确的。
+到这里cordic算法的最核心的思想就介绍完了。当然，这里介绍的只是cordic算法最基本的内容，实际上，利用cordic 算法不光可以
+计算 atan 函数，其他的像 sin，cos，sinh，cosh 等一系列的函数都可以计算，不过那些都不在本文的讨论范围内了。另外，每次旋转
+时到原点的距离都会发生变化，而这个变化是确定的，因此可以在循环运算结束后以此补偿回来，这样的话我们就同时将（ρ,θ）都计
+算出来了。 
+** k临近算法
+K临近算法主要采用将一定的样本，规划为已知的标签，每个样本针对标签有若干的特征值，然后当有新的样本点时，计算新样本点到已
+知样本的距离，然后选取前K个距离最近的样本的标签进行投票，得票最多的标签作为该样本的标签。实例代码如下，我们有由
+createDataSet函数生成一个测试样本和标签集，其中array的每个元素代表一个已知样本，而每个已知样本的各个元素代表其特征值，
+labels给出了group的每个样本的标签；现通过classify0函数将新样本inX归类到某个标签上。 *注意:* 要运行必须要删除所有的中文注
+释。 
 #+begin_src python
 import numpy as np
 import scipy as sp
@@ -403,43 +403,43 @@ def createDataSet():
     labels = ['A', 'A', 'B', 'B']
     return group, labels
 
-# inX��dataSet��������Ӧ����һ�µ�
-# ÿ���д���һ������
+# inX和dataSet的行向量应该是一致的
+# 每个行代表一个样本
 def classify0(inX, dataSet, labels, k):
-    # dataSet��һ��numpy array��shape���԰�������������������shape[0]����������shape[1]��������������������Ҫ����������
-    # Ӧ�ڹ۲��(dataSet)����Ŀ��������Ӧÿ�����Ӧ��������
+    # dataSet是一个numpy array，shape属性包含行数和列数，比如shape[0]给出函数，shape[1]给出列数，这里我们需要行数，它对
+    # 应于观察点(dataSet)的数目，列数对应每个点对应的特征项
     dataSetSize = dataSet.shape[0]
-    # inX��һ��list����һ�б�ʾ��inX�����ܹ�dataSetSize�Σ�tile������һ��������ʾ��Ҫ���Ƶ������ڶ���������ʾ��Ҫ�����
-    # ��ʽ��Ҳ����˵��inX����dataSetSize�У�1�У���ά������dataSet
+    # inX是一个list，这一行表示将inX复制总共dataSetSize次，tile函数第一个参数表示需要复制的量，第二个参数表示需要负责的
+    # 形式，也就是说将inX复制dataSetSize行，1列，其维度满足dataSet
     matrExt = tile(inX, (dataSetSize, 1)) 
-    # ��ʼ����inX��dataSet��ÿ�������ľ���
+    # 开始计算inX和dataSet中每个样本的距离
     diffMat = matrExt - dataSet
     sqDiffMat = diffMat**2
-    # ����ά�����, ���axis=0, ������ά�Ƚ�����ӣ����ֱ����sum()�����������Ԫ�صĺ�
+    # 以列维度相加, 如果axis=0, 将以行维度进行相加，如果直接用sum()将会计算所有元素的和
     sqDistances = sqDiffMat.sum(axis=1) 
     distances = sqDistances**0.5
-    # argsort������������ֵ��С���������ֵ 
+    # argsort函数返回数组值从小到大的索引值 
     sortedDistInddicies = distances.argsort() 
-    # ����һ�����ֵ�/��ϣ��/ӳ��:��ֵΪlabel;ֵΪÿ��label���ֵ�Ƶ��
+    # 建立一个空字典/哈希表/映射:键值为label;值为每个label出现的频率
     classCount={}
-    # ������Ҫ����ͶƱ
+    # 这里主要进行投票
     for i in range(k):
-        # Ѱ�ҵ�ǰK�����������ı�ǩ��Ȼ���ÿ����ǩ���ֵ�classCount����ͳ�Ƴ��ֵĴ���
+        # 寻找到前K个距离最近点的标签，然后对每个标签在字典classCount里面统计出现的次数
         voteIlabel = labels[sortedDistInddicies[i]]
         # dict.get(key, default=None)
-        # key �ֵ���Ҫ���ҵļ���default ���ָ������ֵ�����ڣ����ظ�Ĭ��ֵֵ��
-        # ��labelsΪ��ǩ�±꣬ͳ��ÿ����ǩ�����ֵ�Ƶ��
+        # key 字典中要查找的键。default 如果指定键的值不存在，返回该默认值值。
+        # 已labels为标签下标，统计每个标签所出现的频率
         classCount[voteIlabel]=classCount.get(voteIlabel, 0)+1
-    # ���յõ���classCount��ų�����{'A': 3, 'C': 5, 'B': 2}��Ҳ������ζ�ű�ǩC���ֵĴ�����࣬Ŀ�ľ���Ҫ�������ģ���
-    # �����д��뽫�ֵ������list�������ǰ
-    # classCount.items(), ���õ�dict_items([('c', 5), ('b', 2), ('a', 3)])
-    # operator.itemgetter(1)������һ����������ȡ�����ϵ�ֵ������Ҫ���õ������ϲ���
-    # Python���õ�������sorted���Զ�list����iterator��������;
-    # �ۺ����������Ƚ�classCountת��Ϊlist��Ԫ��ΪԪ�飬Ȼ��keyָ������ʱʹ�õ����򷽷�(Ԫ��ĵ�1��Ԫ��)����reverseָ��
-    # ����������
-    # ���sortedClassCount����[('c', 5), ('a', 3), ('b', 2)]
+    # 最终得到的classCount大概长这样{'A': 3, 'C': 5, 'B': 2}，也就是意味着标签C出现的次数最多，目的就是要返回最多的，下
+    # 面这行代码将字典排序成list，大的在前
+    # classCount.items(), 将得到dict_items([('c', 5), ('b', 2), ('a', 3)])
+    # operator.itemgetter(1)定义了一个函数，获取对象上的值，必须要作用到对象上才行
+    # Python内置的排序函数sorted可以对list或者iterator进行排序;
+    # 综合来看下面先将classCount转化为list，元素为元组，然后key指定排序时使用的排序方法(元组的第1个元素)，由reverse指定
+    # 是逆序排序
+    # 最后sortedClassCount形如[('c', 5), ('a', 3), ('b', 2)]
     sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse = True)
-    # ����'c'
+    # 返回'c'
     return sortedClassCount[0][0]
 
 point0 = [0, 0]
