@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-09-29 19:08:49 中国标准时间"/>
+<meta name="generated" content="2015-10-22 17:58:29 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -180,7 +180,25 @@
   看起来应该是这样：\HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
   Path\gnuclientw.exe，并加上"%1"
 </li>
-<li>emacs配置立马生效: 可以M-x eval-current-buffer立马生效; 
+<li>emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
+</li>
+<li>定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
+
+
+
+<pre class="example">(defun gtd ()
+ (interactive)
+ (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
+</pre>
+
+</li>
+<li>定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
+
+
+
+<pre class="example">(define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
+</pre>
+
 </li>
 </ul>
 
@@ -258,6 +276,16 @@
 </div>
 
 </li>
+<li>插入gnuplot图片，见图<a href="#img-gnuplot-test">img-gnuplot-test</a>所示：
+
+
+
+<div id="img-gnuplot-test" class="figure">
+<p><img src="file://e:/OneDrive/my-learn/img/img-gnuplot-test.jpeg"  alt="file://e:/OneDrive/my-learn/img/img-gnuplot-test.jpeg" /></p>
+<p>测试图</p>
+</div>
+
+</li>
 <li>由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
   换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
 </li>
@@ -290,7 +318,6 @@
 </li>
 </ul>
 
-
 </div>
 
 </div>
@@ -302,8 +329,6 @@
 <ul>
 <li>进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
-</li>
-<li>
 </li>
 </ul>
 
@@ -738,7 +763,7 @@
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-09-29 19:08:49 中国标准时间</p>
+<p class="date">Date: 2015-10-22 17:58:29 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

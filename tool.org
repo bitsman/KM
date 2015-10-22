@@ -30,7 +30,17 @@
 - 右键菜单配置打开命令：在注册表\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\下面新建一项Emacs，再在下面新建command项，
   看起来应该是这样：\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
   Path\gnuclientw.exe，并加上"%1"
-- emacs配置立马生效: 可以M-x eval-current-buffer立马生效; 
+- emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
+- 定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
+  #+begin_src lisp
+   (defun gtd ()
+    (interactive)
+    (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
+  #+end_src
+- 定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
+  #+begin_src lisp
+  (define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
+  #+end_src
 ** org-mode
 # <<org-mode>>
 - 插入公式：
@@ -77,6 +87,26 @@
                             +------------------+   |   cRED       |
                                                    +--------------+
   #+end_src
+
+- 插入gnuplot图片，见图\ref{img-gnuplot-test}所示：
+  #+caption: 测试图
+  #+label: img-gnuplot-test
+  #+attr_latex: placement=[H] scale=0.5
+  #+begin_src gnuplot :exports results :file e:/OneDrive/my-learn/img/img-gnuplot-test.png
+  reset
+  set title "Putting it All Together"
+  set xlabel "X"
+  set xrange [-8:8]
+  set xtics -8,2,8
+  set ylabel "Y"
+  set yrange [-20:70]
+  set ytics -20,10,70
+  f(x) = x**2
+  g(x) = x**3
+  h(x) = 10*sqrt(abs(x))
+  plot f(x) w lp lw 1, g(x) w p lw 2, h(x) w l lw 3
+  #+end_src
+
 - 由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
   换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
 - 如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下代码"页边距"
@@ -97,11 +127,9 @@
   并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
   [[org-mode]], 并且可以使用C-c &返回来。
 - 表格：可以使用table-mode，命令table-insert可以插入一个n行n列的表格，table-span-cell可以合并单元格。
-
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
--
 * latex
 ** 方法
 # - 固定latex插入的图片位置
