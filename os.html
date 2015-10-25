@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-22 22:56:18 中国标准时间"/>
+<meta name="generated" content="2015-10-25 12:40:27 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -81,6 +81,11 @@
 </ul>
 </li>
 <li><a href="#sec-1-6">menu</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">FreeRTOS</a>
+<ul>
+<li><a href="#sec-2-1">术语</a></li>
 </ul>
 </li>
 </ul>
@@ -688,11 +693,70 @@ Runnable update_thread = new Runnable() {
 
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">FreeRTOS</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个轻量级的操作系统，功能包括：任务管理、时间管理、信号量、消息队列、
+内存管理、记录功能等，可基本满足较小系统的需要。 功能和特点:
+</p><ul>
+<li>混合配置选项;
+</li>
+<li>提供一个高层次的信任代码的完整性;
+</li>
+<li>目的是小，简单易用;
+</li>
+<li>以开发C，非常便携代码结构;
+</li>
+<li>支持两项任务和共同例程;
+</li>
+<li>强大的执行跟踪功能;
+</li>
+<li>堆栈溢出检测 ;
+</li>
+<li>没有软件任务的限制数量;
+</li>
+<li>没有软件优先事项的限制数量;
+</li>
+<li>没有施加的限制，优先转让，多个任务可以分配相同的优先权;
+</li>
+<li>队列，二进制信号量，计数信号灯和递归通信和同步的任务 ;
+</li>
+<li>Mutexes优先继承权;
+</li>
+<li>免费开发工具;
+</li>
+<li>免费嵌入式软件的源代码;
+</li>
+<li>从一个标准的Windows主机交叉发展;
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">术语</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<ul>
+<li>PV操作：P源自于荷兰语parsseren，即英语的pass；V源自于荷兰语verhoog，即英语的increment。P(S)V(S)操作是信号量的两个原子
+  操作，S为信号量semaphore，相当于一个标志，可以代表一个资源，一个事件等；
+</li>
+</ul>
+
+
+
+</div>
+</div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-22 22:56:18 中国标准时间</p>
+<p class="date">Date: 2015-10-25 12:40:27 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

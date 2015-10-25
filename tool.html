@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-22 23:08:58 中国标准时间"/>
+<meta name="generated" content="2015-10-23 15:14:46 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -147,6 +147,139 @@
 <div class="outline-text-3" id="text-1-2">
 
 <ul>
+<li>表格<a href="#tbl-emacs-inf">tbl-emacs-inf</a>总结了平时需要的快捷键、模式、命令等操作；
+<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-emacs-inf">
+<caption>emacs使用汇总</caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">模式</th><th scope="col" class="left">按键</th><th scope="col" class="left">函数</th><th scope="col" class="left">功能</th><th scope="col" class="left">备注</th></tr>
+</thead>
+<tbody>
+<tr><td class="left"></td><td class="left">C-c a</td><td class="left">org-agenda</td><td class="left">进入org模式的agenda</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-c b</td><td class="left">org-iswitchb</td><td class="left">进入org模式的iswitchb</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-c c</td><td class="left">org-capture</td><td class="left">进入org模式的capture</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-c l</td><td class="left">org-store-link</td><td class="left">进入org模式的org-store-link</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">F9</td><td class="left">emacs-maximize</td><td class="left">窗口最大化</td><td class="left">实际上延时后最大化</td></tr>
+<tr><td class="left"></td><td class="left">C-F9</td><td class="left">emacs-normal</td><td class="left">窗口大小还原</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-x 4 4</td><td class="left">split-window-h2v2</td><td class="left">窗口分成4份，水平2份垂直2份</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x 4 3</td><td class="left">split-window-h2v1</td><td class="left">窗口分成3份，水平2份垂直1份</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x 4 5</td><td class="left">split-window-h1v2</td><td class="left">窗口分成3份，水平1份垂直2份</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">M-j</td><td class="left">split-window-rotate</td><td class="left">窗口顺时针旋转</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">M-S-j</td><td class="left">split-window-hv-turn</td><td class="left">窗口逆时针旋转</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">M-g</td><td class="left">goto-line</td><td class="left">跳转到某行</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-,</td><td class="left">scroll-left</td><td class="left">屏幕左移命令</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-.</td><td class="left">scroll-right</td><td class="left">屏幕右移命令</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">F3</td><td class="left">repeat-complex-command</td><td class="left">重复上一命令</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x z</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">F8</td><td class="left">eshell</td><td class="left">打开eshell</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-F8</td><td class="left">open-eshell-other-buffer</td><td class="left">在另一个buffer里面打开eshell</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-;</td><td class="left">set-mark-command</td><td class="left">设置标记起始位置</td><td class="left">原来绑定在C-SPC上</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">F2</td><td class="left">ecb-hide-ecb-windows</td><td class="left">ecb模式窗口隐藏</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-F2</td><td class="left">ecb-show-ecb-windows</td><td class="left">ecb模式窗口显示</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">M-;</td><td class="left">user-comment-dwim-line</td><td class="left">代码注释</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">F7</td><td class="left">quick-compile</td><td class="left">编译</td><td class="left">设置编译C</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">F10</td><td class="left">my-transparent</td><td class="left">设置或者取消emacs透明</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-c 1</td><td class="left">org-time-stamp</td><td class="left">org模式时间戳</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-c d</td><td class="left">insert-current-date</td><td class="left">插入当前日期</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-c t</td><td class="left">insert-current-time</td><td class="left">插入当前时间</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-F1</td><td class="left">manual-entry</td><td class="left">进入manual</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">F1</td><td class="left">open-key-info-file</td><td class="left">进入自定义快捷键帮助</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left"></td><td class="left">byte-compile-file</td><td class="left">编译elisp文件</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">describe-current-coding-system</td><td class="left">显示当前buffer的编码格式</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x RET f</td><td class="left"></td><td class="left">改变当前buffer的编码格式</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left">C-x {</td><td class="left"></td><td class="left">往左加宽buffer尺寸</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x }</td><td class="left"></td><td class="left">往右加宽buffer尺寸</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x ^</td><td class="left"></td><td class="left">往上加高buffer尺寸</td><td class="left"></td></tr>
+</tbody>
+<tbody>
+<tr><td class="left">目录模式</td><td class="left">n</td><td class="left"></td><td class="left">向下查看文件</td><td class="left"></td></tr>
+<tr><td class="left">C-x d</td><td class="left">p</td><td class="left"></td><td class="left">向上查看文件</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">&gt;</td><td class="left"></td><td class="left">向下查看目录</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">&lt;</td><td class="left"></td><td class="left">向上查看目录</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">^</td><td class="left"></td><td class="left">返回上一级目录</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">M-(</td><td class="left"></td><td class="left">向下查看已标记</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">M-)</td><td class="left"></td><td class="left">向上查看已标记</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">g</td><td class="left"></td><td class="left">刷新</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">s</td><td class="left"></td><td class="left">切换名称/日期排序方式</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">i</td><td class="left"></td><td class="left">当前窗口下面打开该子目录</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">v</td><td class="left"></td><td class="left">查看当前文件（当前窗口）</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">o</td><td class="left"></td><td class="left">查看当前文件（另一窗口）</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">y</td><td class="left"></td><td class="left">查看当前文件类型</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">等号</td><td class="left"></td><td class="left">比较文件，相当于shell下的diff</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">m</td><td class="left"></td><td class="left">标记（mark）</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">u</td><td class="left"></td><td class="left">取消标记</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">U</td><td class="left"></td><td class="left">取消所有标记</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">* /</td><td class="left"></td><td class="left">标记所有文件夹</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">* *</td><td class="left"></td><td class="left">标记所有可执行文件</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">* @</td><td class="left"></td><td class="left">标记所有符号链接</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">* c</td><td class="left"></td><td class="left">改变标记的符号</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">% m</td><td class="left"></td><td class="left">根据正则表达式改变标记文件</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">% g</td><td class="left"></td><td class="left">根据正则表达式改变标记文件的内容</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">d</td><td class="left"></td><td class="left">标记为删除</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">~</td><td class="left"></td><td class="left">标记所有备份文件为删除</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">#</td><td class="left"></td><td class="left">将存盘文件标记为删除</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">&amp; d</td><td class="left"></td><td class="left">根据正则表达式标记删除</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">X</td><td class="left"></td><td class="left">执行标记的操作</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">+</td><td class="left"></td><td class="left">新建目录</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x C-q</td><td class="left"></td><td class="left">将文件列表设置为只读</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">D</td><td class="left"></td><td class="left">删除文件</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">C</td><td class="left"></td><td class="left">拷贝</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">O</td><td class="left"></td><td class="left">改变用户</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">G</td><td class="left"></td><td class="left">改变群组</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">S</td><td class="left"></td><td class="left">符号链接</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">H</td><td class="left"></td><td class="left">硬链接</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">Z</td><td class="left"></td><td class="left">压缩</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">W</td><td class="left"></td><td class="left">复制文件名</td><td class="left">标记（m）后的操作</td></tr>
+<tr><td class="left"></td><td class="left">K</td><td class="left"></td><td class="left">删除行，刷新后可恢复</td><td class="left">标记（m）后的操作</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left"></td><td class="left"></td><td class="left">revert-buffer</td><td class="left">刷新buffer</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">emacs -q</td><td class="left">进入emacs默认最小配置</td><td class="left">启动emacs时使用</td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">eval-current-buffer</td><td class="left">当前配置立马生效</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">rename-buffer</td><td class="left">重命名当前buffer</td><td class="left"></td></tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+
+
+
+
+<ul>
 <li>在eshell中使用$PATH$可以输出当前emacs的路径path；
 </li>
 <li>计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
@@ -281,12 +414,9 @@
 <li>插入gnuplot图片，见图<a href="#img-gnuplot-test">img-gnuplot-test</a>所示：
 
 
-
-<div id="img-gnuplot-test" class="figure">
-<p><img src="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png"  alt="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png" /></p>
-<p>测试图</p>
-</div>
-
+<p>
+    <img src="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png"  alt="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png" />
+</p>
 </li>
 <li>由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
   换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
@@ -765,7 +895,7 @@
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-22 23:08:58 中国标准时间</p>
+<p class="date">Date: 2015-10-23 15:14:46 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
