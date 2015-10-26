@@ -568,6 +568,7 @@ security mode 1的level 1开始，在以后的进程中可以升级到其他级�
     4. 在初始化设备发现后，保存设备的MAC地址，参见BluetoothDevice.getAddress()，然后，下次用户想连接，使用这个地址来构建
        BluetoothDevice，参见BlueAdaptor.getRemoteDevice(),这样可以避开设备发现，使得用户体验更平滑友好。 
 
+** ant
 ** usb
 *** usb枚举过程
 1. usb检测到usb设备插入后，就会先对设备复位，usb设备在总线复位后其地址为0；

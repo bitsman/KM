@@ -1,11 +1,11 @@
 #+TITLE: Sitemap
 
-   + [[file:os.org][2015-10-23 操作系统]]
+   + [[file:protocol.org][2015-10-26 协议 ]]
+   + [[file:os.org][2015-10-26 操作系统]]
    + [[file:index.org][2015-10-23 比克曼的知识管理]]
    + [[file:tool.org][2015-10-22 工具]]
    + [[file:software.org][2015-10-22 软件 ]]
    + [[file:decoration.org][2015-10-22 装修日记]]
-   + [[file:protocol.org][2015-10-22 协议 ]]
    + [[file:ml.org][2015-10-22 机器学习 ]]
    + [[file:math.org][2015-10-22 数学 ]]
    + [[file:language.org][2015-10-22 外语学习]]
