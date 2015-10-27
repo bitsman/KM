@@ -401,5 +401,28 @@ FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个
 - 死锁：当两个任务都在等待被对方持有的资源时，两个任务都无法继续执行，这种情况被称为死锁；
 - 守护任务：守护任务提供了一个比较好的方法来实现互斥功能，而不用担心会发生优先级翻转和死锁，守护任务是对某个资源具有唯一
   所有权的任务，只有守护任务才可以直接访问其守护的资源，其他任何任务只能间接的通过守护任务提供访问服务；
+** 源码解读
+*** 文件
+**** FreeRTOS.h
+每一个使用了FreeRTOS的程序都需要包含的一个头文件；
+**** projdefs.h
+包含了FreeRTOS的一些基本设定，主要定义了如下一些宏定义
+#+begin_src c
+    pdTASK_CODE   //任务函数原型类型
+    pdFALSE
+    pdTRUE
+    pdPASS
+    pdFAIL
+    errQUEUE_EMPTY
+    errQUEUE_FULL
+    errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY
+    errNO_TASK_TO_RUN
+    errQUEUE_BLOCKED
+    errQUEUE_YIELD
+#+end_src
+**** FreeRTOSConfig.h
+移植的时候要修改的FreeRTOS的全局配置文件; 
+**** portable.h
+
 
 

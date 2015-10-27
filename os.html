@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-26 18:30:39 中国标准时间"/>
+<meta name="generated" content="2015-10-27 18:38:49 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -86,6 +86,18 @@
 <li><a href="#sec-2">FreeRTOS</a>
 <ul>
 <li><a href="#sec-2-1">术语</a></li>
+<li><a href="#sec-2-2">源码解读</a>
+<ul>
+<li><a href="#sec-2-2-1">文件</a>
+<ul>
+<li><a href="#sec-2-2-1-1">FreeRTOS.h</a></li>
+<li><a href="#sec-2-2-1-2">projdefs.h</a></li>
+<li><a href="#sec-2-2-1-3">FreeRTOSConfig.h</a></li>
+<li><a href="#sec-2-2-1-4">portable.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -775,15 +787,83 @@ Runnable update_thread = new Runnable() {
 </li>
 </ul>
 
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">源码解读</h3>
+<div class="outline-text-3" id="text-2-2">
 
 
+</div>
+
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1">文件</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+
+</div>
+
+<div id="outline-container-2-2-1-1" class="outline-5">
+<h5 id="sec-2-2-1-1">FreeRTOS.h</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
+
+<p>每一个使用了FreeRTOS的程序都需要包含的一个头文件；
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-1-2" class="outline-5">
+<h5 id="sec-2-2-1-2">projdefs.h</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
+
+<p>包含了FreeRTOS的一些基本设定，主要定义了如下一些宏定义
+</p>
+
+
+<pre class="example">pdTASK_CODE   //任务函数原型类型
+pdFALSE
+pdTRUE
+pdPASS
+pdFAIL
+errQUEUE_EMPTY
+errQUEUE_FULL
+errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY
+errNO_TASK_TO_RUN
+errQUEUE_BLOCKED
+errQUEUE_YIELD
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-1-3" class="outline-5">
+<h5 id="sec-2-2-1-3">FreeRTOSConfig.h</h5>
+<div class="outline-text-5" id="text-2-2-1-3">
+
+<p>移植的时候要修改的FreeRTOS的全局配置文件; 
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-1-4" class="outline-5">
+<h5 id="sec-2-2-1-4">portable.h</h5>
+<div class="outline-text-5" id="text-2-2-1-4">
+
+
+
+
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-26 18:30:39 中国标准时间</p>
+<p class="date">Date: 2015-10-27 18:38:49 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

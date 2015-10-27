@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="协议 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-26 18:31:15 中国标准时间"/>
+<meta name="generated" content="2015-10-27 18:39:24 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -86,9 +86,40 @@
 </ul>
 </li>
 <li><a href="#sec-1-2">ant</a></li>
-<li><a href="#sec-1-3">usb</a>
+<li><a href="#sec-1-3">nfc</a>
 <ul>
-<li><a href="#sec-1-3-1">usb枚举过程</a></li>
+<li><a href="#sec-1-3-1">特点</a></li>
+<li><a href="#sec-1-3-2">区别RFID</a></li>
+<li><a href="#sec-1-3-3">读取器(reader)</a></li>
+<li><a href="#sec-1-3-4">感应器(rf tag)</a>
+<ul>
+<li><a href="#sec-1-3-4-1">分类</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-5">天线(antenna)</a>
+<ul>
+<li><a href="#sec-1-3-5-1">分类</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-6">通信模式</a></li>
+<li><a href="#sec-1-3-7">应用模式</a></li>
+<li><a href="#sec-1-3-8">协议</a>
+<ul>
+<li><a href="#sec-1-3-8-1">射频层(rf layer)</a></li>
+<li><a href="#sec-1-3-8-2">模式切换层(mode switch)</a></li>
+<li><a href="#sec-1-3-8-3">nfc IP1</a></li>
+<li><a href="#sec-1-3-8-4">逻辑链路控制协议(LLCP)</a></li>
+<li><a href="#sec-1-3-8-5">nfc forum protocol binding</a></li>
+<li><a href="#sec-1-3-8-6">tag type</a></li>
+<li><a href="#sec-1-3-8-7">ndef</a></li>
+<li><a href="#sec-1-3-8-8">rtd</a></li>
+<li><a href="#sec-1-3-8-9">card emulation</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">usb</a>
+<ul>
+<li><a href="#sec-1-4-1">usb枚举过程</a></li>
 </ul></li>
 </ul>
 </li>
@@ -1096,15 +1127,274 @@ bluetoothGatt.close();
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">usb</h3>
+<h3 id="sec-1-3">nfc</h3>
 <div class="outline-text-3" id="text-1-3">
+
+<p>由reader发射一定频率的无线电波能量给rf tag，用于驱动rf tag电路内部的ID code送出，此时reader便会接收此ID code；
+</p>
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">特点</h4>
+<div class="outline-text-4" id="text-1-3-1">
+
+<ul>
+<li>间隔7米可感应(某些超高频设备)；
+</li>
+<li>每秒可读取250个标签；
+</li>
+<li>频带13.56MHz；
+</li>
+<li>传输距离约10厘米；
+</li>
+<li>传输速率有106kbit/s、212kbit/s、424kbit/s，正在规划提高到848kbit/s和1Mbit/s；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">区别RFID</h4>
+<div class="outline-text-4" id="text-1-3-2">
+
+<ul>
+<li>nfc将非接触读卡器、非接触卡、点对点功能整合进一块单芯片，rfid必须由reader和tag组成；
+</li>
+<li>nfc手机的nfc芯片，可以当做rfid无源标签进行支付应用，也可以当做rfid读卡器；
+</li>
+<li>rfid只能进行信息的读取与判断，nfc强调信息交互；
+</li>
+<li>nfc传输范围限定10厘米范围内，rfid则可达几米到几十米；
+</li>
+<li>nfc为私密通信方式，安全性比rfid高；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3">读取器(reader)</h4>
+<div class="outline-text-4" id="text-1-3-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4">感应器(rf tag)</h4>
+<div class="outline-text-4" id="text-1-3-4">
 
 
 </div>
 
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1">usb枚举过程</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<div id="outline-container-1-3-4-1" class="outline-5">
+<h5 id="sec-1-3-4-1">分类</h5>
+<div class="outline-text-5" id="text-1-3-4-1">
+
+<ul>
+<li>ROM型，在制造时，信息就写入，不可更改；
+</li>
+<li>OTP型，在使用时，信息才写入，但是也只能写这次，以后不可更改；
+</li>
+<li>EEPROM型，可以多次信息写入，最贵；
+</li>
+<li>passive型：无源标签，其能源来自于reader，轻薄短小，使用年限长，感应距离短；
+</li>
+<li>active型：有源标签，价格高，体积大，感应距离长；
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3-5" class="outline-4">
+<h4 id="sec-1-3-5">天线(antenna)</h4>
+<div class="outline-text-4" id="text-1-3-5">
+
+
+</div>
+
+<div id="outline-container-1-3-5-1" class="outline-5">
+<h5 id="sec-1-3-5-1">分类</h5>
+<div class="outline-text-5" id="text-1-3-5-1">
+
+<ul>
+<li>线圈型；
+</li>
+<li>微带贴片型；
+</li>
+<li>偶极子型；
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3-6" class="outline-4">
+<h4 id="sec-1-3-6">通信模式</h4>
+<div class="outline-text-4" id="text-1-3-6">
+
+<ul>
+<li>主动模式：每台nfc设备需要向其他nfc设备发送数据信息时，都要产生自己的射频场；
+</li>
+<li>被动模式：nfc通信发起的一方(也称主设备)，在整个通信过程中提供射频场；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-7" class="outline-4">
+<h4 id="sec-1-3-7">应用模式</h4>
+<div class="outline-text-4" id="text-1-3-7">
+
+<ul>
+<li>读写模式：nfc终端具有非接阅读器的功能，可以读写外部非接卡牌信息，比如读取海报和展览的电子标签信息，类似读二维码；
+</li>
+<li>点对点模式：nfc终端可以与其他nfc设备进行数据交换，比如两个nfc手机互传音乐，通信录等；
+</li>
+<li>卡模拟模式：nfc终端模拟成一张非接卡牌，比如信用卡、交通卡等，手机支付就属于这种；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8" class="outline-4">
+<h4 id="sec-1-3-8">协议</h4>
+<div class="outline-text-4" id="text-1-3-8">
+
+
+</div>
+
+<div id="outline-container-1-3-8-1" class="outline-5">
+<h5 id="sec-1-3-8-1">射频层(rf layer)</h5>
+<div class="outline-text-5" id="text-1-3-8-1">
+
+<p>包含了iso 14443 AB，iso 18092，felica，mifare等标准，定义了两种卡类型type A和type B，主要区别在于调制方式、编码方案和协
+议初始化程序不同；
+</p><ul>
+<li>type A：由飞利浦等公司主导；
+</li>
+<li>type B：开放式的非接智能卡标准
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8-2" class="outline-5">
+<h5 id="sec-1-3-8-2">模式切换层(mode switch)</h5>
+<div class="outline-text-5" id="text-1-3-8-2">
+
+<p>一个可以将射频层数据切换到nfc type A、nfc type B，nfc type F；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-8-3" class="outline-5">
+<h5 id="sec-1-3-8-3">nfc IP1</h5>
+<div class="outline-text-5" id="text-1-3-8-3">
+
+<p>即ISO 18092，其协议栈基于iso 14443；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-8-4" class="outline-5">
+<h5 id="sec-1-3-8-4">逻辑链路控制协议(LLCP)</h5>
+<div class="outline-text-5" id="text-1-3-8-4">
+
+<p>logic link control protocol，主要用于点对点模式；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-8-5" class="outline-5">
+<h5 id="sec-1-3-8-5">nfc forum protocol binding</h5>
+<div class="outline-text-5" id="text-1-3-8-5">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8-6" class="outline-5">
+<h5 id="sec-1-3-8-6">tag type</h5>
+<div class="outline-text-5" id="text-1-3-8-6">
+
+<p>标签类型，在读写模式下，nfc设备能够读取的标签类型，标签可以存储url、手机号码、其他文本等，nfc定义了4中tag, 另外厂商还可
+以自定义私有tag类型，具体见表<a href="#tbl-nfc-tag">tbl-nfc-tag</a>;
+</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-nfc-tag">
+<caption>nfc tag对比表</caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">指标</th><th scope="col" class="left">type 1</th><th scope="col" class="left">type 2</th><th scope="col" class="left">type 3</th><th scope="col" class="left">type 4</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">协议基础</td><td class="left">iso/iec 14443 type A</td><td class="left">iso/iec 14443 type A</td><td class="left">felica</td><td class="left">iso/iec 14443 type A/B</td></tr>
+<tr><td class="left">芯片名称</td><td class="left">topaz</td><td class="left">mifare</td><td class="left">felica</td><td class="left">desfire</td></tr>
+<tr><td class="left">存储容量</td><td class="left">2KB</td><td class="left">2KB</td><td class="left">1MB</td><td class="left">64KB</td></tr>
+<tr><td class="left">传输速率</td><td class="left">106</td><td class="left">106</td><td class="left">212</td><td class="left">106~424</td></tr>
+<tr><td class="left">费用成本</td><td class="left">low</td><td class="left">low</td><td class="left">high</td><td class="left">mid/high</td></tr>
+<tr><td class="left">安全性</td><td class="left">数字签名</td><td class="left">不安全</td><td class="left">数字签名</td><td class="left">variable</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8-7" class="outline-5">
+<h5 id="sec-1-3-8-7">ndef</h5>
+<div class="outline-text-5" id="text-1-3-8-7">
+
+<p>nfc数据交换格式，nfc data extrange format，在android系统下ndef也可以用于p2p；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-8-8" class="outline-5">
+<h5 id="sec-1-3-8-8">rtd</h5>
+<div class="outline-text-5" id="text-1-3-8-8">
+
+<p>记录类型定义，record type definition，ndef数据格式中定义的数据类型；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-8-9" class="outline-5">
+<h5 id="sec-1-3-8-9">card emulation</h5>
+<div class="outline-text-5" id="text-1-3-8-9">
+
+<p>卡模拟，nfc设备模拟成卡片的标准；
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4">usb</h3>
+<div class="outline-text-3" id="text-1-4">
+
+
+</div>
+
+<div id="outline-container-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1">usb枚举过程</h4>
+<div class="outline-text-4" id="text-1-4-1">
 
 <ol>
 <li>usb检测到usb设备插入后，就会先对设备复位，usb设备在总线复位后其地址为0；
@@ -1188,7 +1478,7 @@ bluetoothGatt.close();
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-26 18:31:15 中国标准时间</p>
+<p class="date">Date: 2015-10-27 18:39:24 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

@@ -569,6 +569,75 @@ security mode 1的level 1开始，在以后的进程中可以升级到其他级�
        BluetoothDevice，参见BlueAdaptor.getRemoteDevice(),这样可以避开设备发现，使得用户体验更平滑友好。 
 
 ** ant
+** nfc
+由reader发射一定频率的无线电波能量给rf tag，用于驱动rf tag电路内部的ID code送出，此时reader便会接收此ID code；
+*** 特点
+- 间隔7米可感应(某些超高频设备)；
+- 每秒可读取250个标签；
+- 频带13.56MHz；
+- 传输距离约10厘米；
+- 传输速率有106kbit/s、212kbit/s、424kbit/s，正在规划提高到848kbit/s和1Mbit/s；
+*** 区别RFID
+- nfc将非接触读卡器、非接触卡、点对点功能整合进一块单芯片，rfid必须由reader和tag组成；
+- nfc手机的nfc芯片，可以当做rfid无源标签进行支付应用，也可以当做rfid读卡器；
+- rfid只能进行信息的读取与判断，nfc强调信息交互；
+- nfc传输范围限定10厘米范围内，rfid则可达几米到几十米；
+- nfc为私密通信方式，安全性比rfid高；
+*** 读取器(reader)
+*** 感应器(rf tag)
+**** 分类
+- ROM型，在制造时，信息就写入，不可更改；
+- OTP型，在使用时，信息才写入，但是也只能写这次，以后不可更改；
+- EEPROM型，可以多次信息写入，最贵；
+- passive型：无源标签，其能源来自于reader，轻薄短小，使用年限长，感应距离短；
+- active型：有源标签，价格高，体积大，感应距离长；
+*** 天线(antenna)
+**** 分类
+- 线圈型；
+- 微带贴片型；
+- 偶极子型；
+*** 通信模式
+- 主动模式：每台nfc设备需要向其他nfc设备发送数据信息时，都要产生自己的射频场；
+- 被动模式：nfc通信发起的一方(也称主设备)，在整个通信过程中提供射频场；
+*** 应用模式
+- 读写模式：nfc终端具有非接阅读器的功能，可以读写外部非接卡牌信息，比如读取海报和展览的电子标签信息，类似读二维码；
+- 点对点模式：nfc终端可以与其他nfc设备进行数据交换，比如两个nfc手机互传音乐，通信录等；
+- 卡模拟模式：nfc终端模拟成一张非接卡牌，比如信用卡、交通卡等，手机支付就属于这种；
+*** 协议
+**** 射频层(rf layer)
+包含了iso 14443 AB，iso 18092，felica，mifare等标准，定义了两种卡类型type A和type B，主要区别在于调制方式、编码方案和协
+议初始化程序不同；
+- type A：由飞利浦等公司主导；
+- type B：开放式的非接智能卡标准
+**** 模式切换层(mode switch)
+一个可以将射频层数据切换到nfc type A、nfc type B，nfc type F；
+**** nfc IP1
+即ISO 18092，其协议栈基于iso 14443；
+**** 逻辑链路控制协议(LLCP)
+logic link control protocol，主要用于点对点模式；
+**** nfc forum protocol binding
+**** tag type
+标签类型，在读写模式下，nfc设备能够读取的标签类型，标签可以存储url、手机号码、其他文本等，nfc定义了4中tag, 另外厂商还可
+以自定义私有tag类型，具体见表\ref{tbl-nfc-tag};
+#+caption: nfc tag对比表
+#+label: tbl-nfc-tag
+#+attr_latex: placement=[H]
+|----------+----------------------+----------------------+----------+------------------------|
+| 指标     | type 1               | type 2               | type 3   | type 4                 |
+|----------+----------------------+----------------------+----------+------------------------|
+| 协议基础 | iso/iec 14443 type A | iso/iec 14443 type A | felica   | iso/iec 14443 type A/B |
+| 芯片名称 | topaz                | mifare               | felica   | desfire                |
+| 存储容量 | 2KB                  | 2KB                  | 1MB      | 64KB                   |
+| 传输速率 | 106                  | 106                  | 212      | 106~424                |
+| 费用成本 | low                  | low                  | high     | mid/high               |
+| 安全性   | 数字签名             | 不安全               | 数字签名 | variable               |
+|----------+----------------------+----------------------+----------+------------------------|
+**** ndef
+nfc数据交换格式，nfc data extrange format，在android系统下ndef也可以用于p2p；
+**** rtd
+记录类型定义，record type definition，ndef数据格式中定义的数据类型；
+**** card emulation
+卡模拟，nfc设备模拟成卡片的标准；
 ** usb
 *** usb枚举过程
 1. usb检测到usb设备插入后，就会先对设备复位，usb设备在总线复位后其地址为0；
