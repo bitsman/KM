@@ -427,12 +427,337 @@ FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个
 **** 任务生成
 任务生成使用xTaskGenericCreate函数，并且被宏包装为xTaskCreate；
 **** 任务删除
+**** 堆操作
+堆并不神秘，在cortex-m0芯片中，堆和栈其实都是用的ram区，只是认为的堆ram区做了划分，也就是说，完全可以人为的定义一个大的
+数组来表示堆空间，然后对数组进行块分割，并且分配给申请者，管理需要释放的数组元素，就是堆空间的分配和释放操作，基于此，根
+据堆操作功能复杂度，细化出了heap_1.c、heap_2.c、heap_4.c、heap_5.c的堆操作功能库，至于heap_3.c完全是使用标准C库的malloc
+等函数做的封装，因为标准C库的malloc等函数不是线程安全的函数，需要封装为安全的，所谓的封装为线程安全的，也就是在执行
+malloc前后关闭打开中断和调度器；另外对申请的堆空间地址和长度还涉及到对齐等细节功能操作；
+# <<heap1-oper>>
+- heap_1.c: 只有简单的堆空间申请操作，没有释放操作；
+  #+begin_src c
+    /* portBYTE_ALIGNMENT:这个常量指示字节对齐数，其默认值为8，即默认以8个字节进行内存对齐 */
+    /* portBYTE_ALIGNMENT_MASK:这个常量是根据portBYTE_ALIGNMENT的值进行定义的 */
+    /* FreeRTOS对堆数组进行地址对齐操作，这样的后果就是要是原本堆数组首地址没有对齐，
+     * 则进行对齐操作后就会使堆大小改变了。因此，FreeRTOS对堆数组的大小进行重新定义。 
+     */
+#define configADJUSTED_HEAP_SIZE	( configTOTAL_HEAP_SIZE - portBYTE_ALIGNMENT )
+/**
+ * 数组的总大小(字节为单位)在FreeRTOSConfig.h中由configTOTAL_HEAP_SIZE定义。
+ * 以这种方式定义一个巨型数组会让整个应用程序看起来耗费了许多内存
+ * ucHeap就是FreeRTOS可以用的整个堆的空间数组，其大小是在FreeRTOSConfig.h中定义的常量configTOTAL_HEAP_SIZE，
+ * 默认是17*1024，即17KB
+ */
+static uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
+///指向下一个还没被用上的内存堆所在的数组下标，由于一开始整个堆都没被用上，所以它的默认值为0
+static size_t xNextFreeByte = ( size_t ) 0;
 
+/*-----------------------------------------------------------*/
+/** 
+ * @brief 这种分配方案是将 FreeRTOS 的内存堆空间看作一个简单的数组。
+ * 当调用pvPortMalloc()时，则将数组又简单地细分为更小的内存块。函数操作流程
+ * 第一步：对齐处理；第二步：分配内存；第三步：勾子函数调用。
+ * @param xWantedSize 欲分配的空间大小
+ */
+void *pvPortMalloc( size_t xWantedSize )
+{
+    void *pvReturn = NULL;
+    static uint8_t *pucAlignedHeap = NULL;
+    /* **************************************第一步********************************* */
+    /** 用来判断用户所需要的内存大小是否已对齐，例如，在默认情况下（以8个字节对齐），
+     * 如果用户申请的内存大小为13个字节，经过和字节对齐掩码进行与操作后的结果为0x0005，即没有对齐；
+     * 如果用户申请的内存大小为16个字节，经过和字节对齐掩码进行与操作后的结果为0x0000，即已经对齐。 
+     */
+	#if portBYTE_ALIGNMENT != 1 
+    if( xWantedSize & portBYTE_ALIGNMENT_MASK )
+    {
+        /** 用户申请内存大小和字节对齐掩码进行与操作后，其结果和需要补齐的字节数相加，
+         * 刚好等于字节对齐掩码的值，因此只要用掩码值减去与操作的结果，就可以得到需要补齐的字节数，
+         * 这样只要把补齐的字节数加到用户申请的内存大小就可以使其字节对齐 
+         */
+        xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_MASK ) );
+    }
+	#endif
+
+    /* **************************************第二步********************************* */
+	vTaskSuspendAll();
+	{
+        /** 对这个堆进行对齐工作。这里的对齐和上面说的对齐不是一回事。
+         * 这里说的对齐是因为FreeRTOS管理的堆是一个全局数组，
+         * 并不能保证数组首地址按portBYTE_ALIGNMENT对齐。
+         * 因此FreeRTOS对堆首地址做了这个对齐处理。要留意的是，这个对齐处理只做了一次。
+         * 原因是对齐后的堆首地址是一个静态变量，初始值赋为NULL。
+         * 而当这个变量为NULL时才进行对齐处理，对齐处理后这个变量就指向堆首地址，
+         * 这样在下一次调用pvPortMalloc()时就不会再进行对齐处理了 
+         */
+		if( pucAlignedHeap == NULL ) /* 第一次初始化heap */
+		{
+            /* ucHeap往前挪动一个portBYTE_ALIGNMENT长度的地址，做对齐后，才能保证对齐后的地址还在ucHeap数组范围内 */
+			pucAlignedHeap = ( uint8_t * ) ( ( ( portPOINTER_SIZE_TYPE ) &ucHeap[ portBYTE_ALIGNMENT ] ) &
+                                             ( ~( ( portPOINTER_SIZE_TYPE ) portBYTE_ALIGNMENT_MASK ) ) );
+		}
+
+		if( ( ( xNextFreeByte + xWantedSize ) < configADJUSTED_HEAP_SIZE ) &&
+			( ( xNextFreeByte + xWantedSize ) > xNextFreeByte )	)/* Check for overflow. */
+		{
+            /* 记录新分配空间的首地址到pvReturn */
+			pvReturn = pucAlignedHeap + xNextFreeByte;
+			xNextFreeByte += xWantedSize;
+		}
+        /** 用于输出内存分配的调试信息，这个宏定义在FreeRTOS.h中，默认为空，
+         * 如果需要将这些调试信息输出到串口或其它东西，就可以修改这个宏将信息输出到所需要的地方。 
+         */
+		traceMALLOC( pvReturn, xWantedSize ); 
+	}
+	( void ) xTaskResumeAll();
+
+    /** 当内存分配失败的时候，如果在FreeRTOS.h中有定义宏configUSE_MALLOC_FAILED_HOOK=1，
+     * 则会调用一个勾子函数vApplicationMallocFailedHook()。在这个勾子函数中，
+     * 用户可以进行其它一些必要的操作 
+     */
+	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
+	{
+		if( pvReturn == NULL )
+		{
+			extern void vApplicationMallocFailedHook( void );
+			vApplicationMallocFailedHook(); 
+		}
+	}
+	#endif
+	return pvReturn;
+    }
+  #+end_src
+# <<heap2-oper>>
+- heap_2.c: 同[[heap1-oper][heap_1.c]]差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
+#+begin_src c
+void vPortFree( void *pv )
+{
+    uint8_t *puc = ( uint8_t * ) pv;
+    BlockLink_t *pxLink;
+	if( pv != NULL )
+	{
+        /* 寻找这个内存空间的空闲块头 */
+		before it. */
+		puc -= heapSTRUCT_SIZE;
+		byte alignment warnings. */
+		pxLink = ( void * ) puc;
+
+		vTaskSuspendAll();
+		{
+            /* 插入空闲块链表中 */
+			prvInsertBlockIntoFreeList( ( ( BlockLink_t * ) pxLink ) );
+            /* 修正剩余空间大小 */
+			xFreeBytesRemaining += pxLink->xBlockSize;
+			traceFREE( pv, pxLink->xBlockSize );
+		}
+		( void ) xTaskResumeAll();
+	}
+}
+#+end_src
+- heap_3.c: 对C标准库的堆操作函数做了线程安全的封装; 
+分配函数：
+#+begin_src c
+void *pvPortMalloc( size_t xWantedSize )
+{
+    void *pvReturn;
+	vTaskSuspendAll();
+	{
+		pvReturn = malloc( xWantedSize );
+		traceMALLOC( pvReturn, xWantedSize );
+	}
+	( void ) xTaskResumeAll();
+
+	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
+	{
+		if( pvReturn == NULL )
+		{
+			extern void vApplicationMallocFailedHook( void );
+			vApplicationMallocFailedHook();
+		}
+	}
+	#endif
+	return pvReturn;
+}
+#+end_src
+释放函数：
+#+begin_src c
+void vPortFree( void *pv )
+{
+	if( pv )
+	{
+		vTaskSuspendAll();
+		{
+			free( pv );
+			traceFREE( pv, 0 );
+		}
+		( void ) xTaskResumeAll();
+	}
+}
+#+end_src
+- heap_4.c: 同[[heap2-oper][heap_2.c]]差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
+#+begin_src c
+void *pvPortMalloc( size_t xWantedSize )
+{
+    BlockLink_t *pxBlock, *pxPreviousBlock, *pxNewBlockLink;
+    void *pvReturn = NULL;
+
+	vTaskSuspendAll();
+	{
+		/* If this is the first call to malloc then the heap will require
+		initialisation to setup the list of free blocks. */
+		if( pxEnd == NULL )
+		{
+			prvHeapInit();
+		}
+		else
+		{
+			mtCOVERAGE_TEST_MARKER();
+		}
+
+        /**
+         * 判断用户申请内存大小的最高位是否为0，为0即合法
+         * （之前说过，最高位用来标识空闲块的空闲状态，因此最高位为1则说明用户申请的内存大小已超出空闲块的最大大小）
+         */
+		/* Check the requested block size is not so large that the top bit is
+		set.  The top bit of the block size member of the BlockLink_t structure
+		is used to determine who owns the block - the application or the
+		kernel, so it must be free. */
+		if( ( xWantedSize & xBlockAllocatedBit ) == 0 )
+		{
+			/* The wanted size is increased so it can contain a BlockLink_t
+			structure in addition to the requested amount of bytes. */
+			if( xWantedSize > 0 )
+			{
+				xWantedSize += xHeapStructSize; /* 增加block头大小 */
+
+				/* Ensure that blocks are always aligned to the required number
+				of bytes. */
+				if( ( xWantedSize & portBYTE_ALIGNMENT_MASK ) != 0x00 ) /* 对齐操作 */
+				{
+					/* Byte alignment required. */
+					xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_MASK ) );
+					configASSERT( ( xWantedSize & portBYTE_ALIGNMENT_MASK ) == 0 );
+				}
+				else
+				{
+					mtCOVERAGE_TEST_MARKER();
+				}
+			}
+			else
+			{
+				mtCOVERAGE_TEST_MARKER();
+			}
+
+			if( ( xWantedSize > 0 ) && ( xWantedSize <= xFreeBytesRemaining ) )
+			{
+                /**
+                 * 首先遍历链表，找到第1块能比申请空间大小大的空闲块，修改空闲块的信息，
+                 * 记录用户可用的内存首地址。接下来，如果分配出去的空闲块比申请的空间大很多，
+                 * 则将该空闲块进行分割，把剩余的部分重新添加到链表中。
+                 */
+				/* Traverse the list from the start	(lowest address) block until
+				one	of adequate size is found. */
+				pxPreviousBlock = &xStart;
+				pxBlock = xStart.pxNextFreeBlock;
+				while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock != NULL ) )
+				{
+					pxPreviousBlock = pxBlock;
+					pxBlock = pxBlock->pxNextFreeBlock;
+				}
+
+				/* If the end marker was reached then a block of adequate size
+				was	not found. */
+				if( pxBlock != pxEnd )
+				{
+					/* Return the memory space pointed to - jumping over the
+					BlockLink_t structure at its start. */
+					pvReturn = ( void * ) ( ( ( uint8_t * ) pxPreviousBlock->pxNextFreeBlock ) + xHeapStructSize ); /* 获得真正申请的空间地址 */
+
+					/* This block is being returned for use so must be taken out
+					of the list of free blocks. */
+					pxPreviousBlock->pxNextFreeBlock = pxBlock->pxNextFreeBlock; /* 空闲block链接起来 */
+
+					/* If the block is larger than required it can be split into
+					two. */
+					if( ( pxBlock->xBlockSize - xWantedSize ) > heapMINIMUM_BLOCK_SIZE ) /* 见heap_2.c */
+					{
+						/* This block is to be split into two.  Create a new
+						block following the number of bytes requested. The void
+						cast is used to prevent byte alignment warnings from the
+						compiler. */
+						pxNewBlockLink = ( void * ) ( ( ( uint8_t * ) pxBlock ) + xWantedSize );
+						configASSERT( ( ( ( size_t ) pxNewBlockLink ) & portBYTE_ALIGNMENT_MASK ) == 0 );
+
+						/* Calculate the sizes of two blocks split from the
+						single block. */
+						pxNewBlockLink->xBlockSize = pxBlock->xBlockSize - xWantedSize;
+						pxBlock->xBlockSize = xWantedSize;
+
+						/* Insert the new block into the list of free blocks. */
+						prvInsertBlockIntoFreeList( pxNewBlockLink );
+					}
+					else
+					{
+						mtCOVERAGE_TEST_MARKER();
+					}
+
+					xFreeBytesRemaining -= pxBlock->xBlockSize;
+
+					if( xFreeBytesRemaining < xMinimumEverFreeBytesRemaining )
+					{
+						xMinimumEverFreeBytesRemaining = xFreeBytesRemaining;
+					}
+					else
+					{
+						mtCOVERAGE_TEST_MARKER();
+					}
+
+					/* The block is being returned - it is allocated and owned
+					by the application and has no "next" block. */
+					pxBlock->xBlockSize |= xBlockAllocatedBit;
+					pxBlock->pxNextFreeBlock = NULL;
+				}
+				else
+				{
+					mtCOVERAGE_TEST_MARKER();
+				}
+			}
+			else
+			{
+				mtCOVERAGE_TEST_MARKER();
+			}
+		}
+		else
+		{
+			mtCOVERAGE_TEST_MARKER();
+		}
+
+		traceMALLOC( pvReturn, xWantedSize );
+	}
+	( void ) xTaskResumeAll();
+
+	#if( configUSE_MALLOC_FAILED_HOOK == 1 )
+	{
+		if( pvReturn == NULL )
+		{
+			extern void vApplicationMallocFailedHook( void );
+			vApplicationMallocFailedHook();
+		}
+		else
+		{
+			mtCOVERAGE_TEST_MARKER();
+		}
+	}
+	#endif
+
+	configASSERT( ( ( ( uint32_t ) pvReturn ) & portBYTE_ALIGNMENT_MASK ) == 0 );
+	return pvReturn;
+}
+#+end_src
 **** 杂项功能
 这些杂项功能大部分都跟平台有关，这里以cortex M系列为例；
-- 参数断言：使用宏configASSERT, 但是不知道为什么是空的；
+- 参数断言：使用宏configASSERT, 是空的，需要用户自己写
 - 提升优先级：static BaseType_t prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
-- 堆初始化：static void prvHeapInit( void ), 
 
 
 
