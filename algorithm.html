@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="机器学习 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-29 12:08:44 中国标准时间"/>
+<meta name="generated" content="2015-10-29 20:57:08 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -103,7 +103,11 @@
 <li><a href="#sec-1-2">k临近算法</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">图像处理</a></li>
+<li><a href="#sec-2">图像处理</a>
+<ul>
+<li><a href="#sec-2-1">概念</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -664,13 +668,48 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 <h2 id="sec-2">图像处理</h2>
 <div class="outline-text-2" id="text-2">
 
+<p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
+间隔量化。至此一副数字图像是一个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。
+</p>
+</div>
 
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">概念</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<ul>
+<li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过程是显示；
+</li>
+<li>扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；
+</li>
+<li>采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器来完成，将每个像素处的亮度转换成与其成正比的电
+  压值；
+</li>
+<li>量化：是将测量的灰度值用一个整数表示，离散化；
+</li>
+<li>对比度：是指一幅图像中灰度反差的大小；
+</li>
+<li>灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，其灰度级为256；
+</li>
+<li>采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
+</li>
+<li>像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；
+</li>
+<li>放大率：指图像中物体与其对应的景物中物体的大小比例关系；
+</li>
+</ul>
+
+
+
+
+
+</div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-29 12:08:44 中国标准时间</p>
+<p class="date">Date: 2015-10-29 20:57:08 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

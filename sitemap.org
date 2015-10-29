@@ -1,5 +1,6 @@
 #+TITLE: Sitemap
 
+   + [[file:encyclopedia.org][2015-10-29 百科知识]]
    + [[file:algorithm.org][2015-10-29 机器学习 ]]
    + [[file:index.org][2015-10-29 比克曼的知识管理]]
    + [[file:os.org][2015-10-28 操作系统]]
@@ -10,4 +11,3 @@
    + [[file:math.org][2015-10-22 数学 ]]
    + [[file:language.org][2015-10-22 外语学习]]
    + [[file:hardware.org][2015-10-22 硬件 ]]
-   + [[file:encyclopedia.org][2015-10-22 百科知识]]

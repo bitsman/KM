@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="百科知识"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-22 22:55:19 中国标准时间"/>
+<meta name="generated" content="2015-10-29 20:57:09 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -52,9 +52,10 @@
 <ul>
 <li><a href="#sec-1">GPS</a>
 <ul>
-<li><a href="#sec-1-1">经纬度转换</a></li>
-<li><a href="#sec-1-2">经纬度转换米</a></li>
-<li><a href="#sec-1-3">任意两点的经纬度计算两点距离</a></li>
+<li><a href="#sec-1-1">时间系统</a></li>
+<li><a href="#sec-1-2">经纬度转换</a></li>
+<li><a href="#sec-1-3">经纬度转换米</a></li>
+<li><a href="#sec-1-4">任意两点的经纬度计算两点距离</a></li>
 </ul>
 </li>
 </ul>
@@ -80,7 +81,12 @@
 </li>
 <li>纬度：是个线面角。起点面是赤道平面，线是本地的地面法线。所谓法线，即垂直于参考扁球体表面的线；某地的纬度就是该地的法线
   与赤道平面之间的夹角。纬度数值在0至30度之间的地区称为低纬地区，纬度数值在30至60度之间的地区称为中纬地区，纬度数值在60
-  至90度之间的地区称为高纬地区。  
+  至90度之间的地区称为高纬地区。
+</li>
+<li>ECI坐标系：地心惯性坐标系，earth centered intertial，用于描述卫星的位置，坐标系固定不变；
+</li>
+<li>ECEF坐标系：地心地球固连坐标系，earth centered，earth fixed，用于描述地面接收器的位置，随着地球自转而旋转，在具体定位
+  时，需要将卫星的ECI坐标系的位置转换成它在ECEF坐标系的位置；
 </li>
 </ul>
 
@@ -88,8 +94,27 @@
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">经纬度转换</h3>
+<h3 id="sec-1-1">时间系统</h3>
 <div class="outline-text-3" id="text-1-1">
+
+<ul>
+<li>国际原子时钟：IAT，international atomic time；
+</li>
+<li>协调世界时钟：UTC，coordinated universal time，互联网使用的网络时间协议(NTP)，获取的时间就是UTC，格式年月日时分秒；
+</li>
+<li>GPS时间：GPST，gps time，以IAT时钟为准，时间原点定于1980年1月6日0时；
+</li>
+<li>本地时间：local time, 基于UTC时间，将全球分为24个时区，每个时区的中心为相隔15度经线，第一时区的中心位于子午线；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">经纬度转换</h3>
+<div class="outline-text-3" id="text-1-2">
 
 <ul>
 <li>度转度分秒
@@ -106,9 +131,9 @@
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">经纬度转换米</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3">经纬度转换米</h3>
+<div class="outline-text-3" id="text-1-3">
 
 <ul>
 <li>子午线总长度大约L=40008km；
@@ -131,9 +156,9 @@
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">任意两点的经纬度计算两点距离</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4">任意两点的经纬度计算两点距离</h3>
+<div class="outline-text-3" id="text-1-4">
 
 <p>地球是一个近乎标准的椭球体，它的赤道半径为6378.140千米，极半径为 6356.755千米，平均半径6371.004千米。如果我们假设地球是
 一个完美的球体，那么它的半径就是地球的平均半径，记为R。如果以0度经线为基 准，那么根据地球表面任意两点的经纬度就可以计算
@@ -211,7 +236,7 @@ public static double GetDistance(double lat1, double lng1, double lat2, double l
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-22 22:55:19 中国标准时间</p>
+<p class="date">Date: 2015-10-29 20:57:09 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
