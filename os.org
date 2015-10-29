@@ -423,6 +423,16 @@ FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个
 **** FreeRTOSConfig.h
 移植的时候要修改的FreeRTOS的全局配置文件; 
 **** portable.h
+*** 功能函数
+**** 任务生成
+任务生成使用xTaskGenericCreate函数，并且被宏包装为xTaskCreate；
+**** 任务删除
+
+**** 杂项功能
+这些杂项功能大部分都跟平台有关，这里以cortex M系列为例；
+- 参数断言：使用宏configASSERT, 但是不知道为什么是空的；
+- 提升优先级：static BaseType_t prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
+- 堆初始化：static void prvHeapInit( void ), 
 
 
 

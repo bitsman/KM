@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-27 18:38:49 中国标准时间"/>
+<meta name="generated" content="2015-10-29 12:08:41 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -94,6 +94,13 @@
 <li><a href="#sec-2-2-1-2">projdefs.h</a></li>
 <li><a href="#sec-2-2-1-3">FreeRTOSConfig.h</a></li>
 <li><a href="#sec-2-2-1-4">portable.h</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-2">功能函数</a>
+<ul>
+<li><a href="#sec-2-2-2-1">任务生成</a></li>
+<li><a href="#sec-2-2-2-2">任务删除</a></li>
+<li><a href="#sec-2-2-2-3">杂项功能</a></li>
 </ul>
 </li>
 </ul>
@@ -852,6 +859,50 @@ errQUEUE_YIELD
 <h5 id="sec-2-2-1-4">portable.h</h5>
 <div class="outline-text-5" id="text-2-2-1-4">
 
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2">功能函数</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+
+</div>
+
+<div id="outline-container-2-2-2-1" class="outline-5">
+<h5 id="sec-2-2-2-1">任务生成</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
+
+<p>任务生成使用xTaskGenericCreate函数，并且被宏包装为xTaskCreate；
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-2-2" class="outline-5">
+<h5 id="sec-2-2-2-2">任务删除</h5>
+<div class="outline-text-5" id="text-2-2-2-2">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2-3" class="outline-5">
+<h5 id="sec-2-2-2-3">杂项功能</h5>
+<div class="outline-text-5" id="text-2-2-2-3">
+
+<p>这些杂项功能大部分都跟平台有关，这里以cortex M系列为例；
+</p><ul>
+<li>参数断言：使用宏configASSERT, 但是不知道为什么是空的；
+</li>
+<li>提升优先级：static BaseType<sub>t</sub> prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
+</li>
+<li>堆初始化：static void prvHeapInit( void ), 
+</li>
+</ul>
+
 
 
 
@@ -863,7 +914,7 @@ errQUEUE_YIELD
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-27 18:38:49 中国标准时间</p>
+<p class="date">Date: 2015-10-29 12:08:41 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

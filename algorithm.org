@@ -1,124 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>机器学习 </title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="机器学习 "/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-22 22:55:30 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
+#+title: 机器学习 
+#+author: 比克曼
+#+latex_class: org-latex-pdf 
+#+latex: \newpage 
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
-</head>
-<body>
-
-<div id="preamble">
-
-</div>
-
-<div id="content">
-<h1 class="title">机器学习 </h1>
-
-
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">算法</a>
-<ul>
-<li><a href="#sec-1-1">cordic算法</a>
-<ul>
-<li><a href="#sec-1-1-1">背景</a></li>
-<li><a href="#sec-1-1-2">从二分查找法说起</a></li>
-<li><a href="#sec-1-1-3">减少乘法运算</a></li>
-<li><a href="#sec-1-1-4">消除乘法运算</a></li>
-</ul>
-</li>
-<li><a href="#sec-1-2">k临近算法</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">算法</h2>
-<div class="outline-text-2" id="text-1">
-
-
-</div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">cordic算法</h3>
-<div class="outline-text-3" id="text-1-1">
-
-<p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
+* 机器学习
+** cordic算法
+三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
 生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。现在有了
 计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨根问底的人，不禁要问计算机又是如何计算三角函数值的呢。最容易想
 到的办法就是利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精度来逼近函数值。除了泰勒级数逼近之
@@ -130,14 +17,8 @@ J. Walther在1974年在这种算法的基础上进一步改进，使其可以计
 法只用了移位和加法，很容易用纯硬件来实现，因此我们常能在FPGA运算平台上见到它的身影。不过，大多数的软件程序员们都没有听说
 过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是在没有浮点运算指令的嵌入式平台（比如定点型DSP）上
 做开发时，还是会遇上可以用到cordic 算法的情况的，所以掌握基本的cordic算法还是有用的。
-</p>
-</div>
-
-<div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">背景</h4>
-<div class="outline-text-4" id="text-1-1-1">
-
-<p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
+*** 背景
+三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
 生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。 
 现在有了计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨根问底的人，不禁要问计算机又是如何计算三角函数值的呢。
 最容易想到的办法就是利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精度来逼近函数值。除了泰勒级
@@ -150,22 +31,13 @@ J. Walther在1974年在这种算法的基础上进一步改进，使其可以计
 的身影。不过，大多数的软件程序员们都没有听说过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是在没有
 浮点运算指令的嵌入式平台（比如定点型dsp）上做开发时，还是会遇上可以用到cordic 算法的情况的，所以掌握基本的cordic算法还是
 有用的。 
-</p></div>
-
-</div>
-
-<div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">从二分查找法说起</h4>
-<div class="outline-text-4" id="text-1-1-2">
-
-<p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），如何求的在极坐标系下的坐标（ρ,θ）。用计算器
-计算一下可知答案是（223.61，63.435），见图<a href="#img-cordic1">img-cordic1</a>所示。
-</p>
-<div id="img-cordic1" class="figure">
-<p><img src="./img/cordic1.jpg"  alt="./img/cordic1.jpg" /></p>
-<p>直角坐标系到极坐标系的转换</p>
-</div>
-<p>
+*** 从二分查找法说起
+先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），如何求的在极坐标系下的坐标（ρ,θ）。用计算器
+计算一下可知答案是（223.61，63.435），见图\ref{img-cordic1}所示。
+#+caption: 直角坐标系到极坐标系的转换
+#+label: img-cordic1
+#+attr_latex: placement=[H] scale=0.3
+[[./img/cordic1.jpg]]
 为了突出重点，这里我们只讨论X和Y都为正数的情况。这时\(θ=atan(y/x)\)。求θ的过程也就是求atan 函数的过程。cordic算法采用
 的想法很直接，将（X，Y）旋转一定的度数，如果旋转完纵坐标变为了0，那么旋转的度数就是θ。坐标旋转的公式可能大家都忘了，这
 里把公式列出了。设（x,y）是原始坐标点，将其以原点为中心，顺时针旋转θ之后的坐标记为（x’,y’）,则有如下公式：
@@ -182,57 +54,53 @@ $$ {x' \choose y'}={cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos
 $$ {212.13 \choose 70.711} = {cos(45^{\circ}) \quad sin(45^{\circ}) \choose -sin(45^{\circ}) \quad cos(45^{\circ})}{100 \choose 200}$$ 
 旋转之后纵坐标为70.71，还是大于0，说明旋转的度数不够，接着再旋转22.5度（45度的一半）。
 $${223.04 \choose -15.85} = {cos(45^{\circ}/2) \quad sin(45^{\circ}/2) \choose -sin(45^{\circ}/2) \quad cos(45^{\circ}/2)} {212.13 \choose 70.711} $$ 
-这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ&lt;67.5度，这时就要往回转，还是二分查找法的思想，这次转11.25度。
+这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ<67.5度，这时就要往回转，还是二分查找法的思想，这次转11.25度。
 $${221.85 \choose 27.967} = {cos(-45^{\circ}/4) \quad sin(-45^{\circ}/4) \choose -sin(-45^{\circ}/4) \quad cos(-45^{\circ}/4)} {223.04 \choose -15.851} $$ 
 这时总共旋转了45+22.5-11.25=56.25度。又转过头了，接着旋转，这次顺时针转5.625度。
 $${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -sin(45^{\circ}/8) \quad cos(45^{\circ}/8)} {221.85 \choose 27.967} $$ 
 这时总共旋转了45+22.5-11.25+5.625=61.875度。这时纵坐标已经很接近0了。我们只是说明算法的思想，因此就不接着往下计算了。计
 算到这里我们给的答案是 61.875±5.625。二分查找法本质上查找的是一个区间，因此我们给出的是θ值的一个范围。同时，坐标到原点
-的距离ρ也求出来了，ρ=223.52。与标准答案比较一下计算的结果还是可以的。旋转的过程图示如<a href="#img-trans">img-trans</a>。
-</p>
-<div id="img-trans" class="figure">
-<p><img src="./img/cordic2.jpg"  alt="./img/cordic2.jpg" /></p>
-<p>旋转过程图</p>
-</div>
-<p>
+的距离ρ也求出来了，ρ=223.52。与标准答案比较一下计算的结果还是可以的。旋转的过程图示如\ref{img-trans}。
+#+caption: 旋转过程图
+#+label: img-trans
+#+attr_latex: placement=[H] scale=0.3
+[[./img/cordic2.jpg]]
 可能有读者会问，计算中用到了sin函数和cos函数，这些值又是怎么计算呢。很简单，我们只用到很少的几个特殊点的sin 函数和
 cos 函数的值，提前计算好存起来，用时查表。
-</p>
-
-
-<pre class="example">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-        double my_atan2(double x, double y);
-        int main(void)
-        {
-            double z = my_atan2(100.0, 200.0);
-            printf("\n z = %f \n", z);
-
-            return 0;
-        }
-
-        double my_atan2(double x, double y)
-        {
-            const double sine[] = {0.7071067811865,0.3826834323651,0.1950903220161,0.09801714032956,
-        0.04906767432742,0.02454122852291,0.01227153828572,0.006135884649154,0.003067956762966
-        ,0.001533980186285,7.669903187427045e-4,3.834951875713956e-4,1.917475973107033e-4,
-        9.587379909597735e-5,4.793689960306688e-5,2.396844980841822e-5
-        };
-
-            const double cosine[] = {0.7071067811865,0.9238795325113,0.9807852804032,0.9951847266722,
-        0.9987954562052,0.9996988186962,0.9999247018391,0.9999811752826,0.9999952938096,
-        0.9999988234517,0.9999997058629,0.9999999264657,0.9999999816164,0.9999999954041,
-        0.999999998851,0.9999999997128
-        };
-
+#+begin_src c
+#include <stdio.h>
+#include <stdlib.h>
+		double my_atan2(double x, double y);
+		int main(void)
+		{
+		    double z = my_atan2(100.0, 200.0);
+		    printf("\n z = %f \n", z);
+		 
+		    return 0;
+		}
+		 
+		double my_atan2(double x, double y)
+		{
+		    const double sine[] = {0.7071067811865,0.3826834323651,0.1950903220161,0.09801714032956,
+		0.04906767432742,0.02454122852291,0.01227153828572,0.006135884649154,0.003067956762966
+		,0.001533980186285,7.669903187427045e-4,3.834951875713956e-4,1.917475973107033e-4,
+		9.587379909597735e-5,4.793689960306688e-5,2.396844980841822e-5
+		};
+		 
+		    const double cosine[] = {0.7071067811865,0.9238795325113,0.9807852804032,0.9951847266722,
+		0.9987954562052,0.9996988186962,0.9999247018391,0.9999811752826,0.9999952938096,
+		0.9999988234517,0.9999997058629,0.9999999264657,0.9999999816164,0.9999999954041,
+		0.999999998851,0.9999999997128
+		};
+ 
     int i = 0;
     double x_new, y_new;
     double angleSum = 0.0;
     double angle = 45.0;
-
-    for(i = 0; i &lt; 15; i++)
+ 
+    for(i = 0; i < 15; i++)
     {
-        if(y &gt; 0)
+        if(y > 0)
         {
             x_new = x * cosine[i] + y * sine[i];
             y_new = y * cosine[i] - x * sine[i];
@@ -253,66 +121,52 @@ cos 函数的值，提前计算好存起来，用时查表。
     }
     return angleSum;
 }
-</pre>
-
-<p>
+#+end_src
 程序运行的输出结果如下：
-</p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 45.000000, angle = 45.000000
-Debug: i = 1 angleSum = 67.500000, angle = 22.500000
-Debug: i = 2 angleSum = 56.250000, angle = 11.250000
-Debug: i = 3 angleSum = 61.875000, angle = 5.625000
-Debug: i = 4 angleSum = 64.687500, angle = 2.812500
-Debug: i = 5 angleSum = 63.281250, angle = 1.406250
-Debug: i = 6 angleSum = 63.984375, angle = 0.703125
-Debug: i = 7 angleSum = 63.632813, angle = 0.351563
-Debug: i = 8 angleSum = 63.457031, angle = 0.175781
-Debug: i = 9 angleSum = 63.369141, angle = 0.087891
-Debug: i = 10 angleSum = 63.413086, angle = 0.043945
-Debug: i = 11 angleSum = 63.435059, angle = 0.021973
-Debug: i = 12 angleSum = 63.424072, angle = 0.010986
-Debug: i = 13 angleSum = 63.429565, angle = 0.005493
-Debug: i = 14 angleSum = 63.432312, angle = 0.002747
-z = 63.432312
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3">减少乘法运算</h4>
-<div class="outline-text-4" id="text-1-1-3">
-
-<p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法运算，运算量还是太大了。还需要进一步的改
+#+begin_src c
+	Debug: i = 0 angleSum = 45.000000, angle = 45.000000
+	Debug: i = 1 angleSum = 67.500000, angle = 22.500000
+	Debug: i = 2 angleSum = 56.250000, angle = 11.250000
+	Debug: i = 3 angleSum = 61.875000, angle = 5.625000
+	Debug: i = 4 angleSum = 64.687500, angle = 2.812500
+	Debug: i = 5 angleSum = 63.281250, angle = 1.406250
+	Debug: i = 6 angleSum = 63.984375, angle = 0.703125
+	Debug: i = 7 angleSum = 63.632813, angle = 0.351563
+	Debug: i = 8 angleSum = 63.457031, angle = 0.175781
+	Debug: i = 9 angleSum = 63.369141, angle = 0.087891
+	Debug: i = 10 angleSum = 63.413086, angle = 0.043945
+	Debug: i = 11 angleSum = 63.435059, angle = 0.021973
+	Debug: i = 12 angleSum = 63.424072, angle = 0.010986
+	Debug: i = 13 angleSum = 63.429565, angle = 0.005493
+	Debug: i = 14 angleSum = 63.432312, angle = 0.002747
+	z = 63.432312
+#+end_src
+*** 减少乘法运算
+现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法运算，运算量还是太大了。还需要进一步的改
 进。改进的切入点当然还是坐标变换的过程。我们将坐标变换公式变一下形。
 $${x' \choose y'} = {cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)} {x \choose y} = cos(\Theta){1
 \quad tan(\Theta) \choose -tan(\Theta) \quad 1}{x \choose y}$$ 
 可以看出 cos(θ)可以从矩阵运算中提出来。我们可以做的再彻底些，直接把 cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋
 转后的新坐标点到原点的距离都变长了，放缩的系数是1/cos(θ)。不过没有关系，我们求的是θ，不关心ρ的改变。这样的变形非常的
 简单，但是每次循环的运算量一下就从4次乘法降到了2次乘法了。还是给出 C 语言的实现：
-</p>
-
-
-<pre class="example">double my_atan3(double x, double y)
+#+begin_src c
+double my_atan3(double x, double y)
 {
     const double tangent[] = {1.0,0.4142135623731,0.1989123673797,0.09849140335716,0.04912684976947,
 0.02454862210893,0.01227246237957,0.006136000157623,0.003067971201423,
 0.001533981991089,7.669905443430926e-4,3.83495215771441e-4,1.917476008357089e-4,
 9.587379953660303e-5,4.79368996581451e-5,2.3968449815303e-5
                          };
-
-
+ 
+ 
     int i = 0;
     double x_new, y_new;
     double angleSum = 0.0;
     double angle = 45.0;
-
-    for(i = 0; i &lt; 15; i++)
+ 
+    for(i = 0; i < 15; i++)
     {
-        if(y &gt; 0)
+        if(y > 0)
         {
             x_new = x + y * tangent[i];
             y_new = y - x * tangent[i];
@@ -333,14 +187,10 @@ $${x' \choose y'} = {cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad co
     }
     return angleSum;
 }
-</pre>
-
-<p>
+#+end_src
 计算的结果是：
-</p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
+#+begin_src c
+Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
 Debug: i = 1 angleSum = 67.500000, angle = 22.500000, ρ = 342.282467
 Debug: i = 2 angleSum = 56.250000, angle = 11.250000, ρ = 348.988177
 Debug: i = 3 angleSum = 61.875000, angle = 5.625000, ρ = 350.676782
@@ -356,17 +206,9 @@ Debug: i = 12 angleSum = 63.424072, angle = 0.010986, ρ = 351.240734
 Debug: i = 13 angleSum = 63.429565, angle = 0.005493, ρ = 351.240736
 Debug: i = 14 angleSum = 63.432312, angle = 0.002747, ρ = 351.240736
 z = 63.432312
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-1-4" class="outline-4">
-<h4 id="sec-1-1-4">消除乘法运算</h4>
-<div class="outline-text-4" id="text-1-1-4">
-
-<p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要从计算式入手。第一次循环时，tan(45)=1，所以第
+#+end_src
+*** 消除乘法运算
+我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要从计算式入手。第一次循环时，tan(45)=1，所以第
 一次循环实际上是不需要乘法运算的。第二次运算呢？ 
 tan(22.5)=0.4142135623731,很不幸，第二次循环乘数是个很不整的小数。是否能对其改造一下呢？答案是肯定的。第二次选择22.5度是
 因为二分查找法的查找效率最高。如果选用个在22.5到45度之间的值，查找的效率会降低一些。如果稍微降低一点查找的效率能让我们有
@@ -375,10 +217,8 @@ tan(22.5)=0.4142135623731,很不幸，第二次循环乘数是个很不整的小
 （没有浮点协处理器时为了加速计算我们会大量的采用定点数算法）乘以0.5就相当于将乘数右移一位。右移运算是很快的，这样第二次
 循环中的乘法运算也被消除了。类似的方法，第三次循环中不用11.25度，而采用 14.0362434679265 度。tan(14.0362434679265)= 1/4  
 乘数右移两位就可以了。剩下的都以此类推。
-</p>
-
-
-<pre class="example">tan(45)= 1
+#+begin_src c
+tan(45)= 1
 tan(26.565051177078)= 1/2
 tan(14.0362434679265)= 1/4
 tan(7.1250163489018)= 1/8
@@ -387,15 +227,11 @@ tan(1.78991060824607)= 1/32
 tan(0.8951737102111)= 1/64
 tan(0.4476141708606)= 1/128
 tan(0.2238105003685)= 1/256
-</pre>
-
-<p>
+#+end_src
 还是给出C语言的实现代码，我们采用循序渐进的方法，先给出浮点数的实现（因为用到了浮点数，所以并没有减少乘法运算量，查找的
 效率也比二分查找法要低，理论上说这个算法实现很低效。不过这个代码的目的在于给出算法实现的示意性说明，还是有意义的）。
-</p>
-
-
-<pre class="example">double my_atan4(double x, double y)
+#+begin_src  c
+double my_atan4(double x, double y)
 {
     const double tangent[] = {1.0, 1 / 2.0, 1 / 4.0, 1 / 8.0, 1 / 16.0,
                               1 / 32.0, 1 / 64.0, 1 / 128.0, 1 / 256.0, 1 / 512.0,
@@ -405,14 +241,14 @@ tan(0.2238105003685)= 1/256
                             1.78991060824607, 0.8951737102111, 0.4476141708606, 0.2238105003685, 0.1119056770662,
                             0.0559528918938, 0.027976452617, 0.01398822714227, 0.006994113675353, 0.003497056850704
                            };
-
+ 
     int i = 0;
     double x_new, y_new;
     double angleSum = 0.0;
-
-    for(i = 0; i &lt; 15; i++)
+ 
+    for(i = 0; i < 15; i++)
     {
-        if(y &gt; 0)
+        if(y > 0)
         {
             x_new = x + y * tangent[i];
             y_new = y - x * tangent[i];
@@ -432,14 +268,10 @@ tan(0.2238105003685)= 1/256
     }
     return angleSum;
 }
-</pre>
-
-<p>
+#+end_src
 程序运行的输出结果如下：
-</p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
+#+begin_src c
+Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
 Debug: i = 1 angleSum = 71.565051, angle = 26.565051, ρ = 353.553391
 Debug: i = 2 angleSum = 57.528808, angle = 14.036243, ρ = 364.434493
 Debug: i = 3 angleSum = 64.653824, angle = 7.125016, ρ = 367.270602
@@ -455,95 +287,73 @@ Debug: i = 12 angleSum = 63.440853, angle = 0.013988, ρ = 368.226784
 Debug: i = 13 angleSum = 63.433859, angle = 0.006994, ρ = 368.226787
 Debug: i = 14 angleSum = 63.437356, angle = 0.003497, ρ = 368.226788
 z = 63.437356
-</pre>
-
-<p>
+#+end_src
 有了上面的准备，我们可以来讨论定点数算法了。所谓定点数运算，其实就是整数运算。我们用256 表示1度。这样的话我们就可以精确
 到1/256=0.00390625 度了，这对于大多数的情况都是足够精确的了。256 表示1度，那么45度就是 45*256 = 115200。其他的度数以此类
 推, 迭代次数见表\ref(tbl-dedaicishu)。
-</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-dedaicishu">
-<caption>迭代次数</caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="right" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="right">number</th><th scope="col" class="right">angle</th><th scope="col" class="right">anglex256</th><th scope="col" class="right">integer</th></tr>
-</thead>
-<tbody>
-<tr><td class="right">1</td><td class="right">45.0</td><td class="right">11520</td><td class="right">11520</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">2</td><td class="right">26.565051177078</td><td class="right">6800.65310133196</td><td class="right">6801</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">3</td><td class="right">14.0362434679265</td><td class="right">3593.27832778918</td><td class="right">3593</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">4</td><td class="right">7.1250163489018</td><td class="right">1824.00418531886</td><td class="right">1824</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">5</td><td class="right">3.57633437499735</td><td class="right">915.541599999322</td><td class="right">916</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">6</td><td class="right">1.78991060824607</td><td class="right">458.217115710994</td><td class="right">458</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">7</td><td class="right">0.8951737102111</td><td class="right">229.164469814035</td><td class="right">229</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">8</td><td class="right">0.4476141708606</td><td class="right">114.589227740302</td><td class="right">115</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">9</td><td class="right">0.2238105003685</td><td class="right">57.2954880943458</td><td class="right">57</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">10</td><td class="right">0.1119056770662</td><td class="right">28.647853328949</td><td class="right">29</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">11</td><td class="right">0.0559528918938</td><td class="right">14.3239403248137</td><td class="right">14</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">12</td><td class="right">0.027976452617</td><td class="right">7.16197186995294</td><td class="right">7</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">13</td><td class="right">0.01398822714227</td><td class="right">3.58098614841984</td><td class="right">4</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">14</td><td class="right">0.006994113675353</td><td class="right">1.79049310089035</td><td class="right">2</td></tr>
-</tbody>
-<tbody>
-<tr><td class="right">15</td><td class="right">0.003497056850704</td><td class="right">0.8952465537802</td><td class="right">1</td></tr>
-</tbody>
-</table>
-
+#+caption: 迭代次数
+#+label: tbl-dedaicishu
+#+attr_latex: placement=[H] scale=0.3
+|--------+-------------------+------------------+---------|
+| number |             angle |        anglex256 | integer |
+|--------+-------------------+------------------+---------|
+|      1 |              45.0 |            11520 |   11520 |
+|--------+-------------------+------------------+---------|
+|      2 |   26.565051177078 | 6800.65310133196 |    6801 |
+|--------+-------------------+------------------+---------|
+|      3 |  14.0362434679265 | 3593.27832778918 |    3593 |
+|--------+-------------------+------------------+---------|
+|      4 |   7.1250163489018 | 1824.00418531886 |    1824 |
+|--------+-------------------+------------------+---------|
+|      5 |  3.57633437499735 | 915.541599999322 |     916 |
+|--------+-------------------+------------------+---------|
+|      6 |  1.78991060824607 | 458.217115710994 |     458 |
+|--------+-------------------+------------------+---------|
+|      7 |   0.8951737102111 | 229.164469814035 |     229 |
+|--------+-------------------+------------------+---------|
+|      8 |   0.4476141708606 | 114.589227740302 |     115 |
+|--------+-------------------+------------------+---------|
+|      9 |   0.2238105003685 | 57.2954880943458 |      57 |
+|--------+-------------------+------------------+---------|
+|     10 |   0.1119056770662 |  28.647853328949 |      29 |
+|--------+-------------------+------------------+---------|
+|     11 |   0.0559528918938 | 14.3239403248137 |      14 |
+|--------+-------------------+------------------+---------|
+|     12 |    0.027976452617 | 7.16197186995294 |       7 |
+|--------+-------------------+------------------+---------|
+|     13 |  0.01398822714227 | 3.58098614841984 |       4 |
+|--------+-------------------+------------------+---------|
+|     14 | 0.006994113675353 | 1.79049310089035 |       2 |
+|--------+-------------------+------------------+---------|
+|     15 | 0.003497056850704 |  0.8952465537802 |       1 |
+|--------+-------------------+------------------+---------|
 C 代码如下：
-
-
-
-<pre class="example">int my_atan5(int x, int y)
+#+begin_src c
+int my_atan5(int x, int y)
 {
     const int angle[] = {11520, 6801, 3593, 1824, 916, 458, 229, 115, 57, 29, 14, 7, 4, 2, 1};
-
+ 
     int i = 0;
     int x_new, y_new;
     int angleSum = 0;
-
+ 
     x *= 1024;// 将 X Y 放大一些，结果会更准确
     y *= 1024;
-
-    for(i = 0; i &lt; 15; i++)
+ 
+    for(i = 0; i < 15; i++)
     {
-        if(y &gt; 0)
+        if(y > 0)
         {
-            x_new = x + (y &gt;&gt; i);
-            y_new = y - (x &gt;&gt; i);
+            x_new = x + (y >> i);
+            y_new = y - (x >> i);
             x = x_new;
             y = y_new;
             angleSum += angle[i];
         }
         else
         {
-            x_new = x - (y &gt;&gt; i);
-            y_new = y + (x &gt;&gt; i);
+            x_new = x - (y >> i);
+            y_new = y + (x >> i);
             x = x_new;
             y = y_new;
             angleSum -= angle[i];
@@ -552,14 +362,10 @@ C 代码如下：
     }
     return angleSum;
 }
-</pre>
-
-<p>
+#+end_src
 计算结果如下:
-</p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 11520, angle = 11520
+#+begin_src c
+Debug: i = 0 angleSum = 11520, angle = 11520
 Debug: i = 1 angleSum = 18321, angle = 6801
 Debug: i = 2 angleSum = 14728, angle = 3593
 Debug: i = 3 angleSum = 16552, angle = 1824
@@ -575,32 +381,20 @@ Debug: i = 12 angleSum = 16239, angle = 4
 Debug: i = 13 angleSum = 16237, angle = 2
 Debug: i = 14 angleSum = 16238, angle = 1
 z = 16238
-</pre>
-
-<p>
+#+end_src
 16238/256=63.4296875度，精确的结果是63.4349499度，两个结果的差为0.00526，还是很精确的。
 到这里cordic算法的最核心的思想就介绍完了。当然，这里介绍的只是cordic算法最基本的内容，实际上，利用cordic 算法不光可以
 计算 atan 函数，其他的像 sin，cos，sinh，cosh 等一系列的函数都可以计算，不过那些都不在本文的讨论范围内了。另外，每次旋转
 时到原点的距离都会发生变化，而这个变化是确定的，因此可以在循环运算结束后以此补偿回来，这样的话我们就同时将（ρ,θ）都计
 算出来了。 
-</p></div>
-</div>
-
-</div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">k临近算法</h3>
-<div class="outline-text-3" id="text-1-2">
-
-<p>K临近算法主要采用将一定的样本，规划为已知的标签，每个样本针对标签有若干的特征值，然后当有新的样本点时，计算新样本点到已
+** k临近算法
+K临近算法主要采用将一定的样本，规划为已知的标签，每个样本针对标签有若干的特征值，然后当有新的样本点时，计算新样本点到已
 知样本的距离，然后选取前K个距离最近的样本的标签进行投票，得票最多的标签作为该样本的标签。实例代码如下，我们有由
 createDataSet函数生成一个测试样本和标签集，其中array的每个元素代表一个已知样本，而每个已知样本的各个元素代表其特征值，
-labels给出了group的每个样本的标签；现通过classify0函数将新样本inX归类到某个标签上。 <b>注意:</b> 要运行必须要删除所有的中文注
+labels给出了group的每个样本的标签；现通过classify0函数将新样本inX归类到某个标签上。 *注意:* 要运行必须要删除所有的中文注
 释。 
-</p>
-
-
-<pre class="example">import numpy as np
+#+begin_src python
+import numpy as np
 import scipy as sp
 import operator
 
@@ -651,20 +445,23 @@ def classify0(inX, dataSet, labels, k):
 point0 = [0, 0]
 g, l = createDataSet()
 print("resualt: %r" %classify0(point0, g, l, 3))
-</pre>
+#+end_src
+
+* 图像处理
+数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
+间隔量化。至此一副数字图像是一个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。
+** 概念
+- 数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过程是显示；
+- 扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；
+- 采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器来完成，将每个像素处的亮度转换成与其成正比的电
+  压值；
+- 量化：是将测量的灰度值用一个整数表示，离散化；
+- 对比度：是指一幅图像中灰度反差的大小；
+- 灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，其灰度级为256；
+- 采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
+- 像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；
+- 放大率：指图像中物体与其对应的景物中物体的大小比例关系；
+  
 
 
-</div>
-</div>
-</div>
-</div>
 
-<div id="postamble">
-<p class="date">Date: 2015-10-22 22:55:30 中国标准时间</p>
-<p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
-</div>
-</body>
-</html>
