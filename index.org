@@ -14,7 +14,7 @@
 * [[./hardware.org][硬件]]
 总结硬件中的数字电路、模拟电路、射频、器件、芯片内核等。
 * [[./os.org][操作系统]]
-总结工作中用到的操作系统，Android、Linux等。
+总结工作中用到的操作系统，Android、Linux、嵌入式操作系统等。
 * [[./tool.org][工具]]
 总结工作中用到的工具，emacs、latex、软件工具等。
 * [[./decoration.org][装修]]

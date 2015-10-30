@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="百科知识"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-29 20:57:09 中国标准时间"/>
+<meta name="generated" content="2015-10-30 17:55:10 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -34,7 +34,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -50,12 +90,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">GPS</a>
+<li><a href="#sec-1">百科理工</a>
 <ul>
-<li><a href="#sec-1-1">时间系统</a></li>
-<li><a href="#sec-1-2">经纬度转换</a></li>
-<li><a href="#sec-1-3">经纬度转换米</a></li>
-<li><a href="#sec-1-4">任意两点的经纬度计算两点距离</a></li>
+<li><a href="#sec-1-1">GPS</a>
+<ul>
+<li><a href="#sec-1-1-1">GPS组成</a>
+<ul>
+<li><a href="#sec-1-1-1-1">空间段</a></li>
+<li><a href="#sec-1-1-1-2">控制段</a></li>
+<li><a href="#sec-1-1-1-3">用户段</a></li>
+<li><a href="#sec-1-1-1-4">GPS通信信号</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-1-2">时间系统</a></li>
+<li><a href="#sec-1-1-3">GPS定位</a>
+<ul>
+<li><a href="#sec-1-1-3-1">定位原理</a></li>
+<li><a href="#sec-1-1-3-2">定位精度影响</a></li>
+<li><a href="#sec-1-1-3-3">首次定位时间</a></li>
+<li><a href="#sec-1-1-3-4">AGPS</a></li>
+<li><a href="#sec-1-1-3-5">网络定位</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-1-4">经纬度转换</a></li>
+<li><a href="#sec-1-1-5">经纬度转换米</a></li>
+<li><a href="#sec-1-1-6">任意两点的经纬度计算两点距离</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2">百科经济</a>
+<ul>
+<li><a href="#sec-2-1">基本概念</a></li>
 </ul>
 </li>
 </ul>
@@ -63,8 +128,15 @@
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">GPS</h2>
+<h2 id="sec-1">百科理工</h2>
 <div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">GPS</h3>
+<div class="outline-text-3" id="text-1-1">
 
 <ul>
 <li>地球经纬线：地轴是一根通过地球南北极和地球中心的假想线，在地球中腰画一个与地轴垂直的大圆圈，使圆圈的每个点都和南北极的
@@ -88,14 +160,135 @@
 <li>ECEF坐标系：地心地球固连坐标系，earth centered，earth fixed，用于描述地面接收器的位置，随着地球自转而旋转，在具体定位
   时，需要将卫星的ECI坐标系的位置转换成它在ECEF坐标系的位置；
 </li>
+<li>星历表：本来用来记录天体特定时刻的位置。而在GNSS中，星历表则记录了卫星的运行参数，它使的我们通过星历表就可以计算出任意
+  时刻的导航卫星的位置和速度，其数据量较大，传输时间长，也有简版星历表叫历书；
+</li>
+<li>历书：包含卫星的位置等信息；
+</li>
 </ul>
 
 
 </div>
 
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">时间系统</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">GPS组成</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+
+</div>
+
+<div id="outline-container-1-1-1-1" class="outline-5">
+<h5 id="sec-1-1-1-1">空间段</h5>
+<div class="outline-text-5" id="text-1-1-1-1">
+
+<p>空间段由GPS卫星组成；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-1-1-2" class="outline-5">
+<h5 id="sec-1-1-1-2">控制段</h5>
+<div class="outline-text-5" id="text-1-1-1-2">
+
+<p>控制段用来控制和监视GPS的运行，控制段包含
+</p><ul>
+<li>主控站：
+</li>
+<li>监控站：
+</li>
+<li>地面控制站：
+</li>
+<li>地面天线
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-1-3" class="outline-5">
+<h5 id="sec-1-1-1-3">用户段</h5>
+<div class="outline-text-5" id="text-1-1-1-3">
+
+<ul>
+<li>民用用户：提供标准定位服务；
+</li>
+<li>军用用户：提供精密定位服务；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-1-4" class="outline-5">
+<h5 id="sec-1-1-1-4">GPS通信信号</h5>
+<div class="outline-text-5" id="text-1-1-1-4">
+
+<p>GPS通信频率都位于L频段，共有3个频率；
+</p><ul>
+<li>L1频率：中心频率为1575.42MHz，传输民用的CA码，军用的P(Y)码；
+</li>
+<li>L2频率：中心频率为1227.6MHz；
+</li>
+<li>L5频率：中心频率为1176.45MHz, 主要为航空安全服务；
+</li>
+</ul>
+
+<p>GPS信号包含几个部分
+</p><ul>
+<li>测距码：用来测量卫星和接收器间距离的信号，其本质是精心设计的伪随机噪声，也就是上面提到的民用CA码和军用P(Y)码；
+<ol>
+<li>CA码：频率F=1.023MHz，周期T=1ms，码长N=1023，码元宽度L=293.05m，测距精度2m到3m，光速为C，码长表示周期范围内有多少个
+     脉冲码元，N=F*T，码元宽度计算公式； $$ L = T*C/N $$  
+</li>
+<li>P(Y)码：频率10.23MHz，周期7天，码长6.1871*10<sup>12，码元周期0</sup>.097752us，码元宽度为29.3m，测距精度为0.3m，对P码加密后就
+     是Y码；
+</li>
+</ol>
+
+</li>
+<li>D码：也叫导航电文，星历和时间信息就封装在导航电文中，其基本单位是帧，一帧包含1500bit，其传输速率为50bit/s，所以传输完
+  一帧需要30s, 一个完整的GPS导航电文包含25帧，具体某颗卫星的数据(GPS时间+星历数据)包含在帧的最开始部分，所以每隔30s就可
+  以得到更新，共37500bit=4688byte=4.7k，所以传输完需要12.5分钟, 导航电文帧数据内容见表  
+  <a href="#tbl-dcode">tbl-dcode</a>；  
+<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-dcode">
+<caption>导航电文内容</caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">帧</th><th scope="col" class="left">数据</th></tr>
+</thead>
+<tbody>
+</tbody>
+<tbody>
+<tr><td class="left">1~25</td><td class="left">发送卫星的时间等信息</td></tr>
+<tr><td class="left">1~25</td><td class="left">发送卫星的星历数据</td></tr>
+<tr><td class="left">1, 6, 11, 16, 21</td><td class="left">保留</td></tr>
+<tr><td class="left">2, 3, 4, 5, 7, 8, 9, 10</td><td class="left">SV-25到SV-32的历书数据</td></tr>
+<tr><td class="left">12，19，20, 22, 23, 24</td><td class="left">保留</td></tr>
+<tr><td class="left">13</td><td class="left">NMCT导航电文改正表</td></tr>
+<tr><td class="left">14, 15</td><td class="left">保留</td></tr>
+<tr><td class="left">17</td><td class="left">特殊消息</td></tr>
+<tr><td class="left">18</td><td class="left">电离层参数和UTC数据</td></tr>
+<tr><td class="left">25</td><td class="left">32颗卫星的配置情况以及卫星的健康状况</td></tr>
+<tr><td class="left">1~24</td><td class="left">SV-1到SV-24的历书数据</td></tr>
+<tr><td class="left">25</td><td class="left">SV-1到SV-24的健康状态和历书参考时间</td></tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">时间系统</h4>
+<div class="outline-text-4" id="text-1-1-2">
 
 <ul>
 <li>国际原子时钟：IAT，international atomic time；
@@ -112,9 +305,122 @@
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">经纬度转换</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3">GPS定位</h4>
+<div class="outline-text-4" id="text-1-1-3">
+
+<p>纯粹利用GPS卫星做的定位，叫autonomous模式定位，为了加快定位速度，还可以采用AGPS模式定位，在没有卫星信号时还可以采用移动
+蜂窝定位；
+</p>
+</div>
+
+<div id="outline-container-1-1-3-1" class="outline-5">
+<h5 id="sec-1-1-3-1">定位原理</h5>
+<div class="outline-text-5" id="text-1-1-3-1">
+
+<ul>
+<li>定位：GPS定位时，需要求出接收器的笛卡尔坐标系下的坐标(x, y, z), 已知的东西有如下，但是卫星的时间是精确的同步的，而接收
+  器的时间不够精确，这样在第二点上计算的距离就有误差，这个误差是由时间差t导致，这样就出现了4个未知数，本来一个三维坐标系
+  只需要3个卫星通过距离公式就能确定，现在有4个未知数了，所以需要4个卫星的距离公式，这样组成一个方程组，4个方程组，就能解
+  出4个未知数，这样接收器的笛卡尔坐标系(x, y, z)就能获得，然后再转换，就能得到地球经纬度的位置；
+<ol>
+<li>卫星自身的坐标，通过坐标系转换可以由卫星的坐标系转换到接收器的坐标系；
+</li>
+<li>卫星到接收器的距离，通过测距码的无线电波速度和传输时间可以算得；
+</li>
+</ol>
+
+</li>
+<li>速度：根据多普勒效应，无线电波实际的传输频率和接收器以一定速度运动时接收到的频率是有一定关系的，由于GPS卫星的速度可以
+  根据导航电文的信息计算得到，频率也已知，而接收器接收到的频率可以测量得到，这样就可以根据多普勒效应频率和速度的关系，推
+  导出接收器此时的速度；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-3-2" class="outline-5">
+<h5 id="sec-1-1-3-2">定位精度影响</h5>
+<div class="outline-text-5" id="text-1-1-3-2">
+
+<p>定位精度的影响因素有
+</p><ol>
+<li>卫星时钟：虽然卫星的时钟精度已经很高，但是由于光速的值太大，就造成时间上误差10ns，距离上误差3m；
+</li>
+<li>卫星本身的轨道位置：卫星在轨的位置精度在5m左右；
+</li>
+<li>光速：GPS信号从卫星到地面接收器传输时其速度不是固定值而是会受到电离层，对流层等的影响；
+</li>
+<li>接收器的时钟：接收器时钟和卫星时钟不同步；
+</li>
+<li>GPS信号的多路径效应：其他建筑物和物体的反射等；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-3-3" class="outline-5">
+<h5 id="sec-1-1-3-3">首次定位时间</h5>
+<div class="outline-text-5" id="text-1-1-3-3">
+
+<p>首次定位时间(TTFF), time to first fix, 描述的是GPS接收器需要花费多长时间来捕获GPS卫星信号并计算出自己的位置，因启动模式
+不同可以分为3种情况；
+</p><ul>
+<li>冷启动模式：GPS接收器没有保存有效星历、时间及位置信息，它需要从周围可搜索到的GPS卫星那里接收信号并获取用于定位的数据，
+  而一个完整的GPS导航电文需要12.5分钟传输，信号非常好的情况下，所以TTFF至少需要12.5分钟；
+</li>
+<li>暖启动模式：GPS接收器保存有星历数据(不超过180天)，旧时间信息(不超过20秒)及旧位置信息(不超过100公里)，但星历数据失效(超
+  过4小时)，在计算位置时，需要从卫星处获取到星历数据，但是星历数据在每帧导航电文都有，而一帧传输时间为30秒，所以在这个模
+  式下，TTFF至少30秒。
+</li>
+<li>热启动模式：GPS接收器具有有效的星历数据，时间，位置等信息，GPS接收器无需解码GPS导航电文中的星历数据，它只要利用GPS信号
+  进行测距计算就可以了，此时速度最快，TTFF可以做到10秒以内；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-3-4" class="outline-5">
+<h5 id="sec-1-1-3-4">AGPS</h5>
+<div class="outline-text-5" id="text-1-1-3-4">
+
+<p>AGPS就是通过本地网络下载星历数据，从而减小等待时间；AGPS需要在全球建造一个用于收集GPS卫星数据的参考网络，对卫星做跟踪，
+比如IGS组织，其<a href="http://igscb.jpl.nasa.gov/">官网</a> 提供GLONASS和GPS的卫星数据下载服务, AGPS将收集到的这些数据放在服务器上并对外提供下载，支持AGPS的手机
+就可以通过网络发起下载请求；手机利用AGPS进行定位的方式有
+</p><ol>
+<li>MSB模式：手机从AGPS服务器上下载辅助数据，然后手机在结合GPS卫星信号进行定位计算，这种方式需要手机下载辅助数据，同时需
+   要利用自身的CPU等资源进行定位计算，这样网络负担小定位延时小，适合短时间内的连续定位；
+</li>
+<li>MSA模式：手机接收并解调GPS卫星信号，然后将这些伪距信息传给AGPS服务器，服务器根据这些数据，自己保存的卫星数据以及手机
+   当时通信的基站位置计算出所在位置，然后将该信息返回给手机；此模式下，手机无需使用自己的CPU等资源来计算，这样对手机的性
+   能要求低，但是定位延迟大，不适合高速行驶时的定位；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-3-5" class="outline-5">
+<h5 id="sec-1-1-3-5">网络定位</h5>
+<div class="outline-text-5" id="text-1-1-3-5">
+
+<p>某地区的移动通信基站或者无线网络AP的位置信息都已经事先获取并保存在相关服务器上，当手机使用网络定位时，手机首先向服务器查询
+自己所连接或搜索到的基站或AP的位置，然后根据信号的强度推算自己的大致位置，相比GPS定位，网络定位速度快，耗电少，但精度低；
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4">经纬度转换</h4>
+<div class="outline-text-4" id="text-1-1-4">
 
 <ul>
 <li>度转度分秒
@@ -131,9 +437,9 @@
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">经纬度转换米</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5">经纬度转换米</h4>
+<div class="outline-text-4" id="text-1-1-5">
 
 <ul>
 <li>子午线总长度大约L=40008km；
@@ -156,9 +462,9 @@
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">任意两点的经纬度计算两点距离</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6">任意两点的经纬度计算两点距离</h4>
+<div class="outline-text-4" id="text-1-1-6">
 
 <p>地球是一个近乎标准的椭球体，它的赤道半径为6378.140千米，极半径为 6356.755千米，平均半径6371.004千米。如果我们假设地球是
 一个完美的球体，那么它的半径就是地球的平均半径，记为R。如果以0度经线为基 准，那么根据地球表面任意两点的经纬度就可以计算
@@ -233,10 +539,100 @@ public static double GetDistance(double lat1, double lng1, double lat2, double l
 </div>
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">百科经济</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">基本概念</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<ul>
+<li>利率：储蓄存款利率由国家统一规定，人民银行挂牌公告。利率也称为利息率，是在一定日期内利息与本金的比率，一般分为年利率、
+  月利率、日利率三种。年利率以百分比表示，月利率以千分比表示，日利率以万分比表示。如年息九厘写为9%，即每百元存款定期一年
+  利息9元，月息六厘写为6‰，即每千元存款一月利息6元，日息一厘五毫写为1.5，即每万元存款每日利息l元5角，目前我国储蓄存款用
+  月利率挂牌。为了计息方便，三种利率之间可以换算，其换算公式为；
+<ol>
+<li>年利率÷12=月利率
+</li>
+<li>月利率÷30=日利率
+</li>
+<li>年利率÷360=日利率
+</li>
+</ol>
+
+</li>
+<li>计息起点：储蓄存款利息计算时，本金以“元”为起息点，元以下的角、分不计息，利息的金额算至分位，分位以下四舍五入。分段计
+  息算至厘位，合计利息后分以下四舍五入；
+</li>
+<li>存期计算规定：
+<ol>
+<li>算头不算尾，计算利息时，存款天数一律算头不算尾，即从存入日起算至取款前一天止;
+</li>
+<li>不论闰年、平年，不分月大、月小，全年按360天，每月均按30天计算;
+</li>
+<li>对年、对月、对日计算，各种定期存款的到期日均以对年、对月、对日为准。即自存入日至次年同月同日为一对年，存入日至下月
+     同一日为对月;
+</li>
+<li>定期储蓄到期日，如遇例假不办公，可以提前一日支取，视同到期计算利息，手续同提前支取办理。
+</li>
+</ol>
+
+</li>
+<li>计算利息基本方法：由于存款种类不同，具体计息方法也各有不同，但计息的基本公式不变，即利息是本金、存期、利率三要素的乘积，
+  公式为：利息=本金*利率*时间.如用日利率计算，利息=本金×日利率×存款天数，如用月利率计算，利息=本金×月利率×月数；
+<ol>
+<li>计算过期天数的方法：过期天数=(支取年-到期年)×360+支取月、日数-到期月、日数
+</li>
+<li>计算利息的方法：
+<ul>
+<li>百元基数计息法。适用于定期整存整取、活期存单式储蓄种类的利息计算。
+</li>
+<li>积数计息法。适用于零存整取储蓄利息的计算，也可用于计算活期存折的利息。
+</li>
+<li>利余计息法。适用于活期存折储蓄利息的计算。
+</li>
+</ul>
+
+</li>
+</ol>
+
+</li>
+<li>各储蓄种类的利息计算：
+<ol>
+<li>活期储蓄存款在办理存取业务时，应逐笔在帐页上结出利息余额，俟储户清户时一次计付利息。
+</li>
+<li>活期储蓄(存折)存款每年结息一次(每年六月三十日为结息日).结息时可把“元”以上利息并入本金，”元”以下角分部分转入下年
+     利息余额内。 
+</li>
+<li>活期储蓄存款在存入期间遇有利率调整，按结息日挂牌公告的活期储蓄存款利率计算利息。全部支取活期储蓄存款，按清户日挂牌
+     公告的活期储蓄存款利率计付利息。
+</li>
+<li>活期储蓄的利息计算公式, 活期储蓄的本金和存期经常变动，因而，活期储蓄利息的计算比较复杂。但只要掌握一定方法，所有的
+     计算问题也就迎刃而解了。　　    
+</li>
+</ol>
+
+</li>
+<li>固定资产折旧的计算方法：企业一般用年限平均法计提折旧，他是根据固定资产的原值减去残值后的余额，固定资产残值一般按固定资
+  产的原值的5%预计，(也可根据实际使用年限预计残值)一般建筑类使用20年，设备类使用15年。公式：固定资产年折旧额=固定资产原
+  值-净残值/固定资产预计使用年限，年折旧额除以12=月折旧额；
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-29 20:57:09 中国标准时间</p>
+<p class="date">Date: 2015-10-30 17:55:10 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

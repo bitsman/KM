@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-30 00:20:07 中国标准时间"/>
+<meta name="generated" content="2015-10-30 17:55:09 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -900,7 +900,7 @@ errQUEUE_YIELD
 malloc前后关闭打开中断和调度器；另外对申请的堆空间地址和长度还涉及到对齐等细节功能操作；
 <a name="heap1-oper" id="heap1-oper"></a>
 </p><ul>
-<li>heap<sub>1</sub>.c: 只有简单的堆空间申请操作，没有释放操作；
+<li>heap_1.c: 只有简单的堆空间申请操作，没有释放操作；
 
 
 
@@ -1001,7 +1001,7 @@ void *pvPortMalloc( size_t xWantedSize )
 
 <p><a name="heap2-oper" id="heap2-oper"></a>
 </p><ul>
-<li>heap<sub>2</sub>.c: 同<a href="#heap1-oper">heap<sub>1</sub>.c</a>差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
+<li>heap_2.c: 同<a href="#heap1-oper">heap_1.c</a>差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
 </li>
 </ul>
 
@@ -1034,7 +1034,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </pre>
 
 <ul>
-<li>heap<sub>3</sub>.c: 对C标准库的堆操作函数做了线程安全的封装; 
+<li>heap_3.c: 对C标准库的堆操作函数做了线程安全的封装; 
 </li>
 </ul>
 
@@ -1085,7 +1085,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </pre>
 
 <ul>
-<li>heap<sub>4</sub>.c: 同<a href="#heap2-oper">heap<sub>2</sub>.c</a>差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
+<li>heap_4.c: 同<a href="#heap2-oper">heap_2.c</a>差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
 </li>
 </ul>
 
@@ -1278,7 +1278,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-30 00:20:07 中国标准时间</p>
+<p class="date">Date: 2015-10-30 17:55:09 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

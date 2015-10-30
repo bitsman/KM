@@ -434,7 +434,7 @@ FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个
 等函数做的封装，因为标准C库的malloc等函数不是线程安全的函数，需要封装为安全的，所谓的封装为线程安全的，也就是在执行
 malloc前后关闭打开中断和调度器；另外对申请的堆空间地址和长度还涉及到对齐等细节功能操作；
 # <<heap1-oper>>
-- heap_1.c: 只有简单的堆空间申请操作，没有释放操作；
+- heap\_1.c: 只有简单的堆空间申请操作，没有释放操作；
   #+begin_src c
     /* portBYTE_ALIGNMENT:这个常量指示字节对齐数，其默认值为8，即默认以8个字节进行内存对齐 */
     /* portBYTE_ALIGNMENT_MASK:这个常量是根据portBYTE_ALIGNMENT的值进行定义的 */
@@ -528,7 +528,7 @@ void *pvPortMalloc( size_t xWantedSize )
     }
   #+end_src
 # <<heap2-oper>>
-- heap_2.c: 同[[heap1-oper][heap_1.c]]差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
+- heap\_2.c: 同[[heap1-oper][heap\_1.c]]差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
 #+begin_src c
 void vPortFree( void *pv )
 {
@@ -554,7 +554,7 @@ void vPortFree( void *pv )
 	}
 }
 #+end_src
-- heap_3.c: 对C标准库的堆操作函数做了线程安全的封装; 
+- heap\_3.c: 对C标准库的堆操作函数做了线程安全的封装; 
 分配函数：
 #+begin_src c
 void *pvPortMalloc( size_t xWantedSize )
@@ -594,7 +594,7 @@ void vPortFree( void *pv )
 	}
 }
 #+end_src
-- heap_4.c: 同[[heap2-oper][heap_2.c]]差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
+- heap\_4.c: 同[[heap2-oper][heap\_2.c]]差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
 #+begin_src c
 void *pvPortMalloc( size_t xWantedSize )
 {
