@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-30 17:55:09 中国标准时间"/>
+<meta name="generated" content="2015-11-03 23:51:18 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -81,6 +81,11 @@
 </ul>
 </li>
 <li><a href="#sec-1-6">menu</a></li>
+<li><a href="#sec-1-7">gps</a>
+<ul>
+<li><a href="#sec-1-7-1">组件</a></li>
+<li><a href="#sec-1-7-2">操作</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-2">FreeRTOS</a>
@@ -712,6 +717,69 @@ Runnable update_thread = new Runnable() {
 </table>
 
 </div>
+
+</div>
+
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7">gps</h3>
+<div class="outline-text-3" id="text-1-7">
+
+
+</div>
+
+<div id="outline-container-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1">组件</h4>
+<div class="outline-text-4" id="text-1-7-1">
+
+<ul>
+<li>LocationManagerService：简称LMS，统一管理android平台中能够提供位置服务的相关模块；
+</li>
+<li>LocationManager：简称LM，为需要使用位置服务的应用程序服务，LMS和LM通过binder进行交互；
+</li>
+<li>LocationProvider：简称LP，表示android平台中能够提供位置服务的相关模块的统称，在所有位置提供者中，android framework实现
+  了其中的PassiveProvider和GpsLocationProvider，这两个LP由LMS创建并允许在系统进程中；
+</li>
+<li>LocationProviderInterface：LP必须实现这个接口，这些接口对应的对象实例由LMS来创建和管理；
+</li>
+<li>NetworkLocationProvider：由网络提供的位置服务，android原生代码中不提供相关功能，一般第三方厂商会提供；
+</li>
+<li>GMS：GoogleMobileService，由Google提供的NetworkLocationProvider，国内的一般由百度提供；
+</li>
+<li>ILocationProviderProxy：由于一些LP是由第三方提供，他们运行在应用程序所在的进程中，所以系统定了这个接口使LMS管理这些由
+  应用程序提供的位置服务；
+</li>
+<li>LocationProviderBase：第三方提供LP，必须实现这个抽象类；
+</li>
+<li>FusedLocationProvider：它自身不提供位置信息，而是综合GpsLP和NetworkLP的位置信息，然后向使用者提供最符合使用者需求的数
+  据，平衡电量消耗和数据精度要求；
+</li>
+<li>GeocodeProxy：由于需要将位置信息和地址相互转换，而有些位置信息由第三方提供，所以LMS利用这个和第三方应用中实现
+  GeocodeProxy的对象进行交互。
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2">操作</h4>
+<div class="outline-text-4" id="text-1-7-2">
+
+<ol>
+<li>先创建一个LocationManager对象，用于和LMS交互；
+</li>
+<li>然后调用LocationManager的requestLocationUpdates以设置一个回调接口对象LocationListener，同时指出要使用哪个LP，或者指定
+   定位精度，由系统决定选择LP；
+</li>
+<li>当LP更新相关信息后，LocationListener对应的函数将被调用，应用程序可以在这些回调函数中做相应处理；
+</li>
+<li>如果应用程序需要在位置和地址信息做转换，则使用Geocoder类提供的函数；
+</li>
+</ol>
+
+</div>
+</div>
 </div>
 
 </div>
@@ -1278,7 +1346,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-30 17:55:09 中国标准时间</p>
+<p class="date">Date: 2015-11-03 23:51:18 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-22 22:55:28 中国标准时间"/>
+<meta name="generated" content="2015-11-03 23:51:25 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -106,28 +106,24 @@
 <ul>
 <li><a href="#sec-2-1">概念</a></li>
 <li><a href="#sec-2-2">排列组合</a></li>
+<li><a href="#sec-2-3">概率分布</a>
+<ul>
+<li><a href="#sec-2-3-1">离散分布</a>
+<ul>
+<li><a href="#sec-2-3-1-1">01分布</a></li>
+<li><a href="#sec-2-3-1-2">二项分布</a></li>
+<li><a href="#sec-2-3-1-3">伯努利分布</a></li>
+<li><a href="#sec-2-3-1-4">泊松分布</a></li>
+<li><a href="#sec-2-3-1-5">几何分布</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">概率分布</a>
+<li><a href="#sec-2-3-2">连续分布</a>
 <ul>
-<li><a href="#sec-3-1">离散分布</a>
-<ul>
-<li><a href="#sec-3-1-1">01分布</a></li>
-<li><a href="#sec-3-1-2">二项分布</a>
-<ul>
-<li><a href="#sec-3-1-2-1">python实现</a></li>
+<li><a href="#sec-2-3-2-1">正太分布</a></li>
+<li><a href="#sec-2-3-2-2">指数分布</a></li>
+<li><a href="#sec-2-3-2-3">&beta;分布</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-1-3">伯努利分布</a></li>
-<li><a href="#sec-3-1-4">泊松分布</a></li>
-<li><a href="#sec-3-1-5">几何分布</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-2">连续分布</a>
-<ul>
-<li><a href="#sec-3-2-1">正太分布</a></li>
-<li><a href="#sec-3-2-2">指数分布</a></li>
-<li><a href="#sec-3-2-3">&beta;分布</a></li>
 </ul>
 </li>
 </ul>
@@ -365,7 +361,49 @@
   的记录其作案的概率为P(B<sub>i</sub>)，但是如果了解了A案情，则P(B<sub>i</sub>)就会变动了；贝叶斯公式如下：在全概率假定下有   
   $$P(B|A) = \frac{P(AB_{i})}{P(A)} = \frac{P(B_{i})P(A|B_{i})}{\sum_{j}P(B_{j})P(A|B_{j})}$$
 </li>
-<li>
+<li>期望值：也称均值，\(\overline{X} = \frac{\sum_{i=1}^{n} X_{i}}{n}\), 如果知道每个点x的概率f(x)，则可以写为 \(E(X) = \sum
+  x_{k}f(x_{x})\), 描述的是样本集合的中间点，平均值；
+</li>
+<li>方差：标准差为方差的开方，令u=E(X)为均值，定义X的方差Var(X)=E((X-u)<sup>2</sup>)=E(X<sup>2</sup>)-u<sup>2</sup>, 另外还可以这样计算，方差
+  \(V^{2}=\frac{\sum_{i=1}^{n}(X_{i}-\overline{X})}{n-1}\) , 描述了各个点x相对于均值的离散度；
+</li>
+<li>协方差：期望值和方差一般用来描述一维的数据，但是当两个,多个随机变量可能存在一定关系时, 比如男孩的猥琐程度和受女孩子喜
+  欢的程度，就需要协方差来衡量，方差只可能为非负，但是协方差可以为正、0、负，从而引出了正相关、相互独立、负相关，如果协
+  方差为正，代表男孩越猥琐越受欢迎，如果为负代表男孩越猥琐越不受欢迎，如果为0代表两者无关。协方差的定义公式类似方差
+  \(cov(X,Y) = \frac{\sum_{i=1}^{n}(X_{i}-\overline{X})(Y_{i}-\overline{Y})}{n-1}\); 如果面对多维的情况时，协方差也没法独
+  自描述，这时就需要协方差矩阵进行描述矩阵的元素为两两随机变量的协方差，比如数据集有{x，y，z}三个维度情况; 
+</li>
+</ul>
+
+<p><a name="math-relevance" id="math-relevance"></a>
+</p><ul>
+<li>总体线性相关系数: X和Y的总体线性相关系数,其中Var(X)，Var(Y)为X,Y的方差，Cov(X, Y)为X和Y的协方差； 
+  $$ \rho = \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$$
+</li>
+<li>样本线性相关系数: X和Y的样本线性相关系数，其中X<sub>i和Y</sub><sub>i分别是变量X和Y的样本观测值，</sub> \(\overline{X}, \overline{Y}\) 分别是
+  变量X和Y样本值的平均值；
+  $$ r_{XY}=\frac{\sum(X_{i}-\overline{X})(Y_{i}-\overline{Y})}{\sqrt{\sum(X_{i}-\overline{X})^{2}\sum(Y_{i}-\overline{Y})^{2}}}$$
+</li>
+<li>条件分布：当被解释量X取某固定值时(条件)，Y的值不确定，Y的不同取值形成一定的分布，这就是Y的分布；
+</li>
+<li>条件概率：X取某固定值时，Y取不同值的概率称为条件概率；
+</li>
+<li>条件期望：对于X的每个取值，对Y所形成的分布确定其期望或者均值，称为Y的条件期望或条件均值，用E(Y|X<sub>i</sub>)表示, 见图<a href="#img-cond-exp">img-cond-exp</a>所示；
+</li>
+<li>回归线：对于每个X的取值X<sub>i</sub>, 都有Y的条件期望E(Y|X<sub>i</sub>)与之对应，代表Y的条件期望的点的轨迹形成的直线或者曲线称为回归线, 见
+  图<a href="#img-cond-exp">img-cond-exp</a>所示；
+  <img src="./img/cond-exp-plot.jpg"  alt="./img/cond-exp-plot.jpg" />
+</li>
+<li>回归函数：被解释变量Y的条件期望E(Y|X<sub>i</sub>)随解释变量X的变化而有规律的变化，如果把Y的条件期望表现为X的如下函数，这个函数称
+  为回归函数, 回归函数又分为总体回归函数和样本回归函数；$$ E(Y|X_{i}) = f(X_{i})$$
+</li>
+<li>残差：也叫剩余值，residual，表示实际值Y与回归线上的估计值Y'的纵向距离Y-Y', 一般Y'用E(Y)；
+</li>
+<li>无偏估计：用期望值来阐述，对于一个总体空间的期望值为U，由于各种原因没办法或者不方便获得这个期望值参数U，但是我们可以通
+  过总体空间的一个样本空间的u来估计总体空间的U，一般情况下u是不等于U的，但是总体空间可以划分出若干多个样本空间，也就可以
+  获得多个u，对于这么多个u，其实也是一个随机变量，如果这个随机变量的期望值等于总体空间的U，则可以说对我们划分的样本空间，
+  可以对总体空间的期望值做无偏估计；官方语言组织叫，参数的样本估计值的期望值等于参数的真实值。估计量的数学期望等于被估计
+  参数，则称此为无偏估计 ；
 </li>
 </ul>
 
@@ -388,36 +426,35 @@
 </ul>
 
 </div>
-</div>
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">概率分布</h2>
-<div class="outline-text-2" id="text-3">
-
-
-</div>
-
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">离散分布</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">概率分布</h3>
+<div class="outline-text-3" id="text-2-3">
 
 
 </div>
 
-<div id="outline-container-3-1-1" class="outline-4">
-<h4 id="sec-3-1-1">01分布</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">离散分布</h4>
+<div class="outline-text-4" id="text-2-3-1">
+
+
+</div>
+
+<div id="outline-container-2-3-1-1" class="outline-5">
+<h5 id="sec-2-3-1-1">01分布</h5>
+<div class="outline-text-5" id="text-2-3-1-1">
 
 <p>随机变量X只能取0和1两个值，取0和1的概率分布是p，q，p+q=1
 </p></div>
 
 </div>
 
-<div id="outline-container-3-1-2" class="outline-4">
-<h4 id="sec-3-1-2">二项分布</h4>
-<div class="outline-text-4" id="text-3-1-2">
+<div id="outline-container-2-3-1-2" class="outline-5">
+<h5 id="sec-2-3-1-2">二项分布</h5>
+<div class="outline-text-5" id="text-2-3-1-2">
 
 <ul>
 <li>定义：服从二项分布的随机变量X表示在n个独立的是/非试验中成功的次数i，其中每次试验的成功概率为p
@@ -425,13 +462,8 @@
 </li>
 </ul>
 
-
-</div>
-
-<div id="outline-container-3-1-2-1" class="outline-5">
-<h5 id="sec-3-1-2-1">python实现</h5>
-<div class="outline-text-5" id="text-3-1-2-1">
-
+<ul>
+<li id="sec-2-3-1-2-1">python实现<br/>
 
 
 
@@ -452,65 +484,67 @@ plt.show()                      #显示出来
 </pre>
 
 
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3-1-3" class="outline-4">
-<h4 id="sec-3-1-3">伯努利分布</h4>
-<div class="outline-text-4" id="text-3-1-3">
-
+</li>
+</ul>
 </div>
 
 </div>
 
-<div id="outline-container-3-1-4" class="outline-4">
-<h4 id="sec-3-1-4">泊松分布</h4>
-<div class="outline-text-4" id="text-3-1-4">
+<div id="outline-container-2-3-1-3" class="outline-5">
+<h5 id="sec-2-3-1-3">伯努利分布</h5>
+<div class="outline-text-5" id="text-2-3-1-3">
 
 </div>
 
 </div>
 
-<div id="outline-container-3-1-5" class="outline-4">
-<h4 id="sec-3-1-5">几何分布</h4>
-<div class="outline-text-4" id="text-3-1-5">
+<div id="outline-container-2-3-1-4" class="outline-5">
+<h5 id="sec-2-3-1-4">泊松分布</h5>
+<div class="outline-text-5" id="text-2-3-1-4">
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3-1-5" class="outline-5">
+<h5 id="sec-2-3-1-5">几何分布</h5>
+<div class="outline-text-5" id="text-2-3-1-5">
 
 </div>
 </div>
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">连续分布</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">连续分布</h4>
+<div class="outline-text-4" id="text-2-3-2">
 
 
 </div>
 
-<div id="outline-container-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1">正太分布</h4>
-<div class="outline-text-4" id="text-3-2-1">
-
-</div>
-
-</div>
-
-<div id="outline-container-3-2-2" class="outline-4">
-<h4 id="sec-3-2-2">指数分布</h4>
-<div class="outline-text-4" id="text-3-2-2">
+<div id="outline-container-2-3-2-1" class="outline-5">
+<h5 id="sec-2-3-2-1">正太分布</h5>
+<div class="outline-text-5" id="text-2-3-2-1">
 
 </div>
 
 </div>
 
-<div id="outline-container-3-2-3" class="outline-4">
-<h4 id="sec-3-2-3">&beta;分布</h4>
-<div class="outline-text-4" id="text-3-2-3">
+<div id="outline-container-2-3-2-2" class="outline-5">
+<h5 id="sec-2-3-2-2">指数分布</h5>
+<div class="outline-text-5" id="text-2-3-2-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3-2-3" class="outline-5">
+<h5 id="sec-2-3-2-3">&beta;分布</h5>
+<div class="outline-text-5" id="text-2-3-2-3">
 
 
 
+</div>
 </div>
 </div>
 </div>
@@ -518,7 +552,7 @@ plt.show()                      #显示出来
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-22 22:55:28 中国标准时间</p>
+<p class="date">Date: 2015-11-03 23:51:25 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

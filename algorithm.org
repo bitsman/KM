@@ -447,6 +447,39 @@ g, l = createDataSet()
 print("resualt: %r" %classify0(point0, g, l, 3))
 #+end_src
 
+** 回归分析
+随机变量间的关系，可以从多个角度来分析, 并可以参考[[./math.org][相关系数]] 。
+1. 从涉及的变量数量看
+   - 简单相关：两个变量间；
+   - 多重相关：多个变量间；
+2. 从变量相关关系的表现形式看：
+   - 线性相关：散布图上样本接近一条直线；
+   - 非线性相关：散布图上样本接近一条曲线；
+3. 从变量相关关系变化的方向看：
+   - 正相关：变量同方向变化，同增同减；
+   - 负相关：变量反方向变化，一增一减；
+   - 不相关：无规律；
+*** 线性回归
+*** 简单线性回归
+**** 普通最小二乘法
+ordinary least squares的基本思想是
+- 不同的估计方法可以得到不同的样本回归参数 $\widehat{\beta_{1}}$ 和 $\widehat{\beta_{2}}$ , 所估计的 $\widehat{Y_{i}}$
+  也就不同。
+- 理想的估计方法应使 $\widehat{Y_{i}}$ 与Y_{i}的差即剩余e_{i}越小越好；
+- 因e_{i}可正可负，所以可以取 $\sum e_{i}^{2}$ 最小，即， $min\sum e_{i}^{2} =
+min\sum(Y_{i}-\widehat{\beta_{1}}-\widehat{\beta_{2}}X_{i})^{2}$ ; 
+在观测值Y和X取定值后， $\sum e_{i}^{2}$ 的大小决定于 $\widehat{\beta_{1}}$ 和 $\widehat{\beta_{2}}$ ，取偏导数并令其为0，
+得到 
+$$ \frac{\partial(\sum e_{i}^{2})}{\partial \widehat{\beta_{1}}}=-2\sum(Y_{i}-\widehat{\beta_{1}}-\widehat{\beta_{2}}X_{i}) = 0$$ 
+$$ \frac{\partial(\sum e_{i}^{2})}{\partial \widehat{\beta_{2}}}=-2\sum(Y_{i}-\widehat{\beta_{1}}-\widehat{\beta_{2}}X_{i})X_{i} = 0$$ 
+或者
+$$ \sum Y_{i} = n\widehat{\beta_{1}}+\widehat{\beta_{2}}\sum X_{i}$$ 
+$$ \sum Y_{i}X_{i} = \widehat{\beta_{1}}\sum X_{i} + \widehat{\beta_{2}}\sum X_{i}^{2}$$ 
+用克莱姆法则求得
+$$ \widehat{\beta_{2}}=\frac{n\sum X_{i}Y_{i} - \sum X_{i}\sum Y_{i}}{n\sum X_{i}^{2}-(\sum X_{i})^{2})}$$ 
+$$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i}}{n\sum X_{i}^{2}-(\sum X_{i})^{2})}$$ 
+*** 逻辑回归
+*** 非线性回归
 * 图像处理
 数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
 间隔量化。至此一副数字图像是一个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。
@@ -461,6 +494,8 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 - 采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
 - 像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；
 - 放大率：指图像中物体与其对应的景物中物体的大小比例关系；
+** 其他
+- 人眼只能分辨约40级灰度，也就是如果黑白之间的灰度范围被分为40个以上的等分，相邻的灰度级可能对人眼对来说看起来是相同的；
   
 
 

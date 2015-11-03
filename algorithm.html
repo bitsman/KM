@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="机器学习 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-29 20:57:08 中国标准时间"/>
+<meta name="generated" content="2015-11-03 23:51:20 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -101,11 +101,23 @@
 </ul>
 </li>
 <li><a href="#sec-1-2">k临近算法</a></li>
+<li><a href="#sec-1-3">回归分析</a>
+<ul>
+<li><a href="#sec-1-3-1">线性回归</a></li>
+<li><a href="#sec-1-3-2">简单线性回归</a>
+<ul>
+<li><a href="#sec-1-3-2-1">普通最小二乘法</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-3">逻辑回归</a></li>
+<li><a href="#sec-1-3-4">非线性回归</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-2">图像处理</a>
 <ul>
 <li><a href="#sec-2-1">概念</a></li>
+<li><a href="#sec-2-2">其他</a></li>
 </ul>
 </li>
 </ul>
@@ -660,6 +672,107 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 
 
 </div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3">回归分析</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<p>随机变量间的关系，可以从多个角度来分析, 并可以参考<a href="./math.html">相关系数</a> 。
+</p><ol>
+<li>从涉及的变量数量看
+<ul>
+<li>简单相关：两个变量间；
+</li>
+<li>多重相关：多个变量间；
+</li>
+</ul>
+
+</li>
+<li>从变量相关关系的表现形式看：
+<ul>
+<li>线性相关：散布图上样本接近一条直线；
+</li>
+<li>非线性相关：散布图上样本接近一条曲线；
+</li>
+</ul>
+
+</li>
+<li>从变量相关关系变化的方向看：
+<ul>
+<li>正相关：变量同方向变化，同增同减；
+</li>
+<li>负相关：变量反方向变化，一增一减；
+</li>
+<li>不相关：无规律；
+</li>
+</ul>
+
+</li>
+</ol>
+
+
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">线性回归</h4>
+<div class="outline-text-4" id="text-1-3-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">简单线性回归</h4>
+<div class="outline-text-4" id="text-1-3-2">
+
+
+</div>
+
+<div id="outline-container-1-3-2-1" class="outline-5">
+<h5 id="sec-1-3-2-1">普通最小二乘法</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+
+<p>ordinary least squares的基本思想是
+</p><ul>
+<li>不同的估计方法可以得到不同的样本回归参数 \(\widehat{\beta_{1}}\) 和 \(\widehat{\beta_{2}}\) , 所估计的 \(\widehat{Y_{i}}\)
+  也就不同。
+</li>
+<li>理想的估计方法应使 \(\widehat{Y_{i}}\) 与Y<sub>i</sub>的差即剩余e<sub>i</sub>越小越好；
+</li>
+<li>因e<sub>i</sub>可正可负，所以可以取 \(\sum e_{i}^{2}\) 最小，即， \(min\sum e_{i}^{2} =
+ORG-LIST-END-MARKER
+min\sum(Y_{i}-\widehat{\beta_{1}}-\widehat{\beta_{2}}X_{i})^{2}\) ; 
+在观测值Y和X取定值后， \(\sum e_{i}^{2}\) 的大小决定于 \(\widehat{\beta_{1}}\) 和 \(\widehat{\beta_{2}}\) ，取偏导数并令其为0，
+得到 
+$$ \frac{\partial(\sum e_{i}^{2})}{\partial \widehat{\beta_{1}}}=-2\sum(Y_{i}-\widehat{\beta_{1}}-\widehat{\beta_{2}}X_{i}) = 0$$ 
+$$ \frac{\partial(\sum e_{i}^{2})}{\partial \widehat{\beta_{2}}}=-2\sum(Y_{i}-\widehat{\beta_{1}}-\widehat{\beta_{2}}X_{i})X_{i} = 0$$ 
+或者
+$$ \sum Y_{i} = n\widehat{\beta_{1}}+\widehat{\beta_{2}}\sum X_{i}$$ 
+$$ \sum Y_{i}X_{i} = \widehat{\beta_{1}}\sum X_{i} + \widehat{\beta_{2}}\sum X_{i}^{2}$$ 
+用克莱姆法则求得
+$$ \widehat{\beta_{2}}=\frac{n\sum X_{i}Y_{i} - \sum X_{i}\sum Y_{i}}{n\sum X_{i}^{2}-(\sum X_{i})^{2})}$$ 
+$$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i}}{n\sum X_{i}^{2}-(\sum X_{i})^{2})}$$ 
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3">逻辑回归</h4>
+<div class="outline-text-4" id="text-1-3-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4">非线性回归</h4>
+<div class="outline-text-4" id="text-1-3-4">
+
+</div>
+</div>
 </div>
 
 </div>
@@ -699,6 +812,19 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 </li>
 </ul>
 
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">其他</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<ul>
+<li>人眼只能分辨约40级灰度，也就是如果黑白之间的灰度范围被分为40个以上的等分，相邻的灰度级可能对人眼对来说看起来是相同的；
+</li>
+</ul>
+
 
 
 
@@ -709,7 +835,7 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-29 20:57:08 中国标准时间</p>
+<p class="date">Date: 2015-11-03 23:51:20 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
