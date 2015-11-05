@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-03 23:51:25 中国标准时间"/>
+<meta name="generated" content="2015-11-05 15:10:30 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -350,14 +350,14 @@
 </li>
 <li>独立事件的概率：若干个独立事件 \(A_{1},...,A_{n}\) 之积的概率，等于各事件概率的乘积：\(P(A_{1}...A_{n}) = P(A_{1})...P(A_{n})\)
 </li>
-<li>全概率：其意义在于在校复杂的情况下直接计算A事件概率P(A)不容易，但是A事件总是随某个B<sub>i发生，则适当去构造这组B</sub><sub>i可以简化</sub>
-  计算。其公式如下，其中用到了条件概率公式, 此公式还能从另一个角度去理解，把B<sub>i看做导致事件A发生的一种可能途径，对不同途</sub>
+<li>全概率：其意义在于在校复杂的情况下直接计算A事件概率P(A)不容易，但是A事件总是随某个B<sub>i</sub>发生，则适当去构造这组B<sub>i</sub>可以简化
+  计算。其公式如下，其中用到了条件概率公式, 此公式还能从另一个角度去理解，把B<sub>i</sub>看做导致事件A发生的一种可能途径，对不同途
   径，A发生的概率即条件概率P(A|B)各不同，而采取哪个途径却是随机的。 
   $$ P(A)=P(AB_{1})+...+P(AB_{n}) = P(B_{1})P(A|B_{1})+...+P(B_{n})P(A|B_{n}) $$
 </li>
-<li>贝叶斯公式：刻画了一些事件B<sub>i其原有发生概率在事件A引入的条件下B</sub><sub>i的概率发生了改变；如果把事件A看成结果，把诸事件B</sub><sub>i看</sub>
+<li>贝叶斯公式：刻画了一些事件B<sub>i</sub>其原有发生概率在事件A引入的条件下B<sub>i</sub>的概率发生了改变；如果把事件A看成结果，把诸事件B<sub>i</sub>看
   成导致结果A的可能原因，则全概率公式可以看做为“由原因推结果”，而贝叶斯公式则相反为“由结果推原因”，现在有结果A已经发
-  生了，在众多原因B<sub>i中到底由哪个导致，贝叶斯公式可以给出度量，类似于发生了某个案件A，在不了解案情前，嫌疑人B</sub><sub>i根据以往</sub>
+  生了，在众多原因B<sub>i</sub>中到底由哪个导致，贝叶斯公式可以给出度量，类似于发生了某个案件A，在不了解案情前，嫌疑人B<sub>i</sub>根据以往
   的记录其作案的概率为P(B<sub>i</sub>)，但是如果了解了A案情，则P(B<sub>i</sub>)就会变动了；贝叶斯公式如下：在全概率假定下有   
   $$P(B|A) = \frac{P(AB_{i})}{P(A)} = \frac{P(B_{i})P(A|B_{i})}{\sum_{j}P(B_{j})P(A|B_{j})}$$
 </li>
@@ -380,7 +380,7 @@
 <li>总体线性相关系数: X和Y的总体线性相关系数,其中Var(X)，Var(Y)为X,Y的方差，Cov(X, Y)为X和Y的协方差； 
   $$ \rho = \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$$
 </li>
-<li>样本线性相关系数: X和Y的样本线性相关系数，其中X<sub>i和Y</sub><sub>i分别是变量X和Y的样本观测值，</sub> \(\overline{X}, \overline{Y}\) 分别是
+<li>样本线性相关系数: X和Y的样本线性相关系数，其中X<sub>i</sub>和Y<sub>i</sub>分别是变量X和Y的样本观测值， \(\overline{X}, \overline{Y}\) 分别是
   变量X和Y样本值的平均值；
   $$ r_{XY}=\frac{\sum(X_{i}-\overline{X})(Y_{i}-\overline{Y})}{\sqrt{\sum(X_{i}-\overline{X})^{2}\sum(Y_{i}-\overline{Y})^{2}}}$$
 </li>
@@ -407,7 +407,6 @@
 </li>
 </ul>
 
-
 </div>
 
 </div>
@@ -417,9 +416,9 @@
 <div class="outline-text-3" id="text-2-2">
 
 <ul>
-<li>排列：n个相异事物取r个(1&lt;=r&lt;=n)的不同排列总数，为\(P_{r}^{n} = n(n-1)(n-2)...(n-r+1)\) , 如果r=n，则\(P_{r}^{r} = r!\)
+<li>排列：n个相异事物取r个(1&lt;=r&lt;=n)的不同排列总数，为 \(P_{r}^{n} = n(n-1)(n-2)...(n-r+1)\) , 如果r=n，则 \(P_{r}^{r} = r!\)
 </li>
-<li>组合：n个相异物件取r个(1&lt;=r&lt;=n)的不同组合总数，为\(C_{r}^{n}=\frac{P_{r}^{n}}{r!}=\frac{n!}{r!(n-r)!}}\)
+<li>组合：n个相异物件取r个(1&lt;=r&lt;=n)的不同组合总数，为 \(C_{r}^{n}=\frac{P_{r}^{n}}{r!}=\frac{n!}{r!(n-r)!}}\)
 </li>
 <li>0!=1; 
 </li>
@@ -552,7 +551,7 @@ plt.show()                      #显示出来
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-03 23:51:25 中国标准时间</p>
+<p class="date">Date: 2015-11-05 15:10:30 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
