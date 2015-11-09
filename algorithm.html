@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="机器学习 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-05 15:10:44 中国标准时间"/>
+<meta name="generated" content="2015-11-09 23:00:46 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -131,6 +131,16 @@
 <ul>
 <li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，但是对于新鲜样本则可能不令人满意的现象称为过
   拟合；
+</li>
+<li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>种所有可能形式分为2类，则称该函数集能够把样本
+  数为N的样本集打散(shatter)，其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定义为：对于给定集
+  合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个
+  样本，假设类H就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把2<sup>N</sup>种分类的每一种看做一个学习问题，
+  那么2<sup>N</sup>种学习问题就可以用N个点定义；
+</li>
+<li>VC维：依照样本集打散的概念，该函数集的VC维就是用这个函数集中的函数能够打散的最大样本集的样本数目，也就是说，若存在N个
+  样本的样本集能够被函数集打散，而不存在N+1个样本集能够打散，则该函数集的VC维就是N。另外，若对于任意的样本数，总能找到 
+  一个样本集能够被这个函数集打散，则函数集的VC维就是无穷大；
 </li>
 </ul>
 
@@ -841,7 +851,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-05 15:10:44 中国标准时间</p>
+<p class="date">Date: 2015-11-09 23:00:46 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
