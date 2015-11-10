@@ -25,6 +25,15 @@
 - credit scoring：信用评估；
 - empirical error: 经验误差；
 - proportion：比例；
+- PAC: probably approximately correct, 概率近似正确；
+- pessimistic:悲观的；
+- anomaly: 异常；
+- latent：潜藏的；
+- wiggly：波动的，摇摆的；
+- interpolation:插值；
+- polynomial：多项式；
+- partial derivatives：偏导数；
+- quadratic：二次的，二次方程；
 # * 公司
 # ** nationz
 

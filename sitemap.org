@@ -1,7 +1,7 @@
 #+TITLE: Sitemap
 
-   + [[file:language.org][2015-11-09 外语学习]]
-   + [[file:algorithm.org][2015-11-09 机器学习 ]]
+   + [[file:language.org][2015-11-10 外语学习]]
+   + [[file:algorithm.org][2015-11-10 算法 ]]
    + [[file:math.org][2015-11-09 数学 ]]
    + [[file:os.org][2015-11-04 操作系统]]
    + [[file:encyclopedia.org][2015-11-03 百科知识]]
