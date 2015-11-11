@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-10 23:58:48 中国标准时间"/>
+<meta name="generated" content="2015-11-11 23:34:00 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -132,6 +132,17 @@
 <li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，但是对于新鲜样本则可能不令人满意的现象称为过
   拟合；
 </li>
+<li>样本集合：一般样本集合可以分为
+<ol>
+<li>training set：训练集，用于训练得出我们的候选算法集合；
+</li>
+<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法；
+</li>
+<li>test set：测试集，用于测试我们选出的这个错误率最低的算法；
+</li>
+</ol>
+
+</li>
 <li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>种所有可能形式分为2类，则称该函数集能够把样本
   数为N的样本集打散(shatter)，其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定义为：对于给定集
   合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个
@@ -149,6 +160,14 @@
   全的满足真正的完整空间的数据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习器通过对样本空间学习
   得来的经验不能完全的满足未来新数据的处理，所以提出了PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数
   &epsilon;范围内，&epsilon;可以任意小；
+</li>
+<li>inductive bias：归纳偏置，机器学习试图去建造一个可以学习的算法，用来预测某个目标的结果。要达到此目的，要给于学习算法一
+  些训练样本，样本说明输入与输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练中未出现的样本。既然
+  未知状况可以是任意的结果，若没有其它额外的假设，这任务就无法解决。这种关于目标函数的必要假设就称为归纳偏置；
+</li>
+<li>generalization：一般化，指的是，我们通过样本集训练出的算法可以推广到未知输入得到正确输出；
+</li>
+<li>Loss function:损失函数，表示实际输出值与我们拟合算法输出值的差；
 </li>
 </ul>
 
@@ -859,7 +878,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-10 23:58:48 中国标准时间</p>
+<p class="date">Date: 2015-11-11 23:34:00 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
