@@ -6,6 +6,8 @@
 * 短语
 - up to a point:一定程度上,不完全如此,在一定程度上;
 - no longer necessary:不再有必要；
+- variance：方差；
+- asymptotically:渐进地；
 - apart from:远离，除…之外；且不说；缺少
 - Effectively：实际上；
 - notwithstanding：虽然，尽管；
@@ -34,6 +36,7 @@
 - wiggly：波动的，摇摆的；
 - interpolation:插值；
 - polynomial：多项式；
+- multinomial：多项式；
 - partial derivatives：偏导数；
 - quadratic：二次的，二次方程；
 - inductive bias: 归纳偏置，诱导偏置；
@@ -48,6 +51,8 @@
 - prior probability:先验概率；
 - conditional probability：条件概率；
 - posterior probability:后验概率；
+- mean square error： 均方差；
+- unbiased estimator: 无偏估计
 - discriminant：判别式；
 - likelihood：可以翻译为似然，最大似然就是maximum likelihood；
 - maximum likelihood estimation:最大似然估计
