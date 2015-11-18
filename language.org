@@ -6,6 +6,7 @@
 * 短语
 - up to a point:一定程度上,不完全如此,在一定程度上;
 - no longer necessary:不再有必要；
+- dilemma:困境；
 - variance：方差；
 - asymptotically:渐进地；
 - apart from:远离，除…之外；且不说；缺少
@@ -44,7 +45,9 @@
 - slope：斜率；
 - intercept：截距；
 - joint distribution：联合分布；
+- joint probability:联合概率；
 - approximation error:逼近误差；
+- naive bayesian:朴素贝叶斯；
 - bayesian decision theory：贝叶斯决策伦；
 - realm：领域；
 - loan：贷款；
