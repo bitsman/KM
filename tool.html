@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-10-30 00:19:55 中国标准时间"/>
+<meta name="generated" content="2015-11-19 15:43:33 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -103,16 +103,25 @@
 <li><a href="#sec-2-1">方法</a></li>
 <li><a href="#sec-2-2">符号</a>
 <ul>
-<li><a href="#sec-2-2-1">特殊符号</a></li>
-<li><a href="#sec-2-2-2">大写的希腊字母</a></li>
-<li><a href="#sec-2-2-3">希腊字母</a></li>
-<li><a href="#sec-2-2-4">箭头符号</a></li>
-<li><a href="#sec-2-2-5">二进制符号</a></li>
-<li><a href="#sec-2-2-6">关系符号</a></li>
-<li><a href="#sec-2-2-7">分割符号</a></li>
-<li><a href="#sec-2-2-8">杂项符号</a></li>
-<li><a href="#sec-2-2-9">大小可变符号</a></li>
-<li><a href="#sec-2-2-10">Log符号</a></li>
+<li><a href="#sec-2-2-1">数学模式重音符号</a></li>
+<li><a href="#sec-2-2-2">小写希腊字母</a></li>
+<li><a href="#sec-2-2-3">大写希腊字母</a></li>
+<li><a href="#sec-2-2-4">二元关系符</a></li>
+<li><a href="#sec-2-2-5">二元运算符</a></li>
+<li><a href="#sec-2-2-6">大尺寸运算符</a></li>
+<li><a href="#sec-2-2-7">箭头</a></li>
+<li><a href="#sec-2-2-8">定界符</a></li>
+<li><a href="#sec-2-2-9">大尺寸定界符</a></li>
+<li><a href="#sec-2-2-10">其他符号</a></li>
+<li><a href="#sec-2-2-11">非数学符号</a></li>
+<li><a href="#sec-2-2-12">AMS定界符</a></li>
+<li><a href="#sec-2-2-13">AMS希腊和希伯来字母</a></li>
+<li><a href="#sec-2-2-14">AMS二元关系符</a></li>
+<li><a href="#sec-2-2-15">AMS箭头</a></li>
+<li><a href="#sec-2-2-16">AMS二元否定关系符和箭头</a></li>
+<li><a href="#sec-2-2-17">AMS二元运算符</a></li>
+<li><a href="#sec-2-2-18">AMS其他符号</a></li>
+<li><a href="#sec-2-2-19">微积分符号</a></li>
 </ul></li>
 </ul>
 </li>
@@ -414,12 +423,9 @@
 <li>插入gnuplot图片，见图<a href="#img-gnuplot-test">img-gnuplot-test</a>所示：
 
 
-
-<div id="img-gnuplot-test" class="figure">
-<p><img src="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png"  alt="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png" /></p>
-<p>测试图</p>
-</div>
-
+<p>
+    <img src="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png"  alt="file://e:/OneDrive/my-learn/img/img-gnuplot-test.png" />
+</p>
 </li>
 <li>由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
   换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
@@ -495,372 +501,182 @@
 </div>
 
 <div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1">特殊符号</h4>
+<h4 id="sec-2-2-1">数学模式重音符号</h4>
 <div class="outline-text-4" id="text-2-2-1">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">顶部横线</th><th scope="col" class="left">底部横线</th><th scope="col" class="left">顶部左箭头</th><th scope="col" class="left">顶部右箭头</th><th scope="col" class="left">顶部波浪号</th></tr>
-<tr><th scope="col" class="left">\(\overline{abc}\)</th><th scope="col" class="left">\(\underline{abc}\)</th><th scope="col" class="left">\(\overleftarrow{abc}\)</th><th scope="col" class="left">\(\overrightarrow{abc}\)</th><th scope="col" class="left">\(\widetilde{abc}\)</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">顶部尖号</td><td class="left">顶部大括号向上</td><td class="left">底部大括号向下</td><td class="left">根号</td><td class="left">n次方根号</td></tr>
-<tr><td class="left">\(\widehat{abc}\)</td><td class="left">\(\overbrace{abc}\)</td><td class="left">\(\underbrace{abc}\)</td><td class="left">\(\sqrt{abc}\)</td><td class="left">\(\sqrt[n]{abc}\)</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">分数号</td><td class="left">无</td><td class="left">无</td><td class="left">无</td><td class="left">无</td></tr>
-<tr><td class="left">\(\frac{abc}{xyz}\)</td><td class="left">无</td><td class="left">无</td><td class="left">无</td><td class="left">无</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/shuxuemoshizhongyinfu.jpg"  alt="./img/shuxuemoshizhongyinfu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2">大写的希腊字母</h4>
+<h4 id="sec-2-2-2">小写希腊字母</h4>
 <div class="outline-text-4" id="text-2-2-2">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">&Gamma;</th><th scope="col" class="left">&Lambda;</th><th scope="col" class="left">&Sigma;</th><th scope="col" class="left">&Psi;</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">&Delta;</td><td class="left">&Xi;</td><td class="left">&Upsilon;</td><td class="left">&Omega;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&Theta;</td><td class="left">&Pi;</td><td class="left">&Phi;</td><td class="left">无</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/xiaoxiexilazimu.jpg"  alt="./img/xiaoxiexilazimu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-3" class="outline-4">
-<h4 id="sec-2-2-3">希腊字母</h4>
+<h4 id="sec-2-2-3">大写希腊字母</h4>
 <div class="outline-text-4" id="text-2-2-3">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">&alpha;</th><th scope="col" class="left">&beta;</th><th scope="col" class="left">&gamma;</th><th scope="col" class="left">&delta;</th><th scope="col" class="left">&epsilon;</th><th scope="col" class="left">&epsilon;</th><th scope="col" class="left">&zeta;</th><th scope="col" class="left">&eta;</th><th scope="col" class="left">&theta;</th><th scope="col" class="left">&thetasym;</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">&iota;</td><td class="left">&kappa;</td><td class="left">&lambda;</td><td class="left">&mu;</td><td class="left">&nu;</td><td class="left">&xi;</td><td class="left">&pi;</td><td class="left">\varpi</td><td class="left">&rho;</td><td class="left">\varrho</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&sigma;</td><td class="left">&sigmaf;</td><td class="left">&tau;</td><td class="left">&upsilon;</td><td class="left">&phi;</td><td class="left">\varphi</td><td class="left">&chi;</td><td class="left">&psi;</td><td class="left">&omega;</td><td class="left">无</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/daxiexilazimu.jpg"  alt="./img/daxiexilazimu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-4" class="outline-4">
-<h4 id="sec-2-2-4">箭头符号</h4>
+<h4 id="sec-2-2-4">二元关系符</h4>
 <div class="outline-text-4" id="text-2-2-4">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">&larr;</th><th scope="col" class="left">\longleftarrow</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">&lArr;</td><td class="left">\Longleftarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&rarr;</td><td class="left">\longrightarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&rArr;</td><td class="left">\Longrightarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&harr;</td><td class="left">\longleftrightarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&hArr;</td><td class="left">\Longleftrightarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\mapsto</td><td class="left">\longmapsto</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&crarr;</td><td class="left">\hookrightarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\leftharpoonup</td><td class="left">\rightharpoonup</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\leftharpoondown</td><td class="left">\rightharpoondown</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\rightleftharpoons</td><td class="left">\leadsto</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&uarr;</td><td class="left">&darr;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&uArr;</td><td class="left">&dArr;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\updownarrow</td><td class="left">\Updownarrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\nwarrow</td><td class="left">\nearrow</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\swarrow</td><td class="left">\searrow</td></tr>
-</tbody>
-</table>
-
-</div>
+<p>可以在前面加上\ not来得到其否定形式。
+<img src="./img/eryuanguanxifu.jpg"  alt="./img/eryuanguanxifu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-5" class="outline-4">
-<h4 id="sec-2-2-5">二进制符号</h4>
+<h4 id="sec-2-2-5">二元运算符</h4>
 <div class="outline-text-4" id="text-2-2-5">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">&plusmn;</th><th scope="col" class="left">&cap;</th><th scope="col" class="left">\diamond</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">\mp</td><td class="left">&cup;</td><td class="left">\bigtriangleup</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&times;</td><td class="left">\uplus</td><td class="left">\bigtriangledown</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&divide;</td><td class="left">\sqcap</td><td class="left">\triangleleft</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&lowast;</td><td class="left">\sqcup</td><td class="left">\triangleright</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">*</td><td class="left">&or;</td><td class="left">\lhd</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&circ;</td><td class="left">&and;</td><td class="left">\rhd</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&bull;</td><td class="left">\setminus</td><td class="left">\unlhd</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&sdot;</td><td class="left">\wr</td><td class="left">\unrhd</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&oplus;</td><td class="left">\ominus</td><td class="left">&otimes;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&oslash;</td><td class="left">o</td><td class="left">\bigcirc</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&dagger;</td><td class="left">\ddagger</td><td class="left">\amalg</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/eryuanyunsuanfu.jpg"  alt="./img/eryuanyunsuanfu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-6" class="outline-4">
-<h4 id="sec-2-2-6">关系符号</h4>
+<h4 id="sec-2-2-6">大尺寸运算符</h4>
 <div class="outline-text-4" id="text-2-2-6">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">\leq</th><th scope="col" class="left">\geq</th><th scope="col" class="left">&equiv;</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">\prec</td><td class="left">\succ</td><td class="left">&sim;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\preceq</td><td class="left">\succeq</td><td class="left">&cong;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\ll</td><td class="left">\gg</td><td class="left">&asymp;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&sub;</td><td class="left">&sup;</td><td class="left">&asymp;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\subseteq</td><td class="left">\sqsupset</td><td class="left">&ne;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\sqsubseteq</td><td class="left">\sqsupseteq</td><td class="left">\doteq</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&isin;</td><td class="left">&ni;</td><td class="left">&notin;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\vdash</td><td class="left">\dashv</td><td class="left">\models</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&perp;</td><td class="left">\mid</td><td class="left">\parallel</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\bowtie</td><td class="left">\Join</td><td class="left">&#9786;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\frown</td><td class="left">\propto</td><td class="left">无</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/dachicunyunsuanfu.jpg"  alt="./img/dachicunyunsuanfu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-7" class="outline-4">
-<h4 id="sec-2-2-7">分割符号</h4>
+<h4 id="sec-2-2-7">箭头</h4>
 <div class="outline-text-4" id="text-2-2-7">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">&lfloor;</th><th scope="col" class="left">&rfloor;</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">&lceil;</td><td class="left">&rceil;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\langle</td><td class="left">\rangle</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\backslash</td><td class="left">双竖线为一个斜杠和竖线</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/jiantou.jpg"  alt="./img/jiantou.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-8" class="outline-4">
-<h4 id="sec-2-2-8">杂项符号</h4>
+<h4 id="sec-2-2-8">定界符</h4>
 <div class="outline-text-4" id="text-2-2-8">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">\dag</th><th scope="col" class="left">\S</th><th scope="col" class="left">\copyright</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">\ddag</td><td class="left">\P</td><td class="left">\pounds</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\ldots</td><td class="left">\cdots</td><td class="left">\vdots</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\ddots</td><td class="left">\aleph</td><td class="left">&prime;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&forall;</td><td class="left">\hbar</td><td class="left">&empty;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&exist;</td><td class="left">\imath</td><td class="left">&nabla;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\neg</td><td class="left">\jmath</td><td class="left">\surd</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\flat</td><td class="left">\ell</td><td class="left">\top</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\natural</td><td class="left">\wp</td><td class="left">\bot</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\sharp</td><td class="left">\Re</td><td class="left">\backslash</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&ang;</td><td class="left">\Im</td><td class="left">&part;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\mho</td><td class="left">&infin;</td><td class="left">\Box</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&diamond;</td><td class="left">\triangle</td><td class="left">&clubs;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&diams;</td><td class="left">&heartsuit;</td><td class="left">&spades;</td></tr>
-</tbody>
-</table>
-
-
-</div>
+<p><img src="./img/dingjiefu.jpg"  alt="./img/dingjiefu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-9" class="outline-4">
-<h4 id="sec-2-2-9">大小可变符号</h4>
+<h4 id="sec-2-2-9">大尺寸定界符</h4>
 <div class="outline-text-4" id="text-2-2-9">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">&sum;</th><th scope="col" class="left">\bigcap</th><th scope="col" class="left">\bigodot</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">&prod;</td><td class="left">\bigcup</td><td class="left">\bigotimes</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\coprod</td><td class="left">\bigsqcup</td><td class="left">\bigoplus</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&int;</td><td class="left">\bigvee</td><td class="left">\biguplus</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\oint</td><td class="left">\bigwedge</td><td class="left">无</td></tr>
-</tbody>
-</table>
-
-</div>
+<p><img src="./img/dachicundingjiefu.jpg"  alt="./img/dachicundingjiefu.jpg" />
+</p></div>
 
 </div>
 
 <div id="outline-container-2-2-10" class="outline-4">
-<h4 id="sec-2-2-10">Log符号</h4>
+<h4 id="sec-2-2-10">其他符号</h4>
 <div class="outline-text-4" id="text-2-2-10">
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">arccos</th><th scope="col" class="left">cos</th><th scope="col" class="left">csc</th><th scope="col" class="left">exp</th><th scope="col" class="left">ker</th><th scope="col" class="left">limsup</th><th scope="col" class="left">min</th><th scope="col" class="left">sinh</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">arcsin</td><td class="left">cosh</td><td class="left">&deg;</td><td class="left">gcd</td><td class="left">lg</td><td class="left">ln</td><td class="left">Pr</td><td class="left">&sup;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">arctan</td><td class="left">cot</td><td class="left">det</td><td class="left">hom</td><td class="left">lim</td><td class="left">log</td><td class="left">sec</td><td class="left">tan</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">arg</td><td class="left">coth</td><td class="left">dim</td><td class="left">inf</td><td class="left">liminf</td><td class="left">max</td><td class="left">sin</td><td class="left">tanh</td></tr>
-</tbody>
-</table>
+<p><img src="./img/qitafuhao.jpg"  alt="./img/qitafuhao.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-11" class="outline-4">
+<h4 id="sec-2-2-11">非数学符号</h4>
+<div class="outline-text-4" id="text-2-2-11">
+
+<p><img src="./img/feishuxuefuhao.jpg"  alt="./img/feishuxuefuhao.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-12" class="outline-4">
+<h4 id="sec-2-2-12">AMS定界符</h4>
+<div class="outline-text-4" id="text-2-2-12">
+
+<p><img src="./img/amsdingjiefu.jpg"  alt="./img/amsdingjiefu.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-13" class="outline-4">
+<h4 id="sec-2-2-13">AMS希腊和希伯来字母</h4>
+<div class="outline-text-4" id="text-2-2-13">
+
+<p><img src="./img/amsxilahexibolaizimu.jpg"  alt="./img/amsxilahexibolaizimu.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-14" class="outline-4">
+<h4 id="sec-2-2-14">AMS二元关系符</h4>
+<div class="outline-text-4" id="text-2-2-14">
+
+<p><img src="./img/amseryuanguanxifu.jpg"  alt="./img/amseryuanguanxifu.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-15" class="outline-4">
+<h4 id="sec-2-2-15">AMS箭头</h4>
+<div class="outline-text-4" id="text-2-2-15">
+
+<p><img src="./img/amsjiantou.jpg"  alt="./img/amsjiantou.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-16" class="outline-4">
+<h4 id="sec-2-2-16">AMS二元否定关系符和箭头</h4>
+<div class="outline-text-4" id="text-2-2-16">
+
+<p><img src="./img/amseryuanfoudingguanxifuhejiantou.jpg"  alt="./img/amseryuanfoudingguanxifuhejiantou.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-17" class="outline-4">
+<h4 id="sec-2-2-17">AMS二元运算符</h4>
+<div class="outline-text-4" id="text-2-2-17">
+
+<p><img src="./img/amseryuanyunsuanfu.jpg"  alt="./img/amseryuanyunsuanfu.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-18" class="outline-4">
+<h4 id="sec-2-2-18">AMS其他符号</h4>
+<div class="outline-text-4" id="text-2-2-18">
+
+<p><img src="./img/amsqitafuhao.jpg"  alt="./img/amsqitafuhao.jpg" />
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-19" class="outline-4">
+<h4 id="sec-2-2-19">微积分符号</h4>
+<div class="outline-text-4" id="text-2-2-19">
+
+<ol>
+<li>\(\int_{0}^{n}\)
+</li>
+<li>\(\sum_{i=0}^{n}\)
+</li>
+<li>\(\sum\limits_{i=0}^{n}\)
+</li>
+<li>\(\mathrm{d}x\)
+</li>
+</ol>
 
 </div>
 </div>
@@ -898,7 +714,7 @@
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-10-30 00:19:55 中国标准时间</p>
+<p class="date">Date: 2015-11-19 15:43:33 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
