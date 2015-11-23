@@ -1,13 +1,13 @@
 #+TITLE: Sitemap
 
+   + [[file:os.org][2015-11-23 操作系统]]
+   + [[file:protocol.org][2015-11-20 协议 ]]
    + [[file:math.org][2015-11-19 数学 ]]
    + [[file:tool.org][2015-11-19 工具]]
    + [[file:language.org][2015-11-18 外语学习]]
    + [[file:algorithm.org][2015-11-11 算法 ]]
-   + [[file:os.org][2015-11-11 操作系统]]
    + [[file:encyclopedia.org][2015-11-03 百科知识]]
    + [[file:index.org][2015-10-30 比克曼的知识管理]]
-   + [[file:protocol.org][2015-10-27 协议 ]]
    + [[file:software.org][2015-10-22 软件 ]]
    + [[file:decoration.org][2015-10-22 装修日记]]
    + [[file:hardware.org][2015-10-22 硬件 ]]

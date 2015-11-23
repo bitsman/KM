@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-19 15:43:39 中国标准时间"/>
+<meta name="generated" content="2015-11-19 17:46:42 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -137,7 +137,9 @@
 <li><a href="#sec-4-2">贝叶斯分类</a>
 <ul>
 <li><a href="#sec-4-2-1">最小错误率贝叶斯分类器</a></li>
-<li><a href="#sec-4-2-2">朴素贝叶斯</a></li>
+<li><a href="#sec-4-2-2">最大似然比贝叶斯分类器</a></li>
+<li><a href="#sec-4-2-3">最小风险贝叶斯分类器</a></li>
+<li><a href="#sec-4-2-4">朴素贝叶斯</a></li>
 </ul>
 </li>
 </ul>
@@ -580,6 +582,14 @@ plt.show()                      #显示出来
 <h5 id="sec-3-3-2-1">正太分布</h5>
 <div class="outline-text-5" id="text-3-3-2-1">
 
+<ul>
+<li>概率密度：设连续型随机变量X具有概率密度如下，则称X服从参数为\(\mu, \sigma\)的正态分布，记为\(N(\mu, \sigma^{2})\)
+  $$ p(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}, -\infty&lt;x&lt;\infty $$
+</li>
+<li>分布函数： $$ F(x)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{x}e^{-\frac{(t-\mu)^{2}}{2\sigma^{2}}}\mathrm{d}t$$ 
+</li>
+</ul>
+
 </div>
 
 </div>
@@ -761,7 +771,7 @@ $$ P(h_{i}|D)=\frac{P(D|h_{i})*P(h_{i})}{P(D)}$$
 </p><ol>
 <li>两类问题中，当\(P(\omega_{i}|x) &gt; P(\omega_{j}|x)\)时，判决\(x \in \omega_{i}\);
 </li>
-<li>对于多类情况，则当\( P(\omega_{i}|x)=\max\limits_{1\leq j \leqc} P(\omega_{j}|x)\)时，判决\(x\in \omega_{i}\)
+<li>对于多类情况，则当\( P(\omega_{i}|x)=\max\limits_{1\leq j \leq c} P(\omega_{j}|x)\)时，判决\(x\in \omega_{i}\)
 </li>
 </ol>
 
@@ -775,8 +785,53 @@ $$ P(e) = \int_{-\infty}^{-\infty}P(error, x)\mathrm{d}x$$
 </div>
 
 <div id="outline-container-4-2-2" class="outline-4">
-<h4 id="sec-4-2-2">朴素贝叶斯</h4>
+<h4 id="sec-4-2-2">最大似然比贝叶斯分类器</h4>
 <div class="outline-text-4" id="text-4-2-2">
+
+<p>类条件概率\(P(x|\omega_{i})\)称为\(\omega_{i}\)对特征向量x的似然函数，表达了某类别中的样本取某特征值的可能性。由最小错误
+率贝叶斯分类器可知，对于两类问题，当\(P(x|\omega_{i})*P(\omega_{i}) &gt; P(x|\omega_{j})*P(\omega_{j})\)时，判决
+\(x\in\omega_{i}\) 即当 $$ \frac{P(x|\omega_{i})}{P(x|\omega_{j})} &gt; \frac{P(\omega_{j})}{P(\omega_{i})}$$ 时判决
+\(x\in\omega_{i}\) ，那么下面式子称为 <span style="text-decoration:underline;">似然比</span> 。 $$ L_{ij}(x) = \frac{P(x|\omega_{i})}{P(x|\omega_{j})}$$
+它与待识别的特征向量有关，而下面式子称为 <span style="text-decoration:underline;">判决门限</span> 。$$ \theta_{ij}=\frac{P(\omega_{j})}{P(\omega_{i})}$$
+它仅与两类的先验概率有关；对于多类问题，分类决策规则为若 \(L_{ij}(x) &gt; \theta_{ij}\)对于任意的\(i，j=1,2...c, i\neq j\)
+成立，则\(x\in \omega_{i}\)。 
+</p></div>
+
+</div>
+
+<div id="outline-container-4-2-3" class="outline-4">
+<h4 id="sec-4-2-3">最小风险贝叶斯分类器</h4>
+<div class="outline-text-4" id="text-4-2-3">
+
+<p>在最小错误率贝叶斯分类器分类器中，仅考虑了样本属于每一类的后验概率就做出了分类决策，而没有考虑每一种分类决策的风险。事实
+上，在许多模式识别问题中，即时样本属于两类的后验概率相同，将其分到每一类中所带来的风险也会有很大差异。
+例如针对某项检测指标进行癌症的诊断，如果计算出患者患癌症和未患癌症的后验概率均为 50%，如果患者真实情况是患了癌症，此时做出未患癌症的诊
+断会延误治疗时机，比做出患癌症的诊断带来更为严重的后果。
+因此，在获得样本属于每一类的后验概率后，需要综合考虑做出各种分类决策所带来的风险，选择风险最小的分类决策，称为最小风险贝叶斯分类器。
+先定义以下几个概念：
+</p><ol>
+<li>决策\(\alpha_{i}\):把待识别样本x归到\(\omega_{i}\)中；
+</li>
+<li>损失\(\lambda_{ij}\):把真实属于\(\omega_{j}\)类的样本x归到\(\omega_{i}\)类中带来的损失；
+</li>
+<li>条件风险\(R(\alpha_{i}|x)\):对x采取决策\(\alpha_{i}\)后可能的风险；
+</li>
+</ol>
+
+<p>条件风险可以用采取某项决策的加权平均损失来计算，权值为样本属于各类的概率，即
+$$ R(\alpha_{i}|x)=E[\lambda_{ij}]=\sum_{j=1}^{c}\lambda_{ij}P(\omega_{j}|x),i=1,2...,c$$
+则最小风险贝叶斯分流器的分类决策规则为
+若
+$$ R(\alpha_{k}|x) = \min\limits_{i=1,2...c}R(\alpha_{i}|x)$$ 
+则
+$$ x\in \omega_{k}$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-4-2-4" class="outline-4">
+<h4 id="sec-4-2-4">朴素贝叶斯</h4>
+<div class="outline-text-4" id="text-4-2-4">
 
 <p>朴素贝叶斯：是在贝叶斯分类基础上，基于一个简单的假定：给定目标值时属性之间相互条件独立，这样可以简化似然概率的计算。朴素
 贝叶斯理论经典应用是垃圾邮件分类：给定一封邮件，判定它是否属于垃圾邮件。用D来表示这封邮件，注意D由N个单词组成。我们用h+
@@ -801,7 +856,7 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-19 15:43:39 中国标准时间</p>
+<p class="date">Date: 2015-11-19 17:46:42 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
