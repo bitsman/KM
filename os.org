@@ -348,7 +348,79 @@ Android应用程序是通过消息来驱动的，系统为每一个应用程序�
 *** Looper
 
 *** Message
+*** SharedPreferences
+很多软件会有配置文件，里面存放这程序运行当中的各个属性值，由于其配置信息并不多，如果采用数据库来存放并不划算，因为数据库
+连接跟操作等耗时大大影响了程序的效率，因此我们使用键值这种一一对应的关系来存放这些配置信息。SharedPreferences正是Android
+中用于实现这中存储方式的技术。  
+SharedPreferences的使用非常简单，能够轻松的存放数据和读取数据。SharedPreferences只能保存简单类型的数据，例如，String、
+int等。一般会将复杂类型的数据转换成Base64编码，然后将转换后的数据以字符串的形式保存在 XML文件中，再用SharedPreferences保
+存。使用SharedPreferences保存key-value对的步骤如下。
+1. 使用Activity类的getSharedPreferences方法获得SharedPreferences对象，其中存储key-value的文件的名称由
+   getSharedPreferences方法的第一个参数指定。
+2. 使用SharedPreferences接口的edit获得SharedPreferences.Editor对象。
+3. 通过SharedPreferences.Editor接口的putXxx方法保存key-value对。其中Xxx表示不同的数据类型。例如：字符串类型的value需要用
+   putString方法。
+4. 通过SharedPreferences.Editor接口的commit方法保存key-value对。commit方法相当于数据库事务中的提交（commit）操作。
+具体代码的书写流程为。
+- 存放数据信息
+  1. 打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences SharedPreferences settings =
+     getSharedPreferences(“setting”, 0);
+  2. 让setting处于编辑状态SharedPreferences.Editor editor = settings.edit();
+  3. 存放数据editor.putString(“name”,”ATAAW”);editor.putString(“URL”,”ATAAW.COM”);
+  4. 完成提交editor.commit();
+- 读取数据信息
+  1. 获取Preferences: SharedPreferences settings = getSharedPreferences(“setting”, 0);
+  2. 取出数据String name = settings.getString(“name”,”默认值”);
+     String url = setting.getString(“URL”,”default”);
+其中创建的Preferences文件存放位置可以在Eclipse中查看：DDMS->File Explorer /<package name>/shared_prefs/setting.xml 
+** 通知栏操作
+在Android系统中，发一个状态栏通知还是很方便的。首先，发送一个状态栏通知必须用到两个类：NotificationManager、Notification。
+- NotificationManager ：  是状态栏通知的管理类，负责发通知、清楚通知等。NotificationManager是一个系统Service，必须通过
+  getSystemService()方法来获取。
+  #+begin_src java
+  NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+  #+end_src
+- Notification：是具体的状态栏通知对象，可以设置icon、文字、提示声音、振动等等参数。下面是设置一个通知需要的基本参数.
+  1. An icon  (通知的图标);
+  2. A title and expanded message  (通知的标题和内容); 
+  3. A PendingIntent   (点击通知执行页面跳转); 
+  可选的设置.
+  1. A ticker-text message (状态栏顶部提示消息);
+  2. An alert sound    (提示音)
+  3. A vibrate setting  (振动)
+  4. A flashing LED setting  (灯光)
+使用步骤
+1. 创建Notification：通过NotificationManager的notify(int, Notification)方法来启动Notification。第一个参数唯一的标识该
+   Notification，第二个参数就是Notification对象。
+2. 更新Notification：调用Notification的setLatestEventInfo方法来更新内容，然后调用NotificationManager的notify()方法即可。
+3. 删除Notification：通过NotificationManager的cancel(int)方法，来清除某个通知。其中参数就是Notification的唯一标识ID。当
+   然也可以通过  cancelAll() 来清除状态栏所有的通知。
+4. Notification设置(振动、铃声等)；
+#+begin_src java
+//新建状态栏通知
+baseNF = new Notification();
+ 
+//设置通知在状态栏显示的图标
+baseNF.icon = R.drawable.icon;
 
+//通知时在状态栏显示的内容
+baseNF.tickerText = "You clicked BaseNF!";
+
+//通知的默认参数 DEFAULT_SOUND, DEFAULT_VIBRATE, DEFAULT_LIGHTS. 
+//如果要全部采用默认值, 用 DEFAULT_ALL.
+//此处采用默认声音
+baseNF.defaults = Notification.DEFAULT_SOUND;
+
+//第二个参数 ：下拉状态栏时显示的消息标题 expanded message title
+//第三个参数：下拉状态栏时显示的消息内容 expanded message text
+//第四个参数：点击该通知时执行页面跳转
+baseNF.setLatestEventInfo(Lesson_10.this, "Title01", "Content01", pd);
+
+//发出状态栏通知
+//The first parameter is the unique ID for the Notification 
+// and the second is the Notification object.
+nm.notify(Notification_ID_BASE, baseNF);
+#+end_src
 ** menu
 menu标签中item标签的主要属性见表\ref{tbl-menu-bar}
 #+caption: android menu bar xml属性说明
@@ -536,6 +608,36 @@ for(int i=0;i<satelliteList.size();i++){
     System.out.println(satelliteList.get(i).hasAlmanac());   
 }
 #+end_src
+*** 位置模拟
+大体思路如下。
+1. 获取待模拟的位置；
+2. 将位置信息植入需要的Provider里面, 下面示例代码以模拟位置植入GPS_PROVIDER中为例；
+   #+begin_src java
+   //xml权限 
+   <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION">
+   public static void setLocation(Context context, LatLonBean bean) {  
+        LocationManager locmanag = (LocationManager) context  
+                .getSystemService(Context.LOCATION_SERVICE);  
+        //关键代码
+        String mock = LocationManager.GPS_PROVIDER;  
+        locmanag.addTestProvider(mock, false, true, false, false, false, false,  
+                false, 0, 5);  
+        locmanag.setTestProviderEnabled(mock, true);  
+        //构造位置信息
+        Location loc = new Location(mock);  
+        loc.setTime(System.currentTimeMillis());  
+        loc.setLatitude(Double.parseDouble(bean.getLat()));  
+        loc.setLongitude(Double.parseDouble(bean.getLon()));  
+        loc.setAccuracy(Criteria.ACCURACY_FINE);// 精确度  
+        loc.setElapsedRealtimeNanos(SystemClock.elapsedRealtimeNanos());// 实时运行时间  
+        locmanag.setTestProviderStatus(mock, LocationProvider.AVAILABLE, null,  
+                System.currentTimeMillis());  
+        //位置信息植入
+        locmanag.setTestProviderLocation(mock, loc);  
+    }  
+   #+end_src
+3. 在android手机设置请确保您已在“允许模拟位置”复选框打勾 ；
+4. 像普通使用gps定位一样的使用onLocationChanged()会被系统回调。
 ** bt
 *** 概念
 - BluetoothAdapter：代表手机本地的蓝牙模块，BluetoothAdapter是所有蓝牙互操作的入口。使用它，你可以discover其他的蓝牙设备，
@@ -564,8 +666,8 @@ for(int i=0;i<satelliteList.size();i++){
   ...
 </manifest>
 #+end_src
-如果应用程序还需要“初始化设备发现”，操作“蓝牙设置”，那还需要声明“BLUETOOTH_ADMIN”的权限，另外这个权限可以赋予一些
-功能，比如发现本地蓝牙设备，修改蓝牙设置；如有要使用“BLUETOOTH_ADMIN”的声明，还必须要有上面的“BLUETOOTH”权限。
+如果应用程序还需要“初始化设备发现”，操作“蓝牙设置”，那还需要声明“BLUETOOTH\_ADMIN”的权限，另外这个权限可以赋予一些
+功能，比如发现本地蓝牙设备，修改蓝牙设置；如有要使用“BLUETOOTH\_ADMIN”的声明，还必须要有上面的“BLUETOOTH”权限。
 *** 设置蓝牙
 如果要使用蓝牙，需要检查手机是否支持蓝牙，并且要保证已经使能。这需要两步操作。
 1. 获取BluetoothAdapter
@@ -579,19 +681,19 @@ for(int i=0;i<satelliteList.size();i++){
    #+end_src
 2. 使能蓝牙
    使用蓝牙前要确定蓝牙是否已经使能，使用isEnable()方法，如果返回false，表示蓝牙是禁能的。要请求蓝牙开启，可以使用
-   startActivityForResult()带上ACTION_REQUEST_ENABLE的intent，这样将会触发一个系统设置的请求来使能蓝牙，代码如下, 将会出
-   现一个对话框请求用户使能蓝牙，用户可以允许也可以不允许，ACTION_REQUEST_ENABLE是一个本地定义的整数(大于0)，并且会在
-   onActivityResult()回调方法中返回作为requestCode参数，如果使能蓝牙成功，Activity会在onActivityResult()收到RESULT_OK结
-   果码，否则结果码是RESULT_CANCEL
+   startActivityForResult()带上ACTION\_REQUEST\_ENABLE的intent，这样将会触发一个系统设置的请求来使能蓝牙，代码如下, 将会出
+   现一个对话框请求用户使能蓝牙，用户可以允许也可以不允许，ACTION\_REQUEST\_ENABLE是一个本地定义的整数(大于0)，并且会在
+   onActivityResult()回调方法中返回作为requestCode参数，如果使能蓝牙成功，Activity会在onActivityResult()收到RESULT\_OK结
+   果码，否则结果码是RESULT\_CANCEL
    #+begin_src java
    if (!mBluetoothAdapter.isEnabled()) {
     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
     startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
    }
    #+end_src
-   同样，应用程序还可以监听ACTION_STATE_CHANGED广播intent，这个intent会在蓝牙状态变化时被系统广播出来， 这个广播包含指示
-   蓝牙新旧状态的额外域：EXTRA_STATE和EXTRA_PREVIOUS_STATE。这2个域的值可能取 STATE_TURNING_ON, STATE_ON,STATE_OFF，
-   STATE_TURNING_OFF。  
+   同样，应用程序还可以监听ACTION\_STATE\_CHANGED广播intent，这个intent会在蓝牙状态变化时被系统广播出来， 这个广播包含指示
+   蓝牙新旧状态的额外域：EXTRA\_STATE和EXTRA\_PREVIOUS\_STATE。这2个域的值可能取 STATE\_TURNING\_ON, STATE\_ON,STATE\_OFF，
+   STATE\_TURNING\_OFF。  
 *** 寻找设备
 可以使用BluetoothAdapter搜索远端设备，要么通过“搜索设备”，要么通过轮询配对绑定列表里面的设备。
 搜索设备通过一个扫描过程搜索周边的蓝牙设备并向他们请求一些信息(这个过程大概有“discovering”，“inquiring”，
@@ -604,8 +706,8 @@ for(int i=0;i<satelliteList.size();i++){
 道前做配对操作。(配对是在使用蓝牙API初始化一个加密连接时自动进行)
 下面的章节描述的是已经配对设备如何进行寻找设备，或者使用设备搜索过程来搜索设备。
 *** 轮询已配对的设备
-在进行搜索设备前，先轮询已配对设备的集合看看是否有我们需要的设备，调用getBondedDevices()即可。它将返回一个已配对设备的集
-合。比如，可以轮询所有的设备并使用ArrayAdapter将设备名展示给用户。
+在进行搜索设备前，先轮询已配对设备的集合看看是否有我们需要的设备，调用BluetoothAdapter的getBondedDevices()即可。它将返回
+一个已配对设备的集合。比如，可以轮询所有的设备并使用ArrayAdapter将设备名展示给用户。
 #+begin_src java
 Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 // If there are paired devices
@@ -621,8 +723,8 @@ if (pairedDevices.size() > 0) {
 *** 搜索设备
 要发起搜索设备，只需要简单的调用startDiscovery().这个过程是异步的，调用这个方法会立刻返回一个布尔值指示搜索是否成功启动。
 搜索过程常常先inquiry scan大约12秒，再使用page scan去获取每个设备的蓝牙设备名。
-应用程序注册一个BroadcastReceiver来接收“ACTION_FOUND”的intent，对于每个搜索到的设备，系统将会广播这个intent，这个
-intent会包含额外域EXTRA_DEVICE和EXTRA_CLASS，对应着“BluetoothDevice”和“BluetoothClass”。代码如下
+应用程序注册一个BroadcastReceiver来接收“ACTION\_FOUND”的intent，对于每个搜索到的设备，系统将会广播这个intent，这个
+intent会包含额外域EXTRA\_DEVICE和EXTRA\_CLASS，对应着“BluetoothDevice”和“BluetoothClass”。代码如下
 #+begin_src java
 // Create a BroadcastReceiver for ACTION_FOUND
 private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -644,8 +746,8 @@ registerReceiver(mReceiver, filter); // Don't forget to unregister during onDest
 警告：做设备搜索是个非常耗费系统资源的操作，一旦发现了目标设备，确保在连接前使用cancelDiscovery()停止掉搜索过程，并且如
 果已经保持了一个连接，再搜索操作势必会减少连接的可用带宽，所以当连接设备时最好不要做搜索操作。
 *** 使能可发现性
-如果愿意本地设备被其他设备搜索到，可使用ACTION_REQUEST_DISCOVERABLE的intent调用startActivityForResult(Intent，int)，它将
-向系统发起一个请求进行可发现性设置。默认将保持120秒时间，也可以通过给intent增加EXTRA_DISCOVERABLE_DURATION的额外域值来改
+如果愿意本地设备被其他设备搜索到，可使用ACTION\_REQUEST\_DISCOVERABLE的intent调用startActivityForResult(Intent，int)，它将
+向系统发起一个请求进行可发现性设置。默认将保持120秒时间，也可以通过给intent增加EXTRA\_DISCOVERABLE\_DURATION的额外域值来改
 变这个持续时间。这个域值最大可设3600秒，0代表始终可发现。设置为其他值将自动设成120秒，下面代码设置持续时间为300秒。
 #+begin_src java
 Intent discoverableIntent = new
@@ -655,11 +757,11 @@ startActivity(discoverableIntent);
 #+end_src
 系统将显示一个对话框来请求设备可发现性的用户权限。如果用户选择YES，设备将保持这个时间的可发现性，activity也将收到一个回
 调onActivityResult(), 里面会附带一个等于持续时间的result code。如果选择了NO，或者发送错误，这个result code将是
-RESULT_CANCEL。
+RESULT\_CANCEL。
 注意：如果设备没有开启蓝牙，而使能了蓝牙可发现性，将会自动的开启蓝牙。
-如果希望在系统的可发现性改变时被通知，可以注册一个BroadcastReceiver来监听ACTION_SCAN_MODE_CHANGED的intent。这个intent将
-包含两个额外域，EXTRA_SCAN_MODE和EXTRA_PREVIOUS_SCAN_MODE，对应着新旧扫描模式。其可能值有
-SCAN_MODE_CONNECTABLE_DISCOVERABLE, SCAN_MODE_CONNECTABLE, 或 SCAN_MODE_NONE，指示了设备要么处于可发现模式，不处于可发现
+如果希望在系统的可发现性改变时被通知，可以注册一个BroadcastReceiver来监听ACTION\_SCAN\_MODE\_CHANGED的intent。这个intent将
+包含两个额外域，EXTRA\_SCAN\_MODE和EXTRA\_PREVIOUS\_SCAN\_MODE，对应着新旧扫描模式。其可能值有
+SCAN\_MODE\_CONNECTABLE\_DISCOVERABLE, SCAN\_MODE\_CONNECTABLE, 或 SCAN\_MODE\_NONE，指示了设备要么处于可发现模式，不处于可发现
 模式但是可以接收连接请求，既不处于可发现模式也不能接收连接请求。
 如果只是想初始化一个到远端设备的链接，可以不用开启可发现模式。使能可发现模式仅仅只是在应用程序需要主导一个可以接收连接的
 server socket，因为远端设备在初始化一个连接前必须能够发现这个设备。
@@ -982,7 +1084,7 @@ FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个
 **** 堆操作
 堆并不神秘，在cortex-m0芯片中，堆和栈其实都是用的ram区，只是认为的堆ram区做了划分，也就是说，完全可以人为的定义一个大的
 数组来表示堆空间，然后对数组进行块分割，并且分配给申请者，管理需要释放的数组元素，就是堆空间的分配和释放操作，基于此，根
-据堆操作功能复杂度，细化出了heap_1.c、heap_2.c、heap_4.c、heap_5.c的堆操作功能库，至于heap_3.c完全是使用标准C库的malloc
+据堆操作功能复杂度，细化出了heap\_1.c、heap\_2.c、heap\_4.c、heap\_5.c的堆操作功能库，至于heap\_3.c完全是使用标准C库的malloc
 等函数做的封装，因为标准C库的malloc等函数不是线程安全的函数，需要封装为安全的，所谓的封装为线程安全的，也就是在执行
 malloc前后关闭打开中断和调度器；另外对申请的堆空间地址和长度还涉及到对齐等细节功能操作；
 # <<heap1-oper>>
@@ -1309,7 +1411,7 @@ void *pvPortMalloc( size_t xWantedSize )
 **** 杂项功能
 这些杂项功能大部分都跟平台有关，这里以cortex M系列为例；
 - 参数断言：使用宏configASSERT, 是空的，需要用户自己写
-- 提升优先级：static BaseType_t prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
+- 提升优先级：static BaseType\_t prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
 
 
 

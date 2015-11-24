@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-23 15:40:32 中国标准时间"/>
+<meta name="generated" content="2015-11-24 21:09:13 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -78,43 +78,47 @@
 <li><a href="#sec-1-5-1">Handler</a></li>
 <li><a href="#sec-1-5-2">Looper</a></li>
 <li><a href="#sec-1-5-3">Message</a></li>
+<li><a href="#sec-1-5-4">SharedPreferences</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-6">menu</a></li>
-<li><a href="#sec-1-7">gps</a>
+<li><a href="#sec-1-6">通知栏操作</a></li>
+<li><a href="#sec-1-7">menu</a></li>
+<li><a href="#sec-1-8">gps</a>
 <ul>
-<li><a href="#sec-1-7-1">组件</a></li>
-<li><a href="#sec-1-7-2">操作</a>
+<li><a href="#sec-1-8-1">组件</a></li>
+<li><a href="#sec-1-8-2">操作</a>
 <ul>
-<li><a href="#sec-1-7-2-1">LocationManager</a></li>
-<li><a href="#sec-1-7-2-2">LocationListener</a></li>
-<li><a href="#sec-1-7-2-3">Location</a></li>
-<li><a href="#sec-1-7-2-4">GpsStatus.Listener</a></li>
-<li><a href="#sec-1-7-2-5">GpsStatus</a></li>
-<li><a href="#sec-1-7-2-6">GpsSatellite</a></li>
-</ul></li>
+<li><a href="#sec-1-8-2-1">LocationManager</a></li>
+<li><a href="#sec-1-8-2-2">LocationListener</a></li>
+<li><a href="#sec-1-8-2-3">Location</a></li>
+<li><a href="#sec-1-8-2-4">GpsStatus.Listener</a></li>
+<li><a href="#sec-1-8-2-5">GpsStatus</a></li>
+<li><a href="#sec-1-8-2-6">GpsSatellite</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-8">bt</a>
-<ul>
-<li><a href="#sec-1-8-1">概念</a></li>
-<li><a href="#sec-1-8-2">蓝牙权限</a></li>
-<li><a href="#sec-1-8-3">设置蓝牙</a></li>
-<li><a href="#sec-1-8-4">寻找设备</a></li>
-<li><a href="#sec-1-8-5">轮询已配对的设备</a></li>
-<li><a href="#sec-1-8-6">搜索设备</a></li>
-<li><a href="#sec-1-8-7">使能可发现性</a></li>
-<li><a href="#sec-1-8-8">连接设备</a></li>
-<li><a href="#sec-1-8-9">服务端的连接</a></li>
-<li><a href="#sec-1-8-10">客户端的连接</a></li>
-<li><a href="#sec-1-8-11">管理连接</a></li>
-<li><a href="#sec-1-8-12">使用Profiles</a></li>
-<li><a href="#sec-1-8-13">制造商自定义AT指令</a></li>
-<li><a href="#sec-1-8-14">健康设备Profile</a></li>
+<li><a href="#sec-1-8-3">位置模拟</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-9">ble</a></li>
-<li><a href="#sec-1-10">jni</a></li>
+<li><a href="#sec-1-9">bt</a>
+<ul>
+<li><a href="#sec-1-9-1">概念</a></li>
+<li><a href="#sec-1-9-2">蓝牙权限</a></li>
+<li><a href="#sec-1-9-3">设置蓝牙</a></li>
+<li><a href="#sec-1-9-4">寻找设备</a></li>
+<li><a href="#sec-1-9-5">轮询已配对的设备</a></li>
+<li><a href="#sec-1-9-6">搜索设备</a></li>
+<li><a href="#sec-1-9-7">使能可发现性</a></li>
+<li><a href="#sec-1-9-8">连接设备</a></li>
+<li><a href="#sec-1-9-9">服务端的连接</a></li>
+<li><a href="#sec-1-9-10">客户端的连接</a></li>
+<li><a href="#sec-1-9-11">管理连接</a></li>
+<li><a href="#sec-1-9-12">使用Profiles</a></li>
+<li><a href="#sec-1-9-13">制造商自定义AT指令</a></li>
+<li><a href="#sec-1-9-14">健康设备Profile</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-10">ble</a></li>
+<li><a href="#sec-1-11">jni</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">FreeRTOS</a>
@@ -719,15 +723,156 @@ Runnable update_thread = new Runnable() {
 <h4 id="sec-1-5-3">Message</h4>
 <div class="outline-text-4" id="text-1-5-3">
 
+</div>
 
 </div>
+
+<div id="outline-container-1-5-4" class="outline-4">
+<h4 id="sec-1-5-4">SharedPreferences</h4>
+<div class="outline-text-4" id="text-1-5-4">
+
+<p>很多软件会有配置文件，里面存放这程序运行当中的各个属性值，由于其配置信息并不多，如果采用数据库来存放并不划算，因为数据库
+连接跟操作等耗时大大影响了程序的效率，因此我们使用键值这种一一对应的关系来存放这些配置信息。SharedPreferences正是Android
+中用于实现这中存储方式的技术。  
+SharedPreferences的使用非常简单，能够轻松的存放数据和读取数据。SharedPreferences只能保存简单类型的数据，例如，String、
+int等。一般会将复杂类型的数据转换成Base64编码，然后将转换后的数据以字符串的形式保存在 XML文件中，再用SharedPreferences保
+存。使用SharedPreferences保存key-value对的步骤如下。
+</p><ol>
+<li>使用Activity类的getSharedPreferences方法获得SharedPreferences对象，其中存储key-value的文件的名称由
+   getSharedPreferences方法的第一个参数指定。
+</li>
+<li>使用SharedPreferences接口的edit获得SharedPreferences.Editor对象。
+</li>
+<li>通过SharedPreferences.Editor接口的putXxx方法保存key-value对。其中Xxx表示不同的数据类型。例如：字符串类型的value需要用
+   putString方法。
+</li>
+<li>通过SharedPreferences.Editor接口的commit方法保存key-value对。commit方法相当于数据库事务中的提交（commit）操作。
+</li>
+</ol>
+
+<p>具体代码的书写流程为。
+</p><ul>
+<li>存放数据信息
+<ol>
+<li>打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences SharedPreferences settings =
+     getSharedPreferences(“setting”, 0);
+</li>
+<li>让setting处于编辑状态SharedPreferences.Editor editor = settings.edit();
+</li>
+<li>存放数据editor.putString(“name”,”ATAAW”);editor.putString(“URL”,”ATAAW.COM”);
+</li>
+<li>完成提交editor.commit();
+</li>
+</ol>
+
+</li>
+<li>读取数据信息
+<ol>
+<li>获取Preferences: SharedPreferences settings = getSharedPreferences(“setting”, 0);
+</li>
+<li>取出数据String name = settings.getString(“name”,”默认值”);
+     String url = setting.getString(“URL”,”default”);
+</li>
+</ol>
+
+</li>
+</ul>
+
+<p>其中创建的Preferences文件存放位置可以在Eclipse中查看：DDMS-&gt;File Explorer /&lt;package name&gt;/shared<sub>prefs</sub>/setting.xml 
+</p></div>
 </div>
 
 </div>
 
 <div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6">menu</h3>
+<h3 id="sec-1-6">通知栏操作</h3>
 <div class="outline-text-3" id="text-1-6">
+
+<p>在Android系统中，发一个状态栏通知还是很方便的。首先，发送一个状态栏通知必须用到两个类：NotificationManager、Notification。
+</p><ul>
+<li>NotificationManager ：  是状态栏通知的管理类，负责发通知、清楚通知等。NotificationManager是一个系统Service，必须通过
+  getSystemService()方法来获取。
+
+
+
+<pre class="example">NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+</pre>
+
+</li>
+<li>Notification：是具体的状态栏通知对象，可以设置icon、文字、提示声音、振动等等参数。下面是设置一个通知需要的基本参数.
+<ol>
+<li>An icon  (通知的图标);
+</li>
+<li>A title and expanded message  (通知的标题和内容); 
+</li>
+<li>A PendingIntent   (点击通知执行页面跳转); 
+</li>
+</ol>
+
+<p>  可选的设置.
+</p><ol>
+<li>A ticker-text message (状态栏顶部提示消息);
+</li>
+<li>An alert sound    (提示音)
+</li>
+<li>A vibrate setting  (振动)
+</li>
+<li>A flashing LED setting  (灯光)
+</li>
+</ol>
+
+</li>
+</ul>
+
+<p>使用步骤
+</p><ol>
+<li>创建Notification：通过NotificationManager的notify(int, Notification)方法来启动Notification。第一个参数唯一的标识该
+   Notification，第二个参数就是Notification对象。
+</li>
+<li>更新Notification：调用Notification的setLatestEventInfo方法来更新内容，然后调用NotificationManager的notify()方法即可。
+</li>
+<li>删除Notification：通过NotificationManager的cancel(int)方法，来清除某个通知。其中参数就是Notification的唯一标识ID。当
+   然也可以通过  cancelAll() 来清除状态栏所有的通知。
+</li>
+<li>Notification设置(振动、铃声等)；
+</li>
+</ol>
+
+
+
+
+<pre class="example">//新建状态栏通知
+baseNF = new Notification();
+
+//设置通知在状态栏显示的图标
+baseNF.icon = R.drawable.icon;
+
+//通知时在状态栏显示的内容
+baseNF.tickerText = "You clicked BaseNF!";
+
+//通知的默认参数 DEFAULT_SOUND, DEFAULT_VIBRATE, DEFAULT_LIGHTS. 
+//如果要全部采用默认值, 用 DEFAULT_ALL.
+//此处采用默认声音
+baseNF.defaults = Notification.DEFAULT_SOUND;
+
+//第二个参数 ：下拉状态栏时显示的消息标题 expanded message title
+//第三个参数：下拉状态栏时显示的消息内容 expanded message text
+//第四个参数：点击该通知时执行页面跳转
+baseNF.setLatestEventInfo(Lesson_10.this, "Title01", "Content01", pd);
+
+//发出状态栏通知
+//The first parameter is the unique ID for the Notification 
+// and the second is the Notification object.
+nm.notify(Notification_ID_BASE, baseNF);
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7">menu</h3>
+<div class="outline-text-3" id="text-1-7">
 
 <p>menu标签中item标签的主要属性见表<a href="#tbl-menu-bar">tbl-menu-bar</a>
 </p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-menu-bar">
@@ -749,16 +894,16 @@ Runnable update_thread = new Runnable() {
 
 </div>
 
-<div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7">gps</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-1-8" class="outline-3">
+<h3 id="sec-1-8">gps</h3>
+<div class="outline-text-3" id="text-1-8">
 
 
 </div>
 
-<div id="outline-container-1-7-1" class="outline-4">
-<h4 id="sec-1-7-1">组件</h4>
-<div class="outline-text-4" id="text-1-7-1">
+<div id="outline-container-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1">组件</h4>
+<div class="outline-text-4" id="text-1-8-1">
 
 <ul>
 <li>LocationManagerService：简称LMS，统一管理android平台中能够提供位置服务的相关模块；
@@ -791,9 +936,9 @@ Runnable update_thread = new Runnable() {
 
 </div>
 
-<div id="outline-container-1-7-2" class="outline-4">
-<h4 id="sec-1-7-2">操作</h4>
-<div class="outline-text-4" id="text-1-7-2">
+<div id="outline-container-1-8-2" class="outline-4">
+<h4 id="sec-1-8-2">操作</h4>
+<div class="outline-text-4" id="text-1-8-2">
 
 <ol>
 <li>先创建一个LocationManager对象，用于和LMS交互；
@@ -810,9 +955,9 @@ Runnable update_thread = new Runnable() {
 
 </div>
 
-<div id="outline-container-1-7-2-1" class="outline-5">
-<h5 id="sec-1-7-2-1">LocationManager</h5>
-<div class="outline-text-5" id="text-1-7-2-1">
+<div id="outline-container-1-8-2-1" class="outline-5">
+<h5 id="sec-1-8-2-1">LocationManager</h5>
+<div class="outline-text-5" id="text-1-8-2-1">
 
 <p>LocationMangager，位置管理器。要想操作定位相关设备，必须先定义个LocationManager。我们可以通过如下代码创建LocationManger
 对象。
@@ -826,9 +971,9 @@ Runnable update_thread = new Runnable() {
 
 </div>
 
-<div id="outline-container-1-7-2-2" class="outline-5">
-<h5 id="sec-1-7-2-2">LocationListener</h5>
-<div class="outline-text-5" id="text-1-7-2-2">
+<div id="outline-container-1-8-2-2" class="outline-5">
+<h5 id="sec-1-8-2-2">LocationListener</h5>
+<div class="outline-text-5" id="text-1-8-2-2">
 
 <p>LocationListener，位置监听，监听位置变化，监听设备开关与状态。
 </p>
@@ -885,9 +1030,9 @@ Runnable update_thread = new Runnable() {
 
 </div>
 
-<div id="outline-container-1-7-2-3" class="outline-5">
-<h5 id="sec-1-7-2-3">Location</h5>
-<div class="outline-text-5" id="text-1-7-2-3">
+<div id="outline-container-1-8-2-3" class="outline-5">
+<h5 id="sec-1-8-2-3">Location</h5>
+<div class="outline-text-5" id="text-1-8-2-3">
 
 <p>Location，位置信息，通过Location可以获取时间、经纬度、海拔等位置信息。上面采用locationListener里面的onLocationChanged()
 来获取location，下面讲述如何主动获取location。
@@ -903,9 +1048,9 @@ system.out.println("经度："+location.getLongitude());
 
 </div>
 
-<div id="outline-container-1-7-2-4" class="outline-5">
-<h5 id="sec-1-7-2-4">GpsStatus.Listener</h5>
-<div class="outline-text-5" id="text-1-7-2-4">
+<div id="outline-container-1-8-2-4" class="outline-5">
+<h5 id="sec-1-8-2-4">GpsStatus.Listener</h5>
+<div class="outline-text-5" id="text-1-8-2-4">
 
 <p>GpsStatus.Listener ，GPS状态监听，包括GPS启动、停止、第一次定位、卫星变化等事件。
 </p>
@@ -954,9 +1099,9 @@ lm.addGpsStatusListener(listener);
 
 </div>
 
-<div id="outline-container-1-7-2-5" class="outline-5">
-<h5 id="sec-1-7-2-5">GpsStatus</h5>
-<div class="outline-text-5" id="text-1-7-2-5">
+<div id="outline-container-1-8-2-5" class="outline-5">
+<h5 id="sec-1-8-2-5">GpsStatus</h5>
+<div class="outline-text-5" id="text-1-8-2-5">
 
 <p>GpsStatus，GPS状态信息，上面在卫星状态变化时，我们就用到了GpsStatus。
 </p>
@@ -978,9 +1123,9 @@ Iterator&lt;GpsSatellite&gt; itrator=iterable.iterator();
 
 </div>
 
-<div id="outline-container-1-7-2-6" class="outline-5">
-<h5 id="sec-1-7-2-6">GpsSatellite</h5>
-<div class="outline-text-5" id="text-1-7-2-6">
+<div id="outline-container-1-8-2-6" class="outline-5">
+<h5 id="sec-1-8-2-6">GpsSatellite</h5>
+<div class="outline-text-5" id="text-1-8-2-6">
 
 <p>GpsSatellite，定位卫星，包含卫星的方位、高度、伪随机噪声码、信噪比等信息
 </p>
@@ -1021,20 +1166,67 @@ for(int i=0;i&lt;satelliteList.size();i++){
 
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-1-8-3" class="outline-4">
+<h4 id="sec-1-8-3">位置模拟</h4>
+<div class="outline-text-4" id="text-1-8-3">
+
+<p>大体思路如下。
+</p><ol>
+<li>获取待模拟的位置；
+</li>
+<li>将位置信息植入需要的Provider里面, 下面示例代码以模拟位置植入GPS<sub>PROVIDER中为例；</sub>
+
+
+
+<pre class="example">//xml权限 
+&lt;uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"&gt;
+public static void setLocation(Context context, LatLonBean bean) {  
+     LocationManager locmanag = (LocationManager) context  
+             .getSystemService(Context.LOCATION_SERVICE);  
+     //关键代码
+     String mock = LocationManager.GPS_PROVIDER;  
+     locmanag.addTestProvider(mock, false, true, false, false, false, false,  
+             false, 0, 5);  
+     locmanag.setTestProviderEnabled(mock, true);  
+     //构造位置信息
+     Location loc = new Location(mock);  
+     loc.setTime(System.currentTimeMillis());  
+     loc.setLatitude(Double.parseDouble(bean.getLat()));  
+     loc.setLongitude(Double.parseDouble(bean.getLon()));  
+     loc.setAccuracy(Criteria.ACCURACY_FINE);// 精确度  
+     loc.setElapsedRealtimeNanos(SystemClock.elapsedRealtimeNanos());// 实时运行时间  
+     locmanag.setTestProviderStatus(mock, LocationProvider.AVAILABLE, null,  
+             System.currentTimeMillis());  
+     //位置信息植入
+     locmanag.setTestProviderLocation(mock, loc);  
+ }  
+</pre>
+
+</li>
+<li>在android手机设置请确保您已在“允许模拟位置”复选框打勾 ；
+</li>
+<li>像普通使用gps定位一样的使用onLocationChanged()会被系统回调。
+</li>
+</ol>
+
+</div>
 </div>
 
 </div>
 
-<div id="outline-container-1-8" class="outline-3">
-<h3 id="sec-1-8">bt</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-1-9" class="outline-3">
+<h3 id="sec-1-9">bt</h3>
+<div class="outline-text-3" id="text-1-9">
 
 
 </div>
 
-<div id="outline-container-1-8-1" class="outline-4">
-<h4 id="sec-1-8-1">概念</h4>
-<div class="outline-text-4" id="text-1-8-1">
+<div id="outline-container-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1">概念</h4>
+<div class="outline-text-4" id="text-1-9-1">
 
 <ul>
 <li>BluetoothAdapter：代表手机本地的蓝牙模块，BluetoothAdapter是所有蓝牙互操作的入口。使用它，你可以discover其他的蓝牙设备，
@@ -1073,9 +1265,9 @@ for(int i=0;i&lt;satelliteList.size();i++){
 
 </div>
 
-<div id="outline-container-1-8-2" class="outline-4">
-<h4 id="sec-1-8-2">蓝牙权限</h4>
-<div class="outline-text-4" id="text-1-8-2">
+<div id="outline-container-1-9-2" class="outline-4">
+<h4 id="sec-1-9-2">蓝牙权限</h4>
+<div class="outline-text-4" id="text-1-9-2">
 
 <p>应用程序要用蓝牙功能，必须要声明蓝牙权限“BLUETOOTH”。代码如下
 </p>
@@ -1088,15 +1280,15 @@ for(int i=0;i&lt;satelliteList.size();i++){
 </pre>
 
 <p>
-如果应用程序还需要“初始化设备发现”，操作“蓝牙设置”，那还需要声明“BLUETOOTH<sub>ADMIN”的权限，另外这个权限可以赋予一些</sub>
-功能，比如发现本地蓝牙设备，修改蓝牙设置；如有要使用“BLUETOOTH<sub>ADMIN”的声明，还必须要有上面的“BLUETOOTH”权限。</sub>
+如果应用程序还需要“初始化设备发现”，操作“蓝牙设置”，那还需要声明“BLUETOOTH_ADMIN”的权限，另外这个权限可以赋予一些
+功能，比如发现本地蓝牙设备，修改蓝牙设置；如有要使用“BLUETOOTH_ADMIN”的声明，还必须要有上面的“BLUETOOTH”权限。
 </p></div>
 
 </div>
 
-<div id="outline-container-1-8-3" class="outline-4">
-<h4 id="sec-1-8-3">设置蓝牙</h4>
-<div class="outline-text-4" id="text-1-8-3">
+<div id="outline-container-1-9-3" class="outline-4">
+<h4 id="sec-1-9-3">设置蓝牙</h4>
+<div class="outline-text-4" id="text-1-9-3">
 
 <p>如果要使用蓝牙，需要检查手机是否支持蓝牙，并且要保证已经使能。这需要两步操作。
 </p><ol>
@@ -1115,10 +1307,10 @@ if (mBluetoothAdapter == null) {
 </li>
 <li>使能蓝牙
    使用蓝牙前要确定蓝牙是否已经使能，使用isEnable()方法，如果返回false，表示蓝牙是禁能的。要请求蓝牙开启，可以使用
-   startActivityForResult()带上ACTION<sub>REQUEST</sub><sub>ENABLE的intent，这样将会触发一个系统设置的请求来使能蓝牙，代码如下</sub>, 将会出
-   现一个对话框请求用户使能蓝牙，用户可以允许也可以不允许，ACTION<sub>REQUEST</sub><sub>ENABLE是一个本地定义的整数</sub>(大于0)，并且会在
-   onActivityResult()回调方法中返回作为requestCode参数，如果使能蓝牙成功，Activity会在onActivityResult()收到RESULT<sub>OK结</sub>
-   果码，否则结果码是RESULT<sub>CANCEL</sub>
+   startActivityForResult()带上ACTION_REQUEST_ENABLE的intent，这样将会触发一个系统设置的请求来使能蓝牙，代码如下, 将会出
+   现一个对话框请求用户使能蓝牙，用户可以允许也可以不允许，ACTION_REQUEST_ENABLE是一个本地定义的整数(大于0)，并且会在
+   onActivityResult()回调方法中返回作为requestCode参数，如果使能蓝牙成功，Activity会在onActivityResult()收到RESULT_OK结
+   果码，否则结果码是RESULT_CANCEL
 
 
 
@@ -1129,9 +1321,9 @@ if (mBluetoothAdapter == null) {
 </pre>
 
 <p>
-   同样，应用程序还可以监听ACTION<sub>STATE</sub><sub>CHANGED广播intent，这个intent会在蓝牙状态变化时被系统广播出来，</sub> 这个广播包含指示
-   蓝牙新旧状态的额外域：EXTRA<sub>STATE和EXTRA</sub><sub>PREVIOUS</sub><sub>STATE。这2个域的值可能取</sub> STATE<sub>TURNING</sub><sub>ON</sub>, STATE<sub>ON</sub>,STATE<sub>OFF，</sub>
-   STATE<sub>TURNING</sub><sub>OFF。</sub>  
+   同样，应用程序还可以监听ACTION_STATE_CHANGED广播intent，这个intent会在蓝牙状态变化时被系统广播出来， 这个广播包含指示
+   蓝牙新旧状态的额外域：EXTRA_STATE和EXTRA_PREVIOUS_STATE。这2个域的值可能取 STATE_TURNING_ON, STATE_ON,STATE_OFF，
+   STATE_TURNING_OFF。  
 </p></li>
 </ol>
 
@@ -1139,9 +1331,9 @@ if (mBluetoothAdapter == null) {
 
 </div>
 
-<div id="outline-container-1-8-4" class="outline-4">
-<h4 id="sec-1-8-4">寻找设备</h4>
-<div class="outline-text-4" id="text-1-8-4">
+<div id="outline-container-1-9-4" class="outline-4">
+<h4 id="sec-1-9-4">寻找设备</h4>
+<div class="outline-text-4" id="text-1-9-4">
 
 <p>可以使用BluetoothAdapter搜索远端设备，要么通过“搜索设备”，要么通过轮询配对绑定列表里面的设备。
 搜索设备通过一个扫描过程搜索周边的蓝牙设备并向他们请求一些信息(这个过程大概有“discovering”，“inquiring”，
@@ -1157,12 +1349,12 @@ if (mBluetoothAdapter == null) {
 
 </div>
 
-<div id="outline-container-1-8-5" class="outline-4">
-<h4 id="sec-1-8-5">轮询已配对的设备</h4>
-<div class="outline-text-4" id="text-1-8-5">
+<div id="outline-container-1-9-5" class="outline-4">
+<h4 id="sec-1-9-5">轮询已配对的设备</h4>
+<div class="outline-text-4" id="text-1-9-5">
 
-<p>在进行搜索设备前，先轮询已配对设备的集合看看是否有我们需要的设备，调用getBondedDevices()即可。它将返回一个已配对设备的集
-合。比如，可以轮询所有的设备并使用ArrayAdapter将设备名展示给用户。
+<p>在进行搜索设备前，先轮询已配对设备的集合看看是否有我们需要的设备，调用BluetoothAdapter的getBondedDevices()即可。它将返回
+一个已配对设备的集合。比如，可以轮询所有的设备并使用ArrayAdapter将设备名展示给用户。
 </p>
 
 
@@ -1183,14 +1375,14 @@ if (pairedDevices.size() &gt; 0) {
 
 </div>
 
-<div id="outline-container-1-8-6" class="outline-4">
-<h4 id="sec-1-8-6">搜索设备</h4>
-<div class="outline-text-4" id="text-1-8-6">
+<div id="outline-container-1-9-6" class="outline-4">
+<h4 id="sec-1-9-6">搜索设备</h4>
+<div class="outline-text-4" id="text-1-9-6">
 
 <p>要发起搜索设备，只需要简单的调用startDiscovery().这个过程是异步的，调用这个方法会立刻返回一个布尔值指示搜索是否成功启动。
 搜索过程常常先inquiry scan大约12秒，再使用page scan去获取每个设备的蓝牙设备名。
-应用程序注册一个BroadcastReceiver来接收“ACTION<sub>FOUND”的intent，对于每个搜索到的设备，系统将会广播这个intent，这个</sub>
-intent会包含额外域EXTRA<sub>DEVICE和EXTRA</sub><sub>CLASS，对应着“BluetoothDevice”和“BluetoothClass”。代码如下</sub>
+应用程序注册一个BroadcastReceiver来接收“ACTION_FOUND”的intent，对于每个搜索到的设备，系统将会广播这个intent，这个
+intent会包含额外域EXTRA_DEVICE和EXTRA_CLASS，对应着“BluetoothDevice”和“BluetoothClass”。代码如下
 </p>
 
 
@@ -1219,12 +1411,12 @@ registerReceiver(mReceiver, filter); // Don't forget to unregister during onDest
 
 </div>
 
-<div id="outline-container-1-8-7" class="outline-4">
-<h4 id="sec-1-8-7">使能可发现性</h4>
-<div class="outline-text-4" id="text-1-8-7">
+<div id="outline-container-1-9-7" class="outline-4">
+<h4 id="sec-1-9-7">使能可发现性</h4>
+<div class="outline-text-4" id="text-1-9-7">
 
-<p>如果愿意本地设备被其他设备搜索到，可使用ACTION<sub>REQUEST</sub><sub>DISCOVERABLE的intent调用startActivityForResult</sub>(Intent，int)，它将
-向系统发起一个请求进行可发现性设置。默认将保持120秒时间，也可以通过给intent增加EXTRA<sub>DISCOVERABLE</sub><sub>DURATION的额外域值来改</sub>
+<p>如果愿意本地设备被其他设备搜索到，可使用ACTION_REQUEST_DISCOVERABLE的intent调用startActivityForResult(Intent，int)，它将
+向系统发起一个请求进行可发现性设置。默认将保持120秒时间，也可以通过给intent增加EXTRA_DISCOVERABLE_DURATION的额外域值来改
 变这个持续时间。这个域值最大可设3600秒，0代表始终可发现。设置为其他值将自动设成120秒，下面代码设置持续时间为300秒。
 </p>
 
@@ -1238,11 +1430,11 @@ startActivity(discoverableIntent);
 <p>
 系统将显示一个对话框来请求设备可发现性的用户权限。如果用户选择YES，设备将保持这个时间的可发现性，activity也将收到一个回
 调onActivityResult(), 里面会附带一个等于持续时间的result code。如果选择了NO，或者发送错误，这个result code将是
-RESULT<sub>CANCEL。</sub>
+RESULT_CANCEL。
 注意：如果设备没有开启蓝牙，而使能了蓝牙可发现性，将会自动的开启蓝牙。
-如果希望在系统的可发现性改变时被通知，可以注册一个BroadcastReceiver来监听ACTION<sub>SCAN</sub><sub>MODE</sub><sub>CHANGED的intent。这个intent将</sub>
-包含两个额外域，EXTRA<sub>SCAN</sub><sub>MODE和EXTRA</sub><sub>PREVIOUS</sub><sub>SCAN</sub><sub>MODE，对应着新旧扫描模式。其可能值有</sub>
-SCAN<sub>MODE</sub><sub>CONNECTABLE</sub><sub>DISCOVERABLE</sub>, SCAN<sub>MODE</sub><sub>CONNECTABLE</sub>, 或 SCAN<sub>MODE</sub><sub>NONE，指示了设备要么处于可发现模式，不处于可发现</sub>
+如果希望在系统的可发现性改变时被通知，可以注册一个BroadcastReceiver来监听ACTION_SCAN_MODE_CHANGED的intent。这个intent将
+包含两个额外域，EXTRA_SCAN_MODE和EXTRA_PREVIOUS_SCAN_MODE，对应着新旧扫描模式。其可能值有
+SCAN_MODE_CONNECTABLE_DISCOVERABLE, SCAN_MODE_CONNECTABLE, 或 SCAN_MODE_NONE，指示了设备要么处于可发现模式，不处于可发现
 模式但是可以接收连接请求，既不处于可发现模式也不能接收连接请求。
 如果只是想初始化一个到远端设备的链接，可以不用开启可发现模式。使能可发现模式仅仅只是在应用程序需要主导一个可以接收连接的
 server socket，因为远端设备在初始化一个连接前必须能够发现这个设备。
@@ -1250,9 +1442,9 @@ server socket，因为远端设备在初始化一个连接前必须能够发现�
 
 </div>
 
-<div id="outline-container-1-8-8" class="outline-4">
-<h4 id="sec-1-8-8">连接设备</h4>
-<div class="outline-text-4" id="text-1-8-8">
+<div id="outline-container-1-9-8" class="outline-4">
+<h4 id="sec-1-9-8">连接设备</h4>
+<div class="outline-text-4" id="text-1-9-8">
 
 <p>为了应用程序在设备间建立连接，必须实现服务端和客户端机制，因为一个设备必须开启server socket，另一个设备必须初始化这个连
 接(使用设备的MAC地址)。当服务端和客户端在共同的RFCOMM通道都有了已连接的BluetoothSocket则可认为两者已连接。从此之后，每个
@@ -1266,9 +1458,9 @@ server socket，因为远端设备在初始化一个连接前必须能够发现�
 
 </div>
 
-<div id="outline-container-1-8-9" class="outline-4">
-<h4 id="sec-1-8-9">服务端的连接</h4>
-<div class="outline-text-4" id="text-1-8-9">
+<div id="outline-container-1-9-9" class="outline-4">
+<h4 id="sec-1-9-9">服务端的连接</h4>
+<div class="outline-text-4" id="text-1-9-9">
 
 <p>当要连接两个设备时，其中一个必须作为一个服务端保存一个打开的BluetoothServerSocket。它的目的是监听进来的链接请求，并且当
 接受时，提供一个可连接的BluetoothSocket。当BluetoothSocket已经从BluetoothServerSocket获得后，BluetoothServerSocket就可以
@@ -1348,9 +1540,9 @@ manageConnectedSocket()在应用中是个虚方法，他会初始化线程来传
 
 </div>
 
-<div id="outline-container-1-8-10" class="outline-4">
-<h4 id="sec-1-8-10">客户端的连接</h4>
-<div class="outline-text-4" id="text-1-8-10">
+<div id="outline-container-1-9-10" class="outline-4">
+<h4 id="sec-1-9-10">客户端的连接</h4>
+<div class="outline-text-4" id="text-1-9-10">
 
 <p>为了初始化一个到远端设备(它保持着一个开放的服务端Socket)的连接，必须首先获得一个代表远端设备的BluetoothDevice对象(上面
 有介绍)。然后用这个对象获取一个BluetoothSocket并初始化连接。基本流程如下。
@@ -1423,9 +1615,9 @@ manageConnectedSocket()在应用中是个虚方法，他会初始化线程来传
 
 </div>
 
-<div id="outline-container-1-8-11" class="outline-4">
-<h4 id="sec-1-8-11">管理连接</h4>
-<div class="outline-text-4" id="text-1-8-11">
+<div id="outline-container-1-9-11" class="outline-4">
+<h4 id="sec-1-9-11">管理连接</h4>
+<div class="outline-text-4" id="text-1-9-11">
 
 <p>当成功的链接两个设备，每个都会拥有一个已连接的BluetoothSocket。从此将会有趣了因为可以在设备间分享数据。使用
 BluetoothSocket，这个传输任意数据的过程将会很简单。
@@ -1508,9 +1700,9 @@ read(byte[])和write(byte[])两个方法都是阻塞调用。read(byte[])调用�
 
 </div>
 
-<div id="outline-container-1-8-12" class="outline-4">
-<h4 id="sec-1-8-12">使用Profiles</h4>
-<div class="outline-text-4" id="text-1-8-12">
+<div id="outline-container-1-9-12" class="outline-4">
+<h4 id="sec-1-9-12">使用Profiles</h4>
+<div class="outline-text-4" id="text-1-9-12">
 
 <p>从android3.0开始，蓝牙API包含了对蓝牙Profile的支持。Bluetooth Profile是个无线接口，以蓝牙为基础沟通不同的设备。免提
 Profile就是一例。对于手机连接到无线耳机，两个设备都必须支持免提Profile。
@@ -1572,18 +1764,18 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 
 </div>
 
-<div id="outline-container-1-8-13" class="outline-4">
-<h4 id="sec-1-8-13">制造商自定义AT指令</h4>
-<div class="outline-text-4" id="text-1-8-13">
+<div id="outline-container-1-9-13" class="outline-4">
+<h4 id="sec-1-9-13">制造商自定义AT指令</h4>
+<div class="outline-text-4" id="text-1-9-13">
 
 <p>从android3.0开始，应用程序就能注册接收预定义的由Headset发出的系统通知。
 </p></div>
 
 </div>
 
-<div id="outline-container-1-8-14" class="outline-4">
-<h4 id="sec-1-8-14">健康设备Profile</h4>
-<div class="outline-text-4" id="text-1-8-14">
+<div id="outline-container-1-9-14" class="outline-4">
+<h4 id="sec-1-9-14">健康设备Profile</h4>
+<div class="outline-text-4" id="text-1-9-14">
 
 <p>从android4.0开始，引入对健康设备Profile(HDP)的支持。
 </p></div>
@@ -1591,17 +1783,17 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 
 </div>
 
-<div id="outline-container-1-9" class="outline-3">
-<h3 id="sec-1-9">ble</h3>
-<div class="outline-text-3" id="text-1-9">
-
-</div>
-
-</div>
-
 <div id="outline-container-1-10" class="outline-3">
-<h3 id="sec-1-10">jni</h3>
+<h3 id="sec-1-10">ble</h3>
 <div class="outline-text-3" id="text-1-10">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-11" class="outline-3">
+<h3 id="sec-1-11">jni</h3>
+<div class="outline-text-3" id="text-1-11">
 
 <p>JNI是java native interface的缩写
 </p></div>
@@ -1788,7 +1980,7 @@ errQUEUE_YIELD
 
 <p>堆并不神秘，在cortex-m0芯片中，堆和栈其实都是用的ram区，只是认为的堆ram区做了划分，也就是说，完全可以人为的定义一个大的
 数组来表示堆空间，然后对数组进行块分割，并且分配给申请者，管理需要释放的数组元素，就是堆空间的分配和释放操作，基于此，根
-据堆操作功能复杂度，细化出了heap<sub>1</sub>.c、heap<sub>2</sub>.c、heap<sub>4</sub>.c、heap<sub>5</sub>.c的堆操作功能库，至于heap<sub>3</sub>.c完全是使用标准C库的malloc
+据堆操作功能复杂度，细化出了heap_1.c、heap_2.c、heap_4.c、heap_5.c的堆操作功能库，至于heap_3.c完全是使用标准C库的malloc
 等函数做的封装，因为标准C库的malloc等函数不是线程安全的函数，需要封装为安全的，所谓的封装为线程安全的，也就是在执行
 malloc前后关闭打开中断和调度器；另外对申请的堆空间地址和长度还涉及到对齐等细节功能操作；
 <a name="heap1-oper" id="heap1-oper"></a>
@@ -2156,7 +2348,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </p><ul>
 <li>参数断言：使用宏configASSERT, 是空的，需要用户自己写
 </li>
-<li>提升优先级：static BaseType<sub>t</sub> prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
+<li>提升优先级：static BaseType_t prvRaisePrivilege( void )，通过控制cpu做svc调用，svc有相应的号；
 </li>
 </ul>
 
@@ -2171,7 +2363,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-23 15:40:32 中国标准时间</p>
+<p class="date">Date: 2015-11-24 21:09:13 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
