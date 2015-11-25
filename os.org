@@ -421,6 +421,19 @@ baseNF.setLatestEventInfo(Lesson_10.this, "Title01", "Content01", pd);
 // and the second is the Notification object.
 nm.notify(Notification_ID_BASE, baseNF);
 #+end_src
+** 程序首选项
+一般程序可以通过“设置”也就是首选项做一些更个性化的设置。打开我们的系统设置中，会看到整个页面被分为几组：无线网络、设备、
+个人、账户和系统。这个分组（或者叫分类）就是PreferenceCategory。Wifi右边有开关，这一项就是CheckBoxPreference；其他还有
+ListPreference和EditTextPreference。每一次设置，都会被Preference存下来，这就是setting的数据持久化。我们可以通过
+SharedPreference对象获得这个程序的全体设置，Preference的对象获得其中某个设置。Preference Activity框架由4个部分组成。
+- PreferenceScreen: 是个xml文件，定义了在Preference Screen中显示的层次结构。它指定了要显示的文本及控件、值等；
+- PreferenceActivity和PreferenceFragment：首先要说的是，PreferenceActivity从API level1中就加入了，那么后续自Android3.0后
+  有了Fragment的概念，同时也带来了PreferenceFragment，他们都用于包含PreferenceScreen，在Android3.0前，PreferenceActivity
+  直接包含PreferenceScreen，之后，PreferenceScreen包含在PreferenceFragment中，而PreferenceFragment又包含到PreferenceActivity；
+- PreferenceHeader：是一个xml文件，3.0后随Fragment引入，用于显示PreferenceFragment的层次结构。
+- SharedPreference监听程序：也就是接口onSharedPreferenceChangeListener，用于监听界面上的设置变化，这个接口用于监听
+  SharePreference，即只要有设置项改变，这个就会被触发回调，区别于OnPreferenceChangeListener是用于监听某项的改变，而
+  OnPreferenceClickListener是监听某项的点击 ；
 ** menu
 menu标签中item标签的主要属性见表\ref{tbl-menu-bar}
 #+caption: android menu bar xml属性说明

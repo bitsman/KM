@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-24 21:09:13 中国标准时间"/>
+<meta name="generated" content="2015-11-25 17:58:07 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -82,43 +82,44 @@
 </ul>
 </li>
 <li><a href="#sec-1-6">通知栏操作</a></li>
-<li><a href="#sec-1-7">menu</a></li>
-<li><a href="#sec-1-8">gps</a>
+<li><a href="#sec-1-7">程序首选项</a></li>
+<li><a href="#sec-1-8">menu</a></li>
+<li><a href="#sec-1-9">gps</a>
 <ul>
-<li><a href="#sec-1-8-1">组件</a></li>
-<li><a href="#sec-1-8-2">操作</a>
+<li><a href="#sec-1-9-1">组件</a></li>
+<li><a href="#sec-1-9-2">操作</a>
 <ul>
-<li><a href="#sec-1-8-2-1">LocationManager</a></li>
-<li><a href="#sec-1-8-2-2">LocationListener</a></li>
-<li><a href="#sec-1-8-2-3">Location</a></li>
-<li><a href="#sec-1-8-2-4">GpsStatus.Listener</a></li>
-<li><a href="#sec-1-8-2-5">GpsStatus</a></li>
-<li><a href="#sec-1-8-2-6">GpsSatellite</a></li>
+<li><a href="#sec-1-9-2-1">LocationManager</a></li>
+<li><a href="#sec-1-9-2-2">LocationListener</a></li>
+<li><a href="#sec-1-9-2-3">Location</a></li>
+<li><a href="#sec-1-9-2-4">GpsStatus.Listener</a></li>
+<li><a href="#sec-1-9-2-5">GpsStatus</a></li>
+<li><a href="#sec-1-9-2-6">GpsSatellite</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-8-3">位置模拟</a></li>
+<li><a href="#sec-1-9-3">位置模拟</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-9">bt</a>
+<li><a href="#sec-1-10">bt</a>
 <ul>
-<li><a href="#sec-1-9-1">概念</a></li>
-<li><a href="#sec-1-9-2">蓝牙权限</a></li>
-<li><a href="#sec-1-9-3">设置蓝牙</a></li>
-<li><a href="#sec-1-9-4">寻找设备</a></li>
-<li><a href="#sec-1-9-5">轮询已配对的设备</a></li>
-<li><a href="#sec-1-9-6">搜索设备</a></li>
-<li><a href="#sec-1-9-7">使能可发现性</a></li>
-<li><a href="#sec-1-9-8">连接设备</a></li>
-<li><a href="#sec-1-9-9">服务端的连接</a></li>
-<li><a href="#sec-1-9-10">客户端的连接</a></li>
-<li><a href="#sec-1-9-11">管理连接</a></li>
-<li><a href="#sec-1-9-12">使用Profiles</a></li>
-<li><a href="#sec-1-9-13">制造商自定义AT指令</a></li>
-<li><a href="#sec-1-9-14">健康设备Profile</a></li>
+<li><a href="#sec-1-10-1">概念</a></li>
+<li><a href="#sec-1-10-2">蓝牙权限</a></li>
+<li><a href="#sec-1-10-3">设置蓝牙</a></li>
+<li><a href="#sec-1-10-4">寻找设备</a></li>
+<li><a href="#sec-1-10-5">轮询已配对的设备</a></li>
+<li><a href="#sec-1-10-6">搜索设备</a></li>
+<li><a href="#sec-1-10-7">使能可发现性</a></li>
+<li><a href="#sec-1-10-8">连接设备</a></li>
+<li><a href="#sec-1-10-9">服务端的连接</a></li>
+<li><a href="#sec-1-10-10">客户端的连接</a></li>
+<li><a href="#sec-1-10-11">管理连接</a></li>
+<li><a href="#sec-1-10-12">使用Profiles</a></li>
+<li><a href="#sec-1-10-13">制造商自定义AT指令</a></li>
+<li><a href="#sec-1-10-14">健康设备Profile</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-10">ble</a></li>
-<li><a href="#sec-1-11">jni</a></li>
+<li><a href="#sec-1-11">ble</a></li>
+<li><a href="#sec-1-12">jni</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">FreeRTOS</a>
@@ -871,8 +872,35 @@ nm.notify(Notification_ID_BASE, baseNF);
 </div>
 
 <div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7">menu</h3>
+<h3 id="sec-1-7">程序首选项</h3>
 <div class="outline-text-3" id="text-1-7">
+
+<p>一般程序可以通过“设置”也就是首选项做一些更个性化的设置。打开我们的系统设置中，会看到整个页面被分为几组：无线网络、设备、
+个人、账户和系统。这个分组（或者叫分类）就是PreferenceCategory。Wifi右边有开关，这一项就是CheckBoxPreference；其他还有
+ListPreference和EditTextPreference。每一次设置，都会被Preference存下来，这就是setting的数据持久化。我们可以通过
+SharedPreference对象获得这个程序的全体设置，Preference的对象获得其中某个设置。Preference Activity框架由4个部分组成。
+</p><ul>
+<li>PreferenceScreen: 是个xml文件，定义了在Preference Screen中显示的层次结构。它指定了要显示的文本及控件、值等；
+</li>
+<li>PreferenceActivity和PreferenceFragment：首先要说的是，PreferenceActivity从API level1中就加入了，那么后续自Android3.0后
+  有了Fragment的概念，同时也带来了PreferenceFragment，他们都用于包含PreferenceScreen，在Android3.0前，PreferenceActivity
+  直接包含PreferenceScreen，之后，PreferenceScreen包含在PreferenceFragment中，而PreferenceFragment又包含到PreferenceActivity；
+</li>
+<li>PreferenceHeader：是一个xml文件，3.0后随Fragment引入，用于显示PreferenceFragment的层次结构。
+</li>
+<li>SharedPreference监听程序：也就是接口onSharedPreferenceChangeListener，用于监听界面上的设置变化，这个接口用于监听
+  SharePreference，即只要有设置项改变，这个就会被触发回调，区别于OnPreferenceChangeListener是用于监听某项的改变，而
+  OnPreferenceClickListener是监听某项的点击 ；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-8" class="outline-3">
+<h3 id="sec-1-8">menu</h3>
+<div class="outline-text-3" id="text-1-8">
 
 <p>menu标签中item标签的主要属性见表<a href="#tbl-menu-bar">tbl-menu-bar</a>
 </p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-menu-bar">
@@ -894,16 +922,16 @@ nm.notify(Notification_ID_BASE, baseNF);
 
 </div>
 
-<div id="outline-container-1-8" class="outline-3">
-<h3 id="sec-1-8">gps</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-1-9" class="outline-3">
+<h3 id="sec-1-9">gps</h3>
+<div class="outline-text-3" id="text-1-9">
 
 
 </div>
 
-<div id="outline-container-1-8-1" class="outline-4">
-<h4 id="sec-1-8-1">组件</h4>
-<div class="outline-text-4" id="text-1-8-1">
+<div id="outline-container-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1">组件</h4>
+<div class="outline-text-4" id="text-1-9-1">
 
 <ul>
 <li>LocationManagerService：简称LMS，统一管理android平台中能够提供位置服务的相关模块；
@@ -936,9 +964,9 @@ nm.notify(Notification_ID_BASE, baseNF);
 
 </div>
 
-<div id="outline-container-1-8-2" class="outline-4">
-<h4 id="sec-1-8-2">操作</h4>
-<div class="outline-text-4" id="text-1-8-2">
+<div id="outline-container-1-9-2" class="outline-4">
+<h4 id="sec-1-9-2">操作</h4>
+<div class="outline-text-4" id="text-1-9-2">
 
 <ol>
 <li>先创建一个LocationManager对象，用于和LMS交互；
@@ -955,9 +983,9 @@ nm.notify(Notification_ID_BASE, baseNF);
 
 </div>
 
-<div id="outline-container-1-8-2-1" class="outline-5">
-<h5 id="sec-1-8-2-1">LocationManager</h5>
-<div class="outline-text-5" id="text-1-8-2-1">
+<div id="outline-container-1-9-2-1" class="outline-5">
+<h5 id="sec-1-9-2-1">LocationManager</h5>
+<div class="outline-text-5" id="text-1-9-2-1">
 
 <p>LocationMangager，位置管理器。要想操作定位相关设备，必须先定义个LocationManager。我们可以通过如下代码创建LocationManger
 对象。
@@ -971,9 +999,9 @@ nm.notify(Notification_ID_BASE, baseNF);
 
 </div>
 
-<div id="outline-container-1-8-2-2" class="outline-5">
-<h5 id="sec-1-8-2-2">LocationListener</h5>
-<div class="outline-text-5" id="text-1-8-2-2">
+<div id="outline-container-1-9-2-2" class="outline-5">
+<h5 id="sec-1-9-2-2">LocationListener</h5>
+<div class="outline-text-5" id="text-1-9-2-2">
 
 <p>LocationListener，位置监听，监听位置变化，监听设备开关与状态。
 </p>
@@ -1030,9 +1058,9 @@ nm.notify(Notification_ID_BASE, baseNF);
 
 </div>
 
-<div id="outline-container-1-8-2-3" class="outline-5">
-<h5 id="sec-1-8-2-3">Location</h5>
-<div class="outline-text-5" id="text-1-8-2-3">
+<div id="outline-container-1-9-2-3" class="outline-5">
+<h5 id="sec-1-9-2-3">Location</h5>
+<div class="outline-text-5" id="text-1-9-2-3">
 
 <p>Location，位置信息，通过Location可以获取时间、经纬度、海拔等位置信息。上面采用locationListener里面的onLocationChanged()
 来获取location，下面讲述如何主动获取location。
@@ -1048,9 +1076,9 @@ system.out.println("经度："+location.getLongitude());
 
 </div>
 
-<div id="outline-container-1-8-2-4" class="outline-5">
-<h5 id="sec-1-8-2-4">GpsStatus.Listener</h5>
-<div class="outline-text-5" id="text-1-8-2-4">
+<div id="outline-container-1-9-2-4" class="outline-5">
+<h5 id="sec-1-9-2-4">GpsStatus.Listener</h5>
+<div class="outline-text-5" id="text-1-9-2-4">
 
 <p>GpsStatus.Listener ，GPS状态监听，包括GPS启动、停止、第一次定位、卫星变化等事件。
 </p>
@@ -1099,9 +1127,9 @@ lm.addGpsStatusListener(listener);
 
 </div>
 
-<div id="outline-container-1-8-2-5" class="outline-5">
-<h5 id="sec-1-8-2-5">GpsStatus</h5>
-<div class="outline-text-5" id="text-1-8-2-5">
+<div id="outline-container-1-9-2-5" class="outline-5">
+<h5 id="sec-1-9-2-5">GpsStatus</h5>
+<div class="outline-text-5" id="text-1-9-2-5">
 
 <p>GpsStatus，GPS状态信息，上面在卫星状态变化时，我们就用到了GpsStatus。
 </p>
@@ -1123,9 +1151,9 @@ Iterator&lt;GpsSatellite&gt; itrator=iterable.iterator();
 
 </div>
 
-<div id="outline-container-1-8-2-6" class="outline-5">
-<h5 id="sec-1-8-2-6">GpsSatellite</h5>
-<div class="outline-text-5" id="text-1-8-2-6">
+<div id="outline-container-1-9-2-6" class="outline-5">
+<h5 id="sec-1-9-2-6">GpsSatellite</h5>
+<div class="outline-text-5" id="text-1-9-2-6">
 
 <p>GpsSatellite，定位卫星，包含卫星的方位、高度、伪随机噪声码、信噪比等信息
 </p>
@@ -1169,9 +1197,9 @@ for(int i=0;i&lt;satelliteList.size();i++){
 
 </div>
 
-<div id="outline-container-1-8-3" class="outline-4">
-<h4 id="sec-1-8-3">位置模拟</h4>
-<div class="outline-text-4" id="text-1-8-3">
+<div id="outline-container-1-9-3" class="outline-4">
+<h4 id="sec-1-9-3">位置模拟</h4>
+<div class="outline-text-4" id="text-1-9-3">
 
 <p>大体思路如下。
 </p><ol>
@@ -1217,16 +1245,16 @@ public static void setLocation(Context context, LatLonBean bean) {
 
 </div>
 
-<div id="outline-container-1-9" class="outline-3">
-<h3 id="sec-1-9">bt</h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-1-10" class="outline-3">
+<h3 id="sec-1-10">bt</h3>
+<div class="outline-text-3" id="text-1-10">
 
 
 </div>
 
-<div id="outline-container-1-9-1" class="outline-4">
-<h4 id="sec-1-9-1">概念</h4>
-<div class="outline-text-4" id="text-1-9-1">
+<div id="outline-container-1-10-1" class="outline-4">
+<h4 id="sec-1-10-1">概念</h4>
+<div class="outline-text-4" id="text-1-10-1">
 
 <ul>
 <li>BluetoothAdapter：代表手机本地的蓝牙模块，BluetoothAdapter是所有蓝牙互操作的入口。使用它，你可以discover其他的蓝牙设备，
@@ -1265,9 +1293,9 @@ public static void setLocation(Context context, LatLonBean bean) {
 
 </div>
 
-<div id="outline-container-1-9-2" class="outline-4">
-<h4 id="sec-1-9-2">蓝牙权限</h4>
-<div class="outline-text-4" id="text-1-9-2">
+<div id="outline-container-1-10-2" class="outline-4">
+<h4 id="sec-1-10-2">蓝牙权限</h4>
+<div class="outline-text-4" id="text-1-10-2">
 
 <p>应用程序要用蓝牙功能，必须要声明蓝牙权限“BLUETOOTH”。代码如下
 </p>
@@ -1286,9 +1314,9 @@ public static void setLocation(Context context, LatLonBean bean) {
 
 </div>
 
-<div id="outline-container-1-9-3" class="outline-4">
-<h4 id="sec-1-9-3">设置蓝牙</h4>
-<div class="outline-text-4" id="text-1-9-3">
+<div id="outline-container-1-10-3" class="outline-4">
+<h4 id="sec-1-10-3">设置蓝牙</h4>
+<div class="outline-text-4" id="text-1-10-3">
 
 <p>如果要使用蓝牙，需要检查手机是否支持蓝牙，并且要保证已经使能。这需要两步操作。
 </p><ol>
@@ -1331,9 +1359,9 @@ if (mBluetoothAdapter == null) {
 
 </div>
 
-<div id="outline-container-1-9-4" class="outline-4">
-<h4 id="sec-1-9-4">寻找设备</h4>
-<div class="outline-text-4" id="text-1-9-4">
+<div id="outline-container-1-10-4" class="outline-4">
+<h4 id="sec-1-10-4">寻找设备</h4>
+<div class="outline-text-4" id="text-1-10-4">
 
 <p>可以使用BluetoothAdapter搜索远端设备，要么通过“搜索设备”，要么通过轮询配对绑定列表里面的设备。
 搜索设备通过一个扫描过程搜索周边的蓝牙设备并向他们请求一些信息(这个过程大概有“discovering”，“inquiring”，
@@ -1349,9 +1377,9 @@ if (mBluetoothAdapter == null) {
 
 </div>
 
-<div id="outline-container-1-9-5" class="outline-4">
-<h4 id="sec-1-9-5">轮询已配对的设备</h4>
-<div class="outline-text-4" id="text-1-9-5">
+<div id="outline-container-1-10-5" class="outline-4">
+<h4 id="sec-1-10-5">轮询已配对的设备</h4>
+<div class="outline-text-4" id="text-1-10-5">
 
 <p>在进行搜索设备前，先轮询已配对设备的集合看看是否有我们需要的设备，调用BluetoothAdapter的getBondedDevices()即可。它将返回
 一个已配对设备的集合。比如，可以轮询所有的设备并使用ArrayAdapter将设备名展示给用户。
@@ -1375,9 +1403,9 @@ if (pairedDevices.size() &gt; 0) {
 
 </div>
 
-<div id="outline-container-1-9-6" class="outline-4">
-<h4 id="sec-1-9-6">搜索设备</h4>
-<div class="outline-text-4" id="text-1-9-6">
+<div id="outline-container-1-10-6" class="outline-4">
+<h4 id="sec-1-10-6">搜索设备</h4>
+<div class="outline-text-4" id="text-1-10-6">
 
 <p>要发起搜索设备，只需要简单的调用startDiscovery().这个过程是异步的，调用这个方法会立刻返回一个布尔值指示搜索是否成功启动。
 搜索过程常常先inquiry scan大约12秒，再使用page scan去获取每个设备的蓝牙设备名。
@@ -1411,9 +1439,9 @@ registerReceiver(mReceiver, filter); // Don't forget to unregister during onDest
 
 </div>
 
-<div id="outline-container-1-9-7" class="outline-4">
-<h4 id="sec-1-9-7">使能可发现性</h4>
-<div class="outline-text-4" id="text-1-9-7">
+<div id="outline-container-1-10-7" class="outline-4">
+<h4 id="sec-1-10-7">使能可发现性</h4>
+<div class="outline-text-4" id="text-1-10-7">
 
 <p>如果愿意本地设备被其他设备搜索到，可使用ACTION_REQUEST_DISCOVERABLE的intent调用startActivityForResult(Intent，int)，它将
 向系统发起一个请求进行可发现性设置。默认将保持120秒时间，也可以通过给intent增加EXTRA_DISCOVERABLE_DURATION的额外域值来改
@@ -1442,9 +1470,9 @@ server socket，因为远端设备在初始化一个连接前必须能够发现�
 
 </div>
 
-<div id="outline-container-1-9-8" class="outline-4">
-<h4 id="sec-1-9-8">连接设备</h4>
-<div class="outline-text-4" id="text-1-9-8">
+<div id="outline-container-1-10-8" class="outline-4">
+<h4 id="sec-1-10-8">连接设备</h4>
+<div class="outline-text-4" id="text-1-10-8">
 
 <p>为了应用程序在设备间建立连接，必须实现服务端和客户端机制，因为一个设备必须开启server socket，另一个设备必须初始化这个连
 接(使用设备的MAC地址)。当服务端和客户端在共同的RFCOMM通道都有了已连接的BluetoothSocket则可认为两者已连接。从此之后，每个
@@ -1458,9 +1486,9 @@ server socket，因为远端设备在初始化一个连接前必须能够发现�
 
 </div>
 
-<div id="outline-container-1-9-9" class="outline-4">
-<h4 id="sec-1-9-9">服务端的连接</h4>
-<div class="outline-text-4" id="text-1-9-9">
+<div id="outline-container-1-10-9" class="outline-4">
+<h4 id="sec-1-10-9">服务端的连接</h4>
+<div class="outline-text-4" id="text-1-10-9">
 
 <p>当要连接两个设备时，其中一个必须作为一个服务端保存一个打开的BluetoothServerSocket。它的目的是监听进来的链接请求，并且当
 接受时，提供一个可连接的BluetoothSocket。当BluetoothSocket已经从BluetoothServerSocket获得后，BluetoothServerSocket就可以
@@ -1540,9 +1568,9 @@ manageConnectedSocket()在应用中是个虚方法，他会初始化线程来传
 
 </div>
 
-<div id="outline-container-1-9-10" class="outline-4">
-<h4 id="sec-1-9-10">客户端的连接</h4>
-<div class="outline-text-4" id="text-1-9-10">
+<div id="outline-container-1-10-10" class="outline-4">
+<h4 id="sec-1-10-10">客户端的连接</h4>
+<div class="outline-text-4" id="text-1-10-10">
 
 <p>为了初始化一个到远端设备(它保持着一个开放的服务端Socket)的连接，必须首先获得一个代表远端设备的BluetoothDevice对象(上面
 有介绍)。然后用这个对象获取一个BluetoothSocket并初始化连接。基本流程如下。
@@ -1615,9 +1643,9 @@ manageConnectedSocket()在应用中是个虚方法，他会初始化线程来传
 
 </div>
 
-<div id="outline-container-1-9-11" class="outline-4">
-<h4 id="sec-1-9-11">管理连接</h4>
-<div class="outline-text-4" id="text-1-9-11">
+<div id="outline-container-1-10-11" class="outline-4">
+<h4 id="sec-1-10-11">管理连接</h4>
+<div class="outline-text-4" id="text-1-10-11">
 
 <p>当成功的链接两个设备，每个都会拥有一个已连接的BluetoothSocket。从此将会有趣了因为可以在设备间分享数据。使用
 BluetoothSocket，这个传输任意数据的过程将会很简单。
@@ -1700,9 +1728,9 @@ read(byte[])和write(byte[])两个方法都是阻塞调用。read(byte[])调用�
 
 </div>
 
-<div id="outline-container-1-9-12" class="outline-4">
-<h4 id="sec-1-9-12">使用Profiles</h4>
-<div class="outline-text-4" id="text-1-9-12">
+<div id="outline-container-1-10-12" class="outline-4">
+<h4 id="sec-1-10-12">使用Profiles</h4>
+<div class="outline-text-4" id="text-1-10-12">
 
 <p>从android3.0开始，蓝牙API包含了对蓝牙Profile的支持。Bluetooth Profile是个无线接口，以蓝牙为基础沟通不同的设备。免提
 Profile就是一例。对于手机连接到无线耳机，两个设备都必须支持免提Profile。
@@ -1764,18 +1792,18 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 
 </div>
 
-<div id="outline-container-1-9-13" class="outline-4">
-<h4 id="sec-1-9-13">制造商自定义AT指令</h4>
-<div class="outline-text-4" id="text-1-9-13">
+<div id="outline-container-1-10-13" class="outline-4">
+<h4 id="sec-1-10-13">制造商自定义AT指令</h4>
+<div class="outline-text-4" id="text-1-10-13">
 
 <p>从android3.0开始，应用程序就能注册接收预定义的由Headset发出的系统通知。
 </p></div>
 
 </div>
 
-<div id="outline-container-1-9-14" class="outline-4">
-<h4 id="sec-1-9-14">健康设备Profile</h4>
-<div class="outline-text-4" id="text-1-9-14">
+<div id="outline-container-1-10-14" class="outline-4">
+<h4 id="sec-1-10-14">健康设备Profile</h4>
+<div class="outline-text-4" id="text-1-10-14">
 
 <p>从android4.0开始，引入对健康设备Profile(HDP)的支持。
 </p></div>
@@ -1783,17 +1811,17 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 
 </div>
 
-<div id="outline-container-1-10" class="outline-3">
-<h3 id="sec-1-10">ble</h3>
-<div class="outline-text-3" id="text-1-10">
-
-</div>
-
-</div>
-
 <div id="outline-container-1-11" class="outline-3">
-<h3 id="sec-1-11">jni</h3>
+<h3 id="sec-1-11">ble</h3>
 <div class="outline-text-3" id="text-1-11">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-12" class="outline-3">
+<h3 id="sec-1-12">jni</h3>
+<div class="outline-text-3" id="text-1-12">
 
 <p>JNI是java native interface的缩写
 </p></div>
@@ -2363,7 +2391,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-24 21:09:13 中国标准时间</p>
+<p class="date">Date: 2015-11-25 17:58:07 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
