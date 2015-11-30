@@ -37,7 +37,7 @@
 - wiggly：波动的，摇摆的；
 - interpolation:插值；
 - polynomial：多项式；
-- multinomial：多项式；
+- multinomial：多项式的，多维度的；
 - partial derivatives：偏导数；
 - quadratic：二次的，二次方程；
 - inductive bias: 归纳偏置，诱导偏置；
