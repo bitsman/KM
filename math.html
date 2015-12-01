@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-30 22:56:14 中国标准时间"/>
+<meta name="generated" content="2015-12-01 18:13:03 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -141,12 +141,13 @@
 <ul>
 <li><a href="#sec-4-1">概念</a></li>
 <li><a href="#sec-4-2">估计量评估</a></li>
-<li><a href="#sec-4-3">贝叶斯分类</a>
+<li><a href="#sec-4-3">贝叶斯估计</a></li>
+<li><a href="#sec-4-4">贝叶斯分类</a>
 <ul>
-<li><a href="#sec-4-3-1">最小错误率贝叶斯分类器</a></li>
-<li><a href="#sec-4-3-2">最大似然比贝叶斯分类器</a></li>
-<li><a href="#sec-4-3-3">最小风险贝叶斯分类器</a></li>
-<li><a href="#sec-4-3-4">朴素贝叶斯</a></li>
+<li><a href="#sec-4-4-1">最小错误率贝叶斯分类器</a></li>
+<li><a href="#sec-4-4-2">最大似然比贝叶斯分类器</a></li>
+<li><a href="#sec-4-4-3">最小风险贝叶斯分类器</a></li>
+<li><a href="#sec-4-4-4">朴素贝叶斯</a></li>
 </ul>
 </li>
 </ul>
@@ -814,7 +815,7 @@ $$ s^{2}=\frac{\sum_{t}(x^{t}-m)^{2}}{N}=\frac{\sum_{t}(x^{t})^{2}-Nm^{2}}{N}$$ 
 $$ E[s^{2}]=\frac{\sum_{t}E[(x^{t})^{2}]-N*E[m^{2}]}{N}$$  
 考虑到\(Var(X)=E[X^{2}]-E[X]^{2}\), 就有\(E[X^{2}]=Var(X)+E[X]^{2}\)可以得到\(E[(x^{t})^{2}]=\sigma^{2}+\mu^{2}\)和
 \(E[m^{2}]=\frac{\sigma^{2}}{N}+\mu^{2}\), 带入后就得
-$$ E[s^{2}]=\frac{N(\sigma^{2}+\mu^{2})-N(\sigma^{2}/N + \mu^{2})}{N}=(\frac{N-1}{N})\sigma^{2}\neg\sigma^{2}$$ 
+$$ E[s^{2}]=\frac{N(\sigma^{2}+\mu^{2})-N(\sigma^{2}/N + \mu^{2})}{N}=(\frac{N-1}{N})\sigma^{2}\neq\sigma^{2}$$ 
 这也表明\(s^{2}\)是\(\sigma^{2}\)的有偏估计，\(\frac{N}{N-1}s^{2}\)才是\(\sigma^{2}\)的无偏估计。然而当N足够大时，差异就
 不明显了。这被称为 <span style="text-decoration:underline;">渐进无偏估计量</span> 。
 均方误差可以推导如下。
@@ -832,8 +833,21 @@ $$ E[(d-E[d])^{2}]+(E[d]-\theta)^{2}$$
 </div>
 
 <div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3">贝叶斯分类</h3>
+<h3 id="sec-4-3">贝叶斯估计</h3>
 <div class="outline-text-3" id="text-4-3">
+
+<p>贝叶斯估计指对于一个已知概率分布的事件，需要通过我们采集到的样本空间来估计这些概率分布的参数\(\theta\)，也就是后验概率，
+一般这些概率分布的参数可以有一些先验信息，当我们得到采集样本后能够更准确的推测这些参数。而通过贝叶斯估计方法来确定这些参
+数主要是求这个后验概率分布的期望值。具体见公式, 其中\(\chi\)代表样本空间，\(\Theta\)代表可以参数空间；
+$$ \theta_{bayes}=E[\theta|\chi]=\int_{\Theta}p(\theta|\chi)\mathrm{d}\theta$$ 
+详细论述还可以见网页<a href="http://www.math.uah.edu/stat/point/Bayes.html">http://www.math.uah.edu/stat/point/Bayes.html</a>。
+</p></div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4">贝叶斯分类</h3>
+<div class="outline-text-3" id="text-4-4">
 
 <p>可以通过一个例子先明确先验概率，后验概率的具体情况：如果有一所学校，有60%是男生和40%是女生。女生穿裤子与裙子的数量相同；
 所有男生穿裤子。一个观察者，随机从远处看到一名学生，观察者只能看到该学生穿裤子。那么该学生是女生的概率是多少？这里题目中
@@ -893,9 +907,9 @@ $$ P(h_{i}|D)=\frac{P(D|h_{i})*P(h_{i})}{P(D)}$$
 
 </div>
 
-<div id="outline-container-4-3-1" class="outline-4">
-<h4 id="sec-4-3-1">最小错误率贝叶斯分类器</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-4-4-1" class="outline-4">
+<h4 id="sec-4-4-1">最小错误率贝叶斯分类器</h4>
+<div class="outline-text-4" id="text-4-4-1">
 
 <p>最小错误率贝叶斯分类器也可以叫最大后验概率分类器。
 当已知类别出现的先验概率\(P(\omega_{i})\)和每个类中的样本分布的类条件概率密度\(P(x|omega_{i})\)时，可以求得一个待分类样本属于每
@@ -917,9 +931,9 @@ $$ P(e) = \int_{-\infty}^{-\infty}P(error, x)\mathrm{d}x$$
 
 </div>
 
-<div id="outline-container-4-3-2" class="outline-4">
-<h4 id="sec-4-3-2">最大似然比贝叶斯分类器</h4>
-<div class="outline-text-4" id="text-4-3-2">
+<div id="outline-container-4-4-2" class="outline-4">
+<h4 id="sec-4-4-2">最大似然比贝叶斯分类器</h4>
+<div class="outline-text-4" id="text-4-4-2">
 
 <p>类条件概率\(P(x|\omega_{i})\)称为\(\omega_{i}\)对特征向量x的似然函数，表达了某类别中的样本取某特征值的可能性。由最小错误
 率贝叶斯分类器可知，对于两类问题，当\(P(x|\omega_{i})*P(\omega_{i}) &gt; P(x|\omega_{j})*P(\omega_{j})\)时，判决
@@ -932,9 +946,9 @@ $$ P(e) = \int_{-\infty}^{-\infty}P(error, x)\mathrm{d}x$$
 
 </div>
 
-<div id="outline-container-4-3-3" class="outline-4">
-<h4 id="sec-4-3-3">最小风险贝叶斯分类器</h4>
-<div class="outline-text-4" id="text-4-3-3">
+<div id="outline-container-4-4-3" class="outline-4">
+<h4 id="sec-4-4-3">最小风险贝叶斯分类器</h4>
+<div class="outline-text-4" id="text-4-4-3">
 
 <p>在最小错误率贝叶斯分类器分类器中，仅考虑了样本属于每一类的后验概率就做出了分类决策，而没有考虑每一种分类决策的风险。事实
 上，在许多模式识别问题中，即时样本属于两类的后验概率相同，将其分到每一类中所带来的风险也会有很大差异。
@@ -962,9 +976,9 @@ $$ x\in \omega_{k}$$
 
 </div>
 
-<div id="outline-container-4-3-4" class="outline-4">
-<h4 id="sec-4-3-4">朴素贝叶斯</h4>
-<div class="outline-text-4" id="text-4-3-4">
+<div id="outline-container-4-4-4" class="outline-4">
+<h4 id="sec-4-4-4">朴素贝叶斯</h4>
+<div class="outline-text-4" id="text-4-4-4">
 
 <p>朴素贝叶斯：是在贝叶斯分类基础上，基于一个简单的假定：给定目标值时属性之间相互条件独立，这样可以简化似然概率的计算。朴素
 贝叶斯理论经典应用是垃圾邮件分类：给定一封邮件，判定它是否属于垃圾邮件。用D来表示这封邮件，注意D由N个单词组成。我们用h+
@@ -989,7 +1003,7 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-30 22:56:14 中国标准时间</p>
+<p class="date">Date: 2015-12-01 18:13:03 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
