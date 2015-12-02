@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-01 18:13:03 中国标准时间"/>
+<meta name="generated" content="2015-12-02 21:39:19 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -783,6 +783,12 @@ plt.show()                      #显示出来
 </li>
 <li>密度估计：也叫概率密度估计，只通过样本数据估计出概率密度函数的参数，从而知道概率密度；
 </li>
+<li>AIC：akaike information criterion，也叫赤池信息准则，是衡量统计模型拟合优良性的一种标准，又由与它为日本统计学家赤池弘
+  次创立和发展的，因此又称赤池信息量准则。它建立在熵的概念基础上，可以权衡所估计模型的复杂度和此模型拟合数据的优良性。在
+  一般的情况下，AIC可以表示如下, 其中k是参数的数量，L是似然函数.  $$ AIC=2k-2ln(L)$$
+</li>
+<li>BIC: bayesian information criterion, 贝叶斯信息量. $$ -2ln(L)+ln(n)*k $$ 
+</li>
 </ul>
 
 </div>
@@ -826,8 +832,12 @@ $$ E[(d-E[d])^{2}]+E[(E[d]-\theta)^{2}]+2E[(E[d]-\theta)(d-E[d])]$$
 $$ E[(d-E[d])^{2}]+(E[d]-\theta)^{2}+2(E[d]-\theta)E[d-E[d]]$$ 
 又因为\(E[d-E[d]]=E[d]-E[d]=0\)，得
 $$ E[(d-E[d])^{2}]+(E[d]-\theta)^{2}$$ 
-其中第一项可以看做方差，表示每一个采样空间的\(d_{i}\)偏离我们期望的值的情况，而第二项又表示我们期望的值偏离真实值的情况。
-这样我们可以将均方误差写作 $$ r(d, \theta)=Var(d)+(b_{\theta}(d))^{2}$$ 
+其中第一项可以看做方差，表示每一个采样空间的\(d_{i}\)偏离我们期望的值的情况，而第二项又表示我们期望的值偏离真实值的情况，
+即偏置。这样我们可以将均方误差写作如下 $$ r(d, \theta)=Var(d)+(b_{\theta}(d))^{2}$$ 
+如果偏置大，代表欠拟合，如果我们的模型复杂度增大(多项式阶数增加)，偏置会逐渐下降，最终完全适应训练集样本；
+如果方差大，代表过拟合，如果我们的模型复杂度增大(多项式阶数增加)，从总体上看方差会逐渐上升；
+总的误差由偏置和方差构成，随着模型复杂度由低到高增加，由偏置造成误差占主导地位逐渐变成由方差造成误差占主导地位，所以对于
+模型选择时，需要考虑总的误差达到最小，则这个模型就是最优模型选择。
 </p></div>
 
 </div>
@@ -1003,7 +1013,7 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-01 18:13:03 中国标准时间</p>
+<p class="date">Date: 2015-12-02 21:39:19 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

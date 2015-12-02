@@ -8,6 +8,7 @@
 - no longer necessary:不再有必要；
 - dilemma:困境；
 - variance：方差；
+- diagonal:对角线；
 - asymptotically:渐进地；
 - apart from:远离，除…之外；且不说；缺少
 - Effectively：实际上；
