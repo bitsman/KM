@@ -506,6 +506,25 @@ $$ \widehat{\beta_{2}}=\frac{n\sum X_{i}Y_{i} - \sum X_{i}\sum Y_{i}}{n\sum X_{i
 $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i}}{n\sum X_{i}^{2}-(\sum X_{i})^{2})}$$ 
 *** 逻辑回归
 *** 非线性回归
+** 神经网络
+此处有斯坦福的课程网页：[[http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C]]
+- 常用的激活函数
+  1. 线性函数 $$ f(x)=k*x + c$$
+  2. 斜面函数 
+     $$  
+     f(x) = \{
+     T, x>c 
+     k*x, |x|\leq{c}
+     -T, x < -c
+     $$
+  3. 阈值函数
+     $$
+     f(x)=\{
+     \begin{aligned}
+     1, x\geq c \\
+     0, x < c
+     \end{aligned}
+     $$
 * 图像处理
 数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
 间隔量化。至此一副数字图像是一个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。

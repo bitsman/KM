@@ -7,11 +7,59 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-02 21:39:19 中国标准时间"/>
+<meta name="generated" content="2015-12-07 22:57:36 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
 <script type="text/javascript">
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
@@ -90,66 +138,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">代数</a>
+<li><a href="#sec-1">1 代数</a>
 <ul>
-<li><a href="#sec-1-1">概念</a></li>
-<li><a href="#sec-1-2">多项式</a>
+<li><a href="#sec-1-1">1.1 概念</a></li>
+<li><a href="#sec-1-2">1.2 多项式</a>
 <ul>
-<li><a href="#sec-1-2-1">概念</a></li>
-<li><a href="#sec-1-2-2">满足定律</a></li>
-<li><a href="#sec-1-2-3">公式</a></li>
-<li><a href="#sec-1-2-4">应用</a></li>
+<li><a href="#sec-1-2-1">1.2.1 概念</a></li>
+<li><a href="#sec-1-2-2">1.2.2 满足定律</a></li>
+<li><a href="#sec-1-2-3">1.2.3 公式</a></li>
+<li><a href="#sec-1-2-4">1.2.4 应用</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2">矩阵</a>
+<li><a href="#sec-2">2 矩阵</a>
 <ul>
-<li><a href="#sec-2-1">概念</a></li>
+<li><a href="#sec-2-1">2.1 概念</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">概率</a>
+<li><a href="#sec-3">3 概率</a>
 <ul>
-<li><a href="#sec-3-1">概念</a></li>
-<li><a href="#sec-3-2">排列组合</a></li>
-<li><a href="#sec-3-3">期望方差</a>
-<ul>
-<li><a href="#sec-3-3-1">期望</a></li>
-<li><a href="#sec-3-3-2">方差</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-4">概率分布</a>
-<ul>
-<li><a href="#sec-3-4-1">离散分布</a>
-<ul>
-<li><a href="#sec-3-4-1-1">01分布</a></li>
-<li><a href="#sec-3-4-1-2">二项分布</a></li>
-<li><a href="#sec-3-4-1-3">伯努利分布</a></li>
-<li><a href="#sec-3-4-1-4">泊松分布</a></li>
-<li><a href="#sec-3-4-1-5">几何分布</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-4-2">连续分布</a>
-<ul>
-<li><a href="#sec-3-4-2-1">正太分布</a></li>
-<li><a href="#sec-3-4-2-2">指数分布</a></li>
-<li><a href="#sec-3-4-2-3">&beta;分布</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="#sec-4">统计</a>
-<ul>
-<li><a href="#sec-4-1">概念</a></li>
-<li><a href="#sec-4-2">估计量评估</a></li>
-<li><a href="#sec-4-3">贝叶斯估计</a></li>
-<li><a href="#sec-4-4">贝叶斯分类</a>
-<ul>
-<li><a href="#sec-4-4-1">最小错误率贝叶斯分类器</a></li>
-<li><a href="#sec-4-4-2">最大似然比贝叶斯分类器</a></li>
-<li><a href="#sec-4-4-3">最小风险贝叶斯分类器</a></li>
-<li><a href="#sec-4-4-4">朴素贝叶斯</a></li>
-</ul>
-</li>
+<li><a href="#sec-3-1">3.1 概念</a></li>
 </ul>
 </li>
 </ul>
@@ -157,14 +165,14 @@
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">代数</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> 代数</h2>
 <div class="outline-text-2" id="text-1">
 
 
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">概念</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 概念</h3>
 <div class="outline-text-3" id="text-1-1">
 
 <ul>
@@ -219,14 +227,14 @@
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">多项式</h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 多项式</h3>
 <div class="outline-text-3" id="text-1-2">
 
 
 </div>
 
 <div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1">概念</h4>
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 概念</h4>
 <div class="outline-text-4" id="text-1-2-1">
 
 <ul>
@@ -262,7 +270,7 @@
 </div>
 
 <div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2">满足定律</h4>
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 满足定律</h4>
 <div class="outline-text-4" id="text-1-2-2">
 
 <ul>
@@ -287,7 +295,7 @@
 </div>
 
 <div id="outline-container-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3">公式</h4>
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 公式</h4>
 <div class="outline-text-4" id="text-1-2-3">
 
 <ul>
@@ -314,7 +322,7 @@
 </div>
 
 <div id="outline-container-1-2-4" class="outline-4">
-<h4 id="sec-1-2-4">应用</h4>
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 应用</h4>
 <div class="outline-text-4" id="text-1-2-4">
 
 <ul>
@@ -333,14 +341,14 @@
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">矩阵</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> 矩阵</h2>
 <div class="outline-text-2" id="text-2">
 
 
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">概念</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 概念</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <ul>
@@ -355,14 +363,14 @@
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">概率</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> 概率</h2>
 <div class="outline-text-2" id="text-3">
 
 
 </div>
 
 <div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">概念</h3>
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 概念</h3>
 <div class="outline-text-3" id="text-3-1">
 
 <ul>
@@ -466,554 +474,15 @@
   图<a href="#img-cond-exp">img-cond-exp</a>所示；
   <img src="./img/cond-exp-plot.jpg"  alt="./img/cond-exp-plot.jpg" />
 </li>
-<li>回归函数：被解释变量Y的条件期望E(Y|X<sub>i</sub>)随解释变量X的变化而有规律的变化，如果把Y的条件期望表现为X的如下函数，这个函数称
-  为回归函数, 回归函数又分为总体回归函数和样本回归函数；$$ E(Y|X_{i}) = f(X_{i})$$
-</li>
-<li>无偏估计：用期望值来阐述，对于一个总体空间的期望值为U，由于各种原因没办法或者不方便获得这个期望值参数U，但是我们可以通
-  过总体空间的一个样本空间的u来估计总体空间的U，一般情况下u是不等于U的，但是总体空间可以划分出若干多个样本空间，也就可以
-  获得多个u，对于这么多个u，其实也是一个随机变量，如果这个随机变量的期望值等于总体空间的U，则可以说对我们划分的样本空间，
-  可以对总体空间的期望值做无偏估计；官方语言组织叫，参数的样本估计值的期望值等于参数的真实值。估计量的数学期望等于被估计
-  参数，则称此为无偏估计 ；
-</li>
-<li>中心极限定理：对于独立的随机变量序列\(X_{1}, X_{2}...X_{n}\), 不管X<sub>i</sub>服从什么分布，只要它们是同分布，且有有限的数学
-  期望\(E(X_{i})=\mu\)和方差\(D(X_{i})=\sigma^{2}\)那么，当n充分大时, 其服从的分布如下，并且还可以转换成标准正态分布。
-  $$ \sum_{i=1}^{n}X_{i} \sim N(n\mu, n\sigma^{2})$$ 
-</li>
 </ul>
 
-</div>
-
-</div>
-
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">排列组合</h3>
-<div class="outline-text-3" id="text-3-2">
-
-<ul>
-<li>排列：n个相异事物取r个(1&lt;=r&lt;=n)的不同排列总数，为 \(P_{r}^{n} = n(n-1)(n-2)...(n-r+1)\) , 如果r=n，则 \(P_{r}^{r} = r!\)
-</li>
-<li>组合：n个相异物件取r个(1&lt;=r&lt;=n)的不同组合总数，为 \(C_{r}^{n}=\frac{P_{r}^{n}}{r!}=\frac{n!}{r!(n-r)!}\)
-</li>
-<li>0!=1; 
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3">期望方差</h3>
-<div class="outline-text-3" id="text-3-3">
-
-
-</div>
-
-<div id="outline-container-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1"><a name="probability-expectation" id="probability-expectation"></a>期望</h4>
-<div class="outline-text-4" id="text-3-3-1">
-
-<p>数学期望包含了几个定理和性质。
-</p><ul>
-<li>设Y是随机变量X的函数：\(Y=g(X)\) , g是连续函数，则有
-<ol>
-<li>如果X是离散型随机变量，它的分布律\(P{X=x_{k}}=p_{k}, k=1, 2, ...,\)若\(\sum_{k=1}^{\infty}g(x_{k})p_{k}\)绝对收敛，
-     则有;  $$ E(Y)=E[g(X)]=\sum_{k=1}^{\infty}g(x_{k})p_{k}$$ 
-</li>
-<li>如果X是连续型随机变量，它的概率密度为f(x)，若\(\int_{-\infty}^{\infty}g(x)f(x)\mathrm{d}x\)绝对收敛，则有; 
-     $$ E(Y)=E[g(X)]=\int_{-\infty}^{\infty}g(x)f(x)\mathrm{d}x$$
-</li>
-</ol>
-
-</li>
-<li>设C是常数，则有\(E(C)=C\) ;
-</li>
-<li>设X是随机变量，C是常数，则有\(E(CX)=CE(X)\);
-</li>
-<li>设X，Y是两个随机变量，则有\(E(X+Y)=E(X)+E(Y)\), 可以推广到无限多个随机变量;
-</li>
-<li>设X，Y是两个相互独立的随机变量，则有\(E(XY)=E(X)E(Y)\), 可以推广到无限多个随机变量.
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-3-3-2" class="outline-4">
-<h4 id="sec-3-3-2"><a name="probability-variance" id="probability-variance"></a>方差</h4>
-<div class="outline-text-4" id="text-3-3-2">
-
-<p>数学方差包含了几个定理和性质。
-</p><ul>
-<li>随机变量X的方差计算公式：\(D(X)=E(X^{2})-[E(X)]^{2}\);
-</li>
-<li>设C是常数，则D(C)=0;
-</li>
-<li>设X是随机变量，C是常数，则有\(D(CX)=C^{2}D(X), D(X+C)=D(X)\);
-</li>
-<li>设X, Y是两个随机变量，则有\(D(X+Y)=D(X)+D(Y)+2E{(X-E(X))(Y-E(Y))}\), 特别的，若X, Y相互独立，则有\(D(X+Y)=D(X)+D(Y)\); 
-</li>
-</ul>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3-4" class="outline-3">
-<h3 id="sec-3-4">概率分布</h3>
-<div class="outline-text-3" id="text-3-4">
-
-
-</div>
-
-<div id="outline-container-3-4-1" class="outline-4">
-<h4 id="sec-3-4-1">离散分布</h4>
-<div class="outline-text-4" id="text-3-4-1">
-
-
-</div>
-
-<div id="outline-container-3-4-1-1" class="outline-5">
-<h5 id="sec-3-4-1-1">01分布</h5>
-<div class="outline-text-5" id="text-3-4-1-1">
-
-<p>随机变量X只能取0和1两个值，取0和1的概率分布是p，q，p+q=1
-</p></div>
-
-</div>
-
-<div id="outline-container-3-4-1-2" class="outline-5">
-<h5 id="sec-3-4-1-2">二项分布</h5>
-<div class="outline-text-5" id="text-3-4-1-2">
-
-<ul>
-<li>定义：服从二项分布的随机变量X表示在n个独立的是/非试验中成功的次数i，其中每次试验的成功概率为p
-  $$ p_{i} = C_{n}^{i}p^{i}(1-p)^{n-i},i=0, 1, ..., n $$
-</li>
-<li>多项式分布:二项分布表示有两种状态类似扔硬币，多项式分布表示有多个状态类似扔色子，
-</li>
-</ul>
-
-<ul>
-<li id="sec-3-4-1-2-1">python实现<br/>
-
-
-
-<pre class="example">from scipy import stats         #倒入工具包
-import numpy as np
-import matplotlib.pyplot as plt
-# ...........................
-n = 20                          #定义试验次数
-p = 0.3                         #定义每次事件的概率
-k = np.arange(21)               #模拟多次试验，事件发生的所有次数
-binomial = stats.binom.pmf(k, n, p) #计算每个次数的概率
-# ...........................
-plt.plot(k, binomial, 'o-')     #将每个次数的概率通过图形表示出来
-plt.title('binomial:n=%i, p=%.2f' %(n,p)) #设置标题
-plt.xlabel('k times')           #x轴是次数
-plt.ylabel('probability of k')  #y轴是k次的概率
-plt.show()                      #显示出来
-</pre>
-
-
-</li>
-</ul>
-</div>
-
-</div>
-
-<div id="outline-container-3-4-1-3" class="outline-5">
-<h5 id="sec-3-4-1-3">伯努利分布</h5>
-<div class="outline-text-5" id="text-3-4-1-3">
-
-</div>
-
-</div>
-
-<div id="outline-container-3-4-1-4" class="outline-5">
-<h5 id="sec-3-4-1-4">泊松分布</h5>
-<div class="outline-text-5" id="text-3-4-1-4">
-
-</div>
-
-</div>
-
-<div id="outline-container-3-4-1-5" class="outline-5">
-<h5 id="sec-3-4-1-5">几何分布</h5>
-<div class="outline-text-5" id="text-3-4-1-5">
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3-4-2" class="outline-4">
-<h4 id="sec-3-4-2">连续分布</h4>
-<div class="outline-text-4" id="text-3-4-2">
-
-
-</div>
-
-<div id="outline-container-3-4-2-1" class="outline-5">
-<h5 id="sec-3-4-2-1">正太分布</h5>
-<div class="outline-text-5" id="text-3-4-2-1">
-
-<ul>
-<li>概率密度：设连续型随机变量X具有概率密度如下，则称X服从参数为\(\mu, \sigma\)的正态分布，记为\(N(\mu, \sigma^{2})\)
-  $$ p(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}, -\infty&lt;x&lt;\infty $$
-</li>
-<li>分布函数： $$ F(x)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{x}\exp^{-\frac{(t-\mu)^{2}}{2\sigma^{2}}}\mathrm{d}t$$
-</li>
-<li>多维正太分布：考虑n维标准正太随机向量\(X=(X_{1}, X_{2}, ..., X_{n})^{T}\sim N(O, \Sigma)\), 其中\(O=(0, 0, ...)^{T}\)
-  为n维零向量，协方差矩阵(见上面的定义)\(\Sigma=(\sigma_{ij})_{n\times{n}}\)为正定型，\(\sigma_{ii}=1(i=1, 2, ...,n)\). 
-  X的概率密度如下，其中\(\Sigma\)表示协方差矩阵, 并且它不是求和符号而是西格玛， \(|\Sigma|\)表示协方差矩阵的行列式，
-  \(\Sigma^{-1}\)表示协方差矩阵的逆，\(\mu\)表示X向量各维度下的期望，也就是说，最终\(N(x|\mu, \Sigma)\)也将是一个和X一样
-  维度的向量。 
-  $$ N(x|\mu, \Sigma)=\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^{\frac{1}{2}}}\exp^{-\frac{(x-\mu)^{T}\Sigma^{-1}(x-\mu)}{2}}$$ 
-  $$ f(x_{1}, x_{2}, ..., x_{n})=N(x|\mu, \Sigma), x=(x_{1}, x_{2}, ..., x_{n})^{T}\in R^{n}$$ 
-  X的分布函数表示如下, 其中\(\mathrm{d}x=dx_{1}dx_{2}...dx_{n},a=(a_{1},a_{2},...,a_{n})^{T}，n=(x|x_{1}\leq{a_{1}},...)\), 
-  另外\(\int_{n}\)是一个n重积分。这样积出来的\(F(a_{1}, a_{2}, ..., a_{n})\), 是一个数，一个概率值。
-  $$ F(a_{1}, a_{2}, ..., a_{n})=\int_{n}f(x_{1}, x_{2}, ..., x_{n})\mathrm{d}x$$ 
-</li>
-</ul>
-
-
-</div>
-
-</div>
-
-<div id="outline-container-3-4-2-2" class="outline-5">
-<h5 id="sec-3-4-2-2">指数分布</h5>
-<div class="outline-text-5" id="text-3-4-2-2">
-
-</div>
-
-</div>
-
-<div id="outline-container-3-4-2-3" class="outline-5">
-<h5 id="sec-3-4-2-3">&beta;分布</h5>
-<div class="outline-text-5" id="text-3-4-2-3">
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">统计</h2>
-<div class="outline-text-2" id="text-4">
-
-
-</div>
-
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1">概念</h3>
-<div class="outline-text-3" id="text-4-1">
-
-<ul>
-<li>样本分类：样本具有特征向量，样本属于某个类别，如果在坐标系中表示，则特征向量的分量表示坐标系的各个轴，由各个特征量具体
-  的特征值得出的坐标系中的点，就是样本，而对各个样本进行画圈分类，则表示对样本进行分类，有两种分类；
-<ol>
-<li>确定性分类：表示每个样本点确定的只属于某个类别，不属于另一个类别，这样的分类具有明显的界限；
-</li>
-<li>随机性分类：表示某个样本点属于某个类别的概率为多少，该样本点也有可能属于另一个类别，属于另一个概率，通过比较各个概
-     率值大小来判断该样本点属于哪个类别，一般这时候采用贝叶斯公式进行分类；
-</li>
-</ol>
-
-</li>
-<li>算术平均值：算术平均值是期望值的无偏估计量；
-  $$ \overline{x} = \frac{x_{1}+...+x_{n}}{n} = \frac{\sum_{i=1}^{n}x_{i}}{n}$$
-</li>
-<li>均方根平均值： $$ \overline{x}=\sqrt{\frac{x_{1}^{2}+...+x_{n}^{2}}{n}}=\sqrt{\frac{\sum_{i=1}^{n}x_{i}^{2}}{n}}$$
-</li>
-<li>几何平均值： $$ \overline{x}=\sqrt[n]{x_{1}*...*x_{n}}=\sqrt[n]{\prod_{i=1}^{n}x_{i}}$$
-</li>
-<li>对数平均值: $$ \overline{x}=\frac{x_{1}-x_{2}}{\ln{x_{1}-\ln{x_{2}}}}$$
-</li>
-<li>加权平均值： $$ \overline{x}=\frac{w_{1}x_{1}+...+w_{n}x_{n}}{w_{1}+...+w_{n}}=\frac{\sum{w_{i}x_{i}}}{\sum{w_{i}}}$$
-</li>
-<li>残差：也叫剩余值，residual，表示实际值Y与回归线上的估计值Y'的纵向距离Y-Y', 一般Y'用E(Y)；
-</li>
-<li>SSE:和方差，是拟合数据和原始数据对应点的误差的平方和，SSE越接近于0，说明模型选择和拟合更好，数据预测也越成功。接下来的
-  MSE和RMSE因为和SSE是同出一宗，所以效果一样, y<sub>i</sub>表示实际值， \(\widehat{y_{i}}\) 表示估计值，计算公式； 
-  $$ SSE = \sum_{i=1}^{n}w_{i}(y_{i}-\widehat{y_{i}})^{2}$$
-</li>
-<li>MSE: 均方差，是预测数据和原始数据对应点误差的平方和的均值，也就是SSE/n，和SSE没有太大的区别，计算公式；
-  $$ MSE = SSE/n$$
-</li>
-<li>RMSE:均方根，也叫回归系统的拟合标准差，是MSE的平方根，就算公式如下；
-  $$ RMSE = \sqrt{MSE}$$
-</li>
-<li>SSR: Sum of squares of the regression，即预测数据与原始数据均值之差的平方和, \(\overline{y_{i}}\) 数据的平均值，公式如下
-  $$ SSR=\sum_{i=1}^{n}w_{i}(\widehat{y_{i}}-\overline{y_{i}})^{2}$$
-</li>
-<li>SST：Total sum of squares，即原始数据和均值之差的平方和，公式如下；
-  $$ SST=\sum_{i=1}^{n}w_{i}(y_{i}-\overline{y_{i}})^{2}$$ 
-</li>
-<li>R-square: 确定系数, 定义为SSR和SST的比值，取值范围为[0, 1],越接近1，表明方程的变量对y的解释能力越强，模型对数据拟合的
-  越好，公式如下；
-  $$ R-square = \frac{SSR}{SST}=\frac{SST-SSE}{SST}=1-\frac{SSE}{SST}$$
-</li>
-<li>最大似然估计： 似然估计是在每个事件x<sub>i</sub>的概率分布确定p(x<sub>i</sub>)，但是参数未知的情况下的一种估计方式，因为如果我们确定了
-  这个参数，那么我们采集到的这些事件样本发生的概率应该最大，即p(x<sub>1</sub>)*&hellip;*p(x<sub>n</sub>)最大，具体解时可以采用log方式转换, 最
-  大似然估计还可以这样理解，即，我们观察到的结果最容易是哪个因素引起的，比如手写识别时，就是要找出哪个单词最大概率导致出
-  这个手写样本产生，最大似然代表最能满足样本的模型情况；要采用似然估计，必须满足一定条件；
-<ol>
-<li>事件x<sub>i</sub>的概率分布确定，这样待估参数是确定性的未知量；
-</li>
-<li>每个样本是独立的，这样才能使用概率乘法；
-</li>
-<li>如果待估参数是多维的，那么每个类别的样本x<sub>i</sub>，不包含另一个类别中信息；
-</li>
-</ol>
-
-</li>
-<li>奥卡姆剃刀：如果两个理论具有相似的解释力度，那么优先选择那个更简单的，因为，往往越简单越常见，越繁复越少见，一般代表先
-  验概率最大的模型情况；
-</li>
-<li>损失函数：loss function，指我们的估计模型的输出值y与真实值之间的偏差，x是输入数据，y(x)是推测出结果的模型，t是x对应的
-  真实结果，y(x)是t的估计值，则损失函数表示为L(t, y(x)), 我们常用的损失函数有平方差函数
-  $$ L(t, y(x)) = [y(x)-t]^{2}$$ 通常在进行度量时，使用损失函数的平均值E(L)来衡量
-  $$ E(L) = \iint L(t, y(x))p(y,x)\mathrm{d}x\mathrm{d}y$$
-</li>
-<li>密度估计：也叫概率密度估计，只通过样本数据估计出概率密度函数的参数，从而知道概率密度；
-</li>
-<li>AIC：akaike information criterion，也叫赤池信息准则，是衡量统计模型拟合优良性的一种标准，又由与它为日本统计学家赤池弘
-  次创立和发展的，因此又称赤池信息量准则。它建立在熵的概念基础上，可以权衡所估计模型的复杂度和此模型拟合数据的优良性。在
-  一般的情况下，AIC可以表示如下, 其中k是参数的数量，L是似然函数.  $$ AIC=2k-2ln(L)$$
-</li>
-<li>BIC: bayesian information criterion, 贝叶斯信息量. $$ -2ln(L)+ln(n)*k $$ 
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2">估计量评估</h3>
-<div class="outline-text-3" id="text-4-2">
-
-<p>对于一般情况下，随机变量都会服从正太分布\(N(\mu, \sigma^{2})\)，令其概率密度为p(x).则log似然函数为
-$$ L(\mu,\sigma|\chi)=-\frac{N\log(2\pi)}{2}-N\log\sigma-\frac{\sum_{t}(x^{t}-\mu)^{2}}{2\sigma^{2}}$$ 分布对参数求偏导
-并令其等于0，可以得到\(\mu, \sigma^{2}\)的似然估计量。
-$$ m=\frac{\sum_{t}x^{t}}{N}$$ 
-$$ s^{2}=\frac{\sum_{t}(x^{t}-m)^{2}}{N}$$ 
-对一个已知概率分布的模型进行估计时，一般需要估计这个概率模型的一些参数，以\(\theta\)表示，我们通过采集的样本估计的量设为 
-\(d=d(X)\), 怎样知道这个估计量的质量如何，我们可以通过计算\(d, \theta\)相差多少，具体为\((d(X)-\theta)^{2}\), 然而由于
-\(d(X)\)也是随机变量，所以需要在整个X空间取其平均值，这样就有了均方误差的定义. $$ r(d, \theta)=E[(d(X)-\theta)^{2}]$$ 
-并且定义\(\theta\)的偏置量为 $$ b_{\theta}(d)=E[d(X)]-\theta$$ 
-如果对于所有的\(\theta\)有\(b_{\theta}=0\)，则称d是\(\theta\)的无偏估计量。比如当从一些期望值为\(\mu\)的概率密度中获得的
-样本\(x^{t}\), 样本的平均值m就是期望\(\mu\)的无偏估计，因为
-$$ E[m]=E[\frac{\sum_{t}x^{t}}{N}]=\frac{\sum_{t}E[x^{t}]}{N}=\frac{N\mu}{N}=\mu$$ 
-这就是说，对于一个特定采样，m可能不等于\(\mu\), 但是如果做了足够多次的采样\(\chi_{i}\)，其相应的估计量
-\(m_{i}=m(\chi_{i})\) 也就是均值将逐渐接近\(\mu\).m也是个一致估计量，也就是说当\(N\to \infty\)时\(Var(m)\to 0\)因为
-$$ Var(m)=Var(\frac{\sum_{t}x^{t}}{N})=\frac{\sum_{t}Var(x^{t})}{N^{2}}=\frac{N\sigma^{2}}{N^{2}}=\frac{\sigma^{2}}{N}$$
-也就是说当我们采样越多(N越大)，m偏离\(\mu\)越小。同时也进一步说了m是\(\mu\)的无偏估计量。那么对于“方差”呢？
-\(s^{2}\)是\(\sigma^{2}\)的最大似然估计量 
-$$ s^{2}=\frac{\sum_{t}(x^{t}-m)^{2}}{N}=\frac{\sum_{t}(x^{t})^{2}-Nm^{2}}{N}$$ 这样有如下式子，这里用到了独立随机变量的
-几个<a href="#sec-3-3-1">性质</a>。
-$$ E[s^{2}]=\frac{\sum_{t}E[(x^{t})^{2}]-N*E[m^{2}]}{N}$$  
-考虑到\(Var(X)=E[X^{2}]-E[X]^{2}\), 就有\(E[X^{2}]=Var(X)+E[X]^{2}\)可以得到\(E[(x^{t})^{2}]=\sigma^{2}+\mu^{2}\)和
-\(E[m^{2}]=\frac{\sigma^{2}}{N}+\mu^{2}\), 带入后就得
-$$ E[s^{2}]=\frac{N(\sigma^{2}+\mu^{2})-N(\sigma^{2}/N + \mu^{2})}{N}=(\frac{N-1}{N})\sigma^{2}\neq\sigma^{2}$$ 
-这也表明\(s^{2}\)是\(\sigma^{2}\)的有偏估计，\(\frac{N}{N-1}s^{2}\)才是\(\sigma^{2}\)的无偏估计。然而当N足够大时，差异就
-不明显了。这被称为 <span style="text-decoration:underline;">渐进无偏估计量</span> 。
-均方误差可以推导如下。
-$$ r(d,\theta)=E[(d-\theta)^{2}]=E[(d-E[d]+E[d]-\theta)^{2}]=E[(d-E[d])^{2}+(E[d]-\theta)^{2}+2(E[d]-\theta)(d-E[d])]$$ 
-考虑到<a href="#sec-3-3-1">性质</a>,得
-$$ E[(d-E[d])^{2}]+E[(E[d]-\theta)^{2}]+2E[(E[d]-\theta)(d-E[d])]$$ 
-由于上面说了E[d]是无偏估计量，可以看做不与\(x^{t}\)相关的常数，\(\theta\)也可以看做同样的常数，所以得
-$$ E[(d-E[d])^{2}]+(E[d]-\theta)^{2}+2(E[d]-\theta)E[d-E[d]]$$ 
-又因为\(E[d-E[d]]=E[d]-E[d]=0\)，得
-$$ E[(d-E[d])^{2}]+(E[d]-\theta)^{2}$$ 
-其中第一项可以看做方差，表示每一个采样空间的\(d_{i}\)偏离我们期望的值的情况，而第二项又表示我们期望的值偏离真实值的情况，
-即偏置。这样我们可以将均方误差写作如下 $$ r(d, \theta)=Var(d)+(b_{\theta}(d))^{2}$$ 
-如果偏置大，代表欠拟合，如果我们的模型复杂度增大(多项式阶数增加)，偏置会逐渐下降，最终完全适应训练集样本；
-如果方差大，代表过拟合，如果我们的模型复杂度增大(多项式阶数增加)，从总体上看方差会逐渐上升；
-总的误差由偏置和方差构成，随着模型复杂度由低到高增加，由偏置造成误差占主导地位逐渐变成由方差造成误差占主导地位，所以对于
-模型选择时，需要考虑总的误差达到最小，则这个模型就是最优模型选择。
-</p></div>
-
-</div>
-
-<div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3">贝叶斯估计</h3>
-<div class="outline-text-3" id="text-4-3">
-
-<p>贝叶斯估计指对于一个已知概率分布的事件，需要通过我们采集到的样本空间来估计这些概率分布的参数\(\theta\)，也就是后验概率，
-一般这些概率分布的参数可以有一些先验信息，当我们得到采集样本后能够更准确的推测这些参数。而通过贝叶斯估计方法来确定这些参
-数主要是求这个后验概率分布的期望值。具体见公式, 其中\(\chi\)代表样本空间，\(\Theta\)代表可以参数空间；
-$$ \theta_{bayes}=E[\theta|\chi]=\int_{\Theta}p(\theta|\chi)\mathrm{d}\theta$$ 
-详细论述还可以见网页<a href="http://www.math.uah.edu/stat/point/Bayes.html">http://www.math.uah.edu/stat/point/Bayes.html</a>。
-</p></div>
-
-</div>
-
-<div id="outline-container-4-4" class="outline-3">
-<h3 id="sec-4-4">贝叶斯分类</h3>
-<div class="outline-text-3" id="text-4-4">
-
-<p>可以通过一个例子先明确先验概率，后验概率的具体情况：如果有一所学校，有60%是男生和40%是女生。女生穿裤子与裙子的数量相同；
-所有男生穿裤子。一个观察者，随机从远处看到一名学生，观察者只能看到该学生穿裤子。那么该学生是女生的概率是多少？这里题目中
-观察者比如近似眼看直接不清性别，或者从装扮上看不出。答案可以用贝叶斯定理来算。
-</p><ul>
-<li>用事件 G 表示观察到的学生是女生；
-</li>
-<li>用事件 T 表示观察到的学生穿裤子；
-</li>
-</ul>
-
-<p>于是，现在要计算 P(G|T) ，我们需要知道：
-</p><ol>
-<li>P(G) ：表示一个学生是女生的概率，这是在没有任何其他信息下的概率。这也就是我们说的先验概率。由于观察者随机看到一名学生，
-   意味着所有的学生都可能被看到，女生在全体学生中的占比是 40 ，所以概率是 0.4 。
-</li>
-<li>P(B)：是学生不是女生的概率，也就是学生是男生的概率，也就是在没有其他任何信息的情况下，学生是男生的先验概率。 B 事件是
-   G 事件的互补的事件，这个比例是 60 ，也即 0.6 。
-</li>
-<li>P(T|G)： 是在女生中穿裤子的概率，根据题目描述，是相同的 0.5 。这也是 T 事件的概率，given G 事件。
-</li>
-<li>P(T|B)： 是在男生中穿裤子的概率，这个值是1。
-</li>
-<li>P(T)： 是学生穿裤子的概率，即任意选一个学生，在没有其他信息的情况下，TA穿裤子的概率。如果要计算的话，那可以计算出所有
-   穿裤子的学生的数量，除以总数，总数可以假设为常数 C ，但是最后会被约去。或者根据全概率公式 P(T)=P(T|G)P(G)+P(T|B)P(B)
-   计算得到 P(T)=0.5×0.4+1×0.6=0.8 。 
-</li>
-</ol>
-
-<p>基于以上所有信息，如果观察到一个穿裤子的学生，并且是女生的概率是P(G|T)=P(T|G)P(G)P(T)=0.5×0.40.8=0.25.
-另一个例子关于手写识别，即我们采集到了用户输入的手写样本D，现在我们要计算用户最想输入哪个单词H，其中可能有h1,h2&hellip;hn, 那
-么我们需要计算P(h<sub>i</sub>|D)的概率，哪个h<sub>i</sub>概率大，我们就可以说用户想输入哪个单词，对此，我们有如下公式，可以解释为
-</p><ol>
-<li>P(h<sub>i</sub>|D)：后验概率，在获得输入样本后，这个样本最大可能预示的单词；
-</li>
-<li>P(D|h<sub>i</sub>)：似然概率，某个单词可能导致出现这样的样本的概率，最大似然，也就意味着寻找这个最大概率的单词，可由训练得到；
-</li>
-<li>P(h<sub>i</sub>)：先验概率，某个单词出现的概率，也就是该单词在人们日常用语中出现的概率，可以通过语料库获得；
-</li>
-<li>P(D)：对于所有的单词预测，P(D)是一致的，可以视为常数，并且可以忽略，只需要比较后验概率*似然概率的相对大小；
-</li>
-</ol>
-
-
-$$ P(h_{i}|D)=\frac{P(D|h_{i})*P(h_{i})}{P(D)}$$
-<p>
-另外根据不同的分类决策规则，贝叶斯分类有多种形式。
-</p><ol>
-<li>最小错误率贝叶斯分类器；
-</li>
-<li>最大似然比贝叶斯分类器；
-</li>
-<li>最小风险贝叶斯分类器；
-</li>
-</ol>
-
-
-</div>
-
-<div id="outline-container-4-4-1" class="outline-4">
-<h4 id="sec-4-4-1">最小错误率贝叶斯分类器</h4>
-<div class="outline-text-4" id="text-4-4-1">
-
-<p>最小错误率贝叶斯分类器也可以叫最大后验概率分类器。
-当已知类别出现的先验概率\(P(\omega_{i})\)和每个类中的样本分布的类条件概率密度\(P(x|omega_{i})\)时，可以求得一个待分类样本属于每
-类的后验概率\(P(\omega_{i}|x)\), 将其划归到后验概率最大的那一类中，这种分类器称为最小错误率贝叶斯分类器，其分类决策规则可表
-示为：
-</p><ol>
-<li>两类问题中，当\(P(\omega_{i}|x) &gt; P(\omega_{j}|x)\)时，判决\(x \in \omega_{i}\);
-</li>
-<li>对于多类情况，则当\( P(\omega_{i}|x)=\max\limits_{1\leq j \leq c} P(\omega_{j}|x)\)时，判决\(x\in \omega_{i}\)
-</li>
-</ol>
-
-<p>可以发现，上述分类决策规则实为“最大后验概率分类器”，它与“最小错误率分类器”的关系可以简单分析如下：当采用最大后验概率
-分类器时，分类错误的概率为
-$$ P(e) = \int_{-\infty}^{-\infty}P(error, x)\mathrm{d}x$$  
-而 $$ P(error|x) = \sum_{i=1}^{c}P(\omega_{j}|x) - \max\limits_{1\leq j\leq c}P(\omega_{j}|x) $$  因此，\(P(error|x)\)取
-得了最小值， P(e)也取得了最小值，“最大后验概率分类器”与“最小错误率分类器”是等价的。
-</p></div>
-
-</div>
-
-<div id="outline-container-4-4-2" class="outline-4">
-<h4 id="sec-4-4-2">最大似然比贝叶斯分类器</h4>
-<div class="outline-text-4" id="text-4-4-2">
-
-<p>类条件概率\(P(x|\omega_{i})\)称为\(\omega_{i}\)对特征向量x的似然函数，表达了某类别中的样本取某特征值的可能性。由最小错误
-率贝叶斯分类器可知，对于两类问题，当\(P(x|\omega_{i})*P(\omega_{i}) &gt; P(x|\omega_{j})*P(\omega_{j})\)时，判决
-\(x\in\omega_{i}\) 即当 $$ \frac{P(x|\omega_{i})}{P(x|\omega_{j})} &gt; \frac{P(\omega_{j})}{P(\omega_{i})}$$ 时判决
-\(x\in\omega_{i}\) ，那么下面式子称为 <span style="text-decoration:underline;">似然比</span> 。 $$ L_{ij}(x) = \frac{P(x|\omega_{i})}{P(x|\omega_{j})}$$
-它与待识别的特征向量有关，而下面式子称为 <span style="text-decoration:underline;">判决门限</span> 。$$ \theta_{ij}=\frac{P(\omega_{j})}{P(\omega_{i})}$$
-它仅与两类的先验概率有关；对于多类问题，分类决策规则为若 \(L_{ij}(x) &gt; \theta_{ij}\)对于任意的\(i，j=1,2...c, i\neq j\)
-成立，则\(x\in \omega_{i}\)。 
-</p></div>
-
-</div>
-
-<div id="outline-container-4-4-3" class="outline-4">
-<h4 id="sec-4-4-3">最小风险贝叶斯分类器</h4>
-<div class="outline-text-4" id="text-4-4-3">
-
-<p>在最小错误率贝叶斯分类器分类器中，仅考虑了样本属于每一类的后验概率就做出了分类决策，而没有考虑每一种分类决策的风险。事实
-上，在许多模式识别问题中，即时样本属于两类的后验概率相同，将其分到每一类中所带来的风险也会有很大差异。
-例如针对某项检测指标进行癌症的诊断，如果计算出患者患癌症和未患癌症的后验概率均为 50%，如果患者真实情况是患了癌症，此时做出未患癌症的诊
-断会延误治疗时机，比做出患癌症的诊断带来更为严重的后果。
-因此，在获得样本属于每一类的后验概率后，需要综合考虑做出各种分类决策所带来的风险，选择风险最小的分类决策，称为最小风险贝叶斯分类器。
-先定义以下几个概念：
-</p><ol>
-<li>决策\(\alpha_{i}\):把待识别样本x归到\(\omega_{i}\)中；
-</li>
-<li>损失\(\lambda_{ij}\):把真实属于\(\omega_{j}\)类的样本x归到\(\omega_{i}\)类中带来的损失；
-</li>
-<li>条件风险\(R(\alpha_{i}|x)\):对x采取决策\(\alpha_{i}\)后可能的风险；
-</li>
-</ol>
-
-<p>条件风险可以用采取某项决策的加权平均损失来计算，权值为样本属于各类的概率，即
-$$ R(\alpha_{i}|x)=E[\lambda_{ij}]=\sum_{j=1}^{c}\lambda_{ij}P(\omega_{j}|x),i=1,2...,c$$
-则最小风险贝叶斯分流器的分类决策规则为
-若
-$$ R(\alpha_{k}|x) = \min\limits_{i=1,2...c}R(\alpha_{i}|x)$$ 
-则
-$$ x\in \omega_{k}$$ 
-</p></div>
-
-</div>
-
-<div id="outline-container-4-4-4" class="outline-4">
-<h4 id="sec-4-4-4">朴素贝叶斯</h4>
-<div class="outline-text-4" id="text-4-4-4">
-
-<p>朴素贝叶斯：是在贝叶斯分类基础上，基于一个简单的假定：给定目标值时属性之间相互条件独立，这样可以简化似然概率的计算。朴素
-贝叶斯理论经典应用是垃圾邮件分类：给定一封邮件，判定它是否属于垃圾邮件。用D来表示这封邮件，注意D由N个单词组成。我们用h+
-来表示垃圾邮件，h-表示正常邮件。问题可以形式化地描述为求：
-$$ P(h+|D) = \frac{P(h+) * P(D|h+)}{P(D)}$$ 和
-$$ P(h-|D) = \frac{P(h-) * P(D|h-)}{P(D)}$$ 
-其中P(h+) 和P(h-)这两个先验概率都是很容易求出来的，只需要计算一个邮件库里面垃圾邮件和正常邮件的比例就行了。然而 P(D|h+)
-却不容易求，因为D里面含有N个单词d<sub>i</sub>，所以
-$$ P(D|h+) = P(d1,d2,..,dn|h+)$$ 
-我们遇到了数据稀疏性，为什么这么说呢？P(d1,d2,..,dn|h+) 就是说在垃圾邮件当中出现跟我们目前这封邮件一模一样的一封邮件的概
-率是多大！每封邮件都是不同的，世界上有无穷多封邮件, 计算起来会非常困难。我们又该如何来计算 P(d1,d2,..,dn|h+) 呢？
-我们将 P(d1,d2,..,dn|h+) 扩展为： 
-$$ P(d1|h+) * P(d2|d1, h+) * P(d3|d2,d1, h+) * .. $$
-进一步使用一个更激进的假设，假设d<sub>i</sub> 与 d<sub>i-1</sub>是完全条件无关的，于是式子就简化为 
-$$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设，也正是朴素贝叶斯方法的朴素之处。而计算该式子比较简
-单，只要统计d<sub>i</sub>这个单词在垃圾邮件中出现的频率即可。
-</p>
-</div>
 </div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-02 21:39:19 中国标准时间</p>
+<p class="date">Date: 2015-12-07 22:57:36 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
