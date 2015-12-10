@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-07 17:59:51 中国标准时间"/>
+<meta name="generated" content="2015-12-09 22:26:43 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -103,17 +103,16 @@
 <li><a href="#sec-1-2">k临近算法</a></li>
 <li><a href="#sec-1-3">回归分析</a>
 <ul>
-<li><a href="#sec-1-3-1">线性回归</a></li>
-<li><a href="#sec-1-3-2">简单线性回归</a>
+<li><a href="#sec-1-3-1">线性回归</a>
 <ul>
-<li><a href="#sec-1-3-2-1">普通最小二乘法</a></li>
+<li><a href="#sec-1-3-1-1">普通最小二乘法</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3-3">逻辑回归</a></li>
-<li><a href="#sec-1-3-4">非线性回归</a></li>
+<li><a href="#sec-1-3-2">逻辑回归</a></li>
 </ul>
 </li>
 <li><a href="#sec-1-4">神经网络</a></li>
+<li><a href="#sec-1-5">最优化</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">图像处理</a>
@@ -724,7 +723,9 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 <h3 id="sec-1-3">回归分析</h3>
 <div class="outline-text-3" id="text-1-3">
 
-<p>随机变量间的关系，可以从多个角度来分析, 并可以参考<a href="./math.html">相关系数</a> 。
+<p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
+判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
+随机变量间的关系，可以从多个角度来分析, 并可以参考<a href="./math.html">相关系数</a> 。
 </p><ol>
 <li>从涉及的变量数量看
 <ul>
@@ -757,6 +758,16 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 </li>
 </ol>
 
+<p>关于回归分析问题的一般步骤如下
+</p><ol>
+<li>寻找H函数：hypothesis，即模型假设；
+</li>
+<li>构造J函数：即损失函数，比如最小二乘法；
+</li>
+<li>求模型参数：想办法使得J函数最小求出模型参数，常用最大似然，梯度下降，这一套可以归咎为 <span style="text-decoration:underline;">最优化理论</span> 。
+</li>
+</ol>
+
 
 </div>
 
@@ -764,20 +775,29 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 <h4 id="sec-1-3-1">线性回归</h4>
 <div class="outline-text-4" id="text-1-3-1">
 
-</div>
+<p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
+大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
+析模型。用向量来表示，数据集的模型可以这样表示 $$ h_{\theta}(x)=\theta^{T}\chi$$ 也就是带了一系列的参数\(\theta\)和一系
+列的维度变量\(x_{i}\), 这就是一个组合问题，已知一些数据，如何求里面的未知参数，给出一个最优解。 一个线性矩阵方程，直接求
+解，很可能无法直接求解。有唯一解的数据集，微乎其微。基本上都是解不存在的超定方程组。因此，需要退一步，将参数求解问题，转
+化为求最小误差问题，求出一个最接近的解，这就是一个松弛求解。 求一个最接近解，直观上，就能想到，误差最小的表达形式。仍然
+是一个含未知参数的线性模型，一堆观测数据，其模型与数据误差最小的形式，模型与数据差的平方和最小, 这就是损失函数的来源。求
+解方法有 
+$$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$ 
+</p><ol>
+<li>最小二乘法：是一个直接的数学求解公式，不过它要求X是列满秩的；
+</li>
+<li>梯度下降法：分别有梯度下降法，批梯度下降法，增量梯度下降。本质上，都是偏导数，步长/最佳学习率，更新，收敛的问题。这个
+   算法只是最优化原理中的一个普通的方法；
+</li>
+</ol>
+
 
 </div>
 
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2">简单线性回归</h4>
-<div class="outline-text-4" id="text-1-3-2">
-
-
-</div>
-
-<div id="outline-container-1-3-2-1" class="outline-5">
-<h5 id="sec-1-3-2-1">普通最小二乘法</h5>
-<div class="outline-text-5" id="text-1-3-2-1">
+<div id="outline-container-1-3-1-1" class="outline-5">
+<h5 id="sec-1-3-1-1">普通最小二乘法</h5>
+<div class="outline-text-5" id="text-1-3-1-1">
 
 <p>ordinary least squares的基本思想是
 </p><ul>
@@ -804,19 +824,17 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 
 </div>
 
-<div id="outline-container-1-3-3" class="outline-4">
-<h4 id="sec-1-3-3">逻辑回归</h4>
-<div class="outline-text-4" id="text-1-3-3">
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">逻辑回归</h4>
+<div class="outline-text-4" id="text-1-3-2">
 
-</div>
-
-</div>
-
-<div id="outline-container-1-3-4" class="outline-4">
-<h4 id="sec-1-3-4">非线性回归</h4>
-<div class="outline-text-4" id="text-1-3-4">
-
-</div>
+<p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
+制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
+回归实数值域映射到一定小范围，另外逻辑回归 采用的是 伯努利分布 分析误差。
+逻辑回归的模型 是一个非线性模型，sigmoid函数，又称逻辑回归函数。但是它本质上又是一个线性回归模型，因为除去sigmoid映射函
+数关系，其他的步骤，算法都是线性回归的。可以说，逻辑回归，都是以线性回归为理论支持的。只不过，线性模型，无法做到sigmoid
+的非线性形式，sigmoid可以轻松处理0/1分类问题。 
+</p></div>
 </div>
 
 </div>
@@ -825,7 +843,8 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 <h3 id="sec-1-4">神经网络</h3>
 <div class="outline-text-3" id="text-1-4">
 
-<ul>
+<p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
+</p><ul>
 <li>常用的激活函数
 <ol>
 <li>线性函数 $$ f(x)=k*x + c$$
@@ -852,6 +871,78 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </li>
 </ul>
 
+</div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5">最优化</h3>
+<div class="outline-text-3" id="text-1-5">
+
+<p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x), x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。
+关于f(x)
+</p><ol>
+<li>当\(x=(x)\)时，f(x)是一条曲线；
+</li>
+<li>当\(x=(x_{1}, x_{2})\)时，\(f(x_{1}, x_{2})\)是一个曲面；
+</li>
+<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度；
+</li>
+<li>当\(x=(x_{1}, x_{i}..., x_{n})\)时，\(f(x_{1}, x_{2}..., x_{n})\)是一个超曲面；
+</li>
+</ol>
+
+<p>所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，只能在自己的小范围内搜索极大值和极小值，称为局
+部优化算法，也叫经典优化算法；有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化算法，也叫现代优
+化算法。
+</p>
+
+<p>
+<img src="file://e:/OneDrive/my-learn/img/optimize1.png"  alt="file://e:/OneDrive/my-learn/img/optimize1.png" />
+</p>
+<p>
+见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有方向，是一个矢量，曲线情况下，表达式如下 
+$$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
+如果，\(f^{'}(x) &gt; 0\)则x增加，y增加，相当于B点；如果\(f^{'}(x)&lt;0\)则x增加，y减小，相当于A点。要搜索极小值C点，在A点必须
+向x增加方向搜索，此时与A点梯度方向相反；在B点必须向x减小小方向搜索，此时与B点梯度方向相反。总之，搜索极小值，必须向负梯
+度方向搜索。
+一般情况分析，\(y=f(x_{1}, x_{2}, ..., x_{n})\)假设只有1个极小值点。初始设定参数为\(x_{1}^{0}, ..., x_{n}^{0}\), 寻找极
+小值点的步骤如下
+</p><ol>
+<li>首先设定一个较小的整数\(\eta, \epsilon\);
+</li>
+<li>求当前位置处的各个偏导数：\(\frac{\partial{y}}{\partial{x_{1}}},..., \frac{\partial{y}}{\partial{x_{n}}}\);
+</li>
+<li>按照下述方式修改当前函数的参数值：\(x_{i}^{0}-&gt;x_{i}^{0}-(\eta*\frac{\partial{y}}{\partial{x_{i}}})\);
+</li>
+<li>如果超曲面参数变化量小于\(\eta\)，退出，否则返回第2步；
+</li>
+</ol>
+
+<p>例如函数\(y=\frac{x^{2}}{2}-2x\), 其图形见<a href="#img-optimize-example2">img-optimize-example2</a>, 计算过程如下，由于选用的2个参数值没有取好，会导致
+来回震荡，在极值点附近反复搜索。
+</p><ol>
+<li>先给定2个参数\(\epsilon=1.5, \eta=0.01\);
+</li>
+<li>计算导数\(\frac{\mathrm{d}y}{\mathrm{d}x} = x-2\);
+</li>
+<li>计算当前导数值y'<code>-6; 4. 修改当前参数\(x_{0}</code>-4-&gt;x<sub>1</sub>=x<sub>0</sub>-&epsilon;*y'=-4-1.5*(-6)=5.0\)
+</li>
+<li>计算当前导数值y'=3.0;
+</li>
+<li>修改当前参数\(x_{1}=5.0-&gt;x_{2}=5.0-1.5*(3.0)=0.5\);
+</li>
+<li>计算当前导数值y'=-1.5;
+</li>
+<li>……
+</li>
+</ol>
+
+
+
+<p>
+<img src="file://e:/OneDrive/my-learn/img/optimize2.png"  alt="file://e:/OneDrive/my-learn/img/optimize2.png" />
+</p>
 </div>
 </div>
 
@@ -915,7 +1006,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-07 17:59:51 中国标准时间</p>
+<p class="date">Date: 2015-12-09 22:26:43 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

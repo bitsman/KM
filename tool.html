@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-19 15:43:33 中国标准时间"/>
+<meta name="generated" content="2015-12-10 11:11:01 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -93,7 +93,16 @@
 <li><a href="#sec-1">emacs</a>
 <ul>
 <li><a href="#sec-1-1">安装</a></li>
-<li><a href="#sec-1-2">基本操作</a></li>
+<li><a href="#sec-1-2">基本操作</a>
+<ul>
+<li><a href="#sec-1-2-1">按键命令</a></li>
+<li><a href="#sec-1-2-2">其他</a></li>
+<li><a href="#sec-1-2-3">计算器</a></li>
+<li><a href="#sec-1-2-4">图片</a></li>
+<li><a href="#sec-1-2-5">字体</a></li>
+<li><a href="#sec-1-2-6">编码</a></li>
+</ul>
+</li>
 <li><a href="#sec-1-3">org-mode</a></li>
 <li><a href="#sec-1-4">python-mode</a></li>
 </ul>
@@ -155,7 +164,60 @@
 <h3 id="sec-1-2">基本操作</h3>
 <div class="outline-text-3" id="text-1-2">
 
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">按键命令</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
 <ul>
+<li>按键自定义方式
+<ol>
+<li>定义全局按键
+
+
+
+<pre class="example">(global-set-key "\M-;" 'qiang-comment-dwim-line)
+</pre>
+
+</li>
+<li>定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
+
+
+
+<pre class="example">(define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
+</pre>
+
+</li>
+<li>同一个按键适用于多个模式：表示只在text-mode和org-mode里打开flyspell的功能，并且绑定了C-c C-v按键，这里用到了 dolist
+     函数来遍历需要设置的mode      
+
+
+
+<pre class="example">(dolist (hook '(text-mode-hook org-mode-hook))
+         (add-hook hook
+               (lambda ()
+                   (flyspell-mode 1)
+                   (local-set-key (kbd "C-c C-v") flyspell-goto-next-error))))
+</pre>
+
+</li>
+<li>使用local-set-key做局部绑定，暂定；
+</li>
+</ol>
+
+</li>
+<li>定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
+
+
+
+<pre class="example">(defun gtd ()
+ (interactive)
+ (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
+</pre>
+
+</li>
 <li>表格<a href="#tbl-emacs-inf">tbl-emacs-inf</a>总结了平时需要的快捷键、模式、命令等操作；
 <table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-emacs-inf">
 <caption>emacs使用汇总</caption>
@@ -285,38 +347,22 @@
 </li>
 </ul>
 
+</div>
 
+</div>
 
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2">其他</h4>
+<div class="outline-text-4" id="text-1-2-2">
 
 <ul>
 <li>在eshell中使用$PATH$可以输出当前emacs的路径path；
 </li>
-<li>计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
-  示它们是二进制形式。如果要重新用十进制显示，则输入"d0"即可，同样，也可以用"d8""，"d6"来显示八进制和十六进制的格式。如
-  果要进行进制转换，比如讲二进制的1010转换为十六进制，可以这样先d6设定16进制模式，然后再minibuffer中输入2#1010，回车；
-</li>
-<li>计算器模式2：M-x quick-calc进入，启动后会在minibuffer里提示输入数学计算式，回车就显示结果；
-</li>
 <li>查询当前模式:C-h m或者M-x describe-mode ;
-</li>
-<li>导入图片见图<a href="#img-pic-test">img-pic-test</a>:可以通过调节width=.1\ linewidth来限制图片输出的大小, 其中.1表示倍率，或者使用scale=0.2
-  进行调节
-  <div id="img-pic-test" class="figure">
-<p><img src="./img/emacs1.jpg"  alt="./img/emacs1.jpg" /></p>
-<p>emacs导图测试</p>
-</div>
-</li>
-<li>字体：试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>
 </li>
 <li>el源文件编译:对于emacs某些包，有生成的elc的编译文件，emacs启动时，调用elc启动速度会更快，但是如果修改了源文件el，则可
   以使用M-x：byte-recompile-directory来重新编译，才能将修改的地方起作用。比如org mode中修改latex的生成模式函数
   org-export-latex-make-header
-</li>
-<li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn
-</li>
-<li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
-  变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
-  编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
 </li>
 <li>右键菜单配置打开命令：在注册表\HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\下面新建一项Emacs，再在下面新建command项，
   看起来应该是这样：\HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
@@ -324,28 +370,74 @@
 </li>
 <li>emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
 </li>
-<li>定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
+</ul>
 
+</div>
 
+</div>
 
-<pre class="example">(defun gtd ()
- (interactive)
- (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
-</pre>
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3">计算器</h4>
+<div class="outline-text-4" id="text-1-2-3">
 
+<ul>
+<li>计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
+  示它们是二进制形式。如果要重新用十进制显示，则输入"d0"即可，同样，也可以用"d8""，"d6"来显示八进制和十六进制的格式。如
+  果要进行进制转换，比如讲二进制的1010转换为十六进制，可以这样先d6设定16进制模式，然后再minibuffer中输入2#1010，回车；
 </li>
-<li>定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
+<li>计算器模式2：M-x quick-calc进入，启动后会在minibuffer里提示输入数学计算式，回车就显示结果；
+</li>
+</ul>
 
+</div>
 
+</div>
 
-<pre class="example">(define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
-</pre>
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4">图片</h4>
+<div class="outline-text-4" id="text-1-2-4">
 
+<ul>
+<li>导入图片见图<a href="#img-pic-test">img-pic-test</a>:可以通过调节width=.1\ linewidth来限制图片输出的大小, 其中.1表示倍率，或者使用scale=0.2
+  进行调节
+  <div id="img-pic-test" class="figure">
+<p><img src="./img/emacs1.jpg"  alt="./img/emacs1.jpg" /></p>
+<p>emacs导图测试</p>
+</div>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5">字体</h4>
+<div class="outline-text-4" id="text-1-2-5">
+
+<ul>
+<li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-6" class="outline-4">
+<h4 id="sec-1-2-6">编码</h4>
+<div class="outline-text-4" id="text-1-2-6">
+
+<ul>
+<li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
+  变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+  编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
 </li>
 <li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
 </li>
 </ul>
 
+</div>
 </div>
 
 </div>
@@ -355,6 +447,8 @@
 <div class="outline-text-3" id="text-1-3">
 
 <ul>
+<li>字体：试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>
+</li>
 <li>插入公式：
 <ol>
 <li>公式：在本行，\(a^2+b^2=c^2\)
@@ -714,7 +808,7 @@
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-19 15:43:33 中国标准时间</p>
+<p class="date">Date: 2015-12-10 11:11:01 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

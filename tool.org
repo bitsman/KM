@@ -7,6 +7,32 @@
 ** 安装
 - gnuserv安装：将emacs目录拷贝后，在系统环境变量中增加HOME键值等于emacs路径(d:\emacs)，即可；
 ** 基本操作
+*** 按键命令
+- 按键自定义方式
+  1. 定义全局按键
+     #+begin_src lisp
+     (global-set-key "\M-;" 'qiang-comment-dwim-line)
+     #+end_src
+  2. 定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
+     #+begin_src lisp
+     (define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
+     #+end_src
+  3. 同一个按键适用于多个模式：表示只在text-mode和org-mode里打开flyspell的功能，并且绑定了C-c C-v按键，这里用到了 dolist
+     函数来遍历需要设置的mode      
+     #+begin_src lisp
+     (dolist (hook '(text-mode-hook org-mode-hook))
+              (add-hook hook
+                    (lambda ()
+                        (flyspell-mode 1)
+                        (local-set-key (kbd "C-c C-v") flyspell-goto-next-error))))
+     #+end_src
+  4. 使用local-set-key做局部绑定，暂定；
+- 定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
+  #+begin_src lisp
+   (defun gtd ()
+    (interactive)
+    (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
+  #+end_src
 - 表格\ref{tbl-emacs-inf}总结了平时需要的快捷键、模式、命令等操作；
   #+caption: emacs使用汇总
   #+label: tbl-emacs-inf
@@ -111,46 +137,38 @@
   |          |           | eval-current-buffer            | 当前配置立马生效                 |                    |
   |          |           | rename-buffer                  | 重命名当前buffer                 |                    |
   |----------+-----------+--------------------------------+----------------------------------+--------------------|
-
-
-
+*** 其他
 - 在eshell中使用$PATH$可以输出当前emacs的路径path；
+- 查询当前模式:C-h m或者M-x describe-mode ;
+- el源文件编译:对于emacs某些包，有生成的elc的编译文件，emacs启动时，调用elc启动速度会更快，但是如果修改了源文件el，则可
+  以使用M-x：byte-recompile-directory来重新编译，才能将修改的地方起作用。比如org mode中修改latex的生成模式函数
+  org-export-latex-make-header
+- 右键菜单配置打开命令：在注册表\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\下面新建一项Emacs，再在下面新建command项，
+  看起来应该是这样：\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
+  Path\gnuclientw.exe，并加上"%1"
+- emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
+*** 计算器
 - 计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
   示它们是二进制形式。如果要重新用十进制显示，则输入"d0"即可，同样，也可以用"d8""，"d6"来显示八进制和十六进制的格式。如
   果要进行进制转换，比如讲二进制的1010转换为十六进制，可以这样先d6设定16进制模式，然后再minibuffer中输入2#1010，回车；
 - 计算器模式2：M-x quick-calc进入，启动后会在minibuffer里提示输入数学计算式，回车就显示结果；
-- 查询当前模式:C-h m或者M-x describe-mode ;
+*** 图片
 - 导入图片见图\ref{img-pic-test}:可以通过调节width=.1\ linewidth来限制图片输出的大小, 其中.1表示倍率，或者使用scale=0.2
   进行调节
   #+caption: emacs导图测试 
   #+label: img-pic-test
   #+attr_latex: placement=[H] scale=0.2
   [[./img/emacs1.jpg]]
-- 字体：试试 *粗体* ，试试 /斜体/ ,  试试删除线  +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=
-- el源文件编译:对于emacs某些包，有生成的elc的编译文件，emacs启动时，调用elc启动速度会更快，但是如果修改了源文件el，则可
-  以使用M-x：byte-recompile-directory来重新编译，才能将修改的地方起作用。比如org mode中修改latex的生成模式函数
-  org-export-latex-make-header
+*** 字体
 - eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn
+*** 编码
 - 设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
   变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
   编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
-- 右键菜单配置打开命令：在注册表\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\下面新建一项Emacs，再在下面新建command项，
-  看起来应该是这样：\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
-  Path\gnuclientw.exe，并加上"%1"
-- emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
-- 定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
-  #+begin_src lisp
-   (defun gtd ()
-    (interactive)
-    (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
-  #+end_src
-- 定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
-  #+begin_src lisp
-  (define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
-  #+end_src
 - 对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
 ** org-mode
 # <<org-mode>>
+- 字体：试试 *粗体* ，试试 /斜体/ ,  试试删除线  +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=
 - 插入公式：
   1. 公式：在本行，$a^2+b^2=c^2$
   2. 公式：在本行，\(a^2 + b^2 = c^2\)
