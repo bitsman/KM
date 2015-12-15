@@ -1,6 +1,6 @@
 #+TITLE: Sitemap
 
-   + [[file:math.org][2015-12-14 数学 ]]
+   + [[file:math.org][2015-12-15 数学 ]]
    + [[file:index.org][2015-12-13 比克曼的知识管理]]
    + [[file:language.org][2015-12-11 外语学习]]
    + [[file:algorithm.org][2015-12-10 算法 ]]

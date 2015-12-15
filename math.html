@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-14 23:34:35 中国标准时间"/>
+<meta name="generated" content="2015-12-15 14:20:36 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -338,11 +338,41 @@
 <div class="outline-text-3" id="text-1-3">
 
 <ul>
+<li>方向导数：偏导数反映的是函数沿着坐标轴方向的变化率。然而在实际问题中很多
+  变化不是在一个固定的方向，这时就需要定义方向导数。方向导数是沿着一定方向
+  的变化率的问题，方向导数是一个 <span style="text-decoration:underline;">标量</span> 。
+</li>
 <li>梯度：函数在某点的梯度是这样一个向量，它的方向与取得最大方向导数的方向一
-  致，而它的摸为方向导数的最大值，梯度的模为
+  致，而它的摸为方向导数的最大值，梯度的模如下，梯度是一个 <span style="text-decoration:underline;">向量</span> ，梯度与
+  方向导数关系，设\(e_{l}\)是方向导数的方向向量和梯度的夹角为\(\theta\)。
   $$\bigtriangledown{f(x, y)}=\sqrt{(\frac{\partial{f}}{\partial{x}})^{2}+(\frac{\partial{f}}{\partial{y}})^{2}}$$ 
+<ol>
+<li>当\(\theta=0\)，即方向\(e_{l}\)与梯度\(\bigtriangledown{f(x_{0},y_{0})}\) 
+     方向相同时，函数f(x, y)增加最快。此时函数在这个方向的方向导数达到最大
+     值，这个最大值就是梯度\(\bigtriangledown{f(x_{0},y_{0})}\)的模，这也表
+     明函数f(x, y) 在一点的梯度\(\bigtriangledown{f}\)是这样一个向量，它的
+     方向是函数在这点的方向导数取得最大值的方向，它的模就等于方向导数的最大
+     值。
+     $$\frac{\partial{f}}{\partial{l}}|_{(x_{0}, y_{0})}=|\bigtriangledown{f(x_{0}, y_{0})}|$$
+</li>
+<li>当\(\theta=\pi\), 即方向\(e_{l}\)与梯度\(\bigtriangledown{f(x_{0},y_{0})}\)
+     方向相反时，函数f(x, y)减小最快，函数在这个方向的方向导数达到最小值
+     $$\frac{\partial{f}}{\partial{l}}|_{(x_{0}, y_{0})}=-|\bigtriangledown{f(x_{0}, y_{0})}|$$
+</li>
+<li>当\(\theta=\frac{\pi}{2}\), 即方向\(e_{l}\)与梯度\(\bigtriangledown{f(x_{0},y_{0})}\)
+     的方向正交时，函数变化率为0。
+     $$\frac{\partial{f}}{\partial{l}}|_{(x_{0}, y_{0})}=-|\bigtriangledown{f(x_{0}, y_{0})}|\cos(\theta)=0$$
+</li>
+</ol>
+
+</li>
+<li>泰勒级数：若函数f(x)在含义\(x_{0}\)的某个开区间(a, b)内具有直到(n+1)阶的
+  导数，则当x在(a, b)内时，有下面的n阶泰勒公式成立
+  $$f(x)=f(x_{0})+f'(x_{0})(x-x_{0})+\frac{f^{(n)}(x_{0})}{n!}(x-x_{n})^{n}+\frac{f^{(n+1)}(x_{0}+\theta(x-x_{0}))}{(n+1)!}(x-x_{0})^{n+1},(0&lt;\theta&lt;1)$$ 
 </li>
 </ul>
+
+
 
 </div>
 </div>
@@ -1050,7 +1080,7 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-14 23:34:35 中国标准时间</p>
+<p class="date">Date: 2015-12-15 14:20:36 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
