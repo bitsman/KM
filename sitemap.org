@@ -1,9 +1,9 @@
 #+TITLE: Sitemap
 
+   + [[file:algorithm.org][2015-12-15 算法 ]]
    + [[file:math.org][2015-12-15 数学 ]]
    + [[file:index.org][2015-12-13 比克曼的知识管理]]
    + [[file:language.org][2015-12-11 外语学习]]
-   + [[file:algorithm.org][2015-12-10 算法 ]]
    + [[file:tool.org][2015-12-09 工具]]
    + [[file:os.org][2015-11-25 操作系统]]
    + [[file:protocol.org][2015-11-20 协议 ]]

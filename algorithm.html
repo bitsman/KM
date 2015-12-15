@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-13 17:56:26 中国标准时间"/>
+<meta name="generated" content="2015-12-15 23:06:50 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -112,7 +112,10 @@
 </ul>
 </li>
 <li><a href="#sec-1-4">神经网络</a></li>
-<li><a href="#sec-1-5">最优化</a></li>
+<li><a href="#sec-1-5">最优化</a>
+<ul>
+<li><a href="#sec-1-5-1">梯度下降法</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-2">图像处理</a>
@@ -896,6 +899,13 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 部优化算法，也叫经典优化算法；有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化算法，也叫现代优
 化算法。
 </p>
+</div>
+
+<div id="outline-container-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1">梯度下降法</h4>
+<div class="outline-text-4" id="text-1-5-1">
+
+
 
 <p>
 <img src="file://e:/OneDrive/my-learn/img/optimize1.png"  alt="file://e:/OneDrive/my-learn/img/optimize1.png" />
@@ -906,21 +916,31 @@ $$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
 如果，\(f^{'}(x) &gt; 0\)则x增加，y增加，相当于B点；如果\(f^{'}(x)&lt;0\)则x增加，y减小，相当于A点。要搜索极小值C点，在A点必须
 向x增加方向搜索，此时与A点梯度方向相反；在B点必须向x减小小方向搜索，此时与B点梯度方向相反。总之，搜索极小值，必须向负梯
 度方向搜索。
-一般情况分析，\(y=f(x_{1}, x_{2}, ..., x_{n})\)假设只有1个极小值点。初始设定参数为\(x_{1}^{0}, ..., x_{n}^{0}\), 寻找极
-小值点的步骤如下
+梯度下降法原理：由高数知任一点的负梯度方向是函数值在该点下降最快的方向，则
+利用负梯度作为极值搜索方向，达到搜寻区间最速下降的目的。而由极值点导数性质，
+知道该点的梯度等于0，故而其终止条件也就是梯度逼近于0，也就是当搜寻区间非常
+逼近极值点时，即当如下成立时，f(a)就是寻找到的f(x)的极值，该方法是一种局部
+搜寻法。
+$$\bigtriangledown{f(a)\rightarrow{0}$$
+求解函数在限制域下的极值 $$\min{f(x)},f\in{C}$$ 
+计算步骤如下
 </p><ol>
-<li>首先设定一个较小的整数\(\eta, \epsilon\);
+<li>选定初始点\(x^{(1)}\), 给定搜索截止条件\(\varepsilon\), 它大于0，令k=1；
 </li>
-<li>求当前位置处的各个偏导数：\(\frac{\partial{y}}{\partial{x_{1}}},..., \frac{\partial{y}}{\partial{x_{n}}}\);
+<li>若\(\bigtriangledown{f(x^{(k)})}&lt;\varepsilon\)则找到极值点的x，否则；
 </li>
-<li>按照下述方式修改当前函数的参数值：\(x_{i}^{0}-&gt;x_{i}^{0}-(\eta*\frac{\partial{y}}{\partial{x_{i}}})\);
+<li>计算当前点的负梯度：令\(d^{(k)}=-\bigtriangledown{f(x^{(k)})}\)；
 </li>
-<li>如果超曲面参数变化量小于\(\eta\)，退出，否则返回第2步；
+<li>计算当前点的最佳步长\(s^{(k)}\)：\(\min{f(x^{(k)}+s*d^{(k)})}\)下的s；
+</li>
+<li>计算新的点: \(x^{(k+1)}=x^{(k)}+s^{(k)}*d^{(k)}\), 返回2；
+</li>
+<li>第2步停止条件还可以：\(||x^{(k+1)}-x^{(k)}||&lt;\varepsilon\); 
 </li>
 </ol>
 
-<p>例如函数\(y=\frac{x^{2}}{2}-2x\), 其图形见<a href="#img-optimize-example2">img-optimize-example2</a>, 计算过程如下，由于选用的2个参数值没有取好，会导致
-来回震荡，在极值点附近反复搜索。
+<p>例1:函数\(y=\frac{x^{2}}{2}-2x\), 其图形见<a href="#img-optimize-example2">img-optimize-example2</a>, 计算
+过程如下，由于选用的2个参数值没有取好，会导致来回震荡，在极值点附近反复搜索。
 </p><ol>
 <li>先给定2个参数\(\epsilon=1.5, \eta=0.01\);
 </li>
@@ -943,6 +963,28 @@ $$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
 <p>
 <img src="file://e:/OneDrive/my-learn/img/optimize2.png"  alt="file://e:/OneDrive/my-learn/img/optimize2.png" />
 </p>
+<p>
+例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
+</p><ol>
+<li>设初始点\(x^{(0)}=(1, 1)^{T}\);
+</li>
+<li>f梯度：\(\bigtriangledown{f(x_{1}, x_{2})}=(2x_{1}, 8x_{2})^{T}\);
+</li>
+<li>由初始点得此点梯度值：\(\bigtriangledown{f(x^{(0)})}=(2, 8)^{T}\);
+</li>
+<li>模：\(||\bigtriangledown{f(x^{(0)})}||=8.24621\);
+</li>
+<li>第3步得负梯度：\(d^{(0)}=(-2, -8)^{T}\);
+</li>
+<li>计算最佳步长：\(\min{f(x^{(0)}+s_{0}*d^{(0)})}=\min{(1-2s_{0})^{2}+4(1-8s_{0})^{2}}\);
+</li>
+<li>得\(s_{0}=\frac{68}{520}\);
+</li>
+<li>新点：\(x^{(1)}=(1, 1)^{T}-s_{0}(2, 8)^{T}=(0.738, -0.046)^{T}\), 返回3; 
+</li>
+</ol>
+
+</div>
 </div>
 </div>
 
@@ -1006,7 +1048,7 @@ $$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-13 17:56:26 中国标准时间</p>
+<p class="date">Date: 2015-12-15 23:06:50 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
