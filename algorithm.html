@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-15 23:06:50 中国标准时间"/>
+<meta name="generated" content="2015-12-18 18:11:49 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -115,6 +115,7 @@
 <li><a href="#sec-1-5">最优化</a>
 <ul>
 <li><a href="#sec-1-5-1">梯度下降法</a></li>
+<li><a href="#sec-1-5-2">共轭梯度法</a></li>
 </ul></li>
 </ul>
 </li>
@@ -907,9 +908,12 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 
 
 
-<p>
-<img src="file://e:/OneDrive/my-learn/img/optimize1.png"  alt="file://e:/OneDrive/my-learn/img/optimize1.png" />
-</p>
+
+<div id="img-optimize-example1" class="figure">
+<p><img src="file://e:/OneDrive/my-learn/img/optimize1.png"  alt="file://e:/OneDrive/my-learn/img/optimize1.png" /></p>
+<p>梯度下降法图例1</p>
+</div>
+
 <p>
 见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有方向，是一个矢量，曲线情况下，表达式如下 
 $$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
@@ -921,7 +925,7 @@ $$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
 知道该点的梯度等于0，故而其终止条件也就是梯度逼近于0，也就是当搜寻区间非常
 逼近极值点时，即当如下成立时，f(a)就是寻找到的f(x)的极值，该方法是一种局部
 搜寻法。
-$$\bigtriangledown{f(a)\rightarrow{0}$$
+$$\bigtriangledown{f(a)\rightarrow{0}}$$
 求解函数在限制域下的极值 $$\min{f(x)},f\in{C}$$ 
 计算步骤如下
 </p><ol>
@@ -960,9 +964,12 @@ $$\bigtriangledown{f(a)\rightarrow{0}$$
 
 
 
-<p>
-<img src="file://e:/OneDrive/my-learn/img/optimize2.png"  alt="file://e:/OneDrive/my-learn/img/optimize2.png" />
-</p>
+
+<div id="img-optimize-example2" class="figure">
+<p><img src="file://e:/OneDrive/my-learn/img/optimize2.png"  alt="file://e:/OneDrive/my-learn/img/optimize2.png" /></p>
+<p>梯度下降图例2</p>
+</div>
+
 <p>
 例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
 </p><ol>
@@ -984,6 +991,20 @@ $$\bigtriangledown{f(a)\rightarrow{0}$$
 </li>
 </ol>
 
+</div>
+
+</div>
+
+<div id="outline-container-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2">共轭梯度法</h4>
+<div class="outline-text-4" id="text-1-5-2">
+
+<p>对于多元二次方程
+$$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
+求导得
+$$f'(x)=AX+B$$
+因为针对X为向量，$$X^{T}AX$$ 对X求导得$$2AX$$ , $$B^{T}X$$ 求导得B；
+</p>
 </div>
 </div>
 </div>
@@ -1048,7 +1069,7 @@ $$\bigtriangledown{f(a)\rightarrow{0}$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-15 23:06:50 中国标准时间</p>
+<p class="date">Date: 2015-12-18 18:11:49 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
