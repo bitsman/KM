@@ -23,31 +23,6 @@
 总结工作中接触到的百科知识比如GPS等。
 * [[./language.org][外语]]
 总结平时用到的英语知识、短语、翻译技巧等。
-  #+caption: 数的归纳
-  #+label: img-number
-  #+attr_latex: placement=[H] scale=0.3
-  #+begin_src ditaa :file ./img/img-number.png :cmdline -S -E
-                                                                                                  +--positive integer
-                                                                                                  |
-                                                                     +--positive rational number--+
-                                                                     |                            |
-                                                 +--rational number--+--0                         +--positive fraction
-                                                 |                   |                          +--native integer
-                                 +--real number--+                   +--native rational number--+
-                                 |               |                                              |
-                                 |               +--irrational number                           +--native fraction
-                                 |
-                                 |
-          +--generalized number--+
-          |                      |
-          |                      +--complex number(a+bi)
-  number--+
-          |                 +--vector
-          |                 |
-          +--narrow number--+--matrix
-                            |
-                            +--other(tensor,group,loop,field)
-  #+end_src
 
 
 
