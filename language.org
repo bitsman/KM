@@ -60,6 +60,8 @@
 - unbiased estimator: 无偏估计
 - discriminant：判别式；
 - likelihood：可以翻译为似然，最大似然就是maximum likelihood；
-- maximum likelihood estimation:最大似然估计
-- SVM: Support Vector Machine, 支持向量机
+- maximum likelihood estimation:最大似然估计；
+- SVM: Support Vector Machine, 支持向量机；
+- ANN: artificial neural network，人工神经网络；
+- perceptron：感知机；
 

@@ -235,8 +235,9 @@
 
 - 由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
   换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
-- 如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下代码"页边距"
-#+begin_src emacs-lisp
+- 如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下
+  代码"页边距"
+  #+begin_src emacs-lisp
 	\lstset{numbers=left, %设置行号位置
           numberstyle=\\tiny, %设置行号大小
 	 		keywordstyle=\\color{blue}, %设置关键字颜色
@@ -248,7 +249,7 @@
 	        xleftmargin=10em,xrightmargin=5em, aboveskip=0.5em, %设置页边距
 	        tabsize=4, %设置tab空格数
 	        showspaces=false} %不显示空格
-#+end_src
+  #+end_src
 - 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再在使用的地方，使用像[[][]]这样的格式去定位标点，
   并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
   [[org-mode]], 并且可以使用C-c &返回来, 使用C-c C-o可以打开标点。
