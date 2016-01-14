@@ -218,7 +218,7 @@
   #+caption: 测试图
   #+label: img-gnuplot-test
   #+attr_latex: placement=[H] scale=0.5
-  #+begin_src gnuplot :exports results :file e:/OneDrive/my-learn/img/img-gnuplot-test.png
+  #+begin_src gnuplot :exports results :file ./img/img-gnuplot-test.png
   reset
   set title "Putting it All Together"
   set xlabel "X"
