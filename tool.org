@@ -254,6 +254,7 @@
   并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
   [[org-mode]], 并且可以使用C-c &返回来, 使用C-c C-o可以打开标点。
 - 表格：可以使用table-mode，命令table-insert可以插入一个n行n列的表格，table-span-cell可以合并单元格。
+- 中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
