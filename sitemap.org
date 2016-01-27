@@ -1,5 +1,6 @@
 #+TITLE: Sitemap
 
+   + [[file:software.org][2016-01-27 软件 ]]
    + [[file:tool.org][2016-01-21 工具]]
    + [[file:index.org][2016-01-12 比克曼的知识管理]]
    + [[file:language.org][2015-12-21 外语学习]]
@@ -8,6 +9,5 @@
    + [[file:os.org][2015-11-25 操作系统]]
    + [[file:protocol.org][2015-11-20 协议 ]]
    + [[file:encyclopedia.org][2015-11-03 百科知识]]
-   + [[file:software.org][2015-10-22 软件 ]]
    + [[file:decoration.org][2015-10-22 装修日记]]
    + [[file:hardware.org][2015-10-22 硬件 ]]

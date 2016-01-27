@@ -126,6 +126,24 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
         return B ;
     }
   #+end_src
+*** 嵌入式
+- printf调试：可以如下步骤
+  #+begin_src c
+  #include "uart.h"//串口发送单个字符的API
+  #include "stdio.h"//里面有FILE结构体声明
+  #pragma import(__use_no_semihosting_swi)//半主机模式
+  struct __FILE//stdio.h里面的FILE结构体声明需要
+  {
+    int handle;
+  };
+  FILE __stdout, __stderr;//选用，如果需要分别输出
+
+  int fputc(int ch, FILE *f)//printf最终调用的接口
+  {
+    uart_put((unsigned char)ch);
+    return ch;
+  }
+  #+end_src  
 ** JAVA语言
 ** PYTHON语言
 *** numpy
