@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-01-21 22:45:43 中国标准时间"/>
+<meta name="generated" content="2016-01-29 00:04:49 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -103,7 +103,28 @@
 <li><a href="#sec-1-2-6">编码</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">org-mode</a></li>
+<li><a href="#sec-1-3">org-mode</a>
+<ul>
+<li><a href="#sec-1-3-1">可视化</a></li>
+<li><a href="#sec-1-3-2">抽屉</a></li>
+<li><a href="#sec-1-3-3">块</a></li>
+<li><a href="#sec-1-3-4">脚注</a></li>
+<li><a href="#sec-1-3-5">序号</a></li>
+<li><a href="#sec-1-3-6">字体</a></li>
+<li><a href="#sec-1-3-7">公式</a></li>
+<li><a href="#sec-1-3-8">表格</a>
+<ul>
+<li><a href="#sec-1-3-8-1">内建表格</a></li>
+<li><a href="#sec-1-3-8-2">表格插件</a></li>
+<li><a href="#sec-1-3-8-3">表格第三方</a></li>
+<li><a href="#sec-1-3-8-4">表格计算</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-9">画图</a></li>
+<li><a href="#sec-1-3-10">链接</a></li>
+<li><a href="#sec-1-3-11">导出</a></li>
+</ul>
+</li>
 <li><a href="#sec-1-4">python-mode</a></li>
 </ul>
 </li>
@@ -446,10 +467,110 @@
 <h3 id="sec-1-3"><a name="org-mode" id="org-mode"></a>org-mode</h3>
 <div class="outline-text-3" id="text-1-3">
 
+
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">可视化</h4>
+<div class="outline-text-4" id="text-1-3-1">
+
 <ul>
-<li>字体：试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>
+<li>初始可视化：在org文档的开始，加上#+startup: overview, 其中overview可以是
+  如下选项
+<ol>
+<li>overview：只显示第一级标题；
 </li>
-<li>插入公式：
+<li>content：显示所有标题；
+</li>
+<li>showall：显示所有标题和正文；
+</li>
+<li>showeverything：显示所有标题和正文, 雷同showall；
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">抽屉</h4>
+<div class="outline-text-4" id="text-1-3-2">
+
+<p>使用抽屉drawer，在导出时，drawer里面的文字不会被到导出, 可以在里面放入一些
+注解, 可以使用命令'org-insert-property-drawer' 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3">块</h4>
+<div class="outline-text-4" id="text-1-3-3">
+
+<p>代码块可以设置#+startup: hideblocks, 做初始化折叠或打开。可以有如下选项
+</p><ol>
+<li>hideblocks：隐藏代码块；
+</li>
+<li>nohideblocks：显示代码块；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4">脚注</h4>
+<div class="outline-text-4" id="text-1-3-4">
+
+<p>脚注注解可以放在任何正文位置，脚注形式有；
+</p><ul>
+<li>脚注一, 普通序号脚注<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup>;
+</li>
+<li>脚注二，带名字脚注<sup><a class="footref" name="fnr.2" href="#fn.2">2</a></sup>;
+</li>
+<li>脚注三, 匿名脚注<sup><a class="footref" name="fnr.3" href="#fn.3">3</a></sup>; 
+</li>
+<li>脚注四，带描述的脚注<sup><a class="footref" name="fnr.4" href="#fn.4">4</a></sup>; 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-5" class="outline-4">
+<h4 id="sec-1-3-5">序号</h4>
+<div class="outline-text-4" id="text-1-3-5">
+
+<ul>
+<li>无序号：无序号符号可以是'-'和'+'和'*'；
+</li>
+<li>有序号：可以是'1.'和'1)';
+</li>
+<li>对序号的描述；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-6" class="outline-4">
+<h4 id="sec-1-3-6">字体</h4>
+<div class="outline-text-4" id="text-1-3-6">
+
+<p>试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-7" class="outline-4">
+<h4 id="sec-1-3-7">公式</h4>
+<div class="outline-text-4" id="text-1-3-7">
+
 <ol>
 <li>公式：在本行，\(a^2+b^2=c^2\)
 </li>
@@ -467,8 +588,82 @@
 </li>
 </ol>
 
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8" class="outline-4">
+<h4 id="sec-1-3-8">表格</h4>
+<div class="outline-text-4" id="text-1-3-8">
+
+
+</div>
+
+<div id="outline-container-1-3-8-1" class="outline-5">
+<h5 id="sec-1-3-8-1">内建表格</h5>
+<div class="outline-text-5" id="text-1-3-8-1">
+
+<ul>
+<li>固定列宽：可以在某列中写入&lt;n&gt;，n表示n个英文字符宽度，超出宽度的字符将隐
+  藏，并且以'=&gt;'结尾, 使用鼠标将光标移到'=&gt;'上，emacs将弹出小窗口显示内容，
+  如果要编辑，可以使用C-c ', 可以在文件头使用#+startup: align来显示与否
+<ol>
+<li>align: 隐藏多余的字符；
 </li>
-<li>表格计算：
+<li>noalign：显示多余的字符；
+</li>
+</ol>
+
+</li>
+<li>表格对齐
+<ol>
+<li>'&lt;r&gt;': 表格右对齐；
+</li>
+<li>'&lt;c&gt;': 表格左对齐；
+</li>
+<li>'&lt;l&gt;': 表格左对齐；
+</li>
+</ol>
+
+</li>
+<li>表格合并：在一空行中，首列使用'/', 将需要合并的列用'&lt;&gt;'括起来，则导出的文
+  档中合并了的列，将会有垂直线显示；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8-2" class="outline-5">
+<h5 id="sec-1-3-8-2">表格插件</h5>
+<div class="outline-text-5" id="text-1-3-8-2">
+
+<p>可以使用table-mode，命令table-insert可以插入一个n行n列的表格，
+table-span-cell可以合并单元格。 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-8-3" class="outline-5">
+<h5 id="sec-1-3-8-3">表格第三方</h5>
+<div class="outline-text-5" id="text-1-3-8-3">
+
+<p>可以将内建表格用在其他mode中,只需要配置.
+</p>
+
+
+<pre class="example">(add-hook 'message-mode-hook 'turn-on-orgtbl)
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-8-4" class="outline-5">
+<h5 id="sec-1-3-8-4">表格计算</h5>
+<div class="outline-text-5" id="text-1-3-8-4">
+
 <ul>
 <li>行表示：第2行：@2;
 </li>
@@ -492,7 +687,65 @@
 </li>
 </ul>
 
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3-9" class="outline-4">
+<h4 id="sec-1-3-9">画图</h4>
+<div class="outline-text-4" id="text-1-3-9">
+
+<ul>
+<li>ditaa测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar
+  时的默认格式, 效果如图<a href="#img-test">img-test</a>所示 
+
+
+
+<div id="img-test" class="figure">
+<p><img src="./img/img-zhongwen.png"  alt="./img/img-zhongwen.png" /></p>
+<p>测试画图</p>
+</div>
+
 </li>
+<li>gnuplot，见图<a href="#img-gnuplot-test">img-gnuplot-test</a>所示：
+
+
+
+<div id="img-gnuplot-test" class="figure">
+<p><img src="./img/img-gnuplot-test.png"  alt="./img/img-gnuplot-test.png" /></p>
+<p>测试图</p>
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-10" class="outline-4">
+<h4 id="sec-1-3-10">链接</h4>
+<div class="outline-text-4" id="text-1-3-10">
+
+<ul>
+<li>内部链接：只需要在某个需要链接到的地方使用# <a name="target" class="target">target</a> ，设置一个标点，再
+  在使用的地方，使用像[[][]]这样的格式去定位标点，并给出描述符，或者直接使
+  用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用
+  [[][]]定位过去就是 <a href="#sec-1-3">org-mode</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
+  标点。 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-11" class="outline-4">
+<h4 id="sec-1-3-11">导出</h4>
+<div class="outline-text-4" id="text-1-3-11">
+
+<ul>
 <li>org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 
 
@@ -504,28 +757,11 @@
 </pre>
 
 </li>
-<li>画图测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar时的默认格式, 效果如图<a href="#img-test">img-test</a>所示
-
-
-
-<div id="img-test" class="figure">
-<p><img src="./img/img-zhongwen.png"  alt="./img/img-zhongwen.png" /></p>
-<p>测试画图</p>
-</div>
-
+<li>中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
 </li>
-<li>插入gnuplot图片，见图<a href="#img-gnuplot-test">img-gnuplot-test</a>所示：
-
-
-
-<div id="img-gnuplot-test" class="figure">
-<p><img src="./img/img-gnuplot-test.png"  alt="./img/img-gnuplot-test.png" /></p>
-<p>测试图</p>
-</div>
-
-</li>
-<li>由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
-  换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
+<li>由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org
+  源文档是gbk格式，所以如果将org文档由gbk格式转换为了别的格式，比如utf-8，
+  则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el” 
 </li>
 <li>如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下
   代码"页边距"
@@ -546,16 +782,9 @@
 </pre>
 
 </li>
-<li>内部链接：只需要在某个需要链接到的地方使用# <a name="target" class="target">target</a> ，设置一个标点，再在使用的地方，使用像[[][]]这样的格式去定位标点，
-  并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
-  <a href="#sec-1-3">org-mode</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开标点。
-</li>
-<li>表格：可以使用table-mode，命令table-insert可以插入一个n行n列的表格，table-span-cell可以合并单元格。
-</li>
-<li>中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
-</li>
 </ul>
 
+</div>
 </div>
 
 </div>
@@ -801,17 +1030,41 @@
 
 <ul>
 <li>设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&amp;E), 括号里面的代表快捷键，在Command中设置emacs路径，
-  在Argument中 \\(FILE_PATH\\) 代表编辑当前文件.   
+  在Argument中 \\(FILE_PATH\\) 代表编辑当前文件.  
 </li>
 </ul>
 
+
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+<p class="footnote"><sup><a class="footnum" name="fn.1" href="#fnr.1">1</a></sup> 普通序号脚注
+</p>
+
+
+<p class="footnote"><sup><a class="footnum" name="fn.2" href="#fnr.2">2</a></sup> 带名字脚注
+</p>
+
+
+<p class="footnote"><sup><a class="footnum" name="fn.3" href="#fnr.3">3</a></sup> 匿名脚注
+</p>
+
+
+<p class="footnote"><sup><a class="footnum" name="fn.4" href="#fnr.4">4</a></sup> 带描述的脚注
+</p>
+
+
+
+
+</div>
+</div>
 
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-01-21 22:45:43 中国标准时间</p>
+<p class="date">Date: 2016-01-29 00:04:49 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

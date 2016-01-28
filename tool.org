@@ -2,7 +2,9 @@
 #+author: 比克曼
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
-
+#+startup: showall
+#+startup: hideblocks
+#+startup: align
 * emacs
 ** 安装
 - gnuserv安装：将emacs目录拷贝后，在系统环境变量中增加HOME键值等于emacs路径(d:\emacs)，即可；
@@ -168,34 +170,80 @@
 - 对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
 ** org-mode
 # <<org-mode>>
-- 字体：试试 *粗体* ，试试 /斜体/ ,  试试删除线  +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=
-- 插入公式：
-  1. 公式：在本行，$a^2+b^2=c^2$
-  2. 公式：在本行，\(a^2 + b^2 = c^2\)
-  3. 公式：单独成行。$$a^2 + b^2 = c^2$$
-  4. 公式：单独成行。\[a^2 + b^2 = c^2\]
-  5. 公式：在本行，\(\sqrt{2}\)
-  6. 和公式：$$a=\sum_{i=0}^{n}a_{i}$$
-  7. 分数公式：$$\frac{x}{y}$$
-- 表格计算：
-  + 行表示：第2行：@2;
-  + 列表示：第2列：$2;
-  + 表格表示：第2行第2列：@2$2, 或者B2;
-  + 打开表格符号帮助：C-c ?;
-  + 显示行列帮助：C-c };
-  + 公式引用：在表格下方的计算公式上使用C-c C-c，或者在表格中使用C-u C-c *;
-  + 表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；
-  + 在minibuffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
-  + 在单独的buffer中输入公式：C-c ';
-  + 求平均值函数vmean:例如:=vmean($2..$3)；
-- org-mode转换到pdf需要在org-mode文件中头部使用如下头;
-  #+begin_src emacs-lisp
-    #+title: 我的记事本
-    #+author: lxc
-    #+ latex_class: org-latex-pdf
-    #+ latex: \newpage
-  #+end_src
-- 画图测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar时的默认格式, 效果如图\ref{img-test}所示
+*** 可视化
+- 初始可视化：在org文档的开始，加上#+startup: overview, 其中overview可以是
+  如下选项
+  1. overview：只显示第一级标题；
+  2. content：显示所有标题；
+  3. showall：显示所有标题和正文；
+  4. showeverything：显示所有标题和正文, 雷同showall；
+*** 抽屉
+使用抽屉drawer，在导出时，drawer里面的文字不会被到导出, 可以在里面放入一些
+注解, 可以使用命令'org-insert-property-drawer' 
+:PROPERTIES:
+抽屉内部
+:END:
+*** 块
+代码块可以设置#+startup: hideblocks, 做初始化折叠或打开。可以有如下选项
+1. hideblocks：隐藏代码块；
+2. nohideblocks：显示代码块；
+*** 脚注
+脚注注解可以放在任何正文位置，脚注形式有；
+- 脚注一, 普通序号脚注[fn:1];
+- 脚注二，带名字脚注[fn:second];
+- 脚注三, 匿名脚注[fn:: 匿名脚注]; 
+- 脚注四，带描述的脚注[fn:four: 带描述的脚注]; 
+[fn:1] 普通序号脚注
+[fn:second] 带名字脚注
+*** 序号
+- 无序号：无序号符号可以是'-'和'+'和'*'；
+- 有序号：可以是'1.'和'1)';
+- 描述 :: 对序号的描述；
+*** 字体
+试试 *粗体* ，试试 /斜体/ ,  试试删除线  +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=
+*** 公式
+1. 公式：在本行，$a^2+b^2=c^2$
+2. 公式：在本行，\(a^2 + b^2 = c^2\)
+3. 公式：单独成行。$$a^2 + b^2 = c^2$$
+4. 公式：单独成行。\[a^2 + b^2 = c^2\]
+5. 公式：在本行，\(\sqrt{2}\)
+6. 和公式：$$a=\sum_{i=0}^{n}a_{i}$$
+7. 分数公式：$$\frac{x}{y}$$
+*** 表格
+**** 内建表格 
+- 固定列宽：可以在某列中写入<n>，n表示n个英文字符宽度，超出宽度的字符将隐
+  藏，并且以'=>'结尾, 使用鼠标将光标移到'=>'上，emacs将弹出小窗口显示内容，
+  如果要编辑，可以使用C-c ', 可以在文件头使用#+startup: align来显示与否
+  1. align: 隐藏多余的字符；
+  2. noalign：显示多余的字符；
+- 表格对齐
+  1. '<r>': 表格右对齐；
+  2. '<c>': 表格左对齐；
+  3. '<l>': 表格左对齐；
+- 表格合并：在一空行中，首列使用'/', 将需要合并的列用'<>'括起来，则导出的文
+  档中合并了的列，将会有垂直线显示；
+**** 表格插件
+可以使用table-mode，命令table-insert可以插入一个n行n列的表格，
+table-span-cell可以合并单元格。 
+**** 表格第三方
+可以将内建表格用在其他mode中,只需要配置.
+#+begin_src lisp
+(add-hook 'message-mode-hook 'turn-on-orgtbl)
+#+end_src
+**** 表格计算
+- 行表示：第2行：@2;
+- 列表示：第2列：$2;
+- 表格表示：第2行第2列：@2$2, 或者B2;
+- 打开表格符号帮助：C-c ?;
+- 显示行列帮助：C-c };
+- 公式引用：在表格下方的计算公式上使用C-c C-c，或者在表格中使用C-u C-c *;
+- 表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；
+- 在minibuffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
+- 在单独的buffer中输入公式：C-c ';
+- 求平均值函数vmean:例如:=vmean($2..$3)；
+*** 画图
+- ditaa测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar
+  时的默认格式, 效果如图\ref{img-test}所示 
   #+caption: 测试画图
   #+label: img-test
   #+attr_latex: placement=[H] scale=0.3
@@ -214,7 +262,7 @@
                                                    +--------------+
   #+end_src
 
-- 插入gnuplot图片，见图\ref{img-gnuplot-test}所示：
+- gnuplot，见图\ref{img-gnuplot-test}所示：
   #+caption: 测试图
   #+label: img-gnuplot-test
   #+attr_latex: placement=[H] scale=0.5
@@ -232,9 +280,24 @@
   h(x) = 10*sqrt(abs(x))
   plot f(x) w lp lw 1, g(x) w p lw 2, h(x) w l lw 3
   #+end_src
-
-- 由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org源文档是gbk格式，所以如果将org文档由gbk格式转
-  换为了别的格式，比如utf-8，则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”
+*** 链接
+- 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再
+  在使用的地方，使用像[[][]]这样的格式去定位标点，并给出描述符，或者直接使
+  用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用
+  [[][]]定位过去就是 [[org-mode]], 并且可以使用C-c &返回来, 使用C-c C-o可以打开
+  标点。 
+*** 导出
+- org-mode转换到pdf需要在org-mode文件中头部使用如下头;
+  #+begin_src emacs-lisp
+    #+title: 我的记事本
+    #+author: lxc
+    #+ latex_class: org-latex-pdf
+    #+ latex: \newpage
+  #+end_src
+- 中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
+- 由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org
+  源文档是gbk格式，所以如果将org文档由gbk格式转换为了别的格式，比如utf-8，
+  则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el” 
 - 如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下
   代码"页边距"
   #+begin_src emacs-lisp
@@ -250,11 +313,6 @@
 	        tabsize=4, %设置tab空格数
 	        showspaces=false} %不显示空格
   #+end_src
-- 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再在使用的地方，使用像[[][]]这样的格式去定位标点，
-  并给出描述符，或者直接使用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用[[][]] 定位过去就是
-  [[org-mode]], 并且可以使用C-c &返回来, 使用C-c C-o可以打开标点。
-- 表格：可以使用table-mode，命令table-insert可以插入一个n行n列的表格，table-span-cell可以合并单元格。
-- 中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
@@ -318,5 +376,7 @@
   建个命令emacs(&E), 括号里面的代表快捷键.
 * iar
 - 设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&E), 括号里面的代表快捷键，在Command中设置emacs路径，
-  在Argument中 \$FILE_PATH\$ 代表编辑当前文件.   
+  在Argument中 \$FILE_PATH\$ 代表编辑当前文件.  
+
+ 
 
