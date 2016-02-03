@@ -1,10 +1,18 @@
 #+title: 工具
 #+author: 比克曼
+#+email: bitman@163.com
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
-#+startup: showall
+
+#+startup: overview
 #+startup: hideblocks
 #+startup: align
+#+startup: logdone
+#+options: h:4 email:t author:t creator:t  
+#+toc: tables
+
+#+keywords: emacs orgmode keil iar
+
 * emacs
 ** 安装
 - gnuserv安装：将emacs目录拷贝后，在系统环境变量中增加HOME键值等于emacs路径(d:\emacs)，即可；
@@ -170,6 +178,7 @@
 - 对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
 ** org-mode
 # <<org-mode>>
+org-mode在线[[http://orgmode.org/org.html][帮助文档]]。
 *** 可视化
 - 初始可视化：在org文档的开始，加上#+startup: overview, 其中overview可以是
   如下选项
@@ -200,7 +209,7 @@
 - 有序号：可以是'1.'和'1)';
 - 描述 :: 对序号的描述；
 *** 字体
-试试 *粗体* ，试试 /斜体/ ,  试试删除线  +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=
+试试 *粗体* ，试试 /斜体/ ,  试试删除线  +删除线+ ，试试 _下划线_, 试试下标 H_{2}O 试试上标 E=mc^2 ，等宽字体 =git=, ~code~
 *** 公式
 1. 公式：在本行，$a^2+b^2=c^2$
 2. 公式：在本行，\(a^2 + b^2 = c^2\)
@@ -238,7 +247,7 @@ table-span-cell可以合并单元格。
 - 显示行列帮助：C-c };
 - 公式引用：在表格下方的计算公式上使用C-c C-c，或者在表格中使用C-u C-c *;
 - 表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；
-- 在minibuffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
+- 在mini buffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
 - 在单独的buffer中输入公式：C-c ';
 - 求平均值函数vmean:例如:=vmean($2..$3)；
 *** 画图
@@ -280,17 +289,150 @@ table-span-cell可以合并单元格。
   h(x) = 10*sqrt(abs(x))
   plot f(x) w lp lw 1, g(x) w p lw 2, h(x) w l lw 3
   #+end_src
+  引用表格画图：表格见表\ref{tbl-data-plot}所示。
+  #+label: tbl-data-plot
+  #+plot: title: "example table" ind: 1 type: 2d with: lines
+  #+tblname: data-plot
+  | independent var | first dependent var | second dependent var |
+  |-----------------+---------------------+----------------------|
+  |             0.1 |               0.425 |                0.375 |
+  |             0.2 |              0.3125 |               0.3375 |
+  |             0.3 |          0.24999993 |           0.28333338 |
+  |             0.4 |               0.275 |              0.28125 |
+  |             0.5 |                0.26 |                 0.27 |
+  |             0.6 |          0.25833338 |           0.24999993 |
+  |             0.7 |          0.24642845 |           0.23928553 |
+  |             0.8 |             0.23125 |               0.2375 |
+  |             0.9 |          0.23333323 |            0.2333332 |
+  |               1 |              0.2225 |                 0.22 |
+  |             1.1 |          0.20909075 |           0.22272708 |
+  |             1.2 |          0.19999998 |           0.21458333 |
+  |             1.3 |          0.19615368 |           0.21730748 |
+  |             1.4 |          0.18571433 |           0.21071435 |
+  |             1.5 |          0.19000008 |            0.2150001 |
+  |             1.6 |           0.1828125 |            0.2046875 |
+  |             1.7 |          0.18088253 |            0.1985296 |
+  |             1.8 |          0.17916675 |           0.18888898 |
+  |             1.9 |          0.19342103 |           0.21315783 |
+  |               2 |                0.19 |              0.21625 |
+  |             2.1 |          0.18214268 |           0.20714265 |
+  |             2.2 |          0.17727275 |            0.2022727 |
+  |             2.3 |           0.1739131 |            0.1989131 |
+  |             2.4 |          0.16770833 |            0.1916667 |
+  |             2.5 |               0.164 |                0.188 |
+  |             2.6 |          0.15769238 |           0.18076923 |
+  |             2.7 |           0.1592591 |            0.1888887 |
+  |             2.8 |           0.1598214 |           0.18928565 |
+  |             2.9 |          0.15603453 |            0.1844828 | 
+  |-----------------+---------------------+----------------------| 
+  
+  #+begin_src gnuplot :var data=data-plot :exports results :file ./img/data-plot.png
+    reset
+    set title "example table"
+    set xlabel "X" 
+    set ylabel "Y"
+    plot data u 1:2 w l lw 1 title 'first dependent var', \
+         data u 1:3 w l lw 1 title 'second dependent var'
+    
+  #+end_src
 *** 链接
+- 链接之间跳转：C-c C-x n和C-c C-x p
 - 内部链接：只需要在某个需要链接到的地方使用# <<target>>，设置一个标点，再
   在使用的地方，使用像[[][]]这样的格式去定位标点，并给出描述符，或者直接使
   用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用
   [[][]]定位过去就是 [[org-mode]], 并且可以使用C-c &返回来, 使用C-c C-o可以打开
-  标点。 
+  标点。
+- 辐射链接：使用3个尖括号括起的锚点，可以将文档中所有的锚点链接起来，比如
+  <<<buffer>>> ;
+- 外部链接：包括链接到文件、网址、email等
+- 包含：可以在头部使用#+include:"path/file"包含某个文件，比如org，然后就可
+  以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
+  定的数据，比如添加 _src c_ ，可以导入c代码；使用 _lines_ 关键字可以导入文
+  件的某几行
+*** gtd
+gtd状态之间转换可以使用快捷键C-c C-t
+- 工作流状态: 对于一个工作流可以使用 _sequence_ 的工作流设置状态如
+  #+begin_src emacs-lisp
+  (setq org-todo-keywords '((sequence "TODO" "VERIFY" "|" "DONE")))
+  #+end_src
+- 工作类型: 使用 _type_ 设置工作类型如
+  #+begin_src emacs-lisp
+  (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
+  #+end_src
+- 文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下
+  #+begin_src emacs-lisp
+  #+TODO: TODO FEEDBACK VERIFY | DONE CANCELED
+  #+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED
+  #+TYP_TODO: Fred Sara Lucy Mike | DONE
+  #+end_src
+- 状态样式：各种状态可以设置不同的颜色，字体等如
+  #+begin_src emacs-lisp
+  (setq org-todo-keyword-faces
+        '(("TODO" . org-warning) ("STARTED" . "yellow")
+         ("CANCELED" . (:foreground "blue" :weight bold))))
+  #+end_src
+*** 换行
+# <<my-new-line>>
+一般使用一个空行表示换行，也可以使用latex的斜杠par，如果需要在某个行强行折
+行，可以使用两个斜杠。如果想写类似诗句一样的格式可以使用如下方式
+#+BEGIN_VERSE
+Great clouds overhead
+Tiny black birds rise and fall
+Snow covers Emacs
+   
+         -- AlexSchroeder
+#+END_VERSE
+*** babel
+1. verse: 见[[my-new-line][换行]]一节的用法
+2. quote：如果从别的文章中引用一段话，通常需要将这些语句左右都流出一定空间，
+   如下面所示
+   #+begin_quote
+   Everything should be made as simple as possible,
+   but not any simpler -- Albert Einstein
+   #+end_quote
+3. center: 如果需要将某些文字中心对齐，可以使用如下方式
+   #+BEGIN_CENTER
+   Everything should be made as simple as possible, \\
+   but not any simpler
+   #+END_CENTER
+4. example: 里面的文字不会被解析，原样导出
+   #+begin_example
+   Some example from a text_file.
+   #+end_example
+   也可以在首行使用冒号加一个空格后面添加文字作为一个简化方式，如
+   : Some example from a text_file.
+5. src: 可以放入一些代码, 使用-n或者+n会对代码标记行号，使用-r表示可以引用
+   代码行号，只需要在某行末尾使用ref：name，在引用的地方使用（name）就可以
+   引用了。使用-i可以对某些代码做合理缩进
+   #+BEGIN_SRC emacs-lisp +n -r
+     (save-excursion                  (ref:sc)
+        (goto-char (point-min)))      (ref:jump)
+   #+END_SRC
+   In line [[(sc)]] we remember the current position. Line [[(jump)][(jump)]]
+   jumps to point-min.
+*** 宏
+# <org-macro>
+可以在org中定义宏，类似c的宏，然后可以在段落、标题、引用块、表格、列表中使
+用。系统内建的宏有
+1. title：org文档的标题；
+2. author：org文档的作者；
+3. email：邮件地址；
+4. date：日期戳，还可以定义时间戳的格式，参考[[http://orgmode.org/org.html#Macro-replacement][宏帮助文档]]；
+5. time: 时间戳，同date；
+6. modification-time：date和time的叠加；
+7. input-file：This macro refers to the filename of the exported file；
+8. property：属性，暂未知；
+9. select\_tags: 如果在节标题中做了tag标注，可以使用这个来选择性的导出某些
+   节。
+10. exclude_tags: 和select\_tags相反；
+*** 注释
+可以使用快捷键C-c ; 将某个小节注释掉，导出时不会出现在导出文档中。
+‘#+BEGIN\_COMMENT’ ... ‘#+END\_COMMENT’好像不起作用； 
 *** 导出
 - org-mode转换到pdf需要在org-mode文件中头部使用如下头;
   #+begin_src emacs-lisp
-    #+title: 我的记事本
-    #+author: lxc
+    #+ title: 我的记事本
+    #+ author: lxc
     #+ latex_class: org-latex-pdf
     #+ latex: \newpage
   #+end_src
@@ -313,6 +455,29 @@ table-span-cell可以合并单元格。
 	        tabsize=4, %设置tab空格数
 	        showspaces=false} %不显示空格
   #+end_src
+- 大纲级别:若需导出更深入的大纲级别,可设置 _org-export-headline-levels_
+  或者在文件头使用
+  #+begin_src emacs-lisp
+  #+options: h:4
+  #+end_src
+- 目录：
+  1. 可以设置目录的生成级别或者不导出目录，可设置 _org-export-with-toc_
+     或者在每个文件中使用
+     #+begin_src emacs-lisp
+     #+OPTIONS: toc:2          only inlcude two levels in TOC
+     #+OPTIONS: toc:nil        no default TOC at all
+     #+end_src
+  2. 可以设置目录导出成list或者table
+     #+begin_src emacs-lisp
+     #+TOC: listings           build a list of listings
+     #+TOC: tables             build a list of tables
+     #+end_src
+**** 配置
+可以使用 _#+opinion_ 等关键字对文档导出做配置，也可以将这些配置写入某个 _filename_
+文件中，然后在头使用 _#+setupfile: filename_ 加载这些配置。
+- 关键字：见[[org-macro][宏]]；
+- options: 带一定的[[http://orgmode.org/org.html#Export-settings][参数]] 可以配置不同的导出形式, 比如后面跟 _email:nil_ 表示
+  导出的文档不带email地址， _email:t_ 表示带地址。
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
@@ -377,6 +542,3 @@ table-span-cell可以合并单元格。
 * iar
 - 设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&E), 括号里面的代表快捷键，在Command中设置emacs路径，
   在Argument中 \$FILE_PATH\$ 代表编辑当前文件.  
-
- 
-

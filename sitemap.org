@@ -1,8 +1,8 @@
 #+TITLE: Sitemap
 
-   + [[file:tool.org][2016-01-28 工具]]
+   + [[file:tool.org][2016-02-03 工具]]
+   + [[file:index.org][2016-02-03 比克曼的知识管理]]
    + [[file:software.org][2016-01-27 软件 ]]
-   + [[file:index.org][2016-01-12 比克曼的知识管理]]
    + [[file:language.org][2015-12-21 外语学习]]
    + [[file:algorithm.org][2015-12-18 算法 ]]
    + [[file:math.org][2015-12-15 数学 ]]

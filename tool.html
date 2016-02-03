@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-01-29 00:04:49 中国标准时间"/>
+<meta name="generated" content="2016-02-03 15:54:24 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
-<meta name="keywords" content=""/>
+<meta name="keywords" content="emacs orgmode keil iar"/>
 <link rel='stylesheet' type='text/css' href='css/org-manual.css' />
 <script type="text/javascript">
 <!--/*--><![CDATA[/*><!--*/
@@ -122,7 +122,15 @@
 </li>
 <li><a href="#sec-1-3-9">画图</a></li>
 <li><a href="#sec-1-3-10">链接</a></li>
-<li><a href="#sec-1-3-11">导出</a></li>
+<li><a href="#sec-1-3-11">gtd</a></li>
+<li><a href="#sec-1-3-12">换行</a></li>
+<li><a href="#sec-1-3-13">babel</a></li>
+<li><a href="#sec-1-3-14">宏</a></li>
+<li><a href="#sec-1-3-15">注释</a></li>
+<li><a href="#sec-1-3-16">导出</a>
+<ul>
+<li><a href="#sec-1-3-16-1">配置</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-1-4">python-mode</a></li>
@@ -277,7 +285,7 @@
 </tbody>
 <tbody>
 <tr><td class="left"></td><td class="left">F8</td><td class="left">eshell</td><td class="left">打开eshell</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-F8</td><td class="left">open-eshell-other-buffer</td><td class="left">在另一个buffer里面打开eshell</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-F8</td><td class="left">open-eshell-other-<a href="#buffer">buffer</a></td><td class="left">在另一个<a href="#buffer">buffer</a>里面打开eshell</td><td class="left"></td></tr>
 </tbody>
 <tbody>
 <tr><td class="left"></td><td class="left">C-;</td><td class="left">set-mark-command</td><td class="left">设置标记起始位置</td><td class="left">原来绑定在C-SPC上</td></tr>
@@ -308,13 +316,13 @@
 </tbody>
 <tbody>
 <tr><td class="left"></td><td class="left"></td><td class="left">byte-compile-file</td><td class="left">编译elisp文件</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">describe-current-coding-system</td><td class="left">显示当前buffer的编码格式</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x RET f</td><td class="left"></td><td class="left">改变当前buffer的编码格式</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">describe-current-coding-system</td><td class="left">显示当前<a href="#buffer">buffer</a>的编码格式</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x RET f</td><td class="left"></td><td class="left">改变当前<a href="#buffer">buffer</a>的编码格式</td><td class="left"></td></tr>
 </tbody>
 <tbody>
-<tr><td class="left"></td><td class="left">C-x {</td><td class="left"></td><td class="left">往左加宽buffer尺寸</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x }</td><td class="left"></td><td class="left">往右加宽buffer尺寸</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x ^</td><td class="left"></td><td class="left">往上加高buffer尺寸</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x {</td><td class="left"></td><td class="left">往左加宽<a href="#buffer">buffer</a>尺寸</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x }</td><td class="left"></td><td class="left">往右加宽<a href="#buffer">buffer</a>尺寸</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left">C-x ^</td><td class="left"></td><td class="left">往上加高<a href="#buffer">buffer</a>尺寸</td><td class="left"></td></tr>
 </tbody>
 <tbody>
 <tr><td class="left">目录模式</td><td class="left">n</td><td class="left"></td><td class="left">向下查看文件</td><td class="left"></td></tr>
@@ -358,10 +366,10 @@
 <tr><td class="left"></td><td class="left">K</td><td class="left"></td><td class="left">删除行，刷新后可恢复</td><td class="left">标记（m）后的操作</td></tr>
 </tbody>
 <tbody>
-<tr><td class="left"></td><td class="left"></td><td class="left">revert-buffer</td><td class="left">刷新buffer</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">revert-<a href="#buffer">buffer</a></td><td class="left">刷新<a href="#buffer">buffer</a></td><td class="left"></td></tr>
 <tr><td class="left"></td><td class="left"></td><td class="left">emacs -q</td><td class="left">进入emacs默认最小配置</td><td class="left">启动emacs时使用</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">eval-current-buffer</td><td class="left">当前配置立马生效</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">rename-buffer</td><td class="left">重命名当前buffer</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">eval-current-<a href="#buffer">buffer</a></td><td class="left">当前配置立马生效</td><td class="left"></td></tr>
+<tr><td class="left"></td><td class="left"></td><td class="left">rename-<a href="#buffer">buffer</a></td><td class="left">重命名当前<a href="#buffer">buffer</a></td><td class="left"></td></tr>
 </tbody>
 </table>
 
@@ -389,7 +397,7 @@
   看起来应该是这样：\HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
   Path\gnuclientw.exe，并加上"%1"
 </li>
-<li>emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
+<li>emacs配置立马生效: 可以M-x eval-current-<a href="#buffer">buffer</a>立马生效;
 </li>
 </ul>
 
@@ -451,7 +459,7 @@
 
 <ul>
 <li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
-  变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+  变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#buffer">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
   编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
 </li>
 <li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
@@ -467,7 +475,8 @@
 <h3 id="sec-1-3"><a name="org-mode" id="org-mode"></a>org-mode</h3>
 <div class="outline-text-3" id="text-1-3">
 
-
+<p>org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
+</p>
 </div>
 
 <div id="outline-container-1-3-1" class="outline-4">
@@ -562,7 +571,7 @@
 <h4 id="sec-1-3-6">字体</h4>
 <div class="outline-text-4" id="text-1-3-6">
 
-<p>试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>
+<p>试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
 </p></div>
 
 </div>
@@ -679,9 +688,9 @@ table-span-cell可以合并单元格。
 </li>
 <li>表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；
 </li>
-<li>在minibuffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
+<li>在mini <a href="#buffer">buffer</a>中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
 </li>
-<li>在单独的buffer中输入公式：C-c ';
+<li>在单独的<a href="#buffer">buffer</a>中输入公式：C-c ';
 </li>
 <li>求平均值函数vmean:例如:=vmean($2..$3)；
 </li>
@@ -717,6 +726,55 @@ table-span-cell可以合并单元格。
 <p>测试图</p>
 </div>
 
+<p>
+  引用表格画图：表格见表<a href="#tbl-data-plot">tbl-data-plot</a>所示。
+  #+plot: title: "example table" ind: 1 type: 2d with: lines
+</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-data-plot">
+<caption></caption>
+<colgroup><col class="right" /><col class="right" /><col class="right" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="right">independent var</th><th scope="col" class="right">first dependent var</th><th scope="col" class="right">second dependent var</th></tr>
+</thead>
+<tbody>
+<tr><td class="right">0.1</td><td class="right">0.425</td><td class="right">0.375</td></tr>
+<tr><td class="right">0.2</td><td class="right">0.3125</td><td class="right">0.3375</td></tr>
+<tr><td class="right">0.3</td><td class="right">0.24999993</td><td class="right">0.28333338</td></tr>
+<tr><td class="right">0.4</td><td class="right">0.275</td><td class="right">0.28125</td></tr>
+<tr><td class="right">0.5</td><td class="right">0.26</td><td class="right">0.27</td></tr>
+<tr><td class="right">0.6</td><td class="right">0.25833338</td><td class="right">0.24999993</td></tr>
+<tr><td class="right">0.7</td><td class="right">0.24642845</td><td class="right">0.23928553</td></tr>
+<tr><td class="right">0.8</td><td class="right">0.23125</td><td class="right">0.2375</td></tr>
+<tr><td class="right">0.9</td><td class="right">0.23333323</td><td class="right">0.2333332</td></tr>
+<tr><td class="right">1</td><td class="right">0.2225</td><td class="right">0.22</td></tr>
+<tr><td class="right">1.1</td><td class="right">0.20909075</td><td class="right">0.22272708</td></tr>
+<tr><td class="right">1.2</td><td class="right">0.19999998</td><td class="right">0.21458333</td></tr>
+<tr><td class="right">1.3</td><td class="right">0.19615368</td><td class="right">0.21730748</td></tr>
+<tr><td class="right">1.4</td><td class="right">0.18571433</td><td class="right">0.21071435</td></tr>
+<tr><td class="right">1.5</td><td class="right">0.19000008</td><td class="right">0.2150001</td></tr>
+<tr><td class="right">1.6</td><td class="right">0.1828125</td><td class="right">0.2046875</td></tr>
+<tr><td class="right">1.7</td><td class="right">0.18088253</td><td class="right">0.1985296</td></tr>
+<tr><td class="right">1.8</td><td class="right">0.17916675</td><td class="right">0.18888898</td></tr>
+<tr><td class="right">1.9</td><td class="right">0.19342103</td><td class="right">0.21315783</td></tr>
+<tr><td class="right">2</td><td class="right">0.19</td><td class="right">0.21625</td></tr>
+<tr><td class="right">2.1</td><td class="right">0.18214268</td><td class="right">0.20714265</td></tr>
+<tr><td class="right">2.2</td><td class="right">0.17727275</td><td class="right">0.2022727</td></tr>
+<tr><td class="right">2.3</td><td class="right">0.1739131</td><td class="right">0.1989131</td></tr>
+<tr><td class="right">2.4</td><td class="right">0.16770833</td><td class="right">0.1916667</td></tr>
+<tr><td class="right">2.5</td><td class="right">0.164</td><td class="right">0.188</td></tr>
+<tr><td class="right">2.6</td><td class="right">0.15769238</td><td class="right">0.18076923</td></tr>
+<tr><td class="right">2.7</td><td class="right">0.1592591</td><td class="right">0.1888887</td></tr>
+<tr><td class="right">2.8</td><td class="right">0.1598214</td><td class="right">0.18928565</td></tr>
+<tr><td class="right">2.9</td><td class="right">0.15603453</td><td class="right">0.1844828</td></tr>
+</tbody>
+</table>
+
+
+
+
+<p>
+    <img src="./img/data-plot.png"  alt="./img/data-plot.png" />
+</p>
 </li>
 </ul>
 
@@ -729,11 +787,23 @@ table-span-cell可以合并单元格。
 <div class="outline-text-4" id="text-1-3-10">
 
 <ul>
+<li>链接之间跳转：C-c C-x n和C-c C-x p
+</li>
 <li>内部链接：只需要在某个需要链接到的地方使用# <a name="target" class="target">target</a> ，设置一个标点，再
   在使用的地方，使用像[[][]]这样的格式去定位标点，并给出描述符，或者直接使
   用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用
   [[][]]定位过去就是 <a href="#sec-1-3">org-mode</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
-  标点。 
+  标点。
+</li>
+<li>辐射链接：使用3个尖括号括起的锚点，可以将文档中所有的锚点链接起来，比如
+  <a name="buffer" class="target">buffer</a> ;
+</li>
+<li>外部链接：包括链接到文件、网址、email等
+</li>
+<li>包含：可以在头部使用#+include:"path/file"包含某个文件，比如org，然后就可
+  以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
+  定的数据，比如添加 <span style="text-decoration:underline;">src c</span> ，可以导入c代码；使用 <span style="text-decoration:underline;">lines</span> 关键字可以导入文
+  件的某几行
 </li>
 </ul>
 
@@ -742,16 +812,189 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-1-3-11" class="outline-4">
-<h4 id="sec-1-3-11">导出</h4>
+<h4 id="sec-1-3-11">gtd</h4>
 <div class="outline-text-4" id="text-1-3-11">
+
+<p>gtd状态之间转换可以使用快捷键C-c C-t
+</p><ul>
+<li>工作流状态: 对于一个工作流可以使用 <span style="text-decoration:underline;">sequence</span> 的工作流设置状态如
+
+
+
+<pre class="example">(setq org-todo-keywords '((sequence "TODO" "VERIFY" "|" "DONE")))
+</pre>
+
+</li>
+<li>工作类型: 使用 <span style="text-decoration:underline;">type</span> 设置工作类型如
+
+
+
+<pre class="example">(setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
+</pre>
+
+</li>
+<li>文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下
+
+
+
+<pre class="example">#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED
+#+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED
+#+TYP_TODO: Fred Sara Lucy Mike | DONE
+</pre>
+
+</li>
+<li>状态样式：各种状态可以设置不同的颜色，字体等如
+
+
+
+<pre class="example">(setq org-todo-keyword-faces
+      '(("TODO" . org-warning) ("STARTED" . "yellow")
+       ("CANCELED" . (:foreground "blue" :weight bold))))
+</pre>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-12" class="outline-4">
+<h4 id="sec-1-3-12"><a name="my-new-line" id="my-new-line"></a>换行</h4>
+<div class="outline-text-4" id="text-1-3-12">
+
+<p>一般使用一个空行表示换行，也可以使用latex的斜杠par，如果需要在某个行强行折
+行，可以使用两个斜杠。如果想写类似诗句一样的格式可以使用如下方式
+</p>
+<p class="verse">
+Great clouds overhead<br/>
+Tiny black birds rise and fall<br/>
+Snow covers Emacs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &ndash; AlexSchroeder<br/>
+</p>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-13" class="outline-4">
+<h4 id="sec-1-3-13">babel</h4>
+<div class="outline-text-4" id="text-1-3-13">
+
+<ol>
+<li>verse: 见<a href="#sec-1-3-12">换行</a>一节的用法
+</li>
+<li>quote：如果从别的文章中引用一段话，通常需要将这些语句左右都流出一定空间，
+   如下面所示
+<blockquote>
+
+<p>Everything should be made as simple as possible,
+but not any simpler &ndash; Albert Einstein
+</p>
+</blockquote>
+
+
+</li>
+<li>center: 如果需要将某些文字中心对齐，可以使用如下方式
+
+<div style="text-align: center">
+<p>Everything should be made as simple as possible, <br/>
+but not any simpler
+</p>
+</div>
+
+</li>
+<li>example: 里面的文字不会被解析，原样导出
+
+
+
+<pre class="example">Some example from a text_file.
+</pre>
+
+<p>
+   也可以在首行使用冒号加一个空格后面添加文字作为一个简化方式，如
+</p><pre class="example">
+Some example from a text_file.
+</pre>
+
+</li>
+<li>src: 可以放入一些代码, 使用-n或者+n会对代码标记行号，使用-r表示可以引用
+   代码行号，只需要在某行末尾使用ref：name，在引用的地方使用（name）就可以
+   引用了。使用-i可以对某些代码做合理缩进
+
+
+
+<pre class="example"><span id="coderef-sc" class="coderef-off"><span class="linenr">1:  </span>(save-excursion</span>
+<span id="coderef-jump" class="coderef-off"><span class="linenr">2:  </span>   (goto-char (point-min)))</span>
+</pre>
+
+<p>
+   In line <a href="#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');">1</a> we remember the current position. Line <a href="#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');">2</a>
+   jumps to point-min.
+</p></li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-14" class="outline-4">
+<h4 id="sec-1-3-14">宏</h4>
+<div class="outline-text-4" id="text-1-3-14">
+
+<p>可以在org中定义宏，类似c的宏，然后可以在段落、标题、引用块、表格、列表中使
+用。系统内建的宏有
+</p><ol>
+<li>title：org文档的标题；
+</li>
+<li>author：org文档的作者；
+</li>
+<li>email：邮件地址；
+</li>
+<li>date：日期戳，还可以定义时间戳的格式，参考<a href="http://orgmode.org/org.html#Macro-replacement">宏帮助文档</a>；
+</li>
+<li>time: 时间戳，同date；
+</li>
+<li>modification-time：date和time的叠加；
+</li>
+<li>input-file：This macro refers to the filename of the exported file；
+</li>
+<li>property：属性，暂未知；
+</li>
+<li>select_tags: 如果在节标题中做了tag标注，可以使用这个来选择性的导出某些
+   节。
+</li>
+<li>exclude<sub>tags</sub>: 和select_tags相反；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-15" class="outline-4">
+<h4 id="sec-1-3-15">注释</h4>
+<div class="outline-text-4" id="text-1-3-15">
+
+<p>可以使用快捷键C-c ; 将某个小节注释掉，导出时不会出现在导出文档中。
+‘#+BEGIN_COMMENT’ &hellip; ‘#+END_COMMENT’好像不起作用； 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-16" class="outline-4">
+<h4 id="sec-1-3-16">导出</h4>
+<div class="outline-text-4" id="text-1-3-16">
 
 <ul>
 <li>org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 
 
 
-<pre class="example">#+title: 我的记事本
-#+author: lxc
+<pre class="example">#+ title: 我的记事本
+#+ author: lxc
 #+ latex_class: org-latex-pdf
 #+ latex: \newpage
 </pre>
@@ -782,8 +1025,59 @@ table-span-cell可以合并单元格。
 </pre>
 
 </li>
+<li>大纲级别:若需导出更深入的大纲级别,可设置 <span style="text-decoration:underline;">org-export-headline-levels</span>
+  或者在文件头使用
+
+
+
+<pre class="example">#+options: h:4
+</pre>
+
+</li>
+<li>目录：
+<ol>
+<li>可以设置目录的生成级别或者不导出目录，可设置 <span style="text-decoration:underline;">org-export-with-toc</span>
+     或者在每个文件中使用
+
+
+
+<pre class="example">#+OPTIONS: toc:2          only inlcude two levels in TOC
+#+OPTIONS: toc:nil        no default TOC at all
+</pre>
+
+</li>
+<li>可以设置目录导出成list或者table
+
+
+
+<pre class="example">#+TOC: listings           build a list of listings
+#+TOC: tables             build a list of tables
+</pre>
+
+</li>
+</ol>
+
+</li>
 </ul>
 
+
+</div>
+
+<div id="outline-container-1-3-16-1" class="outline-5">
+<h5 id="sec-1-3-16-1">配置</h5>
+<div class="outline-text-5" id="text-1-3-16-1">
+
+<p>可以使用 <span style="text-decoration:underline;">#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span style="text-decoration:underline;">filename</span>
+文件中，然后在头使用 <span style="text-decoration:underline;">#+setupfile: filename</span> 加载这些配置。
+</p><ul>
+<li>关键字：见<a href="#org-macro">宏</a>；
+</li>
+<li>options: 带一定的<a href="http://orgmode.org/org.html#Export-settings">参数</a> 可以配置不同的导出形式, 比如后面跟 <span style="text-decoration:underline;">email:nil</span> 表示
+  导出的文档不带email地址， <span style="text-decoration:underline;">email:t</span> 表示带地址。
+</li>
+</ul>
+
+</div>
 </div>
 </div>
 
@@ -794,8 +1088,8 @@ table-span-cell可以合并单元格。
 <div class="outline-text-3" id="text-1-4">
 
 <ul>
-<li>进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
-  C-z直接运行buffer的代码；
+<li>进入交互python模式：进入某个<a href="#buffer">buffer</a>，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在<a href="#buffer">buffer</a>里面写好程序，在C-c
+  C-z直接运行<a href="#buffer">buffer</a>的代码；
 </li>
 </ul>
 
@@ -1051,12 +1345,7 @@ table-span-cell可以合并单元格。
 
 
 <p class="footnote"><sup><a class="footnum" name="fn.4" href="#fnr.4">4</a></sup> 带描述的脚注
-</p>
-
-
-
-
-</div>
+</p></div>
 </div>
 
 </div>
@@ -1064,8 +1353,9 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-01-29 00:04:49 中国标准时间</p>
+<p class="date">Date: 2016-02-03 15:54:24 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
+<p class="email"><a href="mailto:bitman@163.com">bitman@163.com</a></p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
 
