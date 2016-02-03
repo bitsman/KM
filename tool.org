@@ -1,17 +1,39 @@
+#+MACRO: version 2.0
+#+MACRO: updated last updated 4 March 2014
 #+title: 工具
 #+author: 比克曼
+#+subauthor: 第二作者 
 #+email: bitman@163.com
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
-
 #+startup: overview
 #+startup: hideblocks
 #+startup: align
 #+startup: logdone
-#+options: h:4 email:t author:t creator:t  
+#+options: ':t email:t author:t 
 #+toc: tables
+#+latex_header: \setcounter{tocdepth}{5}
+#+latex_header: \setcounter{secnumdepth}{5}
 
-#+keywords: emacs orgmode keil iar
+#+keywords: emacs keil iar
+#+creator: creator-bitsman 
+#+DESCRIPTION: description-bitsman
+#+SUBTITLE: subtitle-bitsman
+
+* Copying
+:PROPERTIES:
+:COPYING:  t
+:END:
+This manual is for bitman study Sample (version {{{version}}}, {{{updated}}}), which
+is an example in the documentation. Copyright @@texinfo:@copyright{}@@ 2013 bitman, Inc. 
+#+BEGIN_QUOTE
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant
+Sections, with no Front-Cover Texts, and with no Back-Cover Texts.  A copy
+of the license is included in the section entitled "GNU Free Documentation
+License". 
+#+END_QUOTE
 
 * emacs
 ** 安装
@@ -46,7 +68,7 @@
 - 表格\ref{tbl-emacs-inf}总结了平时需要的快捷键、模式、命令等操作；
   #+caption: emacs使用汇总
   #+label: tbl-emacs-inf
-  #+attr_latex: placement=[H]
+  #+attr_latex: placement=[H] :environment longtable
   |----------+-----------+--------------------------------+----------------------------------+--------------------|
   | 模式     | 按键      | 函数                           | 功能                             | 备注               |
   |----------+-----------+--------------------------------+----------------------------------+--------------------|
@@ -176,6 +198,21 @@
   变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
   编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
 - 对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
+** elisp
+*** 函数
+- concat：将字符串连接，如下
+  #+begin_src lisp
+  (concat "gcc" "-W -o")
+  #+end_src
+- file-name-sans-extension: 获得文件名，除了后缀名；
+- buffer-file-name: 获得文件名，带后缀名；
+- current-buffer: 当前buffer名；
+*** 功能
+- 获取buffer文件名: 行[[(extn)]]带有后缀名，行[[(noextn)]]不带后缀名；
+  #+begin_src lisp -n -r
+  (buffer-file-name (current-buffer)) (ref:extn)
+  (file-name-sans-extension (buffer-file-name (current-buffer))) (ref:noextn)
+  #+end_src
 ** org-mode
 # <<org-mode>>
 org-mode在线[[http://orgmode.org/org.html][帮助文档]]。
@@ -270,7 +307,6 @@ table-span-cell可以合并单元格。
                             +------------------+   |   cRED       |
                                                    +--------------+
   #+end_src
-
 - gnuplot，见图\ref{img-gnuplot-test}所示：
   #+caption: 测试图
   #+label: img-gnuplot-test
@@ -359,11 +395,13 @@ gtd状态之间转换可以使用快捷键C-c C-t
   #+begin_src emacs-lisp
   (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
   #+end_src
-- 文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下
-  #+begin_src emacs-lisp
-  #+TODO: TODO FEEDBACK VERIFY | DONE CANCELED
-  #+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED
-  #+TYP_TODO: Fred Sara Lucy Mike | DONE
+- 文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下, 行
+  [[(all-todo)]]可以定义两种关键字，行[[(seq-todo)]]可以定义工作流状态，行
+  [[(type-todo)]]可以定义工作类型。
+  #+begin_src emacs-lisp -n -r
+  #+TODO: TODO FEEDBACK VERIFY | DONE CANCELED (ref: all-todo)
+  #+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED (ref: seq-todo)
+  #+TYP_TODO: Fred Sara Lucy Mike | DONE            (ref: type-todo)
   #+end_src
 - 状态样式：各种状态可以设置不同的颜色，字体等如
   #+begin_src emacs-lisp
@@ -401,10 +439,11 @@ Snow covers Emacs
    #+end_example
    也可以在首行使用冒号加一个空格后面添加文字作为一个简化方式，如
    : Some example from a text_file.
-5. src: 可以放入一些代码, 使用-n或者+n会对代码标记行号，使用-r表示可以引用
-   代码行号，只需要在某行末尾使用ref：name，在引用的地方使用（name）就可以
-   引用了。使用-i可以对某些代码做合理缩进
-   #+BEGIN_SRC emacs-lisp +n -r
+5. src: 可以放入一些代码, 使用-n或者+n会对代码标记行号, 其中-n会使代码行号
+   重新计数，+n从上一个代码片段累计计数，使用-r表示可以引用行号，只需要在某
+   行末尾使用（ref：name），在引用的地方使用C-c C-l 输入连接（name）就可引
+   用了。使用-i可以对某些代码做合理缩进 
+   #+BEGIN_SRC emacs-lisp -n -r
      (save-excursion                  (ref:sc)
         (goto-char (point-min)))      (ref:jump)
    #+END_SRC
@@ -475,9 +514,88 @@ Snow covers Emacs
 **** 配置
 可以使用 _#+opinion_ 等关键字对文档导出做配置，也可以将这些配置写入某个 _filename_
 文件中，然后在头使用 _#+setupfile: filename_ 加载这些配置。
-- 关键字：见[[org-macro][宏]]；
-- options: 带一定的[[http://orgmode.org/org.html#Export-settings][参数]] 可以配置不同的导出形式, 比如后面跟 _email:nil_ 表示
-  导出的文档不带email地址， _email:t_ 表示带地址。
+- 关键字：见[[org-macro][宏]]，或见表\ref{tbl-key-words}所示；
+  #+caption: 配置关键字
+  #+label: tbl-key-words
+  #+attr_latex: placement=[H]
+  |--------------------------+------------------------------------------------------------------------|
+  | 项                       | 说明                                                                   |
+  |--------------------------+------------------------------------------------------------------------|
+  |--------------------------+------------------------------------------------------------------------|
+  | #+TITLE:                 | the title to be shown (default is the buffer name)                     |
+  | #+AUTHOR:                | the author (default taken from user-full-name)                         |
+  | #+DATE:                  | a date, an Org timestamp119, or a format string for format-time-string |
+  | #+EMAIL:                 | his/her email address (default from user-mail-address)                 |
+  | #+DESCRIPTION:           | 某些pdf软件可以查看pdf的属性，属性包括文章描述                         |
+  | #+KEYWORDS:              | 某些pdf软件可以查看pdf的属性，属性包括文章关键字                       |
+  | #+LANGUAGE:              | language for HTML, e.g. ‘en’ (org-export-default-language)           |
+  | #+TEXT:                  | Some descriptive text to be inserted at the beginning.                 |
+  | #+TEXT:                  | Several lines may be given.                                            |
+  | #+OPTIONS:               | H:2 num:t toc:t \n:nil @:t ::t     竖线:t ^:t f:t TeX:t ...            |
+  | #+BIND:                  | lisp-var lisp-val, e.g.: org-export-latex-low-levels itemize           |
+  |                          | You need to confirm using these, or configure org-export-allow-BIND    |
+  | #+LINK\_UP:              | the ``up'' link of an exported page                                    |
+  | #+LINK\_HOME:            | the ``home'' link of an exported page                                  |
+  | #+LATEX\_HEADER:         | extra line(s) for the LaTeX header, like \usepackage{xyz}              |
+  | #+EXPORT\_SELECT\_TAGS:  | Tags that select a tree for export                                     |
+  | #+EXPORT\_EXCLUDE\_TAGS: | Tags that exclude a tree from export                                   |
+  | #+XSLT:                  | the XSLT stylesheet used by DocBook exporter to generate FO file       |
+  |--------------------------+------------------------------------------------------------------------|
+- options: 带一定的[[http://orgmode.org/org.html#Export-settings][参数]] 可以配置不同的导出形式, 见表\ref{tbl-option-para},
+  比如后面跟 _email:nil_ 表示导出的文档不带email地址， _email:t_ 表示带地址。
+  #+caption: option项的参数说明
+  #+label: tbl-option-para
+  #+attr_latex: placement=[H]
+  |------------+-------------------------------------------------------------------|
+  | 项         | 说明                                                              |
+  |------------+-------------------------------------------------------------------|
+  |------------+-------------------------------------------------------------------|
+  | H:         | set the number of headline levels for export                      |
+  | num:       | turn on/off section-numbers                                       |
+  | toc:       | turn on/off table of contents, or set level limit (integer)       |
+  | \n:        | turn on/off line-break-preservation (DOES NOT WORK)               |
+  | @:         | turn on/off quoted HTML tags                                      |
+  | ::         | turn on/off fixed-width sections                                  |
+  | 竖线 :     | turn on/off tables                                                |
+  | ^:         | turn on/off TeX-like syntax for sub- and superscripts.  If        |
+  |            | you write "^:{}", a_{b} will be interpreted, but                  |
+  |            | the simple a_b will be left as it is.                             |
+  | 横线:      | turn on/off conversion of special strings.                        |
+  | f:         | turn on/off footnotes like this[1].                               |
+  | todo:      | turn on/off inclusion of TODO keywords into exported text         |
+  | tasks:     | turn on/off inclusion of tasks (TODO items), can be nil to remove |
+  |            | all tasks, todo to remove DONE tasks, or list of kwds to keep     |
+  | pri:       | turn on/off priority cookies                                      |
+  | tags:      | turn on/off inclusion of tags, may also be not-in-toc             |
+  | <:         | turn on/off inclusion of any time/date stamps like DEADLINES      |
+  | *:         | turn on/off emphasized text (bold, italic, underlined)            |
+  | TeX:       | turn on/off simple TeX macros in plain text                       |
+  | LaTeX:     | configure export of LaTeX fragments.  Default auto                |
+  | skip:      | turn on/off skipping the text before the first heading            |
+  | author:    | turn on/off inclusion of author name/email into exported file     |
+  | email:     | turn on/off inclusion of author email into exported file          |
+  | creator    | turn on/off inclusion of creator info into exported file          |
+  | timestamp: | turn on/off inclusion creation time into exported file            |
+  | d:         | turn on/off inclusion of drawers                                  |
+  |------------+-------------------------------------------------------------------|
+- 标题级数：使用如下配置可以设置标题显示级数，使用option的h参数不够。
+  #+begin_src lisp
+  #+latex_header: \setcounter{tocdepth}{5}
+  #+latex_header: \setcounter{secnumdepth}{5}
+  #+end_src
+
+**** beamer
+不用#+latex_class也可以导出幻灯片，见[[http://orgmode.org/org.html#A-Beamer-Example][代码]]。
+**** pdf
+可以设置一些导出配置选项
+- DESCRIPTION：文档的描述；
+- LATEX\_CLASS：预定义的一些latex配置；
+- LATEX\_CLASS\_OPTIONS: 配置选项；
+- LATEX\_HEADER: 添加一些latex包；
+- LATEX\_HEADER\_EXTRA: 添加的一些其他配置；
+- KEYWORDS：文档关键字；
+- SUBTITLE：文档小标题；
+**** html
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
