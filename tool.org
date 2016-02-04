@@ -359,8 +359,8 @@ table-span-cell可以合并单元格。
   |             2.6 |          0.15769238 |           0.18076923 |
   |             2.7 |           0.1592591 |            0.1888887 |
   |             2.8 |           0.1598214 |           0.18928565 |
-  |             2.9 |          0.15603453 |            0.1844828 | 
-  |-----------------+---------------------+----------------------| 
+  |             2.9 |          0.15603453 |            0.1844828 |
+  |-----------------+---------------------+----------------------|
   
   #+begin_src gnuplot :var data=data-plot :exports results :file ./img/data-plot.png
     reset
@@ -463,7 +463,7 @@ Snow covers Emacs
 8. property：属性，暂未知；
 9. select\_tags: 如果在节标题中做了tag标注，可以使用这个来选择性的导出某些
    节。
-10. exclude_tags: 和select\_tags相反；
+10. exclude\_tags: 和select\_tags相反；
 *** 注释
 可以使用快捷键C-c ; 将某个小节注释掉，导出时不会出现在导出文档中。
 ‘#+BEGIN\_COMMENT’ ... ‘#+END\_COMMENT’好像不起作用； 
@@ -512,72 +512,78 @@ Snow covers Emacs
      #+TOC: tables             build a list of tables
      #+end_src
 **** 配置
-可以使用 _#+opinion_ 等关键字对文档导出做配置，也可以将这些配置写入某个 _filename_
-文件中，然后在头使用 _#+setupfile: filename_ 加载这些配置。
+可以使用 _\#+opinion_ 等关键字对文档导出做配置，也可以将这些配置写入某个 _filename_
+文件中，然后在头使用 _\#+setupfile: filename_ 加载这些配置。
 - 关键字：见[[org-macro][宏]]，或见表\ref{tbl-key-words}所示；
   #+caption: 配置关键字
   #+label: tbl-key-words
   #+attr_latex: placement=[H]
-  |--------------------------+------------------------------------------------------------------------|
-  | 项                       | 说明                                                                   |
-  |--------------------------+------------------------------------------------------------------------|
-  |--------------------------+------------------------------------------------------------------------|
-  | #+TITLE:                 | the title to be shown (default is the buffer name)                     |
-  | #+AUTHOR:                | the author (default taken from user-full-name)                         |
-  | #+DATE:                  | a date, an Org timestamp119, or a format string for format-time-string |
-  | #+EMAIL:                 | his/her email address (default from user-mail-address)                 |
-  | #+DESCRIPTION:           | 某些pdf软件可以查看pdf的属性，属性包括文章描述                         |
-  | #+KEYWORDS:              | 某些pdf软件可以查看pdf的属性，属性包括文章关键字                       |
-  | #+LANGUAGE:              | language for HTML, e.g. ‘en’ (org-export-default-language)           |
-  | #+TEXT:                  | Some descriptive text to be inserted at the beginning.                 |
-  | #+TEXT:                  | Several lines may be given.                                            |
-  | #+OPTIONS:               | H:2 num:t toc:t \n:nil @:t ::t     竖线:t ^:t f:t TeX:t ...            |
-  | #+BIND:                  | lisp-var lisp-val, e.g.: org-export-latex-low-levels itemize           |
-  |                          | You need to confirm using these, or configure org-export-allow-BIND    |
-  | #+LINK\_UP:              | the ``up'' link of an exported page                                    |
-  | #+LINK\_HOME:            | the ``home'' link of an exported page                                  |
-  | #+LATEX\_HEADER:         | extra line(s) for the LaTeX header, like \usepackage{xyz}              |
-  | #+EXPORT\_SELECT\_TAGS:  | Tags that select a tree for export                                     |
-  | #+EXPORT\_EXCLUDE\_TAGS: | Tags that exclude a tree from export                                   |
-  | #+XSLT:                  | the XSLT stylesheet used by DocBook exporter to generate FO file       |
-  |--------------------------+------------------------------------------------------------------------|
+  |--------------------------+---------------------------------------------------------------------------|
+  | 项                       | 说明                                                                      |
+  |--------------------------+---------------------------------------------------------------------------|
+  |--------------------------+---------------------------------------------------------------------------|
+  | #+TITLE:                 | the title to be shown (default is the buffer name)                        |
+  | #+AUTHOR:                | the author (default taken from user-full-name)                            |
+  | #+DATE:                  | a date, an Org timestamp119, or a format string for format-time-string    |
+  | #+EMAIL:                 | his/her email address (default from user-mail-address)                    |
+  | #+DESCRIPTION:           | 某些pdf软件可以查看pdf的属性，属性包括文章描述                            |
+  | #+KEYWORDS:              | 某些pdf软件可以查看pdf的属性，属性包括文章关键字                          |
+  | #+LANGUAGE:              | language for HTML, e.g. ‘en’ (org-export-default-language)              |
+  | #+TEXT:                  | Some descriptive text to be inserted at the beginning.                    |
+  | #+TEXT:                  | Several lines may be given.                                               |
+  | #+OPTIONS:               | H:2 num:t toc:t \backslash{}n:nil @:t ::t     \vert{}:t ^:t f:t TeX:t ... |
+  |--------------------------+---------------------------------------------------------------------------|
+  | #+BIND:                  | lisp-var lisp-val, e.g.: org-export-latex-low-levels itemize              |
+  |                          | You need to confirm using these, or configure org-export-allow-BIND       |
+  |--------------------------+---------------------------------------------------------------------------|
+  | #+LINK\_UP:              | the ``up'' link of an exported page                                       |
+  | #+LINK\_HOME:            | the ``home'' link of an exported page                                     |
+  | #+LATEX\_HEADER:         | extra line(s) for the LaTeX header, like \usepackage{xyz}                 |
+  | #+EXPORT\_SELECT\_TAGS:  | Tags that select a tree for export                                        |
+  | #+EXPORT\_EXCLUDE\_TAGS: | Tags that exclude a tree from export                                      |
+  | #+XSLT:                  | the XSLT stylesheet used by DocBook exporter to generate FO file          |
+  |--------------------------+---------------------------------------------------------------------------|
 - options: 带一定的[[http://orgmode.org/org.html#Export-settings][参数]] 可以配置不同的导出形式, 见表\ref{tbl-option-para},
   比如后面跟 _email:nil_ 表示导出的文档不带email地址， _email:t_ 表示带地址。
   #+caption: option项的参数说明
   #+label: tbl-option-para
   #+attr_latex: placement=[H]
-  |------------+-------------------------------------------------------------------|
-  | 项         | 说明                                                              |
-  |------------+-------------------------------------------------------------------|
-  |------------+-------------------------------------------------------------------|
-  | H:         | set the number of headline levels for export                      |
-  | num:       | turn on/off section-numbers                                       |
-  | toc:       | turn on/off table of contents, or set level limit (integer)       |
-  | \n:        | turn on/off line-break-preservation (DOES NOT WORK)               |
-  | @:         | turn on/off quoted HTML tags                                      |
-  | ::         | turn on/off fixed-width sections                                  |
-  | 竖线 :     | turn on/off tables                                                |
-  | ^:         | turn on/off TeX-like syntax for sub- and superscripts.  If        |
-  |            | you write "^:{}", a_{b} will be interpreted, but                  |
-  |            | the simple a_b will be left as it is.                             |
-  | 横线:      | turn on/off conversion of special strings.                        |
-  | f:         | turn on/off footnotes like this[1].                               |
-  | todo:      | turn on/off inclusion of TODO keywords into exported text         |
-  | tasks:     | turn on/off inclusion of tasks (TODO items), can be nil to remove |
-  |            | all tasks, todo to remove DONE tasks, or list of kwds to keep     |
-  | pri:       | turn on/off priority cookies                                      |
-  | tags:      | turn on/off inclusion of tags, may also be not-in-toc             |
-  | <:         | turn on/off inclusion of any time/date stamps like DEADLINES      |
-  | *:         | turn on/off emphasized text (bold, italic, underlined)            |
-  | TeX:       | turn on/off simple TeX macros in plain text                       |
-  | LaTeX:     | configure export of LaTeX fragments.  Default auto                |
-  | skip:      | turn on/off skipping the text before the first heading            |
-  | author:    | turn on/off inclusion of author name/email into exported file     |
-  | email:     | turn on/off inclusion of author email into exported file          |
-  | creator    | turn on/off inclusion of creator info into exported file          |
-  | timestamp: | turn on/off inclusion creation time into exported file            |
-  | d:         | turn on/off inclusion of drawers                                  |
-  |------------+-------------------------------------------------------------------|
+  |-------------+-------------------------------------------------------------------|
+  | 项          | 说明                                                              |
+  |-------------+-------------------------------------------------------------------|
+  |-------------+-------------------------------------------------------------------|
+  | H:          | set the number of headline levels for export                      |
+  | num:        | turn on/off section-numbers                                       |
+  | toc:        | turn on/off table of contents, or set level limit (integer)       |
+  | \n:         | turn on/off line-break-preservation (DOES NOT WORK)               |
+  | @:          | turn on/off quoted HTML tags                                      |
+  | ::          | turn on/off fixed-width sections                                  |
+  | \vert{} :   | turn on/off tables                                                |
+  |-------------+-------------------------------------------------------------------|
+  | \land{}:    | turn on/off TeX-like syntax for sub- and superscripts.  If        |
+  |             | you write "^:{}", a_{b} will be interpreted, but                  |
+  |             | the simple a_b will be left as it is.                             |
+  |-------------+-------------------------------------------------------------------|
+  | \mathrm{-}: | turn on/off conversion of special strings.                        |
+  | f:          | turn on/off footnotes like this[1].                               |
+  | todo:       | turn on/off inclusion of TODO keywords into exported text         |
+  |-------------+-------------------------------------------------------------------|
+  | tasks:      | turn on/off inclusion of tasks (TODO items), can be nil to remove |
+  |             | all tasks, todo to remove DONE tasks, or list of kwds to keep     |
+  |-------------+-------------------------------------------------------------------|
+  | pri:        | turn on/off priority cookies                                      |
+  | tags:       | turn on/off inclusion of tags, may also be not-in-toc             |
+  | <:          | turn on/off inclusion of any time/date stamps like DEADLINES      |
+  | *:          | turn on/off emphasized text (bold, italic, underlined)            |
+  | TeX:        | turn on/off simple TeX macros in plain text                       |
+  | LaTeX:      | configure export of LaTeX fragments.  Default auto                |
+  | skip:       | turn on/off skipping the text before the first heading            |
+  | author:     | turn on/off inclusion of author name/email into exported file     |
+  | email:      | turn on/off inclusion of author email into exported file          |
+  | creator     | turn on/off inclusion of creator info into exported file          |
+  | timestamp:  | turn on/off inclusion creation time into exported file            |
+  | d:          | turn on/off inclusion of drawers                                  |
+  |-------------+-------------------------------------------------------------------|
 - 标题级数：使用如下配置可以设置标题显示级数，使用option的h参数不够。
   #+begin_src lisp
   #+latex_header: \setcounter{tocdepth}{5}
@@ -596,6 +602,12 @@ Snow covers Emacs
 - KEYWORDS：文档关键字；
 - SUBTITLE：文档小标题；
 **** html
+**** 特殊符号
+- 表格里面的竖线: latex命令\vert{}; 
+- 表格里面的横线：latex命令\mathrm{-};
+- 表格里面的上尖括号：latex命令\land{}；
+- 表格里面的左尖括号：latex命令\textless{};
+- 表格里面的右尖括号：latex命令\textgreater{}; 
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
@@ -660,3 +672,5 @@ Snow covers Emacs
 * iar
 - 设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&E), 括号里面的代表快捷键，在Command中设置emacs路径，
   在Argument中 \$FILE_PATH\$ 代表编辑当前文件.  
+
+

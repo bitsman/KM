@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-02-04 00:11:56 中国标准时间"/>
+<meta name="generated" content="2016-02-04 22:57:28 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content="description-bitsman"/>
 <meta name="keywords" content="emacs keil iar"/>
@@ -86,101 +86,103 @@
 <h1 class="title">工具</h1>
 
 
+
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Copying</a></li>
-<li><a href="#sec-2">emacs</a>
+<li><a href="#sec-1">1 Copying</a></li>
+<li><a href="#sec-2">2 emacs</a>
 <ul>
-<li><a href="#sec-2-1">安装</a></li>
-<li><a href="#sec-2-2">基本操作</a>
+<li><a href="#sec-2-1">2.1 安装</a></li>
+<li><a href="#sec-2-2">2.2 基本操作</a>
 <ul>
-<li><a href="#sec-2-2-1">按键命令</a></li>
-<li><a href="#sec-2-2-2">其他</a></li>
-<li><a href="#sec-2-2-3">计算器</a></li>
-<li><a href="#sec-2-2-4">图片</a></li>
-<li><a href="#sec-2-2-5">字体</a></li>
-<li><a href="#sec-2-2-6">编码</a></li>
+<li><a href="#sec-2-2-1">2.2.1 按键命令</a></li>
+<li><a href="#sec-2-2-2">2.2.2 其他</a></li>
+<li><a href="#sec-2-2-3">2.2.3 计算器</a></li>
+<li><a href="#sec-2-2-4">2.2.4 图片</a></li>
+<li><a href="#sec-2-2-5">2.2.5 字体</a></li>
+<li><a href="#sec-2-2-6">2.2.6 编码</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-3">elisp</a>
+<li><a href="#sec-2-3">2.3 elisp</a>
 <ul>
-<li><a href="#sec-2-3-1">函数</a></li>
-<li><a href="#sec-2-3-2">功能</a></li>
+<li><a href="#sec-2-3-1">2.3.1 函数</a></li>
+<li><a href="#sec-2-3-2">2.3.2 功能</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-4">org-mode</a>
+<li><a href="#sec-2-4">2.4 org-mode</a>
 <ul>
-<li><a href="#sec-2-4-1">可视化</a></li>
-<li><a href="#sec-2-4-2">抽屉</a></li>
-<li><a href="#sec-2-4-3">块</a></li>
-<li><a href="#sec-2-4-4">脚注</a></li>
-<li><a href="#sec-2-4-5">序号</a></li>
-<li><a href="#sec-2-4-6">字体</a></li>
-<li><a href="#sec-2-4-7">公式</a></li>
-<li><a href="#sec-2-4-8">表格</a>
+<li><a href="#sec-2-4-1">2.4.1 可视化</a></li>
+<li><a href="#sec-2-4-2">2.4.2 抽屉</a></li>
+<li><a href="#sec-2-4-3">2.4.3 块</a></li>
+<li><a href="#sec-2-4-4">2.4.4 脚注</a></li>
+<li><a href="#sec-2-4-5">2.4.5 序号</a></li>
+<li><a href="#sec-2-4-6">2.4.6 字体</a></li>
+<li><a href="#sec-2-4-7">2.4.7 公式</a></li>
+<li><a href="#sec-2-4-8">2.4.8 表格</a>
 <ul>
-<li><a href="#sec-2-4-8-1">内建表格</a></li>
-<li><a href="#sec-2-4-8-2">表格插件</a></li>
-<li><a href="#sec-2-4-8-3">表格第三方</a></li>
-<li><a href="#sec-2-4-8-4">表格计算</a></li>
+<li><a href="#sec-2-4-8-1">2.4.8.1 内建表格</a></li>
+<li><a href="#sec-2-4-8-2">2.4.8.2 表格插件</a></li>
+<li><a href="#sec-2-4-8-3">2.4.8.3 表格第三方</a></li>
+<li><a href="#sec-2-4-8-4">2.4.8.4 表格计算</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-4-9">画图</a></li>
-<li><a href="#sec-2-4-10">链接</a></li>
-<li><a href="#sec-2-4-11">gtd</a></li>
-<li><a href="#sec-2-4-12">换行</a></li>
-<li><a href="#sec-2-4-13">babel</a></li>
-<li><a href="#sec-2-4-14">宏</a></li>
-<li><a href="#sec-2-4-15">注释</a></li>
-<li><a href="#sec-2-4-16">导出</a>
+<li><a href="#sec-2-4-9">2.4.9 画图</a></li>
+<li><a href="#sec-2-4-10">2.4.10 链接</a></li>
+<li><a href="#sec-2-4-11">2.4.11 gtd</a></li>
+<li><a href="#sec-2-4-12">2.4.12 换行</a></li>
+<li><a href="#sec-2-4-13">2.4.13 babel</a></li>
+<li><a href="#sec-2-4-14">2.4.14 宏</a></li>
+<li><a href="#sec-2-4-15">2.4.15 注释</a></li>
+<li><a href="#sec-2-4-16">2.4.16 导出</a>
 <ul>
-<li><a href="#sec-2-4-16-1">配置</a></li>
-<li><a href="#sec-2-4-16-2">beamer</a></li>
-<li><a href="#sec-2-4-16-3">pdf</a></li>
-<li><a href="#sec-2-4-16-4">html</a></li>
+<li><a href="#sec-2-4-16-1">2.4.16.1 配置</a></li>
+<li><a href="#sec-2-4-16-2">2.4.16.2 beamer</a></li>
+<li><a href="#sec-2-4-16-3">2.4.16.3 pdf</a></li>
+<li><a href="#sec-2-4-16-4">2.4.16.4 html</a></li>
+<li><a href="#sec-2-4-16-5">2.4.16.5 特殊符号</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-5">python-mode</a></li>
+<li><a href="#sec-2-5">2.5 python-mode</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">latex</a>
+<li><a href="#sec-3">3 latex</a>
 <ul>
-<li><a href="#sec-3-1">方法</a></li>
-<li><a href="#sec-3-2">符号</a>
+<li><a href="#sec-3-1">3.1 方法</a></li>
+<li><a href="#sec-3-2">3.2 符号</a>
 <ul>
-<li><a href="#sec-3-2-1">数学模式重音符号</a></li>
-<li><a href="#sec-3-2-2">小写希腊字母</a></li>
-<li><a href="#sec-3-2-3">大写希腊字母</a></li>
-<li><a href="#sec-3-2-4">二元关系符</a></li>
-<li><a href="#sec-3-2-5">二元运算符</a></li>
-<li><a href="#sec-3-2-6">大尺寸运算符</a></li>
-<li><a href="#sec-3-2-7">箭头</a></li>
-<li><a href="#sec-3-2-8">定界符</a></li>
-<li><a href="#sec-3-2-9">大尺寸定界符</a></li>
-<li><a href="#sec-3-2-10">其他符号</a></li>
-<li><a href="#sec-3-2-11">非数学符号</a></li>
-<li><a href="#sec-3-2-12">AMS定界符</a></li>
-<li><a href="#sec-3-2-13">AMS希腊和希伯来字母</a></li>
-<li><a href="#sec-3-2-14">AMS二元关系符</a></li>
-<li><a href="#sec-3-2-15">AMS箭头</a></li>
-<li><a href="#sec-3-2-16">AMS二元否定关系符和箭头</a></li>
-<li><a href="#sec-3-2-17">AMS二元运算符</a></li>
-<li><a href="#sec-3-2-18">AMS其他符号</a></li>
-<li><a href="#sec-3-2-19">微积分符号</a></li>
+<li><a href="#sec-3-2-1">3.2.1 数学模式重音符号</a></li>
+<li><a href="#sec-3-2-2">3.2.2 小写希腊字母</a></li>
+<li><a href="#sec-3-2-3">3.2.3 大写希腊字母</a></li>
+<li><a href="#sec-3-2-4">3.2.4 二元关系符</a></li>
+<li><a href="#sec-3-2-5">3.2.5 二元运算符</a></li>
+<li><a href="#sec-3-2-6">3.2.6 大尺寸运算符</a></li>
+<li><a href="#sec-3-2-7">3.2.7 箭头</a></li>
+<li><a href="#sec-3-2-8">3.2.8 定界符</a></li>
+<li><a href="#sec-3-2-9">3.2.9 大尺寸定界符</a></li>
+<li><a href="#sec-3-2-10">3.2.10 其他符号</a></li>
+<li><a href="#sec-3-2-11">3.2.11 非数学符号</a></li>
+<li><a href="#sec-3-2-12">3.2.12 AMS定界符</a></li>
+<li><a href="#sec-3-2-13">3.2.13 AMS希腊和希伯来字母</a></li>
+<li><a href="#sec-3-2-14">3.2.14 AMS二元关系符</a></li>
+<li><a href="#sec-3-2-15">3.2.15 AMS箭头</a></li>
+<li><a href="#sec-3-2-16">3.2.16 AMS二元否定关系符和箭头</a></li>
+<li><a href="#sec-3-2-17">3.2.17 AMS二元运算符</a></li>
+<li><a href="#sec-3-2-18">3.2.18 AMS其他符号</a></li>
+<li><a href="#sec-3-2-19">3.2.19 微积分符号</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-4">keil</a></li>
-<li><a href="#sec-5">iar</a></li>
+<li><a href="#sec-4">4 keil</a></li>
+<li><a href="#sec-5">5 iar</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Copying</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Copying</h2>
 <div class="outline-text-2" id="text-1">
 
 <p>This manual is for bitman study Sample (version 2.0, last updated 4 March 2014), which
@@ -202,14 +204,14 @@ License".
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">emacs</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> emacs</h2>
 <div class="outline-text-2" id="text-2">
 
 
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">安装</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <ul>
@@ -222,14 +224,14 @@ License".
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">基本操作</h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 基本操作</h3>
 <div class="outline-text-3" id="text-2-2">
 
 
 </div>
 
 <div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1">按键命令</h4>
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 按键命令</h4>
 <div class="outline-text-4" id="text-2-2-1">
 
 <ul>
@@ -413,7 +415,7 @@ License".
 </div>
 
 <div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2">其他</h4>
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 其他</h4>
 <div class="outline-text-4" id="text-2-2-2">
 
 <ul>
@@ -438,7 +440,7 @@ License".
 </div>
 
 <div id="outline-container-2-2-3" class="outline-4">
-<h4 id="sec-2-2-3">计算器</h4>
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> 计算器</h4>
 <div class="outline-text-4" id="text-2-2-3">
 
 <ul>
@@ -455,7 +457,7 @@ License".
 </div>
 
 <div id="outline-container-2-2-4" class="outline-4">
-<h4 id="sec-2-2-4">图片</h4>
+<h4 id="sec-2-2-4"><span class="section-number-4">2.2.4</span> 图片</h4>
 <div class="outline-text-4" id="text-2-2-4">
 
 <ul>
@@ -473,7 +475,7 @@ License".
 </div>
 
 <div id="outline-container-2-2-5" class="outline-4">
-<h4 id="sec-2-2-5">字体</h4>
+<h4 id="sec-2-2-5"><span class="section-number-4">2.2.5</span> 字体</h4>
 <div class="outline-text-4" id="text-2-2-5">
 
 <ul>
@@ -486,7 +488,7 @@ License".
 </div>
 
 <div id="outline-container-2-2-6" class="outline-4">
-<h4 id="sec-2-2-6">编码</h4>
+<h4 id="sec-2-2-6"><span class="section-number-4">2.2.6</span> 编码</h4>
 <div class="outline-text-4" id="text-2-2-6">
 
 <ul>
@@ -504,14 +506,14 @@ License".
 </div>
 
 <div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3">elisp</h3>
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> elisp</h3>
 <div class="outline-text-3" id="text-2-3">
 
 
 </div>
 
 <div id="outline-container-2-3-1" class="outline-4">
-<h4 id="sec-2-3-1">函数</h4>
+<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 函数</h4>
 <div class="outline-text-4" id="text-2-3-1">
 
 <ul>
@@ -536,7 +538,7 @@ License".
 </div>
 
 <div id="outline-container-2-3-2" class="outline-4">
-<h4 id="sec-2-3-2">功能</h4>
+<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 功能</h4>
 <div class="outline-text-4" id="text-2-3-2">
 
 <ul>
@@ -557,7 +559,7 @@ License".
 </div>
 
 <div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><a name="org-mode" id="org-mode"></a>org-mode</h3>
+<h3 id="sec-2-4"><a name="org-mode" id="org-mode"></a><span class="section-number-3">2.4</span> org-mode</h3>
 <div class="outline-text-3" id="text-2-4">
 
 <p>org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
@@ -565,7 +567,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-1" class="outline-4">
-<h4 id="sec-2-4-1">可视化</h4>
+<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 可视化</h4>
 <div class="outline-text-4" id="text-2-4-1">
 
 <ul>
@@ -590,7 +592,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-2" class="outline-4">
-<h4 id="sec-2-4-2">抽屉</h4>
+<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 抽屉</h4>
 <div class="outline-text-4" id="text-2-4-2">
 
 <p>使用抽屉drawer，在导出时，drawer里面的文字不会被到导出, 可以在里面放入一些
@@ -600,7 +602,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-3" class="outline-4">
-<h4 id="sec-2-4-3">块</h4>
+<h4 id="sec-2-4-3"><span class="section-number-4">2.4.3</span> 块</h4>
 <div class="outline-text-4" id="text-2-4-3">
 
 <p>代码块可以设置#+startup: hideblocks, 做初始化折叠或打开。可以有如下选项
@@ -616,7 +618,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-4" class="outline-4">
-<h4 id="sec-2-4-4">脚注</h4>
+<h4 id="sec-2-4-4"><span class="section-number-4">2.4.4</span> 脚注</h4>
 <div class="outline-text-4" id="text-2-4-4">
 
 <p>脚注注解可以放在任何正文位置，脚注形式有；
@@ -636,7 +638,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-5" class="outline-4">
-<h4 id="sec-2-4-5">序号</h4>
+<h4 id="sec-2-4-5"><span class="section-number-4">2.4.5</span> 序号</h4>
 <div class="outline-text-4" id="text-2-4-5">
 
 <ul>
@@ -653,7 +655,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-6" class="outline-4">
-<h4 id="sec-2-4-6">字体</h4>
+<h4 id="sec-2-4-6"><span class="section-number-4">2.4.6</span> 字体</h4>
 <div class="outline-text-4" id="text-2-4-6">
 
 <p>试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
@@ -662,7 +664,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-7" class="outline-4">
-<h4 id="sec-2-4-7">公式</h4>
+<h4 id="sec-2-4-7"><span class="section-number-4">2.4.7</span> 公式</h4>
 <div class="outline-text-4" id="text-2-4-7">
 
 <ol>
@@ -687,14 +689,14 @@ License".
 </div>
 
 <div id="outline-container-2-4-8" class="outline-4">
-<h4 id="sec-2-4-8">表格</h4>
+<h4 id="sec-2-4-8"><span class="section-number-4">2.4.8</span> 表格</h4>
 <div class="outline-text-4" id="text-2-4-8">
 
 
 </div>
 
 <div id="outline-container-2-4-8-1" class="outline-5">
-<h5 id="sec-2-4-8-1">内建表格</h5>
+<h5 id="sec-2-4-8-1"><span class="section-number-5">2.4.8.1</span> 内建表格</h5>
 <div class="outline-text-5" id="text-2-4-8-1">
 
 <ul>
@@ -730,7 +732,7 @@ License".
 </div>
 
 <div id="outline-container-2-4-8-2" class="outline-5">
-<h5 id="sec-2-4-8-2">表格插件</h5>
+<h5 id="sec-2-4-8-2"><span class="section-number-5">2.4.8.2</span> 表格插件</h5>
 <div class="outline-text-5" id="text-2-4-8-2">
 
 <p>可以使用table-mode，命令table-insert可以插入一个n行n列的表格，
@@ -740,7 +742,7 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-2-4-8-3" class="outline-5">
-<h5 id="sec-2-4-8-3">表格第三方</h5>
+<h5 id="sec-2-4-8-3"><span class="section-number-5">2.4.8.3</span> 表格第三方</h5>
 <div class="outline-text-5" id="text-2-4-8-3">
 
 <p>可以将内建表格用在其他mode中,只需要配置.
@@ -755,7 +757,7 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-2-4-8-4" class="outline-5">
-<h5 id="sec-2-4-8-4">表格计算</h5>
+<h5 id="sec-2-4-8-4"><span class="section-number-5">2.4.8.4</span> 表格计算</h5>
 <div class="outline-text-5" id="text-2-4-8-4">
 
 <ul>
@@ -787,7 +789,7 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-2-4-9" class="outline-4">
-<h4 id="sec-2-4-9">画图</h4>
+<h4 id="sec-2-4-9"><span class="section-number-4">2.4.9</span> 画图</h4>
 <div class="outline-text-4" id="text-2-4-9">
 
 <ul>
@@ -868,7 +870,7 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-2-4-10" class="outline-4">
-<h4 id="sec-2-4-10">链接</h4>
+<h4 id="sec-2-4-10"><span class="section-number-4">2.4.10</span> 链接</h4>
 <div class="outline-text-4" id="text-2-4-10">
 
 <ul>
@@ -897,7 +899,7 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-2-4-11" class="outline-4">
-<h4 id="sec-2-4-11">gtd</h4>
+<h4 id="sec-2-4-11"><span class="section-number-4">2.4.11</span> gtd</h4>
 <div class="outline-text-4" id="text-2-4-11">
 
 <p>gtd状态之间转换可以使用快捷键C-c C-t
@@ -947,7 +949,7 @@ table-span-cell可以合并单元格。
 </div>
 
 <div id="outline-container-2-4-12" class="outline-4">
-<h4 id="sec-2-4-12"><a name="my-new-line" id="my-new-line"></a>换行</h4>
+<h4 id="sec-2-4-12"><a name="my-new-line" id="my-new-line"></a><span class="section-number-4">2.4.12</span> 换行</h4>
 <div class="outline-text-4" id="text-2-4-12">
 
 <p>一般使用一个空行表示换行，也可以使用latex的斜杠par，如果需要在某个行强行折
@@ -967,7 +969,7 @@ Snow covers Emacs<br/>
 </div>
 
 <div id="outline-container-2-4-13" class="outline-4">
-<h4 id="sec-2-4-13">babel</h4>
+<h4 id="sec-2-4-13"><span class="section-number-4">2.4.13</span> babel</h4>
 <div class="outline-text-4" id="text-2-4-13">
 
 <ol>
@@ -1029,7 +1031,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-14" class="outline-4">
-<h4 id="sec-2-4-14">宏</h4>
+<h4 id="sec-2-4-14"><span class="section-number-4">2.4.14</span> 宏</h4>
 <div class="outline-text-4" id="text-2-4-14">
 
 <p>可以在org中定义宏，类似c的宏，然后可以在段落、标题、引用块、表格、列表中使
@@ -1054,7 +1056,7 @@ Some example from a text_file.
 <li>select_tags: 如果在节标题中做了tag标注，可以使用这个来选择性的导出某些
    节。
 </li>
-<li>exclude<sub>tags</sub>: 和select_tags相反；
+<li>exclude_tags: 和select_tags相反；
 </li>
 </ol>
 
@@ -1063,7 +1065,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-15" class="outline-4">
-<h4 id="sec-2-4-15">注释</h4>
+<h4 id="sec-2-4-15"><span class="section-number-4">2.4.15</span> 注释</h4>
 <div class="outline-text-4" id="text-2-4-15">
 
 <p>可以使用快捷键C-c ; 将某个小节注释掉，导出时不会出现在导出文档中。
@@ -1073,7 +1075,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-16" class="outline-4">
-<h4 id="sec-2-4-16">导出</h4>
+<h4 id="sec-2-4-16"><span class="section-number-4">2.4.16</span> 导出</h4>
 <div class="outline-text-4" id="text-2-4-16">
 
 <ul>
@@ -1152,11 +1154,11 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-16-1" class="outline-5">
-<h5 id="sec-2-4-16-1">配置</h5>
+<h5 id="sec-2-4-16-1"><span class="section-number-5">2.4.16.1</span> 配置</h5>
 <div class="outline-text-5" id="text-2-4-16-1">
 
-<p>可以使用 <span style="text-decoration:underline;">#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span style="text-decoration:underline;">filename</span>
-文件中，然后在头使用 <span style="text-decoration:underline;">#+setupfile: filename</span> 加载这些配置。
+<p>可以使用 <span style="text-decoration:underline;">\#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span style="text-decoration:underline;">filename</span>
+文件中，然后在头使用 <span style="text-decoration:underline;">\#+setupfile: filename</span> 加载这些配置。
 </p><ul>
 <li>关键字：见<a href="#org-macro">宏</a>，或见表<a href="#tbl-key-words">tbl-key-words</a>所示；
 <table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-key-words">
@@ -1178,9 +1180,13 @@ Some example from a text_file.
 <tr><td class="left">#+LANGUAGE:</td><td class="left">language for HTML, e.g. ‘en’ (org-export-default-language)</td></tr>
 <tr><td class="left">#+TEXT:</td><td class="left">Some descriptive text to be inserted at the beginning.</td></tr>
 <tr><td class="left">#+TEXT:</td><td class="left">Several lines may be given.</td></tr>
-<tr><td class="left">#+OPTIONS:</td><td class="left">H:2 num:t toc:t \n:nil @:t ::t     竖线:t ^:t f:t TeX:t &hellip;</td></tr>
+<tr><td class="left">#+OPTIONS:</td><td class="left">H:2 num:t toc:t \backslash{}n:nil @:t ::t     &#124;:t ^:t f:t TeX:t &hellip;</td></tr>
+</tbody>
+<tbody>
 <tr><td class="left">#+BIND:</td><td class="left">lisp-var lisp-val, e.g.: org-export-latex-low-levels itemize</td></tr>
 <tr><td class="left"></td><td class="left">You need to confirm using these, or configure org-export-allow-BIND</td></tr>
+</tbody>
+<tbody>
 <tr><td class="left">#+LINK_UP:</td><td class="left">the ``up'' link of an exported page</td></tr>
 <tr><td class="left">#+LINK_HOME:</td><td class="left">the ``home'' link of an exported page</td></tr>
 <tr><td class="left">#+LATEX_HEADER:</td><td class="left">extra line(s) for the LaTeX header, like \usepackage{xyz}</td></tr>
@@ -1209,15 +1215,23 @@ Some example from a text_file.
 <tr><td class="left">\n:</td><td class="left">turn on/off line-break-preservation (DOES NOT WORK)</td></tr>
 <tr><td class="left">@:</td><td class="left">turn on/off quoted HTML tags</td></tr>
 <tr><td class="left">::</td><td class="left">turn on/off fixed-width sections</td></tr>
-<tr><td class="left">竖线 :</td><td class="left">turn on/off tables</td></tr>
-<tr><td class="left">^:</td><td class="left">turn on/off TeX-like syntax for sub- and superscripts.  If</td></tr>
+<tr><td class="left">&#124; :</td><td class="left">turn on/off tables</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left">&and;:</td><td class="left">turn on/off TeX-like syntax for sub- and superscripts.  If</td></tr>
 <tr><td class="left"></td><td class="left">you write "^:{}", a<sub>b</sub> will be interpreted, but</td></tr>
 <tr><td class="left"></td><td class="left">the simple a<sub>b</sub> will be left as it is.</td></tr>
-<tr><td class="left">横线:</td><td class="left">turn on/off conversion of special strings.</td></tr>
+</tbody>
+<tbody>
+<tr><td class="left">\mathrm{-}:</td><td class="left">turn on/off conversion of special strings.</td></tr>
 <tr><td class="left">f:</td><td class="left">turn on/off footnotes like this<sup><a class="footref" name="fnr.5" href="#fn.5">5</a></sup>.</td></tr>
 <tr><td class="left">todo:</td><td class="left">turn on/off inclusion of TODO keywords into exported text</td></tr>
+</tbody>
+<tbody>
 <tr><td class="left">tasks:</td><td class="left">turn on/off inclusion of tasks (TODO items), can be nil to remove</td></tr>
 <tr><td class="left"></td><td class="left">all tasks, todo to remove DONE tasks, or list of kwds to keep</td></tr>
+</tbody>
+<tbody>
 <tr><td class="left">pri:</td><td class="left">turn on/off priority cookies</td></tr>
 <tr><td class="left">tags:</td><td class="left">turn on/off inclusion of tags, may also be not-in-toc</td></tr>
 <tr><td class="left">&lt;:</td><td class="left">turn on/off inclusion of any time/date stamps like DEADLINES</td></tr>
@@ -1251,7 +1265,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-16-2" class="outline-5">
-<h5 id="sec-2-4-16-2">beamer</h5>
+<h5 id="sec-2-4-16-2"><span class="section-number-5">2.4.16.2</span> beamer</h5>
 <div class="outline-text-5" id="text-2-4-16-2">
 
 <p>不用#+latex<sub>class也可以导出幻灯片，见</sub><a href="http://orgmode.org/org.html#A-Beamer-Example">代码</a>。
@@ -1260,7 +1274,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-16-3" class="outline-5">
-<h5 id="sec-2-4-16-3">pdf</h5>
+<h5 id="sec-2-4-16-3"><span class="section-number-5">2.4.16.3</span> pdf</h5>
 <div class="outline-text-5" id="text-2-4-16-3">
 
 <p>可以设置一些导出配置选项
@@ -1286,8 +1300,29 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-4-16-4" class="outline-5">
-<h5 id="sec-2-4-16-4">html</h5>
+<h5 id="sec-2-4-16-4"><span class="section-number-5">2.4.16.4</span> html</h5>
 <div class="outline-text-5" id="text-2-4-16-4">
+
+</div>
+
+</div>
+
+<div id="outline-container-2-4-16-5" class="outline-5">
+<h5 id="sec-2-4-16-5"><span class="section-number-5">2.4.16.5</span> 特殊符号</h5>
+<div class="outline-text-5" id="text-2-4-16-5">
+
+<ul>
+<li>表格里面的竖线: latex命令&#124;; 
+</li>
+<li>表格里面的横线：latex命令\mathrm{-};
+</li>
+<li>表格里面的上尖括号：latex命令&and;；
+</li>
+<li>表格里面的左尖括号：latex命令\textless{};
+</li>
+<li>表格里面的右尖括号：latex命令\textgreater{}; 
+</li>
+</ul>
 
 </div>
 </div>
@@ -1296,7 +1331,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5">python-mode</h3>
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> python-mode</h3>
 <div class="outline-text-3" id="text-2-5">
 
 <ul>
@@ -1311,14 +1346,14 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">latex</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> latex</h2>
 <div class="outline-text-2" id="text-3">
 
 
 </div>
 
 <div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">方法</h3>
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 方法</h3>
 <div class="outline-text-3" id="text-3-1">
 
 </div>
@@ -1326,14 +1361,14 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">符号</h3>
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 符号</h3>
 <div class="outline-text-3" id="text-3-2">
 
 
 </div>
 
 <div id="outline-container-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1">数学模式重音符号</h4>
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> 数学模式重音符号</h4>
 <div class="outline-text-4" id="text-3-2-1">
 
 <p><img src="./img/shuxuemoshizhongyinfu.jpg"  alt="./img/shuxuemoshizhongyinfu.jpg" />
@@ -1342,7 +1377,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-2" class="outline-4">
-<h4 id="sec-3-2-2">小写希腊字母</h4>
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> 小写希腊字母</h4>
 <div class="outline-text-4" id="text-3-2-2">
 
 <p><img src="./img/xiaoxiexilazimu.jpg"  alt="./img/xiaoxiexilazimu.jpg" />
@@ -1351,7 +1386,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-3" class="outline-4">
-<h4 id="sec-3-2-3">大写希腊字母</h4>
+<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> 大写希腊字母</h4>
 <div class="outline-text-4" id="text-3-2-3">
 
 <p><img src="./img/daxiexilazimu.jpg"  alt="./img/daxiexilazimu.jpg" />
@@ -1360,7 +1395,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-4" class="outline-4">
-<h4 id="sec-3-2-4">二元关系符</h4>
+<h4 id="sec-3-2-4"><span class="section-number-4">3.2.4</span> 二元关系符</h4>
 <div class="outline-text-4" id="text-3-2-4">
 
 <p>可以在前面加上\ not来得到其否定形式。
@@ -1370,7 +1405,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-5" class="outline-4">
-<h4 id="sec-3-2-5">二元运算符</h4>
+<h4 id="sec-3-2-5"><span class="section-number-4">3.2.5</span> 二元运算符</h4>
 <div class="outline-text-4" id="text-3-2-5">
 
 <p><img src="./img/eryuanyunsuanfu.jpg"  alt="./img/eryuanyunsuanfu.jpg" />
@@ -1379,7 +1414,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-6" class="outline-4">
-<h4 id="sec-3-2-6">大尺寸运算符</h4>
+<h4 id="sec-3-2-6"><span class="section-number-4">3.2.6</span> 大尺寸运算符</h4>
 <div class="outline-text-4" id="text-3-2-6">
 
 <p><img src="./img/dachicunyunsuanfu.jpg"  alt="./img/dachicunyunsuanfu.jpg" />
@@ -1388,7 +1423,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-7" class="outline-4">
-<h4 id="sec-3-2-7">箭头</h4>
+<h4 id="sec-3-2-7"><span class="section-number-4">3.2.7</span> 箭头</h4>
 <div class="outline-text-4" id="text-3-2-7">
 
 <p><img src="./img/jiantou.jpg"  alt="./img/jiantou.jpg" />
@@ -1397,7 +1432,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-8" class="outline-4">
-<h4 id="sec-3-2-8">定界符</h4>
+<h4 id="sec-3-2-8"><span class="section-number-4">3.2.8</span> 定界符</h4>
 <div class="outline-text-4" id="text-3-2-8">
 
 <p><img src="./img/dingjiefu.jpg"  alt="./img/dingjiefu.jpg" />
@@ -1406,7 +1441,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-9" class="outline-4">
-<h4 id="sec-3-2-9">大尺寸定界符</h4>
+<h4 id="sec-3-2-9"><span class="section-number-4">3.2.9</span> 大尺寸定界符</h4>
 <div class="outline-text-4" id="text-3-2-9">
 
 <p><img src="./img/dachicundingjiefu.jpg"  alt="./img/dachicundingjiefu.jpg" />
@@ -1415,7 +1450,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-10" class="outline-4">
-<h4 id="sec-3-2-10">其他符号</h4>
+<h4 id="sec-3-2-10"><span class="section-number-4">3.2.10</span> 其他符号</h4>
 <div class="outline-text-4" id="text-3-2-10">
 
 <p><img src="./img/qitafuhao.jpg"  alt="./img/qitafuhao.jpg" />
@@ -1424,7 +1459,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-11" class="outline-4">
-<h4 id="sec-3-2-11">非数学符号</h4>
+<h4 id="sec-3-2-11"><span class="section-number-4">3.2.11</span> 非数学符号</h4>
 <div class="outline-text-4" id="text-3-2-11">
 
 <p><img src="./img/feishuxuefuhao.jpg"  alt="./img/feishuxuefuhao.jpg" />
@@ -1433,7 +1468,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-12" class="outline-4">
-<h4 id="sec-3-2-12">AMS定界符</h4>
+<h4 id="sec-3-2-12"><span class="section-number-4">3.2.12</span> AMS定界符</h4>
 <div class="outline-text-4" id="text-3-2-12">
 
 <p><img src="./img/amsdingjiefu.jpg"  alt="./img/amsdingjiefu.jpg" />
@@ -1442,7 +1477,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-13" class="outline-4">
-<h4 id="sec-3-2-13">AMS希腊和希伯来字母</h4>
+<h4 id="sec-3-2-13"><span class="section-number-4">3.2.13</span> AMS希腊和希伯来字母</h4>
 <div class="outline-text-4" id="text-3-2-13">
 
 <p><img src="./img/amsxilahexibolaizimu.jpg"  alt="./img/amsxilahexibolaizimu.jpg" />
@@ -1451,7 +1486,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-14" class="outline-4">
-<h4 id="sec-3-2-14">AMS二元关系符</h4>
+<h4 id="sec-3-2-14"><span class="section-number-4">3.2.14</span> AMS二元关系符</h4>
 <div class="outline-text-4" id="text-3-2-14">
 
 <p><img src="./img/amseryuanguanxifu.jpg"  alt="./img/amseryuanguanxifu.jpg" />
@@ -1460,7 +1495,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-15" class="outline-4">
-<h4 id="sec-3-2-15">AMS箭头</h4>
+<h4 id="sec-3-2-15"><span class="section-number-4">3.2.15</span> AMS箭头</h4>
 <div class="outline-text-4" id="text-3-2-15">
 
 <p><img src="./img/amsjiantou.jpg"  alt="./img/amsjiantou.jpg" />
@@ -1469,7 +1504,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-16" class="outline-4">
-<h4 id="sec-3-2-16">AMS二元否定关系符和箭头</h4>
+<h4 id="sec-3-2-16"><span class="section-number-4">3.2.16</span> AMS二元否定关系符和箭头</h4>
 <div class="outline-text-4" id="text-3-2-16">
 
 <p><img src="./img/amseryuanfoudingguanxifuhejiantou.jpg"  alt="./img/amseryuanfoudingguanxifuhejiantou.jpg" />
@@ -1478,7 +1513,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-17" class="outline-4">
-<h4 id="sec-3-2-17">AMS二元运算符</h4>
+<h4 id="sec-3-2-17"><span class="section-number-4">3.2.17</span> AMS二元运算符</h4>
 <div class="outline-text-4" id="text-3-2-17">
 
 <p><img src="./img/amseryuanyunsuanfu.jpg"  alt="./img/amseryuanyunsuanfu.jpg" />
@@ -1487,7 +1522,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-18" class="outline-4">
-<h4 id="sec-3-2-18">AMS其他符号</h4>
+<h4 id="sec-3-2-18"><span class="section-number-4">3.2.18</span> AMS其他符号</h4>
 <div class="outline-text-4" id="text-3-2-18">
 
 <p><img src="./img/amsqitafuhao.jpg"  alt="./img/amsqitafuhao.jpg" />
@@ -1496,7 +1531,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-3-2-19" class="outline-4">
-<h4 id="sec-3-2-19">微积分符号</h4>
+<h4 id="sec-3-2-19"><span class="section-number-4">3.2.19</span> 微积分符号</h4>
 <div class="outline-text-4" id="text-3-2-19">
 
 <ol>
@@ -1517,7 +1552,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">keil</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> keil</h2>
 <div class="outline-text-2" id="text-4">
 
 <ul>
@@ -1531,7 +1566,7 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">iar</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> iar</h2>
 <div class="outline-text-2" id="text-5">
 
 <ul>
@@ -1561,7 +1596,10 @@ Some example from a text_file.
 
 
 <p class="footnote"><sup><a class="footnum" name="fn.5" href="#fnr.5">5</a></sup> DEFINITION NOT FOUND: 1
-</p></div>
+</p>
+
+
+</div>
 </div>
 
 </div>
@@ -1569,7 +1607,7 @@ Some example from a text_file.
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-02-04 00:11:56 中国标准时间</p>
+<p class="date">Date: 2016-02-04 22:57:28 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="email"><a href="mailto:bitman@163.com">bitman@163.com</a></p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
