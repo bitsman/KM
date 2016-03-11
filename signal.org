@@ -1,0 +1,11 @@
+#+title: 信号与系统
+#+author: 比克曼
+#+latex_class: org-latex-pdf 
+#+latex: \newpage 
+
+
+* 线性时不变系统
+- 离散信号可以由单位冲击响应信号来表示。式子如下, 其中x[k]可以看做常量，
+  \(\sigma[n]\) 是冲激响应。
+  $$x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]$$ 
+

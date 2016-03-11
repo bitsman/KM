@@ -20,21 +20,6 @@
 #+DESCRIPTION: description-bitsman
 #+SUBTITLE: subtitle-bitsman
 
-* Copying
-:PROPERTIES:
-:COPYING:  t
-:END:
-This manual is for bitman study Sample (version {{{version}}}, {{{updated}}}), which
-is an example in the documentation. Copyright @@texinfo:@copyright{}@@ 2013 bitman, Inc. 
-#+BEGIN_QUOTE
-Permission is granted to copy, distribute and/or modify this document under
-the terms of the GNU Free Documentation License, Version 1.3 or any later
-version published by the Free Software Foundation; with no Invariant
-Sections, with no Front-Cover Texts, and with no Back-Cover Texts.  A copy
-of the license is included in the section entitled "GNU Free Documentation
-License". 
-#+END_QUOTE
-
 * emacs
 ** 安装
 - gnuserv安装：将emacs目录拷贝后，在系统环境变量中增加HOME键值等于emacs路径(d:\emacs)，即可；
@@ -386,8 +371,10 @@ table-span-cell可以合并单元格。
   定的数据，比如添加 _src c_ ，可以导入c代码；使用 _lines_ 关键字可以导入文
   件的某几行
 *** gtd
-gtd状态之间转换可以使用快捷键C-c C-t
-- 工作流状态: 对于一个工作流可以使用 _sequence_ 的工作流设置状态如
+gtd状态之间转换可以使用快捷键C-c C-t;  
+- 工作流状态: 对于一个工作流可以使用 _sequence_ 的工作流设置状态如, 其中竖
+  线用于分割，一边是用于需要动作的，一边只是记录不需要动作。颜色也有不同，
+  如果没有竖线，最后一个状态将代表DONE状态
   #+begin_src emacs-lisp
   (setq org-todo-keywords '((sequence "TODO" "VERIFY" "|" "DONE")))
   #+end_src
