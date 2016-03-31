@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-03-31 11:42:04 中国标准时间"/>
+<meta name="generated" content="2016-03-31 20:38:27 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -100,7 +100,11 @@
 <li><a href="#sec-1-2-2">1.2.2 IIR滤波器</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 离散时间傅里叶变换(DTFT)</a></li>
+<li><a href="#sec-1-3">1.3 离散时间傅里叶变换(DTFT)</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1 DTFT算法过程</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -113,17 +117,29 @@
 
 <p>线性时不变系统简称LTI系统，可以用它对单位脉冲序列的响应(h(n))来表示。
 </p><ul>
-<li>离散信号可以由单位冲击响应信号来表示。式子如下, 其中x[k]可以看做常量，
-  \(\sigma[n]\) 是冲激响应。
-  $$x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]$$
+<li>离散信号可以由单位冲击响应信号来表示。式子如<a href="#equ-sigma">equ-sigma</a>, 其中x[k]可以
+  看做常量，\(\sigma[n]\) 是冲激响应。
+  \begin{equation}
+  \label{equ-sigma}
+   x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]$$
+  \end{equation}
 </li>
-<li>傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式，即x(t)能够表示成一组谐
-  波关系的复指数信号的线性组合，那么傅里叶级数中的系数a<sub>k</sub>确定，这对关系式
-  就定义为一个周期连续时间信号的傅里叶级数, 其中周期为T，\(w_{0}=\frac{2\pi}{T}\)
-  $$x(t)=\sum_{-\infty{}}^{+\infty{}}a_{k}e^{jkw_{0}t}$$ 系数为
-  $$a_{k}=\frac{\int_{T}x(t)e^{-jkw_{0}t}\mathrm{d}t}{T}$$ 
+<li>傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式<a href="#equ-xt">equ-xt</a>，即x(t)能够
+  表示成一组谐波关系的复指数信号的线性组合，那么傅里叶级数中的系数a<sub>k</sub>确定，
+  这对关系式就定义为一个周期连续时间信号的傅里叶级数, 其中周期为T，
+  \(w_{0}=\frac{2\pi}{T}\) 
+  \begin{equation}
+  \label{equ-xt}
+   x(t)=\sum_{-\infty{}}^{+\infty{}}a_{k}e^{jkw_{0}t}
+  \end{equation}
+  系数为式<a href="#equ-ak">equ-ak</a>
+  \begin{equation}
+  \label{equ-ak}
+   a_{k}=\frac{\int_{T}x(t)e^{-jkw_{0}t}\mathrm{d}t}{T}
+  \end{equation}
 </li>
 </ul>
+
 
 
 </div>
@@ -132,16 +148,21 @@
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> 卷积</h3>
 <div class="outline-text-3" id="text-1-1">
 
-<p>如果一个系统的冲击响应为h(n), 表示方式如下，可以理解为由于一个k时刻的单位脉
-冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从负无穷时刻
-到正无穷时刻的所有冲击\(\sigma{}(n-k)\)叠加，所以x(n)的对于线性系统的响应也
-就由从负无穷到正无穷逐个移位出来的h(n-k)叠加而成，写成卷积形式如下, 从某种
-意义上讲，卷积的输出结果是和时间没有关系的，所以一般MATLAB或者python的卷积
-计算函数都不用带时间信息，只需要输入值序列。
-$$\sigma{}(n-k) \Rightarrow h(n-k)$$ 
-$$y(n) = x(n)*h(n)$$ 
-</p>
-</div>
+<p>如果一个系统的冲击响应为h(n), 表示方式如<a href="#equ-hn">equ-hn</a>，可以理解为由于一个k时
+刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从
+负无穷时刻到正无穷时刻的所有冲击\(\sigma{}(n-k)\)叠加，所以x(n)的对于线性系
+统的响应也就由从负无穷到正无穷逐个移位出来的h(n-k)叠加而成，写成卷积形式如
+<a href="#equ-conv">equ-conv</a>, 从某种意义上讲，卷积的输出结果是和时间没有关系的，所以一般
+MATLAB或者python的卷积计算函数都不用带时间信息，只需要输入值序列。
+\begin{equation}
+\label{equ-hn}
+ \sigma{}(n-k) \Rightarrow h(n-k)
+\end{equation}
+\begin{equation}
+\label{equ-conv}
+ y(n) = x(n)*h(n)
+\end{equation}
+</p></div>
 
 </div>
 
@@ -178,19 +199,65 @@ $$y(n) = x(n)*h(n)$$
 <div class="outline-text-3" id="text-1-3">
 
 <p>如果x(n)是绝对可加的，即\(\sum_{-\infty}^{\infty}|x(n)| &lt; \infty\)，则其离
-散时间傅里叶变换表示如下
-$$X(e^{jw}\triangleg F[x(n)]=\sum_{-\infty}^{\infty}x(n)e^{-jwn})$$ 
-\(X(e^{jw})\)的离散时间傅里叶逆变换(IDTFT)可以表示如下
-$$x(n)\triangleg F^{-1}[X(e^{jw})]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{jw})e^{jwn}dw$$ 
+散时间傅里叶变换表示如<a href="#equ-xjw">equ-xjw</a>
+\begin{equation}
+\label{equ-xjw}
+ X(e^{jw}) \Rightarrow F[x(n)]=\sum_{-\infty}^{\infty}x(n)e^{-jwn}
+\end{equation}
+\(X(e^{jw})\)的离散时间傅里叶逆变换(IDTFT)可以表示如[[#equ-xn][equ-xn]]
+\begin{equation}
+\label{equ-xn}
+ x(n) \Rightarrow F^{-1}[X(e^{jw})]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{jw})e^{jwn}dw
+\end{equation}
 算子F[.]把一个离散信号x(n)变换成一个实变量w的复值连续函数\(X(e^{jw})\), w被
 称为数字频率，它用 <span style="text-decoration:underline;">弧度</span> 来度量。
+</p>
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> DTFT算法过程</h4>
+<div class="outline-text-4" id="text-1-3-1">
+
+<p>如果x(n)是有限长的，则x(n)肯定是绝对可加的，即x(n)肯定有DTFT，则可以用
+MATLAB或python来对任意频率w处的\(X(e^{jw})\)进行数值计算。如果我们是在
+\([0, \pi]\)间等间隔频率点来模拟估计\(X(e^{jw})\)，假设分成M分，则每个频率
+点可以表示如公式<a href="#equ-wk">equ-wk</a>所示，则变换式子<a href="#equ-xjw">equ-xjw</a>可以用矩阵向量相乘
+的运算来实现。
+\begin{equation}
+\label{equ-wk}
+w_{k} \Rightarrow \frac{\pi}{M}k, k = 0, 1, ...,M
+\end{equation}
+假定序列x(n)在\(n_{1}&lt;= n &lt;=n_{n}\)有N个样本，要估计点<a href="#equ-wk">equ-wk</a>上的
+\(X(e^{jw})\)值。它们是[0，&pi;]之间的(M+1)个等间隔频率点，则<a href="#equ-xjw">equ-xjw</a>可
+以写为式子<a href="#equ-xjw2">equ-xjw2</a>
+\begin{equation}
+\label{equ-xjw2}
+X(e^{jw_{k}}=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, k=0, 1, ..., M)
+\end{equation}
+当\({x(n_{l})}\)和\({X(e^{jw_{k}})}\)分别排成列向量x和X，我们有式子
+<a href="#equ-vec">equ-vec</a>, 其中W是一个(M+1)乘N维矩阵
+\begin{equation}
+\label{equ-vec}
+ X = Wx
+\end{equation}
+另外，若我们分别将{k}和\({n_{l}}\)排成列向量，则有式子<a href="#equ-wvec">equ-wvec</a>
+\begin{equation}
+\label{equ-wvec}
+ W = [e^{-j\frac{\pi}{M}k^{T}n}]
+\end{equation}
+最终可以写成式子<a href="#equ-fvec">equ-fvec</a>
+\begin{equation}
+\label{equ-fvec}
+ X^{T} = x^{T}[e^{-j\frac{\pi}{M}n^{T}k}]
+\end{equation}
 </p></div>
+</div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-03-31 11:42:04 中国标准时间</p>
+<p class="date">Date: 2016-03-31 20:38:27 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

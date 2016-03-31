@@ -1,10 +1,10 @@
 #+TITLE: Sitemap
 
    + [[file:signal.org][2016-03-31 信号与系统]]
+   + [[file:software.org][2016-03-31 软件 ]]
+   + [[file:tool.org][2016-03-31 工具]]
    + [[file:index.org][2016-03-30 比克曼的知识管理]]
    + [[file:math.org][2016-03-10 数学 ]]
-   + [[file:tool.org][2016-02-24 工具]]
-   + [[file:software.org][2016-01-27 软件 ]]
    + [[file:language.org][2015-12-21 外语学习]]
    + [[file:algorithm.org][2015-12-18 算法 ]]
    + [[file:os.org][2015-11-25 操作系统]]
