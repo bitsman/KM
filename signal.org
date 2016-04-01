@@ -10,7 +10,7 @@
   看做常量，\(\sigma[n]\) 是冲激响应。
   \begin{equation}
   \label{equ-sigma}
-   x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]$$
+   x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]
   \end{equation}
 - 傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式\ref{equ-xt}，即x(t)能够
   表示成一组谐波关系的复指数信号的线性组合，那么傅里叶级数中的系数a_{k}确定，
@@ -70,14 +70,14 @@ MATLAB或python来对任意频率w处的\(X(e^{jw})\)进行数值计算。如果
 的运算来实现。
 \begin{equation}
 \label{equ-wk}
-w_{k} \Rightarrow \frac{\pi}{M}k, k = 0, 1, ...,M
+w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 \end{equation}
 假定序列x(n)在\(n_{1}<= n <=n_{n}\)有N个样本，要估计点\ref{equ-wk}上的
 \(X(e^{jw})\)值。它们是[0，\pi]之间的(M+1)个等间隔频率点，则\ref{equ-xjw}可
 以写为式子\ref{equ-xjw2}
 \begin{equation}
 \label{equ-xjw2}
-X(e^{jw_{k}}=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, k=0, 1, ..., M)
+ X(e^{jw_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, (k=0, 1, ..., M)
 \end{equation}
 当\({x(n_{l})}\)和\({X(e^{jw_{k}})}\)分别排成列向量x和X，我们有式子
 \ref{equ-vec}, 其中W是一个(M+1)乘N维矩阵
@@ -85,12 +85,12 @@ X(e^{jw_{k}}=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, k=0, 1, ..., M)
 \label{equ-vec}
  X = Wx
 \end{equation}
-另外，若我们分别将{k}和\({n_{l}}\)排成列向量，则有式子\ref{equ-wvec}
+另外，若我们分别将{k}和{n_{l}}排成列向量，则有式子\ref{equ-wvec}
 \begin{equation}
 \label{equ-wvec}
  W = [e^{-j\frac{\pi}{M}k^{T}n}]
 \end{equation}
-最终可以写成式子\ref{equ-fvec}
+最终可以写成式子\ref{equ-fvec}, 如果x是行行向量，则x^{T}直接就用x表示。
 \begin{equation}
 \label{equ-fvec}
  X^{T} = x^{T}[e^{-j\frac{\pi}{M}n^{T}k}]
