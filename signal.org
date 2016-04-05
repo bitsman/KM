@@ -25,7 +25,8 @@
   \label{equ-ak}
    a_{k}=\frac{\int_{T}x(t)e^{-jkw_{0}t}\mathrm{d}t}{T}
   \end{equation}
-  
+- 频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
+  或传递函数
 ** 卷积
 如果一个系统的冲击响应为h(n), 表示方式如\ref{equ-hn}，可以理解为由于一个k时
 刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从

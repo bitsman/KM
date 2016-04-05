@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-03-31 20:38:27 中国标准时间"/>
+<meta name="generated" content="2016-04-05 16:57:13 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -121,7 +121,7 @@
   看做常量，\(\sigma[n]\) 是冲激响应。
   \begin{equation}
   \label{equ-sigma}
-   x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]$$
+   x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]
   \end{equation}
 </li>
 <li>傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式<a href="#equ-xt">equ-xt</a>，即x(t)能够
@@ -138,8 +138,10 @@
    a_{k}=\frac{\int_{T}x(t)e^{-jkw_{0}t}\mathrm{d}t}{T}
   \end{equation}
 </li>
+<li>频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
+  或传递函数
+</li>
 </ul>
-
 
 
 </div>
@@ -225,14 +227,14 @@ MATLAB或python来对任意频率w处的\(X(e^{jw})\)进行数值计算。如果
 的运算来实现。
 \begin{equation}
 \label{equ-wk}
-w_{k} \Rightarrow \frac{\pi}{M}k, k = 0, 1, ...,M
+w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 \end{equation}
 假定序列x(n)在\(n_{1}&lt;= n &lt;=n_{n}\)有N个样本，要估计点<a href="#equ-wk">equ-wk</a>上的
 \(X(e^{jw})\)值。它们是[0，&pi;]之间的(M+1)个等间隔频率点，则<a href="#equ-xjw">equ-xjw</a>可
 以写为式子<a href="#equ-xjw2">equ-xjw2</a>
 \begin{equation}
 \label{equ-xjw2}
-X(e^{jw_{k}}=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, k=0, 1, ..., M)
+ X(e^{jw_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, (k=0, 1, ..., M)
 \end{equation}
 当\({x(n_{l})}\)和\({X(e^{jw_{k}})}\)分别排成列向量x和X，我们有式子
 <a href="#equ-vec">equ-vec</a>, 其中W是一个(M+1)乘N维矩阵
@@ -240,12 +242,12 @@ X(e^{jw_{k}}=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, k=0, 1, ..., M)
 \label{equ-vec}
  X = Wx
 \end{equation}
-另外，若我们分别将{k}和\({n_{l}}\)排成列向量，则有式子<a href="#equ-wvec">equ-wvec</a>
+另外，若我们分别将{k}和{n<sub>l</sub>}排成列向量，则有式子<a href="#equ-wvec">equ-wvec</a>
 \begin{equation}
 \label{equ-wvec}
  W = [e^{-j\frac{\pi}{M}k^{T}n}]
 \end{equation}
-最终可以写成式子<a href="#equ-fvec">equ-fvec</a>
+最终可以写成式子<a href="#equ-fvec">equ-fvec</a>, 如果x是行行向量，则x<sup>T</sup>直接就用x表示。
 \begin{equation}
 \label{equ-fvec}
  X^{T} = x^{T}[e^{-j\frac{\pi}{M}n^{T}k}]
@@ -257,7 +259,7 @@ X(e^{jw_{k}}=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, k=0, 1, ..., M)
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-03-31 20:38:27 中国标准时间</p>
+<p class="date">Date: 2016-04-05 16:57:13 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
