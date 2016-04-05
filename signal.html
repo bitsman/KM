@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-05 16:57:13 中国标准时间"/>
+<meta name="generated" content="2016-04-05 23:32:30 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -139,7 +139,30 @@
   \end{equation}
 </li>
 <li>频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
-  或传递函数
+  或传递函数.也可以理解为，脉冲响应h(n)对某频率输入信号的响应，输入信号x(n)
+  可以表示成\(e^{jwn}\)的级数形式，也代表了x(n)具有一系列频率分量w，求一个
+  系统对复指数信号\(e^{jw_{0}n}\)的响应时，输入信号为\(x(n)=e^{jw_{0}n}\),
+  该响应由式子<a href="#equ-ejwnhn">equ-ejwnhn</a>
+  \begin{equation}
+  \label{equ-ejwnhn}
+  x(n)=e^{jw_{0}n} \Rightarrow h(n) \Rightarrow y(n)=h(n)*e^{jw_{0}n}
+  \end{equation}
+  因而
+  \begin{equation}
+  \label{equ-whn}
+  y(n)=h(n)*e^{jw_{0}n}=\sum_{k=-\infty}^{\infty}h(k)e^{jw_{0}(n-k)}
+      = [\sum_{k=-\infty}^{\infty}h(k)e^{-jw_{0}k}]e^{jw_{0}n} 
+      = [F[h(n)]|_{w=w_{0}}]e^{jw_{0}n}
+  \end{equation}
+  由于输入信号x(n)可以表示成复指数的级数形式，所以x(n)的每个频率分量都可以
+  经过h(n)在每个频率上做响应，进而叠加得到x(n)的输出y(n)，式子<a href="#equ-whn">equ-whn</a>
+  也说明了输出序列是输入指数序列被系统h(n)在w<sub>0</sub>频率处的响应修饰后的结果。
+  因此一个LTI系统可以在频域表示为式子<a href="#equ-frqzone">equ-frqzone</a>, 时域y(n)可从
+  \(Y(e^{jw})\)用傅里叶逆变换获得。 
+  \begin{equation}
+  \label{equ-frqzone}
+  X(e^{jw}) \Rightarrow H(e^{jw}) \Rightarrow Y(e^{jw})=H(e^{jw})X(e^{jw})
+  \end{equation}
 </li>
 </ul>
 
@@ -162,7 +185,7 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 \end{equation}
 \begin{equation}
 \label{equ-conv}
- y(n) = x(n)*h(n)
+ y(n) = x(n)*h(n) 
 \end{equation}
 </p></div>
 
@@ -259,7 +282,7 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-05 16:57:13 中国标准时间</p>
+<p class="date">Date: 2016-04-05 23:32:30 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

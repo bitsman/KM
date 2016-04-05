@@ -26,7 +26,30 @@
    a_{k}=\frac{\int_{T}x(t)e^{-jkw_{0}t}\mathrm{d}t}{T}
   \end{equation}
 - 频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
-  或传递函数
+  或传递函数.也可以理解为，脉冲响应h(n)对某频率输入信号的响应，输入信号x(n)
+  可以表示成\(e^{jwn}\)的级数形式，也代表了x(n)具有一系列频率分量w，求一个
+  系统对复指数信号\(e^{jw_{0}n}\)的响应时，输入信号为\(x(n)=e^{jw_{0}n}\),
+  该响应由式子\ref{equ-ejwnhn}
+  \begin{equation}
+  \label{equ-ejwnhn}
+  x(n)=e^{jw_{0}n} \Rightarrow h(n) \Rightarrow y(n)=h(n)*e^{jw_{0}n}
+  \end{equation}
+  因而
+  \begin{equation}
+  \label{equ-whn}
+  y(n)=h(n)*e^{jw_{0}n}=\sum_{k=-\infty}^{\infty}h(k)e^{jw_{0}(n-k)}
+      = [\sum_{k=-\infty}^{\infty}h(k)e^{-jw_{0}k}]e^{jw_{0}n} 
+      = [F[h(n)]|_{w=w_{0}}]e^{jw_{0}n}
+  \end{equation}
+  由于输入信号x(n)可以表示成复指数的级数形式，所以x(n)的每个频率分量都可以
+  经过h(n)在每个频率上做响应，进而叠加得到x(n)的输出y(n)，式子\ref{equ-whn}
+  也说明了输出序列是输入指数序列被系统h(n)在w_{0}频率处的响应修饰后的结果。
+  因此一个LTI系统可以在频域表示为式子\ref{equ-frqzone}, 时域y(n)可从
+  \(Y(e^{jw})\)用傅里叶逆变换获得。 
+  \begin{equation}
+  \label{equ-frqzone}
+  X(e^{jw}) \Rightarrow H(e^{jw}) \Rightarrow Y(e^{jw})=H(e^{jw})X(e^{jw})
+  \end{equation}
 ** 卷积
 如果一个系统的冲击响应为h(n), 表示方式如\ref{equ-hn}，可以理解为由于一个k时
 刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从
@@ -40,7 +63,7 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 \end{equation}
 \begin{equation}
 \label{equ-conv}
- y(n) = x(n)*h(n)
+ y(n) = x(n)*h(n) 
 \end{equation}
 ** 滤波器
 *** FIR滤波器
