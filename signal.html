@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-05 23:32:30 中国标准时间"/>
+<meta name="generated" content="2016-04-07 00:19:16 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -86,7 +86,6 @@
 <h1 class="title">信号与系统</h1>
 
 
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -94,15 +93,21 @@
 <li><a href="#sec-1">1 线性时不变系统</a>
 <ul>
 <li><a href="#sec-1-1">1.1 卷积</a></li>
-<li><a href="#sec-1-2">1.2 滤波器</a>
+<li><a href="#sec-1-2">1.2 傅里叶级数和泰勒级数</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1 FIR滤波器</a></li>
-<li><a href="#sec-1-2-2">1.2.2 IIR滤波器</a></li>
+<li><a href="#sec-1-2-1">1.2.1 泰勒级数</a></li>
+<li><a href="#sec-1-2-2">1.2.2 傅里叶级数</a></li>
 </ul>
 </li>
 <li><a href="#sec-1-3">1.3 离散时间傅里叶变换(DTFT)</a>
 <ul>
 <li><a href="#sec-1-3-1">1.3.1 DTFT算法过程</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4 滤波器</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1 FIR滤波器</a></li>
+<li><a href="#sec-1-4-2">1.4.2 IIR滤波器</a></li>
 </ul>
 </li>
 </ul>
@@ -192,28 +197,124 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 滤波器</h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 傅里叶级数和泰勒级数</h3>
 <div class="outline-text-3" id="text-1-2">
 
-
+<p>傅里叶级数和泰勒级数都是为了将一个函数分解成若干基函数叠加形式。
+</p>
 </div>
 
 <div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> FIR滤波器</h4>
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 泰勒级数</h4>
 <div class="outline-text-4" id="text-1-2-1">
 
-<p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
-波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
+<p>一个函数
+$$f(x)=1$$ 
+它的泰勒展开式是
+$$f(x)=1$$ 
+函数
+$$f(x)=x$$ 
+它的泰勒展开式是
+$$f(x)=x$$ 
+也就是泰勒展开将函数分解成\(1, x, x^{2}, x^{3}...\)等幂级数的和，也就是将一
+个函数变成若干个函数的和。展开式在多数情况下有无限项。泰勒展开式见式
+<a href="#equ-taile">equ-taile</a>
+\begin{equation}
+\label{equ-taile}
+f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}
+    = f(x_{0})+f^{'}(x_{0})(x-x_{0})+\frac{f^{''}(x_{0})}{2!}(x-x_{0})^{2}...
+\end{equation}
+那么为什么要将f展开成泰勒级数\(f(x)=1+x+x^{2}+x^{3}+...\)，那是因为可以无限细
+分得到f在每个点的变化。这类似将3234.352拆分成3000+200+30+4+0.3+0.05+0.002一
+样。所谓对函数的无限细分，就是不断求导，得到若干个变化率，从而得到这个函数
+到底在各个点变化的有多剧烈。变化就是导数。泰勒级数的每一阶系数就是各阶导数。
+所以泰勒级数就是在描述一个函数的各个点的变化情况。
 </p></div>
 
 </div>
 
 <div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> IIR滤波器</h4>
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 傅里叶级数</h4>
 <div class="outline-text-4" id="text-1-2-2">
 
-<p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
-器。
+<p>傅里叶级数也叫三角级数一般为
+$$f(x)=1+sin(x)+cos(x)+sin(2x)+cos(2x)+... $$ 
+只有周期函数才有傅里叶级数，非周期函数由傅里叶变换来处理。一个方波信号可以
+表示成多个不同频率的正弦波组成。在某种程度上也可以认为方波是各种信号的基，
+基于这样的认识有人提出了沃尔什变换。将函数分解成三角函数的和很重要。因为对
+于一个周期函数来说，和周期对应的是频率。频率表示周期性变化的快慢。频率可以
+表征非常广泛的一类属性。在电子学里，有电容隔直通交。其实这就是电容对电学量，
+比如电压和电流，不同频率特性的不同体现。对于频率为0 的电压，被隔断，对于频
+率为w的电压，会产生与w 和电压U成正比的电流。所以讲一个信号函数分解成不同频
+率的分量就比较好处理问题。那为什么分解时最好用正余弦的频率，因为正余弦函数
+是二阶偏微分方程(含有电容或电感等的电路方程)的本征解。另外，世界上只有两类
+函数能满足给自己求二阶导还是这类函数本身，仅相差常数系数和正负号，一种就是 
+\(e^{x}\)，另一种就是\(sin(x), cos(x)\), 后来又在复数域里统一了这两者即
+$$e^{jx}=cos(x)+sin(x)j$$ 
+所以，对于一个一般的物理信号来说，它可能不是正余弦函数，但是他们都可以拆成
+不同频率的三角函数的组合。重要的是对于某种单频率的三角函数信号，系统对该频
+率的三角函数的输入的响应还是同频率的三角函数，只可能有相位前后或者幅度大小
+发生变化。这样就是二阶偏微分方程的本征解的含义。</p ><p >
+我们知道我们要把信号函数展开成三角不同频率的三角函数的和，且系统对某种频率
+的三角函数的响应方式还是同频率的三角函数，所以响应也是对这些不同频率三角函
+数响应的叠加，这也叫频域分析。傅里叶级数的三角表示公式如<a href="#equ-flysj">equ-flysj</a>
+\begin{equation}
+\label{equ-flysj}
+f(x)=a_{0}+\sum_{n=l}^{\infty}(a_{n}cos\frac{n\pi x}{l}+b_{n}sin\frac{n\pi x}{l})
+\end{equation}
+用这个式子可以表示周期是\(2l\)的周期函数，之所以所有频率都是基频的倍数，是
+因为它要符合周期性边界条件。式<a href="#equ-flysj">equ-flysj</a>可以简化为式子<a href="#equ-flysjj">equ-flysjj</a>
+\begin{equation}
+\label{equ-flysjj}
+f(x)=a_{0}+A_{1}sin(w_{1}x+phi_{1})+A_{2}sin(2w_{2}x+phi_{2})+...
+\end{equation} 
+式子<a href="#equ-flysjj">equ-flysjj</a>可以把傅里叶级数理解成，把周期函数拆成常数(直流分量)+一
+倍频分量+2倍频分量+&hellip;
+其系数\(A_{k}\)需要通过函数投影计算。函数投影类似向量的投影，一个函数u和一
+个函数v的投影计算方式如<a href="#equ-fun-dot">equ-fun-dot</a>, 也就是u和v的内积就是他们相乘，并
+在全区间上积分。
+\begin{equation}
+\label{equ-fun-dot}
+<u, v> := \int_{a}^{b}u(x)\hat{v}(x)dx
+\end{equation}
+而在周期函数里面区间端点[a, b]就是任何一个长度为\(2\pi\)的区间端点。那么如
+果把u表示成f(x)，v分别取\(1, sin(x), cos(x), sin(2x)...\)等，就可以得到每
+个频率的各自部分的分量大小(因为有积分累加)。为什么就一定能够筛选出对应频率
+的所以分量来累加呢，这是因为有完备单位正交基，所谓的完备，就是指用
+\(1, sin(x), cos(x), sin(2x)...\)完全能够把一个函数f(x)表示出来。
+所谓正交，如式子<a href="#equ-zj">equ-zj</a>两两相乘区间累加都等于0，是正交的。
+\begin{equation}
+\label{equ-zj}
+\int_{0}^{2\pi}1*sin(x)dx=0, 
+\int_{0}^{2\pi}sin(mx)*cos(nx)dx=0, 
+\int_{0}^{2\pi}sin(mx)*sin(nx)dx=0, 
+\end{equation}
+所谓单位，就是还需要归一化，比如<a href="#equ-notuni">equ-notuni</a>不是归一化的。
+\begin{equation}
+\label{equ-notuni}
+\int_{0}^{2\pi}1*1dx=2\pi
+\int_{0}^{2\pi}sin(kx)*sin(kx)dx=pi
+\end{equation}
+要归一化就得变成如下式子
+\begin{equation}
+\int_{0}^{2\pi}\frac{1}{\sqrt{2\pi}}*\frac{1}{\sqrt{2\pi}}dx=1
+\int_{0}^{2\pi}\frac{1}{\sqrt{\pi}}sin(kx)*\frac{1}{\sqrt{\pi}}sin(kx)dx=1
+\end{equation}
+所以傅里叶分解真正的基底是这些, 对于周期为\(2\pi\)
+$$\frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}sin(x),\frac{1}{\sqrt{\pi}}cos(x)...$$ 
+对于周期为\(2l\)的，基底是
+$$\frac{1}{\sqrt{2l}},\frac{1}{\sqrt{l}}sin(x),\frac{1}{\sqrt{l}}cos(x)...$$
+综合来看，用内积方法分解出的每个分量的系数如式子<a href="#equ-neijfly">equ-neijfly</a>, 如果是非
+单位化的基，结果就没有这么简洁。
+\begin{equation}
+\label{equ-neijfly}
+a_{0} = \frac{\int_{-l}^{l}f(x)dx}{2l}
+a_{n} = \frac{\int_{-l}^{l}f(x)cos(\frac{n\pi x}{l})dx}{l}
+b_{n} = \frac{\int_{-l}^{l}f(x)sin(\frac{n\pi x}{l})dx}{l}
+\end{equation}
+
+
+
 </p></div>
 </div>
 
@@ -277,12 +378,40 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 \end{equation}
 </p></div>
 </div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 滤波器</h3>
+<div class="outline-text-3" id="text-1-4">
+
+
+</div>
+
+<div id="outline-container-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> FIR滤波器</h4>
+<div class="outline-text-4" id="text-1-4-1">
+
+<p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
+波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
+</p></div>
+
+</div>
+
+<div id="outline-container-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> IIR滤波器</h4>
+<div class="outline-text-4" id="text-1-4-2">
+
+<p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
+器。
+</p></div>
+</div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-05 23:32:30 中国标准时间</p>
+<p class="date">Date: 2016-04-07 00:19:16 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
