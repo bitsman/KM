@@ -3,6 +3,9 @@
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
 
+#+options: tex:t
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+
 * 代数
 ** 概念
 - 自然数：natural number，{0，1，2，3...}等全体非负整数组成的数的集合称为自然数；
