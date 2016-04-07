@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-11-25 17:58:07 中国标准时间"/>
+<meta name="generated" content="2016-04-07 17:20:03 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -50,97 +50,98 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">android</a>
+<li><a href="#sec-1">1 android</a>
 <ul>
-<li><a href="#sec-1-1">base</a>
+<li><a href="#sec-1-1">1.1 base</a>
 <ul>
-<li><a href="#sec-1-1-1">Bundle</a></li>
-<li><a href="#sec-1-1-2">Intent</a></li>
-<li><a href="#sec-1-1-3">系统时间</a></li>
+<li><a href="#sec-1-1-1">1.1.1 Bundle</a></li>
+<li><a href="#sec-1-1-2">1.1.2 Intent</a></li>
+<li><a href="#sec-1-1-3">1.1.3 系统时间</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">activity</a>
+<li><a href="#sec-1-2">1.2 activity</a>
 <ul>
-<li><a href="#sec-1-2-1">Fragment</a></li>
-<li><a href="#sec-1-2-2">button</a></li>
-<li><a href="#sec-1-2-3">下拉菜单</a></li>
-<li><a href="#sec-1-2-4">复选框</a></li>
+<li><a href="#sec-1-2-1">1.2.1 Fragment</a></li>
+<li><a href="#sec-1-2-2">1.2.2 button</a></li>
+<li><a href="#sec-1-2-3">1.2.3 下拉菜单</a></li>
+<li><a href="#sec-1-2-4">1.2.4 复选框</a></li>
+<li><a href="#sec-1-2-5">1.2.5 对话框</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">service</a>
+<li><a href="#sec-1-3">1.3 service</a>
 <ul>
-<li><a href="#sec-1-3-1">Bound Service</a></li>
+<li><a href="#sec-1-3-1">1.3.1 Bound Service</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4">broadcast</a></li>
-<li><a href="#sec-1-5">消息机制</a>
+<li><a href="#sec-1-4">1.4 broadcast</a></li>
+<li><a href="#sec-1-5">1.5 消息机制</a>
 <ul>
-<li><a href="#sec-1-5-1">Handler</a></li>
-<li><a href="#sec-1-5-2">Looper</a></li>
-<li><a href="#sec-1-5-3">Message</a></li>
-<li><a href="#sec-1-5-4">SharedPreferences</a></li>
+<li><a href="#sec-1-5-1">1.5.1 Handler</a></li>
+<li><a href="#sec-1-5-2">1.5.2 Looper</a></li>
+<li><a href="#sec-1-5-3">1.5.3 Message</a></li>
+<li><a href="#sec-1-5-4">1.5.4 SharedPreferences</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-6">通知栏操作</a></li>
-<li><a href="#sec-1-7">程序首选项</a></li>
-<li><a href="#sec-1-8">menu</a></li>
-<li><a href="#sec-1-9">gps</a>
+<li><a href="#sec-1-6">1.6 通知栏操作</a></li>
+<li><a href="#sec-1-7">1.7 程序首选项</a></li>
+<li><a href="#sec-1-8">1.8 menu</a></li>
+<li><a href="#sec-1-9">1.9 gps</a>
 <ul>
-<li><a href="#sec-1-9-1">组件</a></li>
-<li><a href="#sec-1-9-2">操作</a>
+<li><a href="#sec-1-9-1">1.9.1 组件</a></li>
+<li><a href="#sec-1-9-2">1.9.2 操作</a>
 <ul>
-<li><a href="#sec-1-9-2-1">LocationManager</a></li>
-<li><a href="#sec-1-9-2-2">LocationListener</a></li>
-<li><a href="#sec-1-9-2-3">Location</a></li>
-<li><a href="#sec-1-9-2-4">GpsStatus.Listener</a></li>
-<li><a href="#sec-1-9-2-5">GpsStatus</a></li>
-<li><a href="#sec-1-9-2-6">GpsSatellite</a></li>
+<li><a href="#sec-1-9-2-1">1.9.2.1 LocationManager</a></li>
+<li><a href="#sec-1-9-2-2">1.9.2.2 LocationListener</a></li>
+<li><a href="#sec-1-9-2-3">1.9.2.3 Location</a></li>
+<li><a href="#sec-1-9-2-4">1.9.2.4 GpsStatus.Listener</a></li>
+<li><a href="#sec-1-9-2-5">1.9.2.5 GpsStatus</a></li>
+<li><a href="#sec-1-9-2-6">1.9.2.6 GpsSatellite</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-9-3">位置模拟</a></li>
+<li><a href="#sec-1-9-3">1.9.3 位置模拟</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-10">bt</a>
+<li><a href="#sec-1-10">1.10 bt</a>
 <ul>
-<li><a href="#sec-1-10-1">概念</a></li>
-<li><a href="#sec-1-10-2">蓝牙权限</a></li>
-<li><a href="#sec-1-10-3">设置蓝牙</a></li>
-<li><a href="#sec-1-10-4">寻找设备</a></li>
-<li><a href="#sec-1-10-5">轮询已配对的设备</a></li>
-<li><a href="#sec-1-10-6">搜索设备</a></li>
-<li><a href="#sec-1-10-7">使能可发现性</a></li>
-<li><a href="#sec-1-10-8">连接设备</a></li>
-<li><a href="#sec-1-10-9">服务端的连接</a></li>
-<li><a href="#sec-1-10-10">客户端的连接</a></li>
-<li><a href="#sec-1-10-11">管理连接</a></li>
-<li><a href="#sec-1-10-12">使用Profiles</a></li>
-<li><a href="#sec-1-10-13">制造商自定义AT指令</a></li>
-<li><a href="#sec-1-10-14">健康设备Profile</a></li>
+<li><a href="#sec-1-10-1">1.10.1 概念</a></li>
+<li><a href="#sec-1-10-2">1.10.2 蓝牙权限</a></li>
+<li><a href="#sec-1-10-3">1.10.3 设置蓝牙</a></li>
+<li><a href="#sec-1-10-4">1.10.4 寻找设备</a></li>
+<li><a href="#sec-1-10-5">1.10.5 轮询已配对的设备</a></li>
+<li><a href="#sec-1-10-6">1.10.6 搜索设备</a></li>
+<li><a href="#sec-1-10-7">1.10.7 使能可发现性</a></li>
+<li><a href="#sec-1-10-8">1.10.8 连接设备</a></li>
+<li><a href="#sec-1-10-9">1.10.9 服务端的连接</a></li>
+<li><a href="#sec-1-10-10">1.10.10 客户端的连接</a></li>
+<li><a href="#sec-1-10-11">1.10.11 管理连接</a></li>
+<li><a href="#sec-1-10-12">1.10.12 使用Profiles</a></li>
+<li><a href="#sec-1-10-13">1.10.13 制造商自定义AT指令</a></li>
+<li><a href="#sec-1-10-14">1.10.14 健康设备Profile</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-11">ble</a></li>
-<li><a href="#sec-1-12">jni</a></li>
+<li><a href="#sec-1-11">1.11 ble</a></li>
+<li><a href="#sec-1-12">1.12 jni</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">FreeRTOS</a>
+<li><a href="#sec-2">2 FreeRTOS</a>
 <ul>
-<li><a href="#sec-2-1">术语</a></li>
-<li><a href="#sec-2-2">源码解读</a>
+<li><a href="#sec-2-1">2.1 术语</a></li>
+<li><a href="#sec-2-2">2.2 源码解读</a>
 <ul>
-<li><a href="#sec-2-2-1">文件</a>
+<li><a href="#sec-2-2-1">2.2.1 文件</a>
 <ul>
-<li><a href="#sec-2-2-1-1">FreeRTOS.h</a></li>
-<li><a href="#sec-2-2-1-2">projdefs.h</a></li>
-<li><a href="#sec-2-2-1-3">FreeRTOSConfig.h</a></li>
-<li><a href="#sec-2-2-1-4">portable.h</a></li>
+<li><a href="#sec-2-2-1-1">2.2.1.1 FreeRTOS.h</a></li>
+<li><a href="#sec-2-2-1-2">2.2.1.2 projdefs.h</a></li>
+<li><a href="#sec-2-2-1-3">2.2.1.3 FreeRTOSConfig.h</a></li>
+<li><a href="#sec-2-2-1-4">2.2.1.4 portable.h</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-2-2">功能函数</a>
+<li><a href="#sec-2-2-2">2.2.2 功能函数</a>
 <ul>
-<li><a href="#sec-2-2-2-1">任务生成</a></li>
-<li><a href="#sec-2-2-2-2">任务删除</a></li>
-<li><a href="#sec-2-2-2-3">堆操作</a></li>
-<li><a href="#sec-2-2-2-4">杂项功能</a></li>
+<li><a href="#sec-2-2-2-1">2.2.2.1 任务生成</a></li>
+<li><a href="#sec-2-2-2-2">2.2.2.2 任务删除</a></li>
+<li><a href="#sec-2-2-2-3">2.2.2.3 堆操作</a></li>
+<li><a href="#sec-2-2-2-4">2.2.2.4 杂项功能</a></li>
 </ul>
 </li>
 </ul>
@@ -152,14 +153,14 @@
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">android</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> android</h2>
 <div class="outline-text-2" id="text-1">
 
 
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">base</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> base</h3>
 <div class="outline-text-3" id="text-1-1">
 
 <ul>
@@ -197,7 +198,7 @@ Log.d(TAG, MyActivity.class.getSimpleName()); //类名
 </div>
 
 <div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">Bundle</h4>
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Bundle</h4>
 <div class="outline-text-4" id="text-1-1-1">
 
 <p>android中的Bundle一般用于携带数据，类似于Map，用于存放key-value键值对，其提供了各种putXx()和getXx()方法，putXx()用于往
@@ -208,7 +209,7 @@ Bundle对象中放入数据，getXx()用于从Bundle对象中获取数据。比�
 </div>
 
 <div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">Intent</h4>
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Intent</h4>
 <div class="outline-text-4" id="text-1-1-2">
 
 <p>Intent可以用于启动别的组件比如Activity和Service等，并在Intent中绑定一定的数据，传递给目标组件。
@@ -217,7 +218,7 @@ Bundle对象中放入数据，getXx()用于从Bundle对象中获取数据。比�
 </div>
 
 <div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3">系统时间</h4>
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> 系统时间</h4>
 <div class="outline-text-4" id="text-1-1-3">
 
 <ul>
@@ -308,14 +309,14 @@ int second = t.second;
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">activity</h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> activity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 
 </div>
 
 <div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1">Fragment</h4>
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Fragment</h4>
 <div class="outline-text-4" id="text-1-2-1">
 
 <p>Android运行在各种各样的设备中，有小屏幕的手机，超大屏的平板甚至电视。针对屏幕尺寸的差距，很多情况下，都是先针对手机开发
@@ -337,7 +338,7 @@ Fragment的出现就是为了解决这样的问题。你可以把Fragment当成A
 </div>
 
 <div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2">button</h4>
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> button</h4>
 <div class="outline-text-4" id="text-1-2-2">
 
 <ul>
@@ -350,7 +351,7 @@ Fragment的出现就是为了解决这样的问题。你可以把Fragment当成A
 </div>
 
 <div id="outline-container-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3">下拉菜单</h4>
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 下拉菜单</h4>
 <div class="outline-text-4" id="text-1-2-3">
 
 <p>实现某个菜单框里面有多个选项，点击后可以展示各个字符菜单项，点击后可以产生点击事件，可以将某个int值和字符菜单项对应；实
@@ -444,7 +445,7 @@ mSpinnerType.setOnItemSelectedListener(onItemSelectedListener);
 </div>
 
 <div id="outline-container-1-2-4" class="outline-4">
-<h4 id="sec-1-2-4">复选框</h4>
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 复选框</h4>
 <div class="outline-text-4" id="text-1-2-4">
 
 <p>正方形的复选框选项
@@ -499,12 +500,143 @@ cb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 </ol>
 
 </div>
+
+</div>
+
+<div id="outline-container-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> 对话框</h4>
+<div class="outline-text-4" id="text-1-2-5">
+
+<p>比如可以在某个按键后触发一个对话框出来要求用户输入数据，然后点确定等操作。
+Java代码如下
+</p>
+
+
+<pre class="example">final AlertDialog dialog = new AlertDialog.Builder(this).create();//对话框对象
+//向系统请求一个inflater
+LayoutInflater inflater = (LayoutInflater) this.getSystemService(MainActivity.this.LAYOUT_INFLATER_SERVICE);
+//该对话框的布局layout
+LinearLayout layout = (LinearLayout)inflater.inflate(R.layout.dialog, null);
+dialog.setView(layout);
+dialog.getWindow().setWindowAnimations(R.style.DialogAnimationStyle);
+dialog.show();
+
+//获取对话框中的控件元素，和普通的界面操作一样
+final EditText et = (EditText) dialog.getWindow().findViewById(R.id.et_value);
+Button close_bt = (Button)dialog.getWindow().findViewById(R.id.close_bt);
+close_bt.setOnClickListener(new OnClickListener() {
+    public void onClick(View v) {
+        dialog.dismiss();
+    }
+});
+Button sure_bt = (Button) dialog.getWindow().findViewById(R.id.sure_bt);
+sure_bt.setOnClickListener(new OnClickListener() {
+    public void onClick(View v) {
+        String string =et.getText().toString();
+        if(string == null)
+            dialog.dismiss();
+        Calibrate = currentPressure - Float.parseFloat(string);
+        dialog.dismiss();
+    }
+});
+</pre>
+
+<p>
+相关的界面布局xml文件
+</p>
+
+
+<pre class="example">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dip"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical" &gt;
+    &lt;TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:textSize="20dip"
+        android:text="校正" /&gt;
+    &lt;View 
+        android:layout_width="match_parent"
+          android:layout_height="1dip"
+          android:layout_marginTop="10dip"
+          android:background="#009acd" /&gt;
+    &lt;LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip" &gt;
+        &lt;TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:textSize="15dip"
+            android:gravity="center_horizontal"
+            android:text="当前值" /&gt;
+        &lt;TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" /&gt;
+    &lt;/LinearLayout&gt;
+        &lt;LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="20dip"&gt;
+            &lt;TextView
+                android:id="@+id/textView2"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="15dip"
+                android:text="校正值" /&gt;
+            &lt;EditText
+                android:id="@+id/et_value"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:background="#fff0f5"
+                android:numeric="integer"
+                android:text="" /&gt;
+        &lt;/LinearLayout&gt;
+            &lt;View 
+            android:layout_width="wrap_content"
+            android:layout_height="1dip"
+            android:layout_marginTop="20dip"
+            android:background="@color/darkgray"&gt;
+    &lt;LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp" &gt;
+        &lt;Button
+            android:id="@+id/close_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_style"
+            android:layout_weight="1"
+            android:text="取消" /&gt;
+        &lt;View 
+            android:layout_width="1dip"
+            android:layout_height="wrap_content"
+            android:background="@color/darkgray"/&gt;
+        &lt;Button
+            android:id="@+id/sure_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_style"
+            android:layout_weight="1"
+            android:text="确定" /&gt;
+    &lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;
+</pre>
+
+</div>
 </div>
 
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">service</h3>
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> service</h3>
 <div class="outline-text-3" id="text-1-3">
 
 <ul>
@@ -524,7 +656,7 @@ startActivity(intent);
 </div>
 
 <div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1">Bound Service</h4>
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> Bound Service</h4>
 <div class="outline-text-4" id="text-1-3-1">
 
 <p>要做绑定服务操作，client需要调用bindService() , 调用后，系统将调用server的onBind()方法，这个方法将返回一个IBinder，这个
@@ -537,7 +669,7 @@ onBind返回的IBinder正是作为参数传给onServiceConnected，这样client�
 </div>
 
 <div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">broadcast</h3>
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> broadcast</h3>
 <div class="outline-text-3" id="text-1-4">
 
 <p>广播机制可以事务处理异步化，可以将事务的处理放在别的地方，然后在另一个地方发送一个Intent，系统会根据此Intent来找到相应的
@@ -606,7 +738,7 @@ onBind返回的IBinder正是作为参数传给onServiceConnected，这样client�
 </div>
 
 <div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5">消息机制</h3>
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 消息机制</h3>
 <div class="outline-text-3" id="text-1-5">
 
 <p>Android应用程序是通过消息来驱动的，系统为每一个应用程序维护一个消息队例，应用程序的主线程不断地从这个消息队例中获取消息
@@ -629,7 +761,7 @@ onBind返回的IBinder正是作为参数传给onServiceConnected，这样client�
 </div>
 
 <div id="outline-container-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1">Handler</h4>
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> Handler</h4>
 <div class="outline-text-4" id="text-1-5-1">
 
 <p>功能主要是跟UI线程交互用，主要有：
@@ -712,7 +844,7 @@ Runnable update_thread = new Runnable() {
 </div>
 
 <div id="outline-container-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2">Looper</h4>
+<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> Looper</h4>
 <div class="outline-text-4" id="text-1-5-2">
 
 
@@ -721,7 +853,7 @@ Runnable update_thread = new Runnable() {
 </div>
 
 <div id="outline-container-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3">Message</h4>
+<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> Message</h4>
 <div class="outline-text-4" id="text-1-5-3">
 
 </div>
@@ -729,7 +861,7 @@ Runnable update_thread = new Runnable() {
 </div>
 
 <div id="outline-container-1-5-4" class="outline-4">
-<h4 id="sec-1-5-4">SharedPreferences</h4>
+<h4 id="sec-1-5-4"><span class="section-number-4">1.5.4</span> SharedPreferences</h4>
 <div class="outline-text-4" id="text-1-5-4">
 
 <p>很多软件会有配置文件，里面存放这程序运行当中的各个属性值，由于其配置信息并不多，如果采用数据库来存放并不划算，因为数据库
@@ -786,7 +918,7 @@ int等。一般会将复杂类型的数据转换成Base64编码，然后将转�
 </div>
 
 <div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6">通知栏操作</h3>
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 通知栏操作</h3>
 <div class="outline-text-3" id="text-1-6">
 
 <p>在Android系统中，发一个状态栏通知还是很方便的。首先，发送一个状态栏通知必须用到两个类：NotificationManager、Notification。
@@ -872,7 +1004,7 @@ nm.notify(Notification_ID_BASE, baseNF);
 </div>
 
 <div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7">程序首选项</h3>
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> 程序首选项</h3>
 <div class="outline-text-3" id="text-1-7">
 
 <p>一般程序可以通过“设置”也就是首选项做一些更个性化的设置。打开我们的系统设置中，会看到整个页面被分为几组：无线网络、设备、
@@ -899,7 +1031,7 @@ SharedPreference对象获得这个程序的全体设置，Preference的对象获
 </div>
 
 <div id="outline-container-1-8" class="outline-3">
-<h3 id="sec-1-8">menu</h3>
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> menu</h3>
 <div class="outline-text-3" id="text-1-8">
 
 <p>menu标签中item标签的主要属性见表<a href="#tbl-menu-bar">tbl-menu-bar</a>
@@ -923,14 +1055,14 @@ SharedPreference对象获得这个程序的全体设置，Preference的对象获
 </div>
 
 <div id="outline-container-1-9" class="outline-3">
-<h3 id="sec-1-9">gps</h3>
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> gps</h3>
 <div class="outline-text-3" id="text-1-9">
 
 
 </div>
 
 <div id="outline-container-1-9-1" class="outline-4">
-<h4 id="sec-1-9-1">组件</h4>
+<h4 id="sec-1-9-1"><span class="section-number-4">1.9.1</span> 组件</h4>
 <div class="outline-text-4" id="text-1-9-1">
 
 <ul>
@@ -965,7 +1097,7 @@ SharedPreference对象获得这个程序的全体设置，Preference的对象获
 </div>
 
 <div id="outline-container-1-9-2" class="outline-4">
-<h4 id="sec-1-9-2">操作</h4>
+<h4 id="sec-1-9-2"><span class="section-number-4">1.9.2</span> 操作</h4>
 <div class="outline-text-4" id="text-1-9-2">
 
 <ol>
@@ -984,7 +1116,7 @@ SharedPreference对象获得这个程序的全体设置，Preference的对象获
 </div>
 
 <div id="outline-container-1-9-2-1" class="outline-5">
-<h5 id="sec-1-9-2-1">LocationManager</h5>
+<h5 id="sec-1-9-2-1"><span class="section-number-5">1.9.2.1</span> LocationManager</h5>
 <div class="outline-text-5" id="text-1-9-2-1">
 
 <p>LocationMangager，位置管理器。要想操作定位相关设备，必须先定义个LocationManager。我们可以通过如下代码创建LocationManger
@@ -1000,7 +1132,7 @@ SharedPreference对象获得这个程序的全体设置，Preference的对象获
 </div>
 
 <div id="outline-container-1-9-2-2" class="outline-5">
-<h5 id="sec-1-9-2-2">LocationListener</h5>
+<h5 id="sec-1-9-2-2"><span class="section-number-5">1.9.2.2</span> LocationListener</h5>
 <div class="outline-text-5" id="text-1-9-2-2">
 
 <p>LocationListener，位置监听，监听位置变化，监听设备开关与状态。
@@ -1059,7 +1191,7 @@ SharedPreference对象获得这个程序的全体设置，Preference的对象获
 </div>
 
 <div id="outline-container-1-9-2-3" class="outline-5">
-<h5 id="sec-1-9-2-3">Location</h5>
+<h5 id="sec-1-9-2-3"><span class="section-number-5">1.9.2.3</span> Location</h5>
 <div class="outline-text-5" id="text-1-9-2-3">
 
 <p>Location，位置信息，通过Location可以获取时间、经纬度、海拔等位置信息。上面采用locationListener里面的onLocationChanged()
@@ -1077,7 +1209,7 @@ system.out.println("经度："+location.getLongitude());
 </div>
 
 <div id="outline-container-1-9-2-4" class="outline-5">
-<h5 id="sec-1-9-2-4">GpsStatus.Listener</h5>
+<h5 id="sec-1-9-2-4"><span class="section-number-5">1.9.2.4</span> GpsStatus.Listener</h5>
 <div class="outline-text-5" id="text-1-9-2-4">
 
 <p>GpsStatus.Listener ，GPS状态监听，包括GPS启动、停止、第一次定位、卫星变化等事件。
@@ -1128,7 +1260,7 @@ lm.addGpsStatusListener(listener);
 </div>
 
 <div id="outline-container-1-9-2-5" class="outline-5">
-<h5 id="sec-1-9-2-5">GpsStatus</h5>
+<h5 id="sec-1-9-2-5"><span class="section-number-5">1.9.2.5</span> GpsStatus</h5>
 <div class="outline-text-5" id="text-1-9-2-5">
 
 <p>GpsStatus，GPS状态信息，上面在卫星状态变化时，我们就用到了GpsStatus。
@@ -1152,7 +1284,7 @@ Iterator&lt;GpsSatellite&gt; itrator=iterable.iterator();
 </div>
 
 <div id="outline-container-1-9-2-6" class="outline-5">
-<h5 id="sec-1-9-2-6">GpsSatellite</h5>
+<h5 id="sec-1-9-2-6"><span class="section-number-5">1.9.2.6</span> GpsSatellite</h5>
 <div class="outline-text-5" id="text-1-9-2-6">
 
 <p>GpsSatellite，定位卫星，包含卫星的方位、高度、伪随机噪声码、信噪比等信息
@@ -1198,7 +1330,7 @@ for(int i=0;i&lt;satelliteList.size();i++){
 </div>
 
 <div id="outline-container-1-9-3" class="outline-4">
-<h4 id="sec-1-9-3">位置模拟</h4>
+<h4 id="sec-1-9-3"><span class="section-number-4">1.9.3</span> 位置模拟</h4>
 <div class="outline-text-4" id="text-1-9-3">
 
 <p>大体思路如下。
@@ -1246,14 +1378,14 @@ public static void setLocation(Context context, LatLonBean bean) {
 </div>
 
 <div id="outline-container-1-10" class="outline-3">
-<h3 id="sec-1-10">bt</h3>
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> bt</h3>
 <div class="outline-text-3" id="text-1-10">
 
 
 </div>
 
 <div id="outline-container-1-10-1" class="outline-4">
-<h4 id="sec-1-10-1">概念</h4>
+<h4 id="sec-1-10-1"><span class="section-number-4">1.10.1</span> 概念</h4>
 <div class="outline-text-4" id="text-1-10-1">
 
 <ul>
@@ -1294,7 +1426,7 @@ public static void setLocation(Context context, LatLonBean bean) {
 </div>
 
 <div id="outline-container-1-10-2" class="outline-4">
-<h4 id="sec-1-10-2">蓝牙权限</h4>
+<h4 id="sec-1-10-2"><span class="section-number-4">1.10.2</span> 蓝牙权限</h4>
 <div class="outline-text-4" id="text-1-10-2">
 
 <p>应用程序要用蓝牙功能，必须要声明蓝牙权限“BLUETOOTH”。代码如下
@@ -1315,7 +1447,7 @@ public static void setLocation(Context context, LatLonBean bean) {
 </div>
 
 <div id="outline-container-1-10-3" class="outline-4">
-<h4 id="sec-1-10-3">设置蓝牙</h4>
+<h4 id="sec-1-10-3"><span class="section-number-4">1.10.3</span> 设置蓝牙</h4>
 <div class="outline-text-4" id="text-1-10-3">
 
 <p>如果要使用蓝牙，需要检查手机是否支持蓝牙，并且要保证已经使能。这需要两步操作。
@@ -1360,7 +1492,7 @@ if (mBluetoothAdapter == null) {
 </div>
 
 <div id="outline-container-1-10-4" class="outline-4">
-<h4 id="sec-1-10-4">寻找设备</h4>
+<h4 id="sec-1-10-4"><span class="section-number-4">1.10.4</span> 寻找设备</h4>
 <div class="outline-text-4" id="text-1-10-4">
 
 <p>可以使用BluetoothAdapter搜索远端设备，要么通过“搜索设备”，要么通过轮询配对绑定列表里面的设备。
@@ -1378,7 +1510,7 @@ if (mBluetoothAdapter == null) {
 </div>
 
 <div id="outline-container-1-10-5" class="outline-4">
-<h4 id="sec-1-10-5">轮询已配对的设备</h4>
+<h4 id="sec-1-10-5"><span class="section-number-4">1.10.5</span> 轮询已配对的设备</h4>
 <div class="outline-text-4" id="text-1-10-5">
 
 <p>在进行搜索设备前，先轮询已配对设备的集合看看是否有我们需要的设备，调用BluetoothAdapter的getBondedDevices()即可。它将返回
@@ -1404,7 +1536,7 @@ if (pairedDevices.size() &gt; 0) {
 </div>
 
 <div id="outline-container-1-10-6" class="outline-4">
-<h4 id="sec-1-10-6">搜索设备</h4>
+<h4 id="sec-1-10-6"><span class="section-number-4">1.10.6</span> 搜索设备</h4>
 <div class="outline-text-4" id="text-1-10-6">
 
 <p>要发起搜索设备，只需要简单的调用startDiscovery().这个过程是异步的，调用这个方法会立刻返回一个布尔值指示搜索是否成功启动。
@@ -1440,7 +1572,7 @@ registerReceiver(mReceiver, filter); // Don't forget to unregister during onDest
 </div>
 
 <div id="outline-container-1-10-7" class="outline-4">
-<h4 id="sec-1-10-7">使能可发现性</h4>
+<h4 id="sec-1-10-7"><span class="section-number-4">1.10.7</span> 使能可发现性</h4>
 <div class="outline-text-4" id="text-1-10-7">
 
 <p>如果愿意本地设备被其他设备搜索到，可使用ACTION_REQUEST_DISCOVERABLE的intent调用startActivityForResult(Intent，int)，它将
@@ -1471,7 +1603,7 @@ server socket，因为远端设备在初始化一个连接前必须能够发现�
 </div>
 
 <div id="outline-container-1-10-8" class="outline-4">
-<h4 id="sec-1-10-8">连接设备</h4>
+<h4 id="sec-1-10-8"><span class="section-number-4">1.10.8</span> 连接设备</h4>
 <div class="outline-text-4" id="text-1-10-8">
 
 <p>为了应用程序在设备间建立连接，必须实现服务端和客户端机制，因为一个设备必须开启server socket，另一个设备必须初始化这个连
@@ -1487,7 +1619,7 @@ server socket，因为远端设备在初始化一个连接前必须能够发现�
 </div>
 
 <div id="outline-container-1-10-9" class="outline-4">
-<h4 id="sec-1-10-9">服务端的连接</h4>
+<h4 id="sec-1-10-9"><span class="section-number-4">1.10.9</span> 服务端的连接</h4>
 <div class="outline-text-4" id="text-1-10-9">
 
 <p>当要连接两个设备时，其中一个必须作为一个服务端保存一个打开的BluetoothServerSocket。它的目的是监听进来的链接请求，并且当
@@ -1569,7 +1701,7 @@ manageConnectedSocket()在应用中是个虚方法，他会初始化线程来传
 </div>
 
 <div id="outline-container-1-10-10" class="outline-4">
-<h4 id="sec-1-10-10">客户端的连接</h4>
+<h4 id="sec-1-10-10"><span class="section-number-4">1.10.10</span> 客户端的连接</h4>
 <div class="outline-text-4" id="text-1-10-10">
 
 <p>为了初始化一个到远端设备(它保持着一个开放的服务端Socket)的连接，必须首先获得一个代表远端设备的BluetoothDevice对象(上面
@@ -1644,7 +1776,7 @@ manageConnectedSocket()在应用中是个虚方法，他会初始化线程来传
 </div>
 
 <div id="outline-container-1-10-11" class="outline-4">
-<h4 id="sec-1-10-11">管理连接</h4>
+<h4 id="sec-1-10-11"><span class="section-number-4">1.10.11</span> 管理连接</h4>
 <div class="outline-text-4" id="text-1-10-11">
 
 <p>当成功的链接两个设备，每个都会拥有一个已连接的BluetoothSocket。从此将会有趣了因为可以在设备间分享数据。使用
@@ -1729,7 +1861,7 @@ read(byte[])和write(byte[])两个方法都是阻塞调用。read(byte[])调用�
 </div>
 
 <div id="outline-container-1-10-12" class="outline-4">
-<h4 id="sec-1-10-12">使用Profiles</h4>
+<h4 id="sec-1-10-12"><span class="section-number-4">1.10.12</span> 使用Profiles</h4>
 <div class="outline-text-4" id="text-1-10-12">
 
 <p>从android3.0开始，蓝牙API包含了对蓝牙Profile的支持。Bluetooth Profile是个无线接口，以蓝牙为基础沟通不同的设备。免提
@@ -1793,7 +1925,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-1-10-13" class="outline-4">
-<h4 id="sec-1-10-13">制造商自定义AT指令</h4>
+<h4 id="sec-1-10-13"><span class="section-number-4">1.10.13</span> 制造商自定义AT指令</h4>
 <div class="outline-text-4" id="text-1-10-13">
 
 <p>从android3.0开始，应用程序就能注册接收预定义的由Headset发出的系统通知。
@@ -1802,7 +1934,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-1-10-14" class="outline-4">
-<h4 id="sec-1-10-14">健康设备Profile</h4>
+<h4 id="sec-1-10-14"><span class="section-number-4">1.10.14</span> 健康设备Profile</h4>
 <div class="outline-text-4" id="text-1-10-14">
 
 <p>从android4.0开始，引入对健康设备Profile(HDP)的支持。
@@ -1812,7 +1944,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-1-11" class="outline-3">
-<h3 id="sec-1-11">ble</h3>
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> ble</h3>
 <div class="outline-text-3" id="text-1-11">
 
 </div>
@@ -1820,7 +1952,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-1-12" class="outline-3">
-<h3 id="sec-1-12">jni</h3>
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> jni</h3>
 <div class="outline-text-3" id="text-1-12">
 
 <p>JNI是java native interface的缩写
@@ -1830,7 +1962,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">FreeRTOS</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> FreeRTOS</h2>
 <div class="outline-text-2" id="text-2">
 
 <p>FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个轻量级的操作系统，功能包括：任务管理、时间管理、信号量、消息队列、
@@ -1872,7 +2004,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">术语</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 术语</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <ul>
@@ -1913,21 +2045,21 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">源码解读</h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 源码解读</h3>
 <div class="outline-text-3" id="text-2-2">
 
 
 </div>
 
 <div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1">文件</h4>
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 文件</h4>
 <div class="outline-text-4" id="text-2-2-1">
 
 
 </div>
 
 <div id="outline-container-2-2-1-1" class="outline-5">
-<h5 id="sec-2-2-1-1">FreeRTOS.h</h5>
+<h5 id="sec-2-2-1-1"><span class="section-number-5">2.2.1.1</span> FreeRTOS.h</h5>
 <div class="outline-text-5" id="text-2-2-1-1">
 
 <p>每一个使用了FreeRTOS的程序都需要包含的一个头文件；
@@ -1936,7 +2068,7 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-2-2-1-2" class="outline-5">
-<h5 id="sec-2-2-1-2">projdefs.h</h5>
+<h5 id="sec-2-2-1-2"><span class="section-number-5">2.2.1.2</span> projdefs.h</h5>
 <div class="outline-text-5" id="text-2-2-1-2">
 
 <p>包含了FreeRTOS的一些基本设定，主要定义了如下一些宏定义
@@ -1961,7 +2093,7 @@ errQUEUE_YIELD
 </div>
 
 <div id="outline-container-2-2-1-3" class="outline-5">
-<h5 id="sec-2-2-1-3">FreeRTOSConfig.h</h5>
+<h5 id="sec-2-2-1-3"><span class="section-number-5">2.2.1.3</span> FreeRTOSConfig.h</h5>
 <div class="outline-text-5" id="text-2-2-1-3">
 
 <p>移植的时候要修改的FreeRTOS的全局配置文件; 
@@ -1970,7 +2102,7 @@ errQUEUE_YIELD
 </div>
 
 <div id="outline-container-2-2-1-4" class="outline-5">
-<h5 id="sec-2-2-1-4">portable.h</h5>
+<h5 id="sec-2-2-1-4"><span class="section-number-5">2.2.1.4</span> portable.h</h5>
 <div class="outline-text-5" id="text-2-2-1-4">
 
 </div>
@@ -1979,14 +2111,14 @@ errQUEUE_YIELD
 </div>
 
 <div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2">功能函数</h4>
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 功能函数</h4>
 <div class="outline-text-4" id="text-2-2-2">
 
 
 </div>
 
 <div id="outline-container-2-2-2-1" class="outline-5">
-<h5 id="sec-2-2-2-1">任务生成</h5>
+<h5 id="sec-2-2-2-1"><span class="section-number-5">2.2.2.1</span> 任务生成</h5>
 <div class="outline-text-5" id="text-2-2-2-1">
 
 <p>任务生成使用xTaskGenericCreate函数，并且被宏包装为xTaskCreate；
@@ -1995,7 +2127,7 @@ errQUEUE_YIELD
 </div>
 
 <div id="outline-container-2-2-2-2" class="outline-5">
-<h5 id="sec-2-2-2-2">任务删除</h5>
+<h5 id="sec-2-2-2-2"><span class="section-number-5">2.2.2.2</span> 任务删除</h5>
 <div class="outline-text-5" id="text-2-2-2-2">
 
 </div>
@@ -2003,7 +2135,7 @@ errQUEUE_YIELD
 </div>
 
 <div id="outline-container-2-2-2-3" class="outline-5">
-<h5 id="sec-2-2-2-3">堆操作</h5>
+<h5 id="sec-2-2-2-3"><span class="section-number-5">2.2.2.3</span> 堆操作</h5>
 <div class="outline-text-5" id="text-2-2-2-3">
 
 <p>堆并不神秘，在cortex-m0芯片中，堆和栈其实都是用的ram区，只是认为的堆ram区做了划分，也就是说，完全可以人为的定义一个大的
@@ -2369,7 +2501,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="outline-container-2-2-2-4" class="outline-5">
-<h5 id="sec-2-2-2-4">杂项功能</h5>
+<h5 id="sec-2-2-2-4"><span class="section-number-5">2.2.2.4</span> 杂项功能</h5>
 <div class="outline-text-5" id="text-2-2-2-4">
 
 <p>这些杂项功能大部分都跟平台有关，这里以cortex M系列为例；
@@ -2391,7 +2523,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-11-25 17:58:07 中国标准时间</p>
+<p class="date">Date: 2016-04-07 17:20:03 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

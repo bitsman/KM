@@ -219,6 +219,123 @@ Fragment的出现就是为了解决这样的问题。你可以把Fragment当成A
     if(!cb.isChecked()){
     }
    #+end_src
+*** 对话框
+比如可以在某个按键后触发一个对话框出来要求用户输入数据，然后点确定等操作。
+Java代码如下
+#+begin_src java
+final AlertDialog dialog = new AlertDialog.Builder(this).create();//对话框对象
+//向系统请求一个inflater
+LayoutInflater inflater = (LayoutInflater) this.getSystemService(MainActivity.this.LAYOUT_INFLATER_SERVICE);
+//该对话框的布局layout
+LinearLayout layout = (LinearLayout)inflater.inflate(R.layout.dialog, null);
+dialog.setView(layout);
+dialog.getWindow().setWindowAnimations(R.style.DialogAnimationStyle);
+dialog.show();
+
+//获取对话框中的控件元素，和普通的界面操作一样
+final EditText et = (EditText) dialog.getWindow().findViewById(R.id.et_value);
+Button close_bt = (Button)dialog.getWindow().findViewById(R.id.close_bt);
+close_bt.setOnClickListener(new OnClickListener() {
+    public void onClick(View v) {
+        dialog.dismiss();
+    }
+});
+Button sure_bt = (Button) dialog.getWindow().findViewById(R.id.sure_bt);
+sure_bt.setOnClickListener(new OnClickListener() {
+    public void onClick(View v) {
+        String string =et.getText().toString();
+        if(string == null)
+            dialog.dismiss();
+        Calibrate = currentPressure - Float.parseFloat(string);
+        dialog.dismiss();
+    }
+});
+#+end_src
+相关的界面布局xml文件
+#+begin_src xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dip"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:textSize="20dip"
+        android:text="校正" />
+    <View 
+        android:layout_width="match_parent"
+		  android:layout_height="1dip"
+		  android:layout_marginTop="10dip"
+		  android:background="#009acd" />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip" >
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:textSize="15dip"
+            android:gravity="center_horizontal"
+            android:text="当前值" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="20dip">
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="15dip"
+                android:text="校正值" />
+            <EditText
+                android:id="@+id/et_value"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:background="#fff0f5"
+                android:numeric="integer"
+                android:text="" />
+        </LinearLayout>
+    		<View 
+		    android:layout_width="wrap_content"
+		    android:layout_height="1dip"
+		    android:layout_marginTop="20dip"
+		    android:background="@color/darkgray">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp" >
+        <Button
+            android:id="@+id/close_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_style"
+            android:layout_weight="1"
+            android:text="取消" />
+		<View 
+		    android:layout_width="1dip"
+		    android:layout_height="wrap_content"
+		    android:background="@color/darkgray"/>
+        <Button
+            android:id="@+id/sure_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_style"
+            android:layout_weight="1"
+            android:text="确定" />
+    </LinearLayout>
+</LinearLayout>
+#+end_src
 ** service
 - 在service中启动activity：
   #+begin_src java
