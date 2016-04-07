@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-03-31 20:38:25 中国标准时间"/>
+<meta name="generated" content="2016-04-07 15:30:12 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content="description-bitsman"/>
 <meta name="keywords" content="emacs keil iar"/>
@@ -145,6 +145,11 @@
 </ul>
 </li>
 <li><a href="#sec-1-5">1.5 python-mode</a></li>
+<li><a href="#sec-1-6">1.6 git</a>
+<ul>
+<li><a href="#sec-1-6-1">1.6.1 配置</a></li>
+<li><a href="#sec-1-6-2">1.6.2 push</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-2">2 latex</a>
@@ -1323,6 +1328,77 @@ Some example from a text_file.
 </ul>
 
 </div>
+
+</div>
+
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> git</h3>
+<div class="outline-text-3" id="text-1-6">
+
+<p>使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
+</p>
+</div>
+
+<div id="outline-container-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> 配置</h4>
+<div class="outline-text-4" id="text-1-6-1">
+
+<ul>
+<li>使用M-x git-config-init 配置用户名和email；
+</li>
+<li>如果github使用https方式，则在环境变量中设置HOME变量，值是某目录；
+</li>
+<li>在该目录下新建文件<sub>netrc；</sub>
+</li>
+<li>在<sub>netrc中写入</sub>
+
+
+
+<pre class="example">machine github.com
+login bitman@163.com
+password github的登录密码
+</pre>
+
+</li>
+<li>进入eshell使用命令设置远端仓库的别名；
+
+
+
+<pre class="example">git remote add learn https://github.com/bitsman/bitsman.github.io.git 
+</pre>
+
+</li>
+<li>然后就可以使用git bash进行免输入密码push；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> push</h4>
+<div class="outline-text-4" id="text-1-6-2">
+
+<ol>
+<li>进入git仓库，或者打开仓库里面的文件；
+</li>
+<li>按F1；
+</li>
+<li>使用p/n等进行上下移动，选中修改过的文件使用a键添加进仓库；
+</li>
+<li>使用c键进行commit；
+</li>
+<li>在跳出的<a href="#buffer">buffer</a>中写入日志；
+</li>
+<li>使用C-c C-c进行commit；
+</li>
+<li>使用点.键调出git bash，输入push learn master推送到远端；
+</li>
+</ol>
+
+</div>
+</div>
 </div>
 
 </div>
@@ -1589,7 +1665,7 @@ Some example from a text_file.
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-03-31 20:38:25 中国标准时间</p>
+<p class="date">Date: 2016-04-07 15:30:12 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="email"><a href="mailto:bitman@163.com">bitman@163.com</a></p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>

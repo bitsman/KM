@@ -600,6 +600,31 @@ Snow covers Emacs
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
+** git
+使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
+*** 配置
+- 使用M-x git-config-init 配置用户名和email；
+- 如果github使用https方式，则在环境变量中设置HOME变量，值是某目录；
+- 在该目录下新建文件_netrc；
+- 在_netrc中写入
+  #+begin_src c
+    machine github.com
+    login bitman@163.com
+    password github的登录密码
+  #+end_src
+- 进入eshell使用命令设置远端仓库的别名；
+  #+begin_src c
+  git remote add learn https://github.com/bitsman/bitsman.github.io.git 
+  #+end_src
+- 然后就可以使用git bash进行免输入密码push；
+*** push
+1. 进入git仓库，或者打开仓库里面的文件；
+2. 按F1；
+3. 使用p/n等进行上下移动，选中修改过的文件使用a键添加进仓库；
+4. 使用c键进行commit；
+5. 在跳出的buffer中写入日志；
+6. 使用C-c C-c进行commit；
+7. 使用点.键调出git bash，输入push learn master推送到远端；
 * latex
 ** 方法
 # - 固定latex插入的图片位置
