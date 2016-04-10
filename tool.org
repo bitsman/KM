@@ -592,6 +592,7 @@ Snow covers Emacs
 - LATEX\_HEADER\_EXTRA: 添加的一些其他配置；
 - KEYWORDS：文档关键字；
 - SUBTITLE：文档小标题；
+- 装了完整版ctex，用org-mode导出是可能还是会有错误，多半是缺乏字体引起。
 **** html
 **** 特殊符号
 - 表格里面的竖线: latex命令\vert{}; 
