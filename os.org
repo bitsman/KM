@@ -1185,6 +1185,77 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 *** 健康设备Profile
 从android4.0开始，引入对健康设备Profile(HDP)的支持。
 ** ble
+** sensor
+传感器包括加速度传感器、陀螺仪、气压计等，这些传感器通常用于感知手机当前的
+状态。其使用方法都有固定的模式。
+*** 传感器类型
+传感器类型定义在Sensor.java类中。
+1. 加速度传感器：Sensor.TYPE_ACCELEROMETER;
+2. 磁传感器：Sensor.TYPE_MAGNETIC_FIELD;
+3. 方向传感器：Sensor.TYPE_ORIENTATION;
+4. 陀螺仪传感器：Sensor.TYPE_GYROSCOPE;
+5. 感光传感器：Sensor.TYPE_LIGHT;
+6. 压力传感器：Sensor.TYPE_PRESSURE；
+7. 温度传感器：Sensor.TYPE_TEMPERATURE；
+8. 接近传感器：Sensor.TYPE_PROXIMITY；
+9. 重力传感器：Sensor.TYPE_GRAVITY；
+10. 线性加速度传感器：Sensor.TYPE_LINEAR_ACCELERATION；
+11. 旋转传感器：Sensor.TYPE_ROTATION_VECTOR；
+12. 相对湿度传感器：Sensor.TYPE_RELATIVE_HUMIDITY；
+13. 环境温度传感器：Sensor.TYPE_AMBIENT_TEMPERATURE；
+14. 磁场标定传感器：Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED；
+15. 游戏旋转矢量传感器：Sensor.TYPE_GAME_ROTATION_VECTOR；
+16. 陀螺仪标定传感器：Sensor.TYPE_GYROSCOPE_UNCALIBRATED；
+17. Sensor.TYPE_SIGNIFICANT_MOTION
+18. Sensor.TYPE_STEP_DETECTOR
+19. Sensor.TYPE_STEP_COUNTER
+20. Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR
+21. Sensor.TYPE_HEART_RATE_MONITOR
+22. Sensor.TYPE_WAKE_UP_TILT_DETECTOR
+23. Sensor.TYPE_WAKE_GESTURE
+24. Sensor.TYPE_GLANCE_GESTURE
+25. Sensor.TYPE_PICK_UP_GESTURE
+*** 使用方法
+1. 向系统申请传感器服务：
+   #+begin_src java
+   sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+   #+end_src
+2. 利用该服务获取传感器适配器：
+   #+begin_src java
+   accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+   if(presSensor == null){
+      Log.i(TAG, "no accelerometer");
+      return;
+   }
+   #+end_src
+3. 实例化传感器数据监听器接口：
+   #+begin_src java
+   SensorEventListener sensorEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+             //todo
+        }
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            //todo
+        }
+   }
+   #+end_src
+4. 向传感器服务注册监听器：其中最后一个参数代表多长时间采集一次传感器数据
+   (单位us)，系统集成了3个时间
+   + SensorManager.SENSOR_DELAY_FASTEST：尽可能快的获取传感器数据；
+   + SensorManager.SENSOR_DELAY_NORMAL：一般速度；
+   + SensorManager.SENSOR_DELAY_GAME：适配游戏；
+   + SensorManager.SENSOR_DELAY_UI：适配UI；
+   #+begin_src java
+   sm.registerListener(sensorEventListener, accSensor, SensorManager.SENSOR_DELAY_FASTEST);
+   #+end_src
+5. 用完后卸载监听器：
+   #+begin_src java
+   if(presSensor != null){
+        sm.unregisterListener(sensorEventListener);
+   }
+   #+end_src
 ** jni
 JNI是java native interface的缩写
 * FreeRTOS

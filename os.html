@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="操作系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-11 09:50:06 中国标准时间"/>
+<meta name="generated" content="2016-04-11 21:24:12 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -121,7 +121,13 @@
 </ul>
 </li>
 <li><a href="#sec-1-11">1.11 ble</a></li>
-<li><a href="#sec-1-12">1.12 jni</a></li>
+<li><a href="#sec-1-12">1.12 sensor</a>
+<ul>
+<li><a href="#sec-1-12-1">1.12.1 传感器类型</a></li>
+<li><a href="#sec-1-12-2">1.12.2 使用方法</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-13">1.13 jni</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2 FreeRTOS</a>
@@ -2017,8 +2023,155 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 
 <div id="outline-container-1-12" class="outline-3">
-<h3 id="sec-1-12"><span class="section-number-3">1.12</span> jni</h3>
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> sensor</h3>
 <div class="outline-text-3" id="text-1-12">
+
+<p>传感器包括加速度传感器、陀螺仪、气压计等，这些传感器通常用于感知手机当前的
+状态。其使用方法都有固定的模式。
+</p>
+</div>
+
+<div id="outline-container-1-12-1" class="outline-4">
+<h4 id="sec-1-12-1"><span class="section-number-4">1.12.1</span> 传感器类型</h4>
+<div class="outline-text-4" id="text-1-12-1">
+
+<p>传感器类型定义在Sensor.java类中。
+</p><ol>
+<li>加速度传感器：Sensor.TYPE<sub>ACCELEROMETER</sub>;
+</li>
+<li>磁传感器：Sensor.TYPE<sub>MAGNETIC</sub><sub>FIELD</sub>;
+</li>
+<li>方向传感器：Sensor.TYPE<sub>ORIENTATION</sub>;
+</li>
+<li>陀螺仪传感器：Sensor.TYPE<sub>GYROSCOPE</sub>;
+</li>
+<li>感光传感器：Sensor.TYPE<sub>LIGHT</sub>;
+</li>
+<li>压力传感器：Sensor.TYPE<sub>PRESSURE；</sub>
+</li>
+<li>温度传感器：Sensor.TYPE<sub>TEMPERATURE；</sub>
+</li>
+<li>接近传感器：Sensor.TYPE<sub>PROXIMITY；</sub>
+</li>
+<li>重力传感器：Sensor.TYPE<sub>GRAVITY；</sub>
+</li>
+<li>线性加速度传感器：Sensor.TYPE<sub>LINEAR</sub><sub>ACCELERATION；</sub>
+</li>
+<li>旋转传感器：Sensor.TYPE<sub>ROTATION</sub><sub>VECTOR；</sub>
+</li>
+<li>相对湿度传感器：Sensor.TYPE<sub>RELATIVE</sub><sub>HUMIDITY；</sub>
+</li>
+<li>环境温度传感器：Sensor.TYPE<sub>AMBIENT</sub><sub>TEMPERATURE；</sub>
+</li>
+<li>磁场标定传感器：Sensor.TYPE<sub>MAGNETIC</sub><sub>FIELD</sub><sub>UNCALIBRATED；</sub>
+</li>
+<li>游戏旋转矢量传感器：Sensor.TYPE<sub>GAME</sub><sub>ROTATION</sub><sub>VECTOR；</sub>
+</li>
+<li>陀螺仪标定传感器：Sensor.TYPE<sub>GYROSCOPE</sub><sub>UNCALIBRATED；</sub>
+</li>
+<li>Sensor.TYPE<sub>SIGNIFICANT</sub><sub>MOTION</sub>
+</li>
+<li>Sensor.TYPE<sub>STEP</sub><sub>DETECTOR</sub>
+</li>
+<li>Sensor.TYPE<sub>STEP</sub><sub>COUNTER</sub>
+</li>
+<li>Sensor.TYPE<sub>GEOMAGNETIC</sub><sub>ROTATION</sub><sub>VECTOR</sub>
+</li>
+<li>Sensor.TYPE<sub>HEART</sub><sub>RATE</sub><sub>MONITOR</sub>
+</li>
+<li>Sensor.TYPE<sub>WAKE</sub><sub>UP</sub><sub>TILT</sub><sub>DETECTOR</sub>
+</li>
+<li>Sensor.TYPE<sub>WAKE</sub><sub>GESTURE</sub>
+</li>
+<li>Sensor.TYPE<sub>GLANCE</sub><sub>GESTURE</sub>
+</li>
+<li>Sensor.TYPE<sub>PICK</sub><sub>UP</sub><sub>GESTURE</sub>
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-12-2" class="outline-4">
+<h4 id="sec-1-12-2"><span class="section-number-4">1.12.2</span> 使用方法</h4>
+<div class="outline-text-4" id="text-1-12-2">
+
+<ol>
+<li>向系统申请传感器服务：
+
+
+
+<pre class="example">sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+</pre>
+
+</li>
+<li>利用该服务获取传感器适配器：
+
+
+
+<pre class="example">accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+if(presSensor == null){
+   Log.i(TAG, "no accelerometer");
+   return;
+}
+</pre>
+
+</li>
+<li>实例化传感器数据监听器接口：
+
+
+
+<pre class="example">SensorEventListener sensorEventListener = new SensorEventListener() {
+     @Override
+     public void onSensorChanged(SensorEvent event) {
+          //todo
+     }
+     @Override
+     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+         //todo
+     }
+}
+</pre>
+
+</li>
+<li>向传感器服务注册监听器：其中最后一个参数代表多长时间采集一次传感器数据
+   (单位us)，系统集成了3个时间
+<ul>
+<li>SensorManager.SENSOR<sub>DELAY</sub><sub>FASTEST：尽可能快的获取传感器数据；</sub>
+</li>
+<li>SensorManager.SENSOR<sub>DELAY</sub><sub>NORMAL：一般速度；</sub>
+</li>
+<li>SensorManager.SENSOR<sub>DELAY</sub><sub>GAME：适配游戏；</sub>
+</li>
+<li>SensorManager.SENSOR<sub>DELAY</sub><sub>UI：适配UI；</sub>
+
+
+
+<pre class="example">sm.registerListener(sensorEventListener, accSensor, SensorManager.SENSOR_DELAY_FASTEST);
+</pre>
+
+</li>
+<li>用完后卸载监听器：
+
+
+
+<pre class="example">if(presSensor != null){
+     sm.unregisterListener(sensorEventListener);
+}
+</pre>
+
+</li>
+</ol>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> jni</h3>
+<div class="outline-text-3" id="text-1-13">
 
 <p>JNI是java native interface的缩写
 </p></div>
@@ -2588,7 +2741,7 @@ void *pvPortMalloc( size_t xWantedSize )
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-11 09:50:06 中国标准时间</p>
+<p class="date">Date: 2016-04-11 21:24:12 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
