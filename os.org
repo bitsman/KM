@@ -219,6 +219,48 @@ Fragment的出现就是为了解决这样的问题。你可以把Fragment当成A
     if(!cb.isChecked()){
     }
    #+end_src
+*** 单选框
+单选框可以将多个选项汇聚到一个组中，这个组中的每个单选项是互斥的，选一个其
+他的就不能选。
+- xml文件
+  #+begin_src xml
+  <RadioGroup
+      android:id="@+id/shoes_sel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_x="3px"
+      android:layout_y="54px" >
+      <RadioButton
+          android:id="@+id/RadioButton1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="工厂测试"/>
+      <RadioButton
+          android:id="@+id/RadioButton2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="生产测试"/>
+  </RadioGroup>
+  #+end_src
+- 源码中获取：
+  #+begin_src java
+  mRadioGroup = (RadioGroup) findViewById(R.id.shoes_sel);  
+  mRadio1 = (RadioButton) findViewById(R.id.RadioButton1);  
+  mRadio2 = (RadioButton) findViewById(R.id.RadioButton2); 
+  #+end_src
+- 监听器：
+  #+begin_src java
+  mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {  
+    public void onCheckedChanged(RadioGroup group, int checkedId){
+        if (checkedId == mRadio2.getId()){
+            //todo
+        }  
+        else{  
+            //todo
+        }  
+    }  
+  });  
+  #+end_src
 *** 对话框
 比如可以在某个按键后触发一个对话框出来要求用户输入数据，然后点确定等操作。
 Java代码如下
