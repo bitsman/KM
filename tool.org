@@ -166,6 +166,8 @@
   看起来应该是这样：\HKEY\_CLASSES\_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
   Path\gnuclientw.exe，并加上"%1"
 - emacs配置立马生效: 可以M-x eval-current-buffer立马生效;
+- 查看emacs占用资源：M-x profiler-start 然后选cpu+mem然后执行
+  profiler-report；
 *** 计算器
 - 计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
   示它们是二进制形式。如果要重新用十进制显示，则输入"d0"即可，同样，也可以用"d8""，"d6"来显示八进制和十六进制的格式。如
