@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-10 11:05:11 中国标准时间"/>
+<meta name="generated" content="2016-04-20 23:44:43 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -114,8 +114,14 @@
 <li><a href="#sec-1-4-3-1">1.4.3.1 全期平滑</a></li>
 <li><a href="#sec-1-4-3-2">1.4.3.2 移动平滑</a></li>
 <li><a href="#sec-1-4-3-3">1.4.3.3 指数平滑</a></li>
+</ul></li>
 </ul>
 </li>
+<li><a href="#sec-1-5">1.5 采样重构</a>
+<ul>
+<li><a href="#sec-1-5-1">1.5.1 频率</a></li>
+<li><a href="#sec-1-5-2">1.5.2 采样</a></li>
+<li><a href="#sec-1-5-3">1.5.3 重构</a></li>
 </ul>
 </li>
 </ul>
@@ -572,12 +578,63 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 </div>
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 采样重构</h3>
+<div class="outline-text-3" id="text-1-5">
+
+
+</div>
+
+<div id="outline-container-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 频率</h4>
+<div class="outline-text-4" id="text-1-5-1">
+
+<ul>
+<li>模拟频率f：每秒经历多少个周期，单位Hz，即1/s；
+</li>
+<li>模拟角频率Ω：每秒经历多少弧度，单位rad/s；
+</li>
+<li>数字频率w：每个采样点间隔之间的弧度，单位rad。
+</li>
+<li>关系：\(Ω = 2\pi{}f\), \(w = ΩT\)
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> 采样</h4>
+<div class="outline-text-4" id="text-1-5-2">
+
+<ul>
+<li>采样定理：如果采样频率\(F_{s}\)大于有限带宽信号\(x_{a}(t)\)带宽\(F_{D}\)
+  的2倍即 $$F_{s}&gt;2F_{D}$$ 则该信号可以由它的采样值\(x(n)=x_{a}(nT_{s})\)重
+  构，否则就会在x(n)中产生混叠。对该有限带宽模拟信号的2F<sub>D</sub>就称为奈奎斯特
+  频率。
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> 重构</h4>
+<div class="outline-text-4" id="text-1-5-3">
+
+</div>
+</div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-10 11:05:11 中国标准时间</p>
+<p class="date">Date: 2016-04-20 23:44:43 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
