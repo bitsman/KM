@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-07 22:10:43 中国标准时间"/>
+<meta name="generated" content="2016-04-20 12:20:34 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -164,10 +164,10 @@
 <li><a href="#sec-5-4-2">5.4.2 最大似然比贝叶斯分类器</a></li>
 <li><a href="#sec-5-4-3">5.4.3 最小风险贝叶斯分类器</a></li>
 <li><a href="#sec-5-4-4">5.4.4 朴素贝叶斯</a></li>
+</ul></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a href="#sec-6">6 几何</a></li>
 </ul>
 </div>
 </div>
@@ -1176,11 +1176,42 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 几何</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>讨论几何就必须要明确坐标系，不同的坐标系下得出的结果可能不一样。这里主要阐
+述了几种3维坐标系。
+</p><ul>
+<li>世界坐标系：一般指地球经纬度坐标系，它是一个特殊的坐标系，它建立了描述其
+  他坐标系所需要的参考框架。也就是能够用世界坐标系描述其他坐标系的卫士，而
+  不能用更大的、外部的坐标系来描述世界坐标系。也可以把它叫绝对坐标系或者全
+  局坐标系或者宇宙坐标系。一般说的“向东”、“向西”等都在基于世界坐标系。
+</li>
+<li>物体坐标系：是和特定物体相关联的坐标系。每个物体都有它们独立的坐标系。当
+  物体移动和改变方向时，和该物体相关联的坐标系将随之移动和改变方向。“前、
+  后、左、右”概念是基于物体坐标系。有时也叫身体坐标系或模型坐标系。
+</li>
+<li>摄像机坐标系：是和观察者密切相关的坐标系。摄像机坐标系能被看做是一种特殊
+  的物体坐标系，该物体坐标系在摄像机的屏幕可视区域。摄像机坐标系中，摄像机
+  是原点，x轴向右，z轴向前，y轴向摄像机上方。
+</li>
+<li>惯性坐标系：为了简化世界坐标系到物体坐标系的转换，引入了惯性坐标系。惯性
+  坐标系的原点和物体坐标系的原点重合，但惯性坐标系的轴平行于世界坐标系的轴。
+  从物体坐标系转换到惯性坐标系只需要旋转，从惯性坐标系转换到世界坐标系只需
+  要平移。
+</li>
+</ul>
+
+</div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-07 22:10:43 中国标准时间</p>
+<p class="date">Date: 2016-04-20 12:20:34 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
