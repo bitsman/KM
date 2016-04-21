@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-21 14:45:35 中国标准时间"/>
+<meta name="generated" content="2016-04-21 18:22:23 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -182,7 +182,11 @@
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-6">6 几何</a></li>
+<li><a href="#sec-6">6 几何</a>
+<ul>
+<li><a href="#sec-6-1">6.1 欧拉角</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1496,14 +1500,62 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
   从物体坐标系转换到惯性坐标系只需要旋转，从惯性坐标系转换到世界坐标系只需
   要平移。
 </li>
+<li>方位和角位移：方位是通过相对已知方位的旋转来描述，旋转的量称为角位移。方
+  位和角位移的区别像点和向量的区别。用矩阵和四元数表示角位移，用欧拉角表示
+  方位。
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 欧拉角</h3>
+<div class="outline-text-3" id="text-6-1">
+
+<p>欧拉角的基本思想是将角位移分解为绕3个相互垂直轴的3个旋转组成的序列。绕任意3
+个轴和任意顺序都可以，但是一般都是使用笛卡尔坐标系并按一定顺序所组成的旋转
+序列。常用的约定是heading-pitch-bank，这是一个标准方位，所以物体的方位，就
+是在标准方位上，让物体做heading、pitch、bank旋转，最后物体到达我们想要描述
+的方位。 
+</p><ul>
+<li>heading-pitch-bank：首先让物体坐标系和惯性坐标系重合，一个方位被定义为1个
+  heading角，1个pitch角，1个bank角，绕的轴不一定就是x，y，z。 
+<ol>
+<li>heading：绕惯性坐标系的y轴的旋转量，从原点望向正端，逆时针为正；
+</li>
+<li>pitch：绕物体坐标系的x轴的旋转量，从原点望向正端，逆时针为正；
+</li>
+<li>bank：绕物体坐标系的z轴的旋转量，从原点望向正端，逆时针为正；
+</li>
+</ol>
+
+</li>
+<li>万向锁：一个典型的万向锁可以表述为，先heading 45度，再pitch 90度这与先
+  pitch 90度再bank 45度效果等价。也就是一旦选择\(\pm{}90\)作为pitch角，就会
+  导致第一次旋转和第三次旋转等价。整个旋转表示系统被限制在只能绕竖直轴旋转，
+  丢失了一个表示维度，被称为万向锁。理解如下，使用手机和一只笔，首先确定手
+  机的物体坐标系为了方便记忆，假设z轴垂直于屏幕指向上方(手机平放于桌面)，手
+  机较短的边为x轴，长边为y轴，方向由手机尾部指向头部，物体坐标系的原点是手
+  机左下角的顶点，旋转顺序是zyx。首先绕z轴旋转任意角度(注意xy轴也会跟着一起
+  旋转)，再绕y轴旋转90度，在绕x轴旋转任意角度，通过多次尝试不同角度组合，会
+  发现一个共同点：z轴永远是水平的，也就是说手机永远也不会竖立起来一定角度，
+  本来应该手机会指向任意方向，但实际上手机好像被锁在了桌面上，只能指向水平
+  的某个方向，也就是万向锁，本质原因就是中间绕轴旋转的90度，第三个绕轴被转
+  到了第一个轴相同的方向，因此手机缺失了一个自由度(竖直方向自由度)，只有第
+  一个和第二个轴的自由度，只有2个自由度也就意味着手机的运动被限制在了二维空
+  间，永远无法进入三维空间，立起来。不知道是不是和汽车的万向节一个原理。如
+  果我们的雷达扫描也遇到了万向锁角度组合，则会丢失对目标的跟踪。  
+</li>
 </ul>
 
 </div>
 </div>
 </div>
+</div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-21 14:45:35 中国标准时间</p>
+<p class="date">Date: 2016-04-21 18:22:23 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
