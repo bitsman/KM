@@ -602,9 +602,15 @@ Snow covers Emacs
 - 表格里面的上尖括号：latex命令\land{}；
 - 表格里面的左尖括号：latex命令\textless{};
 - 表格里面的右尖括号：latex命令\textgreater{}; 
+*** latex
+可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
+模块。
 ** python-mode
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
+** dired-mode
+- 压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip test.zip *，
+  回车就压缩到test.zip里面了。其他如7z类似； 
 ** git
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 *** 配置

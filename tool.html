@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="工具"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-15 17:17:50 中国标准时间"/>
+<meta name="generated" content="2016-04-21 13:08:16 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content="description-bitsman"/>
 <meta name="keywords" content="emacs keil iar"/>
@@ -141,14 +141,17 @@
 <li><a href="#sec-1-4-16-3">1.4.16.3 pdf</a></li>
 <li><a href="#sec-1-4-16-4">1.4.16.4 html</a></li>
 <li><a href="#sec-1-4-16-5">1.4.16.5 特殊符号</a></li>
-</ul></li>
+</ul>
+</li>
+<li><a href="#sec-1-4-17">1.4.17 latex</a></li>
 </ul>
 </li>
 <li><a href="#sec-1-5">1.5 python-mode</a></li>
-<li><a href="#sec-1-6">1.6 git</a>
+<li><a href="#sec-1-6">1.6 dired-mode</a></li>
+<li><a href="#sec-1-7">1.7 git</a>
 <ul>
-<li><a href="#sec-1-6-1">1.6.1 配置</a></li>
-<li><a href="#sec-1-6-2">1.6.2 push</a></li>
+<li><a href="#sec-1-7-1">1.7.1 配置</a></li>
+<li><a href="#sec-1-7-2">1.7.2 push</a></li>
 </ul></li>
 </ul>
 </li>
@@ -1321,6 +1324,16 @@ Some example from a text_file.
 
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-1-4-17" class="outline-4">
+<h4 id="sec-1-4-17"><span class="section-number-4">1.4.17</span> latex</h4>
+<div class="outline-text-4" id="text-1-4-17">
+
+<p>可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
+模块。
+</p></div>
 </div>
 
 </div>
@@ -1340,16 +1353,30 @@ Some example from a text_file.
 </div>
 
 <div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> git</h3>
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> dired-mode</h3>
 <div class="outline-text-3" id="text-1-6">
+
+<ul>
+<li>压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip test.zip *，
+  回车就压缩到test.zip里面了。其他如7z类似； 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> git</h3>
+<div class="outline-text-3" id="text-1-7">
 
 <p>使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 </p>
 </div>
 
-<div id="outline-container-1-6-1" class="outline-4">
-<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> 配置</h4>
-<div class="outline-text-4" id="text-1-6-1">
+<div id="outline-container-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1"><span class="section-number-4">1.7.1</span> 配置</h4>
+<div class="outline-text-4" id="text-1-7-1">
 
 <ul>
 <li>使用M-x git-config-init 配置用户名和email；
@@ -1384,9 +1411,9 @@ password github的登录密码
 
 </div>
 
-<div id="outline-container-1-6-2" class="outline-4">
-<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> push</h4>
-<div class="outline-text-4" id="text-1-6-2">
+<div id="outline-container-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2"><span class="section-number-4">1.7.2</span> push</h4>
+<div class="outline-text-4" id="text-1-7-2">
 
 <ol>
 <li>进入git仓库，或者打开仓库里面的文件；
@@ -1673,7 +1700,7 @@ password github的登录密码
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-15 17:17:50 中国标准时间</p>
+<p class="date">Date: 2016-04-21 13:08:16 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="email"><a href="mailto:bitman@163.com">bitman@163.com</a></p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>

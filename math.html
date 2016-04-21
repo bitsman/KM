@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-20 18:16:41 中国标准时间"/>
+<meta name="generated" content="2016-04-21 14:45:35 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -116,23 +116,21 @@
 <ul>
 <li><a href="#sec-3-1">3.1 概念</a></li>
 <li><a href="#sec-3-2">3.2 向量</a></li>
-<li><a href="#sec-3-3">3.3 行列式</a>
-<ul>
-<li><a href="#sec-3-3-1">3.3.1 余子式</a></li>
-</ul>
-</li>
+<li><a href="#sec-3-3">3.3 行列式</a></li>
 <li><a href="#sec-3-4">3.4 物理意义</a>
 <ul>
-<li><a href="#sec-3-4-1">3.4.1 变换</a></li>
-<li><a href="#sec-3-4-2">3.4.2 逆变换</a></li>
-<li><a href="#sec-3-4-3">3.4.3 等角变换</a></li>
-<li><a href="#sec-3-4-4">3.4.4 正交变换</a></li>
-<li><a href="#sec-3-4-5">3.4.5 刚体变换</a></li>
-<li><a href="#sec-3-4-6">3.4.6 旋转</a></li>
-<li><a href="#sec-3-4-7">3.4.7 缩放</a></li>
-<li><a href="#sec-3-4-8">3.4.8 投影</a></li>
-<li><a href="#sec-3-4-9">3.4.9 镜像</a></li>
-<li><a href="#sec-3-4-10">3.4.10 切变</a></li>
+<li><a href="#sec-3-4-1">3.4.1 矩阵的逆</a></li>
+<li><a href="#sec-3-4-2">3.4.2 正交矩阵</a></li>
+<li><a href="#sec-3-4-3">3.4.3 变换</a></li>
+<li><a href="#sec-3-4-4">3.4.4 逆变换</a></li>
+<li><a href="#sec-3-4-5">3.4.5 等角变换</a></li>
+<li><a href="#sec-3-4-6">3.4.6 正交变换</a></li>
+<li><a href="#sec-3-4-7">3.4.7 刚体变换</a></li>
+<li><a href="#sec-3-4-8">3.4.8 旋转</a></li>
+<li><a href="#sec-3-4-9">3.4.9 缩放</a></li>
+<li><a href="#sec-3-4-10">3.4.10 投影</a></li>
+<li><a href="#sec-3-4-11">3.4.11 镜像</a></li>
+<li><a href="#sec-3-4-12">3.4.12 切变</a></li>
 </ul></li>
 </ul>
 </li>
@@ -488,13 +486,25 @@ pl.show()
   一个事物映射到非负实数域，具有“长度”，“大小”概念； 
 </li>
 <li>向量点积：设两个向量的坐标表示为\(a=(a_{x}, a_{y}, a_{z}), b=(b_{x},
-  b_{y}, b_{z})\), 则向量a和b的内积表示为 
-  $$a.b=(|a||b|\cos{\theta})=(a_{x}b_{x}+a_{y}b_{y}+a_{z}b_{z})$$; 
+  b_{y}, b_{z})\), 则向量a和b的内积表示如下； 
+  $$a.b=(|a||b|\cos{\theta})=(a_{x}b_{x}+a_{y}b_{y}+a_{z}b_{z})$$ 
 </li>
 <li>向量叉积：设两个向量的坐标表示为\(a=(a_{x}, a_{y}, a_{z}), b=(b_{x},
   b_{y}, b_{z})\), 则向量a和b的叉积表示为, 其中\(n_{0}\)表示ab平面的法向量
   单位向量
-  $$axb=(|a||b|\sin{\theta}n_{0})=(a_{y}b_{z}-a_{z}b_{y}, a_{z}b_{x}-a_{x}b_{z}, a_{x}b_{y}-a_{y}b_{x})$$ 
+  $$axb=(|a||b|\sin{\theta}n_{0})=(a_{y}b_{z}-a_{z}b_{y}, a_{z}b_{x}-a_{x}b_{z}, a_{x}b_{y}-a_{y}b_{x})$$
+</li>
+<li>余子式：余子式是一个矩阵，而代数余子式是一个标量；
+</li>
+<li>标准伴随矩阵：矩阵的所有代数余子式构成的矩阵的转置，用adj表示；
+</li>
+<li>奇异矩阵：矩阵的行列式为0，表示该矩阵是奇异的，反之亦然；
+</li>
+<li>矩阵的逆：奇异矩阵没有逆矩阵，反之亦然，计算公式如下
+  $$M^{-1}=\frac{adj(M)}{|M|}$$
+</li>
+<li>正交矩阵：若方阵M是正交的，则当且仅当M与它转置M<sup>T</sup>的乘积等于单位阵。也就
+  是如果一个矩阵是正交的，则它的转置等于它的逆；
 </li>
 </ul>
 
@@ -533,16 +543,7 @@ pl.show()
 <p>行列式和矩阵变换导致的尺寸改变相关。其中行列式的绝对值和面积(2D), 体积(3D)
 的改变相关。行列式的符号说明了变换矩阵是否包含镜像或投影。矩阵行列式为0，表
 示该矩阵包含投影变换，为负，表示包含镜像。
-</p>
-</div>
-
-<div id="outline-container-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1"><span class="section-number-4">3.3.1</span> 余子式</h4>
-<div class="outline-text-4" id="text-3-3-1">
-
-<p>余子式是一个矩阵，而代数余子式是一个标量。
 </p></div>
-</div>
 
 </div>
 
@@ -554,8 +555,37 @@ pl.show()
 </div>
 
 <div id="outline-container-3-4-1" class="outline-4">
-<h4 id="sec-3-4-1"><span class="section-number-4">3.4.1</span> 变换</h4>
+<h4 id="sec-3-4-1"><span class="section-number-4">3.4.1</span> 矩阵的逆</h4>
 <div class="outline-text-4" id="text-3-4-1">
+
+<p>矩阵的逆可以撤销原变换的变换，一个向量v用矩阵M进行变换，接着用M的逆M<sup>-1</sup>进
+行变换，将会得到原向量v。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-4-2" class="outline-4">
+<h4 id="sec-3-4-2"><span class="section-number-4">3.4.2</span> 正交矩阵</h4>
+<div class="outline-text-4" id="text-3-4-2">
+
+<p>旋转矩阵和镜像矩阵都是正交的。有时由外部数据构成的矩阵，由于可能存在部分坏
+数据，常常需要对矩阵做正交化，这个矩阵要尽可能的和原矩阵相同，常常使用的方
+法是施密特正交化，构造一组正交基向量(矩阵的行)。
+</p><ul>
+<li>正交区别：向量也有正交的定义，由于矩阵是一组向量构成。向量正交指两个向量
+  之间的正交性，矩阵正交指矩阵内部各个行向量或者列向量之间的互相正交，因为
+  由于有\(MM^{T}=I\)，所以表示每个矩阵内部向量除了和自身点积不为0，其他都是
+  0，也就类似向量的正交。
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4-3" class="outline-4">
+<h4 id="sec-3-4-3"><span class="section-number-4">3.4.3</span> 变换</h4>
+<div class="outline-text-4" id="text-3-4-3">
 
 <p>向量在几何上能被解释成一系列与轴平行的位移，如向量[1, -3, -4]能被解释成位移
 [1, 0, 0]随后位移[0，-3, 0]在位移[0, 0，4]这个位移序列可以解释成向量的加法
@@ -608,9 +638,9 @@ $$
 
 </div>
 
-<div id="outline-container-3-4-2" class="outline-4">
-<h4 id="sec-3-4-2"><span class="section-number-4">3.4.2</span> 逆变换</h4>
-<div class="outline-text-4" id="text-3-4-2">
+<div id="outline-container-3-4-4" class="outline-4">
+<h4 id="sec-3-4-4"><span class="section-number-4">3.4.4</span> 逆变换</h4>
+<div class="outline-text-4" id="text-3-4-4">
 
 <p>如果存在一个逆变换可以撤销原变换，那么该变换是可逆的变换。旋转、缩放、镜像、
 切变等都是可逆变换，但是投影是非可逆变换，因为投影损失了一个维度的信息。因
@@ -620,9 +650,9 @@ $$
 
 </div>
 
-<div id="outline-container-3-4-3" class="outline-4">
-<h4 id="sec-3-4-3"><span class="section-number-4">3.4.3</span> 等角变换</h4>
-<div class="outline-text-4" id="text-3-4-3">
+<div id="outline-container-3-4-5" class="outline-4">
+<h4 id="sec-3-4-5"><span class="section-number-4">3.4.5</span> 等角变换</h4>
+<div class="outline-text-4" id="text-3-4-5">
 
 <p>如果变换前后两向量夹角的大小和方向都不改变，该变换是等角的。只有平移，旋转
 和均匀缩放是等角变换。等角变换将会保持比例不变。镜像不是等角变换，因为尽管
@@ -631,9 +661,9 @@ $$
 
 </div>
 
-<div id="outline-container-3-4-4" class="outline-4">
-<h4 id="sec-3-4-4"><span class="section-number-4">3.4.4</span> 正交变换</h4>
-<div class="outline-text-4" id="text-3-4-4">
+<div id="outline-container-3-4-6" class="outline-4">
+<h4 id="sec-3-4-6"><span class="section-number-4">3.4.6</span> 正交变换</h4>
+<div class="outline-text-4" id="text-3-4-6">
 
 <p>正交用来描述具有某种性质的矩阵，正交变换的基本思想是轴保持相互垂直，并且不
 进行缩放变换。只有平移、旋转、镜像是正交变换，其长度，角度，面积和体积都保
@@ -642,9 +672,9 @@ $$
 
 </div>
 
-<div id="outline-container-3-4-5" class="outline-4">
-<h4 id="sec-3-4-5"><span class="section-number-4">3.4.5</span> 刚体变换</h4>
-<div class="outline-text-4" id="text-3-4-5">
+<div id="outline-container-3-4-7" class="outline-4">
+<h4 id="sec-3-4-7"><span class="section-number-4">3.4.7</span> 刚体变换</h4>
+<div class="outline-text-4" id="text-3-4-7">
 
 <p>刚体变换只改变物体的位置和方向，不包括形状，所有长度，角度，面积，体积都不
 变，平移和旋转是仅有的刚体变换。刚体变换也被称为正规变换。所有刚体变换都是
@@ -653,9 +683,9 @@ $$
 
 </div>
 
-<div id="outline-container-3-4-6" class="outline-4">
-<h4 id="sec-3-4-6"><span class="section-number-4">3.4.6</span> 旋转</h4>
-<div class="outline-text-4" id="text-3-4-6">
+<div id="outline-container-3-4-8" class="outline-4">
+<h4 id="sec-3-4-8"><span class="section-number-4">3.4.8</span> 旋转</h4>
+<div class="outline-text-4" id="text-3-4-8">
 
 <ul>
 <li>二维：基向量\(p=[1, 0], q=[0, 1]\)构成的合向量，绕原点旋转，得到新的基向
@@ -726,24 +756,8 @@ $$
 
 </div>
 
-<div id="outline-container-3-4-7" class="outline-4">
-<h4 id="sec-3-4-7"><span class="section-number-4">3.4.7</span> 缩放</h4>
-<div class="outline-text-4" id="text-3-4-7">
-
-</div>
-
-</div>
-
-<div id="outline-container-3-4-8" class="outline-4">
-<h4 id="sec-3-4-8"><span class="section-number-4">3.4.8</span> 投影</h4>
-<div class="outline-text-4" id="text-3-4-8">
-
-</div>
-
-</div>
-
 <div id="outline-container-3-4-9" class="outline-4">
-<h4 id="sec-3-4-9"><span class="section-number-4">3.4.9</span> 镜像</h4>
+<h4 id="sec-3-4-9"><span class="section-number-4">3.4.9</span> 缩放</h4>
 <div class="outline-text-4" id="text-3-4-9">
 
 </div>
@@ -751,8 +765,24 @@ $$
 </div>
 
 <div id="outline-container-3-4-10" class="outline-4">
-<h4 id="sec-3-4-10"><span class="section-number-4">3.4.10</span> 切变</h4>
+<h4 id="sec-3-4-10"><span class="section-number-4">3.4.10</span> 投影</h4>
 <div class="outline-text-4" id="text-3-4-10">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4-11" class="outline-4">
+<h4 id="sec-3-4-11"><span class="section-number-4">3.4.11</span> 镜像</h4>
+<div class="outline-text-4" id="text-3-4-11">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4-12" class="outline-4">
+<h4 id="sec-3-4-12"><span class="section-number-4">3.4.12</span> 切变</h4>
+<div class="outline-text-4" id="text-3-4-12">
 
 </div>
 </div>
@@ -1473,7 +1503,7 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-20 18:16:41 中国标准时间</p>
+<p class="date">Date: 2016-04-21 14:45:35 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
