@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-21 18:22:23 中国标准时间"/>
+<meta name="generated" content="2016-04-22 16:21:51 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -185,6 +185,11 @@
 <li><a href="#sec-6">6 几何</a>
 <ul>
 <li><a href="#sec-6-1">6.1 欧拉角</a></li>
+<li><a href="#sec-6-2">6.2 四元数</a>
+<ul>
+<li><a href="#sec-6-2-1">6.2.1 物理意义</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -285,7 +290,6 @@ ax.set_ylabel('y')
 ax.set_zlabel('t')
 pl.show()
 </pre>
-
 
 </div>
 
@@ -1549,13 +1553,49 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </li>
 </ul>
 
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 四元数</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<p>我们知道复数有1个实部和1个虚部，从几何的角度它可以表达2维平面。有数学家
+为了找到一种复数来表达3维情况，寻找到一种具有1个实部(w)和3个虚部的复数(i,
+j, k)，这就是四元数，其关系如下, 即四元数[w, (x, y, z)]定义了复数
+w+xi+yj+zk, 2维空间的复数很多性质都能应用到四元数上。并且和复数能用来旋转2
+维中的向量类似，四元数也能用来旋转3维中的向量。 
+</p><ol>
+<li>\(i^{2}=j^{2}=k^{2}=-1\);
+</li>
+<li>\(ij=k, ji=-k\);
+</li>
+<li>\(jk=i, kj=-i\);
+</li>
+<li>\(ki=j, ik=-j\); 
+</li>
+</ol>
+
+
+</div>
+
+<div id="outline-container-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> 物理意义</h4>
+<div class="outline-text-4" id="text-6-2-1">
+
+<p>三维空间有一种“轴-角”对\((n, \theta)\)定义了一个角位移，即绕轴n(向量)旋转
+\(\theta\)角，而四元数就能被解释为角位移的轴-角对方式。但是n和\(\theta\)不
+是直接存储在四元数的四个数中。而是间接的。绕n旋转\(\theta\)用四元数表示如下
+</p></div>
 </div>
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-21 18:22:23 中国标准时间</p>
+<p class="date">Date: 2016-04-22 16:21:51 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
