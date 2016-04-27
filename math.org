@@ -666,11 +666,17 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 序列。常用的约定是heading-pitch-bank，这是一个标准方位，所以物体的方位，就
 是在标准方位上，让物体做heading、pitch、bank旋转，最后物体到达我们想要描述
 的方位。 
+# <<olj-fs>>
 - heading-pitch-bank：首先让物体坐标系和惯性坐标系重合，一个方位被定义为1个
   heading角，1个pitch角，1个bank角，绕的轴不一定就是x，y，z。 
   1. heading：绕惯性坐标系的y轴的旋转量，从原点望向正端，逆时针为正；
   2. pitch：绕物体坐标系的x轴的旋转量，从原点望向正端，逆时针为正；
   3. bank：绕物体坐标系的z轴的旋转量，从原点望向正端，逆时针为正；
+- yaw-pitch-roll:如果令空客飞机的乘客舱机体为y轴，主翅膀为x轴，垂直地面为z
+  轴。则
+  1. yaw：表示围绕z轴转动的角度，符号\(\psi\)；
+  2. pitch：表示围绕x轴转动的角度, 符号\(\theta\)；
+  3. roll：表示围绕y轴转动的角度, 符号\(\varphi\)；
 - 万向锁：一个典型的万向锁可以表述为，先heading 45度，再pitch 90度这与先
   pitch 90度再bank 45度效果等价。也就是一旦选择\(\pm{}90\)作为pitch角，就会
   导致第一次旋转和第三次旋转等价。整个旋转表示系统被限制在只能绕竖直轴旋转，
@@ -701,3 +707,64 @@ w+xi+yj+zk, 2维空间的复数很多性质都能应用到四元数上。并且�
 三维空间有一种“轴-角”对\((n, \theta)\)定义了一个角位移，即绕轴n(向量)旋转
 \(\theta\)角，而四元数就能被解释为角位移的轴-角对方式。但是n和\(\theta\)不
 是直接存储在四元数的四个数中。而是间接的。绕n旋转\(\theta\)用四元数表示如下
+$$
+\begin{cases}
+w & = cos(\theta/2)\\
+x & = n_{x}*sin(\theta/2)\\
+y & = n_{y}*sin(\theta/2)\\
+z & = n_{z}*sin(\theta/2)\\
+\end{cases}
+$$ 
+**** 用四元数旋转矢量
+给定一个矢量v，再给定一个旋转的单位四元数q，让v旋转q。首先将v改写成四元数的
+形式\(v=(0,x, y, z)\)，然后要旋转可以表示为
+$$v'=qvq^{-1}$$ 
+*** 运算
+**** 乘法
+给定两个四元数p和q，分别代表旋转P和Q，则乘积pq表示两个旋转的合成(即旋转Q后
+再旋转P)。四元数q可以表示为\(q=w+xi+yj+zk\)，用W表示标量，用向量V表示
+(x,y,z)则四元数乘法可以表示为, 主要式子用到向量的点乘，叉乘。
+$$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q}+S_{q}*V_{p}$$ 
+**** 模
+四元数q的模可以表示为$$N(q)=|q|=w^{2}+x^{2}+y^{2}+z^{2}$$ 
+**** 共轭
+四元数q的共轭表示为$$q^{\ast} = (w, -x, -y, -z)$$ 
+**** 逆
+由矩阵逆引申出四元数q的逆。$$q^{-1}=\frac{q^{\ast}}{|q|^{2}}$$ 
+**** 插值
+两个四元数之间可以方便的近些插值计算。给定两个旋转四元数\(q_{a}, q_{b}\)代
+表旋转A和旋转B。 如果一个圆弧扇形，两边代表q_{a}和q_{b}的旋转轴。
+- 线性差值：简单效率高，找到A到B之间的t的旋转。这里的t实际上是沿着扇形的弦
+  走了t，而不是球面上走了t，所以若t以恒定速率改变时，角度变换就不是恒定速率
+  $$q_{t}=Lerp(q_{a}, q_{b}, t)=(1-t)q_{a}+tq_{b}$$
+- 球面插值：可以解决线性差值的问题，当t恒定速率变换时，角度速率也是恒定。
+  $$q_{t}=Slerp(q_{a}, q_{b}, t)=(\frac{sin((1-t)\theta)}{sin(\theta)}*q_{a}+\frac{sin(t\theta)}{sin(\theta)}*q_{b})$$ 
+  其中\(\theta\)是两个四元数的夹角，也就是旋转轴的夹角。
+  $$\theta = arccos(q_{a}.q_{b})$$ 
+**** 转换
+- 四元数转换欧拉角，沿用[[olj-fs][yaw-pitch-roll]]的方式；则有, 其中arctan是2型arctan。
+  $$
+  \begin{bmatrix}
+  \varphi \\ \theta \\ \psi \\
+  \end{bmatrix} =
+  \begin{bmatrix}
+  arctan(\frac{2(wx+yz)}{1-2(x^{2}+y^{2})}) \\ 
+  arcsin(2(wy-zx))\\
+  arctan(\frac{2(wz+xy)}{1-2(y^{2}+z^{2})})\\
+  \end{bmatrix}
+  $$
+- 欧拉角转换四元数，沿用[[olj-fs][yaw-pitch-roll]]的方式；则有
+  $$
+  \begin{bmatrix}
+  w\\x\\y\\z\\
+  \end{bmatrix}=
+  \begin{bmatrix}
+  cos(\varphi/2)cos(\theta/2)cos(\psi/2)+sin(\varphi/2)sin(\theta/2)sin(\psi/2)\\
+  sin(\varphi/2)cos(\theta/2)cos(\psi/2)-cos(\varphi/2)sin(\theta/2)sin(\psi/2)\\
+  cos(\varphi/2)sin(\theta/2)cos(\psi/2)+sin(\varphi/2)cos(\theta/2)sin(\psi/2)\\
+  cos(\varphi/2)cos(\theta/2)sin(\psi/2)-sin(\varphi/2)sin(\theta/2)cos(\psi/2)\\
+  \end{bmatrix}
+  $$ 
+
+  
+
