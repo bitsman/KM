@@ -1199,22 +1199,22 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 7. 温度传感器：Sensor.TYPE\_TEMPERATURE；
 8. 接近传感器：Sensor.TYPE\_PROXIMITY；
 9. 重力传感器：Sensor.TYPE\_GRAVITY；
-10. 线性加速度传感器：Sensor.TYPE\_LINEAR_ACCELERATION；
-11. 旋转传感器：Sensor.TYPE\_ROTATION_VECTOR；
-12. 相对湿度传感器：Sensor.TYPE\_RELATIVE_HUMIDITY；
-13. 环境温度传感器：Sensor.TYPE\_AMBIENT_TEMPERATURE；
-14. 磁场标定传感器：Sensor.TYPE\_MAGNETIC_FIELD_UNCALIBRATED；
-15. 游戏旋转矢量传感器：Sensor.TYPE\_GAME_ROTATION_VECTOR；
-16. 陀螺仪标定传感器：Sensor.TYPE\_GYROSCOPE_UNCALIBRATED；
-17. Sensor.TYPE\_SIGNIFICANT_MOTION
-18. Sensor.TYPE\_STEP_DETECTOR
-19. Sensor.TYPE\_STEP_COUNTER
-20. Sensor.TYPE\_GEOMAGNETIC_ROTATION_VECTOR
-21. Sensor.TYPE\_HEART_RATE_MONITOR
-22. Sensor.TYPE\_WAKE_UP_TILT_DETECTOR
-23. Sensor.TYPE\_WAKE_GESTURE
-24. Sensor.TYPE\_GLANCE_GESTURE
-25. Sensor.TYPE\_PICK_UP_GESTURE
+10. 线性加速度传感器：Sensor.TYPE\_LINEAR\_ACCELERATION；
+11. 旋转传感器：Sensor.TYPE\_ROTATION\_VECTOR；
+12. 相对湿度传感器：Sensor.TYPE\_RELATIVE\_HUMIDITY；
+13. 环境温度传感器：Sensor.TYPE\_AMBIENT\_TEMPERATURE；
+14. 磁场标定传感器：Sensor.TYPE\_MAGNETIC\_FIELD\_UNCALIBRATED；
+15. 游戏旋转矢量传感器：Sensor.TYPE\_GAME\_ROTATION\_VECTOR；
+16. 陀螺仪标定传感器：Sensor.TYPE\_GYROSCOPE\_UNCALIBRATED；
+17. Sensor.TYPE\_SIGNIFICANT\_MOTION
+18. Sensor.TYPE\_STEP\_DETECTOR
+19. Sensor.TYPE\_STEP\_COUNTER
+20. Sensor.TYPE\_GEOMAGNETIC\_ROTATION\_VECTOR
+21. Sensor.TYPE\_HEART\_RATE\_MONITOR
+22. Sensor.TYPE\_WAKE\_UP\_TILT\_DETECTOR
+23. Sensor.TYPE\_WAKE\_GESTURE
+24. Sensor.TYPE\_GLANCE\_GESTURE
+25. Sensor.TYPE\_PICK\_UP\_GESTURE
 *** 使用方法
 1. 向系统申请传感器服务：
    #+begin_src java
@@ -1243,10 +1243,10 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
    #+end_src
 4. 向传感器服务注册监听器：其中最后一个参数代表多长时间采集一次传感器数据
    (单位us)，系统集成了3个时间
-   + SensorManager.SENSOR_DELAY_FASTEST：尽可能快的获取传感器数据；
-   + SensorManager.SENSOR_DELAY_NORMAL：一般速度；
-   + SensorManager.SENSOR_DELAY_GAME：适配游戏；
-   + SensorManager.SENSOR_DELAY_UI：适配UI；
+   + SensorManager.SENSOR\_DELAY\_FASTEST：尽可能快的获取传感器数据；
+   + SensorManager.SENSOR\_DELAY\_NORMAL：一般速度；
+   + SensorManager.SENSOR\_DELAY\_GAME：适配游戏；
+   + SensorManager.SENSOR\_DELAY\_UI：适配UI；
    #+begin_src java
    sm.registerListener(sensorEventListener, accSensor, SensorManager.SENSOR_DELAY_FASTEST);
    #+end_src
