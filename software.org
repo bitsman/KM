@@ -156,7 +156,6 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
   numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用numpy.angle()计算
 *** matplotlib
 此包注意用于画图
-
 **** 画XY轴离散点图
 1. 先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3, 10), 其个数要一致；
 2. 倒入画图包：import matplotlib.pyplot as plt；

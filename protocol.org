@@ -661,8 +661,6 @@ nfc数据交换格式，nfc data extrange format，在android系统下ndef也可
    的信息vendor id/product id等找到该usb设备的驱动程序）； 
 * 小族协议
 ** spi
-
 ** uart
-
 ** i^{2}c
 
