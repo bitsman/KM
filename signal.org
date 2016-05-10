@@ -352,3 +352,4 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
   \end{cases}
   $$
 - 三次样条内插：
+* 小波变换

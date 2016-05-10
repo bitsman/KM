@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-04-27 18:41:35 中国标准时间"/>
+<meta name="generated" content="2016-05-10 18:41:49 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -184,22 +184,23 @@
 </li>
 <li><a href="#sec-6">6 几何</a>
 <ul>
-<li><a href="#sec-6-1">6.1 欧拉角</a></li>
-<li><a href="#sec-6-2">6.2 四元数</a>
+<li><a href="#sec-6-1">6.1 方向余弦</a></li>
+<li><a href="#sec-6-2">6.2 欧拉角</a></li>
+<li><a href="#sec-6-3">6.3 四元数</a>
 <ul>
-<li><a href="#sec-6-2-1">6.2.1 物理意义</a>
+<li><a href="#sec-6-3-1">6.3.1 物理意义</a>
 <ul>
-<li><a href="#sec-6-2-1-1">6.2.1.1 用四元数旋转矢量</a></li>
+<li><a href="#sec-6-3-1-1">6.3.1.1 用四元数旋转矢量</a></li>
 </ul>
 </li>
-<li><a href="#sec-6-2-2">6.2.2 运算</a>
+<li><a href="#sec-6-3-2">6.3.2 运算</a>
 <ul>
-<li><a href="#sec-6-2-2-1">6.2.2.1 乘法</a></li>
-<li><a href="#sec-6-2-2-2">6.2.2.2 模</a></li>
-<li><a href="#sec-6-2-2-3">6.2.2.3 共轭</a></li>
-<li><a href="#sec-6-2-2-4">6.2.2.4 逆</a></li>
-<li><a href="#sec-6-2-2-5">6.2.2.5 插值</a></li>
-<li><a href="#sec-6-2-2-6">6.2.2.6 转换</a></li>
+<li><a href="#sec-6-3-2-1">6.3.2.1 乘法</a></li>
+<li><a href="#sec-6-3-2-2">6.3.2.2 模</a></li>
+<li><a href="#sec-6-3-2-3">6.3.2.3 共轭</a></li>
+<li><a href="#sec-6-3-2-4">6.3.2.4 逆</a></li>
+<li><a href="#sec-6-3-2-5">6.3.2.5 插值</a></li>
+<li><a href="#sec-6-3-2-6">6.3.2.6 转换</a></li>
 </ul>
 </li>
 </ul>
@@ -1528,14 +1529,23 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </div>
 
 <div id="outline-container-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 欧拉角</h3>
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 方向余弦</h3>
 <div class="outline-text-3" id="text-6-1">
+
+<p>方向余弦指一个3x3的方向余弦矩阵，其中每个元素必须在[-1, 1]的范围内。
+</p></div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 欧拉角</h3>
+<div class="outline-text-3" id="text-6-2">
 
 <p>欧拉角的基本思想是将角位移分解为绕3个相互垂直轴的3个旋转组成的序列。绕任意3
 个轴和任意顺序都可以，但是一般都是使用笛卡尔坐标系并按一定顺序所组成的旋转
 序列。常用的约定是heading-pitch-bank，这是一个标准方位，所以物体的方位，就
 是在标准方位上，让物体做heading、pitch、bank旋转，最后物体到达我们想要描述
-的方位。 
+的方位，欧拉角以弧度为单位。 
 <a name="olj-fs" id="olj-fs"></a>
 </p><ul>
 <li>heading-pitch-bank：首先让物体坐标系和惯性坐标系重合，一个方位被定义为1个
@@ -1580,14 +1590,13 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 </li>
 </ul>
 
-
 </div>
 
 </div>
 
-<div id="outline-container-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 四元数</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 四元数</h3>
+<div class="outline-text-3" id="text-6-3">
 
 <p>我们知道复数有1个实部和1个虚部，从几何的角度它可以表达2维平面。有数学家
 为了找到一种复数来表达3维情况，寻找到一种具有1个实部(w)和3个虚部的复数(i,
@@ -1608,9 +1617,9 @@ w+xi+yj+zk, 2维空间的复数很多性质都能应用到四元数上。并且�
 
 </div>
 
-<div id="outline-container-6-2-1" class="outline-4">
-<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> 物理意义</h4>
-<div class="outline-text-4" id="text-6-2-1">
+<div id="outline-container-6-3-1" class="outline-4">
+<h4 id="sec-6-3-1"><span class="section-number-4">6.3.1</span> 物理意义</h4>
+<div class="outline-text-4" id="text-6-3-1">
 
 <p>三维空间有一种“轴-角”对\((n, \theta)\)定义了一个角位移，即绕轴n(向量)旋转
 \(\theta\)角，而四元数就能被解释为角位移的轴-角对方式。但是n和\(\theta\)不
@@ -1626,9 +1635,9 @@ $$
 </p>
 </div>
 
-<div id="outline-container-6-2-1-1" class="outline-5">
-<h5 id="sec-6-2-1-1"><span class="section-number-5">6.2.1.1</span> 用四元数旋转矢量</h5>
-<div class="outline-text-5" id="text-6-2-1-1">
+<div id="outline-container-6-3-1-1" class="outline-5">
+<h5 id="sec-6-3-1-1"><span class="section-number-5">6.3.1.1</span> 用四元数旋转矢量</h5>
+<div class="outline-text-5" id="text-6-3-1-1">
 
 <p>给定一个矢量v，再给定一个旋转的单位四元数q，让v旋转q。首先将v改写成四元数的
 形式\(v=(0,x, y, z)\)，然后要旋转可以表示为
@@ -1638,16 +1647,16 @@ $$v'=qvq^{-1}$$
 
 </div>
 
-<div id="outline-container-6-2-2" class="outline-4">
-<h4 id="sec-6-2-2"><span class="section-number-4">6.2.2</span> 运算</h4>
-<div class="outline-text-4" id="text-6-2-2">
+<div id="outline-container-6-3-2" class="outline-4">
+<h4 id="sec-6-3-2"><span class="section-number-4">6.3.2</span> 运算</h4>
+<div class="outline-text-4" id="text-6-3-2">
 
 
 </div>
 
-<div id="outline-container-6-2-2-1" class="outline-5">
-<h5 id="sec-6-2-2-1"><span class="section-number-5">6.2.2.1</span> 乘法</h5>
-<div class="outline-text-5" id="text-6-2-2-1">
+<div id="outline-container-6-3-2-1" class="outline-5">
+<h5 id="sec-6-3-2-1"><span class="section-number-5">6.3.2.1</span> 乘法</h5>
+<div class="outline-text-5" id="text-6-3-2-1">
 
 <p>给定两个四元数p和q，分别代表旋转P和Q，则乘积pq表示两个旋转的合成(即旋转Q后
 再旋转P)。四元数q可以表示为\(q=w+xi+yj+zk\)，用W表示标量，用向量V表示
@@ -1657,36 +1666,36 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 
 </div>
 
-<div id="outline-container-6-2-2-2" class="outline-5">
-<h5 id="sec-6-2-2-2"><span class="section-number-5">6.2.2.2</span> 模</h5>
-<div class="outline-text-5" id="text-6-2-2-2">
+<div id="outline-container-6-3-2-2" class="outline-5">
+<h5 id="sec-6-3-2-2"><span class="section-number-5">6.3.2.2</span> 模</h5>
+<div class="outline-text-5" id="text-6-3-2-2">
 
 <p>四元数q的模可以表示为$$N(q)=|q|=w^{2}+x^{2}+y^{2}+z^{2}$$ 
 </p></div>
 
 </div>
 
-<div id="outline-container-6-2-2-3" class="outline-5">
-<h5 id="sec-6-2-2-3"><span class="section-number-5">6.2.2.3</span> 共轭</h5>
-<div class="outline-text-5" id="text-6-2-2-3">
+<div id="outline-container-6-3-2-3" class="outline-5">
+<h5 id="sec-6-3-2-3"><span class="section-number-5">6.3.2.3</span> 共轭</h5>
+<div class="outline-text-5" id="text-6-3-2-3">
 
 <p>四元数q的共轭表示为$$q^{\ast} = (w, -x, -y, -z)$$ 
 </p></div>
 
 </div>
 
-<div id="outline-container-6-2-2-4" class="outline-5">
-<h5 id="sec-6-2-2-4"><span class="section-number-5">6.2.2.4</span> 逆</h5>
-<div class="outline-text-5" id="text-6-2-2-4">
+<div id="outline-container-6-3-2-4" class="outline-5">
+<h5 id="sec-6-3-2-4"><span class="section-number-5">6.3.2.4</span> 逆</h5>
+<div class="outline-text-5" id="text-6-3-2-4">
 
 <p>由矩阵逆引申出四元数q的逆。$$q^{-1}=\frac{q^{\ast}}{|q|^{2}}$$ 
 </p></div>
 
 </div>
 
-<div id="outline-container-6-2-2-5" class="outline-5">
-<h5 id="sec-6-2-2-5"><span class="section-number-5">6.2.2.5</span> 插值</h5>
-<div class="outline-text-5" id="text-6-2-2-5">
+<div id="outline-container-6-3-2-5" class="outline-5">
+<h5 id="sec-6-3-2-5"><span class="section-number-5">6.3.2.5</span> 插值</h5>
+<div class="outline-text-5" id="text-6-3-2-5">
 
 <p>两个四元数之间可以方便的近些插值计算。给定两个旋转四元数\(q_{a}, q_{b}\)代
 表旋转A和旋转B。 如果一个圆弧扇形，两边代表q<sub>a</sub>和q<sub>b</sub>的旋转轴。
@@ -1706,9 +1715,9 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 
 </div>
 
-<div id="outline-container-6-2-2-6" class="outline-5">
-<h5 id="sec-6-2-2-6"><span class="section-number-5">6.2.2.6</span> 转换</h5>
-<div class="outline-text-5" id="text-6-2-2-6">
+<div id="outline-container-6-3-2-6" class="outline-5">
+<h5 id="sec-6-3-2-6"><span class="section-number-5">6.3.2.6</span> 转换</h5>
+<div class="outline-text-5" id="text-6-3-2-6">
 
 <ul>
 <li>四元数转换欧拉角，沿用<a href="#olj-fs">yaw-pitch-roll</a>的方式；则有, 其中arctan是2型arctan。
@@ -1749,7 +1758,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-04-27 18:41:35 中国标准时间</p>
+<p class="date">Date: 2016-05-10 18:41:49 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
