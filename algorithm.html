@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2015-12-18 18:11:49 中国标准时间"/>
+<meta name="generated" content="2016-05-11 16:23:35 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -90,39 +90,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">机器学习</a>
+<li><a href="#sec-1">1 机器学习</a>
 <ul>
-<li><a href="#sec-1-1">cordic算法</a>
+<li><a href="#sec-1-1">1.1 cordic算法</a>
 <ul>
-<li><a href="#sec-1-1-1">背景</a></li>
-<li><a href="#sec-1-1-2">从二分查找法说起</a></li>
-<li><a href="#sec-1-1-3">减少乘法运算</a></li>
-<li><a href="#sec-1-1-4">消除乘法运算</a></li>
+<li><a href="#sec-1-1-1">1.1.1 背景</a></li>
+<li><a href="#sec-1-1-2">1.1.2 从二分查找法说起</a></li>
+<li><a href="#sec-1-1-3">1.1.3 减少乘法运算</a></li>
+<li><a href="#sec-1-1-4">1.1.4 消除乘法运算</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">k临近算法</a></li>
-<li><a href="#sec-1-3">回归分析</a>
+<li><a href="#sec-1-2">1.2 k临近算法</a></li>
+<li><a href="#sec-1-3">1.3 回归分析</a>
 <ul>
-<li><a href="#sec-1-3-1">线性回归</a>
+<li><a href="#sec-1-3-1">1.3.1 线性回归</a>
 <ul>
-<li><a href="#sec-1-3-1-1">普通最小二乘法</a></li>
+<li><a href="#sec-1-3-1-1">1.3.1.1 普通最小二乘法</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3-2">逻辑回归</a></li>
+<li><a href="#sec-1-3-2">1.3.2 逻辑回归</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4">神经网络</a></li>
-<li><a href="#sec-1-5">最优化</a>
+<li><a href="#sec-1-4">1.4 神经网络</a></li>
+<li><a href="#sec-1-5">1.5 最优化</a>
 <ul>
-<li><a href="#sec-1-5-1">梯度下降法</a></li>
-<li><a href="#sec-1-5-2">共轭梯度法</a></li>
+<li><a href="#sec-1-5-1">1.5.1 梯度下降法</a></li>
+<li><a href="#sec-1-5-2">1.5.2 共轭梯度法</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2">图像处理</a>
+<li><a href="#sec-2">2 图像处理</a>
 <ul>
-<li><a href="#sec-2-1">概念</a></li>
-<li><a href="#sec-2-2">其他</a></li>
+<li><a href="#sec-2-1">2.1 概念</a></li>
+<li><a href="#sec-2-2">2.2 其他</a></li>
 </ul>
 </li>
 </ul>
@@ -130,7 +130,7 @@
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">机器学习</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> 机器学习</h2>
 <div class="outline-text-2" id="text-1">
 
 <ul>
@@ -180,7 +180,7 @@
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">cordic算法</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> cordic算法</h3>
 <div class="outline-text-3" id="text-1-1">
 
 <p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
@@ -199,7 +199,7 @@ J. Walther在1974年在这种算法的基础上进一步改进，使其可以计
 </div>
 
 <div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">背景</h4>
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 背景</h4>
 <div class="outline-text-4" id="text-1-1-1">
 
 <p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
@@ -220,7 +220,7 @@ J. Walther在1974年在这种算法的基础上进一步改进，使其可以计
 </div>
 
 <div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">从二分查找法说起</h4>
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> 从二分查找法说起</h4>
 <div class="outline-text-4" id="text-1-1-2">
 
 <p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），如何求的在极坐标系下的坐标（ρ,θ）。用计算器
@@ -348,7 +348,7 @@ z = 63.432312
 </div>
 
 <div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3">减少乘法运算</h4>
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> 减少乘法运算</h4>
 <div class="outline-text-4" id="text-1-1-3">
 
 <p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法运算，运算量还是太大了。还需要进一步的改
@@ -428,7 +428,7 @@ z = 63.432312
 </div>
 
 <div id="outline-container-1-1-4" class="outline-4">
-<h4 id="sec-1-1-4">消除乘法运算</h4>
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> 消除乘法运算</h4>
 <div class="outline-text-4" id="text-1-1-4">
 
 <p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要从计算式入手。第一次循环时，tan(45)=1，所以第
@@ -654,7 +654,7 @@ z = 16238
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">k临近算法</h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> k临近算法</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <p>K临近算法主要采用将一定的样本，规划为已知的标签，每个样本针对标签有若干的特征值，然后当有新的样本点时，计算新样本点到已
@@ -724,7 +724,7 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">回归分析</h3>
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 回归分析</h3>
 <div class="outline-text-3" id="text-1-3">
 
 <p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
@@ -776,7 +776,7 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 </div>
 
 <div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1">线性回归</h4>
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 线性回归</h4>
 <div class="outline-text-4" id="text-1-3-1">
 
 <p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
@@ -800,7 +800,7 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 </div>
 
 <div id="outline-container-1-3-1-1" class="outline-5">
-<h5 id="sec-1-3-1-1">普通最小二乘法</h5>
+<h5 id="sec-1-3-1-1"><span class="section-number-5">1.3.1.1</span> 普通最小二乘法</h5>
 <div class="outline-text-5" id="text-1-3-1-1">
 
 <p>ordinary least squares的基本思想是
@@ -829,7 +829,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2">逻辑回归</h4>
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 逻辑回归</h4>
 <div class="outline-text-4" id="text-1-3-2">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
@@ -844,7 +844,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">神经网络</h3>
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 神经网络</h3>
 <div class="outline-text-3" id="text-1-4">
 
 <p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
@@ -880,7 +880,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5">最优化</h3>
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 最优化</h3>
 <div class="outline-text-3" id="text-1-5">
 
 <p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x), x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。
@@ -903,7 +903,7 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </div>
 
 <div id="outline-container-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1">梯度下降法</h4>
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 梯度下降法</h4>
 <div class="outline-text-4" id="text-1-5-1">
 
 
@@ -950,7 +950,9 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 </li>
 <li>计算导数\(\frac{\mathrm{d}y}{\mathrm{d}x} = x-2\);
 </li>
-<li>计算当前导数值y'<code>-6; 4. 修改当前参数\(x_{0}</code>-4-&gt;x<sub>1</sub>=x<sub>0</sub>-&epsilon;*y'=-4-1.5*(-6)=5.0\)
+<li>计算当前导数值y' = -6;
+</li>
+<li>修改当前参数\(x_{0}=-4-&gt;x_{1}=x_{0}-\epsilon*y'=-4-1.5*(-6)=5.0\)
 </li>
 <li>计算当前导数值y'=3.0;
 </li>
@@ -996,7 +998,7 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 </div>
 
 <div id="outline-container-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2">共轭梯度法</h4>
+<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> 共轭梯度法</h4>
 <div class="outline-text-4" id="text-1-5-2">
 
 <p>对于多元二次方程
@@ -1012,7 +1014,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">图像处理</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> 图像处理</h2>
 <div class="outline-text-2" id="text-2">
 
 <p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
@@ -1021,7 +1023,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">概念</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 概念</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <ul>
@@ -1051,7 +1053,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">其他</h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 其他</h3>
 <div class="outline-text-3" id="text-2-2">
 
 <ul>
@@ -1069,7 +1071,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2015-12-18 18:11:49 中国标准时间</p>
+<p class="date">Date: 2016-05-11 16:23:35 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
