@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-10 18:42:36 中国标准时间"/>
+<meta name="generated" content="2016-05-12 16:34:16 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -303,7 +303,7 @@ f(x)=a_{0}+A_{1}sin(w_{1}x+phi_{1})+A_{2}sin(2w_{2}x+phi_{2})+...
 在全区间上积分。
 \begin{equation}
 \label{equ-fun-dot}
-<u, v> := \int_{a}^{b}u(x)\hat{v}(x)dx
+ (u, v) = \int_{a}^{b}u(x)\hat{v}(x)dx
 \end{equation}
 而在周期函数里面区间端点[a, b]就是任何一个长度为\(2\pi\)的区间端点。那么如
 果把u表示成f(x)，v分别取\(1, sin(x), cos(x), sin(2x)...\)等，就可以得到每
@@ -383,7 +383,7 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 以写为式子<a href="#equ-xjw2">equ-xjw2</a>
 \begin{equation}
 \label{equ-xjw2}
- X(e^{jw_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}*x(n_{l})}, (k=0, 1, ..., M)
+ X(e^{jw_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}}*x(n_{l}), (k=0, 1, ..., M)
 \end{equation}
 当\({x(n_{l})}\)和\({X(e^{jw_{k}})}\)分别排成列向量x和X，我们有式子
 <a href="#equ-vec">equ-vec</a>, 其中W是一个(M+1)乘N维矩阵
@@ -409,6 +409,49 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 <div id="outline-container-1-4" class="outline-3">
 <h3 id="sec-1-4"><span class="section-number-3">1.4</span> 滤波器</h3>
 <div class="outline-text-3" id="text-1-4">
+
+<p>数字滤波器与LTI系统是等价的，描述方式可以有4种。
+</p><ul>
+<li>差分方程；
+</li>
+<li>单位冲激响应h(n), 可以分类如下；
+<ol>
+<li>FIR滤波器：有限脉冲响应，也就是h(n)只在一段时间内才有信号，其他都是0。
+</li>
+<li>IIR滤波器：无限脉冲响应，也就是h(n)在所有时间内都有信号。
+</li>
+</ol>
+
+</li>
+<li>传递函数:若用X(z)表示输入x(n)的Z变换，用Y(z)表示输出y(n)的Z变换，则滤波
+   器的传递函数可以写为：
+   $$H(z)=\frac{Y(z)}{X(z)}=\frac{b_{0}+b_{1}z^{-1}+..+b_{N-1}z^{-(N-1)}}{1+a_{1}z^{-1}+..+a_{M-1}z^{-(M-1)}}$$  
+   利用该式可以用零极图和矢量等工具对滤波器进行直观的分析。通常M&gt;=N, 对FIR
+   滤波器来说H(z)的零点个数为滤波器的阶数。对IIR滤波器来说，H(z)的极点个数
+   称为滤波器的阶数。所以FIR滤波器的阶数为N-1，IIR滤波器的阶数为M-1。阶数越
+   高表明滤波器的系数越多，在实现时运算效率也越低。
+</li>
+<li>频率响应：复指数信号是LTI系统的特征信号，也是滤波器的特征信号，当滤波器输
+  入为单频复指数信号时，系统的输出为频率相同的单频正弦信号，只是幅度和相位
+  可能发生改变。频率响应描述的就是不同频率信号通过滤波器后幅度和相位的变化
+  情况。频率响应是H(z)在单位圆上的取值，并且与单位脉冲响应之间是傅里叶变换
+  的关系，用数学公式表示, 并且可以转为幅频响应和相频响应的乘积。可以分为 
+   $$H(e^{jw})=H(z)|_{z=e^{jw}}=\frac{Y(e^{jw})}{X(e^{jw})}$$ 
+<ol>
+<li>低通滤波器；
+</li>
+<li>高通滤波器；
+</li>
+<li>带通滤波器；
+</li>
+<li>带阻滤波器；
+</li>
+<li>全通滤波器：主要用于改善信号的相频响应；
+</li>
+</ol>
+
+</li>
+</ul>
 
 
 </div>
@@ -596,7 +639,8 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 </li>
 <li>数字频率w：每个采样点间隔之间的弧度，单位rad。
 </li>
-<li>关系：\(Ω = 2\pi{}f\), \(w = ΩT\)
+<li>关系：\(Ω = 2\pi{}f\), \(w = ΩT\), 将数字频率和模拟频率联系起来的是采样
+  频率即\(w=2\pi{}f/f_{s}\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)
 </li>
 </ul>
 
@@ -674,7 +718,7 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-10 18:42:36 中国标准时间</p>
+<p class="date">Date: 2016-05-12 16:34:16 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
