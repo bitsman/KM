@@ -610,7 +610,8 @@ Snow covers Emacs
   C-z直接运行buffer的代码；
 ** dired-mode
 - 压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip test.zip *，
-  回车就压缩到test.zip里面了。其他如7z类似； 
+  回车就压缩到test.zip里面了。其他如7z类似；
+- 正则标记：使用快捷键%+m；
 ** git
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 *** 配置
