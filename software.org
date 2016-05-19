@@ -157,8 +157,8 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
   print(s2)
   print(eval(varName))
   #+end_src
-- 添加个人库: 比如当前工作路径下有./lib/File/file_csv.py , 然后就可以直接使
-  用file_csv里面的函数了。
+- 添加个人库: 比如当前工作路径下有./lib/File/filecsv.py , 然后就可以直接使
+  用filecsv里面的函数了。
   #+begin_src python
   sys.path.append('./lib')
   from File.file_csv import *
