@@ -147,7 +147,7 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
 ** JAVA语言
 ** PYTHON语言
 *** base
-- 字符串转换为变量
+- 字符串转换为变量。
   #+begin_src python
   var = "This is a string"
   varName = 'var'
@@ -156,13 +156,18 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
   print(s)
   print(s2)
   print(eval(varName))
-  #+end_src
+  #+end_src 
 - 添加个人库: 比如当前工作路径下有./lib/File/filecsv.py , 然后就可以直接使
   用filecsv里面的函数了。
   #+begin_src python
   sys.path.append('./lib')
   from File.file_csv import *
   #+end_src
+- 重新载入模块：比如重新加载filecsv.py。
+  1. 导入sys，imp库，import sys，imp
+  2. 查看已经导入的库，sys.modules
+  3. 找到filecsv库的字符
+  4. 重新导入模块，imp.reload(sys.modules['filecsv'])
 *** numpy
 - array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和
   data.max(0)是从每列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行中获得min和max；
