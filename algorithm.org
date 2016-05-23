@@ -500,6 +500,111 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
   分为止。 
 以上方法是 *ID3* 方法，还有更好的 *C4.5* 方法，C4.5方法选用信息增益比，克服
 了ID3使用信息增益选择属性时偏向取值较多的属性的不足。 
+*** 算法实例
+**** 计算香农熵
+根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
+性和一个标签，即某个标签具有若干属性，每个标签和属性都有若干值。以某个标签
+为基准计算所有标签值的香农熵。数据集可以用Excel表格表示，每一行代表一个数据，
+每一列代表数据的一个特征，最后一列代表数据的标签，比如加速度值，每一行代表
+采集的一次加速度值，包含3列xyz，表示3个轴的加速度分量，最后一列表示标签，可
+以取'跑步','走路'等值，代码 
+#+begin_src python
+# dataSet：数据集
+def calcShannonEnt(dataSet):
+    numEntries = len(dataSet)   
+    labelCounts = {}            #标签，键是标签的值，值是每个标签值的个数
+    for featVec in dataSet:     #featVec是dataSet中的某组数据记录
+        currentLabel = featVec[-1] #featVec[-1]表示某组数据的标签
+        # 统计每个标签值的个数
+        if currentLabel not in labelCounts.keys(): 
+            labelCounts[currentLabel] = 0
+        labelCounts[currentLabel] += 1
+    shannonEnt = 0.0
+    # 计算每种标签值的频率以及香农熵统计
+    for key in labelCounts:
+        prob = float(labelCounts[key])/numEntries
+        shannonEnt -= prob * log(prob,2) #log base 2
+    return shannonEnt
+#+end_src
+**** 划分数据集
+指按照给定的特征以及特征的值提取出这样的数据集。代码
+#+begin_src python
+# dataSet：数据集
+# axis：取值x或y或z
+# value：表示某个x(yz)分量的值
+# return：返回在dataSet中删除了axis列的，数据，这些数据的axis列值等于value
+def splitDataSet(dataSet, axis, value):
+    retDataSet = []
+    for featVec in dataSet:
+        if featVec[axis] == value:
+            reducedFeatVec = featVec[:axis] 
+            reducedFeatVec.extend(featVec[axis+1:])
+            retDataSet.append(reducedFeatVec)
+    return retDataSet
+#+end_src
+**** 选择最好的划分
+在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的数据集的香
+农熵。然后按照一定的比例计算每个特征的香农熵总和，得出按照该特征划分时的效
+果量化值。最后比较每种按特征划分后的香农熵，找出最大香农熵的一种划分方式。
+#+begin_src python
+def chooseBestFeatureToSplit(dataSet):
+    numFeatures = len(dataSet[0]) - 1      # 特征个数
+    baseEntropy = calcShannonEnt(dataSet) #原始香农熵
+    bestInfoGain = 0.0; bestFeature = -1
+    # 遍历每个特征
+    for i in range(numFeatures):        #iterate over all the features
+        # python的list推导式
+        featList = [example[i] for example in dataSet]
+        uniqueVals = set(featList)       #get a set of unique values
+        newEntropy = 0.0
+        # 遍历当前特征下每个特征值
+        for value in uniqueVals:
+            # 计算当前特征，当前特征值提取出的数据集
+            subDataSet = splitDataSet(dataSet, i, value)
+            # 计算当前特征值占该特征数量的比例
+            prob = len(subDataSet)/float(len(dataSet))
+            # 计算当前特征的加权香农熵
+            newEntropy += prob * calcShannonEnt(subDataSet)     
+        # 计算香农熵增益
+        infoGain = baseEntropy - newEntropy
+        # 提炼出最大香农熵增益下的特征序号
+        if (infoGain > bestInfoGain):    
+            bestInfoGain = infoGain      
+            bestFeature = i
+    return bestFeature                      #returns an integer
+#+end_src
+**** 构造决策树
+采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
+是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
+另一个字典，以此递归。 
+# dataSet：最后一列是类别标签的数据集，每递归完一次消耗一列特征标签
+# labels：类别标签，每递归完一次消耗一个特征标签
+#+begin_src python
+def createTree(dataSet, labels):  
+    # 数据集的类别标签
+    classList = [example[-1] for example in dataSet]  
+    #类别完全相同则停止继续划分  返回类标签-叶子节点  
+    if classList.count(classList[0]) == len(classList):  
+        return classList[0]  
+    #遍历完所有的特征时返回出现次数最多的  
+    if len(dataSet[0]) == 1:  
+        return majorityCnt(classList)       
+    bestFeat = chooseBestFeatureToSplit(dataSet)  
+    bestFeatLabel = labels[bestFeat]  
+    # 每一级递归中用类别标签作为key，其value将是该标签的每个值
+    myTree = {bestFeatLabel:{}}  
+    # 删除一个特征标签
+    del(labels[bestFeat])  
+    # 得到的列表包含所有的属性值  
+    featValues = [example[bestFeat] for example in dataSet]    
+    uniqueVals = set(featValues)  
+    # 遍历每个值作为字典的value
+    for value in uniqueVals:  
+        subLabels = labels[:]  
+        # 其值就是上面的两个终止条件返回的类别标签
+        myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)  
+    return myTree 
+#+end_src
 ** 回归分析
 回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
