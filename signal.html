@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-24 13:35:30 中国标准时间"/>
+<meta name="generated" content="2016-05-25 00:02:27 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -104,27 +104,27 @@
 <ul>
 <li><a href="#sec-1-3-1">1.3.1 DTFT算法过程</a></li>
 <li><a href="#sec-1-3-2">1.3.2 物理意义</a></li>
-<li><a href="#sec-1-3-3">1.3.3 python</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4">1.4 滤波器</a>
+<li><a href="#sec-1-4">1.4 离散傅里叶变换(DFT)</a></li>
+<li><a href="#sec-1-5">1.5 滤波器</a>
 <ul>
-<li><a href="#sec-1-4-1">1.4.1 设计思路</a></li>
-<li><a href="#sec-1-4-2">1.4.2 FIR滤波</a></li>
-<li><a href="#sec-1-4-3">1.4.3 IIR滤波</a></li>
-<li><a href="#sec-1-4-4">1.4.4 平滑滤波</a>
+<li><a href="#sec-1-5-1">1.5.1 设计思路</a></li>
+<li><a href="#sec-1-5-2">1.5.2 FIR滤波</a></li>
+<li><a href="#sec-1-5-3">1.5.3 IIR滤波</a></li>
+<li><a href="#sec-1-5-4">1.5.4 平滑滤波</a>
 <ul>
-<li><a href="#sec-1-4-4-1">1.4.4.1 全期平滑</a></li>
-<li><a href="#sec-1-4-4-2">1.4.4.2 移动平滑</a></li>
-<li><a href="#sec-1-4-4-3">1.4.4.3 指数平滑</a></li>
+<li><a href="#sec-1-5-4-1">1.5.4.1 全期平滑</a></li>
+<li><a href="#sec-1-5-4-2">1.5.4.2 移动平滑</a></li>
+<li><a href="#sec-1-5-4-3">1.5.4.3 指数平滑</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-5">1.5 采样重构</a>
+<li><a href="#sec-1-6">1.6 采样重构</a>
 <ul>
-<li><a href="#sec-1-5-1">1.5.1 频率</a></li>
-<li><a href="#sec-1-5-2">1.5.2 采样</a></li>
-<li><a href="#sec-1-5-3">1.5.3 重构</a></li>
+<li><a href="#sec-1-6-1">1.6.1 频率</a></li>
+<li><a href="#sec-1-6-2">1.6.2 采样</a></li>
+<li><a href="#sec-1-6-3">1.6.3 重构</a></li>
 </ul></li>
 </ul>
 </li>
@@ -365,7 +365,15 @@ b_{n} = \frac{\int_{-l}^{l}f(x)sin(\frac{n\pi x}{l})dx}{l}
 \end{equation}
 算子F[.]把一个离散信号x(n)变换成一个实变量w的复值连续函数\(X(e^{jw})\), w被
 称为数字频率，它用 <span style="text-decoration:underline;">弧度</span> 来度量。
-</p>
+基本上离散和周期是相互关联的。
+</p><ul>
+<li>时域离散，频域就会有周期性；
+</li>
+<li>频域离散，时域就会有周期性；
+</li>
+</ul>
+
+
 </div>
 
 <div id="outline-container-1-3-1" class="outline-4">
@@ -448,14 +456,32 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 补充一定数量的0，使其长度达到需要的点数，再做FFT，这在一定程度上能够提高频
 率分辨力。 
 </p></div>
+</div>
 
 </div>
 
-<div id="outline-container-1-3-3" class="outline-4">
-<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> python</h4>
-<div class="outline-text-4" id="text-1-3-3">
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 离散傅里叶变换(DFT)</h3>
+<div class="outline-text-3" id="text-1-4">
 
-<ul>
+<p>离散时间傅里叶变换（DTFT）有时也称为序列傅里叶变换。DTFT实质上就是单位圆上
+的(双边)Z变换。当时域信号为连续信号时，用连续时间傅里叶变换；为离散信号时，
+用DTFT,DTFT使我们能够在频域（数字频域）分析离散时间信号的频谱和离散系统的频
+响特性\(X(e^{jw})\)。但还存在两个实际问题。 
+</p><ol>
+<li>数字频率w是一个模拟量，为了便于用数字的方法进行分析和处理，仅仅在时域将
+   时间变量t离散化还不够，还必须在频域将数字频率w离散化。 
+</li>
+<li>实际的序列大多为无限长的，为了分析和处理的方便，必须把无限长序列截断或分
+   段，化作有限长序列来处理。 
+</li>
+</ol>
+
+<p>DTFT是对任意序列的傅里叶分析，它的频谱是一个连续函数；而DFT是把有限长序列作
+为周期序列的一个周期，对有限长序列的傅里叶分析，DFT的特点是无论在时域还是频
+域都是有限长序列。DFT提供了使用计算机来分析信号和系统的一种方法，尤其是DFT
+的快速算法FFT。 
+</p><ul>
 <li>np.fft.fft(samplings):对samplings点做FFT变换；
 </li>
 <li>np.fft.rfft(samplings):上面的是左右两边对称的，这个是只有单边的；
@@ -463,16 +489,24 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 <li>np.fft.fftfreq(N):表示N点的频率序号，如果再乘以频率分辨率Fs/N, 就可以得到
   N点的频率值；
 </li>
+<li>fft变换后，除第一个0频直流分量，频谱在频率上对称，对称点在奈奎斯特频率上，
+  即如果Fs是采样频率，对称点在Fs/2上；
+</li>
+<li>当时域数据个数和fft变换使用的数据个数相同时，频率分辨率正常(点数较少时，
+  分辨率低)，但是没有由于添零混入其他频率成分；
+</li>
+<li>当时域信号数据加零数据后，可以增加fft变换的数据个数，可以提高频率分辨率，
+  但是振幅谱中会多出其他频率成分；
+</li>
 </ul>
 
 </div>
-</div>
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 滤波器</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 滤波器</h3>
+<div class="outline-text-3" id="text-1-5">
 
 <p>数字滤波器与LTI系统是等价的，描述方式可以有4种。
 </p><ul>
@@ -530,9 +564,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> 设计思路</h4>
-<div class="outline-text-4" id="text-1-4-1">
+<div id="outline-container-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 设计思路</h4>
+<div class="outline-text-4" id="text-1-5-1">
 
 <ol>
 <li>在具体的应用背景中提取出数字滤波器的性能参数；
@@ -553,9 +587,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-4-2" class="outline-4">
-<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> FIR滤波</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<div id="outline-container-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> FIR滤波</h4>
+<div class="outline-text-4" id="text-1-5-2">
 
 <p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
 波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
@@ -563,9 +597,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-4-3" class="outline-4">
-<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> IIR滤波</h4>
-<div class="outline-text-4" id="text-1-4-3">
+<div id="outline-container-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> IIR滤波</h4>
+<div class="outline-text-4" id="text-1-5-3">
 
 <p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
 器。
@@ -573,25 +607,25 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-4-4" class="outline-4">
-<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> 平滑滤波</h4>
-<div class="outline-text-4" id="text-1-4-4">
+<div id="outline-container-1-5-4" class="outline-4">
+<h4 id="sec-1-5-4"><span class="section-number-4">1.5.4</span> 平滑滤波</h4>
+<div class="outline-text-4" id="text-1-5-4">
 
 
 </div>
 
-<div id="outline-container-1-4-4-1" class="outline-5">
-<h5 id="sec-1-4-4-1"><span class="section-number-5">1.4.4.1</span> 全期平滑</h5>
-<div class="outline-text-5" id="text-1-4-4-1">
+<div id="outline-container-1-5-4-1" class="outline-5">
+<h5 id="sec-1-5-4-1"><span class="section-number-5">1.5.4.1</span> 全期平滑</h5>
+<div class="outline-text-5" id="text-1-5-4-1">
 
 <p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
 </p></div>
 
 </div>
 
-<div id="outline-container-1-4-4-2" class="outline-5">
-<h5 id="sec-1-4-4-2"><span class="section-number-5">1.4.4.2</span> 移动平滑</h5>
-<div class="outline-text-5" id="text-1-4-4-2">
+<div id="outline-container-1-5-4-2" class="outline-5">
+<h5 id="sec-1-5-4-2"><span class="section-number-5">1.5.4.2</span> 移动平滑</h5>
+<div class="outline-text-5" id="text-1-5-4-2">
 
 <p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
 通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
@@ -608,9 +642,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-4-4-3" class="outline-5">
-<h5 id="sec-1-4-4-3"><span class="section-number-5">1.4.4.3</span> 指数平滑</h5>
-<div class="outline-text-5" id="text-1-4-4-3">
+<div id="outline-container-1-5-4-3" class="outline-5">
+<h5 id="sec-1-5-4-3"><span class="section-number-5">1.5.4.3</span> 指数平滑</h5>
+<div class="outline-text-5" id="text-1-5-4-3">
 
 <p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
 减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
@@ -718,16 +752,16 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 采样重构</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 采样重构</h3>
+<div class="outline-text-3" id="text-1-6">
 
 
 </div>
 
-<div id="outline-container-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 频率</h4>
-<div class="outline-text-4" id="text-1-5-1">
+<div id="outline-container-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> 频率</h4>
+<div class="outline-text-4" id="text-1-6-1">
 
 <ul>
 <li>模拟频率f：每秒经历多少个周期，单位Hz，即1/s；
@@ -745,9 +779,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> 采样</h4>
-<div class="outline-text-4" id="text-1-5-2">
+<div id="outline-container-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> 采样</h4>
+<div class="outline-text-4" id="text-1-6-2">
 
 <ul>
 <li>采样定理：如果采样频率\(F_{s}\)大于有限带宽信号\(x_{a}(t)\)带宽\(F_{D}\)
@@ -761,9 +795,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> 重构</h4>
-<div class="outline-text-4" id="text-1-5-3">
+<div id="outline-container-1-6-3" class="outline-4">
+<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> 重构</h4>
+<div class="outline-text-4" id="text-1-6-3">
 
 <p>当我们以合适的采样频率\(F_{s}\)采样到若干样本点x(n)后，这些样本点x(n)的频域
 实际上是其模拟信号x(t)的频谱的重复，所以要从x(n)恢复x(t)只需要经过一个低通
@@ -815,7 +849,7 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-24 13:35:30 中国标准时间</p>
+<p class="date">Date: 2016-05-25 00:02:27 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
