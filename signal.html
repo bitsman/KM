@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-12 16:34:16 中国标准时间"/>
+<meta name="generated" content="2016-05-24 13:35:30 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -103,17 +103,20 @@
 <li><a href="#sec-1-3">1.3 离散时间傅里叶变换(DTFT)</a>
 <ul>
 <li><a href="#sec-1-3-1">1.3.1 DTFT算法过程</a></li>
+<li><a href="#sec-1-3-2">1.3.2 物理意义</a></li>
+<li><a href="#sec-1-3-3">1.3.3 python</a></li>
 </ul>
 </li>
 <li><a href="#sec-1-4">1.4 滤波器</a>
 <ul>
-<li><a href="#sec-1-4-1">1.4.1 FIR滤波</a></li>
-<li><a href="#sec-1-4-2">1.4.2 IIR滤波</a></li>
-<li><a href="#sec-1-4-3">1.4.3 平滑滤波</a>
+<li><a href="#sec-1-4-1">1.4.1 设计思路</a></li>
+<li><a href="#sec-1-4-2">1.4.2 FIR滤波</a></li>
+<li><a href="#sec-1-4-3">1.4.3 IIR滤波</a></li>
+<li><a href="#sec-1-4-4">1.4.4 平滑滤波</a>
 <ul>
-<li><a href="#sec-1-4-3-1">1.4.3.1 全期平滑</a></li>
-<li><a href="#sec-1-4-3-2">1.4.3.2 移动平滑</a></li>
-<li><a href="#sec-1-4-3-3">1.4.3.3 指数平滑</a></li>
+<li><a href="#sec-1-4-4-1">1.4.4.1 全期平滑</a></li>
+<li><a href="#sec-1-4-4-2">1.4.4.2 移动平滑</a></li>
+<li><a href="#sec-1-4-4-3">1.4.4.3 指数平滑</a></li>
 </ul></li>
 </ul>
 </li>
@@ -402,6 +405,67 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
  X^{T} = x^{T}[e^{-j\frac{\pi}{M}n^{T}k}]
 \end{equation}
 </p></div>
+
+</div>
+
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 物理意义</h4>
+<div class="outline-text-4" id="text-1-3-2">
+
+<p>DFT的快速算法叫FFT，在MATLAB和Python中都有相关库，一个模拟信号，经过ADC采样
+之后，就变成了数字信号。采样定理告诉我们，采样频率要大于信号频率的两倍，采
+样得到的数字信号，就可以做FFT变换了。N个采样点，经过FFT之后，就可以得到N个
+点的FFT结果。为了方便进行FFT运算，通常N取2的整数次方。假设采样频率为Fs，信
+号频率F，采样点数为N。那么FFT之后结果就是一个为N点的复数。每一个点就对应着
+一个频率点。这个点的模值，就是该频率值下的幅度特性。具体跟原始信号的幅度有
+什么关系呢？假设原始信号的峰值为A，那么FFT的结果的每个点（除了第一个点直流分量之外）的模值就是A的N/2倍。而第一个点就是直流分量，它的模值就是直流分量
+的N倍。而每个点的相位呢，就是在该频率下的信号的相位。第一个点表示直流分量
+（即0Hz），而最后一个点N的再下一个点（实际上这个点是不存在的，这里是假设的
+第N+1个点，也可以看做是将第一个点分做两半分，另一半移到最后）则表示采样频率
+Fs，这中间被N-1个点平均分成N等份，每个点的频率依次增加。例如某点n所表示的频
+率为
+$$Fn=(n-1)*Fs/N$$
+由上面的公式可以看出，Fn所能分辨到频率为为Fs/N，如果采样频率Fs为1024Hz，采
+样点数为1024点，则可以分辨到1Hz。1024Hz的采样率采样1024点，刚好是1秒，也就
+是说，采样1秒时间的信号并做FFT，则结果可以分析到1Hz，如果采样2秒时间的信号
+并做FFT，则结果可以分析到0.5Hz。如果要提高频率分辨力，则必须增加采样点数，
+也即采样时间。频率分辨率和采样时间是倒数关系。 </p ><p >
+假设FFT之后某点n用复数a+bi表示，那么这个复数的模就是
+$$An=\sqrt{a^{2}+b^{2}}$$ 
+相位就是
+$$Pn=atan2(b,a)$$
+根据以上的结果，就可以计算出n点（n≠1，且n&lt;=N/2）对应的信号的表达式为：
+$$An/(N/2)*cos(2*pi*Fn*t+Pn)$$ 
+即\(2*An/N*cos(2*pi*Fn*t+Pn)\)。对于n=1点的信号，是直流分量，幅度即为A1/N。
+由于FFT的对称性，通常我们只使用前半部的结果，即小于采样频率一半的结果.</p ><p >
+总结：假设采样频率为Fs，采样点数为N，做FFT之后，某一点n（n从1开始）表示的频
+率为：Fn=(n-1)*Fs/N；该点的模值除以N/2就是对应该频率下的信号的幅度（对于直
+流信号是除以N）；该点的相位即是对应该频率下的信号的相位。相位的计算可用函数
+atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi到pi。要精确
+到xHz，则需要采样长度为1/x秒的信号，并做FFT。要提高频率分辨率，就需要增加采
+样点数，这在一些实际的应用中是不现实的，需要在较短的时间内完成分析。解决这
+个问题的方法有频率细分法，比较简单的方法是采样比较短时间的信号，然后在后面
+补充一定数量的0，使其长度达到需要的点数，再做FFT，这在一定程度上能够提高频
+率分辨力。 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> python</h4>
+<div class="outline-text-4" id="text-1-3-3">
+
+<ul>
+<li>np.fft.fft(samplings):对samplings点做FFT变换；
+</li>
+<li>np.fft.rfft(samplings):上面的是左右两边对称的，这个是只有单边的；
+</li>
+<li>np.fft.fftfreq(N):表示N点的频率序号，如果再乘以频率分辨率Fs/N, 就可以得到
+  N点的频率值；
+</li>
+</ul>
+
+</div>
 </div>
 
 </div>
@@ -453,12 +517,45 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 </li>
 </ul>
 
+<p>滤波器的基本构成单元
+</p><ol>
+<li>加法单元；
+</li>
+<li>乘法单元；
+</li>
+<li>延时单元；
+</li>
+</ol>
+
 
 </div>
 
 <div id="outline-container-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> FIR滤波</h4>
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> 设计思路</h4>
 <div class="outline-text-4" id="text-1-4-1">
+
+<ol>
+<li>在具体的应用背景中提取出数字滤波器的性能参数；
+</li>
+<li>选择合适的滤波器类型，主要是确定使用FIR还是IIR；
+</li>
+<li>采用适当方法如用MATLAB计算出滤波器的系数；
+</li>
+<li>用一个适当的结构来表示滤波器；
+</li>
+<li>分析有限字长对滤波器性能的影响；
+</li>
+<li>用软件或硬件来实现滤波器算法；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> FIR滤波</h4>
+<div class="outline-text-4" id="text-1-4-2">
 
 <p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
 波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
@@ -466,9 +563,9 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 
 </div>
 
-<div id="outline-container-1-4-2" class="outline-4">
-<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> IIR滤波</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<div id="outline-container-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> IIR滤波</h4>
+<div class="outline-text-4" id="text-1-4-3">
 
 <p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
 器。
@@ -476,25 +573,25 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 
 </div>
 
-<div id="outline-container-1-4-3" class="outline-4">
-<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> 平滑滤波</h4>
-<div class="outline-text-4" id="text-1-4-3">
+<div id="outline-container-1-4-4" class="outline-4">
+<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> 平滑滤波</h4>
+<div class="outline-text-4" id="text-1-4-4">
 
 
 </div>
 
-<div id="outline-container-1-4-3-1" class="outline-5">
-<h5 id="sec-1-4-3-1"><span class="section-number-5">1.4.3.1</span> 全期平滑</h5>
-<div class="outline-text-5" id="text-1-4-3-1">
+<div id="outline-container-1-4-4-1" class="outline-5">
+<h5 id="sec-1-4-4-1"><span class="section-number-5">1.4.4.1</span> 全期平滑</h5>
+<div class="outline-text-5" id="text-1-4-4-1">
 
 <p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
 </p></div>
 
 </div>
 
-<div id="outline-container-1-4-3-2" class="outline-5">
-<h5 id="sec-1-4-3-2"><span class="section-number-5">1.4.3.2</span> 移动平滑</h5>
-<div class="outline-text-5" id="text-1-4-3-2">
+<div id="outline-container-1-4-4-2" class="outline-5">
+<h5 id="sec-1-4-4-2"><span class="section-number-5">1.4.4.2</span> 移动平滑</h5>
+<div class="outline-text-5" id="text-1-4-4-2">
 
 <p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
 通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
@@ -511,9 +608,9 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 
 </div>
 
-<div id="outline-container-1-4-3-3" class="outline-5">
-<h5 id="sec-1-4-3-3"><span class="section-number-5">1.4.3.3</span> 指数平滑</h5>
-<div class="outline-text-5" id="text-1-4-3-3">
+<div id="outline-container-1-4-4-3" class="outline-5">
+<h5 id="sec-1-4-4-3"><span class="section-number-5">1.4.4.3</span> 指数平滑</h5>
+<div class="outline-text-5" id="text-1-4-4-3">
 
 <p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
 减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
@@ -718,7 +815,7 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-12 16:34:16 中国标准时间</p>
+<p class="date">Date: 2016-05-24 13:35:30 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
