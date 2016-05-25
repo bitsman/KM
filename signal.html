@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-25 00:02:27 中国标准时间"/>
+<meta name="generated" content="2016-05-25 21:13:44 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -86,56 +86,108 @@
 <h1 class="title">信号与系统</h1>
 
 
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 线性时不变系统</a>
+<li><a href="#sec-1">1 基本概念</a>
 <ul>
-<li><a href="#sec-1-1">1.1 卷积</a></li>
-<li><a href="#sec-1-2">1.2 傅里叶级数和泰勒级数</a>
-<ul>
-<li><a href="#sec-1-2-1">1.2.1 泰勒级数</a></li>
-<li><a href="#sec-1-2-2">1.2.2 傅里叶级数</a></li>
+<li><a href="#sec-1-1">1.1 频率</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 离散时间傅里叶变换(DTFT)</a>
+<li><a href="#sec-2">2 线性时不变系统</a>
 <ul>
-<li><a href="#sec-1-3-1">1.3.1 DTFT算法过程</a></li>
-<li><a href="#sec-1-3-2">1.3.2 物理意义</a></li>
+<li><a href="#sec-2-1">2.1 卷积</a></li>
+<li><a href="#sec-2-2">2.2 傅里叶级数和泰勒级数</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1 泰勒级数</a></li>
+<li><a href="#sec-2-2-2">2.2.2 傅里叶级数</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4">1.4 离散傅里叶变换(DFT)</a></li>
-<li><a href="#sec-1-5">1.5 滤波器</a>
+<li><a href="#sec-2-3">2.3 离散时间傅里叶变换(DTFT)</a>
 <ul>
-<li><a href="#sec-1-5-1">1.5.1 设计思路</a></li>
-<li><a href="#sec-1-5-2">1.5.2 FIR滤波</a></li>
-<li><a href="#sec-1-5-3">1.5.3 IIR滤波</a></li>
-<li><a href="#sec-1-5-4">1.5.4 平滑滤波</a>
+<li><a href="#sec-2-3-1">2.3.1 DTFT算法过程</a></li>
+<li><a href="#sec-2-3-2">2.3.2 物理意义</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-4">2.4 离散傅里叶变换(DFT)</a></li>
+<li><a href="#sec-2-5">2.5 滤波器</a>
 <ul>
-<li><a href="#sec-1-5-4-1">1.5.4.1 全期平滑</a></li>
-<li><a href="#sec-1-5-4-2">1.5.4.2 移动平滑</a></li>
-<li><a href="#sec-1-5-4-3">1.5.4.3 指数平滑</a></li>
+<li><a href="#sec-2-5-1">2.5.1 设计思路</a></li>
+<li><a href="#sec-2-5-2">2.5.2 FIR滤波</a></li>
+<li><a href="#sec-2-5-3">2.5.3 IIR滤波</a></li>
+<li><a href="#sec-2-5-4">2.5.4 平滑滤波</a>
+<ul>
+<li><a href="#sec-2-5-4-1">2.5.4.1 全期平滑</a></li>
+<li><a href="#sec-2-5-4-2">2.5.4.2 移动平滑</a></li>
+<li><a href="#sec-2-5-4-3">2.5.4.3 指数平滑</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-6">1.6 采样重构</a>
+<li><a href="#sec-2-6">2.6 采样重构</a>
 <ul>
-<li><a href="#sec-1-6-1">1.6.1 频率</a></li>
-<li><a href="#sec-1-6-2">1.6.2 采样</a></li>
-<li><a href="#sec-1-6-3">1.6.3 重构</a></li>
+<li><a href="#sec-2-6-1">2.6.1 采样</a></li>
+<li><a href="#sec-2-6-2">2.6.2 重构</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 小波变换</a></li>
+<li><a href="#sec-3">3 小波变换</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 线性时不变系统</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> 基本概念</h2>
 <div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 频率</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>通常说的频率，在没有特别指明的情况下，指的是模拟频率，其单位为赫兹(Hz)，数
+学符号用f来表示。因为现实中信号大多为模拟信号。以Hz表示的模拟频率表示的是每
+秒时间内信号变化的周期数。旋转一圈表示信号变化一个周期，则模拟频率则指的是
+每秒时间内信号旋转的圈数。</p ><p >
+模拟角频率，数学符号Ω，其单位为弧度/秒(rad/s)。f是每秒时间内信号旋转的圈数，
+每一圈的角度变化数为\(2\pi{}\)。很显然，旋转f圈对应着\(2\pi{}*f\)的弧度。即
+$$\Omega=2\pi{}*f$$  
+数字信号是从模拟信号采样而得，采样频率通常用fs表示。数字频率更准确的叫法应
+该是归一化数字角频率，其单位为弧度(rad)，数学符号ω表示
+$$w=2pi{}*f/fs$$
+其物理意义是相邻两个采样点之间所变化的弧度数.假定有一个正弦信号x(t)，其频率
+f=100Hz，幅度为A，初始相位为0，则这个信号用公式可以表示为
+$$x(t) = A*sin(2*pi{}*100*t) $$ 
+用采样频率fs=500Hz对其进行采样，得到的数字信号x[n]为
+$$x[n]=A*sin(2*pi{}*100*n/fs)=A*sin(0.4*pi{}*n)$$ 
+数字信号的频率为\(0.4pi{}\), 对应两个数字频率完全相同的信号，其模拟频率未必
+相同，因为这里还要考虑采样频率。这种归一化为处理带来了方便，但也给理解带来
+了困惑。在数字信号中，虽然经常不显式地出现采样频率，但它却是架起模拟信号与
+数字信号的桥梁，对信号处理的过程有举足轻重的影响。 
+</p><ul>
+<li>模拟频率f：每秒经历多少个周期，单位Hz；
+</li>
+<li>模拟角频率Ω：每秒经历多少弧度，单位rad/s；
+</li>
+<li>数字频率w：每个采样点间隔之间的弧度，单位rad。
+</li>
+<li>采样频率fs：每秒采样点数，单位Hz
+</li>
+<li>关系：\(\Omega = 2\pi{}f\), \(w = \OmegaT\), 将数字频率和模拟频率联系起来的是采样
+  频率即\(w=2\pi{}f/fs\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 线性时不变系统</h2>
+<div class="outline-text-2" id="text-2">
 
 <p>线性时不变系统简称LTI系统，可以用它对单位脉冲序列的响应(h(n))来表示。
 </p><ul>
@@ -205,9 +257,9 @@
 
 </div>
 
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 卷积</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 卷积</h3>
+<div class="outline-text-3" id="text-2-1">
 
 <p>如果一个系统的冲击响应为h(n), 表示方式如<a href="#equ-hn">equ-hn</a>，可以理解为由于一个k时
 刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从
@@ -227,17 +279,17 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 傅里叶级数和泰勒级数</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 傅里叶级数和泰勒级数</h3>
+<div class="outline-text-3" id="text-2-2">
 
 <p>傅里叶级数和泰勒级数都是为了将一个函数分解成若干基函数叠加形式。
 </p>
 </div>
 
-<div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 泰勒级数</h4>
-<div class="outline-text-4" id="text-1-2-1">
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 泰勒级数</h4>
+<div class="outline-text-4" id="text-2-2-1">
 
 <p>一个函数
 $$f(x)=1$$ 
@@ -264,9 +316,9 @@ f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}
 
 </div>
 
-<div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 傅里叶级数</h4>
-<div class="outline-text-4" id="text-1-2-2">
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 傅里叶级数</h4>
+<div class="outline-text-4" id="text-2-2-2">
 
 <p>傅里叶级数也叫三角级数一般为
 $$f(x)=1+sin(x)+cos(x)+sin(2x)+cos(2x)+... $$ 
@@ -348,9 +400,9 @@ b_{n} = \frac{\int_{-l}^{l}f(x)sin(\frac{n\pi x}{l})dx}{l}
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 离散时间傅里叶变换(DTFT)</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 离散时间傅里叶变换(DTFT)</h3>
+<div class="outline-text-3" id="text-2-3">
 
 <p>如果x(n)是绝对可加的，即\(\sum_{-\infty}^{\infty}|x(n)| &lt; \infty\)，则其离
 散时间傅里叶变换表示如<a href="#equ-xjw">equ-xjw</a>
@@ -376,9 +428,9 @@ b_{n} = \frac{\int_{-l}^{l}f(x)sin(\frac{n\pi x}{l})dx}{l}
 
 </div>
 
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> DTFT算法过程</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<div id="outline-container-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> DTFT算法过程</h4>
+<div class="outline-text-4" id="text-2-3-1">
 
 <p>如果x(n)是有限长的，则x(n)肯定是绝对可加的，即x(n)肯定有DTFT，则可以用
 MATLAB或python来对任意频率w处的\(X(e^{jw})\)进行数值计算。如果我们是在
@@ -416,9 +468,9 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 
 </div>
 
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 物理意义</h4>
-<div class="outline-text-4" id="text-1-3-2">
+<div id="outline-container-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 物理意义</h4>
+<div class="outline-text-4" id="text-2-3-2">
 
 <p>DFT的快速算法叫FFT，在MATLAB和Python中都有相关库，一个模拟信号，经过ADC采样
 之后，就变成了数字信号。采样定理告诉我们，采样频率要大于信号频率的两倍，采
@@ -460,9 +512,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 离散傅里叶变换(DFT)</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 离散傅里叶变换(DFT)</h3>
+<div class="outline-text-3" id="text-2-4">
 
 <p>离散时间傅里叶变换（DTFT）有时也称为序列傅里叶变换。DTFT实质上就是单位圆上
 的(双边)Z变换。当时域信号为连续信号时，用连续时间傅里叶变换；为离散信号时，
@@ -504,9 +556,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 滤波器</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 滤波器</h3>
+<div class="outline-text-3" id="text-2-5">
 
 <p>数字滤波器与LTI系统是等价的，描述方式可以有4种。
 </p><ul>
@@ -564,9 +616,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 设计思路</h4>
-<div class="outline-text-4" id="text-1-5-1">
+<div id="outline-container-2-5-1" class="outline-4">
+<h4 id="sec-2-5-1"><span class="section-number-4">2.5.1</span> 设计思路</h4>
+<div class="outline-text-4" id="text-2-5-1">
 
 <ol>
 <li>在具体的应用背景中提取出数字滤波器的性能参数；
@@ -587,9 +639,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> FIR滤波</h4>
-<div class="outline-text-4" id="text-1-5-2">
+<div id="outline-container-2-5-2" class="outline-4">
+<h4 id="sec-2-5-2"><span class="section-number-4">2.5.2</span> FIR滤波</h4>
+<div class="outline-text-4" id="text-2-5-2">
 
 <p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
 波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
@@ -597,9 +649,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> IIR滤波</h4>
-<div class="outline-text-4" id="text-1-5-3">
+<div id="outline-container-2-5-3" class="outline-4">
+<h4 id="sec-2-5-3"><span class="section-number-4">2.5.3</span> IIR滤波</h4>
+<div class="outline-text-4" id="text-2-5-3">
 
 <p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
 器。
@@ -607,25 +659,25 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-4" class="outline-4">
-<h4 id="sec-1-5-4"><span class="section-number-4">1.5.4</span> 平滑滤波</h4>
-<div class="outline-text-4" id="text-1-5-4">
+<div id="outline-container-2-5-4" class="outline-4">
+<h4 id="sec-2-5-4"><span class="section-number-4">2.5.4</span> 平滑滤波</h4>
+<div class="outline-text-4" id="text-2-5-4">
 
 
 </div>
 
-<div id="outline-container-1-5-4-1" class="outline-5">
-<h5 id="sec-1-5-4-1"><span class="section-number-5">1.5.4.1</span> 全期平滑</h5>
-<div class="outline-text-5" id="text-1-5-4-1">
+<div id="outline-container-2-5-4-1" class="outline-5">
+<h5 id="sec-2-5-4-1"><span class="section-number-5">2.5.4.1</span> 全期平滑</h5>
+<div class="outline-text-5" id="text-2-5-4-1">
 
 <p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
 </p></div>
 
 </div>
 
-<div id="outline-container-1-5-4-2" class="outline-5">
-<h5 id="sec-1-5-4-2"><span class="section-number-5">1.5.4.2</span> 移动平滑</h5>
-<div class="outline-text-5" id="text-1-5-4-2">
+<div id="outline-container-2-5-4-2" class="outline-5">
+<h5 id="sec-2-5-4-2"><span class="section-number-5">2.5.4.2</span> 移动平滑</h5>
+<div class="outline-text-5" id="text-2-5-4-2">
 
 <p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
 通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
@@ -642,9 +694,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-5-4-3" class="outline-5">
-<h5 id="sec-1-5-4-3"><span class="section-number-5">1.5.4.3</span> 指数平滑</h5>
-<div class="outline-text-5" id="text-1-5-4-3">
+<div id="outline-container-2-5-4-3" class="outline-5">
+<h5 id="sec-2-5-4-3"><span class="section-number-5">2.5.4.3</span> 指数平滑</h5>
+<div class="outline-text-5" id="text-2-5-4-3">
 
 <p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
 减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
@@ -752,36 +804,16 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 采样重构</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 采样重构</h3>
+<div class="outline-text-3" id="text-2-6">
 
 
 </div>
 
-<div id="outline-container-1-6-1" class="outline-4">
-<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> 频率</h4>
-<div class="outline-text-4" id="text-1-6-1">
-
-<ul>
-<li>模拟频率f：每秒经历多少个周期，单位Hz，即1/s；
-</li>
-<li>模拟角频率Ω：每秒经历多少弧度，单位rad/s；
-</li>
-<li>数字频率w：每个采样点间隔之间的弧度，单位rad。
-</li>
-<li>关系：\(Ω = 2\pi{}f\), \(w = ΩT\), 将数字频率和模拟频率联系起来的是采样
-  频率即\(w=2\pi{}f/f_{s}\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-6-2" class="outline-4">
-<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> 采样</h4>
-<div class="outline-text-4" id="text-1-6-2">
+<div id="outline-container-2-6-1" class="outline-4">
+<h4 id="sec-2-6-1"><span class="section-number-4">2.6.1</span> 采样</h4>
+<div class="outline-text-4" id="text-2-6-1">
 
 <ul>
 <li>采样定理：如果采样频率\(F_{s}\)大于有限带宽信号\(x_{a}(t)\)带宽\(F_{D}\)
@@ -795,9 +827,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-1-6-3" class="outline-4">
-<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> 重构</h4>
-<div class="outline-text-4" id="text-1-6-3">
+<div id="outline-container-2-6-2" class="outline-4">
+<h4 id="sec-2-6-2"><span class="section-number-4">2.6.2</span> 重构</h4>
+<div class="outline-text-4" id="text-2-6-2">
 
 <p>当我们以合适的采样频率\(F_{s}\)采样到若干样本点x(n)后，这些样本点x(n)的频域
 实际上是其模拟信号x(t)的频谱的重复，所以要从x(n)恢复x(t)只需要经过一个低通
@@ -840,16 +872,16 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 小波变换</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 小波变换</h2>
+<div class="outline-text-2" id="text-3">
 
 </div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-25 00:02:27 中国标准时间</p>
+<p class="date">Date: 2016-05-25 21:13:44 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
