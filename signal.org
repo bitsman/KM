@@ -54,7 +54,7 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 ** 其他
 - 特征函数：一个信号函数，若系统对该信号的输出响应仅是一个常数(可以是复数)乘以
   输入信号，则称该信号为系统的特征函数；
-- 复指数信号：\(e^{jwt}\)在\([0, 2\pi]\)上构成完备正交集，见数学中对复数的
+- 复指数信号：\(e^{j\Omega{}t}\)在\([0, 2\pi]\)上构成完备正交集，见数学中对复数的
   定义，wt表示辐角，\([0, 2\pi]\)也就表示复数的所有辐角；
 - 冲击函数：复指数信号在实轴上的积分是冲击函数\(\delta\); 
 * 线性时不变系统
@@ -68,40 +68,40 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 - 傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式\ref{equ-xt}，即x(t)能够
   表示成一组谐波关系的复指数信号的线性组合，那么傅里叶级数中的系数a_{k}确定，
   这对关系式就定义为一个周期连续时间信号的傅里叶级数, 其中周期为T，
-  \(w_{0}=\frac{2\pi}{T}\) 
+  \(\Omega{}_{0}=\frac{2\pi}{T}\) 
   \begin{equation}
   \label{equ-xt}
-   x(t)=\sum_{-\infty{}}^{+\infty{}}a_{k}e^{jkw_{0}t}
+   x(t)=\sum_{-\infty{}}^{+\infty{}}a_{k}e^{jk\Omega{}_{0}t}
   \end{equation}
   系数为式\ref{equ-ak}
   \begin{equation}
   \label{equ-ak}
-   a_{k}=\frac{\int_{T}x(t)e^{-jkw_{0}t}\mathrm{d}t}{T}
+   a_{k}=\frac{\int_{T}x(t)e^{-jk\Omega{}_{0}t}\mathrm{d}t}{T}
   \end{equation}
 - 频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
   或传递函数.也可以理解为，脉冲响应h(n)对某频率输入信号的响应，输入信号x(n)
-  可以表示成\(e^{jwn}\)的级数形式，也代表了x(n)具有一系列频率分量w，求一个
-  系统对复指数信号\(e^{jw_{0}n}\)的响应时，输入信号为\(x(n)=e^{jw_{0}n}\),
+  可以表示成\(e^{j\Omega{}n}\)的级数形式，也代表了x(n)具有一系列频率分量w，求一个
+  系统对复指数信号\(e^{j\Omega{}_{0}n}\)的响应时，输入信号为\(x(n)=e^{j\Omega{}_{0}n}\),
   该响应由式子\ref{equ-ejwnhn}
   \begin{equation}
   \label{equ-ejwnhn}
-  x(n)=e^{jw_{0}n} \Rightarrow h(n) \Rightarrow y(n)=h(n)*e^{jw_{0}n}
+  x(n)=e^{j\Omega{}_{0}n} \Rightarrow h(n) \Rightarrow y(n)=h(n)*e^{j\Omega{}_{0}n}
   \end{equation}
   因而
   \begin{equation}
   \label{equ-whn}
-  y(n)=h(n)*e^{jw_{0}n}=\sum_{k=-\infty}^{\infty}h(k)e^{jw_{0}(n-k)}
-      = [\sum_{k=-\infty}^{\infty}h(k)e^{-jw_{0}k}]e^{jw_{0}n} 
-      = [F[h(n)]|_{w=w_{0}}]e^{jw_{0}n}
+  y(n)=h(n)*e^{j\Omega{}_{0}n}=\sum_{k=-\infty}^{\infty}h(k)e^{j\Omega{}_{0}(n-k)}
+      = [\sum_{k=-\infty}^{\infty}h(k)e^{-j\Omega{}_{0}k}]e^{j\Omega{}_{0}n} 
+      = [F[h(n)]|_{\Omega{}=\Omega{}_{0}}]e^{j\Omega{}_{0}n}
   \end{equation}
   由于输入信号x(n)可以表示成复指数的级数形式，所以x(n)的每个频率分量都可以
   经过h(n)在每个频率上做响应，进而叠加得到x(n)的输出y(n)，式子\ref{equ-whn}
-  也说明了输出序列是输入指数序列被系统h(n)在w_{0}频率处的响应修饰后的结果。
+  也说明了输出序列是输入指数序列被系统h(n)在\Omega_{0}频率处的响应修饰后的结果。
   因此一个LTI系统可以在频域表示为式子\ref{equ-frqzone}, 时域y(n)可从
-  \(Y(e^{jw})\)用傅里叶逆变换获得。 
+  \(Y(e^{j\Omega{}})\)用傅里叶逆变换获得。 
   \begin{equation}
   \label{equ-frqzone}
-  X(e^{jw}) \Rightarrow H(e^{jw}) \Rightarrow Y(e^{jw})=H(e^{jw})X(e^{jw})
+  X(e^{j\Omega{}}) \Rightarrow H(e^{j\Omega{}}) \Rightarrow Y(e^{j\Omega{}})=H(e^{j\Omega{}})X(e^{j\Omega{}})
   \end{equation}
 - 傅里叶级数，傅里叶变换，拉普拉斯变换，Z变换： _傅里叶级数_ 只能对周期信号
   进行分析，找出主要频率分量，也就是相应频率信号幅度最大(能量越大)的信号；
@@ -116,6 +116,17 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
   变换，也可以说是离散时间信号的傅里叶变换，如果说拉氏变换专门分析模拟信号，
   那Z变换就是专门分析数字信号，Z变换可以把离散卷积变成多项式乘法，Z变换看系
   统频率响应。
+** 公式
+*** 傅里叶级数
+**** 正变换
+$$x(t)=\sum_{k=-\infty}^{\infty}a_{k}e^{jk\Omega{}_{0}t}$$ 
+其中\(\Omega{}_{0}=\frac{2\pi}{T}\)
+**** 逆变换
+$$a_{k}=\frac{1}{T}\int_{T}x(t)e^{-jk\Omega{}_{0}t}dt$$ 
+其中\(\Omega{}_{0}=\frac{2\pi}{T}\)，其实在周期T区间积分，也就代表在复指数
+的周期[0, 2\pi{}]积分。也就是说在复指数的完备空间[0, 2\pi{}]求x(t)具有的复
+指数分量有多少。这个复指数\(e^{j\Omega{}t}\)在所有的模拟角频率\Omega{}构成
+完备空间。所以a_{k}表示在完备空间中每个分量所占的量。
 ** 卷积
 如果一个系统的冲击响应为h(n), 表示方式如\ref{equ-hn}，可以理解为由于一个k时
 刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从
@@ -244,14 +255,14 @@ $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega$$
 散时间傅里叶变换表示如\ref{equ-xjw}
 \begin{equation}
 \label{equ-xjw}
- X(e^{jw}) \Rightarrow F[x(n)]=\sum_{-\infty}^{\infty}x(n)e^{-jwn}
+ X(e^{j\Omega{}}) \Rightarrow F[x(n)]=\sum_{-\infty}^{\infty}x(n)e^{-j\Omega{}n}
 \end{equation}
-\(X(e^{jw})\)的离散时间傅里叶逆变换(IDTFT)可以表示如\ref{equ-xn}
+\(X(e^{j\Omega{}})\)的离散时间傅里叶逆变换(IDTFT)可以表示如\ref{equ-xn}
 \begin{equation}
 \label{equ-xn}
- x(n) \Rightarrow F^{-1}[X(e^{jw})]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{jw})e^{jwn}dw
+ x(n) \Rightarrow F^{-1}[X(e^{j\Omega{}})]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\Omega{}})e^{j\Omega{}n}dw
 \end{equation}
-算子F[.]把一个离散信号x(n)变换成一个实变量w的复值连续函数\(X(e^{jw})\), w被
+算子F[.]把一个离散信号x(n)变换成一个实变量w的复值连续函数\(X(e^{j\Omega{}})\), w被
 称为数字频率，它用 _弧度_ 来度量。
 基本上离散和周期是相互关联的，一个周期信号的傅里叶级数表示中，当周期增加时，
 基波频率就减小，成谐波关系的各分量在频率上越靠近，当周期变成无穷大时，这些
@@ -259,12 +270,12 @@ $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega$$
 一个是时间。
 - 时域离散，频域就会有周期性；
 - 频域离散，时域就会有周期性；
-- 频域和时域相对应，复指数信号\(e^{jwt}\)和冲击信号\(\delta\)相对应，即如果
+- 频域和时域相对应，复指数信号\(e^{j\Omega{}t}\)和冲击信号\(\delta\)相对应，即如果
   复指数信号是时域的信号，频率是w，则频域就是在频率轴上w处的一个冲击；
 *** DTFT算法过程
 如果x(n)是有限长的，则x(n)肯定是绝对可加的，即x(n)肯定有DTFT，则可以用
-MATLAB或python来对任意频率w处的\(X(e^{jw})\)进行数值计算。如果我们是在
-\([0, \pi]\)间等间隔频率点来模拟估计\(X(e^{jw})\)，假设分成M分，则每个频率
+MATLAB或python来对任意频率w处的\(X(e^{j\Omega{}})\)进行数值计算。如果我们是在
+\([0, \pi]\)间等间隔频率点来模拟估计\(X(e^{j\Omega{}})\)，假设分成M分，则每个频率
 点可以表示如公式\ref{equ-wk}所示，则变换式子\ref{equ-xjw}可以用矩阵向量相乘
 的运算来实现。
 \begin{equation}
@@ -272,13 +283,13 @@ MATLAB或python来对任意频率w处的\(X(e^{jw})\)进行数值计算。如果
 w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 \end{equation}
 假定序列x(n)在\(n_{1}<= n <=n_{n}\)有N个样本，要估计点\ref{equ-wk}上的
-\(X(e^{jw})\)值。它们是[0，\pi]之间的(M+1)个等间隔频率点，则\ref{equ-xjw}可
+\(X(e^{j\Omega{}})\)值。它们是[0，\pi]之间的(M+1)个等间隔频率点，则\ref{equ-xjw}可
 以写为式子\ref{equ-xjw2}
 \begin{equation}
 \label{equ-xjw2}
- X(e^{jw_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}}*x(n_{l}), (k=0, 1, ..., M)
+ X(e^{j\Omega{}_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}}*x(n_{l}), (k=0, 1, ..., M)
 \end{equation}
-当\({x(n_{l})}\)和\({X(e^{jw_{k}})}\)分别排成列向量x和X，我们有式子
+当\({x(n_{l})}\)和\({X(e^{j\Omega{}_{k}})}\)分别排成列向量x和X，我们有式子
 \ref{equ-vec}, 其中W是一个(M+1)乘N维矩阵
 \begin{equation}
 \label{equ-vec}
