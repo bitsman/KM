@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-25 22:33:08 中国标准时间"/>
+<meta name="generated" content="2016-05-26 13:49:19 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -93,6 +93,7 @@
 <li><a href="#sec-1">1 基本概念</a>
 <ul>
 <li><a href="#sec-1-1">1.1 频率</a></li>
+<li><a href="#sec-1-2">1.2 其他</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2 线性时不变系统</a>
@@ -177,8 +178,22 @@ $$x[n]=A*sin(2*pi{}*100*n/fs)=A*sin(0.4*pi{}*n)$$
 </li>
 <li>采样频率fs：每秒采样点数，单位Hz
 </li>
-<li>关系：\(\Omega = 2\pi{}f\), \(w = \OmegaT\), 将数字频率和模拟频率联系起来的是采样
+<li>关系：\(\Omega = 2\pi{}f\), \(w = \Omega{}T\), 将数字频率和模拟频率联系起来的是采样
   频率即\(w=2\pi{}f/fs\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 其他</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<ul>
+<li>特征函数：一个信号函数，若系统对该信号的输出响应仅是一个常数(可以是复数)乘以
+  输入信号，则称该信号为系统的特征函数；
 </li>
 </ul>
 
@@ -439,7 +454,10 @@ $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega$$
 \end{equation}
 算子F[.]把一个离散信号x(n)变换成一个实变量w的复值连续函数\(X(e^{jw})\), w被
 称为数字频率，它用 <span style="text-decoration:underline;">弧度</span> 来度量。
-基本上离散和周期是相互关联的。
+基本上离散和周期是相互关联的，一个周期信号的傅里叶级数表示中，当周期增加时，
+基波频率就减小，成谐波关系的各分量在频率上越靠近，当周期变成无穷大时，这些
+频率分量就变成了一个连续域。频域和时域，在数学上都是一样的，只是一个是频率
+一个是时间。
 </p><ul>
 <li>时域离散，频域就会有周期性；
 </li>
@@ -903,7 +921,7 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-25 22:33:08 中国标准时间</p>
+<p class="date">Date: 2016-05-26 13:49:19 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
