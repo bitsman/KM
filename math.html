@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-26 10:44:14 中国标准时间"/>
+<meta name="generated" content="2016-05-26 15:48:44 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -98,7 +98,11 @@
 <li><a href="#sec-1-1-2">1.1.2 其他</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">1.2 复数</a></li>
+<li><a href="#sec-1-2">1.2 复数</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 复变函数</a></li>
+</ul>
+</li>
 <li><a href="#sec-1-3">1.3 多项式</a>
 <ul>
 <li><a href="#sec-1-3-1">1.3.1 概念</a></li>
@@ -253,7 +257,18 @@
 </li>
 <li>虚数：imaginary number，符号用i表示，i = \(\sqrt{-1}\)；
 </li>
-<li>复数：complex number，由实数和虚数构造出的数叫复数；
+<li>复数：complex number，由实数和虚数构造出的数叫复数, 复数的表示方式有；
+<ol>
+<li>点表示：由复平面上的点一一对应复数；
+</li>
+<li>向量表示：和点表示类似, 同时也就有了幅度r和辐角\(\theta\)的说法；
+</li>
+<li>三角表示法：\(z=r(cos(\theta)+i\sin(\theta))\)
+</li>
+<li>指数表示法：由欧拉公式得\(z=re^{i\theta}\)
+</li>
+</ol>
+
 </li>
 <li>向量：vector； 
 </li>
@@ -351,8 +366,23 @@ pl.show()
 </li>
 <li>共轭复数：实部a相等，虚部互为相反数的两个复数共轭，几何上两者关于实轴对称；
 </li>
+<li>复数乘法：复数乘积的模等于他们的模相乘，辐角等于他们的辐角相加；
+</li>
+<li>复数除法：复数除法的模等于它们的模的商，辐角等于被除数和除数的辐角之差；
+</li>
 </ul>
 
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 复变函数</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<p>设G是一个复数z=x+iy的非空集合，存在法则f使得将z变换到另一个复数域w=u+iv, 记
+做w=f(z)；</p ><p >
+复变函数展示的就是空间的映射，可以一对一也可以一对多。
+</p></div>
 </div>
 
 </div>
@@ -1805,7 +1835,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-26 10:44:14 中国标准时间</p>
+<p class="date">Date: 2016-05-26 15:48:44 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
