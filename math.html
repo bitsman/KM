@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-10 18:41:49 中国标准时间"/>
+<meta name="generated" content="2016-05-26 10:44:14 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -92,7 +92,12 @@
 <ul>
 <li><a href="#sec-1">1 代数</a>
 <ul>
-<li><a href="#sec-1-1">1.1 概念</a></li>
+<li><a href="#sec-1-1">1.1 概念</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1 数域</a></li>
+<li><a href="#sec-1-1-2">1.1.2 其他</a></li>
+</ul>
+</li>
 <li><a href="#sec-1-2">1.2 复数</a></li>
 <li><a href="#sec-1-3">1.3 多项式</a>
 <ul>
@@ -222,6 +227,13 @@
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> 概念</h3>
 <div class="outline-text-3" id="text-1-1">
 
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 数域</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
 <ul>
 <li>自然数：natural number，{0，1，2，3&hellip;}等全体非负整数组成的数的集合称为自然数；
 </li>
@@ -273,11 +285,38 @@
 
 </div>
 
+<div id="outline-container-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> 其他</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<ul>
+<li>自然底数：e表示自然底数，近似等于2.71828；
+</li>
+<li>指数：是有理数乘方的一种运算形式，它表示的是几个相同因数相乘的关系，2的3
+  次方=2×2×2=8。2的3次方这里2是底数；3是指数；8是结果；
+</li>
+<li>指数函数：形如\(y=a^{x}\)的函数叫做指数函数, 常以e作为底； 
+</li>
+<li>对数：如果a的x次方等于N（a&gt;0，且a不等于1），那么数x叫做以a为底N的对数
+  （logarithm），记作\(x=log_{a}N\)。其中，a叫做对数的底数，N叫做真数。 常
+  用以10为底和以e为底的对数；
+</li>
+<li>对数函数：函数\(y=log_{a}x\)叫做对数函数, a常常等于e； 
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
 <div id="outline-container-1-2" class="outline-3">
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> 复数</h3>
 <div class="outline-text-3" id="text-1-2">
 
-<p>复数的本质就是旋转，4*i*i = -4, 就是4在数轴上旋转180度，那么4*i就是旋转90度。
+<p>实数代表一维数轴上的所有点，复数代表二维几何平面上的所有点。复数集和复平面
+内所有点一一对应，也和复平面内的向量一一对应</p ><p >
+复数的本质就是旋转，4*i*i = -4, 就是4在数轴上旋转180度，那么4*i就是旋转90度。
 在二维XY平面上，X轴就是实数轴，Y轴就是虚数轴。也就是使用复数i参与运算，就意
 味着旋转。使用如下python代码就可以画出此3d图形。从图中可以看出虚轴和实轴随
 着t的增加而旋转向上，非常相似电磁波的传播，电场和磁场基本信号单位也是cos和
@@ -305,6 +344,14 @@ ax.set_ylabel('y')
 ax.set_zlabel('t')
 pl.show()
 </pre>
+
+<ul>
+<li>模：复数z=a+bi的模表示为\(|z| = \sqrt{a^{2}+b^{2}}\), \(|z|=1\)表示单位圆，
+  \(|z|&lt;1\)表示单位圆内部的复数点；
+</li>
+<li>共轭复数：实部a相等，虚部互为相反数的两个复数共轭，几何上两者关于实轴对称；
+</li>
+</ul>
 
 </div>
 
@@ -1758,7 +1805,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-10 18:41:49 中国标准时间</p>
+<p class="date">Date: 2016-05-26 10:44:14 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
