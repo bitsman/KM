@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-26 17:47:17 中国标准时间"/>
+<meta name="generated" content="2016-05-31 15:29:47 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -103,47 +103,59 @@
 </li>
 <li><a href="#sec-2">2 线性时不变系统</a>
 <ul>
-<li><a href="#sec-2-1">2.1 公式</a>
+<li><a href="#sec-2-1">2.1 概念</a></li>
+<li><a href="#sec-2-2">2.2 公式</a>
 <ul>
-<li><a href="#sec-2-1-1">2.1.1 傅里叶级数</a>
+<li><a href="#sec-2-2-1">2.2.1 傅里叶级数</a>
 <ul>
-<li><a href="#sec-2-1-1-1">2.1.1.1 正变换</a></li>
-<li><a href="#sec-2-1-1-2">2.1.1.2 逆变换</a></li>
+<li><a href="#sec-2-2-1-1">2.2.1.1 正变换</a></li>
+<li><a href="#sec-2-2-1-2">2.2.1.2 逆变换</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-2">2.2.2 傅里叶变换</a>
+<ul>
+<li><a href="#sec-2-2-2-1">2.2.2.1 正变换</a></li>
+<li><a href="#sec-2-2-2-2">2.2.2.2 逆变换</a></li>
+<li><a href="#sec-2-2-2-3">2.2.2.3 关系</a></li>
+<li><a href="#sec-2-2-2-4">2.2.2.4 离散时间傅里叶变换</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-2">2.2 卷积</a></li>
-<li><a href="#sec-2-3">2.3 傅里叶级数</a>
+<li><a href="#sec-2-3">2.3 卷积</a></li>
+<li><a href="#sec-2-4">2.4 傅里叶级数</a>
 <ul>
-<li><a href="#sec-2-3-1">2.3.1 泰勒级数</a></li>
-<li><a href="#sec-2-3-2">2.3.2 傅里叶级数</a></li>
-</ul>
-</li>
-<li><a href="#sec-2-4">2.4 连续时间傅里叶变换(CTFT)</a></li>
-<li><a href="#sec-2-5">2.5 离散时间傅里叶变换(DTFT)</a>
+<li><a href="#sec-2-4-1">2.4.1 泰勒级数</a></li>
+<li><a href="#sec-2-4-2">2.4.2 傅里叶级数</a>
 <ul>
-<li><a href="#sec-2-5-1">2.5.1 DTFT算法过程</a></li>
-<li><a href="#sec-2-5-2">2.5.2 物理意义</a></li>
-</ul>
-</li>
-<li><a href="#sec-2-6">2.6 离散傅里叶变换(DFT)</a></li>
-<li><a href="#sec-2-7">2.7 滤波器</a>
-<ul>
-<li><a href="#sec-2-7-1">2.7.1 设计思路</a></li>
-<li><a href="#sec-2-7-2">2.7.2 FIR滤波</a></li>
-<li><a href="#sec-2-7-3">2.7.3 IIR滤波</a></li>
-<li><a href="#sec-2-7-4">2.7.4 平滑滤波</a>
-<ul>
-<li><a href="#sec-2-7-4-1">2.7.4.1 全期平滑</a></li>
-<li><a href="#sec-2-7-4-2">2.7.4.2 移动平滑</a></li>
-<li><a href="#sec-2-7-4-3">2.7.4.3 指数平滑</a></li>
+<li><a href="#sec-2-4-2-1">2.4.2.1 问题</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-8">2.8 采样重构</a>
+<li><a href="#sec-2-5">2.5 连续时间傅里叶变换(CTFT)</a></li>
+<li><a href="#sec-2-6">2.6 离散时间傅里叶变换(DTFT)</a>
 <ul>
-<li><a href="#sec-2-8-1">2.8.1 采样</a></li>
-<li><a href="#sec-2-8-2">2.8.2 重构</a></li>
+<li><a href="#sec-2-6-1">2.6.1 DTFT算法过程</a></li>
+<li><a href="#sec-2-6-2">2.6.2 物理意义</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-7">2.7 离散傅里叶变换(DFT)</a></li>
+<li><a href="#sec-2-8">2.8 滤波器</a>
+<ul>
+<li><a href="#sec-2-8-1">2.8.1 设计思路</a></li>
+<li><a href="#sec-2-8-2">2.8.2 FIR滤波</a></li>
+<li><a href="#sec-2-8-3">2.8.3 IIR滤波</a></li>
+<li><a href="#sec-2-8-4">2.8.4 平滑滤波</a>
+<ul>
+<li><a href="#sec-2-8-4-1">2.8.4.1 全期平滑</a></li>
+<li><a href="#sec-2-8-4-2">2.8.4.2 移动平滑</a></li>
+<li><a href="#sec-2-8-4-3">2.8.4.3 指数平滑</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2-9">2.9 采样重构</a>
+<ul>
+<li><a href="#sec-2-9-1">2.9.1 采样</a></li>
+<li><a href="#sec-2-9-2">2.9.2 重构</a></li>
 </ul></li>
 </ul>
 </li>
@@ -265,6 +277,13 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 <h2 id="sec-2"><span class="section-number-2">2</span> 线性时不变系统</h2>
 <div class="outline-text-2" id="text-2">
 
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 概念</h3>
+<div class="outline-text-3" id="text-2-1">
+
 <p>线性时不变系统简称LTI系统，可以用它对单位脉冲序列的响应(h(n))来表示。
 </p><ul>
 <li>离散信号可以由单位冲击响应信号来表示。式子如<a href="#equ-sigma">equ-sigma</a>, 其中x[k]可以
@@ -290,8 +309,9 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 </li>
 <li>频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
   或传递函数.也可以理解为，脉冲响应h(n)对某频率输入信号的响应，输入信号x(n)
-  可以表示成\(e^{j\Omega{}n}\)的级数形式，也代表了x(n)具有一系列频率分量w，求一个
-  系统对复指数信号\(e^{j\Omega{}_{0}n}\)的响应时，输入信号为\(x(n)=e^{j\Omega{}_{0}n}\),
+  可以表示成\(e^{j\Omega{}n}\)的级数形式，也代表了x(n)具有一系列频率分量
+  &Omega;，求一个系统对复指数信号\(e^{j\Omega{}_{0}n}\)的响应时，输入信号为
+  \(x(n)=e^{j\Omega{}_{0}n}\), 
   该响应由式子<a href="#equ-ejwnhn">equ-ejwnhn</a>
   \begin{equation}
   \label{equ-ejwnhn}
@@ -314,6 +334,12 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
   X(e^{j\Omega{}}) \Rightarrow H(e^{j\Omega{}}) \Rightarrow Y(e^{j\Omega{}})=H(e^{j\Omega{}})X(e^{j\Omega{}})
   \end{equation}
 </li>
+<li>系统函数：若系统的输入x(t)是一个复指数信号e<sup>st</sup>, 其输出y(t)=H(s)e<sup>st</sup>,
+  H(s)表示为 $$H(s)=\int_{-\infty}^{\infty}h(r)e^{-sr}dr$$  
+  式子中h(t)是单位冲激响应，对于离散信号x[n]=z<sup>n</sup>同理。当s和n是一般复数时，
+  H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(j&Omega;)就
+  是上面的频率响应。
+</li>
 <li>傅里叶级数，傅里叶变换，拉普拉斯变换，Z变换： <span style="text-decoration:underline;">傅里叶级数</span> 只能对周期信号
   进行分析，找出主要频率分量，也就是相应频率信号幅度最大(能量越大)的信号；
   傅里叶级数具有周期性的局限性，所以又有了 <span style="text-decoration:underline;">傅里叶变换</span> ，此时信号不必是周
@@ -330,26 +356,27 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 </li>
 </ul>
 
+</div>
 
 </div>
 
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 公式</h3>
-<div class="outline-text-3" id="text-2-1">
-
-
-</div>
-
-<div id="outline-container-2-1-1" class="outline-4">
-<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> 傅里叶级数</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 公式</h3>
+<div class="outline-text-3" id="text-2-2">
 
 
 </div>
 
-<div id="outline-container-2-1-1-1" class="outline-5">
-<h5 id="sec-2-1-1-1"><span class="section-number-5">2.1.1.1</span> 正变换</h5>
-<div class="outline-text-5" id="text-2-1-1-1">
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 傅里叶级数</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+
+</div>
+
+<div id="outline-container-2-2-1-1" class="outline-5">
+<h5 id="sec-2-2-1-1"><span class="section-number-5">2.2.1.1</span> 正变换</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
 
 <p>$$x(t)=\sum_{k=-\infty}^{\infty}a_{k}e^{jk\Omega{}_{0}t}$$ 
 其中\(\Omega{}_{0}=\frac{2\pi}{T}\)
@@ -357,24 +384,76 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 
 </div>
 
-<div id="outline-container-2-1-1-2" class="outline-5">
-<h5 id="sec-2-1-1-2"><span class="section-number-5">2.1.1.2</span> 逆变换</h5>
-<div class="outline-text-5" id="text-2-1-1-2">
+<div id="outline-container-2-2-1-2" class="outline-5">
+<h5 id="sec-2-2-1-2"><span class="section-number-5">2.2.1.2</span> 逆变换</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
 
 <p>$$a_{k}=\frac{1}{T}\int_{T}x(t)e^{-jk\Omega{}_{0}t}dt$$ 
 其中\(\Omega{}_{0}=\frac{2\pi}{T}\)，其实在周期T区间积分，也就代表在复指数
 的周期[0, 2&pi;]积分。也就是说在复指数的完备空间[0, 2&pi;]求x(t)具有的复
 指数分量有多少。这个复指数\(e^{j\Omega{}t}\)在所有的模拟角频率&Omega;构成
-完备空间。所以a<sub>k</sub>表示在完备空间中每个分量所占的量。
+完备空间。所以a<sub>k</sub>表示在完备空间中每个分量所占的量，或者叫这些复指数信号的
+幅度为a<sub>k</sub>
 </p></div>
 </div>
+
+</div>
+
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 傅里叶变换</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+
+</div>
+
+<div id="outline-container-2-2-2-1" class="outline-5">
+<h5 id="sec-2-2-2-1"><span class="section-number-5">2.2.2.1</span> 正变换</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
+
+<p>$$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(jw)e^{jwt}dw$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-2-2" class="outline-5">
+<h5 id="sec-2-2-2-2"><span class="section-number-5">2.2.2.2</span> 逆变换</h5>
+<div class="outline-text-5" id="text-2-2-2-2">
+
+<p>$$X(jw)=\int_{-\infty}^{\infty}x(t)e^{-jwt}dt$$ 
+解释通傅里叶级数的a<sub>k</sub>。
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-2-3" class="outline-5">
+<h5 id="sec-2-2-2-3"><span class="section-number-5">2.2.2.3</span> 关系</h5>
+<div class="outline-text-5" id="text-2-2-2-3">
+
+<ul>
+<li>和傅里叶级数关系：一个周期信号的傅里叶级数a<sub>k</sub>能够利用其在一个周期内的信
+  号的傅里叶变换X(jw)的等间隔样本来表示。即
+  $$a_{k} = \frac{X(jw)}{T}|_{w=kw_{0}}$$ 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2-4" class="outline-5">
+<h5 id="sec-2-2-2-4"><span class="section-number-5">2.2.2.4</span> 离散时间傅里叶变换</h5>
+<div class="outline-text-5" id="text-2-2-2-4">
+
+
+</div>
+</div>
 </div>
 
 </div>
 
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 卷积</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 卷积</h3>
+<div class="outline-text-3" id="text-2-3">
 
 <p>如果一个系统的冲击响应为h(n), 表示方式如<a href="#equ-hn">equ-hn</a>，可以理解为由于一个k时
 刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从
@@ -394,17 +473,17 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 
 </div>
 
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 傅里叶级数</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 傅里叶级数</h3>
+<div class="outline-text-3" id="text-2-4">
 
 <p>傅里叶级数和泰勒级数都是为了将一个函数分解成若干基函数叠加形式。
 </p>
 </div>
 
-<div id="outline-container-2-3-1" class="outline-4">
-<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 泰勒级数</h4>
-<div class="outline-text-4" id="text-2-3-1">
+<div id="outline-container-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 泰勒级数</h4>
+<div class="outline-text-4" id="text-2-4-1">
 
 <p>一个函数
 $$f(x)=1$$ 
@@ -431,9 +510,9 @@ f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}
 
 </div>
 
-<div id="outline-container-2-3-2" class="outline-4">
-<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 傅里叶级数</h4>
-<div class="outline-text-4" id="text-2-3-2">
+<div id="outline-container-2-4-2" class="outline-4">
+<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 傅里叶级数</h4>
+<div class="outline-text-4" id="text-2-4-2">
 
 <p>傅里叶级数也叫三角级数一般为
 $$f(x)=1+sin(x)+cos(x)+sin(2x)+cos(2x)+... $$ 
@@ -510,14 +589,38 @@ a_{0} = \frac{\int_{-l}^{l}f(x)dx}{2l}
 a_{n} = \frac{\int_{-l}^{l}f(x)cos(\frac{n\pi x}{l})dx}{l}
 b_{n} = \frac{\int_{-l}^{l}f(x)sin(\frac{n\pi x}{l})dx}{l}
 \end{equation}
+</p>
+</div>
+
+<div id="outline-container-2-4-2-1" class="outline-5">
+<h5 id="sec-2-4-2-1"><span class="section-number-5">2.4.2.1</span> 问题</h5>
+<div class="outline-text-5" id="text-2-4-2-1">
+
+<p>连续时间或者离散时间周期信号的傅里叶级数的系数a<sub>k</sub>是离散的
+</p><ol>
+<li>为什么连续时间和离散时间周期信号傅里叶级数的基底信号集合不一样。
+</li>
+</ol>
+
+<p>因为连续信号的周期T是实数，k不能一定满足k=T, 但是离散信号的周期是N，k肯定可
+以有有限的某个值等于N。
+</p><ol>
+<li>为什么连续时间周期信号的傅里叶变换时，积分周期是T。
+</li>
+</ol>
+
+<p>因为基底信号集是复指数信号，复指数信号在辐角[0, 2&pi;]上是完备正交集，要求
+出每个基底信号的分量，需要在辐角[0, 2&pi;]上做积分，但是复指数信号的角频率
+&Omega;=2&pi;/T, 可以将辐角的积分转换到时间的积分，这样积分区间就变成了T。
 </p></div>
 </div>
+</div>
 
 </div>
 
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 连续时间傅里叶变换(CTFT)</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 连续时间傅里叶变换(CTFT)</h3>
+<div class="outline-text-3" id="text-2-5">
 
 <p>令x(t)是一绝对可积的模拟信号，它的CTFT表示为
 $$X(j\Omega{}) = \int_{-\infty}^{\infty}x(t)e^{-j\Omega{}t}dt$$ 
@@ -535,9 +638,9 @@ $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega$$
 
 </div>
 
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 离散时间傅里叶变换(DTFT)</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 离散时间傅里叶变换(DTFT)</h3>
+<div class="outline-text-3" id="text-2-6">
 
 <p>如果x(n)是绝对可加的，即\(\sum_{-\infty}^{\infty}|x(n)| &lt; \infty\)，则其离
 散时间傅里叶变换表示如<a href="#equ-xjw">equ-xjw</a>
@@ -569,9 +672,9 @@ $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega$$
 
 </div>
 
-<div id="outline-container-2-5-1" class="outline-4">
-<h4 id="sec-2-5-1"><span class="section-number-4">2.5.1</span> DTFT算法过程</h4>
-<div class="outline-text-4" id="text-2-5-1">
+<div id="outline-container-2-6-1" class="outline-4">
+<h4 id="sec-2-6-1"><span class="section-number-4">2.6.1</span> DTFT算法过程</h4>
+<div class="outline-text-4" id="text-2-6-1">
 
 <p>如果x(n)是有限长的，则x(n)肯定是绝对可加的，即x(n)肯定有DTFT，则可以用
 MATLAB或python来对任意频率w处的\(X(e^{j\Omega{}})\)进行数值计算。如果我们是在
@@ -609,9 +712,9 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 
 </div>
 
-<div id="outline-container-2-5-2" class="outline-4">
-<h4 id="sec-2-5-2"><span class="section-number-4">2.5.2</span> 物理意义</h4>
-<div class="outline-text-4" id="text-2-5-2">
+<div id="outline-container-2-6-2" class="outline-4">
+<h4 id="sec-2-6-2"><span class="section-number-4">2.6.2</span> 物理意义</h4>
+<div class="outline-text-4" id="text-2-6-2">
 
 <p>DFT的快速算法叫FFT，在MATLAB和Python中都有相关库，一个模拟信号，经过ADC采样
 之后，就变成了数字信号。采样定理告诉我们，采样频率要大于信号频率的两倍，采
@@ -653,9 +756,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 离散傅里叶变换(DFT)</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 离散傅里叶变换(DFT)</h3>
+<div class="outline-text-3" id="text-2-7">
 
 <p>离散时间傅里叶变换（DTFT）有时也称为序列傅里叶变换。DTFT实质上就是单位圆上
 的(双边)Z变换。当时域信号为连续信号时，用连续时间傅里叶变换；为离散信号时，
@@ -697,9 +800,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 滤波器</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 滤波器</h3>
+<div class="outline-text-3" id="text-2-8">
 
 <p>数字滤波器与LTI系统是等价的，描述方式可以有4种。
 </p><ul>
@@ -757,9 +860,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-7-1" class="outline-4">
-<h4 id="sec-2-7-1"><span class="section-number-4">2.7.1</span> 设计思路</h4>
-<div class="outline-text-4" id="text-2-7-1">
+<div id="outline-container-2-8-1" class="outline-4">
+<h4 id="sec-2-8-1"><span class="section-number-4">2.8.1</span> 设计思路</h4>
+<div class="outline-text-4" id="text-2-8-1">
 
 <ol>
 <li>在具体的应用背景中提取出数字滤波器的性能参数；
@@ -780,9 +883,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-7-2" class="outline-4">
-<h4 id="sec-2-7-2"><span class="section-number-4">2.7.2</span> FIR滤波</h4>
-<div class="outline-text-4" id="text-2-7-2">
+<div id="outline-container-2-8-2" class="outline-4">
+<h4 id="sec-2-8-2"><span class="section-number-4">2.8.2</span> FIR滤波</h4>
+<div class="outline-text-4" id="text-2-8-2">
 
 <p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
 波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
@@ -790,9 +893,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-7-3" class="outline-4">
-<h4 id="sec-2-7-3"><span class="section-number-4">2.7.3</span> IIR滤波</h4>
-<div class="outline-text-4" id="text-2-7-3">
+<div id="outline-container-2-8-3" class="outline-4">
+<h4 id="sec-2-8-3"><span class="section-number-4">2.8.3</span> IIR滤波</h4>
+<div class="outline-text-4" id="text-2-8-3">
 
 <p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
 器。
@@ -800,25 +903,25 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-7-4" class="outline-4">
-<h4 id="sec-2-7-4"><span class="section-number-4">2.7.4</span> 平滑滤波</h4>
-<div class="outline-text-4" id="text-2-7-4">
+<div id="outline-container-2-8-4" class="outline-4">
+<h4 id="sec-2-8-4"><span class="section-number-4">2.8.4</span> 平滑滤波</h4>
+<div class="outline-text-4" id="text-2-8-4">
 
 
 </div>
 
-<div id="outline-container-2-7-4-1" class="outline-5">
-<h5 id="sec-2-7-4-1"><span class="section-number-5">2.7.4.1</span> 全期平滑</h5>
-<div class="outline-text-5" id="text-2-7-4-1">
+<div id="outline-container-2-8-4-1" class="outline-5">
+<h5 id="sec-2-8-4-1"><span class="section-number-5">2.8.4.1</span> 全期平滑</h5>
+<div class="outline-text-5" id="text-2-8-4-1">
 
 <p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
 </p></div>
 
 </div>
 
-<div id="outline-container-2-7-4-2" class="outline-5">
-<h5 id="sec-2-7-4-2"><span class="section-number-5">2.7.4.2</span> 移动平滑</h5>
-<div class="outline-text-5" id="text-2-7-4-2">
+<div id="outline-container-2-8-4-2" class="outline-5">
+<h5 id="sec-2-8-4-2"><span class="section-number-5">2.8.4.2</span> 移动平滑</h5>
+<div class="outline-text-5" id="text-2-8-4-2">
 
 <p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
 通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
@@ -835,9 +938,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-7-4-3" class="outline-5">
-<h5 id="sec-2-7-4-3"><span class="section-number-5">2.7.4.3</span> 指数平滑</h5>
-<div class="outline-text-5" id="text-2-7-4-3">
+<div id="outline-container-2-8-4-3" class="outline-5">
+<h5 id="sec-2-8-4-3"><span class="section-number-5">2.8.4.3</span> 指数平滑</h5>
+<div class="outline-text-5" id="text-2-8-4-3">
 
 <p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
 减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
@@ -945,16 +1048,16 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 采样重构</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 采样重构</h3>
+<div class="outline-text-3" id="text-2-9">
 
 
 </div>
 
-<div id="outline-container-2-8-1" class="outline-4">
-<h4 id="sec-2-8-1"><span class="section-number-4">2.8.1</span> 采样</h4>
-<div class="outline-text-4" id="text-2-8-1">
+<div id="outline-container-2-9-1" class="outline-4">
+<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 采样</h4>
+<div class="outline-text-4" id="text-2-9-1">
 
 <ul>
 <li>采样定理：如果采样频率\(F_{s}\)大于有限带宽信号\(x_{a}(t)\)带宽\(F_{D}\)
@@ -968,9 +1071,9 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 
 </div>
 
-<div id="outline-container-2-8-2" class="outline-4">
-<h4 id="sec-2-8-2"><span class="section-number-4">2.8.2</span> 重构</h4>
-<div class="outline-text-4" id="text-2-8-2">
+<div id="outline-container-2-9-2" class="outline-4">
+<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> 重构</h4>
+<div class="outline-text-4" id="text-2-9-2">
 
 <p>当我们以合适的采样频率\(F_{s}\)采样到若干样本点x(n)后，这些样本点x(n)的频域
 实际上是其模拟信号x(t)的频谱的重复，所以要从x(n)恢复x(t)只需要经过一个低通
@@ -1022,7 +1125,7 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-26 17:47:17 中国标准时间</p>
+<p class="date">Date: 2016-05-31 15:29:47 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
