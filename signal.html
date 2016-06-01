@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="信号与系统"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-31 15:29:47 中国标准时间"/>
+<meta name="generated" content="2016-06-01 15:29:28 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -106,18 +106,24 @@
 <li><a href="#sec-2-1">2.1 概念</a></li>
 <li><a href="#sec-2-2">2.2 公式</a>
 <ul>
-<li><a href="#sec-2-2-1">2.2.1 傅里叶级数</a>
+<li><a href="#sec-2-2-1">2.2.1 傅里叶级数(FT)</a>
 <ul>
 <li><a href="#sec-2-2-1-1">2.2.1.1 正变换</a></li>
 <li><a href="#sec-2-2-1-2">2.2.1.2 逆变换</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-2-2">2.2.2 傅里叶变换</a>
+<li><a href="#sec-2-2-2">2.2.2 傅里叶变换(CTFT)</a>
 <ul>
 <li><a href="#sec-2-2-2-1">2.2.2.1 正变换</a></li>
 <li><a href="#sec-2-2-2-2">2.2.2.2 逆变换</a></li>
 <li><a href="#sec-2-2-2-3">2.2.2.3 关系</a></li>
 <li><a href="#sec-2-2-2-4">2.2.2.4 离散时间傅里叶变换</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-3">2.2.3 傅里叶变换(DFT)</a>
+<ul>
+<li><a href="#sec-2-2-3-1">2.2.3.1 正变换</a></li>
+<li><a href="#sec-2-2-3-2">2.2.3.2 逆变换</a></li>
 </ul></li>
 </ul>
 </li>
@@ -138,7 +144,11 @@
 <li><a href="#sec-2-6-2">2.6.2 物理意义</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-7">2.7 离散傅里叶变换(DFT)</a></li>
+<li><a href="#sec-2-7">2.7 离散傅里叶变换(DFT)</a>
+<ul>
+<li><a href="#sec-2-7-1">2.7.1 应用</a></li>
+</ul>
+</li>
 <li><a href="#sec-2-8">2.8 滤波器</a>
 <ul>
 <li><a href="#sec-2-8-1">2.8.1 设计思路</a></li>
@@ -206,6 +216,25 @@ $$x[n]=A*sin(2*pi{}*100*n/fs)=A*sin(0.4*pi{}*n)$$
 </li>
 <li>关系：\(\Omega = 2\pi{}f\), \(w = \Omega{}T\), 将数字频率和模拟频率联系起来的是采样
   频率即\(w=2\pi{}f/fs\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)
+</li>
+<li>频域中频率的表示方法：
+<ol>
+<li>序号表示方法，根据时域中信号的样本数取0~N/2，用这种方法在程序中使用起
+     来可以更直接地取得每种频率的幅度值，因为频率值跟数组的序号是一一对应
+     的:X[k]，取值范围是0~N/2 ；
+</li>
+<li>分数表示方法，根据时域中信号的样本数的比例值取0 ~ 0.5:X[ƒ]，ƒ=k/N，取
+     值范围是0~0.5；
+</li>
+<li>用弧度值来表示，把ƒ乘以一个\(2\pi\)得到一个弧度值，这种表示方法叫做自
+     然频率(natural frequency)：\(X[\Omega],\Omega=2\pi{}ƒ=2\pi{}k/N\)，取
+     值范围是0~&pi;;
+</li>
+<li>以赫兹(Hz)为单位来表示，这个是特殊应用，如取样率为10kHz表示每秒有
+     10,000个样本数：取值范围是0到取样率的一半 ; 
+</li>
+</ol>
+
 </li>
 </ul>
 
@@ -354,6 +383,8 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
   那Z变换就是专门分析数字信号，Z变换可以把离散卷积变成多项式乘法，Z变换看系
   统频率响应。
 </li>
+<li>所有的幅度谱、能量谱、功率谱等，都是指具有该种频率的成分对它的贡献。
+</li>
 </ul>
 
 </div>
@@ -364,11 +395,29 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 <h3 id="sec-2-2"><span class="section-number-3">2.2</span> 公式</h3>
 <div class="outline-text-3" id="text-2-2">
 
+<p>几种变换的时域和频域特性见表<a href="#tbl-trans-way">tbl-trans-way</a>所示
+</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-trans-way">
+<caption>变换时频特性</caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">变换</th><th scope="col" class="left">时域</th><th scope="col" class="left">频域</th></tr>
+</thead>
+<tbody>
+</tbody>
+<tbody>
+<tr><td class="left">傅里叶级数</td><td class="left">连续，周期</td><td class="left">离散，非周期</td></tr>
+<tr><td class="left">连续傅里叶变换</td><td class="left">连续，非周期</td><td class="left">连续非周期</td></tr>
+<tr><td class="left">离散时间傅里叶变换</td><td class="left">离散非周期</td><td class="left">连续，周期</td></tr>
+<tr><td class="left">离散傅里叶变换</td><td class="left">离散，周期</td><td class="left">离散，周期</td></tr>
+</tbody>
+</table>
+
 
 </div>
 
 <div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 傅里叶级数</h4>
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 傅里叶级数(FT)</h4>
 <div class="outline-text-4" id="text-2-2-1">
 
 
@@ -400,7 +449,7 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 </div>
 
 <div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 傅里叶变换</h4>
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 傅里叶变换(CTFT)</h4>
 <div class="outline-text-4" id="text-2-2-2">
 
 
@@ -420,7 +469,7 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 <div class="outline-text-5" id="text-2-2-2-2">
 
 <p>$$X(jw)=\int_{-\infty}^{\infty}x(t)e^{-jwt}dt$$ 
-解释通傅里叶级数的a<sub>k</sub>。
+解释通傅里叶级数的a<sub>k</sub>。傅里叶变换也叫频谱密度函数
 </p></div>
 
 </div>
@@ -446,6 +495,37 @@ g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维
 
 
 </div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> 傅里叶变换(DFT)</h4>
+<div class="outline-text-4" id="text-2-2-3">
+
+
+</div>
+
+<div id="outline-container-2-2-3-1" class="outline-5">
+<h5 id="sec-2-2-3-1"><span class="section-number-5">2.2.3.1</span> 正变换</h5>
+<div class="outline-text-5" id="text-2-2-3-1">
+
+<p>$$X[k]=\sum_{n=0}^{N-1}x[n]e^{-j\frac{k2\pi{}}{N}n}$$ 
+在某频率k的傅里叶变换值等于，时域信号N个点和该频率k的复指数信号的N个点的
+值的内积；
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2-3-2" class="outline-5">
+<h5 id="sec-2-2-3-2"><span class="section-number-5">2.2.3.2</span> 逆变换</h5>
+<div class="outline-text-5" id="text-2-2-3-2">
+
+
+$$x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{j\frac{k2\pi{}}{N}n}$$
+<p>
+解释同上
+</p></div>
 </div>
 </div>
 
@@ -794,8 +874,66 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 <li>当时域信号数据加零数据后，可以增加fft变换的数据个数，可以提高频率分辨率，
   但是振幅谱中会多出其他频率成分；
 </li>
+<li>DFT和功率谱：若数据有N个点，采样频率为fs，那么DFT的分辨率为fs/N，在没有噪
+  声的情况下；如果信号恰好位于k*fs/N的频率上，那么就会在这个频点处为最大值，
+  其他频点处为0。但是，如果信号频率不是分析频率的整数倍，那么原本集中在某个
+  频点的功率就会分散到整个功率谱上去。
+</li>
+<li>频率分辨率：对于fs=8000，N=64的信号，其分辨率为125Hz，所以如果两信号频率
+  之间相差小于125，那么DFT的功率谱就不会区分它们。 而假如将信号之间的频率差
+  较大，比如1个是1500Hz，另一个是1800Hz，那么64点DFT可以区分。补0是使用DFT
+  分析信号的一种常用手段，它在功率谱分析上的作用主要在于：1.将样点数变为2的
+  整数次幂，便于FFT计算；2，使DFT的频率分析点变得更细，可以更加精确的说明信
+  号的所在的频率。但是补0并不能改变DFT的分辨率，即如果将64点1500与1562.5Hz
+  的信号混合在一起，然后补64个0，那么DFT依然不能区分它们。但是如果将信号的
+  采样个数提高，那么就会有所好转   
+</li>
+<li>无限长周期信号：对于原本是无限长的时域周期信号，可以通过原功率谱与窗函数
+  的卷积来描述有限点长度信号功率谱与原信号功率谱的差异。因而不同的窗函数有
+  不同的影响，虽然描述窗函数的指标很多，但是一般人们关心的主要是主瓣宽度和
+  旁瓣的幅度。但是他们是矛盾的，矩形窗具有最低的主瓣宽度，使得分辨率最高，
+  但是它的旁瓣幅度也是最高的
+</li>
+<li>DFT有效频率：信号长度N个点，则DFT最多只能表达\(\frac{N}{2}+1\)个不同的频
+  率, 一个直流和谐波频率，超过奈奎斯特频率后就对称重复了。
+</li>
 </ul>
 
+
+</div>
+
+<div id="outline-container-2-7-1" class="outline-4">
+<h4 id="sec-2-7-1"><span class="section-number-4">2.7.1</span> 应用</h4>
+<div class="outline-text-4" id="text-2-7-1">
+
+<p>假设有N=4的一个信号x(n)，x(n)={x(0), x(1), x(2), x(3)}, 则按照DFT的公式计算
+X(w)的过程如下。
+$$k=0:X(0)=x(0)e^{0}+x(1)e^{0}+x(2)e^{0}+x(3)e^{0}$$ 
+$$k=1:X(1)=x(0)e^{0}+x(1)e^{-j\frac{\pi}{2}}+x(2)e^{-j\frac{2\pi}{2}}+x(3)e^{-j\frac{3\pi}{2}}$$ 
+$$k=2:X(2)=x(0)e^{0}+x(1)e^{-j\frac{2\pi}{2}}+x(2)e^{-j\frac{4\pi}{2}}+x(3)e^{-j\frac{6\pi}{2}}$$ 
+$$k=3:X(3)=x(0)e^{0}+x(1)e^{-j\frac{3\pi}{2}}+x(2)e^{-j\frac{6\pi}{2}}+x(3)e^{-j\frac{9\pi}{2}}$$ 
+转换成矩阵形式有
+$$
+\begin{bmatrix}
+X(0) \\ X(1) \\ X(2) \\ X(3)\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+e^{0} & e^{0}           & e^{0}     & e^{0} \\
+e^{0} & e^{-j\pi{}/2}   & e^{-j\pi} & e^{-j3\pi{}/2} \\
+e^{0} & e^{-j\pi{}}     & e^{0}     & e^{-j\pi{}} \\
+e^{0} & e^{-j3\pi{}/2}  & e^{-j\pi} & e^{-j\pi{}/2} \\
+\end{bmatrix}
+\begin{bmatrix}
+x(0) \\ x(1) \\ x(2) \\ x(3)\\
+\end{bmatrix} 
+$$ 
+记做 $$X=Wx$$ 
+其中W可以用复平面的单位圆来求。这样在变换时矩阵第k行(也就是求X的第几个值)
+每次移动k份得到。一般这样表示，k表示一次移动k分，n表示移动多少次，nk表示移
+动的复指数信号的角度，并且Nk表示移动一圈, 即一个周期。
+$$W_{N}^{nk} = e^{-\frac{2\pi{}nk}{N}}$$ 
+</p></div>
 </div>
 
 </div>
@@ -1125,7 +1263,7 @@ x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-31 15:29:47 中国标准时间</p>
+<p class="date">Date: 2016-06-01 15:29:28 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
