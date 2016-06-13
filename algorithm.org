@@ -582,23 +582,23 @@ def chooseBestFeatureToSplit(dataSet):
 采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
 是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
 另一个字典，以此递归。 
-# dataSet：最后一列是类别标签的数据集，每递归完一次消耗一列特征标签
+# dataSet：最后一列是类别标签的样本集，每递归完一次消耗一列特征标签
 # labels：类别标签，每递归完一次消耗一个特征标签
 #+begin_src python
 def createTree(dataSet, labels):  
-    # 数据集的类别标签
+    # 样本集的类别标签
     classList = [example[-1] for example in dataSet]  
-    #类别完全相同则停止继续划分  返回类标签-叶子节点  
+    #类别标签完全相同则停止继续划分，返回类标签(叶子节点)  
     if classList.count(classList[0]) == len(classList):  
         return classList[0]  
-    #遍历完所有的特征时返回出现次数最多的  
+    #遍历完所有的特征时返回出现次数最多  
     if len(dataSet[0]) == 1:  
         return majorityCnt(classList)       
     bestFeat = chooseBestFeatureToSplit(dataSet)  
     bestFeatLabel = labels[bestFeat]  
     # 每一级递归中用类别标签作为key，其value将是该标签的每个值
     myTree = {bestFeatLabel:{}}  
-    # 删除一个特征标签
+    # 删除一个特征
     del(labels[bestFeat])  
     # 得到的列表包含所有的属性值  
     featValues = [example[bestFeat] for example in dataSet]    

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-06-13 22:46:14 中国标准时间"/>
+<meta name="generated" content="2016-06-13 23:38:52 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -945,19 +945,19 @@ def splitDataSet(dataSet, axis, value):
 
 
 <pre class="example">def createTree(dataSet, labels):  
-    # 数据集的类别标签
+    # 样本集的类别标签
     classList = [example[-1] for example in dataSet]  
-    #类别完全相同则停止继续划分  返回类标签-叶子节点  
+    #类别标签完全相同则停止继续划分，返回类标签(叶子节点)  
     if classList.count(classList[0]) == len(classList):  
         return classList[0]  
-    #遍历完所有的特征时返回出现次数最多的  
+    #遍历完所有的特征时返回出现次数最多  
     if len(dataSet[0]) == 1:  
         return majorityCnt(classList)       
     bestFeat = chooseBestFeatureToSplit(dataSet)  
     bestFeatLabel = labels[bestFeat]  
     # 每一级递归中用类别标签作为key，其value将是该标签的每个值
     myTree = {bestFeatLabel:{}}  
-    # 删除一个特征标签
+    # 删除一个特征
     del(labels[bestFeat])  
     # 得到的列表包含所有的属性值  
     featValues = [example[bestFeat] for example in dataSet]    
@@ -1318,7 +1318,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-06-13 22:46:14 中国标准时间</p>
+<p class="date">Date: 2016-06-13 23:38:52 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
