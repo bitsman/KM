@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-31 15:30:18 中国标准时间"/>
+<meta name="generated" content="2016-06-13 22:21:58 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -691,11 +691,14 @@ z = 16238
 <h3 id="sec-1-3"><span class="section-number-3">1.3</span> k临近算法</h3>
 <div class="outline-text-3" id="text-1-3">
 
-<p>K临近算法主要采用将一定的样本，规划为已知的标签，每个样本针对标签有若干的特征值，然后当有新的样本点时，计算新样本点到已
-知样本的距离，然后选取前K个距离最近的样本的标签进行投票，得票最多的标签作为该样本的标签。实例代码如下，我们有由
-createDataSet函数生成一个测试样本和标签集，其中array的每个元素代表一个已知样本，而每个已知样本的各个元素代表其特征值，
-labels给出了group的每个样本的标签；现通过classify0函数将新样本inX归类到某个标签上。 <b>注意:</b> 要运行必须要删除所有的中文注
-释。 
+<p>K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
+签大体是由这些电影中所含的打斗场景和接吻场景次数(特征)决定。现在有一部电影
+已知打斗场景和接吻场景次数，但是标签未知，需要判断。则可以计算由这些特征组
+成的样本点之间的距离，并选出离训练集中前k个最近的点，再统计这k个样本点的标
+签占比，占比多的就是该新电影的标签。实例代码如下，我们有由createDataSet函数
+生成一个测试样本和标签集，其中array的每个元素代表一个已知样本，而每个已知样
+本的各个元素代表其特征值，labels给出了group的每个样本的标签；实质上也是欧式
+距离的应用。 <b>注意:</b> 要运行必须要删除所有的中文注释。  
 </p>
 
 
@@ -711,10 +714,10 @@ def createDataSet():
 # inX和dataSet的行向量应该是一致的
 # 每个行代表一个样本
 def classify0(inX, dataSet, labels, k):
-    # dataSet是一个numpy array，shape属性包含行数和列数，比如shape[0]给出函数，shape[1]给出列数，这里我们需要行数，它对
+    # dataSet是一个numpy array，shape属性包含行数和列数，比如shape[0]给出行数，shape[1]给出列数，这里我们需要行数，它对
     # 应于观察点(dataSet)的数目，列数对应每个点对应的特征项
     dataSetSize = dataSet.shape[0]
-    # inX是一个list，这一行表示将inX复制总共dataSetSize次，tile函数第一个参数表示需要复制的量，第二个参数表示需要负责的
+    # inX是一个list，这一行表示将inX复制总共dataSetSize次，tile函数第一个参数表示需要复制的量，第二个参数表示需要复制的
     # 形式，也就是说将inX复制dataSetSize行，1列，其维度满足dataSet
     matrExt = tile(inX, (dataSetSize, 1)) 
     # 开始计算inX和dataSet中每个样本的距离
@@ -1157,12 +1160,9 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 
 
 
-
-<div id="img-optimize-example1" class="figure">
-<p><img src="file://e:/OneDrive/my-learn/img/optimize1.png"  alt="file://e:/OneDrive/my-learn/img/optimize1.png" /></p>
-<p>梯度下降法图例1</p>
-</div>
-
+<p>
+<img src="file://e:/OneDrive/my-learn/img/optimize1.png"  alt="file://e:/OneDrive/my-learn/img/optimize1.png" />
+</p>
 <p>
 见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有方向，是一个矢量，曲线情况下，表达式如下 
 $$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
@@ -1215,12 +1215,9 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 
 
 
-
-<div id="img-optimize-example2" class="figure">
-<p><img src="file://e:/OneDrive/my-learn/img/optimize2.png"  alt="file://e:/OneDrive/my-learn/img/optimize2.png" /></p>
-<p>梯度下降图例2</p>
-</div>
-
+<p>
+<img src="file://e:/OneDrive/my-learn/img/optimize2.png"  alt="file://e:/OneDrive/my-learn/img/optimize2.png" />
+</p>
 <p>
 例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
 </p><ol>
@@ -1320,7 +1317,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-31 15:30:18 中国标准时间</p>
+<p class="date">Date: 2016-06-13 22:21:58 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
