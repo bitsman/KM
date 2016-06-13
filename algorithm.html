@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-06-13 22:21:58 中国标准时间"/>
+<meta name="generated" content="2016-06-13 22:46:14 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -755,7 +755,6 @@ g, l = createDataSet()
 print("resualt: %r" %classify0(point0, g, l, 3))
 </pre>
 
-
 </div>
 
 </div>
@@ -877,7 +876,8 @@ def calcShannonEnt(dataSet):
 <pre class="example"># dataSet：数据集
 # axis：取值x或y或z
 # value：表示某个x(yz)分量的值
-# return：返回在dataSet中删除了axis列的，数据，这些数据的axis列值等于value
+# return：返回在dataSet中删除了axis列的样本，这些样本的axis列值等于value，
+# 不等于value的样本属于另一个树分支
 def splitDataSet(dataSet, axis, value):
     retDataSet = []
     for featVec in dataSet:
@@ -896,9 +896,10 @@ def splitDataSet(dataSet, axis, value):
 <h6 id="sec-1-4-3-3"><span class="section-number-6">1.4.3.3</span> 选择最好的划分</h6>
 <div class="outline-text-6" id="text-1-4-3-3">
 
-<p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的数据集的香
-农熵。然后按照一定的比例计算每个特征的香农熵总和，得出按照该特征划分时的效
-果量化值。最后比较每种按特征划分后的香农熵，找出最大香农熵的一种划分方式。
+<p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
+熵(按样本标签计算)。然后按照该特征下每个特征值占的比例计算该特征的香农熵总
+和，再用原始熵减去这个熵得熵增益，得出按照该特征划分时的效果量化值。最后比
+较每种按特征划分后的香农熵，找出最大香农熵的一种划分方式。 
 </p>
 
 
@@ -1317,7 +1318,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-06-13 22:21:58 中国标准时间</p>
+<p class="date">Date: 2016-06-13 22:46:14 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
