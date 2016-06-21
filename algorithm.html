@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-06-15 18:46:01 中国标准时间"/>
+<meta name="generated" content="2016-06-21 18:40:50 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -121,27 +121,33 @@
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-5">1.5 支持向量机(SVM)</a></li>
-<li><a href="#sec-1-6">1.6 回归分析</a>
+<li><a href="#sec-1-5">1.5 贝叶斯分类</a></li>
+<li><a href="#sec-1-6">1.6 支持向量机(SVM)</a></li>
+<li><a href="#sec-1-7">1.7 回归分析</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-6-1">1.6.1 线性回归</a>
+<li><a href="#sec-1-7-1">1.7.1 线性回归</a>
 <ul>
-<li><a href="#sec-1-6-1-1">1.6.1.1 普通最小二乘法</a></li>
+<li><a href="#sec-1-7-1-1">1.7.1.1 普通最小二乘法</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-6-2">1.6.2 逻辑回归</a></li>
+<li><a href="#sec-1-7-2">1.7.2 逻辑回归</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-7">1.7 神经网络</a></li>
-<li><a href="#sec-1-8">1.8 最优化</a>
+<li><a href="#sec-1-8">1.8 神经网络</a>
+<ul>
+<li><a href="#sec-1-8-1">1.8.1 概念</a></li>
+<li><a href="#sec-1-8-2">1.8.2 感知机</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9">1.9 最优化</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-8-1">1.8.1 梯度下降法</a></li>
-<li><a href="#sec-1-8-2">1.8.2 共轭梯度法</a></li>
+<li><a href="#sec-1-9-1">1.9.1 梯度下降法</a></li>
+<li><a href="#sec-1-9-2">1.9.2 共轭梯度法</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -993,16 +999,60 @@ def splitDataSet(dataSet, axis, value):
 </div>
 
 <div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 支持向量机(SVM)</h3>
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 贝叶斯分类</h3>
 <div class="outline-text-3" id="text-1-5">
 
+<p>贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
+量，这样不同的特征向量构成特征向量集合v<sub>j</sub>, 当我们获得新的特征向量v时，需
+要判断其属于哪个类别。贝叶斯条件概率如下 $$p(c_{i}|v)=\frac{p(v|c_{i})p(c_{i})}{p(v)}$$ 
+其中，p(c<sub>i</sub>|v)表示我们有了新的特征向量v，判断其属于某个类别c的概率，在计
+算出所有类别后取其大者为v的类别。
+p(v|c<sub>i</sub>)表示该类别c下特征v在训练集中的概率。
+p(c<sub>i</sub>)表示该类别在训练集中的出现的概率。
+p(v)表示该特征v在训练集中出现的概率。
+往往我们在计算p(v|c<sub>i</sub>)时有困难，因为特征向量中每个特征之间可能还具有依赖
+关系，而朴素贝叶斯思想就是假定特征向量中每个特征之间是相互独立的，则
+p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘积。例如
+某个医院早上收了六个门诊病人，如下表。
+</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">症状　</th><th scope="col" class="left">　职业　　</th><th scope="col" class="left">　疾病</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">　　打喷嚏　</td><td class="left">护士　　　</td><td class="left">感冒</td></tr>
+<tr><td class="left">　　打喷嚏　</td><td class="left">农夫　　　</td><td class="left">过敏</td></tr>
+<tr><td class="left">　　头痛　　</td><td class="left">建筑工人　</td><td class="left">脑震荡</td></tr>
+<tr><td class="left">　　头痛　　</td><td class="left">建筑工人　</td><td class="left">感冒</td></tr>
+<tr><td class="left">　　打喷嚏　</td><td class="left">教师　　　</td><td class="left">感冒</td></tr>
+<tr><td class="left">　　头痛　　</td><td class="left">教师　　　</td><td class="left">脑震荡</td></tr>
+</tbody>
+</table>
+
+现在又来了第七个病人，是一个打喷嚏的建筑工人。请问他患上感冒的概率有多大？
+根据贝叶斯定理得P(感冒|打喷嚏*建筑工人)=P(打喷嚏*建筑工人|感冒)*P(感冒)/P(打
+喷嚏*建筑工人) , 假定"打喷嚏"和"建筑工人"这两个特征是独立的，因此，上面的等
+式就变成了P(感冒|打喷嚏*建筑工人)=P(打喷嚏|感冒)*P(建筑工人|感冒)*P(感冒)/P(打
+喷嚏)*P(建筑工人) 最终计算得P(感冒|打喷嚏*建筑工人)=0.66*0.33*0.5/0.5*0.33=0.66  
+因此，这个打喷嚏的建筑工人，有66%的概率是得了感冒。同理，可以计算这个病人患
+上过敏或脑震荡的概率 
 </div>
 
 </div>
 
 <div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 回归分析</h3>
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 支持向量机(SVM)</h3>
 <div class="outline-text-3" id="text-1-6">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> 回归分析</h3>
+<div class="outline-text-3" id="text-1-7">
 
 <p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
@@ -1052,9 +1102,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-1-6-1" class="outline-5">
-<h5 id="sec-1-6-1"><span class="section-number-5">1.6.1</span> 线性回归</h5>
-<div class="outline-text-5" id="text-1-6-1">
+<div id="outline-container-1-7-1" class="outline-5">
+<h5 id="sec-1-7-1"><span class="section-number-5">1.7.1</span> 线性回归</h5>
+<div class="outline-text-5" id="text-1-7-1">
 
 <p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
 大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
@@ -1076,9 +1126,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-1-6-1-1" class="outline-6">
-<h6 id="sec-1-6-1-1"><span class="section-number-6">1.6.1.1</span> 普通最小二乘法</h6>
-<div class="outline-text-6" id="text-1-6-1-1">
+<div id="outline-container-1-7-1-1" class="outline-6">
+<h6 id="sec-1-7-1-1"><span class="section-number-6">1.7.1.1</span> 普通最小二乘法</h6>
+<div class="outline-text-6" id="text-1-7-1-1">
 
 <p>ordinary least squares的基本思想是
 </p><ul>
@@ -1105,9 +1155,9 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 
 </div>
 
-<div id="outline-container-1-6-2" class="outline-5">
-<h5 id="sec-1-6-2"><span class="section-number-5">1.6.2</span> 逻辑回归</h5>
-<div class="outline-text-5" id="text-1-6-2">
+<div id="outline-container-1-7-2" class="outline-5">
+<h5 id="sec-1-7-2"><span class="section-number-5">1.7.2</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-1-7-2">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
@@ -1120,9 +1170,9 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 
 </div>
 
-<div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7"><span class="section-number-3">1.7</span> 神经网络</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> 神经网络</h3>
+<div class="outline-text-3" id="text-1-8">
 
 <p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
 </p><ul>
@@ -1152,13 +1202,71 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </li>
 </ul>
 
+
+</div>
+
+<div id="outline-container-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1"><span class="section-number-4">1.8.1</span> 概念</h4>
+<div class="outline-text-4" id="text-1-8-1">
+
+<ul>
+<li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
+  W表示权重向量同时也是超平面的法向量，X表示特征向量，B表示超平面的偏置或者截距；
+</li>
+<li>点到超平面距离：根据几何知识x<sub>0</sub>到f(X)的距离可以表示如下，分子是x<sub>0</sub>带
+  入f(X)求绝对值，分母是法向量的二范数。
+  $$L=\frac{|f(x_{0})|}{||W||}$$
+</li>
+<li>损失函数：又叫代价函数也叫错误函数
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-8-2" class="outline-4">
+<h4 id="sec-1-8-2"><span class="section-number-4">1.8.2</span> 感知机</h4>
+<div class="outline-text-4" id="text-1-8-2">
+
+<p>感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
+成两类的，并且数据要线性可分的情况。线性可分是指存在一个超平面能够将空间分
+成两部分，每一部分为一类，感知机的目的就在于找这样的一个超平面。 
+假设输入数据形式为\(x=(x_{1},x_{2}....x_{n})\),即所谓的特征向量。y代表输入
+数据的类别，为{+1，-1}，感知机的形式为\(f(x)=sign(w*x+b)\),当w*x+b&gt;=0时，
+f(x)=+1,当w*x+b&lt;0时，f(x)=-1. 
+f(x)就是我们对输入数据的分类，感知机的目的就在于找到合适的w和b，使得f(x)能
+正确分类。w是和x维数相同的向量（一个是行向量，一个是列向量），w是我们求的超
+平面的法向量，b是超平面的截距。 定义损失函数：误分类点到超平面的总距离（不
+定成误分类的点的个数是因为这样损失函数对w,b不是连续可导，不易优化），假设误
+分类点为0，那么总距离为0. 空间中任意一点到超平面的距离为|w*x+b|/(||w||),我
+们只要使得分子部分变成0就行。 对于误分类点\((x_{i},y_{i})\)来说，如果
+\(w*x_{i}+b&gt;=0\),本应该为+1，但是误分类的话\(y_{i}=-1\),如果
+\(w*x_{i}+b&lt;0\),本应该为-1，但是误分类的话\(y_{i}=+1\),这样我们就能得到
+\(-y_{i}(w*x_{i}+b)&gt;0\),即我们可以使对误分类点的\(-y_{i}(w*x_{i}+b)\)求和，
+使之最小化，当然这里是指变成0.  
+那么具体是如何求w,b的呢？（下面是感知机算法的原始形式）
+</p><ol>
+<li>首先任意选一个超平面w0,b0(w是向量，里面元素都为0); 
+</li>
+<li>然后采用梯度下降法不断的极小化目标函数，在这里具体来说就是每次取一个误分
+   类的点\((x_{i},y_{i})\),令\(w=w+ny_{i}x_{i},b = b+ny_{i}\), 可以这么理解，
+   每当有一个误分类点，我们就把平面往这个误分类点的方向移动一些，使得它能够
+   被正确分类，0&lt;n&lt;=1,n被称为学习率
+</li>
+<li>重复步骤2，直至没有误分类点，即损失函数为0.
+</li>
+</ol>
+
+</div>
 </div>
 
 </div>
 
-<div id="outline-container-1-8" class="outline-3">
-<h3 id="sec-1-8"><span class="section-number-3">1.8</span> 最优化</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> 最优化</h3>
+<div class="outline-text-3" id="text-1-9">
 
 <p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x), x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。
 关于f(x)
@@ -1179,9 +1287,9 @@ $$ \widehat{\beta_{1}}=\frac{\sum X_{i}^{2}\sum Y_{i} - \sum X_{i}\sum Y_{i}X_{i
 </p>
 </div>
 
-<div id="outline-container-1-8-1" class="outline-5">
-<h5 id="sec-1-8-1"><span class="section-number-5">1.8.1</span> 梯度下降法</h5>
-<div class="outline-text-5" id="text-1-8-1">
+<div id="outline-container-1-9-1" class="outline-5">
+<h5 id="sec-1-9-1"><span class="section-number-5">1.9.1</span> 梯度下降法</h5>
+<div class="outline-text-5" id="text-1-9-1">
 
 
 
@@ -1274,9 +1382,9 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 
 </div>
 
-<div id="outline-container-1-8-2" class="outline-5">
-<h5 id="sec-1-8-2"><span class="section-number-5">1.8.2</span> 共轭梯度法</h5>
-<div class="outline-text-5" id="text-1-8-2">
+<div id="outline-container-1-9-2" class="outline-5">
+<h5 id="sec-1-9-2"><span class="section-number-5">1.9.2</span> 共轭梯度法</h5>
+<div class="outline-text-5" id="text-1-9-2">
 
 <p>对于多元二次方程
 $$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
@@ -1528,7 +1636,7 @@ $$f'(x)=AX+B$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-06-15 18:46:01 中国标准时间</p>
+<p class="date">Date: 2016-06-21 18:40:50 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
