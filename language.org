@@ -12,24 +12,22 @@
 - histogram:直方图
 - asymptotically:渐进地；
 - apart from:远离，除…之外；且不说；缺少
-- Effectively：实际上；
+- effectively：实际上；
 - notwithstanding：虽然，尽管；
-- Authentication:认证；
-- Authorization:授权，认可；批准，委任；
-- Confidentiality：保密性；
+- authentication:认证；
+- authorization:授权，认可；批准，委任；
+- confidentiality：保密性；
 - encryption：加密；
 - cipher：密码；
 - as well as :也；和…一样；不但…而且；
 - vice versa:反之亦然；
 - every so often: 常常，偶尔；
-- AI: artificial intelligence，人工智能；
 - effortlessly：轻松地；
 - inference，infer:推理；
 - installments：分期付款；
 - credit scoring：信用评估；
 - empirical error: 经验误差；
 - proportion：比例；
-- PAC: probably approximately correct, 概率近似正确；
 - overfitting:过拟合；
 - underfitting：欠拟合；
 - cross-validation：交叉验证；
@@ -61,7 +59,17 @@
 - discriminant：判别式；
 - likelihood：可以翻译为似然，最大似然就是maximum likelihood；
 - maximum likelihood estimation:最大似然估计；
+- perceptron：感知机；
+- gait：步态、步法；
+- shank：小腿；
+- forefoot：前脚掌；
+- heel：后脚跟；
+- velocity：速度；
+- assess：评估、评价；
+- kinematic：运动学的、运动的；
+* 缩写
+- IMU：inertial measurement units，惯性测量单元，常包含加速度和陀螺仪传感器； 
 - SVM: Support Vector Machine, 支持向量机；
 - ANN: artificial neural network，人工神经网络；
-- perceptron：感知机；
-
+- PAC: probably approximately correct, 概率近似正确；
+- AI: artificial intelligence，人工智能；
