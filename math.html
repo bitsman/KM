@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-07-14 18:33:42 中国标准时间"/>
+<meta name="generated" content="2016-07-27 16:01:00 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -120,7 +120,11 @@
 <li><a href="#sec-1-4">1.4 微积分</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 高数</a></li>
+<li><a href="#sec-2">2 微积分</a>
+<ul>
+<li><a href="#sec-2-1">2.1 梯度</a></li>
+</ul>
+</li>
 <li><a href="#sec-3">3 矩阵</a>
 <ul>
 <li><a href="#sec-3-1">3.1 概念</a></li>
@@ -554,7 +558,7 @@ pl.show()
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 高数</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> 微积分</h2>
 <div class="outline-text-2" id="text-2">
 
 <ul>
@@ -572,6 +576,29 @@ pl.show()
 </li>
 </ul>
 
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 梯度</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>函数f(x, y)的梯度由下式表示
+$$
+\triangledown{}f(x, y) = 
+\begin{pmatrix}
+\frac{\partial{}f(x, y)}{\partial{}x} \\
+\frac{\partial{}f(x, y)}{\partial{}y} \\
+\end{pmatrix}
+$$ 
+梯度意味着要沿x的方向移动\(\frac{\partial{}f(x, y)}{\partial{}x}\), 沿y方向
+移动\(\frac{\partial{}f(x, y)}{\partial{}y}\)，其中f(x, y)必须要在待计算的
+点上有定义且可微。梯度是有方向的，总是沿着函数值上升最快的方向移动，因此沿
+梯度方向或者反方向进行时，就能达到一个函数的最大值或者最小值，因此梯度上升
+算法就是不断更新梯度值，直到梯度不再变化或者变化很小，即函数达到最大值梯度
+算法的迭代公式为（&alpha;是步长，即每一步移动量）：
+$$w := w+\alpha{}\triangledown_{w}f(w)$$ 
+</p></div>
 </div>
 
 </div>
@@ -1951,7 +1978,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-07-14 18:33:42 中国标准时间</p>
+<p class="date">Date: 2016-07-27 16:01:00 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
