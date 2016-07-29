@@ -353,6 +353,197 @@ $$
 *** 投影
 *** 镜像
 *** 切变
+** 求导
+*** 行向量对元素求导
+设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，x是元素，则
+$$\frac{\partial{y^{T}}}{\partial{x}}=[\frac{\partial{y_{1}}}{\partial{x}}...\frac{\partial{y_{n}}}{\partial{x}}]$$ 
+*** 列向量对元素求导
+和行向量求导形式一致。
+*** 矩阵对元素求导
+设\(
+Y=\begin{bmatrix}
+y_{11} & ... & y_{1n}\\
+... & ... & ...\\
+y_{m1} & ... & y_{mn}\\
+\end{bmatrix}
+\)是m*n矩阵，x是元素，则
+$$\frac{\partial{Y}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{11}}}{\partial{x}} & ... & \frac{\partial{y_{1n}}}{\partial{x}}\\
+... & ... & ...\\
+\frac{\partial{y_{m1}}}{\partial{x}} & ... & \frac{\partial{y_{mn}}}{\partial{x}}\\
+\end{bmatrix}
+$$ 
+*** 元素对行向量求导
+设y是元素，\(x^{T}=[x^{1}...x^{q}]\)是q维行向量，则
+$$
+\frac{\partial{y}}{\partial{x^{T}}}=[\frac{\partial{y}}{\partial{x_{1}}}...\frac{\partial{y}}{\partial{x_{q}}}]
+$$ 
+*** 元素对列向量求导
+和对行向量求导形式一致。
+*** 元素对矩阵求导
+设y是元素，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & x_{pq}\\
+\end{bmatrix}
+\)是p*q矩阵，则
+$$\frac{\partial{y}}{\partial{X}}=
+\begin{bmatrix}
+\frac{\partial{y}}{\partial{x_{11}}} & ... & \frac{\partial{y}}{\partial{x_{1q}}}\\
+... & ... & ...\\
+\frac{\partial{y}}{\partial{x_{p1}}} & ... & \frac{\partial{y}}{\partial{x_{pq}}}\\
+\end{bmatrix}
+$$ 
+*** 行向量对列向量求导
+设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，\(x=
+\begin{bmatrix}
+x_{1}\\
+...\\
+x_{p}
+\end{bmatrix}
+\)是p维列向量，则
+$$\frac{\partial{y^{T}}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{n}}}{\partial{x_{1}}}\\
+... & ... & ...\\
+\frac{\partial{y_{1}}}{\partial{x_{p}}} & ... & \frac{\partial{y_{n}}}{\partial{x_{p}}}\\
+\end{bmatrix}
+$$ 
+*** 列向量对行向量求导
+设\(y=
+\begin{bmatrix}
+y_{1} \\
+...\\
+y_{m}\\
+\end{bmatrix}
+\)是m维列向量，\(x^{T}=[x_{1}...x_{q}]\)是q维行向量，则
+$$\frac{\partial{y}}{\partial{x^{T}}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{1}}}{\partial{x_{q}}}\\
+... & ... & ...\\
+\frac{\partial{y_{m}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{m}}}{\partial{x_{q}}}\\
+\end{bmatrix}
+$$ 
+*** 行向量对行向量求导
+设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，\(x^{T}=[x_{1}...x_{q}]\)是q维行向
+量，则
+$$\frac{\partial{y^{T}}}{\partial{x^{T}}}=[\frac{\partial{y^{T}}}{\partial{x^{T}}}]$$ 
+*** 列向量对列向量求导
+设\(y=
+\begin{bmatrix}
+y_{1}\\
+...\\
+y_{m}\\
+\end{bmatrix}
+\)是m维列向量，\(x=
+\begin{bmatrix}
+x_{1}\\
+...\\
+x_{m}\\
+\end{bmatrix}
+\)是p维列向量，则
+$$\frac{\partial{y}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{x}} \\
+...\\
+\frac{\partial{y_{m}}}{\partial{x}} \\
+\end{bmatrix}
+$$ 
+*** 矩阵对行向量求导
+设\(Y=
+\begin{bmatrix}
+y_{11} & ... & y_{1n}\\
+... & ... & ...\\
+y_{m1} & ... & y_{mn}\\
+\end{bmatrix}
+\)是m*n矩阵，\(x^{T}=[x_{1}...x_{q}]\)是q维行向量，则
+$$\frac{\partial{Y}}{\partial{x^{T}}}=[\frac{\partial{Y}}{\partial{x_{1}}}...\frac{\partial{Y}}{\partial{x_{q}}}]$$ 
+*** 矩阵对列向量求导
+设\(Y=
+\begin{bmatrix}
+y_{11} & ... & y_{1n}\\
+... & ... & ...\\
+y_{m1} & ... & y_{mn}\\
+\end{bmatrix}
+\)是m*n矩阵, \(x=
+\begin{bmatrix}
+x_{1}\\
+...\\
+x_{p}\\
+\end{bmatrix}
+\)是p维列向量，则
+$$\frac{\partial{Y}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{11}}}{\partial{x}} & ... & \frac{\partial{y_{1n}}}{\partial{x}}\\
+... & ... & ...\\
+\frac{\partial{y_{m1}}}{\partial{x}} & ... & \frac{\partial{y_{mn}}}{\partial{x}}\\
+\end{bmatrix}
+$$ 
+*** 行向量对矩阵求导
+设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & y_{pq}\\
+\end{bmatrix}
+\)是p*q矩阵，则
+$$\frac{\partial{y^{T}}}{\partial{X}} = 
+\begin{bmatrix}
+\frac{\partial{y^{T}}}{\partial{x_{11}}} & ... & \frac{\partial{y^{T}}}{\partial{x_{1q}}}\\
+... & ... & ...\\
+\frac{\partial{y^{T}}}{\partial{x_{p1}}} & ... & \frac{\partial{y^{T}}}{\partial{x_{pq}}}\\
+\end{bmatrix}
+$$ 
+*** 列向量对矩阵求导 
+设\(y=
+\begin{bmatrix}
+y_{1} \\
+... \\
+y_{m}\\
+\end{bmatrix}
+\) 是m维列向量，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & x_{pq}
+\end{bmatrix}
+\) 是p*q矩阵，则
+$$\frac{\partial{y}}{\partial{X}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{X}}\\
+...\\
+\frac{\partial{y_{m}}}{\partial{X}}\\
+\end{bmatrix}
+$$ 
+*** 矩阵对矩阵求导
+设\(Y=
+\begin{bmatrix}
+y_{11}&...&y_{1n}\\
+...&...&...\\
+y_{m1}&...&y_{mn}\\
+\end{bmatrix}=
+\begin{bmatrix}
+y_{1}^{T} \\ ... \\ y_{m}^{T}
+\end{bmatrix}
+\)是m*n矩阵，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & x_{pq}\\
+\end{bmatrix} = [x_{1}...x_{q}]
+\)是p*q矩阵，则
+$$\frac{\partial{Y}}{\partial{X}}=[\frac{\partial{Y}}{\partial{x_{1}}}...\frac{\partial{Y}}{\partial{x_{q}}}]=
+\begin{bmatrix}
+\frac{\partial{y_{1}^{T}}}{\partial{X}} \\...\\ \frac{\partial{y_{m}^{T}}}{\partial{X}}\\
+\end{bmatrix}=
+\begin{bmatrix}
+\frac{\partial{y_{1}^{T}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{1}^{T}}}{\partial{x_{q}}}\\
+... & ... &...\\
+\frac{\partial{y_{m}^{T}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{m}^{T}}}{\partial{x_{q}}}\\
+\end{bmatrix}
+$$ 
 * 概率
 概率有两种定义观点。
 - 频率观点：概率被认为是重复进行n次试验，某事件发生的频率，当n趋于无穷时，频率

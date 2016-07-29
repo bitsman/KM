@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="数学 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-07-29 11:08:37 中国标准时间"/>
+<meta name="generated" content="2016-07-29 18:40:51 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -144,6 +144,25 @@
 <li><a href="#sec-3-4-10">3.4.10 投影</a></li>
 <li><a href="#sec-3-4-11">3.4.11 镜像</a></li>
 <li><a href="#sec-3-4-12">3.4.12 切变</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-5">3.5 求导</a>
+<ul>
+<li><a href="#sec-3-5-1">3.5.1 行向量对元素求导</a></li>
+<li><a href="#sec-3-5-2">3.5.2 列向量对元素求导</a></li>
+<li><a href="#sec-3-5-3">3.5.3 矩阵对元素求导</a></li>
+<li><a href="#sec-3-5-4">3.5.4 元素对行向量求导</a></li>
+<li><a href="#sec-3-5-5">3.5.5 元素对列向量求导</a></li>
+<li><a href="#sec-3-5-6">3.5.6 元素对矩阵求导</a></li>
+<li><a href="#sec-3-5-7">3.5.7 行向量对列向量求导</a></li>
+<li><a href="#sec-3-5-8">3.5.8 列向量对行向量求导</a></li>
+<li><a href="#sec-3-5-9">3.5.9 行向量对行向量求导</a></li>
+<li><a href="#sec-3-5-10">3.5.10 列向量对列向量求导</a></li>
+<li><a href="#sec-3-5-11">3.5.11 矩阵对行向量求导</a></li>
+<li><a href="#sec-3-5-12">3.5.12 矩阵对列向量求导</a></li>
+<li><a href="#sec-3-5-13">3.5.13 行向量对矩阵求导</a></li>
+<li><a href="#sec-3-5-14">3.5.14 列向量对矩阵求导</a></li>
+<li><a href="#sec-3-5-15">3.5.15 矩阵对矩阵求导</a></li>
 </ul></li>
 </ul>
 </li>
@@ -925,6 +944,309 @@ $$
 <div class="outline-text-4" id="text-3-4-12">
 
 </div>
+</div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 求导</h3>
+<div class="outline-text-3" id="text-3-5">
+
+
+</div>
+
+<div id="outline-container-3-5-1" class="outline-4">
+<h4 id="sec-3-5-1"><span class="section-number-4">3.5.1</span> 行向量对元素求导</h4>
+<div class="outline-text-4" id="text-3-5-1">
+
+<p>设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，x是元素，则
+$$\frac{\partial{y^{T}}}{\partial{x}}=[\frac{\partial{y_{1}}}{\partial{x}}...\frac{\partial{y_{n}}}{\partial{x}}]$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-2" class="outline-4">
+<h4 id="sec-3-5-2"><span class="section-number-4">3.5.2</span> 列向量对元素求导</h4>
+<div class="outline-text-4" id="text-3-5-2">
+
+<p>和行向量求导形式一致。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-3" class="outline-4">
+<h4 id="sec-3-5-3"><span class="section-number-4">3.5.3</span> 矩阵对元素求导</h4>
+<div class="outline-text-4" id="text-3-5-3">
+
+<p>设\(
+Y=\begin{bmatrix}
+y_{11} & ... & y_{1n}\\
+... & ... & ...\\
+y_{m1} & ... & y_{mn}\\
+\end{bmatrix}
+\)是m*n矩阵，x是元素，则
+$$\frac{\partial{Y}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{11}}}{\partial{x}} & ... & \frac{\partial{y_{1n}}}{\partial{x}}\\
+... & ... & ...\\
+\frac{\partial{y_{m1}}}{\partial{x}} & ... & \frac{\partial{y_{mn}}}{\partial{x}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-4" class="outline-4">
+<h4 id="sec-3-5-4"><span class="section-number-4">3.5.4</span> 元素对行向量求导</h4>
+<div class="outline-text-4" id="text-3-5-4">
+
+<p>设y是元素，\(x^{T}=[x^{1}...x^{q}]\)是q维行向量，则
+$$
+\frac{\partial{y}}{\partial{x^{T}}}=[\frac{\partial{y}}{\partial{x_{1}}}...\frac{\partial{y}}{\partial{x_{q}}}]
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-5" class="outline-4">
+<h4 id="sec-3-5-5"><span class="section-number-4">3.5.5</span> 元素对列向量求导</h4>
+<div class="outline-text-4" id="text-3-5-5">
+
+<p>和对行向量求导形式一致。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-6" class="outline-4">
+<h4 id="sec-3-5-6"><span class="section-number-4">3.5.6</span> 元素对矩阵求导</h4>
+<div class="outline-text-4" id="text-3-5-6">
+
+<p>设y是元素，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & x_{pq}\\
+\end{bmatrix}
+\)是p*q矩阵，则
+$$\frac{\partial{y}}{\partial{X}}=
+\begin{bmatrix}
+\frac{\partial{y}}{\partial{x_{11}}} & ... & \frac{\partial{y}}{\partial{x_{1q}}}\\
+... & ... & ...\\
+\frac{\partial{y}}{\partial{x_{p1}}} & ... & \frac{\partial{y}}{\partial{x_{pq}}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-7" class="outline-4">
+<h4 id="sec-3-5-7"><span class="section-number-4">3.5.7</span> 行向量对列向量求导</h4>
+<div class="outline-text-4" id="text-3-5-7">
+
+<p>设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，\(x=
+\begin{bmatrix}
+x_{1}\\
+...\\
+x_{p}
+\end{bmatrix}
+\)是p维列向量，则
+$$\frac{\partial{y^{T}}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{n}}}{\partial{x_{1}}}\\
+... & ... & ...\\
+\frac{\partial{y_{1}}}{\partial{x_{p}}} & ... & \frac{\partial{y_{n}}}{\partial{x_{p}}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-8" class="outline-4">
+<h4 id="sec-3-5-8"><span class="section-number-4">3.5.8</span> 列向量对行向量求导</h4>
+<div class="outline-text-4" id="text-3-5-8">
+
+<p>设\(y=
+\begin{bmatrix}
+y_{1} \\
+...\\
+y_{m}\\
+\end{bmatrix}
+\)是m维列向量，\(x^{T}=[x_{1}...x_{q}]\)是q维行向量，则
+$$\frac{\partial{y}}{\partial{x^{T}}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{1}}}{\partial{x_{q}}}\\
+... & ... & ...\\
+\frac{\partial{y_{m}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{m}}}{\partial{x_{q}}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-9" class="outline-4">
+<h4 id="sec-3-5-9"><span class="section-number-4">3.5.9</span> 行向量对行向量求导</h4>
+<div class="outline-text-4" id="text-3-5-9">
+
+<p>设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，\(x^{T}=[x_{1}...x_{q}]\)是q维行向
+量，则
+$$\frac{\partial{y^{T}}}{\partial{x^{T}}}=[\frac{\partial{y^{T}}}{\partial{x^{T}}}]$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-10" class="outline-4">
+<h4 id="sec-3-5-10"><span class="section-number-4">3.5.10</span> 列向量对列向量求导</h4>
+<div class="outline-text-4" id="text-3-5-10">
+
+<p>设\(y=
+\begin{bmatrix}
+y_{1}\\
+...\\
+y_{m}\\
+\end{bmatrix}
+\)是m维列向量，\(x=
+\begin{bmatrix}
+x_{1}\\
+...\\
+x_{m}\\
+\end{bmatrix}
+\)是p维列向量，则
+$$\frac{\partial{y}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{x}} \\
+...\\
+\frac{\partial{y_{m}}}{\partial{x}} \\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-11" class="outline-4">
+<h4 id="sec-3-5-11"><span class="section-number-4">3.5.11</span> 矩阵对行向量求导</h4>
+<div class="outline-text-4" id="text-3-5-11">
+
+<p>设\(Y=
+\begin{bmatrix}
+y_{11} & ... & y_{1n}\\
+... & ... & ...\\
+y_{m1} & ... & y_{mn}\\
+\end{bmatrix}
+\)是m*n矩阵，\(x^{T}=[x_{1}...x_{q}]\)是q维行向量，则
+$$\frac{\partial{Y}}{\partial{x^{T}}}=[\frac{\partial{Y}}{\partial{x_{1}}}...\frac{\partial{Y}}{\partial{x_{q}}}]$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-12" class="outline-4">
+<h4 id="sec-3-5-12"><span class="section-number-4">3.5.12</span> 矩阵对列向量求导</h4>
+<div class="outline-text-4" id="text-3-5-12">
+
+<p>设\(Y=
+\begin{bmatrix}
+y_{11} & ... & y_{1n}\\
+... & ... & ...\\
+y_{m1} & ... & y_{mn}\\
+\end{bmatrix}
+\)是m*n矩阵, \(x=
+\begin{bmatrix}
+x_{1}\\
+...\\
+x_{p}\\
+\end{bmatrix}
+\)是p维列向量，则
+$$\frac{\partial{Y}}{\partial{x}}=
+\begin{bmatrix}
+\frac{\partial{y_{11}}}{\partial{x}} & ... & \frac{\partial{y_{1n}}}{\partial{x}}\\
+... & ... & ...\\
+\frac{\partial{y_{m1}}}{\partial{x}} & ... & \frac{\partial{y_{mn}}}{\partial{x}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-13" class="outline-4">
+<h4 id="sec-3-5-13"><span class="section-number-4">3.5.13</span> 行向量对矩阵求导</h4>
+<div class="outline-text-4" id="text-3-5-13">
+
+<p>设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & y_{pq}\\
+\end{bmatrix}
+\)是p*q矩阵，则
+$$\frac{\partial{y^{T}}}{\partial{X}} = 
+\begin{bmatrix}
+\frac{\partial{y^{T}}}{\partial{x_{11}}} & ... & \frac{\partial{y^{T}}}{\partial{x_{1q}}}\\
+... & ... & ...\\
+\frac{\partial{y^{T}}}{\partial{x_{p1}}} & ... & \frac{\partial{y^{T}}}{\partial{x_{pq}}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-14" class="outline-4">
+<h4 id="sec-3-5-14"><span class="section-number-4">3.5.14</span> 列向量对矩阵求导</h4>
+<div class="outline-text-4" id="text-3-5-14">
+
+<p>设\(y=
+\begin{bmatrix}
+y_{1} \\
+... \\
+y_{m}\\
+\end{bmatrix}
+\) 是m维列向量，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & x_{pq}
+\end{bmatrix}
+\) 是p*q矩阵，则
+$$\frac{\partial{y}}{\partial{X}}=
+\begin{bmatrix}
+\frac{\partial{y_{1}}}{\partial{X}}\\
+...\\
+\frac{\partial{y_{m}}}{\partial{X}}\\
+\end{bmatrix}
+$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5-15" class="outline-4">
+<h4 id="sec-3-5-15"><span class="section-number-4">3.5.15</span> 矩阵对矩阵求导</h4>
+<div class="outline-text-4" id="text-3-5-15">
+
+<p>设\(Y=
+\begin{bmatrix}
+y_{11}&...&y_{1n}\\
+...&...&...\\
+y_{m1}&...&y_{mn}\\
+\end{bmatrix}=
+\begin{bmatrix}
+y_{1}^{T} \\ ... \\ y_{m}^{T}
+\end{bmatrix}
+\)是m*n矩阵，\(X=
+\begin{bmatrix}
+x_{11} & ... & x_{1q}\\
+... & ... & ...\\
+x_{p1} & ... & x_{pq}\\
+\end{bmatrix} = [x_{1}...x_{q}]
+\)是p*q矩阵，则
+$$\frac{\partial{Y}}{\partial{X}}=[\frac{\partial{Y}}{\partial{x_{1}}}...\frac{\partial{Y}}{\partial{x_{q}}}]=
+\begin{bmatrix}
+\frac{\partial{y_{1}^{T}}}{\partial{X}} \\...\\ \frac{\partial{y_{m}^{T}}}{\partial{X}}\\
+\end{bmatrix}=
+\begin{bmatrix}
+\frac{\partial{y_{1}^{T}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{1}^{T}}}{\partial{x_{q}}}\\
+... & ... &...\\
+\frac{\partial{y_{m}^{T}}}{\partial{x_{1}}} & ... & \frac{\partial{y_{m}^{T}}}{\partial{x_{q}}}\\
+\end{bmatrix}
+$$ 
+</p></div>
 </div>
 </div>
 
@@ -1972,7 +2294,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-07-29 11:08:37 中国标准时间</p>
+<p class="date">Date: 2016-07-29 18:40:51 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
