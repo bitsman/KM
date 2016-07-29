@@ -73,3 +73,6 @@
 - ANN: artificial neural network，人工神经网络；
 - PAC: probably approximately correct, 概率近似正确；
 - AI: artificial intelligence，人工智能；
+- RSS: residual sum of squares, 残差，也就是平方差和
+- SSE：sum of squared errors ，平方差和
+- MSE：mean squared error，均方差
