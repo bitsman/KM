@@ -78,3 +78,4 @@
 - MSE：mean squared error，均方差；
 - MLE: maximum likelihood estimation，最大似然估计；
 - NLL：negative log likelihood，负对数似然, 也就是MLE取负；
+- OLS：ordinary least squares，普通最小二乘法；

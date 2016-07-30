@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="硬件 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-10 18:26:48 中国标准时间"/>
+<meta name="generated" content="2016-07-30 18:00:37 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -121,7 +121,30 @@
 </li>
 <li><a href="#sec-5">5 芯片内核</a>
 <ul>
-<li><a href="#sec-5-1">5.1 51单片机</a></li>
+<li><a href="#sec-5-1">5.1 51</a>
+<ul>
+<li><a href="#sec-5-1-1">5.1.1 存储结构</a></li>
+<li><a href="#sec-5-1-2">5.1.2 寻址方式</a>
+<ul>
+<li><a href="#sec-5-1-2-1">5.1.2.1 立即数寻址</a></li>
+<li><a href="#sec-5-1-2-2">5.1.2.2 寄存器寻址</a></li>
+<li><a href="#sec-5-1-2-3">5.1.2.3 直接寻址</a></li>
+<li><a href="#sec-5-1-2-4">5.1.2.4 间接寻址</a></li>
+<li><a href="#sec-5-1-2-5">5.1.2.5 变址寻址</a></li>
+<li><a href="#sec-5-1-2-6">5.1.2.6 相对寻址</a></li>
+<li><a href="#sec-5-1-2-7">5.1.2.7 位寻址</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-1-3">5.1.3 操作数符号</a></li>
+<li><a href="#sec-5-1-4">5.1.4 中断</a></li>
+<li><a href="#sec-5-1-5">5.1.5 汇编</a></li>
+<li><a href="#sec-5-1-6">5.1.6 程序</a>
+<ul>
+<li><a href="#sec-5-1-6-1">5.1.6.1 关键字</a></li>
+<li><a href="#sec-5-1-6-2">5.1.6.2 指针和存储空间</a></li>
+</ul></li>
+</ul>
+</li>
 <li><a href="#sec-5-2">5.2 arm</a></li>
 </ul>
 </li>
@@ -920,8 +943,196 @@ RATINGS的。
 </div>
 
 <div id="outline-container-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 51单片机</h3>
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 51</h3>
 <div class="outline-text-3" id="text-5-1">
+
+<p>51单片机属于准‘哈佛结构’，数据总线和地址总线是分开的, 数据总线8bit，地址
+总线16bit，这也导致片内统一寻址最大64K的空间；
+</p>
+</div>
+
+<div id="outline-container-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> 存储结构</h4>
+<div class="outline-text-4" id="text-5-1-1">
+
+<p>物理结构上有4个存储空间。
+</p><ul>
+<li>片内程序存储器：ROM，存放程序、常数、表格；
+</li>
+<li>片外程序存储器：ROM，存放程序、常数、表格；
+</li>
+<li>片内数据存储器：RAM, 存放数据和变量，地址1个字节，最大寻址256，间接寻址时
+  使用R0和R1作为地址寄存器；
+</li>
+<li>片外数据存储器：RAM，存放数据和变量，地址2个字节，最大寻址64K，只能使用间
+  接寻址，只能使用DPTR作为地址寄存器；
+</li>
+</ul>
+
+<p>在逻辑上，编程操作角度一般分3个，。
+</p><ul>
+<li>MOVC访问片内统一编址的64K空间：通常把内部ROM定为4K（0000H～0FFFH），剩下
+  部分接外部ROM，由引脚EA的电平互斥选通，当PC地址超过了0FFFH，单片机要自动
+  的转向片外的ROM存储器从1000H开始执行程序（无法使用片外ROM的低4K空间）；
+</li>
+<li>MOV访问256字节的空间：内部数据存储器地址空间或叫内部RAM，通常
+<ol>
+<li>00H～7FH为内部静态RAM空间，空间小，存取速度快，多用于存放局
+     部变量，其间又分为
+<ol>
+<li>4个工作寄存器区Rn区；
+</li>
+<li>位寻址区，BDATA数据，可以用于逻辑变量，可以定义16×8=128个逻辑变量，
+        定义方法：BDATA BIT varname；
+</li>
+<li>通用RAM区，DATA数据，此区比较宝贵，如果想节省此空间，必须启用large
+        模式，将没有定义内存位置的变量全放到XDATA区，堆栈一般开辟在这个区；
+</li>
+</ol>
+
+</li>
+<li>80H～FFH为SFR地址空间；
+</li>
+</ol>
+
+</li>
+<li>MOVX访问64K以外的空间：外部数据存储器地址空间或叫外部RAM，包括扩展的I/O地
+  址空间，XDATA数据； 
+</li>
+</ul>
+
+<p>为什么要使用不同的指令访问不同的存储区呢，这是因为使用不同指令可以产生不同
+的存储器选通信号。 
+在程序存储中有些特殊的单元：其中一组特殊是0000H—0002H单元，系统复位后，PC为
+0000H，单片机从0000H单元开始执行程序，如果程序不是从0000H单元开始，则应在这
+三个字节单元中存放一条无条件转移指令，让CPU直接去执行用户指定的程序。另一组
+特殊单元是0003H—002AH，这40个单元各有用途，它们被均匀地分为五段，它们的定义
+如下。  
+</p><ul>
+<li>0000H—0002H：3字节，复位地址区，写入跳转指令如：LJMP 0100H；
+</li>
+<li>0003H—000AH：8字节，外部中断0中断地址区；
+</li>
+<li>000BH—0012H：8字节，定时/计数器0中断地址区；
+</li>
+<li>0013H—001AH：8字节，外部中断1中断地址区；
+</li>
+<li>001BH—0022H：8字节，定时/计数器1中断地址区；
+</li>
+<li>0023H—002AH：8字节，串行中断地址区；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> 寻址方式</h4>
+<div class="outline-text-4" id="text-5-1-2">
+
+
+</div>
+
+<div id="outline-container-5-1-2-1" class="outline-5">
+<h5 id="sec-5-1-2-1"><span class="section-number-5">5.1.2.1</span> 立即数寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-1">
+
+<p>如指令：MOV A, #3AH 就是将立即数3AH送到累加器A中；
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-2-2" class="outline-5">
+<h5 id="sec-5-1-2-2"><span class="section-number-5">5.1.2.2</span> 寄存器寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-2">
+
+<p>如指令：MOV A, R0 将寄存器RO中的值放入累加器A中；
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-2-3" class="outline-5">
+<h5 id="sec-5-1-2-3"><span class="section-number-5">5.1.2.3</span> 直接寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-3">
+
+<p>如指令：MOV A, 30H 将地址为30H的存储器中的值放入累加器A中；
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-2-4" class="outline-5">
+<h5 id="sec-5-1-2-4"><span class="section-number-5">5.1.2.4</span> 间接寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-4">
+
+<p>如指令：MOV A, @R0 寄存器R0中存放的是存储单元的地址，指令是将这个地址处的存
+储单元的内容存入A中；
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-2-5" class="outline-5">
+<h5 id="sec-5-1-2-5"><span class="section-number-5">5.1.2.5</span> 变址寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-5">
+
+<p>如指令：MOVC A, @A+DPTR 指将基址寄存器（DPTR或PC）和变址寄存器（A）的内容相
+加，结果作为操作数的地址，常用于查表操作。
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-2-6" class="outline-5">
+<h5 id="sec-5-1-2-6"><span class="section-number-5">5.1.2.6</span> 相对寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-6">
+
+<p>如指令：SJMP rel 指PC的当前内容与指令中的操作数相加，其结果作为跳转指令的目
+的地址。主要用于跳转
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-2-7" class="outline-5">
+<h5 id="sec-5-1-2-7"><span class="section-number-5">5.1.2.7</span> 位寻址</h5>
+<div class="outline-text-5" id="text-5-1-2-7">
+
+<p>如指令：SETB ACC.1 指令中操作数为8位二进制数的某一位；
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3"><span class="section-number-4">5.1.3</span> 操作数符号</h4>
+<div class="outline-text-4" id="text-5-1-3">
+
+<ul>
+<li>#data：表示8位立即数，如#3AH；
+</li>
+<li>#data16：表示16位立即数；
+</li>
+<li>Rn：表示寄存器R0～R7；
+</li>
+<li>direct：表示片内存储单元的直接地址，如30H；
+</li>
+<li>addr16，addr11：表示指令中的16位或11位转移地址；
+</li>
+<li>rel：表示相对便宜量，如02H；
+</li>
+<li>bit：表示为地址，如ACC.1；
+</li>
+<li>（）：表示存储单元的内容，如（30H）= 40H；
+</li>
+<li>（（））：表示间接寻址的存储单元内容，（（R0））=（7FH）=50H；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-1-4" class="outline-4">
+<h4 id="sec-5-1-4"><span class="section-number-4">5.1.4</span> 中断</h4>
+<div class="outline-text-4" id="text-5-1-4">
 
 <ul>
 <li>MCS-51中断函数注意如下
@@ -950,8 +1161,225 @@ RATINGS的。
 </li>
 </ul>
 
+</div>
+
+</div>
+
+<div id="outline-container-5-1-5" class="outline-4">
+<h4 id="sec-5-1-5"><span class="section-number-4">5.1.5</span> 汇编</h4>
+<div class="outline-text-4" id="text-5-1-5">
+
+<p>格式为：标号段：操作码段    第一操作数，第二操作数，如START： MOV A，#00H
+在51中指令分几种大小的指令，单字节指令、双字节指令、三字节指令；通常
+</p><ul>
+<li>操作码段占用1个字节；
+</li>
+<li>立即数有1个字节的也有2个字节的；
+</li>
+<li>操作数地址也是有1个字节的也有2个字节的；
+</li>
+<li>内部寄存器不占用指令的字节，如A、B、R0、DPTR等；
+</li>
+</ul>
+
+<p>所以
+</p><ol>
+<li>MOV A，R0：占（1+0+0）=1个字节；
+</li>
+<li>MOV A，#07H：占（1+0+1）=2个字节；
+</li>
+<li>MOV DPTR，#0106H：占（1+0+2）=3个字节；
+</li>
+<li>MOV 07H，#07H：占（1+1+1）=3个字节；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-1-6" class="outline-4">
+<h4 id="sec-5-1-6"><span class="section-number-4">5.1.6</span> 程序</h4>
+<div class="outline-text-4" id="text-5-1-6">
+
+<p>当使用到指针时,要指定指针指向的内存类型。在C51中
+</p><ul>
+<li>未定义指向内存类型的通用指针占用3个字节;
+</li>
+<li>指定指向data区的指针只占1个字节;
+</li>
+<li>指定指向xdata区的指针占2个字节。
+</li>
+</ul>
+
+<p>如指针p是指向data区,则应定义为：char data* p;还可指定指针本身的存放内存类
+型,如：char data* xdata p其含义是指针p指向data区变量,而其本身存放在xdata区  
+</p>
+</div>
+
+<div id="outline-container-5-1-6-1" class="outline-5">
+<h5 id="sec-5-1-6-1"><span class="section-number-5">5.1.6.1</span> 关键字</h5>
+<div class="outline-text-5" id="text-5-1-6-1">
+
+<ol>
+<li>bit：定义在内部RAM，20H～2FH区域中位的地址，或可以位寻址的SFR的位地址；
+</li>
+<li>code：在0000H～FFFFH之间的代码地址；
+</li>
+<li>data：在00H～7FH间的RAM地址，或在80H～FFH范围内的SFR地址，可寻址片内RAM； 
+</li>
+<li>idata：在00H～FFH范围内的RAM地址；
+</li>
+<li>xdata：在0000H～FFFFH范围内的RAM地址；
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-1-6-2" class="outline-5">
+<h5 id="sec-5-1-6-2"><span class="section-number-5">5.1.6.2</span> 指针和存储空间</h5>
+<div class="outline-text-5" id="text-5-1-6-2">
+
+<p>在外部RAM定义一个数组, 地址是外RAM的0000H～0009H。
+</p>
 
 
+<pre class="example">uchar xdata tmp[ 10]; 
+</pre>
+
+<ul>
+<li>下面在内部RAM中定义一个指针指向一个内部RAM中的变量，但是最后却指向了一个
+  外部RAM的变量。在运行时是有问题的，因为对外部RAM访问必须要2个字节的地址
+  指针，需要用到DPTR寄存器；
+
+
+
+<pre class="example">uchar data * data pstr; 
+pstr = tmp; 
+</pre>
+
+<p>
+  汇编结果如下，08H是指针pstr的存储地址，00H是tmp的首地址
+</p>
+
+
+<pre class="example">MOV 08H, #00H     
+</pre>
+
+</li>
+<li>下面在内部RAM中 定义一个指针指向外部RAM中的变量，这样是可以的，而且效率高
+
+
+
+<pre class="example">uchar xdata * data pstr; 
+pstr = tmp;   
+</pre>
+
+<p>
+  汇编结果, pstr指针的地址有2个字节在08H和09H位置
+</p>
+
+
+<pre class="example">MOV 08H, #00H
+MOV 09H, #00H
+</pre>
+
+</li>
+<li>下面在外部RAM中 定义一个指针指向外部RAM中的变量，这样是可以的，而且效率低
+
+
+
+<pre class="example">uchar xdata * xdata pstr; 
+pstr = tmp;   
+</pre>
+
+<p>
+  汇编结果, 0x000A,0x000B是在外RAM区分配的pstr指针变量地址空间
+</p>
+
+
+<pre class="example">MOV DPTR, #0x000A
+MOV A, #tmp(0x00)
+MOV @DPTR, A
+INC DPTR
+MOV A, #tmp(0x00)
+MOVX @DPTR, A
+</pre>
+
+</li>
+<li>下面在外部RAM中 定义一个指针指向内部RAM中的变量，有bug同第一种情况
+
+
+
+<pre class="example">uchar data * xdata pstr; 
+pstr = tmp;   
+</pre>
+
+<p>
+  汇编结果, 0x000A是在外RAM区分配的pstr指针变量的地址空间
+</p>
+
+
+<pre class="example">MOV DPTR, #0x000A
+MOV A, #tmp(0x00)
+MOVX @DPTR, A
+</pre>
+
+</li>
+<li>下面在内部RAM中定义一个指针指向的地方未明确写出
+
+
+
+<pre class="example">uchar * data pstr; 
+pstr=tmp; 
+</pre>
+
+<p>
+  汇编结果, 0x08－0x0A是在内RAM区分配的pstr指针变量的地址空间, 由此看出分配
+  了3个字节作为pstr的指针变量空间，对于没有声明指针指向存储空间类型的指针，
+  系统编译代码时都强制加载一个字节的指针类型分辩值实在浪费。 
+</p>
+
+
+<pre class="example">MOV 0x08, #0X01
+MOV 0x09, #tmp(0x00)
+MOV 0x0A, #tmp(0x00)
+</pre>
+
+</li>
+<li>下面为指定指针位置类型，也没有指定指向对方的类型, 写法最简单，也是效率最
+  低最浪费空间。
+
+
+
+<pre class="example">uchar * pstr; 
+pstr = tmp; 
+</pre>
+
+<p>
+  汇编结果，0x000A－0x000C是在外RAM区分配的pstr指针变量地址空间 
+</p>
+
+
+<pre class="example">MOV DPTR, #0x000A        
+MOV A, #0x01
+MOV @DPTR, A
+INC DPTR 
+MOV DPTR, #0x000A
+MOV A, #tmp(0x00)
+MOV @DPTR, A
+INC DPTR 
+MOV A, #tmp(0x00)
+MOVX @DPTR, A
+</pre>
+
+</li>
+</ul>
+
+</div>
+</div>
 </div>
 
 </div>
@@ -966,7 +1394,7 @@ RATINGS的。
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-10 18:26:48 中国标准时间</p>
+<p class="date">Date: 2016-07-30 18:00:37 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
