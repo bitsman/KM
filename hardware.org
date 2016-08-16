@@ -533,7 +533,7 @@ EMC分为EMI和EMS，可以理解为EMI是自己对别人的干扰，EMS是别�
 - 指定指向data区的指针只占1个字节;
 - 指定指向xdata区的指针占2个字节。
 如指针p是指向data区,则应定义为：char data* p;还可指定指针本身的存放内存类
-型,如：char data* xdata p其含义是指针p指向data区变量,而其本身存放在xdata区  
+型,如：char data* xdata p其含义是指针p指向data区变量,而其本身存放在xdata区 
 **** 关键字
 1. bit：定义在内部RAM，20H～2FH区域中位的地址，或可以位寻址的SFR的位地址；
 2. code：在0000H～FFFFH之间的代码地址；
@@ -623,4 +623,24 @@ uchar xdata tmp[ 10];
   MOV A, #tmp(0x00)
   MOVX @DPTR, A
   #+end_src  
+**** 大小端
+51应该属于小端地址结构；在结构体位段中，先声明的位段是从一个字节的低位到高
+位来分配,比如如此结构体位段.
+#+begin_src c
+union testbase
+{
+    struct EL
+    {
+        CARD_FORMAT_T card_format:2 ;//0x01
+        UINT8 division:6 ;            //0x29  
+
+        UINT8 reserved2: 3;           //0x02
+        UINT8 reserved: 1;            //0x01
+        BOOL protocol:3 ;             //0x05
+        PARITY_T parity:1 ;           //0x00
+    } testelement;                    //0xA55A
+    UINT16 testentirety ;             //
+} ;
+#+end_src
+如果我们设置testentirety为0xA55A，则每段的值如上面注释所示。
 ** arm

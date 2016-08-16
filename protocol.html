@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="协议 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-05-09 14:28:23 中国标准时间"/>
+<meta name="generated" content="2016-08-16 17:30:49 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -34,7 +34,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -126,9 +166,27 @@
 </li>
 <li><a href="#sec-2">2 小族协议</a>
 <ul>
-<li><a href="#sec-2-1">2.1 spi</a></li>
-<li><a href="#sec-2-2">2.2 uart</a></li>
-<li><a href="#sec-2-3">2.3 i<sup>2</sup>c</a></li>
+<li><a href="#sec-2-1">2.1 SPI</a></li>
+<li><a href="#sec-2-2">2.2 UART</a></li>
+<li><a href="#sec-2-3">2.3 IIC</a>
+<ul>
+<li><a href="#sec-2-3-1">2.3.1 概念</a></li>
+<li><a href="#sec-2-3-2">2.3.2 信号</a>
+<ul>
+<li><a href="#sec-2-3-2-1">2.3.2.1 信号类型</a></li>
+<li><a href="#sec-2-3-2-2">2.3.2.2 信号时间</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-3-3">2.3.3 机制</a>
+<ul>
+<li><a href="#sec-2-3-3-1">2.3.3.1 同步</a></li>
+<li><a href="#sec-2-3-3-2">2.3.3.2 仲裁</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-3-4">2.3.4 流程</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-4">2.4 7816</a></li>
 </ul>
 </li>
 </ul>
@@ -1459,7 +1517,7 @@ bluetoothGatt.close();
 </div>
 
 <div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> spi</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> SPI</h3>
 <div class="outline-text-3" id="text-2-1">
 
 </div>
@@ -1467,7 +1525,7 @@ bluetoothGatt.close();
 </div>
 
 <div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> uart</h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> UART</h3>
 <div class="outline-text-3" id="text-2-2">
 
 </div>
@@ -1475,9 +1533,175 @@ bluetoothGatt.close();
 </div>
 
 <div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> i<sup>2</sup>c</h3>
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> IIC</h3>
 <div class="outline-text-3" id="text-2-3">
 
+
+</div>
+
+<div id="outline-container-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 概念</h4>
+<div class="outline-text-4" id="text-2-3-1">
+
+<ul>
+<li>发送器：发送数据到总线的器件；
+</li>
+<li>接收器：从总线接收数据的器件；
+</li>
+<li>主机：初始化发送、产生时钟信号和终止发送的器件；
+</li>
+<li>从机：被主机寻址的器件；
+</li>
+<li>多主机：同时有多于一个主机尝试控制总线，但不破坏报文；
+</li>
+<li>仲裁：是一个在有多个主机同时尝试控制总线但只允许其中一个控制总线并使报文
+  不被破坏的过程；
+</li>
+<li>同步：两个或多个器件同步时钟信号的过程；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 信号</h4>
+<div class="outline-text-4" id="text-2-3-2">
+
+<p>IIC信号线由时钟信号线SCL和数据信号线SDA构成，逻辑高低电平中只有‘0’电平由设备
+控制，‘1’电平由上拉电阻拉起；其中信号线上升沿有最大值规定，对于标准IIC，
+上升沿最大为330ns，因为接的器件越多，负载电容越大，上升沿时间越长，所以接的
+设备总数由总负载电容决定。
+</p>
+</div>
+
+<div id="outline-container-2-3-2-1" class="outline-5">
+<h5 id="sec-2-3-2-1"><span class="section-number-5">2.3.2.1</span> 信号类型</h5>
+<div class="outline-text-5" id="text-2-3-2-1">
+
+<ul>
+<li>起始信号：由master发起，通过在SCL的高电平期间来一个SDA的下降沿，在SDA下降
+  沿前SCL还有一个最短时间叫建立时间\(t_{SUSTA}\)保证slave能够处理完事情来识
+  别即将来临的下降沿，在下降沿之后开始SCL有一个最短保持时间\(t_{HDSTA}\)，
+  保证slave能够识别到SCL的高和SDA的下降沿这两个电气条件，在这个信号后，产生
+  第一个时钟脉冲的下降沿。 
+</li>
+<li>结束信号：结束信号，由master发起，通过在SCL的高电平期间来一个SDA的上升沿，
+  以此开始SCL有一个最短保持时间（到下一个起始信号），保证slave能够识别到SCL
+  的高和SDA的上降沿这两个电气条件。
+</li>
+<li>重启信号：同起始信号。
+</li>
+<li>数据信号：在SCL的低电平时发送方可以改变SDA的电平，在SCL为高电平时SDA的电
+  平必须保持稳定，接收方开始获取SDA的数据，其中两根信号线上的高低电平，上升
+  沿下降沿时间都有限制。
+</li>
+<li>响应信号：就是时钟线SCL为低电平期间，SDA改变电平，低为ACK，高为NACK，并在
+  SCL转为高电平后SDA保持电平被对方采集。一般master发送数据slave返回响应信号
+  后master检测到后通常会进入中断，如果master还要发送数据，则master在处理中
+  断服务程序时需要将SCL拉低，防止别的器件获得控制权。如果传输完毕，master在
+  处理中断服务程序期间也得拉住SCL，等待处理完后释放SCL，SDA再给出结束信号。
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3-2-2" class="outline-5">
+<h5 id="sec-2-3-2-2"><span class="section-number-5">2.3.2.2</span> 信号时间</h5>
+<div class="outline-text-5" id="text-2-3-2-2">
+
+<ul>
+<li>起始信号建立时间：\(t_{SU-STA}\),起始信号是在SCL的高电平期间，SDA来一个下
+  降沿。建立时间指SCL保持高电平到SDA产生下降沿的时间，它具有最小值，便于
+  slave有足够的时间处理完事务来识别即将来临的下降沿；
+</li>
+<li>起始信号保持时间：\(t_{HD-STA}\),指SDA下降沿后SCL至少这么多时间保持高电
+  平，往后才能有第一个时钟的下降沿，它具有最小值，便于slave检测到起始信号后
+  有足够的时间来处理事务并迎接字节传输的开始；
+</li>
+<li>SCL低电平保持时间：t<sub>LOW</sub>,它有最小值；
+</li>
+<li>SCL高电平保持时间：t<sub>HIGH</sub>,它有最小值；
+</li>
+<li>数据保持时间：\(t_{HD-DAT}\),它具有最大值，指在SCL下降沿后最多给予这么多
+  时间来改变SDA的电平，也算是对上一个SDA值保持的最大时间；
+</li>
+<li>数据建立时间：\(t_{SU-DAT}\),它具有最小值，指SDA在SCL低电平期间改变电平开
+  始到SCL上升沿为止，SCL高电平后SDA就不能改变了；
+</li>
+<li>SDA和SCL上升沿时间：t<sub>r</sub>，具有最大值；
+</li>
+<li>SDA和SCL下降沿时间：t<sub>f</sub>，具有最大值；
+</li>
+<li>停止信号的建立时间：\(t_{SU-STO}\), 指传输完数据后，释放SCL，最快这么长时
+  间可以给出停止信号，也就是释放SCL产生上升沿到SDA产生上升沿的时间；
+</li>
+<li>停止和启动信号间的总线空闲时间：t<sub>BUF</sub>, 也就是产生停止条件后，最快这么长
+  时间才能发起下一次传输。
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3"><span class="section-number-4">2.3.3</span> 机制</h4>
+<div class="outline-text-4" id="text-2-3-3">
+
+
+</div>
+
+<div id="outline-container-2-3-3-1" class="outline-5">
+<h5 id="sec-2-3-3-1"><span class="section-number-5">2.3.3.1</span> 同步</h5>
+<div class="outline-text-5" id="text-2-3-3-1">
+
+<p>指多个器件试图控制SCL时，SCL线上最终表现出的时钟周期图。当多个器件试图发起
+一个时钟周期时，每个器件在相同时刻开始拉低SCL，并开始记录SCL线上的低电平时
+间，到时间后释放SCL到高电平，但是由于信号线释放后是高阻态，如果还有别的器件
+在拉着SCL，则SCL继续保持低电平，低电平时间短的器件将进入等待SCL高电平的状态，
+这样SCL的低电平时间由拉得最长时间的器件决定， 当所有器件拉完了SCL释放后，
+SCL将进入高电平状态，此时所有的器件又开始数高电平的时间，当最短高电平时间的
+器件到时间后就会拉低SCL。这样一个SCL时钟周期就同步完毕。
+</p></div>
+
+</div>
+
+<div id="outline-container-2-3-3-2" class="outline-5">
+<h5 id="sec-2-3-3-2"><span class="section-number-5">2.3.3.2</span> 仲裁</h5>
+<div class="outline-text-5" id="text-2-3-3-2">
+
+<p>指多个器件试图控制SCL，而IIC总线由哪个器件来控制的问题。master只有在总线空
+闲（高电平）时才能启动传输。当在起始信号的SCL高电平期间，仲裁发生在SDA线上，
+也就是，当器件试图发送起始信号时，它会先检测SDA的电平，如果总线已经被别的器
+件先发起了起始信号，则此时SDA线是低电平，则后发送起始信号的器件将失去权力而
+断开数据输出级，因为此时信号线上的电平和自己的电平不一致。</p ><p >
+仲裁可以发生在多个位上。从地址字节到数据字节到响应位。在此过程中总线上的信
+号都由赢得仲裁的master决定，所以不会丢失信息。</p ><p >
+丢失仲裁的器件可以产生时钟脉冲直到丢失仲裁的该字节的末尾为止。如果器件具有
+master和slave功能，则在丢失仲裁后，有可能赢得仲裁的主机正在寻址自己，所以这
+样的器件在丢失仲裁后，需立即切换到slave状态。
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-3-4" class="outline-4">
+<h4 id="sec-2-3-4"><span class="section-number-4">2.3.4</span> 流程</h4>
+<div class="outline-text-4" id="text-2-3-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 7816</h3>
+<div class="outline-text-3" id="text-2-4">
 
 </div>
 </div>
@@ -1485,7 +1709,7 @@ bluetoothGatt.close();
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-05-09 14:28:23 中国标准时间</p>
+<p class="date">Date: 2016-08-16 17:30:49 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

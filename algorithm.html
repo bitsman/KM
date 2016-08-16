@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-07-20 23:07:55 中国标准时间"/>
+<meta name="generated" content="2016-08-01 13:39:14 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -90,79 +90,87 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 机器学习</a>
+<li><a href="#sec-1">1 常规算法</a>
 <ul>
-<li><a href="#sec-1-1">1.1 基本概念</a></li>
-<li><a href="#sec-1-2">1.2 基本方法</a>
+<li><a href="#sec-1-1">1.1 排序</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1 最小二乘法</a></li>
-<li><a href="#sec-1-2-2">1.2.2 梯度下降法</a></li>
-<li><a href="#sec-1-2-3">1.2.3 共轭梯度法</a></li>
+<li><a href="#sec-1-1-1">1.1.1 快速排序</a></li>
+</ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 cordic算法</a>
+<li><a href="#sec-2">2 机器学习</a>
+<ul>
+<li><a href="#sec-2-1">2.1 基本概念</a></li>
+<li><a href="#sec-2-2">2.2 基本方法</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1 最小二乘法</a></li>
+<li><a href="#sec-2-2-2">2.2.2 梯度下降法</a></li>
+<li><a href="#sec-2-2-3">2.2.3 共轭梯度法</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-3">2.3 cordic算法</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-3-1">1.3.1 背景</a></li>
-<li><a href="#sec-1-3-2">1.3.2 从二分查找法说起</a></li>
-<li><a href="#sec-1-3-3">1.3.3 减少乘法运算</a></li>
-<li><a href="#sec-1-3-4">1.3.4 消除乘法运算</a></li>
+<li><a href="#sec-2-3-1">2.3.1 背景</a></li>
+<li><a href="#sec-2-3-2">2.3.2 从二分查找法说起</a></li>
+<li><a href="#sec-2-3-3">2.3.3 减少乘法运算</a></li>
+<li><a href="#sec-2-3-4">2.3.4 消除乘法运算</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-4">1.4 k临近算法</a></li>
-<li><a href="#sec-1-5">1.5 决策树</a>
+<li><a href="#sec-2-4">2.4 k临近算法</a></li>
+<li><a href="#sec-2-5">2.5 决策树</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-5-1">1.5.1 信息熵</a></li>
-<li><a href="#sec-1-5-2">1.5.2 算法逻辑</a></li>
-<li><a href="#sec-1-5-3">1.5.3 算法实例</a>
+<li><a href="#sec-2-5-1">2.5.1 信息熵</a></li>
+<li><a href="#sec-2-5-2">2.5.2 算法逻辑</a></li>
+<li><a href="#sec-2-5-3">2.5.3 算法实例</a>
 <ul>
-<li><a href="#sec-1-5-3-1">1.5.3.1 计算香农熵</a></li>
-<li><a href="#sec-1-5-3-2">1.5.3.2 划分数据集</a></li>
-<li><a href="#sec-1-5-3-3">1.5.3.3 选择最好的划分</a></li>
-<li><a href="#sec-1-5-3-4">1.5.3.4 构造决策树</a></li>
+<li><a href="#sec-2-5-3-1">2.5.3.1 计算香农熵</a></li>
+<li><a href="#sec-2-5-3-2">2.5.3.2 划分数据集</a></li>
+<li><a href="#sec-2-5-3-3">2.5.3.3 选择最好的划分</a></li>
+<li><a href="#sec-2-5-3-4">2.5.3.4 构造决策树</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-6">1.6 贝叶斯分类</a></li>
-<li><a href="#sec-1-7">1.7 支持向量机(SVM)</a></li>
-<li><a href="#sec-1-8">1.8 回归分析</a>
+<li><a href="#sec-2-6">2.6 贝叶斯分类</a></li>
+<li><a href="#sec-2-7">2.7 支持向量机(SVM)</a></li>
+<li><a href="#sec-2-8">2.8 回归分析</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-8-1">1.8.1 线性回归</a></li>
-<li><a href="#sec-1-8-2">1.8.2 逻辑回归</a></li>
+<li><a href="#sec-2-8-1">2.8.1 线性回归</a></li>
+<li><a href="#sec-2-8-2">2.8.2 逻辑回归</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-1-9">1.9 神经网络</a>
+<li><a href="#sec-2-9">2.9 神经网络</a>
 <ul>
-<li><a href="#sec-1-9-1">1.9.1 概念</a></li>
-<li><a href="#sec-1-9-2">1.9.2 感知机</a></li>
+<li><a href="#sec-2-9-1">2.9.1 概念</a></li>
+<li><a href="#sec-2-9-2">2.9.2 感知机</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 图像处理</a>
+<li><a href="#sec-3">3 图像处理</a>
 <ul>
-<li><a href="#sec-2-1">2.1 概念</a></li>
-<li><a href="#sec-2-2">2.2 其他</a></li>
+<li><a href="#sec-3-1">3.1 概念</a></li>
+<li><a href="#sec-3-2">3.2 其他</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 滤波</a>
+<li><a href="#sec-4">4 滤波</a>
 <ul>
-<li><a href="#sec-3-1">3.1 中值滤波</a></li>
-<li><a href="#sec-3-2">3.2 全期平滑滤波</a></li>
-<li><a href="#sec-3-3">3.3 移动平滑滤波</a></li>
-<li><a href="#sec-3-4">3.4 指数平滑滤波</a>
+<li><a href="#sec-4-1">4.1 中值滤波</a></li>
+<li><a href="#sec-4-2">4.2 全期平滑滤波</a></li>
+<li><a href="#sec-4-3">4.3 移动平滑滤波</a></li>
+<li><a href="#sec-4-4">4.4 指数平滑滤波</a>
 <ul>
-<li><a href="#sec-3-4-1">3.4.1 指数平滑的公式</a></li>
-<li><a href="#sec-3-4-2">3.4.2 一次指数平滑</a></li>
-<li><a href="#sec-3-4-3">3.4.3 二次指数平滑</a></li>
-<li><a href="#sec-3-4-4">3.4.4 三次指数平滑</a></li>
+<li><a href="#sec-4-4-1">4.4.1 指数平滑的公式</a></li>
+<li><a href="#sec-4-4-2">4.4.2 一次指数平滑</a></li>
+<li><a href="#sec-4-4-3">4.4.3 二次指数平滑</a></li>
+<li><a href="#sec-4-4-4">4.4.4 三次指数平滑</a></li>
 </ul>
 </li>
 </ul>
@@ -172,15 +180,42 @@
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 机器学习</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> 常规算法</h2>
 <div class="outline-text-2" id="text-1">
 
 
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 基本概念</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 排序</h3>
 <div class="outline-text-3" id="text-1-1">
+
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 快速排序</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+<p>快速排序是冒泡排序的改进版，其思想是选定待排序数据中的一个值作为比较轴，然
+后将待排序数据与该值比较，将他们分配到轴两端，其中左边的比轴小，右边的比轴
+大，循环的在左右两边的数据做快速排序操作，直到最后排序完毕。
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 机器学习</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 基本概念</h3>
+<div class="outline-text-3" id="text-2-1">
 
 <ul>
 <li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，但是对于新鲜样本则可能不令人满意的现象称为过
@@ -229,9 +264,9 @@
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 基本方法</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 基本方法</h3>
+<div class="outline-text-3" id="text-2-2">
 
 <p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x), x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。
 关于f(x)
@@ -252,9 +287,9 @@
 </p>
 </div>
 
-<div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 最小二乘法</h4>
-<div class="outline-text-4" id="text-1-2-1">
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 最小二乘法</h4>
+<div class="outline-text-4" id="text-2-2-1">
 
 <p>最小二乘法是为了求一组观察数据(变量X和Y)之间的函数关系Y=f(X)=A<sup>T</sup>X.其
 中X是训练特征矩阵，Y是结果向量。应用条件如下 
@@ -289,18 +324,15 @@ $$R=\sum_{i=1}^{n}v_{i}^{2}$$
 
 </div>
 
-<div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 梯度下降法</h4>
-<div class="outline-text-4" id="text-1-2-2">
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 梯度下降法</h4>
+<div class="outline-text-4" id="text-2-2-2">
 
 
 
-
-<div id="img-optimize-example1" class="figure">
-<p><img src="file://e:/OneDrive/learning/img/optimize1.png"  alt="file://e:/OneDrive/learning/img/optimize1.png" /></p>
-<p>梯度下降法图例1</p>
-</div>
-
+<p>
+<img src="file://e:/OneDrive/learning/img/optimize1.png"  alt="file://e:/OneDrive/learning/img/optimize1.png" />
+</p>
 <p>
 见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有
 方向，是一个矢量，曲线情况下，表达式如下  
@@ -355,12 +387,9 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 
 
 
-
-<div id="img-optimize-example2" class="figure">
-<p><img src="file://e:/OneDrive/learning/img/optimize2.png"  alt="file://e:/OneDrive/learning/img/optimize2.png" /></p>
-<p>梯度下降图例2</p>
-</div>
-
+<p>
+<img src="file://e:/OneDrive/learning/img/optimize2.png"  alt="file://e:/OneDrive/learning/img/optimize2.png" />
+</p>
 <p>
 例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
 </p><ol>
@@ -386,9 +415,9 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 
 </div>
 
-<div id="outline-container-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 共轭梯度法</h4>
-<div class="outline-text-4" id="text-1-2-3">
+<div id="outline-container-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> 共轭梯度法</h4>
+<div class="outline-text-4" id="text-2-2-3">
 
 <p>对于多元二次方程
 $$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
@@ -400,9 +429,9 @@ $$f'(x)=AX+B$$
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> cordic算法</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> cordic算法</h3>
+<div class="outline-text-3" id="text-2-3">
 
 <p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
 生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。现在有了
@@ -419,9 +448,9 @@ J. Walther在1974年在这种算法的基础上进一步改进，使其可以计
 </p>
 </div>
 
-<div id="outline-container-1-3-1" class="outline-5">
-<h5 id="sec-1-3-1"><span class="section-number-5">1.3.1</span> 背景</h5>
-<div class="outline-text-5" id="text-1-3-1">
+<div id="outline-container-2-3-1" class="outline-5">
+<h5 id="sec-2-3-1"><span class="section-number-5">2.3.1</span> 背景</h5>
+<div class="outline-text-5" id="text-2-3-1">
 
 <p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
 生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。 
@@ -440,9 +469,9 @@ J. Walther在1974年在这种算法的基础上进一步改进，使其可以计
 
 </div>
 
-<div id="outline-container-1-3-2" class="outline-5">
-<h5 id="sec-1-3-2"><span class="section-number-5">1.3.2</span> 从二分查找法说起</h5>
-<div class="outline-text-5" id="text-1-3-2">
+<div id="outline-container-2-3-2" class="outline-5">
+<h5 id="sec-2-3-2"><span class="section-number-5">2.3.2</span> 从二分查找法说起</h5>
+<div class="outline-text-5" id="text-2-3-2">
 
 <p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），如何求的在极坐标系下的坐标（ρ,θ）。用计算器
 计算一下可知答案是（223.61，63.435），见图<a href="#img-cordic1">img-cordic1</a>所示。
@@ -568,9 +597,9 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-1-3-3" class="outline-5">
-<h5 id="sec-1-3-3"><span class="section-number-5">1.3.3</span> 减少乘法运算</h5>
-<div class="outline-text-5" id="text-1-3-3">
+<div id="outline-container-2-3-3" class="outline-5">
+<h5 id="sec-2-3-3"><span class="section-number-5">2.3.3</span> 减少乘法运算</h5>
+<div class="outline-text-5" id="text-2-3-3">
 
 <p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法运算，运算量还是太大了。还需要进一步的改
 进。改进的切入点当然还是坐标变换的过程。我们将坐标变换公式变一下形。
@@ -648,9 +677,9 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-1-3-4" class="outline-5">
-<h5 id="sec-1-3-4"><span class="section-number-5">1.3.4</span> 消除乘法运算</h5>
-<div class="outline-text-5" id="text-1-3-4">
+<div id="outline-container-2-3-4" class="outline-5">
+<h5 id="sec-2-3-4"><span class="section-number-5">2.3.4</span> 消除乘法运算</h5>
+<div class="outline-text-5" id="text-2-3-4">
 
 <p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要从计算式入手。第一次循环时，tan(45)=1，所以第
 一次循环实际上是不需要乘法运算的。第二次运算呢？ 
@@ -874,9 +903,9 @@ z = 16238
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> k临近算法</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> k临近算法</h3>
+<div class="outline-text-3" id="text-2-4">
 
 <p>K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
 签大体是由这些电影中所含的打斗场景和接吻场景次数(特征)决定。现在有一部电影
@@ -946,16 +975,16 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 
 </div>
 
-<div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 决策树</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 决策树</h3>
+<div class="outline-text-3" id="text-2-5">
 
 
 </div>
 
-<div id="outline-container-1-5-1" class="outline-5">
-<h5 id="sec-1-5-1"><span class="section-number-5">1.5.1</span> 信息熵</h5>
-<div class="outline-text-5" id="text-1-5-1">
+<div id="outline-container-2-5-1" class="outline-5">
+<h5 id="sec-2-5-1"><span class="section-number-5">2.5.1</span> 信息熵</h5>
+<div class="outline-text-5" id="text-2-5-1">
 
 <p>信息熵用来衡量信息量的大小
 </p><ul>
@@ -984,9 +1013,9 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-1-5-2" class="outline-5">
-<h5 id="sec-1-5-2"><span class="section-number-5">1.5.2</span> 算法逻辑</h5>
-<div class="outline-text-5" id="text-1-5-2">
+<div id="outline-container-2-5-2" class="outline-5">
+<h5 id="sec-2-5-2"><span class="section-number-5">2.5.2</span> 算法逻辑</h5>
+<div class="outline-text-5" id="text-2-5-2">
 
 <p>构建决策树的过程，就是减小信息熵，减小不确定性。从而完整构造决策树模型。所
 以我们需要在每一次选择分支属性时，计算这样分类所带来的信息熵的增益，增益越
@@ -1010,16 +1039,16 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-1-5-3" class="outline-5">
-<h5 id="sec-1-5-3"><span class="section-number-5">1.5.3</span> 算法实例</h5>
-<div class="outline-text-5" id="text-1-5-3">
+<div id="outline-container-2-5-3" class="outline-5">
+<h5 id="sec-2-5-3"><span class="section-number-5">2.5.3</span> 算法实例</h5>
+<div class="outline-text-5" id="text-2-5-3">
 
 
 </div>
 
-<div id="outline-container-1-5-3-1" class="outline-6">
-<h6 id="sec-1-5-3-1"><span class="section-number-6">1.5.3.1</span> 计算香农熵</h6>
-<div class="outline-text-6" id="text-1-5-3-1">
+<div id="outline-container-2-5-3-1" class="outline-6">
+<h6 id="sec-2-5-3-1"><span class="section-number-6">2.5.3.1</span> 计算香农熵</h6>
+<div class="outline-text-6" id="text-2-5-3-1">
 
 <p>根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
 性和一个标签，即某个标签具有若干属性，每个标签和属性都有若干值。以某个标签
@@ -1052,9 +1081,9 @@ def calcShannonEnt(dataSet):
 
 </div>
 
-<div id="outline-container-1-5-3-2" class="outline-6">
-<h6 id="sec-1-5-3-2"><span class="section-number-6">1.5.3.2</span> 划分数据集</h6>
-<div class="outline-text-6" id="text-1-5-3-2">
+<div id="outline-container-2-5-3-2" class="outline-6">
+<h6 id="sec-2-5-3-2"><span class="section-number-6">2.5.3.2</span> 划分数据集</h6>
+<div class="outline-text-6" id="text-2-5-3-2">
 
 <p>指按照给定的特征以及特征的值提取出这样的数据集。代码
 </p>
@@ -1079,9 +1108,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-1-5-3-3" class="outline-6">
-<h6 id="sec-1-5-3-3"><span class="section-number-6">1.5.3.3</span> 选择最好的划分</h6>
-<div class="outline-text-6" id="text-1-5-3-3">
+<div id="outline-container-2-5-3-3" class="outline-6">
+<h6 id="sec-2-5-3-3"><span class="section-number-6">2.5.3.3</span> 选择最好的划分</h6>
+<div class="outline-text-6" id="text-2-5-3-3">
 
 <p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
 熵(按样本标签计算)。然后按照该特征下每个特征值占的比例计算该特征的香农熵总
@@ -1121,9 +1150,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-1-5-3-4" class="outline-6">
-<h6 id="sec-1-5-3-4"><span class="section-number-6">1.5.3.4</span> 构造决策树</h6>
-<div class="outline-text-6" id="text-1-5-3-4">
+<div id="outline-container-2-5-3-4" class="outline-6">
+<h6 id="sec-2-5-3-4"><span class="section-number-6">2.5.3.4</span> 构造决策树</h6>
+<div class="outline-text-6" id="text-2-5-3-4">
 
 <p>采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
 是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
@@ -1163,9 +1192,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 贝叶斯分类</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 贝叶斯分类</h3>
+<div class="outline-text-3" id="text-2-6">
 
 <p>贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
 量，这样不同的特征向量构成特征向量集合v<sub>j</sub>, 当我们获得新的特征向量v时，需
@@ -1207,17 +1236,17 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7"><span class="section-number-3">1.7</span> 支持向量机(SVM)</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 支持向量机(SVM)</h3>
+<div class="outline-text-3" id="text-2-7">
 
 </div>
 
 </div>
 
-<div id="outline-container-1-8" class="outline-3">
-<h3 id="sec-1-8"><span class="section-number-3">1.8</span> 回归分析</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 回归分析</h3>
+<div class="outline-text-3" id="text-2-8">
 
 <p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
@@ -1267,9 +1296,9 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-1-8-1" class="outline-5">
-<h5 id="sec-1-8-1"><span class="section-number-5">1.8.1</span> 线性回归</h5>
-<div class="outline-text-5" id="text-1-8-1">
+<div id="outline-container-2-8-1" class="outline-5">
+<h5 id="sec-2-8-1"><span class="section-number-5">2.8.1</span> 线性回归</h5>
+<div class="outline-text-5" id="text-2-8-1">
 
 <p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
 大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
@@ -1292,9 +1321,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-1-8-2" class="outline-5">
-<h5 id="sec-1-8-2"><span class="section-number-5">1.8.2</span> 逻辑回归</h5>
-<div class="outline-text-5" id="text-1-8-2">
+<div id="outline-container-2-8-2" class="outline-5">
+<h5 id="sec-2-8-2"><span class="section-number-5">2.8.2</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-2-8-2">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
@@ -1307,9 +1336,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-1-9" class="outline-3">
-<h3 id="sec-1-9"><span class="section-number-3">1.9</span> 神经网络</h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 神经网络</h3>
+<div class="outline-text-3" id="text-2-9">
 
 <p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
 </p><ul>
@@ -1342,9 +1371,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-1-9-1" class="outline-4">
-<h4 id="sec-1-9-1"><span class="section-number-4">1.9.1</span> 概念</h4>
-<div class="outline-text-4" id="text-1-9-1">
+<div id="outline-container-2-9-1" class="outline-4">
+<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 概念</h4>
+<div class="outline-text-4" id="text-2-9-1">
 
 <ul>
 <li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
@@ -1363,9 +1392,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-1-9-2" class="outline-4">
-<h4 id="sec-1-9-2"><span class="section-number-4">1.9.2</span> 感知机</h4>
-<div class="outline-text-4" id="text-1-9-2">
+<div id="outline-container-2-9-2" class="outline-4">
+<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> 感知机</h4>
+<div class="outline-text-4" id="text-2-9-2">
 
 <p>感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
 成两类的，并且数据要线性可分的情况。线性可分是指存在一个超平面能够将空间分
@@ -1402,18 +1431,18 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 图像处理</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 图像处理</h2>
+<div class="outline-text-2" id="text-3">
 
 <p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
 间隔量化。至此一副数字图像是一个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。
 </p>
 </div>
 
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 概念</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 概念</h3>
+<div class="outline-text-3" id="text-3-1">
 
 <ul>
 <li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过程是显示；
@@ -1441,9 +1470,9 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 其他</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 其他</h3>
+<div class="outline-text-3" id="text-3-2">
 
 <ul>
 <li>人眼只能分辨约40级灰度，也就是如果黑白之间的灰度范围被分为40个以上的等分，
@@ -1456,16 +1485,16 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 滤波</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 滤波</h2>
+<div class="outline-text-2" id="text-4">
 
 
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 中值滤波</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 中值滤波</h3>
+<div class="outline-text-3" id="text-4-1">
 
 <p>中值滤波法是一种非线性的信号处理技术。中值滤波将一个长度为给定奇数的移动窗
 作用于序列，该窗中心位置的值用窗口内各点排序后的中值替代，待处理点的前面后
@@ -1476,18 +1505,18 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 全期平滑滤波</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 全期平滑滤波</h3>
+<div class="outline-text-3" id="text-4-2">
 
 <p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
 </p></div>
 
 </div>
 
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 移动平滑滤波</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 移动平滑滤波</h3>
+<div class="outline-text-3" id="text-4-3">
 
 <p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
 通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
@@ -1504,18 +1533,18 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 指数平滑滤波</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 指数平滑滤波</h3>
+<div class="outline-text-3" id="text-4-4">
 
 <p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
 减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
 </p>
 </div>
 
-<div id="outline-container-3-4-1" class="outline-4">
-<h4 id="sec-3-4-1"><span class="section-number-4">3.4.1</span> 指数平滑的公式</h4>
-<div class="outline-text-4" id="text-3-4-1">
+<div id="outline-container-4-4-1" class="outline-4">
+<h4 id="sec-4-4-1"><span class="section-number-4">4.4.1</span> 指数平滑的公式</h4>
+<div class="outline-text-4" id="text-4-4-1">
 
 <p>  \begin{equation}
   \label{equ-pinghua}
@@ -1558,9 +1587,9 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-3-4-2" class="outline-4">
-<h4 id="sec-3-4-2"><span class="section-number-4">3.4.2</span> 一次指数平滑</h4>
-<div class="outline-text-4" id="text-3-4-2">
+<div id="outline-container-4-4-2" class="outline-4">
+<h4 id="sec-4-4-2"><span class="section-number-4">4.4.2</span> 一次指数平滑</h4>
+<div class="outline-text-4" id="text-4-4-2">
 
 <p>设时间序列为\(y_{1}, y_{2}, ..., y_{t}...\)，则一次指数平滑
   公式如式<a href="#equ-pinghua">equ-pinghua</a>.通过展开可以有
@@ -1584,9 +1613,9 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-3-4-3" class="outline-4">
-<h4 id="sec-3-4-3"><span class="section-number-4">3.4.3</span> 二次指数平滑</h4>
-<div class="outline-text-4" id="text-3-4-3">
+<div id="outline-container-4-4-3" class="outline-4">
+<h4 id="sec-4-4-3"><span class="section-number-4">4.4.3</span> 二次指数平滑</h4>
+<div class="outline-text-4" id="text-4-4-3">
 
 <p>  当时间序列没有明显的趋势变动时，使用第t周期一次指数平滑就能直接预测第t+1
   期之值。但当时间序列的变动出现直线趋势时，用一次指数平滑法来预测仍存在着
@@ -1603,9 +1632,9 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 
 </div>
 
-<div id="outline-container-3-4-4" class="outline-4">
-<h4 id="sec-3-4-4"><span class="section-number-4">3.4.4</span> 三次指数平滑</h4>
-<div class="outline-text-4" id="text-3-4-4">
+<div id="outline-container-4-4-4" class="outline-4">
+<h4 id="sec-4-4-4"><span class="section-number-4">4.4.4</span> 三次指数平滑</h4>
+<div class="outline-text-4" id="text-4-4-4">
 
 <p>  若时间序列的变动呈现出二次曲线趋势，则需要用三次指数平滑法。三次指数平滑
   是在二次指数平滑的基础上再进行一次平滑，其计算公式为
@@ -1640,7 +1669,7 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-07-20 23:07:55 中国标准时间</p>
+<p class="date">Date: 2016-08-01 13:39:14 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
