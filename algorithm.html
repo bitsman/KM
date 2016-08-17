@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-08-01 13:39:14 中国标准时间"/>
+<meta name="generated" content="2016-08-17 18:52:06 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -104,53 +104,56 @@
 <li><a href="#sec-2-2">2.2 基本方法</a>
 <ul>
 <li><a href="#sec-2-2-1">2.2.1 最小二乘法</a></li>
-<li><a href="#sec-2-2-2">2.2.2 梯度下降法</a></li>
-<li><a href="#sec-2-2-3">2.2.3 共轭梯度法</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-3">2.3 cordic算法</a>
+<li><a href="#sec-2-3">2.3 最优化</a>
+<ul>
+<li><a href="#sec-2-3-1">2.3.1 梯度下降法</a></li>
+<li><a href="#sec-2-3-2">2.3.2 共轭梯度法</a></li>
+<li><a href="#sec-2-3-3">2.3.3 拉格朗日乘子法</a></li>
+<li><a href="#sec-2-3-4">2.3.4 KKT条件</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-4">2.4 cordic算法</a>
+<ul>
+<li><a href="#sec-2-4-1">2.4.1 背景</a></li>
+<li><a href="#sec-2-4-2">2.4.2 从二分查找法说起</a></li>
+<li><a href="#sec-2-4-3">2.4.3 减少乘法运算</a></li>
+<li><a href="#sec-2-4-4">2.4.4 消除乘法运算</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-5">2.5 k临近算法</a></li>
+<li><a href="#sec-2-6">2.6 决策树</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-2-3-1">2.3.1 背景</a></li>
-<li><a href="#sec-2-3-2">2.3.2 从二分查找法说起</a></li>
-<li><a href="#sec-2-3-3">2.3.3 减少乘法运算</a></li>
-<li><a href="#sec-2-3-4">2.3.4 消除乘法运算</a></li>
+<li><a href="#sec-2-6-1">2.6.1 信息熵</a></li>
+<li><a href="#sec-2-6-2">2.6.2 算法逻辑</a></li>
+<li><a href="#sec-2-6-3">2.6.3 算法实例</a>
+<ul>
+<li><a href="#sec-2-6-3-1">2.6.3.1 计算香农熵</a></li>
+<li><a href="#sec-2-6-3-2">2.6.3.2 划分数据集</a></li>
+<li><a href="#sec-2-6-3-3">2.6.3.3 选择最好的划分</a></li>
+<li><a href="#sec-2-6-3-4">2.6.3.4 构造决策树</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-4">2.4 k临近算法</a></li>
-<li><a href="#sec-2-5">2.5 决策树</a>
+<li><a href="#sec-2-7">2.7 贝叶斯分类</a></li>
+<li><a href="#sec-2-8">2.8 支持向量机(SVM)</a></li>
+<li><a href="#sec-2-9">2.9 回归分析</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-2-5-1">2.5.1 信息熵</a></li>
-<li><a href="#sec-2-5-2">2.5.2 算法逻辑</a></li>
-<li><a href="#sec-2-5-3">2.5.3 算法实例</a>
-<ul>
-<li><a href="#sec-2-5-3-1">2.5.3.1 计算香农熵</a></li>
-<li><a href="#sec-2-5-3-2">2.5.3.2 划分数据集</a></li>
-<li><a href="#sec-2-5-3-3">2.5.3.3 选择最好的划分</a></li>
-<li><a href="#sec-2-5-3-4">2.5.3.4 构造决策树</a></li>
-</ul></li>
+<li><a href="#sec-2-9-1">2.9.1 线性回归</a></li>
+<li><a href="#sec-2-9-2">2.9.2 逻辑回归</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-6">2.6 贝叶斯分类</a></li>
-<li><a href="#sec-2-7">2.7 支持向量机(SVM)</a></li>
-<li><a href="#sec-2-8">2.8 回归分析</a>
+<li><a href="#sec-2-10">2.10 神经网络</a>
 <ul>
-<li>
-<ul>
-<li><a href="#sec-2-8-1">2.8.1 线性回归</a></li>
-<li><a href="#sec-2-8-2">2.8.2 逻辑回归</a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="#sec-2-9">2.9 神经网络</a>
-<ul>
-<li><a href="#sec-2-9-1">2.9.1 概念</a></li>
-<li><a href="#sec-2-9-2">2.9.2 感知机</a></li>
+<li><a href="#sec-2-10-1">2.10.1 概念</a></li>
+<li><a href="#sec-2-10-2">2.10.2 感知机</a></li>
 </ul></li>
 </ul>
 </li>
@@ -218,43 +221,54 @@
 <div class="outline-text-3" id="text-2-1">
 
 <ul>
-<li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，但是对于新鲜样本则可能不令人满意的现象称为过
-  拟合；
+<li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，
+  但是对于新鲜样本则可能不令人满意的现象称为过拟合；
 </li>
 <li>样本集合：一般样本集合可以分为
 <ol>
 <li>training set：训练集，用于训练得出我们的候选算法集合；
 </li>
-<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法；
+<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法； 
 </li>
 <li>test set：测试集，用于测试我们选出的这个错误率最低的算法；
 </li>
 </ol>
 
 </li>
-<li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>种所有可能形式分为2类，则称该函数集能够把样本
-  数为N的样本集打散(shatter)，其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定义为：对于给定集
-  合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个
-  样本，假设类H就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把2<sup>N</sup>种分类的每一种看做一个学习问题，
-  那么2<sup>N</sup>种学习问题就可以用N个点定义；
+<li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>
+  种所有可能形式分为2类，则称该函数集能够把样本数为N的样本集打散(shatter)，
+  其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定
+  义为：对于给定集合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素
+  的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个样本，假设类H
+  就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把
+  2<sup>N</sup>种分类的每一种看做一个学习问题，那么2<sup>N</sup>种学习问题就可以用N个点定义； 
 </li>
-<li>VC维：依照样本集打散的概念，该函数集的VC维就是用这个函数集中的函数能够打散的最大样本集的样本数目, 而所谓的打散，指的是
-  这个函数集能够按照任意个数的类别来分开这么多个样本，也就是说，若存在N个样本的样本集能够被函数集打散，而不存在N+1个样本
-  集能够打散，则该函数集的VC维就是N。另外，若对于任意的样本数，总能找到一个样本集能够被这个函数集打散，则函数集的VC维就
-  是无穷大，当我们在衡量一个函数集能否分类一堆样本时，理论上这个函数集的VC维越大则表示这个函数集能够分类的样本数量越大，
-  否则越小，但是在实际中，并不是说VC维越大越有用，因为对样本进行分类时并不是说要做到0错误，只需要保证可接受的错误率就行，
-  这时对函数集的VC维要求就放宽了，一般函数集的VC维越大函数集越复杂越难实现，所以实际中，常常用到的是VC维比较低的函数集；
+<li>VC维：依照样本集打散的概念，该函数集的VC维就是用这个函数集中的函数能够打
+  散的最大样本集的样本数目, 而所谓的打散，指的是这个函数集能够按照任意个数
+  的类别来分开这么多个样本，也就是说，若存在N个样本的样本集能够被函数集打散，
+  而不存在N+1个样本集能够打散，则该函数集的VC维就是N。另外，若对于任意的样
+  本数，总能找到一个样本集能够被这个函数集打散，则函数集的VC维就是无穷大，
+  当我们在衡量一个函数集能否分类一堆样本时，理论上这个函数集的VC维越大则表
+  示这个函数集能够分类的样本数量越大，否则越小，但是在实际中，并不是说VC维
+  越大越有用，因为对样本进行分类时并不是说要做到0错误，只需要保证可接受的错
+  误率就行，这时对函数集的VC维要求就放宽了，一般函数集的VC维越大函数集越复
+  杂越难实现，所以实际中，常常用到的是VC维比较低的函数集； 
 </li>
-<li>PAC: Probably Approximately Correct，概率近似正确(学习模型) ，主要用于解决这一的学习问题：由于我们采集的样本空间不能完
-  全的满足真正的完整空间的数据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习器通过对样本空间学习
-  得来的经验不能完全的满足未来新数据的处理，所以提出了PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数
-  &epsilon;范围内，&epsilon;可以任意小；
+<li>PAC: Probably Approximately Correct，概率近似正确(学习模型) ，主要用于解
+  决这一的学习问题：由于我们采集的样本空间不能完全的满足真正的完整空间的数
+  据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习
+  器通过对样本空间学习得来的经验不能完全的满足未来新数据的处理，所以提出了
+  PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数&epsilon;范围
+  内，&epsilon;可以任意小； 
 </li>
-<li>inductive bias：归纳偏置，机器学习试图去建造一个可以学习的算法，用来预测某个目标的结果。要达到此目的，要给于学习算法一
-  些训练样本，样本说明输入与输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练中未出现的样本。既然
-  未知状况可以是任意的结果，若没有其它额外的假设，这任务就无法解决。这种关于目标函数的必要假设就称为归纳偏置；
+<li>inductive bias：归纳偏置，机器学习试图去建造一个可以学习的算法，用来预测
+  某个目标的结果。要达到此目的，要给于学习算法一些训练样本，样本说明输入与
+  输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练
+  中未出现的样本。既然未知状况可以是任意的结果，若没有其它额外的假设，这任
+  务就无法解决。这种关于目标函数的必要假设就称为归纳偏置； 
 </li>
-<li>generalization：一般化，指的是，我们通过样本集训练出的算法可以推广到未知输入得到正确输出；
+<li>generalization：一般化，指的是，我们通过样本集训练出的算法可以推广到未知
+  输入得到正确输出； 
 </li>
 <li>Loss function:损失函数，表示实际输出值与我们拟合算法输出值的差；
 </li>
@@ -268,22 +282,24 @@
 <h3 id="sec-2-2"><span class="section-number-3">2.2</span> 基本方法</h3>
 <div class="outline-text-3" id="text-2-2">
 
-<p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x), x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。
-关于f(x)
+<p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x),
+x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。关于f(x) 
 </p><ol>
 <li>当\(x=(x)\)时，f(x)是一条曲线；
 </li>
 <li>当\(x=(x_{1}, x_{2})\)时，\(f(x_{1}, x_{2})\)是一个曲面；
 </li>
-<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度；
+<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度； 
 </li>
-<li>当\(x=(x_{1}, x_{i}..., x_{n})\)时，\(f(x_{1}, x_{2}..., x_{n})\)是一个超曲面；
+<li>当\(x=(x_{1}, x_{i}..., x_{n})\)时，\(f(x_{1}, x_{2}..., x_{n})\)是一个
+   超曲面； 
 </li>
 </ol>
 
-<p>所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，只能在自己的小范围内搜索极大值和极小值，称为局
-部优化算法，也叫经典优化算法；有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化算法，也叫现代优
-化算法。
+<p>所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，
+只能在自己的小范围内搜索极大值和极小值，称为局部优化算法，也叫经典优化算法；
+有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化
+算法，也叫现代优化算法。 
 </p>
 </div>
 
@@ -321,14 +337,36 @@ $$R=\sum_{i=1}^{n}v_{i}^{2}$$
 \end{equation}
 共得到k个方程，求这k个方程的联立解就可以求出a<sub>i</sub><sup>'</sup>的值。
 </p></div>
+</div>
 
 </div>
 
-<div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 梯度下降法</h4>
-<div class="outline-text-4" id="text-2-2-2">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 最优化</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<p>最优化问题，一般分几种。
+</p><ul>
+<li>无约束优化问题：就是在没有任何约束条件的情况下，求函数的最优解。通常表示
+  为\(min(f(x))\); 
+</li>
+<li>等式约束优化问题: 通常给出若干个用等式表示的约束条件，然后在这些条件下，
+  求函数的最优解,通常条件表示为\(h_{i}(x)=0, i=1, ..., n\); 
+</li>
+<li>不等式约束优化问题: 通常给出的约束条件有等式约束条件也有不等式约束条件，
+  不等式约束条件表示为\(g_{j}(x)&lt;=0, j=1, ..., n\); 
+</li>
+</ul>
 
 
+</div>
+
+<div id="outline-container-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 梯度下降法</h4>
+<div class="outline-text-4" id="text-2-3-1">
+
+<p>梯度下降法属于无约束优化问题。
+</p>
 
 <p>
 <img src="file://e:/OneDrive/learning/img/optimize1.png"  alt="file://e:/OneDrive/learning/img/optimize1.png" />
@@ -415,75 +453,141 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 
 </div>
 
-<div id="outline-container-2-2-3" class="outline-4">
-<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> 共轭梯度法</h4>
-<div class="outline-text-4" id="text-2-2-3">
+<div id="outline-container-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 共轭梯度法</h4>
+<div class="outline-text-4" id="text-2-3-2">
 
-<p>对于多元二次方程
+<p>共轭梯度法也属于无约束优化问题。
+对于多元二次方程
 $$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
 求导得
 $$f'(x)=AX+B$$
 因为针对X为向量，$$X^{T}AX$$ 对X求导得$$2AX$$ , $$B^{T}X$$ 求导得B；
 </p></div>
-</div>
 
 </div>
 
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> cordic算法</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3"><span class="section-number-4">2.3.3</span> 拉格朗日乘子法</h4>
+<div class="outline-text-4" id="text-2-3-3">
 
-<p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
-生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。现在有了
-计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨根问底的人，不禁要问计算机又是如何计算三角函数值的呢。最容易想
-到的办法就是利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精度来逼近函数值。除了泰勒级数逼近之
-外，还有其他许多的逼近方法，比如切比雪夫逼近、最佳一致逼近和Padé逼近等。所有这些逼近方法本质上都是用多项式函数来近似我
-们要计算的三角函数，计算过程中必然要涉及到大量的浮点运算。在缺乏硬件乘法器的简单设备上（比如没有浮点运算单元的单片机），
-用这些方法来计算三角函数会非常的费时。为了解决这个问题，J. Volder于1959年提出了一种快速算法，称之为cordic(coordinate
-rotation digital computer) 算法，这个算法只利用移位和加减运算，就能计算常用三角函数值，如sin，cos，sinh，cosh等函数。
-J. Walther在1974年在这种算法的基础上进一步改进，使其可以计算出多种超越函数，更大的扩展了Cordic 算法的应用。因为Cordic算
-法只用了移位和加法，很容易用纯硬件来实现，因此我们常能在FPGA运算平台上见到它的身影。不过，大多数的软件程序员们都没有听说
-过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是在没有浮点运算指令的嵌入式平台（比如定点型DSP）上
-做开发时，还是会遇上可以用到cordic 算法的情况的，所以掌握基本的cordic算法还是有用的。
-</p>
-</div>
-
-<div id="outline-container-2-3-1" class="outline-5">
-<h5 id="sec-2-3-1"><span class="section-number-5">2.3.1</span> 背景</h5>
-<div class="outline-text-5" id="text-2-3-1">
-
-<p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计算任意角度的三角函数的值。这种表格在人们刚刚产
-生三角函数的概念的时候就已经有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式而生成。 
-现在有了计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨根问底的人，不禁要问计算机又是如何计算三角函数值的呢。
-最容易想到的办法就是利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精度来逼近函数值。除了泰勒级
-数逼近之外，还有其他许多的逼近方法，比如切比雪夫逼近、最佳一致逼近和Padé逼近等。 
-所有这些逼近方法本质上都是用多项式函数来近似我们要计算的三角函数，计算过程中必然要涉及到大量的浮点运算。在缺乏硬件乘法器
-的简单设备上（比如没有浮点运算单元的单片机），用这些方法来计算三角函数会非常的费时。为了解决这个问题，J. Volder于1959年
-提出了一种快速算法，称之为cordic(coordinate rotation digital computer) 算法，这个算法只利用移位和加减运算，就能计算常用
-三角函数值，如sin，cos，sinh，cosh等函数。 J. Walther在1974年在这种算法的基础上进一步改进，使其可以计算出多种超越函数，
-更大的扩展了cordic 算法的应用。因为cordic 算法只用了移位和加法，很容易用纯硬件来实现，因此我们常能在fpga运算平台上见到它
-的身影。不过，大多数的软件程序员们都没有听说过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是在没有
-浮点运算指令的嵌入式平台（比如定点型dsp）上做开发时，还是会遇上可以用到cordic 算法的情况的，所以掌握基本的cordic算法还是
-有用的。 
+<p>一般无约束优化问题f(x)，只需要求f的各个偏导数，并令其等于0，就可以解出所需
+要的极值，但是如果参入了约束条件，则不能这样做。然而拉格朗日乘子法可以将约
+束条件融合进去使之成为一个类似无约束的优化问题，如此就可以比较方便的解决问
+题。欲求n元函数\(f(x_{1}, x_{2}, ..., x_{n})\)在如下m个约束条件(m&lt;n). 
+$$
+\begin{cases}
+y_{1}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
+y_{2}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
+...\\
+y_{m}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
+\end{cases}
+$$ 
+拉格朗日方法是以\(1, C_{1}, C_{2}, ..., C_{m}\)这些未知常数顺次乘以\(f,
+y_{1}, y_{2}...\)并把它们加起来，得到新的函数F，即
+$$F(x_{1},..., x_{n})=f(x_{1}, ..., x_{n})+C_{1}y_{1}(x_{1}...x_{n})+...$$
+注意到约束条件的各个函数都是0，所以新函数F达到极值与原函数f达到极值时自变量
+的值是相同的。函数F既然是各个x的函数，它达到极值时必然是对各个自变量x的偏微
+分分别等于0.这样，求多个偏微分以后就得到n个新的方程。
+$$
+\begin{cases}
+\frac{\partial{f}}{\partial{x_{1}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{1}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{1}}}=0\\
+...\\
+\frac{\partial{f}}{\partial{x_{n}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{n}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{n}}}=0\\
+\end{cases}
+$$ 
+显然，这n个方程式已经巧妙的把约束条件融合到求解的要求中。上面n个方程再加上
+约束条件的m个方程式，就可以解出n+m个未知数，即n个x，m个C。这样就得到了这个
+函数达到极值时的各自变量x的值，可以看到约束条件不同，得到的各个x值也不同。 
 </p></div>
 
 </div>
 
-<div id="outline-container-2-3-2" class="outline-5">
-<h5 id="sec-2-3-2"><span class="section-number-5">2.3.2</span> 从二分查找法说起</h5>
-<div class="outline-text-5" id="text-2-3-2">
+<div id="outline-container-2-3-4" class="outline-4">
+<h4 id="sec-2-3-4"><span class="section-number-4">2.3.4</span> KKT条件</h4>
+<div class="outline-text-4" id="text-2-3-4">
 
-<p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），如何求的在极坐标系下的坐标（ρ,θ）。用计算器
-计算一下可知答案是（223.61，63.435），见图<a href="#img-cordic1">img-cordic1</a>所示。
+<p>KKT条件是作为最优化问题的约束条件的。所谓的KKT指Karush-Kuhn-Tucker三人提出
+的数学问题。就是指求得如下问题的极值x'
+$$
+\begin{cases}
+min f(x) \\
+s.t. & h_{j}(x)=0, j=1, ..., p\\
+     & g_{k}(x)<=0, k=1, ..., q\\
+     & x \in X \subset R^{n}\\
+\end{cases}
+$$ 
+其中s.t. 指subject to，意思是约束于。求此极值等效于x'满足如下3个条件的问题
+$$
+\begin{cases}
+1 & h_{j}(x')=0, j=1, ..., p\\
+2 & g_{k}(x')<=0, k=1, ..., q\\
+3 & \bigtriangledown{f(x')}+\sum_{j=1}^{p}\lambda_{j}\bigtriangledown{h_{j}(x')}+\sum_{k=1}^{q}u_{k}\bigtriangledown{g_{k}(x')}=0\\
+4 & \lambda_{j}\ne 0, u_{k}\geq 0, u_{k}g_{k}(x')=0\\
+\end{cases}
+$$  
+第1和2项是说最优点x'必须满足所有等式和不等式的限制条件，第3项表明x'可以让
+\(\bigtriangledown{f}\)是\(\bigtriangledown{h_{j}}\)和
+\(\bigtriangledown{g_{k}}\)的线性组合，其中\(\lambda_{j}\)和u<sub>k</sub>都叫做拉格
+朗日乘子，所不同的是不等式限制条件有方向性，所有的u<sub>k</sub>必须是大于等于0，而
+等式限制条件没有方向性。
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> cordic算法</h3>
+<div class="outline-text-3" id="text-2-4">
+
+
+</div>
+
+<div id="outline-container-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 背景</h4>
+<div class="outline-text-4" id="text-2-4-1">
+
+<p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计
+算任意角度的三角函数的值。这种表格在人们刚刚产生三角函数的概念的时候就已经
+有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式
+而生成。现在有了计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨
+根问底的人，不禁要问计算机又是如何计算三角函数值的呢。最容易想到的办法就是
+利用级数展开，比如泰勒级数来逼近三角函数，只要项数取得足够多就能以任意的精
+度来逼近函数值。除了泰勒级数逼近之外，还有其他许多的逼近方法，比如切比雪夫
+逼近、最佳一致逼近和Padé逼近等。所有这些逼近方法本质上都是用多项式函数来近
+似我们要计算的三角函数，计算过程中必然要涉及到大量的浮点运算。在缺乏硬件乘
+法器的简单设备上（比如没有浮点运算单元的单片机），用这些方法来计算三角函数
+会非常的费时。为了解决这个问题，J. Volder于1959年提出了一种快速算法，称之为
+cordic(coordinate rotation digital computer) 算法，这个算法只利用移位和加减
+运算，就能计算常用三角函数值，如sin，cos，sinh，cosh等函数。 J. Walther在
+1974年在这种算法的基础上进一步改进，使其可以计算出多种超越函数，更大的扩展
+了cordic 算法的应用。因为cordic 算法只用了移位和加法，很容易用纯硬件来实现，
+因此我们常能在fpga运算平台上见到它的身影。不过，大多数的软件程序员们都没有
+听说过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是
+在没有浮点运算指令的嵌入式平台（比如定点型dsp）上做开发时，还是会遇上可以用
+到cordic 算法的情况的，所以掌握基本的cordic算法还是有用的。  
+</p></div>
+
+</div>
+
+<div id="outline-container-2-4-2" class="outline-4">
+<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 从二分查找法说起</h4>
+<div class="outline-text-4" id="text-2-4-2">
+
+<p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），
+如何求的在极坐标系下的坐标（ρ,θ）。用计算器计算一下可知答案是（223.61，
+63.435），见图<a href="#img-cordic1">img-cordic1</a>所示。 
 </p>
 <div id="img-cordic1" class="figure">
 <p><img src="./img/cordic1.jpg"  alt="./img/cordic1.jpg" /></p>
 <p>直角坐标系到极坐标系的转换</p>
 </div>
 <p>
-为了突出重点，这里我们只讨论X和Y都为正数的情况。这时\(θ=atan(y/x)\)。求θ的过程也就是求atan 函数的过程。cordic算法采用
-的想法很直接，将（X，Y）旋转一定的度数，如果旋转完纵坐标变为了0，那么旋转的度数就是θ。坐标旋转的公式可能大家都忘了，这
-里把公式列出了。设（x,y）是原始坐标点，将其以原点为中心，顺时针旋转θ之后的坐标记为（x’,y’）,则有如下公式：
+为了突出重点，这里我们只讨论X和Y都为正数的情况。这时\(θ=atan(y/x)\)。求θ
+的过程也就是求atan 函数的过程。cordic算法采用的想法很直接，将（X，Y）旋转一
+定的度数，如果旋转完纵坐标变为了0，那么旋转的度数就是θ。坐标旋转的公式可能
+大家都忘了，这里把公式列出了。设（x,y）是原始坐标点，将其以原点为中心，顺时
+针旋转θ之后的坐标记为（x’,y’）,则有如下公式： 
 $$ f(x)=\left\{
 \begin{aligned}
 x' & = & x\cos(\Theta) + ysin(\Theta) \\
@@ -493,25 +597,32 @@ y' & = & -x\sin(\Theta) + ycos(\Theta) \\
 $$
 也可以写成矩阵形式：
 $$ {x' \choose y'}={cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)}{x \choose y} $$
-如何旋转呢，可以借鉴二分查找法的思想。我们知道θ的范围是0到90度。那么就先旋转45度试试。
+如何旋转呢，可以借鉴二分查找法的思想。我们知道θ的范围是0到90度。那么就先旋
+转45度试试。 
 $$ {212.13 \choose 70.711} = {cos(45^{\circ}) \quad sin(45^{\circ}) \choose -sin(45^{\circ}) \quad cos(45^{\circ})}{100 \choose 200}$$ 
-旋转之后纵坐标为70.71，还是大于0，说明旋转的度数不够，接着再旋转22.5度（45度的一半）。
+旋转之后纵坐标为70.71，还是大于0，说明旋转的度数不够，接着再旋转22.5度（45
+度的一半）。 
 $${223.04 \choose -15.85} = {cos(45^{\circ}/2) \quad sin(45^{\circ}/2) \choose -sin(45^{\circ}/2) \quad cos(45^{\circ}/2)} {212.13 \choose 70.711} $$ 
-这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ&lt;67.5度，这时就要往回转，还是二分查找法的思想，这次转11.25度。
+这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ&lt;67.5度，这时就要
+往回转，还是二分查找法的思想，这次转11.25度。 
 $${221.85 \choose 27.967} = {cos(-45^{\circ}/4) \quad sin(-45^{\circ}/4) \choose -sin(-45^{\circ}/4) \quad cos(-45^{\circ}/4)} {223.04 \choose -15.851} $$ 
-这时总共旋转了45+22.5-11.25=56.25度。又转过头了，接着旋转，这次顺时针转5.625度。
+这时总共旋转了45+22.5-11.25=56.25度。又转过头了，接着旋转，这次顺时针转
+5.625度。 
 $${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -sin(45^{\circ}/8) \quad cos(45^{\circ}/8)} {221.85 \choose 27.967} $$ 
-这时总共旋转了45+22.5-11.25+5.625=61.875度。这时纵坐标已经很接近0了。我们只是说明算法的思想，因此就不接着往下计算了。计
-算到这里我们给的答案是 61.875±5.625。二分查找法本质上查找的是一个区间，因此我们给出的是θ值的一个范围。同时，坐标到原点
-的距离ρ也求出来了，ρ=223.52。与标准答案比较一下计算的结果还是可以的。旋转的过程图示如<a href="#img-trans">img-trans</a>。
+这时总共旋转了45+22.5-11.25+5.625=61.875度。这时纵坐标已经很接近0了。我们只
+是说明算法的思想，因此就不接着往下计算了。计算到这里我们给的答案是
+61.875±5.625。二分查找法本质上查找的是一个区间，因此我们给出的是θ值的一个
+范围。同时，坐标到原点的距离ρ也求出来了，ρ=223.52。与标准答案比较一下计算
+的结果还是可以的。旋转的过程图示如<a href="#img-trans">img-trans</a>。 
 </p>
 <div id="img-trans" class="figure">
 <p><img src="./img/cordic2.jpg"  alt="./img/cordic2.jpg" /></p>
 <p>旋转过程图</p>
 </div>
 <p>
-可能有读者会问，计算中用到了sin函数和cos函数，这些值又是怎么计算呢。很简单，我们只用到很少的几个特殊点的sin 函数和
-cos 函数的值，提前计算好存起来，用时查表。
+可能有读者会问，计算中用到了sin函数和cos函数，这些值又是怎么计算呢。很简单，
+我们只用到很少的几个特殊点的sin 函数和cos 函数的值，提前计算好存起来，用时
+查表。 
 </p>
 
 
@@ -597,17 +708,20 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-2-3-3" class="outline-5">
-<h5 id="sec-2-3-3"><span class="section-number-5">2.3.3</span> 减少乘法运算</h5>
-<div class="outline-text-5" id="text-2-3-3">
+<div id="outline-container-2-4-3" class="outline-4">
+<h4 id="sec-2-4-3"><span class="section-number-4">2.4.3</span> 减少乘法运算</h4>
+<div class="outline-text-4" id="text-2-4-3">
 
-<p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法运算，运算量还是太大了。还需要进一步的改
-进。改进的切入点当然还是坐标变换的过程。我们将坐标变换公式变一下形。
+<p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法
+运算，运算量还是太大了。还需要进一步的改进。改进的切入点当然还是坐标变换的
+过程。我们将坐标变换公式变一下形。 
 $${x' \choose y'} = {cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)} {x \choose y} = cos(\Theta){1
 \quad tan(\Theta) \choose -tan(\Theta) \quad 1}{x \choose y}$$ 
-可以看出 cos(θ)可以从矩阵运算中提出来。我们可以做的再彻底些，直接把 cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋
-转后的新坐标点到原点的距离都变长了，放缩的系数是1/cos(θ)。不过没有关系，我们求的是θ，不关心ρ的改变。这样的变形非常的
-简单，但是每次循环的运算量一下就从4次乘法降到了2次乘法了。还是给出 C 语言的实现：
+可以看出 cos(θ)可以从矩阵运算中提出来。我们可以做的再彻底些，直接把
+cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋转后的新坐标点到原点的距
+离都变长了，放缩的系数是1/cos(θ)。不过没有关系，我们求的是θ，不关心ρ的改
+变。这样的变形非常的简单，但是每次循环的运算量一下就从4次乘法降到了2次乘法
+了。还是给出 C 语言的实现： 
 </p>
 
 
@@ -677,19 +791,22 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-2-3-4" class="outline-5">
-<h5 id="sec-2-3-4"><span class="section-number-5">2.3.4</span> 消除乘法运算</h5>
-<div class="outline-text-5" id="text-2-3-4">
+<div id="outline-container-2-4-4" class="outline-4">
+<h4 id="sec-2-4-4"><span class="section-number-4">2.4.4</span> 消除乘法运算</h4>
+<div class="outline-text-4" id="text-2-4-4">
 
-<p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要从计算式入手。第一次循环时，tan(45)=1，所以第
-一次循环实际上是不需要乘法运算的。第二次运算呢？ 
-tan(22.5)=0.4142135623731,很不幸，第二次循环乘数是个很不整的小数。是否能对其改造一下呢？答案是肯定的。第二次选择22.5度是
-因为二分查找法的查找效率最高。如果选用个在22.5到45度之间的值，查找的效率会降低一些。如果稍微降低一点查找的效率能让我们有
-效的减少乘法的次数，使最终的计算速度提高了，那么这种改进就是值得的。 
-我们发现tan(26.565051177078)=0.5，如果我们第二次旋转采用26.565051177078度，那么乘数变为0.5，如果我们采用定点数运算的话
-（没有浮点协处理器时为了加速计算我们会大量的采用定点数算法）乘以0.5就相当于将乘数右移一位。右移运算是很快的，这样第二次
-循环中的乘法运算也被消除了。类似的方法，第三次循环中不用11.25度，而采用 14.0362434679265 度。tan(14.0362434679265)= 1/4  
-乘数右移两位就可以了。剩下的都以此类推。
+<p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要
+从计算式入手。第一次循环时，tan(45)=1，所以第一次循环实际上是不需要乘法运算
+的。第二次运算呢？tan(22.5)=0.4142135623731,很不幸，第二次循环乘数是个很不
+整的小数。是否能对其改造一下呢？答案是肯定的。第二次选择22.5度是因为二分查
+找法的查找效率最高。如果选用个在22.5到45度之间的值，查找的效率会降低一些。
+如果稍微降低一点查找的效率能让我们有效的减少乘法的次数，使最终的计算速度提
+高了，那么这种改进就是值得的。我们发现tan(26.565051177078)=0.5，如果我们第
+二次旋转采用26.565051177078度，那么乘数变为0.5，如果我们采用定点数运算的话
+（没有浮点协处理器时为了加速计算我们会大量的采用定点数算法）乘以0.5就相当于
+将乘数右移一位。右移运算是很快的，这样第二次循环中的乘法运算也被消除了。类
+似的方法，第三次循环中不用11.25度，而采用 14.0362434679265 度。
+tan(14.0362434679265)= 1/4 乘数右移两位就可以了。剩下的都以此类推。 
 </p>
 
 
@@ -705,8 +822,10 @@ tan(0.2238105003685)= 1/256
 </pre>
 
 <p>
-还是给出C语言的实现代码，我们采用循序渐进的方法，先给出浮点数的实现（因为用到了浮点数，所以并没有减少乘法运算量，查找的
-效率也比二分查找法要低，理论上说这个算法实现很低效。不过这个代码的目的在于给出算法实现的示意性说明，还是有意义的）。
+还是给出C语言的实现代码，我们采用循序渐进的方法，先给出浮点数的实现（因为用
+到了浮点数，所以并没有减少乘法运算量，查找的效率也比二分查找法要低，理论上
+说这个算法实现很低效。不过这个代码的目的在于给出算法实现的示意性说明，还是
+有意义的）。 
 </p>
 
 
@@ -893,19 +1012,21 @@ z = 16238
 </pre>
 
 <p>
-16238/256=63.4296875度，精确的结果是63.4349499度，两个结果的差为0.00526，还是很精确的。
-到这里cordic算法的最核心的思想就介绍完了。当然，这里介绍的只是cordic算法最基本的内容，实际上，利用cordic 算法不光可以
-计算 atan 函数，其他的像 sin，cos，sinh，cosh 等一系列的函数都可以计算，不过那些都不在本文的讨论范围内了。另外，每次旋转
-时到原点的距离都会发生变化，而这个变化是确定的，因此可以在循环运算结束后以此补偿回来，这样的话我们就同时将（ρ,θ）都计
-算出来了。 
+16238/256=63.4296875度，精确的结果是63.4349499度，两个结果的差为0.00526，还
+是很精确的。到这里cordic算法的最核心的思想就介绍完了。当然，这里介绍的只是
+cordic算法最基本的内容，实际上，利用cordic 算法不光可以计算 atan 函数，其他
+的像 sin，cos，sinh，cosh 等一系列的函数都可以计算，不过那些都不在本文的讨
+论范围内了。另外，每次旋转时到原点的距离都会发生变化，而这个变化是确定的，
+因此可以在循环运算结束后以此补偿回来，这样的话我们就同时将（ρ,θ）都计算出
+来了。  
 </p></div>
 </div>
 
 </div>
 
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> k临近算法</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> k临近算法</h3>
+<div class="outline-text-3" id="text-2-5">
 
 <p>K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
 签大体是由这些电影中所含的打斗场景和接吻场景次数(特征)决定。现在有一部电影
@@ -975,16 +1096,16 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 
 </div>
 
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 决策树</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 决策树</h3>
+<div class="outline-text-3" id="text-2-6">
 
 
 </div>
 
-<div id="outline-container-2-5-1" class="outline-5">
-<h5 id="sec-2-5-1"><span class="section-number-5">2.5.1</span> 信息熵</h5>
-<div class="outline-text-5" id="text-2-5-1">
+<div id="outline-container-2-6-1" class="outline-5">
+<h5 id="sec-2-6-1"><span class="section-number-5">2.6.1</span> 信息熵</h5>
+<div class="outline-text-5" id="text-2-6-1">
 
 <p>信息熵用来衡量信息量的大小
 </p><ul>
@@ -1013,9 +1134,9 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-2-5-2" class="outline-5">
-<h5 id="sec-2-5-2"><span class="section-number-5">2.5.2</span> 算法逻辑</h5>
-<div class="outline-text-5" id="text-2-5-2">
+<div id="outline-container-2-6-2" class="outline-5">
+<h5 id="sec-2-6-2"><span class="section-number-5">2.6.2</span> 算法逻辑</h5>
+<div class="outline-text-5" id="text-2-6-2">
 
 <p>构建决策树的过程，就是减小信息熵，减小不确定性。从而完整构造决策树模型。所
 以我们需要在每一次选择分支属性时，计算这样分类所带来的信息熵的增益，增益越
@@ -1039,16 +1160,16 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-2-5-3" class="outline-5">
-<h5 id="sec-2-5-3"><span class="section-number-5">2.5.3</span> 算法实例</h5>
-<div class="outline-text-5" id="text-2-5-3">
+<div id="outline-container-2-6-3" class="outline-5">
+<h5 id="sec-2-6-3"><span class="section-number-5">2.6.3</span> 算法实例</h5>
+<div class="outline-text-5" id="text-2-6-3">
 
 
 </div>
 
-<div id="outline-container-2-5-3-1" class="outline-6">
-<h6 id="sec-2-5-3-1"><span class="section-number-6">2.5.3.1</span> 计算香农熵</h6>
-<div class="outline-text-6" id="text-2-5-3-1">
+<div id="outline-container-2-6-3-1" class="outline-6">
+<h6 id="sec-2-6-3-1"><span class="section-number-6">2.6.3.1</span> 计算香农熵</h6>
+<div class="outline-text-6" id="text-2-6-3-1">
 
 <p>根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
 性和一个标签，即某个标签具有若干属性，每个标签和属性都有若干值。以某个标签
@@ -1081,9 +1202,9 @@ def calcShannonEnt(dataSet):
 
 </div>
 
-<div id="outline-container-2-5-3-2" class="outline-6">
-<h6 id="sec-2-5-3-2"><span class="section-number-6">2.5.3.2</span> 划分数据集</h6>
-<div class="outline-text-6" id="text-2-5-3-2">
+<div id="outline-container-2-6-3-2" class="outline-6">
+<h6 id="sec-2-6-3-2"><span class="section-number-6">2.6.3.2</span> 划分数据集</h6>
+<div class="outline-text-6" id="text-2-6-3-2">
 
 <p>指按照给定的特征以及特征的值提取出这样的数据集。代码
 </p>
@@ -1108,9 +1229,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-5-3-3" class="outline-6">
-<h6 id="sec-2-5-3-3"><span class="section-number-6">2.5.3.3</span> 选择最好的划分</h6>
-<div class="outline-text-6" id="text-2-5-3-3">
+<div id="outline-container-2-6-3-3" class="outline-6">
+<h6 id="sec-2-6-3-3"><span class="section-number-6">2.6.3.3</span> 选择最好的划分</h6>
+<div class="outline-text-6" id="text-2-6-3-3">
 
 <p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
 熵(按样本标签计算)。然后按照该特征下每个特征值占的比例计算该特征的香农熵总
@@ -1150,9 +1271,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-5-3-4" class="outline-6">
-<h6 id="sec-2-5-3-4"><span class="section-number-6">2.5.3.4</span> 构造决策树</h6>
-<div class="outline-text-6" id="text-2-5-3-4">
+<div id="outline-container-2-6-3-4" class="outline-6">
+<h6 id="sec-2-6-3-4"><span class="section-number-6">2.6.3.4</span> 构造决策树</h6>
+<div class="outline-text-6" id="text-2-6-3-4">
 
 <p>采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
 是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
@@ -1192,9 +1313,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 贝叶斯分类</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 贝叶斯分类</h3>
+<div class="outline-text-3" id="text-2-7">
 
 <p>贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
 量，这样不同的特征向量构成特征向量集合v<sub>j</sub>, 当我们获得新的特征向量v时，需
@@ -1236,17 +1357,17 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 支持向量机(SVM)</h3>
-<div class="outline-text-3" id="text-2-7">
-
-</div>
-
-</div>
-
 <div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 回归分析</h3>
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 支持向量机(SVM)</h3>
 <div class="outline-text-3" id="text-2-8">
+
+</div>
+
+</div>
+
+<div id="outline-container-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 回归分析</h3>
+<div class="outline-text-3" id="text-2-9">
 
 <p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
@@ -1296,9 +1417,9 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-2-8-1" class="outline-5">
-<h5 id="sec-2-8-1"><span class="section-number-5">2.8.1</span> 线性回归</h5>
-<div class="outline-text-5" id="text-2-8-1">
+<div id="outline-container-2-9-1" class="outline-5">
+<h5 id="sec-2-9-1"><span class="section-number-5">2.9.1</span> 线性回归</h5>
+<div class="outline-text-5" id="text-2-9-1">
 
 <p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
 大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
@@ -1321,9 +1442,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-8-2" class="outline-5">
-<h5 id="sec-2-8-2"><span class="section-number-5">2.8.2</span> 逻辑回归</h5>
-<div class="outline-text-5" id="text-2-8-2">
+<div id="outline-container-2-9-2" class="outline-5">
+<h5 id="sec-2-9-2"><span class="section-number-5">2.9.2</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-2-9-2">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
@@ -1336,9 +1457,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 神经网络</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 神经网络</h3>
+<div class="outline-text-3" id="text-2-10">
 
 <p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
 </p><ul>
@@ -1371,9 +1492,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-9-1" class="outline-4">
-<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 概念</h4>
-<div class="outline-text-4" id="text-2-9-1">
+<div id="outline-container-2-10-1" class="outline-4">
+<h4 id="sec-2-10-1"><span class="section-number-4">2.10.1</span> 概念</h4>
+<div class="outline-text-4" id="text-2-10-1">
 
 <ul>
 <li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
@@ -1392,9 +1513,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-9-2" class="outline-4">
-<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> 感知机</h4>
-<div class="outline-text-4" id="text-2-9-2">
+<div id="outline-container-2-10-2" class="outline-4">
+<h4 id="sec-2-10-2"><span class="section-number-4">2.10.2</span> 感知机</h4>
+<div class="outline-text-4" id="text-2-10-2">
 
 <p>感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
 成两类的，并且数据要线性可分的情况。线性可分是指存在一个超平面能够将空间分
@@ -1435,8 +1556,9 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 <h2 id="sec-3"><span class="section-number-2">3</span> 图像处理</h2>
 <div class="outline-text-2" id="text-3">
 
-<p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方法产生), 采用等距离矩形网格采样，对幅度进行等
-间隔量化。至此一副数字图像是一个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。
+<p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方
+法产生), 采用等距离矩形网格采样，对幅度进行等间隔量化。至此一副数字图像是一
+个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。 
 </p>
 </div>
 
@@ -1445,18 +1567,20 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 <div class="outline-text-3" id="text-3-1">
 
 <ul>
-<li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过程是显示；
+<li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过
+  程是显示； 
 </li>
 <li>扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；
 </li>
-<li>采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器来完成，将每个像素处的亮度转换成与其成正比的电
-  压值；
+<li>采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器
+  来完成，将每个像素处的亮度转换成与其成正比的电压值； 
 </li>
 <li>量化：是将测量的灰度值用一个整数表示，离散化；
 </li>
 <li>对比度：是指一幅图像中灰度反差的大小；
 </li>
-<li>灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，其灰度级为256；
+<li>灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，
+  其灰度级为256； 
 </li>
 <li>采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
 </li>
@@ -1669,7 +1793,7 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-08-01 13:39:14 中国标准时间</p>
+<p class="date">Date: 2016-08-17 18:52:06 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

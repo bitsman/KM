@@ -67,6 +67,205 @@
 - velocity：速度；
 - assess：评估、评价；
 - kinematic：运动学的、运动的；
+- acceptance testing (WAT: wafer acceptance testing) 
+- acceptor: 受主，如B，掺入Si中需要接受电子 
+- access：一个EDA（Engineering Data Analysis）系统 
+- acid：酸 
+- active device：有源器件，如MOS FET（非线性，可以对信号放大） 
+- align mark(key)：对位标记 
+- alloy：合金 
+- aluminum：铝 
+- ammonia：氨水 
+- ammonium fluoride：NH4F 
+- ammonium hydroxide：NH4OH 
+- amorphous silicon：α-Si，非晶硅（不是多晶硅） 
+- analog：模拟的 
+- angstrom：A（1E-10m）埃 
+- anisotropic：各向异性（如POLY ETCH） 
+- antimony(Sb)锑 
+- argon(Ar)氩 
+- arsenic(As)砷 
+- arsenic trioxide(As2O3)三氧化二砷 
+- arsine(AsH3) 
+- asher：去胶机 
+- aspect ration：形貌比（ETCH中的深度、宽度比） 
+- autodoping：自搀杂（外延时SUB的浓度高，导致有杂质蒸发到环境中后，又回掺到外延层） 
+- back end：后段（CONTACT以后、PCM测试前） 
+- baseline：标准流程 
+- benchmark：基准 
+- bipolar：双极 
+- boat：扩散用（石英）舟 
+- character window：特征窗口。用文字或数字描述的包含工艺所有特性的一个方形区域。 
+- chemical-mechanical polish（CMP）：化学机械抛光法。一种去掉圆片表面某种物质的方法。 
+- chemical vapor deposition（CVD）：化学汽相淀积。一种通过化学反应生成一层薄膜的工艺。 
+- chip：碎片或芯片。 
+- circuit design ：电路设计。一种将各种元器件连接起来实现一定功能的技术。 
+- cleanroom：一种在温度，湿度和洁净度方面都需要满足某些特殊要求的特定区域。 
+- compensation doping：补偿掺杂。向P型半导体掺入施主杂质或向N型掺入受主杂质。 
+- computer-aided design（CAD）：计算机辅助设计。 
+- conductivity type：传导类型，由多数载流子决定。在N型材料中多数载流子是电子，在P型材料中多数载流子是空穴。 
+- contact：孔。在工艺中通常指孔1，即连接铝和硅的孔。 
+- control chart：控制图。一种用统计数据描述的可以代表工艺某种性质的曲线图表。 
+- correlation：相关性。 
+- cycle time：圆片做完某段工艺或设定工艺段所需要的时间。通常用来衡量流通速度的快慢。 
+- damage：损伤。对于单晶体来说，有时晶格缺陷在表面处理后形成无法修复的变形也可以叫做损伤。 
+- defect density：缺陷密度。单位面积内的缺陷数。 
+- depletion implant：耗尽注入。一种在沟道中注入离子形成耗尽晶体管的注入工艺。（耗尽晶体管指在栅压为零的情况下有电流流过的晶体管。） 
+- depletion layer：耗尽层。可动载流子密度远低于施主和受主的固定电荷密度的区域。 
+- depletion width：耗尽宽度。53中提到的耗尽层这个区域的宽度。 
+- deposition：淀积。一种在圆片上淀积一定厚度的且不和下面层次发生化学反应的薄膜的一种方法。 
+- depth of focus（DOF）：焦深。 
+- design of experiments (DOE)：为了达到费用最小化、降低试验错误、以及保证数据结果的统计合理性等目的，所设计的初始工程批试验计划。 
+- develop：显影（通过化学处理除去曝光区域的光刻胶，形成所需图形的过程） 
+- developer：Ⅰ）显影设备； Ⅱ）显影液 
+- diborane (B2H6)：乙硼烷，一种无色、易挥发、有毒的可燃气体，常用来作为半导体生产中的硼源 
+- dichloromethane (CH2CL2)：二氯甲，一种无色，不可燃，不可爆的液体。 
+- dichlorosilane (DSC)：二氯甲硅烷，一种可燃，有腐蚀性，无色，在潮湿环境下易水解的物质，常用于硅外延或多晶硅的成长，以及用在沉积二氧化硅、氮化硅时的化学气氛中。 
+- die：硅片中一个很小的单位，包括了设计完整的单个芯片以及芯片邻近水平和垂直方向上的部分划片槽区域。 
+- dielectric：Ⅰ）介质，一种绝缘材料； Ⅱ）用于陶瓷或塑料封装的表面材料，可以提供电绝缘功能。 
+- diffused layer：扩散层，即杂质离子通过固态扩散进入单晶硅中，在临近硅表面的区域形成与衬底材料反型的杂质离子层。 
+- disilane (Si2H6)：乙硅烷，一种无色、无腐蚀性、极易燃的气体，燃烧时能产生高火焰，暴露在空气中会自燃。在生产光电单元时，乙硅烷常用于沉积多晶硅薄膜。 
+- drive-in：推阱，指运用高温过程使杂质在硅片中分布扩散。 
+- dry etch：干刻，指采用反应气体或电离气体除去硅片某一层次中未受保护区域的混合了物理腐蚀及化学腐蚀的工艺过程。 
+- effective layer thickness：有效层厚，指在外延片制造中，载流子密度在规定范围内的硅锭前端的深度。 
+- epitaxial layer：外延层。半导体技术中，在决定晶向的基质衬底上生长一层单晶半导 体材料，这一单晶半导体层即为外延层。 
+- equipment downtime：设备状态异常以及不能完成预定功能的时间。 
+- etch：腐蚀，运用物理或化学方法有选择的去除不需的区域。 
+- exposure：曝光，使感光材料感光或受其他辐射材料照射的过程。 
+- fab：常指半导体生产的制造工厂。 
+- feature size：特征尺寸，指单个图形的最小物理尺寸。 
+- field-effect transistor（FET）：场效应管。包含源、漏、栅、衬四端，由源经栅到漏的多子流驱动而工作，多子流由栅下的横向电场控制。 
+- film：薄膜，圆片上的一层或多层迭加的物质。 
+- flat：平边 
+- flatband capacitanse：平带电容 
+- flatband voltage：平带电压 
+- flow coefficicent：流动系数 
+- flow velocity：流速计 
+- flow volume：流量计 
+- flux：单位时间内流过给定面积的颗粒数 
+- forbidden energy gap：禁带 
+- four-point probe：四点探针台 
+- functional area：功能区 
+- gate oxide：栅氧 
+- glass transition temperature：玻璃态转换温度 
+- gowning：净化服 
+- gray area：灰区 
+- grazing incidence interferometer：切线入射干涉仪 
+- hard bake：后烘 
+- heteroepitaxy：单晶长在不同材料的衬底上的外延方法 
+- high-current implanter：束电流大于3ma的注入方式，用于批量生产 
+- hign-efficiency particulate air(HEPA) filter：高效率空气颗粒过滤器，去掉99.97%的大于0.3um的颗粒 
+- host：主机 
+- hot carriers：热载流子 
+- hydrophilic：亲水性 
+- hydrophobic：疏水性 
+- impurity：杂质 
+- inductive coupled plasma(ICP)：感应等离子体 
+- inert gas：惰性气体 
+- initial oxide：一氧 
+- insulator：绝缘 
+- isolated line：隔离线 
+- implant : 注入 
+- impurity n : 掺杂 
+- junction : 结 
+- junction spiking n :铝穿刺 
+- kerf :划片槽 
+- landing pad n AD 
+- lithography n 制版 
+- maintainability, equipment : 设备产能 
+- maintenance n :保养 
+- majority carrier n :多数载流子 
+- masks, device series of n : 一成套光刻版 
+- material n :原料 
+- matrix n 1 :矩阵 
+- mean n : 平均值 
+- measured leak rate n :测得漏率 
+- median n :中间值 
+- memory n : 记忆体 
+- metal n :金属 
+- nanometer (nm) n ：纳米 
+- nanosecond (ns) n ：纳秒 
+- nitride etch n ：氮化物刻蚀 
+- nitrogen (N2 ) n： 氮气，一种双原子气体 
+- n-type adj ：n型 
+- ohms per square n：欧姆每平方: 方块电阻 
+- orientation n： 晶向，一组晶列所指的方向 
+- overlap n ： 交迭区 
+- oxidation n ：氧化，高温下氧气或水蒸气与硅进行的化学反应 
+- phosphorus (P) n ：磷 ，一种有毒的非金属元素 
+- photomask n ：光刻版，用于光刻的版 
+- photomask, negative n：反刻 
+- images：去掉图形区域的版 
+- photomask, positive n：正刻 
+- pilot n ：先行批，用以验证该工艺是否符合规格的片子 
+- plasma n ：等离子体，用于去胶、刻蚀或淀积的电离气体 
+- plasma-enhanced chemical vapor deposition (PECVD) n： 等离子体化学气相淀积，低温条件下的等离子淀积工艺 
+- plasma-enhanced TEOS oxide deposition n：TEOS淀积，淀积TEOS的一种工艺 
+- pn junction n：pn结 
+- pocked bead n：麻点，在20X下观察到的吸附在低压表面的水珠 
+- polarization n：偏振，描述电磁波下电场矢量方向的术语 
+- polycide n：多晶硅 /金属硅化物， 解决高阻的复合栅结构 
+- polycrystalline silicon (poly) n：多晶硅，高浓度掺杂（> 5E19）的硅，能导电。 
+- polymorphism n：多态现象，多晶形成一种化合物以至少两种不同的形态结晶的现象 
+- prober n :探针。在集成电路的电流测试中使用的一种设备，用以连接圆片和检测设备。 
+- process control n :过程控制。半导体制造过程中，对设备或产品规范的控制能力。 
+- proximity X-ray n :近X射线：一种光刻技术，用X射线照射置于光刻胶上方的掩 膜版，从而使对应的光刻胶暴光。 
+- pure water n : 纯水。半导体生产中所用之水。 
+- quantum device n :量子设备。一种电子设备结构，其特性源于电子的波动性。 
+- quartz carrier n :石英舟。 
+- random access memory (RAM) n :随机存储器。 
+- random logic device n :随机逻辑器件。 
+- rapid thermal processing (RTP) n :快速热处理(RTP)。 
+- reactive ion etch (RIE) n : 反应离子刻蚀(RIE)。 
+- reactor n :反应腔。反应进行的密封隔离腔。 
+- recipe n :菜单。生产过程中对圆片所做的每一步处理规范。 
+- resist n :光刻胶。 
+- scanning electron microscope (SEM) n :电子显微镜(SEM)。 
+- scheduled downtime n : (设备)预定停工时间。 
+- Schottky barrier diodes n :肖特基二极管。 
+- scribe line n :划片槽。 
+- sacrificial etchback n :牺牲腐蚀。 
+- semiconductor n :半导体。电导性介于导体和绝缘体之间的元素。 
+- sheet resistance (Rs) (or per square) n :薄层电阻。一般用以衡量半导体表面杂质掺杂水平。 
+- side load: 边缘载荷，被弯曲后产生的应力。 
+- silicon on sapphire(SOS)epitaxial wafer:外延是蓝宝石衬底硅的原片 
+- small scale integration(SSI):小规模综合，在单一模块上由2到10个图案的布局。 
+- source code:原代码，机器代码编译者使用的，输入到程序设计语言里或编码器的代码。 
+- spectral line: 光谱线，光谱镊制机或分光计在焦平面上捕捉到的狭长状的图形。 
+- spin webbing: 旋转带，在旋转过程中在下表面形成的细丝状的剩余物。 
+- sputter etch: 溅射刻蚀，从离子轰击产生的表面除去薄膜。 
+- stacking fault:堆垛层错，原子普通堆积规律的背离产生的2次空间错误。 
+- steam bath:蒸汽浴，一个大气压下，流动蒸汽或其他温度热源的暴光。 
+- step response time:瞬态特性时间，大多数流量控制器实验中，普通变化时段到气流刚 到达特定地带的那个时刻之间的时间。 
+- stepper: 步进光刻机（按BLOCK来曝光） 
+- stress test: 应力测试，包括特定的电压、温度、湿度条件。 
+- surface profile:表面轮廓，指与原片表面垂直的平面的轮廓（没有特指的情况下）。 
+- symptom:征兆，人员感觉到在一定条件下产生变化的弊病的主观认识。 
+- tack weld:间断焊，通常在角落上寻找预先有的地点进行的点焊（用于连接盖子）。 
+- Taylor tray:泰勒盘，褐拈土组成的高膨胀物质。 
+- temperature cycling:温度周期变化，测量出的重复出现相类似的高低温循环。 
+- testability:易测性，对于一个已给电路来说，哪些测试是适用它的。 
+- thermal deposition:热沉积，在超过950度的高温下，硅片引入化学掺杂物的过程。 
+- thin film:超薄薄膜，堆积在原片表面的用于传导或绝缘的一层特殊薄膜。 
+- titanium(Ti): 钛。 
+- toluene(C6H5CH3): 甲苯。有毒、无色易燃的液体，它不溶于水但溶于酒精和大气。 
+- 1,1,1-trichloroethane(TCA)(CL3CCH3): 有毒、不易燃、有刺激性气味的液态溶剂。这种混合物不溶于水但溶于酒精和大气。 
+- tungsten(W): 钨。 
+- tungsten hexafluoride(WF6): 氟化钨。无色无味的气体或者是淡黄色液体。在CVD中WF6用于淀积硅化物，也可用于钨传导的薄膜。 
+- tinning: 金属性表面覆盖焊点的薄层。 
+- total fixed charge density(Nth): 下列是硅表面不可动电荷密度的总和：氧化层固定电荷密度(Nf)、氧化层俘获的电荷的密度(Not)、界面负获得电荷密度(Nit)。 
+- watt(W): 瓦。能量单位。 
+- wafer flat: 从晶片的一面直接切下去，用于表明自由载流子的导电类型和晶体表面的晶向，也可用于在处理和雕合过程中的排列晶片。 
+- wafer process chamber(WPC): 对晶片进行工艺的腔体。 
+- well: 阱。 
+- wet chemical etch: 湿法化学腐蚀。 
+- trench: 深腐蚀区域，用于从另一区域隔离出一个区域或者在硅晶片上形成存储电容器。 
+- via: 通孔。使隔着电介质的上下两层金属实现电连接。 
+- window: 在隔离晶片中，允许上下两层实现电连接的绝缘的通道。 
+- torr : 托。压力的单位。 
+- vapor pressure: 当固体或液体处于平衡态时自己拥有的蒸汽所施加的压力。蒸汽压力是与物质和温度有关的函数。 
+- vacuum: 真空。 
+- transition metals: 过渡金属 
 * 缩写
 - IMU：inertial measurement units，惯性测量单元，常包含加速度和陀螺仪传感器； 
 - SVM: Support Vector Machine, 支持向量机；
@@ -79,3 +278,158 @@
 - MLE: maximum likelihood estimation，最大似然估计；
 - NLL：negative log likelihood，负对数似然, 也就是MLE取负；
 - OLS：ordinary least squares，普通最小二乘法；
+- CMOS：complementary metal oxide semiconductor的缩写。一种将PMOS和NMOS在同一个硅衬底上混合制造的工艺。 
+- CD： （Critical Dimension）临界（关键）尺寸。在工艺上通常指条宽，例如POLY CD 为多晶条宽。 
+- CIM：computer-integrated manufacturing的缩写。用计算机控制和监控制造工艺的一种综合方式。 
+- Cp：工艺能力，详见process capability。 
+- Cpk：工艺能力指数，详见process capability index。 
+- EM：electromigration，电子迁移，指由通过铝条的电流导致电子沿铝条连线进行的自扩散过程。 
+- ACA: Anisotropic Conductive Adhesive 各向异性导电胶 
+- ACAF: Anisotropic Conductive Adhesive Film各项异性导电胶膜 
+- Al: Aluminium 铝 
+- ALIVH: All Inner Via Hole 完全内部通孔 
+- AOI: Automatic Optial Inspection 自动光学检查 
+- ASIC: Application Specific Integrated Circuit 专用集成电路 
+- ATE: Automatic Test Equipment 自动监测设备 
+- AU: Gold 金 
+- BCB: Benzocyclohutene,Benzo Cyclo Butene 苯丙环丁烯 
+- BEO: Beryllium Oxide 氧化铍 
+- BIST: Built-In Self-Test(Function) 内建自测试(功能) 
+- BIT: Bipolar Transistor 双极晶体管 
+- BTAB: Bumped Tape Automated Bonding 凸点载带自动焊 
+- BGA: Ball Grid Array 焊球阵列 
+- BQFP: Quad Flat Package With Bumper 带缓冲垫的四边引脚扁平封装 
+- C4: Controlled Collapsed Chip Connection 可控塌陷芯片连接 
+- CAD: Computer Aided Design 计算机辅助设计 
+- CBGA: Ceramic Ball Grid Array 陶瓷焊球阵列 
+- CCGA: Ceramic Column Grid Array 陶瓷焊柱阵列 
+- CLCC: Ceramic Leaded Chip Carrier 带引脚的陶瓷片式载体 
+- CML: Current Mode Logic 电流开关逻辑 
+- CMOS: Complementary Metal-Oxide-Semiconductor 互补金属氧化物半导体 
+- COB: Chip on Board 板上芯片 
+- COC: Chip on Chip 叠层芯片 
+- COG: Chip on Glass 玻璃板上芯片 
+- CSP: Chip Size Package 芯片尺寸封装 
+- CTE: Coefficient of Thermal Expansion 热膨胀系数 
+- CVD: Chemical Vapor Depositon 化学汽相淀积 
+- DCA: Direct Chip Attach 芯片直接安装 
+- DFP: Dual Flat Package 双侧引脚扁平封装 
+- DIP: Double In-Line Package 双列直插式封装 
+- DMS: Direct Metallization System 直接金属化系统 
+- DRAM: Dynamic Random Access Memory 动态随机存取存贮器 
+- DSO: Dual Small Outline 双侧引脚小外形封装 
+- DTCP: Dual Tape Carrier Package 双载带封装 
+- 3D: Three-Dimensional 三维 
+- 2D: Two-Dimensional 二维 
+- EB: Electron Beam 电子束 
+- ECL: Emitter-Coupled Logic 射极耦合逻辑 
+- FC: Flip Chip 倒装片法 
+- FCB: Flip Chip Bonding 倒装焊 
+- FCOB: Flip Chip on Board 板上倒装片 
+- FEM: Finite Element Method 有限元法 
+- FP: Flat Package 扁平封装 
+- FPBGA: Fine Pitch Ball Grid Array 窄节距BGA 
+- FPD: Fine Pitch Device 窄节距器件 
+- FPPQFP: Fine Pitch Plastic QFP 窄节距塑料QFP 
+- GQFP: Guard-Ring Quad Flat Package 带保护环的QFP 
+- HDI: High Density Interconnect 高密度互连 
+- HDMI: High Density Multilayer Interconnect 高密度多层互连 
+- HIC: Hybird Integrated Circuit 混合集成电路 
+- HTCC: High Temperature Co-Fired Ceramic 高温共烧陶瓷 
+- HTS: High Temperature Storage 高温贮存 
+- IC: Integrated Circuit 集成电路 
+- IGBT: Insulated Gate Bipolar Transistor 绝缘栅双极晶体管 
+- ILB: Inner-Lead Bond 内引脚焊接 
+- I/O: Input/Output 输入/输出 
+- IVH: Inner Via Hole 内部通孔 
+- JLCC: J-Leaded Chip Carrier J形引脚片式载体 
+- KGD: Known Good Die 优质芯片 
+- LCC: Leadless Chip Carrier 无引脚片式载体 
+- LCCC: Leadless Ceramic Chip Carrier 无引脚陶瓷片式载体 
+- LCCP: Lead Chip Carrier Package 有引脚片式载体封装 
+- LCD: Liquid Crystal Display 液晶显示器 
+- LCVD: Laser Chemical Vapor Deposition 激光化学汽相淀积 
+- LDI: Laser Direct Imaging 激光直接成像 
+- LGA: Land Grid Array 焊区阵列 
+- LSI: Large Scale Integrated Circuit 大规模集成电路 
+- LOC: Lead Over Chip 芯片上引线健合 
+- LQFP: Low Profile QFP 薄形QFP 
+- LTCC: Low Temperature Co-Fired Ceramic 低温共烧陶瓷 
+- MBGA: Metal BGA 金属基板BGA 
+- MCA: Multiple Channel Access 多通道存取 
+- MCM: Multichip Module 多芯片组件 
+- MCM-C: MCM with Ceramic Substrate 陶瓷基板多芯片组件 
+- MCM-D: MCM with Deposited Thin Film Inteconnect Substrate 淀积薄膜互连基板多芯片组件 
+- MCM-L: MCM with Laminated Substrate 叠层基板多芯片组件 
+- MCP: Multichip Package 多芯片封装 
+- MELF: Metal Electrode Face Bonding 金属电极表面健合 
+- MEMS: Microelectro Mechanical System 微电子机械系统 
+- MFP: Mini Flat Package 微型扁平封装 
+- MLC: Multi-Layer Ceramic Package 多层陶瓷封装 
+- MMIC: Monolithic Microwave Integrated Circuit 微波单片集成电路 
+- MOSFET: Metal-Oxide-Silicon Field-Effect Transistor 金属氧化物半导体场效应晶体管 
+- MPU: Microprocessor Unit 微处理器 
+- MQUAD: Metal Quad 金属四列引脚 
+- MSI: Medium Scale Integration 中规模集成电路 
+- OLB: Outer Lead Bonding 外引脚焊接 
+- PBGA: Plastic BGA 塑封BGA 
+- PC: Personal Computer 个人计算机 
+- PFP: Plastic Flat Package 塑料扁平封装 
+- PGA: Pin Grid Array 针栅阵列 
+- PI: Polymide 聚酰亚胺 
+- PIH: Plug-In Hole 通孔插装 
+- PTF: Plastic Leaded Chip Carrier 塑料有引脚片式载体 
+- PTF: Polymer Thick Film 聚合物厚膜 
+- PWB: Printed Wiring Board 印刷电路板 
+- PQFP: Plastic QFP 塑料QFP 
+- QFJ: Quad Flat J-leaded Package 四边J形引脚扁平封装 
+- QFP: Quad Flat Package 四边引脚扁平封装 
+- QIP: Quad In-Line Package 四列直插式封装 
+- RAM: Random Access Memory 随机存取存贮器 
+- SBB: Stud-Bump Bonding 钉头凸点焊接 
+- SBC: Solder-Ball Connection 焊球连接 
+- SCIM: Single Chip Integrated Module 单芯片集成模块 
+- SCM: Single Chip Module 单芯片组件 
+- SLIM: Single Level Integrated Module 单级集成模块 
+- SDIP: Shrinkage Dual Inline Package 窄节距双列直插式封装 
+- SEM: Sweep Electron Microscope 电子扫描显微镜 
+- SIP: Single In-Line Package 单列直插式封装 
+- SIP: System In a Package 系统级封装 
+- SMC: Surface Mount Component 表面安装元件 
+- SMD: Surface Mount Device 表面安装器件 
+- SMP: Surface Mount Package 表面安装封装 
+- SMT: Surface Mount Technology 表面安装技术 
+- SOC: System On Chip 系统级芯片 
+- SOIC: Small Outline Integrated Circuit 小外形封装集成电路 
+- SOJ: Small Outline J-Lead Package 小外形J形引脚封装 
+- SOP: Small Outline Package 小外形封装 
+- SOP: System On a Package 系统级封装 
+- SOT: Small Outline Transistor 小外形晶体管 
+- SSI: Small Scale Integration 小规模集成电路 
+- SSIP: Small Outline Single-Line Plug Package 小外形单列直插式封装 
+- SSOP: Shrink Small Outline Package 窄节距小外形封装 
+- SPLCC: Shrinkage Plasitc Leadless Chip Carrier 窄节距塑料无引脚片式载体 
+- STRAM: Selftimed Random Access Memory 自定时随机存取存贮器 
+- SVP: Surface Vertical Package 立式表面安装型封装 
+- TAB: Tape Automated Bonding 载带自动焊 
+- TBGA: Tape BGA 载带BGA 
+- TCM: Thermal Conduction Module 热导组件 
+- TCP: Tape Carrier Package 带式载体封装 
+- THT: Through-Hole Technology 通孔安装技术 
+- TO: Transistor Outline 晶体管外壳 
+- TPQFP: Thin Plastic QFP 薄形塑料QFP 
+- TQFP: Tape QFP 载带QFP 
+- TSOP: Thin SOP 薄形SOP 
+- TTL: Transistor-Transistor Logic 晶体管-晶体管逻辑 
+- UBM: Metalization Under Bump 凸点下金属化 
+- UFPD: Ultra Small Pitch Device 超窄节距器件 
+- USOP: Ultra SOP 超小SOP 
+- USONF: Ultra Small Outline Package Non Fin 无散热片的超小外形封装 
+- UV: Ultraviolet 紫外光 
+- VHSIC: Very High Speed Integrated Circuit 超高速集成电路 
+- VLSI: Very Large Scale Integrated Circuit 超大规模集成电路 
+- WB: Wire Bonding 引线健合 
+- WLP: Wafer Level Package 圆片级封装 
+- WSI: Wafer Scale Integration 圆片级规模集成
+- AQL: Acceptance Quality Level,接受质量标准，在一定采样下，可以95%置信度通过质量标准（不同于可靠性，可靠性要求一定时间后的失效率） 
+- ARC: Antireflective coating,抗反射层（用于METAL等层的光刻） 
