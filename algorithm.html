@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-08-17 18:52:06 中国标准时间"/>
+<meta name="generated" content="2016-08-18 00:18:16 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -95,6 +95,21 @@
 <li><a href="#sec-1-1">1.1 排序</a>
 <ul>
 <li><a href="#sec-1-1-1">1.1.1 快速排序</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2 最优化</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 梯度下降法</a></li>
+<li><a href="#sec-1-2-2">1.2.2 共轭梯度法</a></li>
+<li><a href="#sec-1-2-3">1.2.3 拉格朗日乘子法</a></li>
+<li><a href="#sec-1-2-4">1.2.4 拉格朗日对偶</a>
+<ul>
+<li><a href="#sec-1-2-4-1">1.2.4.1 原始问题</a></li>
+<li><a href="#sec-1-2-4-2">1.2.4.2 广义拉格朗日函数</a></li>
+<li><a href="#sec-1-2-4-3">1.2.4.3 对偶问题</a></li>
+<li><a href="#sec-1-2-4-4">1.2.4.4 原始问题和对偶问题关系</a></li>
+<li><a href="#sec-1-2-4-5">1.2.4.5 KKT条件</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </li>
@@ -106,54 +121,46 @@
 <li><a href="#sec-2-2-1">2.2.1 最小二乘法</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-3">2.3 最优化</a>
+<li><a href="#sec-2-3">2.3 cordic算法</a>
 <ul>
-<li><a href="#sec-2-3-1">2.3.1 梯度下降法</a></li>
-<li><a href="#sec-2-3-2">2.3.2 共轭梯度法</a></li>
-<li><a href="#sec-2-3-3">2.3.3 拉格朗日乘子法</a></li>
-<li><a href="#sec-2-3-4">2.3.4 KKT条件</a></li>
+<li><a href="#sec-2-3-1">2.3.1 背景</a></li>
+<li><a href="#sec-2-3-2">2.3.2 从二分查找法说起</a></li>
+<li><a href="#sec-2-3-3">2.3.3 减少乘法运算</a></li>
+<li><a href="#sec-2-3-4">2.3.4 消除乘法运算</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-4">2.4 cordic算法</a>
-<ul>
-<li><a href="#sec-2-4-1">2.4.1 背景</a></li>
-<li><a href="#sec-2-4-2">2.4.2 从二分查找法说起</a></li>
-<li><a href="#sec-2-4-3">2.4.3 减少乘法运算</a></li>
-<li><a href="#sec-2-4-4">2.4.4 消除乘法运算</a></li>
-</ul>
-</li>
-<li><a href="#sec-2-5">2.5 k临近算法</a></li>
-<li><a href="#sec-2-6">2.6 决策树</a>
+<li><a href="#sec-2-4">2.4 k临近算法</a></li>
+<li><a href="#sec-2-5">2.5 决策树</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-2-6-1">2.6.1 信息熵</a></li>
-<li><a href="#sec-2-6-2">2.6.2 算法逻辑</a></li>
-<li><a href="#sec-2-6-3">2.6.3 算法实例</a>
+<li><a href="#sec-2-5-1">2.5.1 信息熵</a></li>
+<li><a href="#sec-2-5-2">2.5.2 算法逻辑</a></li>
+<li><a href="#sec-2-5-3">2.5.3 算法实例</a>
 <ul>
-<li><a href="#sec-2-6-3-1">2.6.3.1 计算香农熵</a></li>
-<li><a href="#sec-2-6-3-2">2.6.3.2 划分数据集</a></li>
-<li><a href="#sec-2-6-3-3">2.6.3.3 选择最好的划分</a></li>
-<li><a href="#sec-2-6-3-4">2.6.3.4 构造决策树</a></li>
+<li><a href="#sec-2-5-3-1">2.5.3.1 计算香农熵</a></li>
+<li><a href="#sec-2-5-3-2">2.5.3.2 划分数据集</a></li>
+<li><a href="#sec-2-5-3-3">2.5.3.3 选择最好的划分</a></li>
+<li><a href="#sec-2-5-3-4">2.5.3.4 构造决策树</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-7">2.7 贝叶斯分类</a></li>
-<li><a href="#sec-2-8">2.8 支持向量机(SVM)</a></li>
-<li><a href="#sec-2-9">2.9 回归分析</a>
+<li><a href="#sec-2-6">2.6 贝叶斯分类</a></li>
+<li><a href="#sec-2-7">2.7 支持向量机(SVM)</a></li>
+<li><a href="#sec-2-8">2.8 回归分析</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-2-9-1">2.9.1 线性回归</a></li>
-<li><a href="#sec-2-9-2">2.9.2 逻辑回归</a></li>
+<li><a href="#sec-2-8-1">2.8.1 线性回归</a></li>
+<li><a href="#sec-2-8-2">2.8.2 逻辑回归</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-10">2.10 神经网络</a>
+<li><a href="#sec-2-9">2.9 神经网络</a>
 <ul>
-<li><a href="#sec-2-10-1">2.10.1 概念</a></li>
-<li><a href="#sec-2-10-2">2.10.2 感知机</a></li>
+<li><a href="#sec-2-9-1">2.9.1 概念</a></li>
+<li><a href="#sec-2-9-2">2.9.2 感知机</a></li>
 </ul></li>
 </ul>
 </li>
@@ -204,6 +211,331 @@
 后将待排序数据与该值比较，将他们分配到轴两端，其中左边的比轴小，右边的比轴
 大，循环的在左右两边的数据做快速排序操作，直到最后排序完毕。
 </p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 最优化</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x),
+x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。关于f(x) 
+</p><ol>
+<li>当\(x=(x)\)时，f(x)是一条曲线；
+</li>
+<li>当\(x=(x_{1}, x_{2})\)时，\(f(x_{1}, x_{2})\)是一个曲面；
+</li>
+<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度； 
+</li>
+<li>当\(x=(x_{1}, x_{i}..., x_{n})\)时，\(f(x_{1}, x_{2}..., x_{n})\)是一个
+   超曲面； 
+</li>
+</ol>
+
+<p>所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，
+只能在自己的小范围内搜索极大值和极小值，称为局部优化算法，也叫经典优化算法；
+有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化
+算法，也叫现代优化算法。最优化问题，一般分几种。
+</p><ul>
+<li>无约束优化问题：就是在没有任何约束条件的情况下，求函数的最优解。通常表示
+  为\(min(f(x))\); 
+</li>
+<li>等式约束优化问题: 通常给出若干个用等式表示的约束条件，然后在这些条件下，
+  求函数的最优解,通常条件表示为\(h_{i}(x)=0, i=1, ..., n\); 
+</li>
+<li>不等式约束优化问题: 通常给出的约束条件有等式约束条件也有不等式约束条件，
+  不等式约束条件表示为\(g_{j}(x)&lt;=0, j=1, ..., n\); 
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 梯度下降法</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<p>梯度下降法属于无约束优化问题。
+</p>
+
+
+<div id="img-optimize-example1" class="figure">
+<p><img src="file://e:/OneDrive/learning/img/optimize1.png"  alt="file://e:/OneDrive/learning/img/optimize1.png" /></p>
+<p>梯度下降法图例1</p>
+</div>
+
+<p>
+见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有
+方向，是一个矢量，曲线情况下，表达式如下  
+$$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
+如果，\(f^{'}(x) &gt; 0\)则x增加，y增加，相当于B点；如果\(f^{'}(x)&lt;0\)则x增加，
+y减小，相当于A点。要搜索极小值C点，在A点必须向x增加方向搜索，此时与A点梯度
+方向相反；在B点必须向x减小小方向搜索，此时与B点梯度方向相反。总之，搜索极小
+值，必须向负梯度方向搜索。
+梯度下降法原理：由高数知任一点的负梯度方向是函数值在该点下降最快的方向，则
+利用负梯度作为极值搜索方向，达到搜寻区间最速下降的目的。而由极值点导数性质，
+知道该点的梯度等于0，故而其终止条件也就是梯度逼近于0，也就是当搜寻区间非常
+逼近极值点时，即当如下成立时，f(a)就是寻找到的f(x)的极值，该方法是一种局部
+搜寻法。
+$$\bigtriangledown{f(a)\rightarrow{0}}$$
+求解函数在限制域下的极值 $$\min{f(x)},f\in{C}$$ 
+计算步骤如下, 拿y=f(x)来类比
+</p><ol>
+<li>首先设定搜寻的初值(x<sub>0</sub>, y<sub>0</sub>), 学习率&epsilon;;
+</li>
+<li>计算梯度y'=f'(x);
+</li>
+<li>计算旧值(x<sub>0</sub>, y<sub>0</sub>)处的梯度值(x<sub>0</sub><sup>'</sup>, y<sub>0</sub><sup>'</sup>);
+</li>
+<li>通过学习率计算新的x<sub>1</sub>, x<sub>1</sub>=x<sub>0</sub>+&epsilon;*x<sub>0</sub><sup>'</sup>;
+</li>
+<li>通过x<sub>1</sub>计算新的y<sub>1</sub>, 完成一次更新返回3计算该点的梯度；
+</li>
+<li>在(x, y)不断更新的过程中，需要有终止条件；
+</li>
+</ol>
+
+<p>例1:函数\(y=\frac{x^{2}}{2}-2x\), 其图形见<a href="#img-optimize-example2">img-optimize-example2</a>, 计算
+过程如下，由于选用的2个参数值没有取好，会导致来回震荡，在极值点附近反复搜索。
+</p><ol>
+<li>先给定2个参数\(\epsilon=1.5, \eta=0.01\);
+</li>
+<li>计算导数\(\frac{\mathrm{d}y}{\mathrm{d}x} = x-2\);
+</li>
+<li>计算当前导数值y' = -6;
+</li>
+<li>修改当前参数\(x_{0}=-4-&gt;x_{1}=x_{0}-\epsilon*y'=-4-1.5*(-6)=5.0\)
+</li>
+<li>计算当前导数值y'=3.0;
+</li>
+<li>修改当前参数\(x_{1}=5.0-&gt;x_{2}=5.0-1.5*(3.0)=0.5\);
+</li>
+<li>计算当前导数值y'=-1.5;
+</li>
+<li>……
+</li>
+</ol>
+
+
+
+
+<div id="img-optimize-example2" class="figure">
+<p><img src="file://e:/OneDrive/learning/img/optimize2.png"  alt="file://e:/OneDrive/learning/img/optimize2.png" /></p>
+<p>梯度下降图例2</p>
+</div>
+
+<p>
+例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
+</p><ol>
+<li>设初始点\(x^{(0)}=(1, 1)^{T}\);
+</li>
+<li>f梯度：\(\bigtriangledown{f(x_{1}, x_{2})}=(2x_{1}, 8x_{2})^{T}\);
+</li>
+<li>由初始点得此点梯度值：\(\bigtriangledown{f(x^{(0)})}=(2, 8)^{T}\);
+</li>
+<li>模：\(||\bigtriangledown{f(x^{(0)})}||=8.24621\);
+</li>
+<li>第3步得负梯度：\(d^{(0)}=(-2, -8)^{T}\);
+</li>
+<li>计算最佳步长：\(\min{f(x^{(0)}+s_{0}*d^{(0)})}=\min{(1-2s_{0})^{2}+4(1-8s_{0})^{2}}\);
+</li>
+<li>得\(s_{0}=\frac{68}{520}\);
+</li>
+<li>新点：\(x^{(1)}=(1, 1)^{T}-s_{0}(2, 8)^{T}=(0.738, -0.046)^{T}\), 返回3; 
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 共轭梯度法</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<p>共轭梯度法也属于无约束优化问题。
+对于多元二次方程
+$$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
+求导得
+$$f'(x)=AX+B$$
+因为针对X为向量，$$X^{T}AX$$ 对X求导得$$2AX$$ , $$B^{T}X$$ 求导得B；
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 拉格朗日乘子法</h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+<p>一般无约束优化问题f(x)，只需要求f的各个偏导数，并令其等于0，就可以解出所需
+要的极值，但是如果参入了约束条件，则不能这样做。然而拉格朗日乘子法可以将约
+束条件融合进去使之成为一个类似无约束的优化问题，如此就可以比较方便的解决问
+题。欲求n元函数\(f(x_{1}, x_{2}, ..., x_{n})\)在如下m个约束条件(m&lt;n). 
+$$
+\begin{cases}
+y_{1}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
+y_{2}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
+...\\
+y_{m}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
+\end{cases}
+$$ 
+拉格朗日方法是以\(1, C_{1}, C_{2}, ..., C_{m}\)这些未知常数顺次乘以\(f,
+y_{1}, y_{2}...\)并把它们加起来，得到新的函数F，即
+$$F(x_{1},..., x_{n})=f(x_{1}, ..., x_{n})+C_{1}y_{1}(x_{1}...x_{n})+...$$
+注意到约束条件的各个函数都是0，所以新函数F达到极值与原函数f达到极值时自变量
+的值是相同的。函数F既然是各个x的函数，它达到极值时必然是对各个自变量x的偏微
+分分别等于0.这样，求多个偏微分以后就得到n个新的方程。
+$$
+\begin{cases}
+\frac{\partial{f}}{\partial{x_{1}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{1}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{1}}}=0\\
+...\\
+\frac{\partial{f}}{\partial{x_{n}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{n}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{n}}}=0\\
+\end{cases}
+$$ 
+显然，这n个方程式已经巧妙的把约束条件融合到求解的要求中。上面n个方程再加上
+约束条件的m个方程式，就可以解出n+m个未知数，即n个x，m个C。这样就得到了这个
+函数达到极值时的各自变量x的值，可以看到约束条件不同，得到的各个x值也不同。 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 拉格朗日对偶</h4>
+<div class="outline-text-4" id="text-1-2-4">
+
+<p>某些条件下，把原始的约束问题通过拉格朗日函数转化为无约束问题，如果原始问题
+求解棘手，在满足KKT的条件下用求解对偶问题来代替求解原始问题，使得问题求解更
+加容易。 
+</p>
+</div>
+
+<div id="outline-container-1-2-4-1" class="outline-5">
+<h5 id="sec-1-2-4-1"><span class="section-number-5">1.2.4.1</span> 原始问题</h5>
+<div class="outline-text-5" id="text-1-2-4-1">
+
+<p>假设\(f(x), c_{i}(x), h_{j}(x)\)是定义在\(R^{n}\)上的连续可微函数，要解决如
+下的约束优化问题。
+$$
+\begin{cases}
+\min\limits_{x\in{R^{n}}} f(x) \\
+s.t. & c_{i}(x)=0, i=1, ..., k\\
+     & h_{j}(x)<=0, j=1, ..., l\\
+\end{cases}
+$$ 
+如果不考虑约束条件，原始问题就是
+$$\min\limits_{x\in{R^{n}}}f(x)$$ 
+因为假设其是连续可微，对f(x)求导，然后令导数为0，就可解出最优解。然而现在是
+有约束条件，考虑想办法把约束条件去掉就好了，拉格朗日函数正是用于解决此问题。
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2-4-2" class="outline-5">
+<h5 id="sec-1-2-4-2"><span class="section-number-5">1.2.4.2</span> 广义拉格朗日函数</h5>
+<div class="outline-text-5" id="text-1-2-4-2">
+
+<p>一般意义下的拉格朗日函数如下
+$$
+L(x, \alpha, \beta)=f(x)+ \sum_{i=1}^{k}\alpha_{i}c_{i}(x)+\sum_{j=1}^{l}\beta_{j}h_{j}(x)
+$$ 
+\(\alpha_{i},\beta_{j}\)也就是拉格朗日乘子，其中\(\alpha_{i}\geq 0). 
+现在，如果把\(L(x, \alpha, \beta)\)看作关于\(\alpha_{i}, \beta_{j}\)的函数，
+要求其最大值，即
+$$\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta) $$ 
+再次注意\(L(x, \alpha, \beta)\)是一个关于\(\alpha_{i}, \beta_{j}\)的函数，
+假设求得\(L(x, \alpha, \beta)\)的最大值时的\(\alpha_{i}, \beta_{j}\)，即
+\(\alpha_{i}, \beta_{j}\) 此时已经是确定值，则此时的\(L(x, \alpha, \beta)\)
+就只是和\(x\)有关的函数，定义这个函数为
+$$\theta_{P}(x)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta) $$ 
+下面通过考虑\(x\)是否满足约束条件来分析\(\theta_{P}\)这个函数。
+如果某些\(x\)不满足约束条件，即\(c_{i}(x)&gt;0\)或\(h_{j}(x)\neq 0\), 则反过来
+再考虑求\(\theta_{P}(x)\)最大值时的\(\alpha_{i}, \beta_{j}\) , 可以看出此时
+不存在了，因为只要\(c_{i}(x)&gt;0\)或\(h_{j}(x)\neq 0\)，L就不会存在一个确定的
+\(\alpha_{i}, \beta_{j}\)使得L取最大值。也就是\(\theta_{P}(x)\)最大值是
+\(+\infty\);
+如果有\(x\)满足约束条件，则\(\theta_{P}(x)\)取最大值时
+\(\sum_{j=1}^{l}\beta_{j}h_{j}(x)=0\) , 且
+\(\sum_{i=1}^{k}\alpha_{i}c_{i}(x)=0\), 这样就有
+$$\theta_{P}(x)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=f(x)$$ 
+f(x)可以视为一个常量，常量的最大值就是本身。则在满足约束条件下
+$$\min\limits_{x}\theta_{P}(x)=\min\limits_{x}\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=\min\limits_{x}f(x)$$ 
+即\(\min\limits_{x}\theta_{P}(x)\)与原始优化问题等价，所以常用此代表原始问
+题，定义原始问题的最优值是：$$p^{'}=\min\limits_{x}\theta_{P}(x)$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2-4-3" class="outline-5">
+<h5 id="sec-1-2-4-3"><span class="section-number-5">1.2.4.3</span> 对偶问题</h5>
+<div class="outline-text-5" id="text-1-2-4-3">
+
+<p>定义关于\(\alpha, \beta\)的函数：
+$$\theta_{D}(\alpha, \beta)=\min\limits_{x}L(x, \alpha, \beta)$$ 
+此时等式右边是关于x的函数的最小化，x确定后，最小值就只跟\(\alpha, \beta\)有
+关，所以是关于\(\alpha, \beta\)的函数。
+考虑极大化\(\theta_{D}(\alpha, \beta)\), 即
+$$\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha,\beta)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\min\limits_{x}L(x, \alpha, \beta)$$ 
+这就是原始问题的对偶问题。定义对偶问题的最优值：$$d^{'}=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha, \beta)$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2-4-4" class="outline-5">
+<h5 id="sec-1-2-4-4"><span class="section-number-5">1.2.4.4</span> 原始问题和对偶问题关系</h5>
+<div class="outline-text-5" id="text-1-2-4-4">
+
+<p>定理：若原始问题和对偶问题都有最优值，则$$d^{'}\leq p^{'}$$ 
+证明：对任意的\(\alpha, \beta, x\)有
+$$
+\theta_{D}(\alpha, \beta)=\min\limits_{x}L(x, \alpha, \beta)\leq L(x,
+\alpha, \beta) \leq \max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=\theta_{P}(x)
+$$ 
+由于原始问题和对偶问题都有最优值，则
+$$\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha,
+\beta)\leq \min\limits_{x}\theta_{P}(x)$$ 
+即
+$$d^{'}=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\min\limits_{x}L(x,
+\alpha, \beta) \leq \min\limits_{x}\max\limits_{\alpha,
+\beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=p^{'}$$ 
+也就是说原始问题的最优值不小于对偶问题的最优值，但是要通过对偶问题求解原始
+问题，就必须使得原始问题的最优值与对偶问题的最优值相等，于是可以得出下面的
+推论：<br/>
+设\(x^{'}\) 和\(\alpha^{'}, \beta^{'}\)分别是原始问题和对偶问题的解，若
+\(d^{'}=p^{'}\)，那么\(x^{'}\) 和\(\alpha^{'}分别是原始问题和对偶问题的最优
+解。所以当原始问题和对偶问题的最优值相等时，可以用求对偶问题来求原始问题，
+前提是对偶问题求解更容易。但是要使\(d^{'}=p^{'}\)，则必须满足KKT条件。
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2-4-5" class="outline-5">
+<h5 id="sec-1-2-4-5"><span class="section-number-5">1.2.4.5</span> KKT条件</h5>
+<div class="outline-text-5" id="text-1-2-4-5">
+
+<p>定理：对于原始问题和对偶问题，假设函数f(x)和c<sub>i</sub>(x)是凸函数，h<sub>i</sub>(x)是仿
+射函数（由多项式构成的函数如h(x)=Ax+b, A是矩阵，x，b是向量）, 并且假设不等
+式约束c<sub>i</sub>(x)是严格可行的，即存在x，对所有i有c<sub>i</sub>(x)&lt;0, 则存在x<sup>'</sup>和
+&alpha;<sup>'</sup>, &beta;<sup>'</sup>使得x<sup>'</sup>是原始问题的最优解，&alpha;<sup>'</sup>, &beta;<sup>'</sup>是对
+偶问题的最优解，且
+$$d^{'}=p^{'}=L(x^{'}, \alpha^{'}, \beta^{'})$$ 
+定理：按照上面的定理，x<sup>'</sup>是原始问题的最优解，&alpha;<sup>'</sup>, &beta;<sup>'</sup>是对偶
+问题的最优解的充要条件是x<sup>'</sup>和&alpha;<sup>'</sup>, &beta;<sup>'</sup>满足下面的KKT条件
+$$
+\begin{cases}
+1, \bigtriangledown_{x}L(x^{'}, \alpha^{'}, \beta^{'} &= 0\\
+2, \bigtriangledown_{\alpha}L(x^{'}, \alpha^{'}, \beta^{'} &= 0\\
+3, \bigtriangledown_{\beta}L(x^{'}, \alpha^{'}, \beta^{'} &= 0\\
+4, \alpha_{i}^{'}c_{i}(x^{'}) &= 0, i=1, 2, ..., k\\
+5, c_{i}(x^{'}) &\leq 0, i=1, 2, ..., k\\
+6, \alpha_{i}^{'} &\geq 0, i=1, 2, ..., k\\
+7, h_{j}(x^{'}) &=0, j=1, 2, ..., l\\
+\end{cases}
+$$ 
+前面3个条件是解析函数的知识，对各个变量的偏导数为0，后面4个条件就是原始问题
+的约束条件以及拉格朗日乘子需要满足的约束条件。
+</p></div>
+</div>
 </div>
 </div>
 
@@ -282,25 +614,7 @@
 <h3 id="sec-2-2"><span class="section-number-3">2.2</span> 基本方法</h3>
 <div class="outline-text-3" id="text-2-2">
 
-<p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x),
-x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。关于f(x) 
-</p><ol>
-<li>当\(x=(x)\)时，f(x)是一条曲线；
-</li>
-<li>当\(x=(x_{1}, x_{2})\)时，\(f(x_{1}, x_{2})\)是一个曲面；
-</li>
-<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度； 
-</li>
-<li>当\(x=(x_{1}, x_{i}..., x_{n})\)时，\(f(x_{1}, x_{2}..., x_{n})\)是一个
-   超曲面； 
-</li>
-</ol>
 
-<p>所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，
-只能在自己的小范围内搜索极大值和极小值，称为局部优化算法，也叫经典优化算法；
-有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化
-算法，也叫现代优化算法。 
-</p>
 </div>
 
 <div id="outline-container-2-2-1" class="outline-4">
@@ -342,210 +656,15 @@ $$R=\sum_{i=1}^{n}v_{i}^{2}$$
 </div>
 
 <div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 最优化</h3>
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> cordic算法</h3>
 <div class="outline-text-3" id="text-2-3">
-
-<p>最优化问题，一般分几种。
-</p><ul>
-<li>无约束优化问题：就是在没有任何约束条件的情况下，求函数的最优解。通常表示
-  为\(min(f(x))\); 
-</li>
-<li>等式约束优化问题: 通常给出若干个用等式表示的约束条件，然后在这些条件下，
-  求函数的最优解,通常条件表示为\(h_{i}(x)=0, i=1, ..., n\); 
-</li>
-<li>不等式约束优化问题: 通常给出的约束条件有等式约束条件也有不等式约束条件，
-  不等式约束条件表示为\(g_{j}(x)&lt;=0, j=1, ..., n\); 
-</li>
-</ul>
 
 
 </div>
 
 <div id="outline-container-2-3-1" class="outline-4">
-<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 梯度下降法</h4>
+<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 背景</h4>
 <div class="outline-text-4" id="text-2-3-1">
-
-<p>梯度下降法属于无约束优化问题。
-</p>
-
-<p>
-<img src="file://e:/OneDrive/learning/img/optimize1.png"  alt="file://e:/OneDrive/learning/img/optimize1.png" />
-</p>
-<p>
-见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有
-方向，是一个矢量，曲线情况下，表达式如下  
-$$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
-如果，\(f^{'}(x) &gt; 0\)则x增加，y增加，相当于B点；如果\(f^{'}(x)&lt;0\)则x增加，
-y减小，相当于A点。要搜索极小值C点，在A点必须向x增加方向搜索，此时与A点梯度
-方向相反；在B点必须向x减小小方向搜索，此时与B点梯度方向相反。总之，搜索极小
-值，必须向负梯度方向搜索。
-梯度下降法原理：由高数知任一点的负梯度方向是函数值在该点下降最快的方向，则
-利用负梯度作为极值搜索方向，达到搜寻区间最速下降的目的。而由极值点导数性质，
-知道该点的梯度等于0，故而其终止条件也就是梯度逼近于0，也就是当搜寻区间非常
-逼近极值点时，即当如下成立时，f(a)就是寻找到的f(x)的极值，该方法是一种局部
-搜寻法。
-$$\bigtriangledown{f(a)\rightarrow{0}}$$
-求解函数在限制域下的极值 $$\min{f(x)},f\in{C}$$ 
-计算步骤如下, 拿y=f(x)来类比
-</p><ol>
-<li>首先设定搜寻的初值(x<sub>0</sub>, y<sub>0</sub>), 学习率&epsilon;;
-</li>
-<li>计算梯度y'=f'(x);
-</li>
-<li>计算旧值(x<sub>0</sub>, y<sub>0</sub>)处的梯度值(x<sub>0</sub><sup>'</sup>, y<sub>0</sub><sup>'</sup>);
-</li>
-<li>通过学习率计算新的x<sub>1</sub>, x<sub>1</sub>=x<sub>0</sub>+&epsilon;*x<sub>0</sub><sup>'</sup>;
-</li>
-<li>通过x<sub>1</sub>计算新的y<sub>1</sub>, 完成一次更新返回3计算该点的梯度；
-</li>
-<li>在(x, y)不断更新的过程中，需要有终止条件；
-</li>
-</ol>
-
-<p>例1:函数\(y=\frac{x^{2}}{2}-2x\), 其图形见<a href="#img-optimize-example2">img-optimize-example2</a>, 计算
-过程如下，由于选用的2个参数值没有取好，会导致来回震荡，在极值点附近反复搜索。
-</p><ol>
-<li>先给定2个参数\(\epsilon=1.5, \eta=0.01\);
-</li>
-<li>计算导数\(\frac{\mathrm{d}y}{\mathrm{d}x} = x-2\);
-</li>
-<li>计算当前导数值y' = -6;
-</li>
-<li>修改当前参数\(x_{0}=-4-&gt;x_{1}=x_{0}-\epsilon*y'=-4-1.5*(-6)=5.0\)
-</li>
-<li>计算当前导数值y'=3.0;
-</li>
-<li>修改当前参数\(x_{1}=5.0-&gt;x_{2}=5.0-1.5*(3.0)=0.5\);
-</li>
-<li>计算当前导数值y'=-1.5;
-</li>
-<li>……
-</li>
-</ol>
-
-
-
-<p>
-<img src="file://e:/OneDrive/learning/img/optimize2.png"  alt="file://e:/OneDrive/learning/img/optimize2.png" />
-</p>
-<p>
-例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
-</p><ol>
-<li>设初始点\(x^{(0)}=(1, 1)^{T}\);
-</li>
-<li>f梯度：\(\bigtriangledown{f(x_{1}, x_{2})}=(2x_{1}, 8x_{2})^{T}\);
-</li>
-<li>由初始点得此点梯度值：\(\bigtriangledown{f(x^{(0)})}=(2, 8)^{T}\);
-</li>
-<li>模：\(||\bigtriangledown{f(x^{(0)})}||=8.24621\);
-</li>
-<li>第3步得负梯度：\(d^{(0)}=(-2, -8)^{T}\);
-</li>
-<li>计算最佳步长：\(\min{f(x^{(0)}+s_{0}*d^{(0)})}=\min{(1-2s_{0})^{2}+4(1-8s_{0})^{2}}\);
-</li>
-<li>得\(s_{0}=\frac{68}{520}\);
-</li>
-<li>新点：\(x^{(1)}=(1, 1)^{T}-s_{0}(2, 8)^{T}=(0.738, -0.046)^{T}\), 返回3; 
-</li>
-</ol>
-
-</div>
-
-</div>
-
-<div id="outline-container-2-3-2" class="outline-4">
-<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 共轭梯度法</h4>
-<div class="outline-text-4" id="text-2-3-2">
-
-<p>共轭梯度法也属于无约束优化问题。
-对于多元二次方程
-$$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
-求导得
-$$f'(x)=AX+B$$
-因为针对X为向量，$$X^{T}AX$$ 对X求导得$$2AX$$ , $$B^{T}X$$ 求导得B；
-</p></div>
-
-</div>
-
-<div id="outline-container-2-3-3" class="outline-4">
-<h4 id="sec-2-3-3"><span class="section-number-4">2.3.3</span> 拉格朗日乘子法</h4>
-<div class="outline-text-4" id="text-2-3-3">
-
-<p>一般无约束优化问题f(x)，只需要求f的各个偏导数，并令其等于0，就可以解出所需
-要的极值，但是如果参入了约束条件，则不能这样做。然而拉格朗日乘子法可以将约
-束条件融合进去使之成为一个类似无约束的优化问题，如此就可以比较方便的解决问
-题。欲求n元函数\(f(x_{1}, x_{2}, ..., x_{n})\)在如下m个约束条件(m&lt;n). 
-$$
-\begin{cases}
-y_{1}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
-y_{2}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
-...\\
-y_{m}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
-\end{cases}
-$$ 
-拉格朗日方法是以\(1, C_{1}, C_{2}, ..., C_{m}\)这些未知常数顺次乘以\(f,
-y_{1}, y_{2}...\)并把它们加起来，得到新的函数F，即
-$$F(x_{1},..., x_{n})=f(x_{1}, ..., x_{n})+C_{1}y_{1}(x_{1}...x_{n})+...$$
-注意到约束条件的各个函数都是0，所以新函数F达到极值与原函数f达到极值时自变量
-的值是相同的。函数F既然是各个x的函数，它达到极值时必然是对各个自变量x的偏微
-分分别等于0.这样，求多个偏微分以后就得到n个新的方程。
-$$
-\begin{cases}
-\frac{\partial{f}}{\partial{x_{1}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{1}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{1}}}=0\\
-...\\
-\frac{\partial{f}}{\partial{x_{n}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{n}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{n}}}=0\\
-\end{cases}
-$$ 
-显然，这n个方程式已经巧妙的把约束条件融合到求解的要求中。上面n个方程再加上
-约束条件的m个方程式，就可以解出n+m个未知数，即n个x，m个C。这样就得到了这个
-函数达到极值时的各自变量x的值，可以看到约束条件不同，得到的各个x值也不同。 
-</p></div>
-
-</div>
-
-<div id="outline-container-2-3-4" class="outline-4">
-<h4 id="sec-2-3-4"><span class="section-number-4">2.3.4</span> KKT条件</h4>
-<div class="outline-text-4" id="text-2-3-4">
-
-<p>KKT条件是作为最优化问题的约束条件的。所谓的KKT指Karush-Kuhn-Tucker三人提出
-的数学问题。就是指求得如下问题的极值x'
-$$
-\begin{cases}
-min f(x) \\
-s.t. & h_{j}(x)=0, j=1, ..., p\\
-     & g_{k}(x)<=0, k=1, ..., q\\
-     & x \in X \subset R^{n}\\
-\end{cases}
-$$ 
-其中s.t. 指subject to，意思是约束于。求此极值等效于x'满足如下3个条件的问题
-$$
-\begin{cases}
-1 & h_{j}(x')=0, j=1, ..., p\\
-2 & g_{k}(x')<=0, k=1, ..., q\\
-3 & \bigtriangledown{f(x')}+\sum_{j=1}^{p}\lambda_{j}\bigtriangledown{h_{j}(x')}+\sum_{k=1}^{q}u_{k}\bigtriangledown{g_{k}(x')}=0\\
-4 & \lambda_{j}\ne 0, u_{k}\geq 0, u_{k}g_{k}(x')=0\\
-\end{cases}
-$$  
-第1和2项是说最优点x'必须满足所有等式和不等式的限制条件，第3项表明x'可以让
-\(\bigtriangledown{f}\)是\(\bigtriangledown{h_{j}}\)和
-\(\bigtriangledown{g_{k}}\)的线性组合，其中\(\lambda_{j}\)和u<sub>k</sub>都叫做拉格
-朗日乘子，所不同的是不等式限制条件有方向性，所有的u<sub>k</sub>必须是大于等于0，而
-等式限制条件没有方向性。
-</p></div>
-</div>
-
-</div>
-
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> cordic算法</h3>
-<div class="outline-text-3" id="text-2-4">
-
-
-</div>
-
-<div id="outline-container-2-4-1" class="outline-4">
-<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 背景</h4>
-<div class="outline-text-4" id="text-2-4-1">
 
 <p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计
 算任意角度的三角函数的值。这种表格在人们刚刚产生三角函数的概念的时候就已经
@@ -570,9 +689,9 @@ cordic(coordinate rotation digital computer) 算法，这个算法只利用移�
 
 </div>
 
-<div id="outline-container-2-4-2" class="outline-4">
-<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 从二分查找法说起</h4>
-<div class="outline-text-4" id="text-2-4-2">
+<div id="outline-container-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 从二分查找法说起</h4>
+<div class="outline-text-4" id="text-2-3-2">
 
 <p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），
 如何求的在极坐标系下的坐标（ρ,θ）。用计算器计算一下可知答案是（223.61，
@@ -639,14 +758,16 @@ $${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -
 
         double my_atan2(double x, double y)
         {
-            const double sine[] = {0.7071067811865,0.3826834323651,0.1950903220161,0.09801714032956,
-        0.04906767432742,0.02454122852291,0.01227153828572,0.006135884649154,0.003067956762966
-        ,0.001533980186285,7.669903187427045e-4,3.834951875713956e-4,1.917475973107033e-4,
-        9.587379909597735e-5,4.793689960306688e-5,2.396844980841822e-5
+            const double sine[] =
+        {0.7071067811865,0.3826834323651,0.1950903220161,0.09801714032956, 
+        0.04906767432742,0.02454122852291,0.01227153828572,0.006135884649154,0.003067956762966 
+        ,0.001533980186285,7.669903187427045e-4,3.834951875713956e-4,1.917475973107033e-4, 
+        9.587379909597735e-5,4.793689960306688e-5,2.396844980841822e-5 
         };
 
-            const double cosine[] = {0.7071067811865,0.9238795325113,0.9807852804032,0.9951847266722,
-        0.9987954562052,0.9996988186962,0.9999247018391,0.9999811752826,0.9999952938096,
+            const double cosine[] =
+        {0.7071067811865,0.9238795325113,0.9807852804032,0.9951847266722, 
+        0.9987954562052,0.9996988186962,0.9999247018391,0.9999811752826,0.9999952938096, 
         0.9999988234517,0.9999997058629,0.9999999264657,0.9999999816164,0.9999999954041,
         0.999999998851,0.9999999997128
         };
@@ -708,9 +829,9 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-2-4-3" class="outline-4">
-<h4 id="sec-2-4-3"><span class="section-number-4">2.4.3</span> 减少乘法运算</h4>
-<div class="outline-text-4" id="text-2-4-3">
+<div id="outline-container-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3"><span class="section-number-4">2.3.3</span> 减少乘法运算</h4>
+<div class="outline-text-4" id="text-2-3-3">
 
 <p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法
 运算，运算量还是太大了。还需要进一步的改进。改进的切入点当然还是坐标变换的
@@ -727,7 +848,8 @@ cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋转后的�
 
 <pre class="example">double my_atan3(double x, double y)
 {
-    const double tangent[] = {1.0,0.4142135623731,0.1989123673797,0.09849140335716,0.04912684976947,
+    const double tangent[] =
+{1.0,0.4142135623731,0.1989123673797,0.09849140335716,0.04912684976947, 
 0.02454862210893,0.01227246237957,0.006136000157623,0.003067971201423,
 0.001533981991089,7.669905443430926e-4,3.83495215771441e-4,1.917476008357089e-4,
 9.587379953660303e-5,4.79368996581451e-5,2.3968449815303e-5
@@ -791,9 +913,9 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-2-4-4" class="outline-4">
-<h4 id="sec-2-4-4"><span class="section-number-4">2.4.4</span> 消除乘法运算</h4>
-<div class="outline-text-4" id="text-2-4-4">
+<div id="outline-container-2-3-4" class="outline-4">
+<h4 id="sec-2-3-4"><span class="section-number-4">2.3.4</span> 消除乘法运算</h4>
+<div class="outline-text-4" id="text-2-3-4">
 
 <p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要
 从计算式入手。第一次循环时，tan(45)=1，所以第一次循环实际上是不需要乘法运算
@@ -831,13 +953,16 @@ tan(0.2238105003685)= 1/256
 
 <pre class="example">double my_atan4(double x, double y)
 {
-    const double tangent[] = {1.0, 1 / 2.0, 1 / 4.0, 1 / 8.0, 1 / 16.0,
-                              1 / 32.0, 1 / 64.0, 1 / 128.0, 1 / 256.0, 1 / 512.0,
-                              1 / 1024.0, 1 / 2048.0, 1 / 4096.0, 1 / 8192.0, 1 / 16384.0
+    const double tangent[] = {1.0, 1/2.0, 1/4.0, 1/8.0, 1/16.0,
+                              1/32.0, 1/64.0, 1/128.0, 1/256.0, 1/512.0,
+                              1/1024.0, 1/2048.0, 1/4096.0, 1/8192.0, 1/16384.0
                              };
-    const double angle[] = {45.0, 26.565051177078, 14.0362434679265, 7.1250163489018, 3.57633437499735,
-                            1.78991060824607, 0.8951737102111, 0.4476141708606, 0.2238105003685, 0.1119056770662,
-                            0.0559528918938, 0.027976452617, 0.01398822714227, 0.006994113675353, 0.003497056850704
+    const double angle[] = {45.0, 26.565051177078, 14.0362434679265,
+7.1250163489018, 3.57633437499735, 
+                            1.78991060824607, 0.8951737102111,
+0.4476141708606, 0.2238105003685, 0.1119056770662, 
+                            0.0559528918938, 0.027976452617,
+0.01398822714227, 0.006994113675353, 0.003497056850704 
                            };
 
     int i = 0;
@@ -955,7 +1080,8 @@ C 代码如下：
 
 <pre class="example">int my_atan5(int x, int y)
 {
-    const int angle[] = {11520, 6801, 3593, 1824, 916, 458, 229, 115, 57, 29, 14, 7, 4, 2, 1};
+    const int angle[] = {11520, 6801, 3593, 1824, 916, 458, 229, 115, 57,
+29, 14, 7, 4, 2, 1}; 
 
     int i = 0;
     int x_new, y_new;
@@ -1024,9 +1150,9 @@ cordic算法最基本的内容，实际上，利用cordic 算法不光可以计�
 
 </div>
 
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> k临近算法</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> k临近算法</h3>
+<div class="outline-text-3" id="text-2-4">
 
 <p>K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
 签大体是由这些电影中所含的打斗场景和接吻场景次数(特征)决定。现在有一部电影
@@ -1096,16 +1222,16 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 
 </div>
 
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 决策树</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 决策树</h3>
+<div class="outline-text-3" id="text-2-5">
 
 
 </div>
 
-<div id="outline-container-2-6-1" class="outline-5">
-<h5 id="sec-2-6-1"><span class="section-number-5">2.6.1</span> 信息熵</h5>
-<div class="outline-text-5" id="text-2-6-1">
+<div id="outline-container-2-5-1" class="outline-5">
+<h5 id="sec-2-5-1"><span class="section-number-5">2.5.1</span> 信息熵</h5>
+<div class="outline-text-5" id="text-2-5-1">
 
 <p>信息熵用来衡量信息量的大小
 </p><ul>
@@ -1134,9 +1260,9 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-2-6-2" class="outline-5">
-<h5 id="sec-2-6-2"><span class="section-number-5">2.6.2</span> 算法逻辑</h5>
-<div class="outline-text-5" id="text-2-6-2">
+<div id="outline-container-2-5-2" class="outline-5">
+<h5 id="sec-2-5-2"><span class="section-number-5">2.5.2</span> 算法逻辑</h5>
+<div class="outline-text-5" id="text-2-5-2">
 
 <p>构建决策树的过程，就是减小信息熵，减小不确定性。从而完整构造决策树模型。所
 以我们需要在每一次选择分支属性时，计算这样分类所带来的信息熵的增益，增益越
@@ -1160,16 +1286,16 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-2-6-3" class="outline-5">
-<h5 id="sec-2-6-3"><span class="section-number-5">2.6.3</span> 算法实例</h5>
-<div class="outline-text-5" id="text-2-6-3">
+<div id="outline-container-2-5-3" class="outline-5">
+<h5 id="sec-2-5-3"><span class="section-number-5">2.5.3</span> 算法实例</h5>
+<div class="outline-text-5" id="text-2-5-3">
 
 
 </div>
 
-<div id="outline-container-2-6-3-1" class="outline-6">
-<h6 id="sec-2-6-3-1"><span class="section-number-6">2.6.3.1</span> 计算香农熵</h6>
-<div class="outline-text-6" id="text-2-6-3-1">
+<div id="outline-container-2-5-3-1" class="outline-6">
+<h6 id="sec-2-5-3-1"><span class="section-number-6">2.5.3.1</span> 计算香农熵</h6>
+<div class="outline-text-6" id="text-2-5-3-1">
 
 <p>根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
 性和一个标签，即某个标签具有若干属性，每个标签和属性都有若干值。以某个标签
@@ -1202,9 +1328,9 @@ def calcShannonEnt(dataSet):
 
 </div>
 
-<div id="outline-container-2-6-3-2" class="outline-6">
-<h6 id="sec-2-6-3-2"><span class="section-number-6">2.6.3.2</span> 划分数据集</h6>
-<div class="outline-text-6" id="text-2-6-3-2">
+<div id="outline-container-2-5-3-2" class="outline-6">
+<h6 id="sec-2-5-3-2"><span class="section-number-6">2.5.3.2</span> 划分数据集</h6>
+<div class="outline-text-6" id="text-2-5-3-2">
 
 <p>指按照给定的特征以及特征的值提取出这样的数据集。代码
 </p>
@@ -1229,9 +1355,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-6-3-3" class="outline-6">
-<h6 id="sec-2-6-3-3"><span class="section-number-6">2.6.3.3</span> 选择最好的划分</h6>
-<div class="outline-text-6" id="text-2-6-3-3">
+<div id="outline-container-2-5-3-3" class="outline-6">
+<h6 id="sec-2-5-3-3"><span class="section-number-6">2.5.3.3</span> 选择最好的划分</h6>
+<div class="outline-text-6" id="text-2-5-3-3">
 
 <p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
 熵(按样本标签计算)。然后按照该特征下每个特征值占的比例计算该特征的香农熵总
@@ -1271,9 +1397,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-6-3-4" class="outline-6">
-<h6 id="sec-2-6-3-4"><span class="section-number-6">2.6.3.4</span> 构造决策树</h6>
-<div class="outline-text-6" id="text-2-6-3-4">
+<div id="outline-container-2-5-3-4" class="outline-6">
+<h6 id="sec-2-5-3-4"><span class="section-number-6">2.5.3.4</span> 构造决策树</h6>
+<div class="outline-text-6" id="text-2-5-3-4">
 
 <p>采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
 是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
@@ -1313,9 +1439,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 贝叶斯分类</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 贝叶斯分类</h3>
+<div class="outline-text-3" id="text-2-6">
 
 <p>贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
 量，这样不同的特征向量构成特征向量集合v<sub>j</sub>, 当我们获得新的特征向量v时，需
@@ -1357,17 +1483,17 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
+<div id="outline-container-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 支持向量机(SVM)</h3>
+<div class="outline-text-3" id="text-2-7">
+
+</div>
+
+</div>
+
 <div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 支持向量机(SVM)</h3>
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 回归分析</h3>
 <div class="outline-text-3" id="text-2-8">
-
-</div>
-
-</div>
-
-<div id="outline-container-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 回归分析</h3>
-<div class="outline-text-3" id="text-2-9">
 
 <p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
@@ -1417,9 +1543,9 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-2-9-1" class="outline-5">
-<h5 id="sec-2-9-1"><span class="section-number-5">2.9.1</span> 线性回归</h5>
-<div class="outline-text-5" id="text-2-9-1">
+<div id="outline-container-2-8-1" class="outline-5">
+<h5 id="sec-2-8-1"><span class="section-number-5">2.8.1</span> 线性回归</h5>
+<div class="outline-text-5" id="text-2-8-1">
 
 <p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
 大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
@@ -1442,9 +1568,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-9-2" class="outline-5">
-<h5 id="sec-2-9-2"><span class="section-number-5">2.9.2</span> 逻辑回归</h5>
-<div class="outline-text-5" id="text-2-9-2">
+<div id="outline-container-2-8-2" class="outline-5">
+<h5 id="sec-2-8-2"><span class="section-number-5">2.8.2</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-2-8-2">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
@@ -1457,9 +1583,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 神经网络</h3>
-<div class="outline-text-3" id="text-2-10">
+<div id="outline-container-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 神经网络</h3>
+<div class="outline-text-3" id="text-2-9">
 
 <p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
 </p><ul>
@@ -1492,9 +1618,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-10-1" class="outline-4">
-<h4 id="sec-2-10-1"><span class="section-number-4">2.10.1</span> 概念</h4>
-<div class="outline-text-4" id="text-2-10-1">
+<div id="outline-container-2-9-1" class="outline-4">
+<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 概念</h4>
+<div class="outline-text-4" id="text-2-9-1">
 
 <ul>
 <li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
@@ -1513,9 +1639,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-10-2" class="outline-4">
-<h4 id="sec-2-10-2"><span class="section-number-4">2.10.2</span> 感知机</h4>
-<div class="outline-text-4" id="text-2-10-2">
+<div id="outline-container-2-9-2" class="outline-4">
+<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> 感知机</h4>
+<div class="outline-text-4" id="text-2-9-2">
 
 <p>感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
 成两类的，并且数据要线性可分的情况。线性可分是指存在一个超平面能够将空间分
@@ -1793,7 +1919,7 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-08-17 18:52:06 中国标准时间</p>
+<p class="date">Date: 2016-08-18 00:18:16 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
