@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-08-18 00:18:16 中国标准时间"/>
+<meta name="generated" content="2016-08-24 20:37:12 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -110,57 +110,28 @@
 <li><a href="#sec-1-2-4-4">1.2.4.4 原始问题和对偶问题关系</a></li>
 <li><a href="#sec-1-2-4-5">1.2.4.5 KKT条件</a></li>
 </ul></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3 cordic算法</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1 背景</a></li>
+<li><a href="#sec-1-3-2">1.3.2 从二分查找法说起</a></li>
+<li><a href="#sec-1-3-3">1.3.3 减少乘法运算</a></li>
+<li><a href="#sec-1-3-4">1.3.4 消除乘法运算</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 机器学习</a>
+<li><a href="#sec-2">2 滤波算法</a>
 <ul>
-<li><a href="#sec-2-1">2.1 基本概念</a></li>
-<li><a href="#sec-2-2">2.2 基本方法</a>
+<li><a href="#sec-2-1">2.1 中值滤波</a></li>
+<li><a href="#sec-2-2">2.2 全期平滑滤波</a></li>
+<li><a href="#sec-2-3">2.3 移动平滑滤波</a></li>
+<li><a href="#sec-2-4">2.4 指数平滑滤波</a>
 <ul>
-<li><a href="#sec-2-2-1">2.2.1 最小二乘法</a></li>
-</ul>
-</li>
-<li><a href="#sec-2-3">2.3 cordic算法</a>
-<ul>
-<li><a href="#sec-2-3-1">2.3.1 背景</a></li>
-<li><a href="#sec-2-3-2">2.3.2 从二分查找法说起</a></li>
-<li><a href="#sec-2-3-3">2.3.3 减少乘法运算</a></li>
-<li><a href="#sec-2-3-4">2.3.4 消除乘法运算</a></li>
-</ul>
-</li>
-<li><a href="#sec-2-4">2.4 k临近算法</a></li>
-<li><a href="#sec-2-5">2.5 决策树</a>
-<ul>
-<li>
-<ul>
-<li><a href="#sec-2-5-1">2.5.1 信息熵</a></li>
-<li><a href="#sec-2-5-2">2.5.2 算法逻辑</a></li>
-<li><a href="#sec-2-5-3">2.5.3 算法实例</a>
-<ul>
-<li><a href="#sec-2-5-3-1">2.5.3.1 计算香农熵</a></li>
-<li><a href="#sec-2-5-3-2">2.5.3.2 划分数据集</a></li>
-<li><a href="#sec-2-5-3-3">2.5.3.3 选择最好的划分</a></li>
-<li><a href="#sec-2-5-3-4">2.5.3.4 构造决策树</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="#sec-2-6">2.6 贝叶斯分类</a></li>
-<li><a href="#sec-2-7">2.7 支持向量机(SVM)</a></li>
-<li><a href="#sec-2-8">2.8 回归分析</a>
-<ul>
-<li>
-<ul>
-<li><a href="#sec-2-8-1">2.8.1 线性回归</a></li>
-<li><a href="#sec-2-8-2">2.8.2 逻辑回归</a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="#sec-2-9">2.9 神经网络</a>
-<ul>
-<li><a href="#sec-2-9-1">2.9.1 概念</a></li>
-<li><a href="#sec-2-9-2">2.9.2 感知机</a></li>
+<li><a href="#sec-2-4-1">2.4.1 指数平滑的公式</a></li>
+<li><a href="#sec-2-4-2">2.4.2 一次指数平滑</a></li>
+<li><a href="#sec-2-4-3">2.4.3 二次指数平滑</a></li>
+<li><a href="#sec-2-4-4">2.4.4 三次指数平滑</a></li>
 </ul></li>
 </ul>
 </li>
@@ -170,17 +141,46 @@
 <li><a href="#sec-3-2">3.2 其他</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4 滤波</a>
+<li><a href="#sec-4">4 机器学习</a>
 <ul>
-<li><a href="#sec-4-1">4.1 中值滤波</a></li>
-<li><a href="#sec-4-2">4.2 全期平滑滤波</a></li>
-<li><a href="#sec-4-3">4.3 移动平滑滤波</a></li>
-<li><a href="#sec-4-4">4.4 指数平滑滤波</a>
+<li><a href="#sec-4-1">4.1 基本概念</a></li>
+<li><a href="#sec-4-2">4.2 基本方法</a>
 <ul>
-<li><a href="#sec-4-4-1">4.4.1 指数平滑的公式</a></li>
-<li><a href="#sec-4-4-2">4.4.2 一次指数平滑</a></li>
-<li><a href="#sec-4-4-3">4.4.3 二次指数平滑</a></li>
-<li><a href="#sec-4-4-4">4.4.4 三次指数平滑</a></li>
+<li><a href="#sec-4-2-1">4.2.1 最小二乘法</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-3">4.3 k临近算法</a></li>
+<li><a href="#sec-4-4">4.4 决策树</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-4-4-1">4.4.1 信息熵</a></li>
+<li><a href="#sec-4-4-2">4.4.2 算法逻辑</a></li>
+<li><a href="#sec-4-4-3">4.4.3 算法实例</a>
+<ul>
+<li><a href="#sec-4-4-3-1">4.4.3.1 计算香农熵</a></li>
+<li><a href="#sec-4-4-3-2">4.4.3.2 划分数据集</a></li>
+<li><a href="#sec-4-4-3-3">4.4.3.3 选择最好的划分</a></li>
+<li><a href="#sec-4-4-3-4">4.4.3.4 构造决策树</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4-5">4.5 贝叶斯分类</a></li>
+<li><a href="#sec-4-6">4.6 支持向量机</a></li>
+<li><a href="#sec-4-7">4.7 回归分析</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-4-7-1">4.7.1 线性回归</a></li>
+<li><a href="#sec-4-7-2">4.7.2 逻辑回归</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4-8">4.8 神经网络</a>
+<ul>
+<li><a href="#sec-4-8-1">4.8.1 概念</a></li>
+<li><a href="#sec-4-8-2">4.8.2 感知机</a></li>
 </ul>
 </li>
 </ul>
@@ -537,134 +537,19 @@ $$
 </p></div>
 </div>
 </div>
-</div>
 
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 机器学习</h2>
-<div class="outline-text-2" id="text-2">
-
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 基本概念</h3>
-<div class="outline-text-3" id="text-2-1">
-
-<ul>
-<li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，
-  但是对于新鲜样本则可能不令人满意的现象称为过拟合；
-</li>
-<li>样本集合：一般样本集合可以分为
-<ol>
-<li>training set：训练集，用于训练得出我们的候选算法集合；
-</li>
-<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法； 
-</li>
-<li>test set：测试集，用于测试我们选出的这个错误率最低的算法；
-</li>
-</ol>
-
-</li>
-<li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>
-  种所有可能形式分为2类，则称该函数集能够把样本数为N的样本集打散(shatter)，
-  其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定
-  义为：对于给定集合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素
-  的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个样本，假设类H
-  就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把
-  2<sup>N</sup>种分类的每一种看做一个学习问题，那么2<sup>N</sup>种学习问题就可以用N个点定义； 
-</li>
-<li>VC维：依照样本集打散的概念，该函数集的VC维就是用这个函数集中的函数能够打
-  散的最大样本集的样本数目, 而所谓的打散，指的是这个函数集能够按照任意个数
-  的类别来分开这么多个样本，也就是说，若存在N个样本的样本集能够被函数集打散，
-  而不存在N+1个样本集能够打散，则该函数集的VC维就是N。另外，若对于任意的样
-  本数，总能找到一个样本集能够被这个函数集打散，则函数集的VC维就是无穷大，
-  当我们在衡量一个函数集能否分类一堆样本时，理论上这个函数集的VC维越大则表
-  示这个函数集能够分类的样本数量越大，否则越小，但是在实际中，并不是说VC维
-  越大越有用，因为对样本进行分类时并不是说要做到0错误，只需要保证可接受的错
-  误率就行，这时对函数集的VC维要求就放宽了，一般函数集的VC维越大函数集越复
-  杂越难实现，所以实际中，常常用到的是VC维比较低的函数集； 
-</li>
-<li>PAC: Probably Approximately Correct，概率近似正确(学习模型) ，主要用于解
-  决这一的学习问题：由于我们采集的样本空间不能完全的满足真正的完整空间的数
-  据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习
-  器通过对样本空间学习得来的经验不能完全的满足未来新数据的处理，所以提出了
-  PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数&epsilon;范围
-  内，&epsilon;可以任意小； 
-</li>
-<li>inductive bias：归纳偏置，机器学习试图去建造一个可以学习的算法，用来预测
-  某个目标的结果。要达到此目的，要给于学习算法一些训练样本，样本说明输入与
-  输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练
-  中未出现的样本。既然未知状况可以是任意的结果，若没有其它额外的假设，这任
-  务就无法解决。这种关于目标函数的必要假设就称为归纳偏置； 
-</li>
-<li>generalization：一般化，指的是，我们通过样本集训练出的算法可以推广到未知
-  输入得到正确输出； 
-</li>
-<li>Loss function:损失函数，表示实际输出值与我们拟合算法输出值的差；
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 基本方法</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> cordic算法</h3>
+<div class="outline-text-3" id="text-1-3">
 
 
 </div>
 
-<div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 最小二乘法</h4>
-<div class="outline-text-4" id="text-2-2-1">
-
-<p>最小二乘法是为了求一组观察数据(变量X和Y)之间的函数关系Y=f(X)=A<sup>T</sup>X.其
-中X是训练特征矩阵，Y是结果向量。应用条件如下 
-</p><ol>
-<li>若变量间的函数形式根据理论分析或者以往的经验已经确定好了，只是其中某些参
-   数是未知的，则可以通过观察数据来确定这些参数；
-</li>
-<li>若变量间的具体函数形式尚未确定，则需要通过观测数据来确定函数形式和参数；
-</li>
-<li>X必须是列满秩；
-</li>
-</ol>
-
-<p>最终求得的A参数为$$A=(X^{T}X)^{-1}X^{T}Y$$ 
-在选取的参数估计值A-&gt;a<sub>1</sub><sup>'</sup>, a<sub>2</sub><sup>'</sup>,&hellip;, a<sub>k</sub><sup>'</sup>, 应
-使得变量Y的诸多观测值y<sub>i</sub>与其真值的估计值(又叫拟合值)，即f(X<sub>i</sub>; a<sub>1</sub>, &hellip;, a<sub>k</sub>)
-之差的平方和最小，用式子表示时，记残差v<sub>i</sub>为
- $$ v_{i}=y_{i}-\hat{y_{i}}=y_{i}-f(X_{i}; a_{1}, ..., a_{k})$$ 
-最小二乘法就是要求下面式子的最小值时的a<sub>i</sub>参数。
-$$R=\sum_{i=1}^{n}v_{i}^{2}$$ 
-在这个条件下，用数学中求极值的方法可以求出这些参数。根据数学分析中求函数极
-值的条件
-\begin{equation}
-\begin{cases}
-\frac{\partial R}{\partial a_{1}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{1}}=0\\
-\frac{\partial R}{\partial a_{2}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{2}}=0\\
-\frac{\partial R}{\partial a_{k}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{k}}=0\\
-\end{cases}
-\end{equation}
-共得到k个方程，求这k个方程的联立解就可以求出a<sub>i</sub><sup>'</sup>的值。
-</p></div>
-</div>
-
-</div>
-
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> cordic算法</h3>
-<div class="outline-text-3" id="text-2-3">
-
-
-</div>
-
-<div id="outline-container-2-3-1" class="outline-4">
-<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 背景</h4>
-<div class="outline-text-4" id="text-2-3-1">
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 背景</h4>
+<div class="outline-text-4" id="text-1-3-1">
 
 <p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计
 算任意角度的三角函数的值。这种表格在人们刚刚产生三角函数的概念的时候就已经
@@ -689,9 +574,9 @@ cordic(coordinate rotation digital computer) 算法，这个算法只利用移�
 
 </div>
 
-<div id="outline-container-2-3-2" class="outline-4">
-<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> 从二分查找法说起</h4>
-<div class="outline-text-4" id="text-2-3-2">
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 从二分查找法说起</h4>
+<div class="outline-text-4" id="text-1-3-2">
 
 <p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），
 如何求的在极坐标系下的坐标（ρ,θ）。用计算器计算一下可知答案是（223.61，
@@ -829,9 +714,9 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-2-3-3" class="outline-4">
-<h4 id="sec-2-3-3"><span class="section-number-4">2.3.3</span> 减少乘法运算</h4>
-<div class="outline-text-4" id="text-2-3-3">
+<div id="outline-container-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> 减少乘法运算</h4>
+<div class="outline-text-4" id="text-1-3-3">
 
 <p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法
 运算，运算量还是太大了。还需要进一步的改进。改进的切入点当然还是坐标变换的
@@ -913,9 +798,9 @@ z = 63.432312
 
 </div>
 
-<div id="outline-container-2-3-4" class="outline-4">
-<h4 id="sec-2-3-4"><span class="section-number-4">2.3.4</span> 消除乘法运算</h4>
-<div class="outline-text-4" id="text-2-3-4">
+<div id="outline-container-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> 消除乘法运算</h4>
+<div class="outline-text-4" id="text-1-3-4">
 
 <p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要
 从计算式入手。第一次循环时，tan(45)=1，所以第一次循环实际上是不需要乘法运算
@@ -1145,14 +1030,369 @@ cordic算法最基本的内容，实际上，利用cordic 算法不光可以计�
 论范围内了。另外，每次旋转时到原点的距离都会发生变化，而这个变化是确定的，
 因此可以在循环运算结束后以此补偿回来，这样的话我们就同时将（ρ,θ）都计算出
 来了。  
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 滤波算法</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 中值滤波</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>中值滤波法是一种非线性的信号处理技术。中值滤波将一个长度为给定奇数的移动窗
+作用于序列，该窗中心位置的值用窗口内各点排序后的中值替代，待处理点的前面后
+面数据数目一样。中值滤波器能有效的克服因为偶然因素引起的波动干扰，比如脉冲
+噪声。因为在窗口内排序后，最小的和最大的值将排在窗口两边，滤波后的序列将不
+会包含这些点。所以滤除脉冲比较有效。
 </p></div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 全期平滑滤波</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
+</p></div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 移动平滑滤波</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
+通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
+数据满了，则再增加一个数据就从队尾去除一个数据；每有新数据时就用队列数据的
+平均值作为输出替代。
+</p><ul>
+<li>优点：能够比较好的抑制随机噪声，如果窗口选择大，则最终输出数据平滑效果好；
+</li>
+<li>缺点：对新数据的权重比较低，导致对新输入不够敏感，比较迟滞。
+</li>
+</ul>
+
 </div>
 
 </div>
 
 <div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> k临近算法</h3>
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 指数平滑滤波</h3>
 <div class="outline-text-3" id="text-2-4">
+
+<p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
+减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
+</p>
+</div>
+
+<div id="outline-container-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 指数平滑的公式</h4>
+<div class="outline-text-4" id="text-2-4-1">
+
+<p>  \begin{equation}
+  \label{equ-pinghua}
+  s_{t} = \alpha{}.y_{t} + (1-\alpha{}).s_{t-1}
+  \end{equation}
+</p><ol>
+<li>s<sub>t</sub>: 当前时刻t的平滑输出值；
+</li>
+<li>y<sub>t</sub>: 当前时刻t的实际输入值；
+</li>
+<li>s<sub>t-1</sub>: 上一时刻t-1的平滑值；
+</li>
+<li>&alpha;: 平滑比例常数，取值范围[0, 1]
+</li>
+</ol>
+
+<p>  由式子<a href="#equ-pinghua">equ-pinghua</a>可知：
+</p><ol>
+<li>s<sub>t</sub>是y<sub>t</sub>和s<sub>t-1</sub>的加权算术平均数，随着&alpha;取值的大小变化，决定
+     y<sub>t</sub>和s<sub>t-1</sub>对s<sub>t</sub>的影响程度，当&alpha;取1时，\(s_{t}=y_{t}\); 当取0
+     时，\(s_{t}=s_{t-1}\).
+</li>
+<li>s<sub>t</sub>具有逐期追溯性质，可探源至s<sub>t-(t-t)</sub>为止。包括全部数据，其过程中，
+     平滑常数以指数形式递减，所以称为指数平滑法。如果能够找到y<sub>1</sub>以前的历
+     史数据，那么初始值s<sub>1</sub>的确定是可行的，数据较少时可以用全期平均，移动
+     平均法；数据较多时，可以用最小二乘法。但不能使用指数平滑法本身确定初始
+     值，因为数据会匮竭。如果仅有从y1开始的数据，那么确定初始值的方法有：
+<ol>
+<li>取s<sub>1</sub>等于y<sub>1</sub>；
+</li>
+<li>待积累若干数据后，取s<sub>1</sub>等于前面若干数据的简单算术平均数，如：
+        \(s_{1}=（y_{1}+ y_{2}+y_{3}）/3\)等等。 
+</li>
+</ol>
+
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-4-2" class="outline-4">
+<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 一次指数平滑</h4>
+<div class="outline-text-4" id="text-2-4-2">
+
+<p>设时间序列为\(y_{1}, y_{2}, ..., y_{t}...\)，则一次指数平滑
+  公式如式<a href="#equ-pinghua">equ-pinghua</a>.通过展开可以有
+  \begin{equation}
+  \label{equ-pinghuazk}
+  s_{t} = \alpha.\sum_{j=0}^{t-1}(1-\alpha)^{j}y_{t-j}+(1-\alpha)^{t}s_{0}
+  \end{equation}
+  由于\(0&lt;\alpha&lt;1\), 当\(t\Rightarrow \infty\)时，
+  \((1-\alpha)^{t}\Rightarrow 0\)，式子<a href="#equ-pinghuazk">equ-pinghuazk</a>变为
+  \begin{equation}
+  s_{t} = \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j}y_{t-j}
+  \end{equation}
+  由此可见，s<sub>t</sub>实际上是\(y_{t}, y_{t-1}...\)的加权平均，加权系数分别为
+  \(\alpha, \alpha(1-\alpha), \alpha(1-\alpha)^{2}...\)是按照几何级数递减。
+  越近的数据，权重越大，越远的数据，权重越小，且权重之和等于1
+  \begin{equation}
+  \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j} = 1
+  \end{equation}
+  因为加权系数符合指数规律，且又具有平滑数据的功能，所以称为指数平滑。
+</p></div>
+
+</div>
+
+<div id="outline-container-2-4-3" class="outline-4">
+<h4 id="sec-2-4-3"><span class="section-number-4">2.4.3</span> 二次指数平滑</h4>
+<div class="outline-text-4" id="text-2-4-3">
+
+<p>  当时间序列没有明显的趋势变动时，使用第t周期一次指数平滑就能直接预测第t+1
+  期之值。但当时间序列的变动出现直线趋势时，用一次指数平滑法来预测仍存在着
+  明显的滞后偏差。因此，也需要进行修正。 修正的方法也是在一次指数平滑
+  的基础上再作二次指数平滑，利用滞后偏差的规律找出曲线的发展方向和发展趋势，
+  然后建立直线趋势预测模型。故称为二次指数平滑法。
+  设一次指数平滑为\(s_{t}\)，则二次指数平滑\(s_{t}^{(2)}\)的计算公式为
+  \begin{equation}
+  s_{t}^{(2)} = \alpha{}s_{t}^{(1)}+(1-\alpha)s_{t-1}^{(2)} 
+  \end{equation}
+  若y<sub>t</sub>从某时刻开始具有直线趋势，且认为未来时期亦按此直线趋势变化，则可以
+  用二次指数平滑。
+</p></div>
+
+</div>
+
+<div id="outline-container-2-4-4" class="outline-4">
+<h4 id="sec-2-4-4"><span class="section-number-4">2.4.4</span> 三次指数平滑</h4>
+<div class="outline-text-4" id="text-2-4-4">
+
+<p>  若时间序列的变动呈现出二次曲线趋势，则需要用三次指数平滑法。三次指数平滑
+  是在二次指数平滑的基础上再进行一次平滑，其计算公式为
+  \begin{equation}
+  s_{t}^{(3)}=\alpha{}s_{t}^{(2)}+(1-\alpha)s_{t-1}^{(3)}
+  \end{equation}
+</p><ul>
+<li>指数平滑系数：指数平滑法的计算中，关键是 的取值大小，但 的取值又容易受主
+  观影响，因此合理确定 的取值方法十分重要，一般来说，如果数据波动较大， 值
+  应取大一些，可以增加近期数据对预测结果的影响。如果数据波动平稳， 值应取小
+  一些。经验判断法：
+<ol>
+<li>当时间序列呈现较稳定的水平趋势时，应选较小的 值，一般可在0.05～0.20之间取值；
+</li>
+<li>当时间序列有波动，但长期趋势变化不大时，可选稍大的 值，常在0.1～0.4之间取值；
+</li>
+<li>当时间序列波动很大，长期趋势变化幅度较大，呈现明显且迅速的上升或下降趋
+     势时，宜选择较大的 值，如可在0.6～0.8间选值，以使预测模型灵敏度高些，能迅速跟上数据的变化；
+</li>
+<li>当时间序列数据是上升（或下降）的发展趋势类型， 应取较大值，在0.6~1之间。 
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 图像处理</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方
+法产生), 采用等距离矩形网格采样，对幅度进行等间隔量化。至此一副数字图像是一
+个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。 
+</p>
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 概念</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<ul>
+<li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过
+  程是显示； 
+</li>
+<li>扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；
+</li>
+<li>采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器
+  来完成，将每个像素处的亮度转换成与其成正比的电压值； 
+</li>
+<li>量化：是将测量的灰度值用一个整数表示，离散化；
+</li>
+<li>对比度：是指一幅图像中灰度反差的大小；
+</li>
+<li>灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，
+  其灰度级为256； 
+</li>
+<li>采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
+</li>
+<li>像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；
+</li>
+<li>放大率：指图像中物体与其对应的景物中物体的大小比例关系；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 其他</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<ul>
+<li>人眼只能分辨约40级灰度，也就是如果黑白之间的灰度范围被分为40个以上的等分，
+  相邻的灰度级可能对人眼对来说看起来是相同的； 
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 机器学习</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 基本概念</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<ul>
+<li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，
+  但是对于新鲜样本则可能不令人满意的现象称为过拟合；
+</li>
+<li>样本集合：一般样本集合可以分为
+<ol>
+<li>training set：训练集，用于训练得出我们的候选算法集合；
+</li>
+<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法； 
+</li>
+<li>test set：测试集，用于测试我们选出的这个错误率最低的算法；
+</li>
+</ol>
+
+</li>
+<li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>
+  种所有可能形式分为2类，则称该函数集能够把样本数为N的样本集打散(shatter)，
+  其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定
+  义为：对于给定集合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素
+  的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个样本，假设类H
+  就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把
+  2<sup>N</sup>种分类的每一种看做一个学习问题，那么2<sup>N</sup>种学习问题就可以用N个点定义； 
+</li>
+<li>VC维：依照样本集打散的概念，该函数集的VC维就是用这个函数集中的函数能够打
+  散的最大样本集的样本数目, 而所谓的打散，指的是这个函数集能够按照任意个数
+  的类别来分开这么多个样本，也就是说，若存在N个样本的样本集能够被函数集打散，
+  而不存在N+1个样本集能够打散，则该函数集的VC维就是N。另外，若对于任意的样
+  本数，总能找到一个样本集能够被这个函数集打散，则函数集的VC维就是无穷大，
+  当我们在衡量一个函数集能否分类一堆样本时，理论上这个函数集的VC维越大则表
+  示这个函数集能够分类的样本数量越大，否则越小，但是在实际中，并不是说VC维
+  越大越有用，因为对样本进行分类时并不是说要做到0错误，只需要保证可接受的错
+  误率就行，这时对函数集的VC维要求就放宽了，一般函数集的VC维越大函数集越复
+  杂越难实现，所以实际中，常常用到的是VC维比较低的函数集； 
+</li>
+<li>PAC: Probably Approximately Correct，概率近似正确(学习模型) ，主要用于解
+  决这一的学习问题：由于我们采集的样本空间不能完全的满足真正的完整空间的数
+  据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习
+  器通过对样本空间学习得来的经验不能完全的满足未来新数据的处理，所以提出了
+  PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数&epsilon;范围
+  内，&epsilon;可以任意小； 
+</li>
+<li>inductive bias：归纳偏置，机器学习试图去建造一个可以学习的算法，用来预测
+  某个目标的结果。要达到此目的，要给于学习算法一些训练样本，样本说明输入与
+  输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练
+  中未出现的样本。既然未知状况可以是任意的结果，若没有其它额外的假设，这任
+  务就无法解决。这种关于目标函数的必要假设就称为归纳偏置； 
+</li>
+<li>generalization：一般化，指的是，我们通过样本集训练出的算法可以推广到未知
+  输入得到正确输出； 
+</li>
+<li>Loss function:损失函数，表示实际输出值与我们拟合算法输出值的差；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 基本方法</h3>
+<div class="outline-text-3" id="text-4-2">
+
+
+</div>
+
+<div id="outline-container-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> 最小二乘法</h4>
+<div class="outline-text-4" id="text-4-2-1">
+
+<p>最小二乘法是为了求一组观察数据(变量X和Y)之间的函数关系Y=f(X)=A<sup>T</sup>X.其
+中X是训练特征矩阵，Y是结果向量。应用条件如下 
+</p><ol>
+<li>若变量间的函数形式根据理论分析或者以往的经验已经确定好了，只是其中某些参
+   数是未知的，则可以通过观察数据来确定这些参数；
+</li>
+<li>若变量间的具体函数形式尚未确定，则需要通过观测数据来确定函数形式和参数；
+</li>
+<li>X必须是列满秩；
+</li>
+</ol>
+
+<p>最终求得的A参数为$$A=(X^{T}X)^{-1}X^{T}Y$$ 
+在选取的参数估计值A-&gt;a<sub>1</sub><sup>'</sup>, a<sub>2</sub><sup>'</sup>,&hellip;, a<sub>k</sub><sup>'</sup>, 应
+使得变量Y的诸多观测值y<sub>i</sub>与其真值的估计值(又叫拟合值)，即f(X<sub>i</sub>; a<sub>1</sub>, &hellip;, a<sub>k</sub>)
+之差的平方和最小，用式子表示时，记残差v<sub>i</sub>为
+ $$ v_{i}=y_{i}-\hat{y_{i}}=y_{i}-f(X_{i}; a_{1}, ..., a_{k})$$ 
+最小二乘法就是要求下面式子的最小值时的a<sub>i</sub>参数。
+$$R=\sum_{i=1}^{n}v_{i}^{2}$$ 
+在这个条件下，用数学中求极值的方法可以求出这些参数。根据数学分析中求函数极
+值的条件
+\begin{equation}
+\begin{cases}
+\frac{\partial R}{\partial a_{1}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{1}}=0\\
+\frac{\partial R}{\partial a_{2}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{2}}=0\\
+\frac{\partial R}{\partial a_{k}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{k}}=0\\
+\end{cases}
+\end{equation}
+共得到k个方程，求这k个方程的联立解就可以求出a<sub>i</sub><sup>'</sup>的值。
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> k临近算法</h3>
+<div class="outline-text-3" id="text-4-3">
 
 <p>K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
 签大体是由这些电影中所含的打斗场景和接吻场景次数(特征)决定。现在有一部电影
@@ -1222,16 +1462,16 @@ print("resualt: %r" %classify0(point0, g, l, 3))
 
 </div>
 
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 决策树</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 决策树</h3>
+<div class="outline-text-3" id="text-4-4">
 
 
 </div>
 
-<div id="outline-container-2-5-1" class="outline-5">
-<h5 id="sec-2-5-1"><span class="section-number-5">2.5.1</span> 信息熵</h5>
-<div class="outline-text-5" id="text-2-5-1">
+<div id="outline-container-4-4-1" class="outline-5">
+<h5 id="sec-4-4-1"><span class="section-number-5">4.4.1</span> 信息熵</h5>
+<div class="outline-text-5" id="text-4-4-1">
 
 <p>信息熵用来衡量信息量的大小
 </p><ul>
@@ -1260,9 +1500,9 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-2-5-2" class="outline-5">
-<h5 id="sec-2-5-2"><span class="section-number-5">2.5.2</span> 算法逻辑</h5>
-<div class="outline-text-5" id="text-2-5-2">
+<div id="outline-container-4-4-2" class="outline-5">
+<h5 id="sec-4-4-2"><span class="section-number-5">4.4.2</span> 算法逻辑</h5>
+<div class="outline-text-5" id="text-4-4-2">
 
 <p>构建决策树的过程，就是减小信息熵，减小不确定性。从而完整构造决策树模型。所
 以我们需要在每一次选择分支属性时，计算这样分类所带来的信息熵的增益，增益越
@@ -1286,16 +1526,16 @@ $$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$
 
 </div>
 
-<div id="outline-container-2-5-3" class="outline-5">
-<h5 id="sec-2-5-3"><span class="section-number-5">2.5.3</span> 算法实例</h5>
-<div class="outline-text-5" id="text-2-5-3">
+<div id="outline-container-4-4-3" class="outline-5">
+<h5 id="sec-4-4-3"><span class="section-number-5">4.4.3</span> 算法实例</h5>
+<div class="outline-text-5" id="text-4-4-3">
 
 
 </div>
 
-<div id="outline-container-2-5-3-1" class="outline-6">
-<h6 id="sec-2-5-3-1"><span class="section-number-6">2.5.3.1</span> 计算香农熵</h6>
-<div class="outline-text-6" id="text-2-5-3-1">
+<div id="outline-container-4-4-3-1" class="outline-6">
+<h6 id="sec-4-4-3-1"><span class="section-number-6">4.4.3.1</span> 计算香农熵</h6>
+<div class="outline-text-6" id="text-4-4-3-1">
 
 <p>根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
 性和一个标签，即某个标签具有若干属性，每个标签和属性都有若干值。以某个标签
@@ -1328,9 +1568,9 @@ def calcShannonEnt(dataSet):
 
 </div>
 
-<div id="outline-container-2-5-3-2" class="outline-6">
-<h6 id="sec-2-5-3-2"><span class="section-number-6">2.5.3.2</span> 划分数据集</h6>
-<div class="outline-text-6" id="text-2-5-3-2">
+<div id="outline-container-4-4-3-2" class="outline-6">
+<h6 id="sec-4-4-3-2"><span class="section-number-6">4.4.3.2</span> 划分数据集</h6>
+<div class="outline-text-6" id="text-4-4-3-2">
 
 <p>指按照给定的特征以及特征的值提取出这样的数据集。代码
 </p>
@@ -1355,9 +1595,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-5-3-3" class="outline-6">
-<h6 id="sec-2-5-3-3"><span class="section-number-6">2.5.3.3</span> 选择最好的划分</h6>
-<div class="outline-text-6" id="text-2-5-3-3">
+<div id="outline-container-4-4-3-3" class="outline-6">
+<h6 id="sec-4-4-3-3"><span class="section-number-6">4.4.3.3</span> 选择最好的划分</h6>
+<div class="outline-text-6" id="text-4-4-3-3">
 
 <p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
 熵(按样本标签计算)。然后按照该特征下每个特征值占的比例计算该特征的香农熵总
@@ -1397,9 +1637,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-5-3-4" class="outline-6">
-<h6 id="sec-2-5-3-4"><span class="section-number-6">2.5.3.4</span> 构造决策树</h6>
-<div class="outline-text-6" id="text-2-5-3-4">
+<div id="outline-container-4-4-3-4" class="outline-6">
+<h6 id="sec-4-4-3-4"><span class="section-number-6">4.4.3.4</span> 构造决策树</h6>
+<div class="outline-text-6" id="text-4-4-3-4">
 
 <p>采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
 是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
@@ -1439,9 +1679,9 @@ def splitDataSet(dataSet, axis, value):
 
 </div>
 
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 贝叶斯分类</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 贝叶斯分类</h3>
+<div class="outline-text-3" id="text-4-5">
 
 <p>贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
 量，这样不同的特征向量构成特征向量集合v<sub>j</sub>, 当我们获得新的特征向量v时，需
@@ -1483,17 +1723,17 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 支持向量机(SVM)</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> 支持向量机</h3>
+<div class="outline-text-3" id="text-4-6">
 
 </div>
 
 </div>
 
-<div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 回归分析</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-4-7" class="outline-3">
+<h3 id="sec-4-7"><span class="section-number-3">4.7</span> 回归分析</h3>
+<div class="outline-text-3" id="text-4-7">
 
 <p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
@@ -1543,9 +1783,9 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 
 </div>
 
-<div id="outline-container-2-8-1" class="outline-5">
-<h5 id="sec-2-8-1"><span class="section-number-5">2.8.1</span> 线性回归</h5>
-<div class="outline-text-5" id="text-2-8-1">
+<div id="outline-container-4-7-1" class="outline-5">
+<h5 id="sec-4-7-1"><span class="section-number-5">4.7.1</span> 线性回归</h5>
+<div class="outline-text-5" id="text-4-7-1">
 
 <p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
 大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
@@ -1568,9 +1808,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-8-2" class="outline-5">
-<h5 id="sec-2-8-2"><span class="section-number-5">2.8.2</span> 逻辑回归</h5>
-<div class="outline-text-5" id="text-2-8-2">
+<div id="outline-container-4-7-2" class="outline-5">
+<h5 id="sec-4-7-2"><span class="section-number-5">4.7.2</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-4-7-2">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
@@ -1583,9 +1823,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 神经网络</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-4-8" class="outline-3">
+<h3 id="sec-4-8"><span class="section-number-3">4.8</span> 神经网络</h3>
+<div class="outline-text-3" id="text-4-8">
 
 <p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
 </p><ul>
@@ -1618,9 +1858,9 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 
 </div>
 
-<div id="outline-container-2-9-1" class="outline-4">
-<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 概念</h4>
-<div class="outline-text-4" id="text-2-9-1">
+<div id="outline-container-4-8-1" class="outline-4">
+<h4 id="sec-4-8-1"><span class="section-number-4">4.8.1</span> 概念</h4>
+<div class="outline-text-4" id="text-4-8-1">
 
 <ul>
 <li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
@@ -1634,283 +1874,60 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 </li>
 </ul>
 
-
 </div>
 
 </div>
 
-<div id="outline-container-2-9-2" class="outline-4">
-<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> 感知机</h4>
-<div class="outline-text-4" id="text-2-9-2">
+<div id="outline-container-4-8-2" class="outline-4">
+<h4 id="sec-4-8-2"><span class="section-number-4">4.8.2</span> 感知机</h4>
+<div class="outline-text-4" id="text-4-8-2">
 
 <p>感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
 成两类的，并且数据要线性可分的情况。线性可分是指存在一个超平面能够将空间分
 成两部分，每一部分为一类，感知机的目的就在于找这样的一个超平面。 
 假设输入数据形式为\(x=(x_{1},x_{2}....x_{n})\),即所谓的特征向量。y代表输入
-数据的类别，为{+1，-1}，感知机的形式为\(f(x)=sign(w*x+b)\),当w*x+b&gt;=0时，
-f(x)=+1,当w*x+b&lt;0时，f(x)=-1. 
-f(x)就是我们对输入数据的分类，感知机的目的就在于找到合适的w和b，使得f(x)能
+数据的类别，为{+1，-1}，感知机的形式为
+$$(f(x)=sign(w*x+b)$$
+</p><ul>
+<li>当w*x+b&gt;=0时，f(x)=+1;
+</li>
+<li>当w*x+b&lt;0时，f(x)=-1;   
+</li>
+</ul>
+
+<p>f(x)就是我们对输入数据的分类，感知机的目的就在于找到合适的w和b，使得f(x)能
 正确分类。w是和x维数相同的向量（一个是行向量，一个是列向量），w是我们求的超
-平面的法向量，b是超平面的截距。 定义损失函数：误分类点到超平面的总距离（不
-定成误分类的点的个数是因为这样损失函数对w,b不是连续可导，不易优化），假设误
-分类点为0，那么总距离为0. 空间中任意一点到超平面的距离为|w*x+b|/(||w||),我
-们只要使得分子部分变成0就行。 对于误分类点\((x_{i},y_{i})\)来说，如果
+平面的法向量，b是超平面的截距。 <br/>
+定义损失函数：误分类点到超平面的总距离（不定成误分类的点的个数是因为这样损
+失函数对w,b不是连续可导，不易优化），假设误分类点为0，那么总距离为0. 空间中
+任意一点到超平面的距离为|w*x+b|/(||w||),我们只要使得分子部分变成0就行。 对
+于误分类点\((x_{i},y_{i})\)来说，如果 
 \(w*x_{i}+b&gt;=0\),本应该为+1，但是误分类的话\(y_{i}=-1\),如果
 \(w*x_{i}+b&lt;0\),本应该为-1，但是误分类的话\(y_{i}=+1\),这样我们就能得到
 \(-y_{i}(w*x_{i}+b)&gt;0\),即我们可以使对误分类点的\(-y_{i}(w*x_{i}+b)\)求和，
 使之最小化，当然这里是指变成0.  
-那么具体是如何求w,b的呢？（下面是感知机算法的原始形式）
-</p><ol>
-<li>首先任意选一个超平面w0,b0(w是向量，里面元素都为0); 
-</li>
-<li>然后采用梯度下降法不断的极小化目标函数，在这里具体来说就是每次取一个误分
-   类的点\((x_{i},y_{i})\),令\(w=w+ny_{i}x_{i},b = b+ny_{i}\), 可以这么理解，
-   每当有一个误分类点，我们就把平面往这个误分类点的方向移动一些，使得它能够
-   被正确分类，0&lt;n&lt;=1,n被称为学习率
-</li>
-<li>重复步骤2，直至没有误分类点，即损失函数为0.
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 图像处理</h2>
-<div class="outline-text-2" id="text-3">
-
-<p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方
-法产生), 采用等距离矩形网格采样，对幅度进行等间隔量化。至此一副数字图像是一
-个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。 
+感知机算法的原始形式:
 </p>
-</div>
-
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 概念</h3>
-<div class="outline-text-3" id="text-3-1">
-
-<ul>
-<li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过
-  程是显示； 
-</li>
-<li>扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；
-</li>
-<li>采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器
-  来完成，将每个像素处的亮度转换成与其成正比的电压值； 
-</li>
-<li>量化：是将测量的灰度值用一个整数表示，离散化；
-</li>
-<li>对比度：是指一幅图像中灰度反差的大小；
-</li>
-<li>灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，
-  其灰度级为256； 
-</li>
-<li>采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
-</li>
-<li>像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；
-</li>
-<li>放大率：指图像中物体与其对应的景物中物体的大小比例关系；
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 其他</h3>
-<div class="outline-text-3" id="text-3-2">
-
-<ul>
-<li>人眼只能分辨约40级灰度，也就是如果黑白之间的灰度范围被分为40个以上的等分，
-  相邻的灰度级可能对人眼对来说看起来是相同的； 
-</li>
-</ul>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 滤波</h2>
-<div class="outline-text-2" id="text-4">
 
 
-</div>
-
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 中值滤波</h3>
-<div class="outline-text-3" id="text-4-1">
-
-<p>中值滤波法是一种非线性的信号处理技术。中值滤波将一个长度为给定奇数的移动窗
-作用于序列，该窗中心位置的值用窗口内各点排序后的中值替代，待处理点的前面后
-面数据数目一样。中值滤波器能有效的克服因为偶然因素引起的波动干扰，比如脉冲
-噪声。因为在窗口内排序后，最小的和最大的值将排在窗口两边，滤波后的序列将不
-会包含这些点。所以滤除脉冲比较有效。
-</p></div>
-
-</div>
-
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 全期平滑滤波</h3>
-<div class="outline-text-3" id="text-4-2">
-
-<p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
-</p></div>
-
-</div>
-
-<div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 移动平滑滤波</h3>
-<div class="outline-text-3" id="text-4-3">
-
-<p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
-通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
-数据满了，则再增加一个数据就从队尾去除一个数据；每有新数据时就用队列数据的
-平均值作为输出替代。
-</p><ul>
-<li>优点：能够比较好的抑制随机噪声，如果窗口选择大，则最终输出数据平滑效果好；
-</li>
-<li>缺点：对新数据的权重比较低，导致对新输入不够敏感，比较迟滞。
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 指数平滑滤波</h3>
-<div class="outline-text-3" id="text-4-4">
-
-<p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
-减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
-</p>
-</div>
-
-<div id="outline-container-4-4-1" class="outline-4">
-<h4 id="sec-4-4-1"><span class="section-number-4">4.4.1</span> 指数平滑的公式</h4>
-<div class="outline-text-4" id="text-4-4-1">
-
-<p>  \begin{equation}
-  \label{equ-pinghua}
-  s_{t} = \alpha{}.y_{t} + (1-\alpha{}).s_{t-1}
-  \end{equation}
-</p><ol>
-<li>s<sub>t</sub>: 当前时刻t的平滑输出值；
-</li>
-<li>y<sub>t</sub>: 当前时刻t的实际输入值；
-</li>
-<li>s<sub>t-1</sub>: 上一时刻t-1的平滑值；
-</li>
-<li>&alpha;: 平滑比例常数，取值范围[0, 1]
-</li>
-</ol>
-
-<p>  由式子<a href="#equ-pinghua">equ-pinghua</a>可知：
-</p><ol>
-<li>s<sub>t</sub>是y<sub>t</sub>和s<sub>t-1</sub>的加权算术平均数，随着&alpha;取值的大小变化，决定
-     y<sub>t</sub>和s<sub>t-1</sub>对s<sub>t</sub>的影响程度，当&alpha;取1时，\(s_{t}=y_{t}\); 当取0
-     时，\(s_{t}=s_{t-1}\).
-</li>
-<li>s<sub>t</sub>具有逐期追溯性质，可探源至s<sub>t-(t-t)</sub>为止。包括全部数据，其过程中，
-     平滑常数以指数形式递减，所以称为指数平滑法。如果能够找到y<sub>1</sub>以前的历
-     史数据，那么初始值s<sub>1</sub>的确定是可行的，数据较少时可以用全期平均，移动
-     平均法；数据较多时，可以用最小二乘法。但不能使用指数平滑法本身确定初始
-     值，因为数据会匮竭。如果仅有从y1开始的数据，那么确定初始值的方法有：
-<ol>
-<li>取s<sub>1</sub>等于y<sub>1</sub>；
-</li>
-<li>待积累若干数据后，取s<sub>1</sub>等于前面若干数据的简单算术平均数，如：
-        \(s_{1}=（y_{1}+ y_{2}+y_{3}）/3\)等等。 
-</li>
-</ol>
-
-</li>
-</ol>
-
-</div>
-
-</div>
-
-<div id="outline-container-4-4-2" class="outline-4">
-<h4 id="sec-4-4-2"><span class="section-number-4">4.4.2</span> 一次指数平滑</h4>
-<div class="outline-text-4" id="text-4-4-2">
-
-<p>设时间序列为\(y_{1}, y_{2}, ..., y_{t}...\)，则一次指数平滑
-  公式如式<a href="#equ-pinghua">equ-pinghua</a>.通过展开可以有
-  \begin{equation}
-  \label{equ-pinghuazk}
-  s_{t} = \alpha.\sum_{j=0}^{t-1}(1-\alpha)^{j}y_{t-j}+(1-\alpha)^{t}s_{0}
-  \end{equation}
-  由于\(0&lt;\alpha&lt;1\), 当\(t\Rightarrow \infty\)时，
-  \((1-\alpha)^{t}\Rightarrow 0\)，式子<a href="#equ-pinghuazk">equ-pinghuazk</a>变为
-  \begin{equation}
-  s_{t} = \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j}y_{t-j}
-  \end{equation}
-  由此可见，s<sub>t</sub>实际上是\(y_{t}, y_{t-1}...\)的加权平均，加权系数分别为
-  \(\alpha, \alpha(1-\alpha), \alpha(1-\alpha)^{2}...\)是按照几何级数递减。
-  越近的数据，权重越大，越远的数据，权重越小，且权重之和等于1
-  \begin{equation}
-  \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j} = 1
-  \end{equation}
-  因为加权系数符合指数规律，且又具有平滑数据的功能，所以称为指数平滑。
-</p></div>
-
-</div>
-
-<div id="outline-container-4-4-3" class="outline-4">
-<h4 id="sec-4-4-3"><span class="section-number-4">4.4.3</span> 二次指数平滑</h4>
-<div class="outline-text-4" id="text-4-4-3">
-
-<p>  当时间序列没有明显的趋势变动时，使用第t周期一次指数平滑就能直接预测第t+1
-  期之值。但当时间序列的变动出现直线趋势时，用一次指数平滑法来预测仍存在着
-  明显的滞后偏差。因此，也需要进行修正。 修正的方法也是在一次指数平滑
-  的基础上再作二次指数平滑，利用滞后偏差的规律找出曲线的发展方向和发展趋势，
-  然后建立直线趋势预测模型。故称为二次指数平滑法。
-  设一次指数平滑为\(s_{t}\)，则二次指数平滑\(s_{t}^{(2)}\)的计算公式为
-  \begin{equation}
-  s_{t}^{(2)} = \alpha{}s_{t}^{(1)}+(1-\alpha)s_{t-1}^{(2)} 
-  \end{equation}
-  若y<sub>t</sub>从某时刻开始具有直线趋势，且认为未来时期亦按此直线趋势变化，则可以
-  用二次指数平滑。
-</p></div>
-
-</div>
-
-<div id="outline-container-4-4-4" class="outline-4">
-<h4 id="sec-4-4-4"><span class="section-number-4">4.4.4</span> 三次指数平滑</h4>
-<div class="outline-text-4" id="text-4-4-4">
-
-<p>  若时间序列的变动呈现出二次曲线趋势，则需要用三次指数平滑法。三次指数平滑
-  是在二次指数平滑的基础上再进行一次平滑，其计算公式为
-  \begin{equation}
-  s_{t}^{(3)}=\alpha{}s_{t}^{(2)}+(1-\alpha)s_{t-1}^{(3)}
-  \end{equation}
-</p><ul>
-<li>指数平滑系数：指数平滑法的计算中，关键是 的取值大小，但 的取值又容易受主
-  观影响，因此合理确定 的取值方法十分重要，一般来说，如果数据波动较大， 值
-  应取大一些，可以增加近期数据对预测结果的影响。如果数据波动平稳， 值应取小
-  一些。经验判断法：
-<ol>
-<li>当时间序列呈现较稳定的水平趋势时，应选较小的 值，一般可在0.05～0.20之间取值；
-</li>
-<li>当时间序列有波动，但长期趋势变化不大时，可选稍大的 值，常在0.1～0.4之间取值；
-</li>
-<li>当时间序列波动很大，长期趋势变化幅度较大，呈现明显且迅速的上升或下降趋
-     势时，宜选择较大的 值，如可在0.6～0.8间选值，以使预测模型灵敏度高些，能迅速跟上数据的变化；
-</li>
-<li>当时间序列数据是上升（或下降）的发展趋势类型， 应取较大值，在0.6~1之间。 
-</li>
-</ol>
-
-</li>
-</ul>
-
+<pre class="example">//给定线性可分的数据集S和学习率e
+w_{0}=0; 
+b_{0}=0; 
+k = 0; 
+R = max_{1&lt;=i&lt;=l}||x_{i}||
+while(1)
+{
+    for i = 1 to l
+        if y_{i}(&lt;w_{k}*x_{i}&gt;+b_{k})&lt;=0 then
+            w_{k+1}=w_{k}+e*y_{i}*x_{i}
+            b_{k+1}=b_{k}+e*y_{i}*R^{2}
+            k=k+1
+        end if
+    end for
+//直到在for循环中没有错误发生
+//返回(w_{k}, b_{k})，这里k是错误次数
+}
+</pre>
 
 </div>
 </div>
@@ -1919,7 +1936,7 @@ f(x)就是我们对输入数据的分类，感知机的目的就在于找到合�
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-08-18 00:18:16 中国标准时间</p>
+<p class="date">Date: 2016-08-24 20:37:12 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
