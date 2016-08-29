@@ -354,6 +354,11 @@ $$
 *** 镜像
 *** 切变
 ** 求导
+如果X是列向量, X^{T}是X的转置，A是矩阵，A^{T}是A的转置，则对X的求导法则有 
+1. $$\frac{d(A*X)}{dX} = A$$
+2. $$\frac{d(X^{T}*A)}{dX^{T}} = A$$
+3. $$\frac{d(X^{T}*A)}{dX} = A^{T}$$
+4. $$\frac{d(X^{T}*A*X)}{dX} = X^{T}(A^{T}+A)$$
 *** 行向量对元素求导
 设\(y^{T}=[y_{1}...y_{n}]\)是n维行向量，x是元素，则
 $$\frac{\partial{y^{T}}}{\partial{x}}=[\frac{\partial{y_{1}}}{\partial{x}}...\frac{\partial{y_{n}}}{\partial{x}}]$$ 
