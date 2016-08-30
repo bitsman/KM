@@ -425,6 +425,14 @@ security mode 1的level 1开始，在以后的进程中可以升级到其他级�
 | 发现服务         | gatt.discoverServices()              | onServicesDiscovered      |
 | MTU改变          | requestMtu()                         | onMtuChanged()            |
 |------------------+--------------------------------------+---------------------------|
+- 上行通道：上行通道有notification和indication方式；
+  1. notification：类似UDP，下位机有数据上传时，直接用notification将数据
+     发给上位机，而不用提前通知上位机接收数据，上位机收到数据后也不用给下位
+     机回复是否收到数据；
+  2. indication：类似TCP，下位机有数据上传时，需要先问上位机可否传数据，得
+     到确切回复后，下位机再给上位机传输数据，上位机还要给予确认；
+- 下行通道：可以有write方式，write with response方式，write without
+  response，其区别就是上位机做了这些操作后，协议栈是否会有回调；
 **** android-ble梳理
 - btle概念 
   正如其名，ble相对于经典bt，提供了类似的通信距离，然后却使用明显更少的功耗。ble设备会进入睡眠模式，并且只为连接尝试或者
@@ -568,7 +576,6 @@ security mode 1的level 1开始，在以后的进程中可以升级到其他级�
        之前的连接超时，或者蓝牙被android系统回收，或者设备重启。
     4. 在初始化设备发现后，保存设备的MAC地址，参见BluetoothDevice.getAddress()，然后，下次用户想连接，使用这个地址来构建
        BluetoothDevice，参见BlueAdaptor.getRemoteDevice(),这样可以避开设备发现，使得用户体验更平滑友好。 
-
 ** ant
 ** nfc
 由reader发射一定频率的无线电波能量给rf tag，用于驱动rf tag电路内部的ID code送出，此时reader便会接收此ID code；

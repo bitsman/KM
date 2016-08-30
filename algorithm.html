@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-08-24 20:37:12 中国标准时间"/>
+<meta name="generated" content="2016-08-29 18:05:00 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -146,7 +146,11 @@
 <li><a href="#sec-4-1">4.1 基本概念</a></li>
 <li><a href="#sec-4-2">4.2 基本方法</a>
 <ul>
-<li><a href="#sec-4-2-1">4.2.1 最小二乘法</a></li>
+<li><a href="#sec-4-2-1">4.2.1 最小二乘法</a>
+<ul>
+<li><a href="#sec-4-2-1-1">4.2.1.1 解法一</a></li>
+<li><a href="#sec-4-2-1-2">4.2.1.2 解法二</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-4-3">4.3 k临近算法</a></li>
@@ -173,7 +177,8 @@
 <li>
 <ul>
 <li><a href="#sec-4-7-1">4.7.1 线性回归</a></li>
-<li><a href="#sec-4-7-2">4.7.2 逻辑回归</a></li>
+<li><a href="#sec-4-7-2">4.7.2 岭回归</a></li>
+<li><a href="#sec-4-7-3">4.7.3 逻辑回归</a></li>
 </ul></li>
 </ul>
 </li>
@@ -1356,6 +1361,13 @@ cordic算法最基本的内容，实际上，利用cordic 算法不光可以计�
 <h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> 最小二乘法</h4>
 <div class="outline-text-4" id="text-4-2-1">
 
+
+</div>
+
+<div id="outline-container-4-2-1-1" class="outline-5">
+<h5 id="sec-4-2-1-1"><span class="section-number-5">4.2.1.1</span> 解法一</h5>
+<div class="outline-text-5" id="text-4-2-1-1">
+
 <p>最小二乘法是为了求一组观察数据(变量X和Y)之间的函数关系Y=f(X)=A<sup>T</sup>X.其
 中X是训练特征矩阵，Y是结果向量。应用条件如下 
 </p><ol>
@@ -1386,6 +1398,24 @@ $$R=\sum_{i=1}^{n}v_{i}^{2}$$
 \end{equation}
 共得到k个方程，求这k个方程的联立解就可以求出a<sub>i</sub><sup>'</sup>的值。
 </p></div>
+
+</div>
+
+<div id="outline-container-4-2-1-2" class="outline-5">
+<h5 id="sec-4-2-1-2"><span class="section-number-5">4.2.1.2</span> 解法二</h5>
+<div class="outline-text-5" id="text-4-2-1-2">
+
+<p>函数关系是\(Y=f(X)=A^{T}X\), 损失函数为平方差的和，写成矩阵的形式为
+$$L(W)=(Y-XW)'(Y-XW)$$ 
+可以看出L(W)是一个向量也算一个矩阵，则可以采用矩阵L对列向量W求导，并令其等
+于0来计算出W的值。
+$$\frac{dL}{dW}=-2X'Y+2X'XW=0$$ 
+由此得
+$$X'XW=X'Y$$ 
+其中如果\(X'X\)的逆存在，最小二乘问题的解是：
+$$W=(X'X)^{-1}X'Y$$ 
+</p></div>
+</div>
 </div>
 
 </div>
@@ -1809,8 +1839,21 @@ $$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$
 </div>
 
 <div id="outline-container-4-7-2" class="outline-5">
-<h5 id="sec-4-7-2"><span class="section-number-5">4.7.2</span> 逻辑回归</h5>
+<h5 id="sec-4-7-2"><span class="section-number-5">4.7.2</span> 岭回归</h5>
 <div class="outline-text-5" id="text-4-7-2">
+
+<p>如果在最小二乘法中\(X'X\)矩阵不是满秩，或者在其他情况下数值解不稳定，则可以
+使用下面的解
+$$W=(X'X+\lambda{}I_{n})^{-1}X'Y$$ 
+上面的公式可以通过矩阵\(X'X\)上增加对角矩阵\(I_{n}\)的乘子\(\lambda \in
+R^{+}\)来得到，这里\(I_{n}\)是一个(n+1, n+1)项为0的单位矩阵，这就是岭回归。
+</p></div>
+
+</div>
+
+<div id="outline-container-4-7-3" class="outline-5">
+<h5 id="sec-4-7-3"><span class="section-number-5">4.7.3</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-4-7-3">
 
 <p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
@@ -1936,7 +1979,7 @@ while(1)
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-08-24 20:37:12 中国标准时间</p>
+<p class="date">Date: 2016-08-29 18:05:00 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
