@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-08-29 18:05:00 中国标准时间"/>
+<meta name="generated" content="2016-08-31 18:31:49 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -186,6 +186,18 @@
 <ul>
 <li><a href="#sec-4-8-1">4.8.1 概念</a></li>
 <li><a href="#sec-4-8-2">4.8.2 感知机</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 算法实现</a>
+<ul>
+<li><a href="#sec-5-1">5.1 基于加速度数据计算速度算法</a>
+<ul>
+<li><a href="#sec-5-1-1">5.1.1 数据源</a></li>
+<li><a href="#sec-5-1-2">5.1.2 速度算法原理</a></li>
+<li><a href="#sec-5-1-3">5.1.3 距离算法原理</a></li>
+<li><a href="#sec-5-1-4">5.1.4 着地时间算法原理</a></li>
+<li><a href="#sec-5-1-5">5.1.5 冲刺次数算法原理</a></li>
 </ul>
 </li>
 </ul>
@@ -1975,11 +1987,103 @@ while(1)
 </div>
 </div>
 </div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 算法实现</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 基于加速度数据计算速度算法</h3>
+<div class="outline-text-3" id="text-5-1">
+
+
+</div>
+
+<div id="outline-container-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> 数据源</h4>
+<div class="outline-text-4" id="text-5-1-1">
+
+<p>基础数据来源于加速度数据，具体要求如下
+</p><ul>
+<li>X轴正方向指向脚尖，
+</li>
+<li>X轴正负16G范围；
+</li>
+<li>X轴数据6点均值滤波；
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><a name="velocity-alg" id="velocity-alg"></a><span class="section-number-4">5.1.2</span> 速度算法原理</h4>
+<div class="outline-text-4" id="text-5-1-2">
+
+<p>在跑步时，X轴加速度数据呈现类正弦波波形，波峰为脚往前脚迈刚接触到大地的时刻，
+波谷为脚往后蹬刚离开大地时刻，两个波峰之间的数据刚好是脚迈出1步的数据。通过
+提取一个正弦波数据中的特征\(X\)，并经过线性回归分析，得出速度和特征之间的函
+数关系\(V(X)\)，经过训练集数据的训练得出权重W和截距B，如果有新的特征\(X\)
+时，经过\(V(X)\)计算得出速度值。
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3"><span class="section-number-4">5.1.3</span> 距离算法原理</h4>
+<div class="outline-text-4" id="text-5-1-3">
+
+<p>通过<a href="#sec-5-1-2">速度算法</a>计算出1个正弦波速度V，在计算1个正弦波的时间T，1个正弦波的距离l
+通过公式可以计算出1步的距离。通过总的步数N可以计算出总的距离\(L=N*l\)。
+$$l=V*T$$ 
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-4" class="outline-4">
+<h4 id="sec-5-1-4"><span class="section-number-4">5.1.4</span> 着地时间算法原理</h4>
+<div class="outline-text-4" id="text-5-1-4">
+
+<p>通过<a href="#sec-5-1-2">速度算法原理</a>中描述的跑步过程，可知，1步的着地时间，可以通过计算波峰和
+波谷之间的时间来估算，总的着地时间即为步数乘以1步的着地时间。
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-5" class="outline-4">
+<h4 id="sec-5-1-5"><span class="section-number-4">5.1.5</span> 冲刺次数算法原理</h4>
+<div class="outline-text-4" id="text-5-1-5">
+
+<p>基于<a href="#sec-5-1-2">速度算法原理</a>输出的速度参数，统计在一定时间t内，速度递增v，表示一次冲刺，
+目前t阈值设置为5秒，v设置为1m/s，步骤如下；
+</p><ol>
+<li>缓存t时间内的速度输出n个；
+</li>
+<li>校验n个v是否递增，如果不递增清空缓存，否则进到第三步；
+</li>
+<li>以第n个v减去第1个v，如果相差1m/s，则判断为1次冲刺；
+</li>
+<li>清空缓存，重复第1到第4步；
+</li>
+</ol>
+
+
+
+
+</div>
+</div>
+</div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-08-29 18:05:00 中国标准时间</p>
+<p class="date">Date: 2016-08-31 18:31:49 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
