@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="算法 "/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-08-31 18:31:49 中国标准时间"/>
+<meta name="generated" content="2016-09-01 17:46:37 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -150,7 +150,9 @@
 <ul>
 <li><a href="#sec-4-2-1-1">4.2.1.1 解法一</a></li>
 <li><a href="#sec-4-2-1-2">4.2.1.2 解法二</a></li>
-</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4-2-2">4.2.2 核函数</a></li>
 </ul>
 </li>
 <li><a href="#sec-4-3">4.3 k临近算法</a></li>
@@ -1428,6 +1430,23 @@ $$X'XW=X'Y$$
 $$W=(X'X)^{-1}X'Y$$ 
 </p></div>
 </div>
+
+</div>
+
+<div id="outline-container-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> 核函数</h4>
+<div class="outline-text-4" id="text-4-2-2">
+
+<p>核是一个函数K，对所有\(x, z \in{}X\)，满足：
+$$K(x, z) = &lt;\phi{}(x).\phi{}(z)&gt;$$ 
+这里\(\phi\)是从X到特征空间F的映射。<br/>
+核这个名字是从积分算子理论中来的，这个理论以核与其相关特征空间的关系的理论
+为基础。对偶表达的一个重要结果是特征空间的维数不再影响计算。当不再显示表达
+特征空间向量，而是通过计算核函数的值来计算内积时所需算子数目不一定与特征的
+数目成比例。核的使用使得将数据隐式表达为特征空间，并在其中训练一个线性学习
+器成为可能，从而越过了本来需要的计算特征映射的问题。关于训练样例的唯一信息
+是他们在特征空间的Gram矩阵。这个句子又称为核矩阵。
+</p></div>
 </div>
 
 </div>
@@ -2030,8 +2049,17 @@ while(1)
 波谷为脚往后蹬刚离开大地时刻，两个波峰之间的数据刚好是脚迈出1步的数据。通过
 提取一个正弦波数据中的特征\(X\)，并经过线性回归分析，得出速度和特征之间的函
 数关系\(V(X)\)，经过训练集数据的训练得出权重W和截距B，如果有新的特征\(X\)
-时，经过\(V(X)\)计算得出速度值。
-</p></div>
+时，经过\(V(X)\)计算得出速度值。1步内特征包含
+</p><ol>
+<li>加速度数据的均值；
+</li>
+<li>加速度数据的标准差；
+</li>
+<li>功率：加速度平方/(n*1000); 
+</li>
+</ol>
+
+</div>
 
 </div>
 
@@ -2083,7 +2111,7 @@ $$l=V*T$$
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-08-31 18:31:49 中国标准时间</p>
+<p class="date">Date: 2016-09-01 17:46:37 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
