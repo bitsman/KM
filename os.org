@@ -25,6 +25,29 @@
 信号量实现的一种简单方式，就是设置1个整数变量和指向资源的指针的结构体，在线
 程访问这个变量时，关闭所有的中断和异常，然后对变量进行加1或者减1，实现信号
 量的访问。  
+* linux
+** shell
+*** grep
+- 用法：grep [-acinv]  [--color=auto] '搜索关键词' filename
+  1. -a，将 binary 文件以 text 文件的方式搜寻数据; 
+  2. -c，计算找到 '搜寻字符串' 的次数;
+  3. -i，忽略大小写的不同，所以大小写视为相同;
+  4. -n，顺便输出行号;
+  5. -v，反向选择，亦即显示出没有 '搜寻字符串' 内容的那一行;
+  6. --color=auto，可以将找到的关键词部分加上颜色的显示喔！
+- 用例：
+  1. 在当前目录下找到所有文件中包含关键字Scd的行
+     #+begin_src shell
+     cat * | grep -n Scd
+     #+end_src
+*** find
+- 用法：过于复杂；
+- 用例：
+  1. 在当前目录下找到所有（包括子目录）文件名后缀是".c", ".h"的文件名路径并
+     输出到文件cscope.files
+     #+begin_src shell
+     find . -name "*.[ch]" >cscope.files
+     #+end_src
 * android
 ** base
 - 上下文context

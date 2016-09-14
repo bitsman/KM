@@ -19,6 +19,8 @@
 总结信号与系统的方方面面。
 * [[./os.org][操作系统]]
 总结工作中用到的操作系统，Android、Linux、嵌入式操作系统等。
+* [[./communication.org][通信]]
+总结通信系统的方方面面，从基础到LTE。
 * [[./encyclopedia.org][百科知识]]
 总结工作中接触到的百科知识比如GPS等。
 * [[./language.org][外语]]

@@ -39,7 +39,7 @@ constant; 最后看看#x,估计你也明白了，他是给x加双引号
 #define printfdbg printf
 #else
 #define printfdbg /\
-/printfdbg
+/printfdbg 
 #endif
 #+end_src
 *** 位操作
