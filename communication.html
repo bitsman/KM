@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="通信"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-09-07 11:44:34 中国标准时间"/>
+<meta name="generated" content="2016-11-20 23:03:11 中国标准时间"/>
 <meta name="author" content="比克曼"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -52,7 +52,13 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1 概念</a></li>
-<li><a href="#sec-2">2 LTE</a></li>
+<li><a href="#sec-2">2 通信原理</a>
+<ul>
+<li><a href="#sec-2-1">2.1 模拟信号数字化</a></li>
+<li><a href="#sec-2-2">2.2 数字基带信号</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 LTE</a></li>
 </ul>
 </div>
 </div>
@@ -61,14 +67,117 @@
 <h2 id="sec-1"><span class="section-number-2">1</span> 概念</h2>
 <div class="outline-text-2" id="text-1">
 
+<ul>
+<li>信源编解码：信源编码和解码时两个逆过程，信源编码有2个作用
+<ol>
+<li>进行模/数转换；
+</li>
+<li>对转换后的数据进行压缩
+</li>
+</ol>
+
+</li>
+<li>信道编解码：同样是两个逆过程，信源编码后，如果直接将二进制信号在信道（网
+  线、电磁波）传输，由于一般的信道都不够理想，则传输效果会非常差。为此，人
+  们通过对1个或多个信源码插入若干码元，比如（NRZ码等），通过使用插入了冗余
+  信息的码在信道上传输，则接收方接受到信号后，通过这些冗余信息可以将传输错
+  误的码元恢复出来。个人认为经过信道编码后的信号就是基带信号了。
+</li>
+<li>调制解调：基带信号通常不能适应信道的传输（比如无线射频信道），所以需要将
+  基带信号调制到载波上去，通过载波在信道上的传输来传递信号；对方接收到载波
+  信号后，再解调，再信道解码，再信源解码恢复出模拟信号。
+</li>
+</ul>
 
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> LTE</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> 通信原理</h2>
 <div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 模拟信号数字化</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>模拟信号数字化，采用抽样定理，抽样出信号，在通过编码（比如格雷码）将抽样的
+信号量化、编码成信源编码。过程
+</p><ul>
+<li>抽样：抽样定理；
+</li>
+<li>量化：拿幅度抽样举例，将幅度限定几个段位，每个抽样的信号必定落在某个段位
+  里面，方法有
+<ol>
+<li>均匀量化：划分的每个段位宽度均匀一样；
+</li>
+<li>非均匀量化：段位宽度不均匀；
+</li>
+</ol>
+
+</li>
+<li>编码：对划分的段位，使用一定字长的二进制比特进行编码，则抽样量化过的信号，
+  就必定属于某个二进制数据（一定字长），编码方案有
+<ol>
+<li>二进制码：一般的二进制编码；
+</li>
+<li>格雷码；
+</li>
+<li>折叠二进制码；
+</li>
+<li>PCM：一般PCM编码的信号也叫数字基带信号；
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 数字基带信号</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p>数字基带信号的特点是功率谱集中在零频率附近。数字基带信号通常是在电缆线路中
+传输，数字基带信号的波形主要有
+</p><ol>
+<li>单极性不归零码：NRZ码；
+</li>
+<li>双极性不归零码：NRZ码；
+</li>
+<li>单极性归零码：RZ码；
+</li>
+<li>双极性归零码：RZ码；
+</li>
+<li>差分码
+</li>
+</ol>
+
+<p>数字基带信号在传输时，为了克服传输损耗，常常需要进行信道编码。主要的码型有
+</p><ol>
+<li>HDB3码：3阶高密度双极性码
+</li>
+<li>AMI码：传号交替反转码；
+</li>
+<li>分相码；
+</li>
+<li>CMI码：传号反转码；
+</li>
+</ol>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> LTE</h2>
+<div class="outline-text-2" id="text-3">
 
 
 </div>
@@ -76,7 +185,7 @@
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2016-09-07 11:44:34 中国标准时间</p>
+<p class="date">Date: 2016-11-20 23:03:11 中国标准时间</p>
 <p class="author">Author: 比克曼</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

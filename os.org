@@ -48,6 +48,9 @@
      #+begin_src shell
      find . -name "*.[ch]" >cscope.files
      #+end_src
+** ubuntu
+*** 基本配置
+    - 键位修改：修改理论见[[https://github.com/Chunlin-Li/Chunlin-Li.github.io/blob/master/blogs/linux/ubuntu-xkb-keyboard-remap.md][网址]]， 看完后可知[[/usr/share/X11/xkb/symbols/][目录]]下有ctrl配置文件，里面就有直接调换alt和ctrl的配置；
 * android
 ** base
 - 上下文context
