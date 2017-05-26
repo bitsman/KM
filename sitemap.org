@@ -1,9 +1,9 @@
 #+TITLE: Sitemap
 
+   + [[file:tool.org][2017-05-26 工具]]
    + [[file:communication.org][2016-11-20 通信]]
    + [[file:os.org][2016-10-25 操作系统]]
    + [[file:math.org][2016-09-26 数学 ]]
-   + [[file:tool.org][2016-09-14 工具]]
    + [[file:software.org][2016-09-14 软件 ]]
    + [[file:decoration.org][2016-09-14 装修日记]]
    + [[file:index.org][2016-09-08 比克曼的知识管理]]

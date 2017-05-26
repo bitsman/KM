@@ -189,6 +189,9 @@
   变文件本身，可以用命令C-x RET r ( M-x revert-buffer-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
   编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
 - 对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
+*** 外部程序
+使用M-x shell-command然后输入win下程序，可以调用执行之。也可以绑定到
+按键上。 
 ** elisp
 *** 函数
 - concat：将字符串连接，如下
@@ -611,9 +614,10 @@ Snow covers Emacs
 - 进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
   C-z直接运行buffer的代码；
 ** dired-mode
-- 压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip test.zip *，
+- 压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip
+  test.zip * 就可以完成压缩，
   回车就压缩到test.zip里面了。其他如7z类似；
-- 正则标记：使用快捷键%+m；
+- 正则标记：使用快捷键 %+m；
 ** git
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 *** 配置
