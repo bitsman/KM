@@ -474,6 +474,7 @@ Snow covers Emacs
     #+ latex: \newpage
   #+end_src
 - 中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
+- 换最新版本orgmode，可以将标题首页和目录分开；
 - 由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org
   源文档是gbk格式，所以如果将org文档由gbk格式转换为了别的格式，比如utf-8，
   则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el” 
@@ -506,7 +507,7 @@ Snow covers Emacs
      #+end_src
   2. 可以设置目录导出成list或者table
      #+begin_src emacs-lisp
-     #+TOC: listings           build a list of listings
+     #+TOC: listings           build a list of image
      #+TOC: tables             build a list of tables
      #+end_src
 **** 配置
