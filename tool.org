@@ -507,7 +507,7 @@ Snow covers Emacs
      #+end_src
   2. 可以设置目录导出成list或者table
      #+begin_src emacs-lisp
-     #+TOC: listings           build a list of image
+     #+TOC: listings           build a list of images
      #+TOC: tables             build a list of tables
      #+end_src
 **** 配置
