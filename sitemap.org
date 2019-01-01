@@ -1,7 +1,7 @@
 #+TITLE: Sitemap
 
-- [[file:index.org][比克曼的知识管理]]
 - [[file:language.org][外语学习]]
+- [[file:index.org][比克曼的知识管理]]
 - [[file:tool.org][工具]]
 - [[file:os.org][操作系统]]
 - [[file:math.org][数学]]

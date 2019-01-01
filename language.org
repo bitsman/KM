@@ -249,7 +249,6 @@
 - thin film:超薄薄膜，堆积在原片表面的用于传导或绝缘的一层特殊薄膜。 
 - titanium(Ti): 钛。 
 - toluene(C6H5CH3): 甲苯。有毒、无色易燃的液体，它不溶于水但溶于酒精和大气。 
-- 1,1,1-trichloroethane(TCA)(CL3CCH3): 有毒、不易燃、有刺激性气味的液态溶剂。这种混合物不溶于水但溶于酒精和大气。 
 - tungsten(W): 钨。 
 - tungsten hexafluoride(WF6): 氟化钨。无色无味的气体或者是淡黄色液体。在CVD中WF6用于淀积硅化物，也可用于钨传导的薄膜。 
 - tinning: 金属性表面覆盖焊点的薄层。 
@@ -360,21 +359,21 @@
 - Carry bit: 进位位 
 - Carry-in bit: 进位输入 
 - Carry-out bit: 进位输出 
-- Cascade 级联 
-- Case 管壳 
-- Cathode 阴极
-- Center 中心 
-- Ceramic 陶瓷（的） 
-- Channel 沟道 
-- Channel breakdown 沟道击穿
-- Channel current 沟道电流 
-- Channel doping 沟道掺杂 
-- Channel shortening 沟道缩短 
-- Channel width 沟道宽度 
-- Characteristic impedance 特征阻抗 
-- Charge 电荷、充电 
-- Charge-compensation effects 电荷补偿效应 
-- Charge conservation 电荷守恒 
+- Cascade: 级联 
+- Case: 管壳 
+- Cathode: 阴极
+- Center: 中心 
+- Ceramic： 陶瓷（的） 
+- Channel： 沟道 
+- Channel breakdown： 沟道击穿
+- Channel current: 沟道电流 
+- Channel doping: 沟道掺杂 
+- Channel shortening: 沟道缩短 
+- Channel width: 沟道宽度 
+- Characteristic impedance: 特征阻抗 
+- Charge: 电荷、充电 
+- Charge-compensation effects: 电荷补偿效应 
+- Charge conservation: 电荷守恒 
 - Charge neutrality condition 电中性条件 
 - Charge drive/exchange/sharing/transfer/storage 电荷驱动/交换/共享/转移/存储 
 - Chemmical etching 化学腐蚀法 
@@ -1001,7 +1000,7 @@
 - Worst-case device 最坏情况器件 
 - Yield 成品率 
 - Zener breakdown 齐纳击穿 
-- Zone melting 区熔法 
+- Zone melting: 区熔法 
 * 缩写
 - IMU：inertial measurement units，惯性测量单元，常包含加速度和陀螺仪传感器； 
 - SVM: Support Vector Machine, 支持向量机；
