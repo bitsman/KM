@@ -1,18 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-01-01 周二 18:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>信号与系统</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="信号与系统"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2017-05-26 22:21:06 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,510 +227,457 @@
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        }
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
 <h1 class="title">信号与系统</h1>
-
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 基本概念</a>
+<li><a href="#org29aa025">1. 基本概念</a>
 <ul>
-<li><a href="#sec-1-1">1.1 频率</a></li>
-<li><a href="#sec-1-2">1.2 正交</a>
+<li><a href="#orgf711e02">1.1. 频率</a></li>
+<li><a href="#org0978f6d">1.2. 正交</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1 正交函数</a></li>
+<li><a href="#org84478d1">1.2.1. 正交函数</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 其他</a></li>
+<li><a href="#org660aabc">1.3. 其他</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 线性时不变系统</a>
+<li><a href="#org94d0b88">2. 线性时不变系统</a>
 <ul>
-<li><a href="#sec-2-1">2.1 概念</a></li>
-<li><a href="#sec-2-2">2.2 公式</a>
+<li><a href="#org8613cd7">2.1. 概念</a></li>
+<li><a href="#org4f1a14c">2.2. 公式</a>
 <ul>
-<li><a href="#sec-2-2-1">2.2.1 傅里叶级数(FT)</a>
+<li><a href="#org8278b50">2.2.1. 傅里叶级数(FT)</a>
 <ul>
-<li><a href="#sec-2-2-1-1">2.2.1.1 正变换</a></li>
-<li><a href="#sec-2-2-1-2">2.2.1.2 逆变换</a></li>
+<li><a href="#org0eabce3">2.2.1.1. 正变换</a></li>
+<li><a href="#org4d6583c">2.2.1.2. 逆变换</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-2-2">2.2.2 傅里叶变换(CTFT)</a>
+<li><a href="#orgea26ad4">2.2.2. 傅里叶变换(CTFT)</a>
 <ul>
-<li><a href="#sec-2-2-2-1">2.2.2.1 正变换</a></li>
-<li><a href="#sec-2-2-2-2">2.2.2.2 逆变换</a></li>
-<li><a href="#sec-2-2-2-3">2.2.2.3 关系</a></li>
-<li><a href="#sec-2-2-2-4">2.2.2.4 离散时间傅里叶变换</a></li>
+<li><a href="#org876d584">2.2.2.1. 正变换</a></li>
+<li><a href="#org7977259">2.2.2.2. 逆变换</a></li>
+<li><a href="#orgcf1cb35">2.2.2.3. 关系</a></li>
+<li><a href="#org6bb3484">2.2.2.4. 离散时间傅里叶变换</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-2-3">2.2.3 傅里叶变换(DFT)</a>
+<li><a href="#org8009b49">2.2.3. 傅里叶变换(DFT)</a>
 <ul>
-<li><a href="#sec-2-2-3-1">2.2.3.1 正变换</a></li>
-<li><a href="#sec-2-2-3-2">2.2.3.2 逆变换</a></li>
-</ul></li>
+<li><a href="#org240b29d">2.2.3.1. 正变换</a></li>
+<li><a href="#org28e06fa">2.2.3.2. 逆变换</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-3">2.3 卷积</a></li>
-<li><a href="#sec-2-4">2.4 傅里叶级数</a>
-<ul>
-<li><a href="#sec-2-4-1">2.4.1 泰勒级数</a></li>
-<li><a href="#sec-2-4-2">2.4.2 傅里叶级数</a>
-<ul>
-<li><a href="#sec-2-4-2-1">2.4.2.1 问题</a></li>
-</ul></li>
 </ul>
 </li>
-<li><a href="#sec-2-5">2.5 连续时间傅里叶变换(CTFT)</a></li>
-<li><a href="#sec-2-6">2.6 离散时间傅里叶变换(DTFT)</a>
+<li><a href="#org2f676c9">2.3. 卷积</a></li>
+<li><a href="#orgca7d304">2.4. 傅里叶级数</a>
 <ul>
-<li><a href="#sec-2-6-1">2.6.1 DTFT算法过程</a></li>
-<li><a href="#sec-2-6-2">2.6.2 物理意义</a></li>
+<li><a href="#org9bc5534">2.4.1. 泰勒级数</a></li>
+<li><a href="#orgab36d7c">2.4.2. 傅里叶级数</a>
+<ul>
+<li><a href="#orga3b4ca6">2.4.2.1. 问题</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-7">2.7 离散傅里叶变换(DFT)</a>
-<ul>
-<li><a href="#sec-2-7-1">2.7.1 应用</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-8">2.8 滤波器</a>
+<li><a href="#orgd29f6c2">2.5. 连续时间傅里叶变换(CTFT)</a></li>
+<li><a href="#orga02897b">2.6. 离散时间傅里叶变换(DTFT)</a>
 <ul>
-<li><a href="#sec-2-8-1">2.8.1 设计思路</a></li>
-<li><a href="#sec-2-8-2">2.8.2 FIR滤波</a></li>
-<li><a href="#sec-2-8-3">2.8.3 IIR滤波</a></li>
+<li><a href="#org17aabac">2.6.1. DTFT算法过程</a></li>
+<li><a href="#org70f050a">2.6.2. 物理意义</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-9">2.9 采样重构</a>
+<li><a href="#orgfd418a6">2.7. 离散傅里叶变换(DFT)</a>
 <ul>
-<li><a href="#sec-2-9-1">2.9.1 采样</a></li>
-<li><a href="#sec-2-9-2">2.9.2 重构</a></li>
-</ul></li>
+<li><a href="#org4857a2b">2.7.1. 应用</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 小波变换</a></li>
+<li><a href="#org42c4884">2.8. 滤波器</a>
+<ul>
+<li><a href="#orge07cdb9">2.8.1. 设计思路</a></li>
+<li><a href="#org6f3a91f">2.8.2. FIR滤波</a></li>
+<li><a href="#orgc245560">2.8.3. IIR滤波</a></li>
+</ul>
+</li>
+<li><a href="#orgc31fffe">2.9. 采样重构</a>
+<ul>
+<li><a href="#org9fc141a">2.9.1. 采样</a></li>
+<li><a href="#org381ede6">2.9.2. 重构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orged27daa">3. 小波变换</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 基本概念</h2>
+<div id="outline-container-org29aa025" class="outline-2">
+<h2 id="org29aa025"><span class="section-number-2">1</span> 基本概念</h2>
 <div class="outline-text-2" id="text-1">
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 频率</h3>
+<div id="outline-container-orgf711e02" class="outline-3">
+<h3 id="orgf711e02"><span class="section-number-3">1.1</span> 频率</h3>
 <div class="outline-text-3" id="text-1-1">
-
-<p>通常说的频率，在没有特别指明的情况下，指的是模拟频率，其单位为赫兹(Hz)，数
+<p>
+通常说的频率，在没有特别指明的情况下，指的是模拟频率，其单位为赫兹(Hz)，数
 学符号用f来表示。因为现实中信号大多为模拟信号。以Hz表示的模拟频率表示的是每
 秒时间内信号变化的周期数。旋转一圈表示信号变化一个周期，则模拟频率则指的是
-每秒时间内信号旋转的圈数。</p ><p >
+每秒时间内信号旋转的圈数。\par
 模拟角频率，数学符号Ω，其单位为弧度/秒(rad/s)。f是每秒时间内信号旋转的圈数，
 每一圈的角度变化数为\(2\pi{}\)。很显然，旋转f圈对应着\(2\pi{}*f\)的弧度。即
-$$\Omega=2\pi{}*f$$  
+\[\Omega=2\pi{}*f\]  
 数字信号是从模拟信号采样而得，采样频率通常用fs表示。数字频率更准确的叫法应
 该是归一化数字角频率，其单位为弧度(rad)，数学符号ω表示
-$$w=2pi{}*f/fs$$
+\[w=2pi{}*f/fs\]
 其物理意义是相邻两个采样点之间所变化的弧度数.假定有一个正弦信号x(t)，其频率
 f=100Hz，幅度为A，初始相位为0，则这个信号用公式可以表示为
-$$x(t) = A*sin(2*pi{}*100*t) $$ 
+\[x(t) = A*sin(2*pi{}*100*t) \] 
 用采样频率fs=500Hz对其进行采样，得到的数字信号x[n]为
-$$x[n]=A*sin(2*pi{}*100*n/fs)=A*sin(0.4*pi{}*n)$$ 
+\[x[n]=A*sin(2*pi{}*100*n/fs)=A*sin(0.4*pi{}*n)\] 
 数字信号的频率为\(0.4pi{}\), 对应两个数字频率完全相同的信号，其模拟频率未必
 相同，因为这里还要考虑采样频率。这种归一化为处理带来了方便，但也给理解带来
 了困惑。在数字信号中，虽然经常不显式地出现采样频率，但它却是架起模拟信号与
 数字信号的桥梁，对信号处理的过程有举足轻重的影响。 
-</p><ul>
-<li>模拟频率f：每秒经历多少个周期，单位Hz；
-</li>
-<li>模拟角频率Ω：每秒经历多少弧度，单位rad/s，范围应该是\([-\infty,\infty]\); 
-</li>
+</p>
+<ul class="org-ul">
+<li>模拟频率f：每秒经历多少个周期，单位Hz；</li>
+<li>模拟角频率Ω：每秒经历多少弧度，单位rad/s，范围应该是\([-\infty,\infty]\);</li>
 <li>数字频率w：每个采样点间隔之间的弧度，单位rad，范围应该是\([0,2\pi]\),也是
-  在一圈以内，否则违反了奈奎斯特频率定理，w就没有意义了。
-</li>
-<li>采样频率fs：每秒采样点数，单位Hz
-</li>
+在一圈以内，否则违反了奈奎斯特频率定理，w就没有意义了。</li>
+<li>采样频率fs：每秒采样点数，单位Hz</li>
 <li>关系：\(\Omega = 2\pi{}f\), \(w = \Omega{}T\), 将数字频率和模拟频率联系起来的是采样
-  频率即\(w=2\pi{}f/fs\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)
-</li>
+频率即\(w=2\pi{}f/fs\), 即数字频率可以看做归一化的模拟频率乘以\(2\pi\)</li>
 <li>频域中频率的表示方法：
-<ol>
+<ol class="org-ol">
 <li>序号表示方法，根据时域中信号的样本数取0~N/2，用这种方法在程序中使用起
-     来可以更直接地取得每种频率的幅度值，因为频率值跟数组的序号是一一对应
-     的:X[k]，取值范围是0~N/2 ；
-</li>
+来可以更直接地取得每种频率的幅度值，因为频率值跟数组的序号是一一对应
+的:X[k]，取值范围是0~N/2 ；</li>
 <li>分数表示方法，根据时域中信号的样本数的比例值取0 ~ 0.5:X[ƒ]，ƒ=k/N，取
-     值范围是0~0.5；
-</li>
+值范围是0~0.5；</li>
 <li>用弧度值来表示，把ƒ乘以一个\(2\pi\)得到一个弧度值，这种表示方法叫做自
-     然频率(natural frequency)：\(X[\Omega],\Omega=2\pi{}ƒ=2\pi{}k/N\)，取
-     值范围是0~&pi;;
-</li>
+然频率(natural frequency)：\(X[\Omega],\Omega=2\pi{}ƒ=2\pi{}k/N\)，取
+值范围是0~&pi;;</li>
 <li>以赫兹(Hz)为单位来表示，这个是特殊应用，如取样率为10kHz表示每秒有
-     10,000个样本数：取值范围是0到取样率的一半 ; 
-</li>
-</ol>
-
-</li>
+10,000个样本数：取值范围是0到取样率的一半 ;</li>
+</ol></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 正交</h3>
+<div id="outline-container-org0978f6d" class="outline-3">
+<h3 id="org0978f6d"><span class="section-number-3">1.2</span> 正交</h3>
 <div class="outline-text-3" id="text-1-2">
-
-
 </div>
-
-<div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 正交函数</h4>
+<div id="outline-container-org84478d1" class="outline-4">
+<h4 id="org84478d1"><span class="section-number-4">1.2.1</span> 正交函数</h4>
 <div class="outline-text-4" id="text-1-2-1">
-
-<p>在区间[t1, t2]上定义的非零实函数f1(t)与f2(2), 若满足条件
-$$\int_{t1}^{t2}f1(t)f2(t)dt=0$$ 
+<p>
+在区间[t1, t2]上定义的非零实函数f1(t)与f2(2), 若满足条件
+\[\int_{t1}^{t2}f1(t)f2(t)dt=0\] 
 则函数f1(t)和f2(t)为区间[t1, t2]上的正交；
 若f1(t)和f2(t)是复变函数，则f1(t)和f2(t)在区间[t1, t2]正交的条件是(其中T表
 示共轭)
-$$\int_{t1}^{t2}f1(t)f2^{T}(t)dt=\int_{t1}^{t2}f1^{T}(t)f2(t)dt=0$$ 
+\[\int_{t1}^{t2}f1(t)f2^{T}(t)dt=\int_{t1}^{t2}f1^{T}(t)f2(t)dt=0\] 
 正交一般是向量上的概念，也可以扩展到函数，说函数u和函数v正交；对于向量正交
 由如下性质。
-</p><ul>
-<li>向量 u=(a, b) 和 v=(c, d) 的内积 u·v 可以用 ac+bd 来计算；
-</li>
+</p>
+<ul class="org-ul">
+<li>向量 u=(a, b) 和 v=(c, d) 的内积 u·v 可以用 ac+bd 来计算；</li>
 <li>如果内积 u·v =0，意味着 u 和 v 两个向量正交（垂直），例如 (0,1) 和 (1,0)
-  就是正交的；
-</li>
-<li>两个向量如果正交，那么说明其中的任意一个向量都完全没有另外一个向量的分量；
-</li>
+就是正交的；</li>
+<li>两个向量如果正交，那么说明其中的任意一个向量都完全没有另外一个向量的分量；</li>
 </ul>
-
-<p>那么把“内积”的概念推广，对于实变函数f(x)和g(x)，假如可以有这样的两个向量
+<p>
+那么把“内积”的概念推广，对于实变函数f(x)和g(x)，假如可以有这样的两个向量
 对应于函数f(x)的\(u=(f(0),f(1),f(2),f(3),f(4),f(5),...,f(N))\), 对应于函数
 g(x)的\(v=(g(0),g(1),g(2),g(3),g(4),g(5),...,g(N))\) , 现在让这两个N+1维向
 量内积一下，可得：\(u·v=f(0)g(0)+f(1)g(1)+f(2)g(2)+...+f(N)g(N)=0\), 这样来
 看，函数f和g在区间[L,R]上正交。也就是说函数的正交需要表面在一定的区间上正交，
 这个正交也就代表了向量的维度。
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 其他</h3>
+</div>
+<div id="outline-container-org660aabc" class="outline-3">
+<h3 id="org660aabc"><span class="section-number-3">1.3</span> 其他</h3>
 <div class="outline-text-3" id="text-1-3">
-
-<ul>
+<ul class="org-ul">
 <li>特征函数：一个信号函数，若系统对该信号的输出响应仅是一个常数(可以是复数)乘以
-  输入信号，则称该信号为系统的特征函数；
-</li>
+输入信号，则称该信号为系统的特征函数；</li>
 <li>复指数信号：\(e^{j\Omega{}t}\)在\([0, 2\pi]\)上构成完备正交集，见数学中对复数的
-  定义，wt表示辐角，\([0, 2\pi]\)也就表示复数的所有辐角；
-</li>
-<li>冲击函数：复指数信号在实轴上的积分是冲击函数\(\delta\);
-</li>
+定义，wt表示辐角，\([0, 2\pi]\)也就表示复数的所有辐角；</li>
+<li>冲击函数：复指数信号在实轴上的积分是冲击函数\(\delta\);</li>
 <li>谱熵：谱熵反映了谱的集中程度，谱熵越小表示谱越集中，谱熵越大，表示谱的不
-  确定性越大，信号越复杂，谱在各频率成分上越均匀；
-</li>
+确定性越大，信号越复杂，谱在各频率成分上越均匀；</li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 线性时不变系统</h2>
+<div id="outline-container-org94d0b88" class="outline-2">
+<h2 id="org94d0b88"><span class="section-number-2">2</span> 线性时不变系统</h2>
 <div class="outline-text-2" id="text-2">
-
-
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 概念</h3>
+<div id="outline-container-org8613cd7" class="outline-3">
+<h3 id="org8613cd7"><span class="section-number-3">2.1</span> 概念</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p>线性时不变系统简称LTI系统，可以用它对单位脉冲序列的响应(h(n))来表示。
-</p><ul>
-<li>离散信号可以由单位冲击响应信号来表示。式子如<a href="#equ-sigma">equ-sigma</a>, 其中x[k]可以
-  看做常量，\(\sigma[n]\) 是冲激响应。
-  \begin{equation}
-  \label{equ-sigma}
-   x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]
-  \end{equation}
-</li>
-<li>傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式<a href="#equ-xt">equ-xt</a>，即x(t)能够
-  表示成一组谐波关系的复指数信号的线性组合，那么傅里叶级数中的系数a<sub>k</sub>确定，
-  这对关系式就定义为一个周期连续时间信号的傅里叶级数, 其中周期为T，
-  \(\Omega{}_{0}=\frac{2\pi}{T}\) 
-  \begin{equation}
-  \label{equ-xt}
-   x(t)=\sum_{-\infty{}}^{+\infty{}}a_{k}e^{jk\Omega{}_{0}t}
-  \end{equation}
-  系数为式<a href="#equ-ak">equ-ak</a>
-  \begin{equation}
-  \label{equ-ak}
-   a_{k}=\frac{\int_{T}x(t)e^{-jk\Omega{}_{0}t}\mathrm{d}t}{T}
-  \end{equation}
-</li>
-<li>频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
-  或传递函数.也可以理解为，脉冲响应h(n)对某频率输入信号的响应，输入信号x(n)
-  可以表示成\(e^{j\Omega{}n}\)的级数形式，也代表了x(n)具有一系列频率分量
-  &Omega;，求一个系统对复指数信号\(e^{j\Omega{}_{0}n}\)的响应时，输入信号为
-  \(x(n)=e^{j\Omega{}_{0}n}\), 
-  该响应由式子<a href="#equ-ejwnhn">equ-ejwnhn</a>
-  \begin{equation}
-  \label{equ-ejwnhn}
-  x(n)=e^{j\Omega{}_{0}n} \Rightarrow h(n) \Rightarrow y(n)=h(n)*e^{j\Omega{}_{0}n}
-  \end{equation}
-  因而
-  \begin{equation}
-  \label{equ-whn}
-  y(n)=h(n)*e^{j\Omega{}_{0}n}=\sum_{k=-\infty}^{\infty}h(k)e^{j\Omega{}_{0}(n-k)}
-      = [\sum_{k=-\infty}^{\infty}h(k)e^{-j\Omega{}_{0}k}]e^{j\Omega{}_{0}n} 
-      = [F[h(n)]|_{\Omega{}=\Omega{}_{0}}]e^{j\Omega{}_{0}n}
-  \end{equation}
-  由于输入信号x(n)可以表示成复指数的级数形式，所以x(n)的每个频率分量都可以
-  经过h(n)在每个频率上做响应，进而叠加得到x(n)的输出y(n)，式子<a href="#equ-whn">equ-whn</a>
-  也说明了输出序列是输入指数序列被系统h(n)在&Omega;<sub>0</sub>频率处的响应修饰后的结果。
-  因此一个LTI系统可以在频域表示为式子<a href="#equ-frqzone">equ-frqzone</a>, 时域y(n)可从
-  \(Y(e^{j\Omega{}})\)用傅里叶逆变换获得。 
-  \begin{equation}
-  \label{equ-frqzone}
-  X(e^{j\Omega{}}) \Rightarrow H(e^{j\Omega{}}) \Rightarrow Y(e^{j\Omega{}})=H(e^{j\Omega{}})X(e^{j\Omega{}})
-  \end{equation}
-</li>
+<p>
+线性时不变系统简称LTI系统，可以用它对单位脉冲序列的响应(h(n))来表示。
+</p>
+<ul class="org-ul">
+<li><p>
+离散信号可以由单位冲击响应信号来表示。式子如\ref{equ-sigma}, 其中x[k]可以
+看做常量，\(\sigma[n]\) 是冲激响应。
+</p>
+\begin{equation}
+\label{equ-sigma}
+ x[n]=\sum_{k=-\infty}^{+\infty}x[k]\sigma[n-k]
+\end{equation}</li>
+<li><p>
+傅里叶变化和级数：如果x(t)有一个傅里叶级数表示式\ref{equ-xt}，即x(t)能够
+表示成一组谐波关系的复指数信号的线性组合，那么傅里叶级数中的系数a<sub>k</sub>确定，
+这对关系式就定义为一个周期连续时间信号的傅里叶级数, 其中周期为T，
+\(\Omega{}_{0}=\frac{2\pi}{T}\) 
+</p>
+\begin{equation}
+\label{equ-xt}
+ x(t)=\sum_{-\infty{}}^{+\infty{}}a_{k}e^{jk\Omega{}_{0}t}
+\end{equation}
+<p>
+系数为式\ref{equ-ak}
+</p>
+\begin{equation}
+\label{equ-ak}
+ a_{k}=\frac{\int_{T}x(t)e^{-jk\Omega{}_{0}t}\mathrm{d}t}{T}
+\end{equation}</li>
+<li><p>
+频率响应：一个脉冲响应(h(n))的离散时间傅里叶变换称为一个LTI系统的频率响应
+或传递函数.也可以理解为，脉冲响应h(n)对某频率输入信号的响应，输入信号x(n)
+可以表示成\(e^{j\Omega{}n}\)的级数形式，也代表了x(n)具有一系列频率分量
+&Omega;，求一个系统对复指数信号\(e^{j\Omega{}_{0}n}\)的响应时，输入信号为
+\(x(n)=e^{j\Omega{}_{0}n}\), 
+该响应由式子\ref{equ-ejwnhn}
+</p>
+\begin{equation}
+\label{equ-ejwnhn}
+x(n)=e^{j\Omega{}_{0}n} \Rightarrow h(n) \Rightarrow y(n)=h(n)*e^{j\Omega{}_{0}n}
+\end{equation}
+<p>
+因而
+</p>
+\begin{equation}
+\label{equ-whn}
+y(n)=h(n)*e^{j\Omega{}_{0}n}=\sum_{k=-\infty}^{\infty}h(k)e^{j\Omega{}_{0}(n-k)}
+    = [\sum_{k=-\infty}^{\infty}h(k)e^{-j\Omega{}_{0}k}]e^{j\Omega{}_{0}n} 
+    = [F[h(n)]|_{\Omega{}=\Omega{}_{0}}]e^{j\Omega{}_{0}n}
+\end{equation}
+<p>
+由于输入信号x(n)可以表示成复指数的级数形式，所以x(n)的每个频率分量都可以
+经过h(n)在每个频率上做响应，进而叠加得到x(n)的输出y(n)，式子\ref{equ-whn}
+也说明了输出序列是输入指数序列被系统h(n)在&Omega;<sub>0</sub>频率处的响应修饰后的结果。
+因此一个LTI系统可以在频域表示为式子\ref{equ-frqzone}, 时域y(n)可从
+\(Y(e^{j\Omega{}})\)用傅里叶逆变换获得。 
+</p>
+\begin{equation}
+\label{equ-frqzone}
+X(e^{j\Omega{}}) \Rightarrow H(e^{j\Omega{}}) \Rightarrow Y(e^{j\Omega{}})=H(e^{j\Omega{}})X(e^{j\Omega{}})
+\end{equation}</li>
 <li>系统函数：若系统的输入x(t)是一个复指数信号e<sup>st</sup>, 其输出y(t)=H(s)e<sup>st</sup>,
-  H(s)表示为 $$H(s)=\int_{-\infty}^{\infty}h(r)e^{-sr}dr$$  
-  式子中h(t)是单位冲激响应，对于离散信号x[n]=z<sup>n</sup>同理。当s和n是一般复数时，
-  H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(j&Omega;)就
-  是上面的频率响应。
-</li>
-<li>傅里叶级数，傅里叶变换，拉普拉斯变换，Z变换： <span style="text-decoration:underline;">傅里叶级数</span> 只能对周期信号
-  进行分析，找出主要频率分量，也就是相应频率信号幅度最大(能量越大)的信号；
-  傅里叶级数具有周期性的局限性，所以又有了 <span style="text-decoration:underline;">傅里叶变换</span> ，此时信号不必是周
-  期性的，但是也有条件，那就是必须要是能量有限，也就是绝对可积。所以傅里叶
-  变换用于处理非周期信号；然而也有局限性，不适用于指数级增长的信号，所以又
-  推出了 <span style="text-decoration:underline;">拉普拉斯变换</span> ，拉氏变换相当于是带有一个指数收敛因子的傅里叶变换，
-  把频域推广到复频域，能够分析的信号就更广了，傅立叶变换是拉普拉斯变换的一
-  种特例，在拉普拉斯变换中，只要令Re[s]=1,就得到傅立叶变换 ，然而缺点是从拉
-  氏变换中只能看到复变量s，没有频率f的概念，要看幅频响应和相频响应，需要令 
-  \(s=j2\pi{}f\). <span style="text-decoration:underline;">Z变换</span> 简单地说，就是离散信号(也可以叫做序列)的拉普拉斯
-  变换，也可以说是离散时间信号的傅里叶变换，如果说拉氏变换专门分析模拟信号，
-  那Z变换就是专门分析数字信号，Z变换可以把离散卷积变成多项式乘法，Z变换看系
-  统频率响应。
-</li>
-<li>所有的幅度谱、能量谱、功率谱等，都是指具有该种频率的成分对它的贡献。
-</li>
+H(s)表示为 \[H(s)=\int_{-\infty}^{\infty}h(r)e^{-sr}dr\]  
+式子中h(t)是单位冲激响应，对于离散信号x[n]=z<sup>n</sup>同理。当s和n是一般复数时，
+H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(j&Omega;)就
+是上面的频率响应。</li>
+<li>傅里叶级数，傅里叶变换，拉普拉斯变换，Z变换： <span class="underline">傅里叶级数</span> 只能对周期信号
+进行分析，找出主要频率分量，也就是相应频率信号幅度最大(能量越大)的信号；
+傅里叶级数具有周期性的局限性，所以又有了 <span class="underline">傅里叶变换</span> ，此时信号不必是周
+期性的，但是也有条件，那就是必须要是能量有限，也就是绝对可积。所以傅里叶
+变换用于处理非周期信号；然而也有局限性，不适用于指数级增长的信号，所以又
+推出了 <span class="underline">拉普拉斯变换</span> ，拉氏变换相当于是带有一个指数收敛因子的傅里叶变换，
+把频域推广到复频域，能够分析的信号就更广了，傅立叶变换是拉普拉斯变换的一
+种特例，在拉普拉斯变换中，只要令Re[s]=1,就得到傅立叶变换 ，然而缺点是从拉
+氏变换中只能看到复变量s，没有频率f的概念，要看幅频响应和相频响应，需要令 
+\(s=j2\pi{}f\). <span class="underline">Z变换</span> 简单地说，就是离散信号(也可以叫做序列)的拉普拉斯
+变换，也可以说是离散时间信号的傅里叶变换，如果说拉氏变换专门分析模拟信号，
+那Z变换就是专门分析数字信号，Z变换可以把离散卷积变成多项式乘法，Z变换看系
+统频率响应。</li>
+<li>所有的幅度谱、能量谱、功率谱等，都是指具有该种频率的成分对它的贡献。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 公式</h3>
+<div id="outline-container-org4f1a14c" class="outline-3">
+<h3 id="org4f1a14c"><span class="section-number-3">2.2</span> 公式</h3>
 <div class="outline-text-3" id="text-2-2">
+<p>
+几种变换的时域和频域特性见表\ref{tbl-trans-way}所示
+</p>
+<table id="orgee0466a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> 变换时频特性</caption>
 
-<p>几种变换的时域和频域特性见表<a href="#tbl-trans-way">tbl-trans-way</a>所示
-</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-trans-way">
-<caption>变换时频特性</caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">变换</th><th scope="col" class="left">时域</th><th scope="col" class="left">频域</th></tr>
+<tr>
+<th scope="col" class="org-left">变换</th>
+<th scope="col" class="org-left">时域</th>
+<th scope="col" class="org-left">频域</th>
+</tr>
 </thead>
 <tbody>
-</tbody>
-<tbody>
-<tr><td class="left">傅里叶级数</td><td class="left">连续，周期</td><td class="left">离散，非周期</td></tr>
-<tr><td class="left">连续傅里叶变换</td><td class="left">连续，非周期</td><td class="left">连续非周期</td></tr>
-<tr><td class="left">离散时间傅里叶变换</td><td class="left">离散非周期</td><td class="left">连续，周期</td></tr>
-<tr><td class="left">离散傅里叶变换</td><td class="left">离散，周期</td><td class="left">离散，周期</td></tr>
+<tr>
+<td class="org-left">傅里叶级数</td>
+<td class="org-left">连续，周期</td>
+<td class="org-left">离散，非周期</td>
+</tr>
+
+<tr>
+<td class="org-left">连续傅里叶变换</td>
+<td class="org-left">连续，非周期</td>
+<td class="org-left">连续非周期</td>
+</tr>
+
+<tr>
+<td class="org-left">离散时间傅里叶变换</td>
+<td class="org-left">离散非周期</td>
+<td class="org-left">连续，周期</td>
+</tr>
+
+<tr>
+<td class="org-left">离散傅里叶变换</td>
+<td class="org-left">离散，周期</td>
+<td class="org-left">离散，周期</td>
+</tr>
 </tbody>
 </table>
-
-
 </div>
-
-<div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 傅里叶级数(FT)</h4>
+<div id="outline-container-org8278b50" class="outline-4">
+<h4 id="org8278b50"><span class="section-number-4">2.2.1</span> 傅里叶级数(FT)</h4>
 <div class="outline-text-4" id="text-2-2-1">
-
-
 </div>
-
-<div id="outline-container-2-2-1-1" class="outline-5">
-<h5 id="sec-2-2-1-1"><span class="section-number-5">2.2.1.1</span> 正变换</h5>
+<div id="outline-container-org0eabce3" class="outline-5">
+<h5 id="org0eabce3"><span class="section-number-5">2.2.1.1</span> 正变换</h5>
 <div class="outline-text-5" id="text-2-2-1-1">
-
-<p>$$x(t)=\sum_{k=-\infty}^{\infty}a_{k}e^{jk\Omega{}_{0}t}$$ 
+<p>
+\[x(t)=\sum_{k=-\infty}^{\infty}a_{k}e^{jk\Omega{}_{0}t}\] 
 其中\(\Omega{}_{0}=\frac{2\pi}{T}\)
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-2-2-1-2" class="outline-5">
-<h5 id="sec-2-2-1-2"><span class="section-number-5">2.2.1.2</span> 逆变换</h5>
+</div>
+<div id="outline-container-org4d6583c" class="outline-5">
+<h5 id="org4d6583c"><span class="section-number-5">2.2.1.2</span> 逆变换</h5>
 <div class="outline-text-5" id="text-2-2-1-2">
-
-<p>$$a_{k}=\frac{1}{T}\int_{T}x(t)e^{-jk\Omega{}_{0}t}dt$$ 
+<p>
+\[a_{k}=\frac{1}{T}\int_{T}x(t)e^{-jk\Omega{}_{0}t}dt\] 
 其中\(\Omega{}_{0}=\frac{2\pi}{T}\)，其实在周期T区间积分，也就代表在复指数
 的周期[0, 2&pi;]积分。也就是说在复指数的完备空间[0, 2&pi;]求x(t)具有的复
 指数分量有多少。这个复指数\(e^{j\Omega{}t}\)在所有的模拟角频率&Omega;构成
 完备空间。所以a<sub>k</sub>表示在完备空间中每个分量所占的量，或者叫这些复指数信号的
 幅度为a<sub>k</sub>
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 傅里叶变换(CTFT)</h4>
+</div>
+<div id="outline-container-orgea26ad4" class="outline-4">
+<h4 id="orgea26ad4"><span class="section-number-4">2.2.2</span> 傅里叶变换(CTFT)</h4>
 <div class="outline-text-4" id="text-2-2-2">
-
-
 </div>
-
-<div id="outline-container-2-2-2-1" class="outline-5">
-<h5 id="sec-2-2-2-1"><span class="section-number-5">2.2.2.1</span> 正变换</h5>
+<div id="outline-container-org876d584" class="outline-5">
+<h5 id="org876d584"><span class="section-number-5">2.2.2.1</span> 正变换</h5>
 <div class="outline-text-5" id="text-2-2-2-1">
-
-<p>$$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(jw)e^{jwt}dw$$ 
-</p></div>
-
+<p>
+\[x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(jw)e^{jwt}dw\] 
+</p>
 </div>
-
-<div id="outline-container-2-2-2-2" class="outline-5">
-<h5 id="sec-2-2-2-2"><span class="section-number-5">2.2.2.2</span> 逆变换</h5>
+</div>
+<div id="outline-container-org7977259" class="outline-5">
+<h5 id="org7977259"><span class="section-number-5">2.2.2.2</span> 逆变换</h5>
 <div class="outline-text-5" id="text-2-2-2-2">
-
-<p>$$X(jw)=\int_{-\infty}^{\infty}x(t)e^{-jwt}dt$$ 
+<p>
+\[X(jw)=\int_{-\infty}^{\infty}x(t)e^{-jwt}dt\] 
 解释通傅里叶级数的a<sub>k</sub>。傅里叶变换也叫频谱密度函数
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-2-2-2-3" class="outline-5">
-<h5 id="sec-2-2-2-3"><span class="section-number-5">2.2.2.3</span> 关系</h5>
+</div>
+<div id="outline-container-orgcf1cb35" class="outline-5">
+<h5 id="orgcf1cb35"><span class="section-number-5">2.2.2.3</span> 关系</h5>
 <div class="outline-text-5" id="text-2-2-2-3">
-
-<ul>
+<ul class="org-ul">
 <li>和傅里叶级数关系：一个周期信号的傅里叶级数a<sub>k</sub>能够利用其在一个周期内的信
-  号的傅里叶变换X(jw)的等间隔样本来表示。即
-  $$a_{k} = \frac{X(jw)}{T}|_{w=kw_{0}}$$ 
-</li>
+号的傅里叶变换X(jw)的等间隔样本来表示。即
+\[a_{k} = \frac{X(jw)}{T}|_{w=kw_{0}}\]</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-2-2-4" class="outline-5">
-<h5 id="sec-2-2-2-4"><span class="section-number-5">2.2.2.4</span> 离散时间傅里叶变换</h5>
-<div class="outline-text-5" id="text-2-2-2-4">
-
-
+<div id="outline-container-org6bb3484" class="outline-5">
+<h5 id="org6bb3484"><span class="section-number-5">2.2.2.4</span> 离散时间傅里叶变换</h5>
 </div>
 </div>
 
-</div>
-
-<div id="outline-container-2-2-3" class="outline-4">
-<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> 傅里叶变换(DFT)</h4>
+<div id="outline-container-org8009b49" class="outline-4">
+<h4 id="org8009b49"><span class="section-number-4">2.2.3</span> 傅里叶变换(DFT)</h4>
 <div class="outline-text-4" id="text-2-2-3">
-
-
 </div>
-
-<div id="outline-container-2-2-3-1" class="outline-5">
-<h5 id="sec-2-2-3-1"><span class="section-number-5">2.2.3.1</span> 正变换</h5>
+<div id="outline-container-org240b29d" class="outline-5">
+<h5 id="org240b29d"><span class="section-number-5">2.2.3.1</span> 正变换</h5>
 <div class="outline-text-5" id="text-2-2-3-1">
-
-<p>$$X[k]=\sum_{n=0}^{N-1}x[n]e^{-j\frac{k2\pi{}}{N}n}$$ 
+<p>
+\[X[k]=\sum_{n=0}^{N-1}x[n]e^{-j\frac{k2\pi{}}{N}n}\] 
 在某频率k的傅里叶变换值等于，时域信号N个点和该频率k的复指数信号的N个点的
 值的内积；
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-2-2-3-2" class="outline-5">
-<h5 id="sec-2-2-3-2"><span class="section-number-5">2.2.3.2</span> 逆变换</h5>
+</div>
+<div id="outline-container-org28e06fa" class="outline-5">
+<h5 id="org28e06fa"><span class="section-number-5">2.2.3.2</span> 逆变换</h5>
 <div class="outline-text-5" id="text-2-2-3-2">
-
-
-$$x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{j\frac{k2\pi{}}{N}n}$$
 <p>
+\[x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{j\frac{k2\pi{}}{N}n}\]
 解释同上
-</p></div>
+</p>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 卷积</h3>
+</div>
+<div id="outline-container-org2f676c9" class="outline-3">
+<h3 id="org2f676c9"><span class="section-number-3">2.3</span> 卷积</h3>
 <div class="outline-text-3" id="text-2-3">
-
-<p>如果一个系统的冲击响应为h(n), 表示方式如<a href="#equ-hn">equ-hn</a>，可以理解为由于一个k时
+<p>
+如果一个系统的冲击响应为h(n), 表示方式如\ref{equ-hn}，可以理解为由于一个k时
 刻的单位脉冲\(\sigma{}(n-k)\)引起的系统响应为h(n-k), 而输入信号x(n)是由k从
 负无穷时刻到正无穷时刻的所有冲击\(\sigma{}(n-k)\)叠加，所以x(n)的对于线性系
 统的响应也就由从负无穷到正无穷逐个移位出来的h(n-k)叠加而成，写成卷积形式如
-<a href="#equ-conv">equ-conv</a>, 从某种意义上讲，卷积的输出结果是和时间没有关系的，所以一般
+\ref{equ-conv}, 从某种意义上讲，卷积的输出结果是和时间没有关系的，所以一般
 MATLAB或者python的卷积计算函数都不用带时间信息，只需要输入值序列。
+</p>
 \begin{equation}
 \label{equ-hn}
  \sigma{}(n-k) \Rightarrow h(n-k)
@@ -546,53 +686,51 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 \label{equ-conv}
  y(n) = x(n)*h(n) 
 \end{equation}
-</p></div>
-
 </div>
-
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 傅里叶级数</h3>
+</div>
+<div id="outline-container-orgca7d304" class="outline-3">
+<h3 id="orgca7d304"><span class="section-number-3">2.4</span> 傅里叶级数</h3>
 <div class="outline-text-3" id="text-2-4">
-
-<p>傅里叶级数和泰勒级数都是为了将一个函数分解成若干基函数叠加形式。
+<p>
+傅里叶级数和泰勒级数都是为了将一个函数分解成若干基函数叠加形式。
 </p>
 </div>
-
-<div id="outline-container-2-4-1" class="outline-4">
-<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 泰勒级数</h4>
+<div id="outline-container-org9bc5534" class="outline-4">
+<h4 id="org9bc5534"><span class="section-number-4">2.4.1</span> 泰勒级数</h4>
 <div class="outline-text-4" id="text-2-4-1">
-
-<p>一个函数
-$$f(x)=1$$ 
+<p>
+一个函数
+\[f(x)=1\] 
 它的泰勒展开式是
-$$f(x)=1$$ 
+\[f(x)=1\] 
 函数
-$$f(x)=x$$ 
+\[f(x)=x\] 
 它的泰勒展开式是
-$$f(x)=x$$ 
+\[f(x)=x\] 
 也就是泰勒展开将函数分解成\(1, x, x^{2}, x^{3}...\)等幂级数的和，也就是将一
 个函数变成若干个函数的和。展开式在多数情况下有无限项。泰勒展开式见式
-<a href="#equ-taile">equ-taile</a>
+\ref{equ-taile}
+</p>
 \begin{equation}
 \label{equ-taile}
 f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}
     = f(x_{0})+f^{'}(x_{0})(x-x_{0})+\frac{f^{''}(x_{0})}{2!}(x-x_{0})^{2}...
 \end{equation}
+<p>
 那么为什么要将f展开成泰勒级数\(f(x)=1+x+x^{2}+x^{3}+...\)，那是因为可以无限细
 分得到f在每个点的变化。这类似将3234.352拆分成3000+200+30+4+0.3+0.05+0.002一
 样。所谓对函数的无限细分，就是不断求导，得到若干个变化率，从而得到这个函数
 到底在各个点变化的有多剧烈。变化就是导数。泰勒级数的每一阶系数就是各阶导数。
 所以泰勒级数就是在描述一个函数的各个点的变化情况。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-2-4-2" class="outline-4">
-<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 傅里叶级数</h4>
+</div>
+<div id="outline-container-orgab36d7c" class="outline-4">
+<h4 id="orgab36d7c"><span class="section-number-4">2.4.2</span> 傅里叶级数</h4>
 <div class="outline-text-4" id="text-2-4-2">
-
-<p>傅里叶级数也叫三角级数一般为
-$$f(x)=1+sin(x)+cos(x)+sin(2x)+cos(2x)+... $$ 
+<p>
+傅里叶级数也叫三角级数一般为
+\[f(x)=1+sin(x)+cos(x)+sin(2x)+cos(2x)+... \] 
 只有周期函数才有傅里叶级数，非周期函数由傅里叶变换来处理。一个方波信号可以
 表示成多个不同频率的正弦波组成。在某种程度上也可以认为方波是各种信号的基，
 基于这样的认识有人提出了沃尔什变换。将函数分解成三角函数的和很重要。因为对
@@ -604,196 +742,208 @@ $$f(x)=1+sin(x)+cos(x)+sin(2x)+cos(2x)+... $$
 是二阶偏微分方程(含有电容或电感等的电路方程)的本征解。另外，世界上只有两类
 函数能满足给自己求二阶导还是这类函数本身，仅相差常数系数和正负号，一种就是 
 \(e^{x}\)，另一种就是\(sin(x), cos(x)\), 后来又在复数域里统一了这两者即
-$$e^{jx}=cos(x)+sin(x)j$$ 
+\[e^{jx}=cos(x)+sin(x)j\] 
 所以，对于一个一般的物理信号来说，它可能不是正余弦函数，但是他们都可以拆成
 不同频率的三角函数的组合。重要的是对于某种单频率的三角函数信号，系统对该频
 率的三角函数的输入的响应还是同频率的三角函数，只可能有相位前后或者幅度大小
-发生变化。这样就是二阶偏微分方程的本征解的含义。</p ><p >
+发生变化。这样就是二阶偏微分方程的本征解的含义。\par
 我们知道我们要把信号函数展开成三角不同频率的三角函数的和，且系统对某种频率
 的三角函数的响应方式还是同频率的三角函数，所以响应也是对这些不同频率三角函
-数响应的叠加，这也叫频域分析。傅里叶级数的三角表示公式如<a href="#equ-flysj">equ-flysj</a>
+数响应的叠加，这也叫频域分析。傅里叶级数的三角表示公式如\ref{equ-flysj}
+</p>
 \begin{equation}
 \label{equ-flysj}
 f(x)=a_{0}+\sum_{n=l}^{\infty}(a_{n}cos\frac{n\pi x}{l}+b_{n}sin\frac{n\pi x}{l})
 \end{equation}
+<p>
 用这个式子可以表示周期是\(2l\)的周期函数，之所以所有频率都是基频的倍数，是
-因为它要符合周期性边界条件。式<a href="#equ-flysj">equ-flysj</a>可以简化为式子<a href="#equ-flysjj">equ-flysjj</a>
+因为它要符合周期性边界条件。式\ref{equ-flysj}可以简化为式子\ref{equ-flysjj}
+</p>
 \begin{equation}
 \label{equ-flysjj}
 f(x)=a_{0}+A_{1}sin(w_{1}x+phi_{1})+A_{2}sin(2w_{2}x+phi_{2})+...
 \end{equation} 
-式子<a href="#equ-flysjj">equ-flysjj</a>可以把傅里叶级数理解成，把周期函数拆成常数(直流分量)+一
-倍频分量+2倍频分量+&hellip;
+<p>
+式子\ref{equ-flysjj}可以把傅里叶级数理解成，把周期函数拆成常数(直流分量)+一
+倍频分量+2倍频分量+&#x2026;
 其系数\(A_{k}\)需要通过函数投影计算。函数投影类似向量的投影，一个函数u和一
-个函数v的投影计算方式如<a href="#equ-fun-dot">equ-fun-dot</a>, 也就是u和v的内积就是他们相乘，并
+个函数v的投影计算方式如\ref{equ-fun-dot}, 也就是u和v的内积就是他们相乘，并
 在全区间上积分。
+</p>
 \begin{equation}
 \label{equ-fun-dot}
  (u, v) = \int_{a}^{b}u(x)\hat{v}(x)dx
 \end{equation}
+<p>
 而在周期函数里面区间端点[a, b]就是任何一个长度为\(2\pi\)的区间端点。那么如
 果把u表示成f(x)，v分别取\(1, sin(x), cos(x), sin(2x)...\)等，就可以得到每
 个频率的各自部分的分量大小(因为有积分累加)。为什么就一定能够筛选出对应频率
 的所以分量来累加呢，这是因为有完备单位正交基，所谓的完备，就是指用
 \(1, sin(x), cos(x), sin(2x)...\)完全能够把一个函数f(x)表示出来。
-所谓正交，如式子<a href="#equ-zj">equ-zj</a>两两相乘区间累加都等于0，是正交的。
+所谓正交，如式子\ref{equ-zj}两两相乘区间累加都等于0，是正交的。
+</p>
 \begin{equation}
 \label{equ-zj}
 \int_{0}^{2\pi}1*sin(x)dx=0, 
 \int_{0}^{2\pi}sin(mx)*cos(nx)dx=0, 
 \int_{0}^{2\pi}sin(mx)*sin(nx)dx=0, 
 \end{equation}
-所谓单位，就是还需要归一化，比如<a href="#equ-notuni">equ-notuni</a>不是归一化的。
+<p>
+所谓单位，就是还需要归一化，比如\ref{equ-notuni}不是归一化的。
+</p>
 \begin{equation}
 \label{equ-notuni}
 \int_{0}^{2\pi}1*1dx=2\pi
 \int_{0}^{2\pi}sin(kx)*sin(kx)dx=pi
 \end{equation}
+<p>
 要归一化就得变成如下式子
+</p>
 \begin{equation}
 \int_{0}^{2\pi}\frac{1}{\sqrt{2\pi}}*\frac{1}{\sqrt{2\pi}}dx=1
 \int_{0}^{2\pi}\frac{1}{\sqrt{\pi}}sin(kx)*\frac{1}{\sqrt{\pi}}sin(kx)dx=1
 \end{equation}
+<p>
 所以傅里叶分解真正的基底是这些, 对于周期为\(2\pi\)
-$$\frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}sin(x),\frac{1}{\sqrt{\pi}}cos(x)...$$ 
+\[\frac{1}{\sqrt{2\pi}},\frac{1}{\sqrt{\pi}}sin(x),\frac{1}{\sqrt{\pi}}cos(x)...\] 
 对于周期为\(2l\)的，基底是
-$$\frac{1}{\sqrt{2l}},\frac{1}{\sqrt{l}}sin(x),\frac{1}{\sqrt{l}}cos(x)...$$
-综合来看，用内积方法分解出的每个分量的系数如式子<a href="#equ-neijfly">equ-neijfly</a>, 如果是非
+\[\frac{1}{\sqrt{2l}},\frac{1}{\sqrt{l}}sin(x),\frac{1}{\sqrt{l}}cos(x)...\]
+综合来看，用内积方法分解出的每个分量的系数如式子\ref{equ-neijfly}, 如果是非
 单位化的基，结果就没有这么简洁。
+</p>
 \begin{equation}
 \label{equ-neijfly}
 a_{0} = \frac{\int_{-l}^{l}f(x)dx}{2l}
 a_{n} = \frac{\int_{-l}^{l}f(x)cos(\frac{n\pi x}{l})dx}{l}
 b_{n} = \frac{\int_{-l}^{l}f(x)sin(\frac{n\pi x}{l})dx}{l}
 \end{equation}
-</p>
 </div>
-
-<div id="outline-container-2-4-2-1" class="outline-5">
-<h5 id="sec-2-4-2-1"><span class="section-number-5">2.4.2.1</span> 问题</h5>
+<div id="outline-container-orga3b4ca6" class="outline-5">
+<h5 id="orga3b4ca6"><span class="section-number-5">2.4.2.1</span> 问题</h5>
 <div class="outline-text-5" id="text-2-4-2-1">
-
-<p>连续时间或者离散时间周期信号的傅里叶级数的系数a<sub>k</sub>是离散的
-</p><ol>
-<li>为什么连续时间和离散时间周期信号傅里叶级数的基底信号集合不一样。
-</li>
+<p>
+连续时间或者离散时间周期信号的傅里叶级数的系数a<sub>k</sub>是离散的
+</p>
+<ol class="org-ol">
+<li>为什么连续时间和离散时间周期信号傅里叶级数的基底信号集合不一样。</li>
 </ol>
-
-<p>因为连续信号的周期T是实数，k不能一定满足k=T, 但是离散信号的周期是N，k肯定可
+<p>
+因为连续信号的周期T是实数，k不能一定满足k=T, 但是离散信号的周期是N，k肯定可
 以有有限的某个值等于N。
-</p><ol>
-<li>为什么连续时间周期信号的傅里叶变换时，积分周期是T。
-</li>
+</p>
+<ol class="org-ol">
+<li>为什么连续时间周期信号的傅里叶变换时，积分周期是T。</li>
 </ol>
-
-<p>因为基底信号集是复指数信号，复指数信号在辐角[0, 2&pi;]上是完备正交集，要求
+<p>
+因为基底信号集是复指数信号，复指数信号在辐角[0, 2&pi;]上是完备正交集，要求
 出每个基底信号的分量，需要在辐角[0, 2&pi;]上做积分，但是复指数信号的角频率
 &Omega;=2&pi;/T, 可以将辐角的积分转换到时间的积分，这样积分区间就变成了T。
-</p></div>
+</p>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 连续时间傅里叶变换(CTFT)</h3>
+</div>
+<div id="outline-container-orgd29f6c2" class="outline-3">
+<h3 id="orgd29f6c2"><span class="section-number-3">2.5</span> 连续时间傅里叶变换(CTFT)</h3>
 <div class="outline-text-3" id="text-2-5">
-
-<p>令x(t)是一绝对可积的模拟信号，它的CTFT表示为
-$$X(j\Omega{}) = \int_{-\infty}^{\infty}x(t)e^{-j\Omega{}t}dt$$ 
+<p>
+令x(t)是一绝对可积的模拟信号，它的CTFT表示为
+\[X(j\Omega{}) = \int_{-\infty}^{\infty}x(t)e^{-j\Omega{}t}dt\] 
 其逆变换表示为
-$$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega$$
+\[x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\Omega)e^{j\Omega{}t}d\Omega\]
 逆变换解释
-</p><ul>
-<li>CTFT是变换到频域，需要用到模拟频率\(\Omega\)，所以积分上下限是无穷；
-</li>
-<li>模拟频率\(\Omega\)归一化时需要除以2&pi;.
-</li>
+</p>
+<ul class="org-ul">
+<li>CTFT是变换到频域，需要用到模拟频率\(\Omega\)，所以积分上下限是无穷；</li>
+<li>模拟频率\(\Omega\)归一化时需要除以2&pi;.</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 离散时间傅里叶变换(DTFT)</h3>
+<div id="outline-container-orga02897b" class="outline-3">
+<h3 id="orga02897b"><span class="section-number-3">2.6</span> 离散时间傅里叶变换(DTFT)</h3>
 <div class="outline-text-3" id="text-2-6">
-
-<p>如果x(n)是绝对可加的，即\(\sum_{-\infty}^{\infty}|x(n)| &lt; \infty\)，则其离
-散时间傅里叶变换表示如<a href="#equ-xjw">equ-xjw</a>
+<p>
+如果x(n)是绝对可加的，即\(\sum_{-\infty}^{\infty}|x(n)| < \infty\)，则其离
+散时间傅里叶变换表示如\ref{equ-xjw}
+</p>
 \begin{equation}
 \label{equ-xjw}
  X(e^{j\Omega{}}) \Rightarrow F[x(n)]=\sum_{-\infty}^{\infty}x(n)e^{-j\Omega{}n}
 \end{equation}
-\(X(e^{j\Omega{}})\)的离散时间傅里叶逆变换(IDTFT)可以表示如[[#equ-xn][equ-xn]]
+<p>
+\(X(e^{j\Omega{}})\)的离散时间傅里叶逆变换(IDTFT)可以表示如\ref{equ-xn}
+</p>
 \begin{equation}
 \label{equ-xn}
  x(n) \Rightarrow F^{-1}[X(e^{j\Omega{}})]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\Omega{}})e^{j\Omega{}n}dw
 \end{equation}
+<p>
 算子F[.]把一个离散信号x(n)变换成一个实变量w的复值连续函数\(X(e^{j\Omega{}})\), w被
-称为数字频率，它用 <span style="text-decoration:underline;">弧度</span> 来度量。
+称为数字频率，它用 <span class="underline">弧度</span> 来度量。
 基本上离散和周期是相互关联的，一个周期信号的傅里叶级数表示中，当周期增加时，
 基波频率就减小，成谐波关系的各分量在频率上越靠近，当周期变成无穷大时，这些
 频率分量就变成了一个连续域。频域和时域，在数学上都是一样的，只是一个是频率
 一个是时间。
-</p><ul>
-<li>时域离散，频域就会有周期性；
-</li>
-<li>频域离散，时域就会有周期性；
-</li>
+</p>
+<ul class="org-ul">
+<li>时域离散，频域就会有周期性；</li>
+<li>频域离散，时域就会有周期性；</li>
 <li>频域和时域相对应，复指数信号\(e^{j\Omega{}t}\)和冲击信号\(\delta\)相对应，即如果
-  复指数信号是时域的信号，频率是w，则频域就是在频率轴上w处的一个冲击；
-</li>
+复指数信号是时域的信号，频率是w，则频域就是在频率轴上w处的一个冲击；</li>
 </ul>
-
-
 </div>
-
-<div id="outline-container-2-6-1" class="outline-4">
-<h4 id="sec-2-6-1"><span class="section-number-4">2.6.1</span> DTFT算法过程</h4>
+<div id="outline-container-org17aabac" class="outline-4">
+<h4 id="org17aabac"><span class="section-number-4">2.6.1</span> DTFT算法过程</h4>
 <div class="outline-text-4" id="text-2-6-1">
-
-<p>如果x(n)是有限长的，则x(n)肯定是绝对可加的，即x(n)肯定有DTFT，则可以用
+<p>
+如果x(n)是有限长的，则x(n)肯定是绝对可加的，即x(n)肯定有DTFT，则可以用
 MATLAB或python来对任意频率w处的\(X(e^{j\Omega{}})\)进行数值计算。如果我们是在
 \([0, \pi]\)间等间隔频率点来模拟估计\(X(e^{j\Omega{}})\)，假设分成M分，则每个频率
-点可以表示如公式<a href="#equ-wk">equ-wk</a>所示，则变换式子<a href="#equ-xjw">equ-xjw</a>可以用矩阵向量相乘
+点可以表示如公式\ref{equ-wk}所示，则变换式子\ref{equ-xjw}可以用矩阵向量相乘
 的运算来实现。
+</p>
 \begin{equation}
 \label{equ-wk}
 w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 \end{equation}
-假定序列x(n)在\(n_{1}&lt;= n &lt;=n_{n}\)有N个样本，要估计点<a href="#equ-wk">equ-wk</a>上的
-\(X(e^{j\Omega{}})\)值。它们是[0，&pi;]之间的(M+1)个等间隔频率点，则<a href="#equ-xjw">equ-xjw</a>可
-以写为式子<a href="#equ-xjw2">equ-xjw2</a>
+<p>
+假定序列x(n)在\(n_{1}<= n <=n_{n}\)有N个样本，要估计点\ref{equ-wk}上的
+\(X(e^{j\Omega{}})\)值。它们是[0，&pi;]之间的(M+1)个等间隔频率点，则\ref{equ-xjw}可
+以写为式子\ref{equ-xjw2}
+</p>
 \begin{equation}
 \label{equ-xjw2}
  X(e^{j\Omega{}_{k}})=\sum_{l=1}^{N}e^{-j(\pi/M)kn_{l}}*x(n_{l}), (k=0, 1, ..., M)
 \end{equation}
+<p>
 当\({x(n_{l})}\)和\({X(e^{j\Omega{}_{k}})}\)分别排成列向量x和X，我们有式子
-<a href="#equ-vec">equ-vec</a>, 其中W是一个(M+1)乘N维矩阵
+\ref{equ-vec}, 其中W是一个(M+1)乘N维矩阵
+</p>
 \begin{equation}
 \label{equ-vec}
  X = Wx
 \end{equation}
-另外，若我们分别将{k}和{n<sub>l</sub>}排成列向量，则有式子<a href="#equ-wvec">equ-wvec</a>
+<p>
+另外，若我们分别将{k}和{n<sub>l</sub>}排成列向量，则有式子\ref{equ-wvec}
+</p>
 \begin{equation}
 \label{equ-wvec}
  W = [e^{-j\frac{\pi}{M}k^{T}n}]
 \end{equation}
-最终可以写成式子<a href="#equ-fvec">equ-fvec</a>, 如果x是行行向量，则x<sup>T</sup>直接就用x表示。
+<p>
+最终可以写成式子\ref{equ-fvec}, 如果x是行行向量，则x<sup>T</sup>直接就用x表示。
+</p>
 \begin{equation}
 \label{equ-fvec}
  X^{T} = x^{T}[e^{-j\frac{\pi}{M}n^{T}k}]
 \end{equation}
-</p></div>
-
 </div>
-
-<div id="outline-container-2-6-2" class="outline-4">
-<h4 id="sec-2-6-2"><span class="section-number-4">2.6.2</span> 物理意义</h4>
+</div>
+<div id="outline-container-org70f050a" class="outline-4">
+<h4 id="org70f050a"><span class="section-number-4">2.6.2</span> 物理意义</h4>
 <div class="outline-text-4" id="text-2-6-2">
-
-<p>DFT的快速算法叫FFT，在MATLAB和Python中都有相关库，一个模拟信号，经过ADC采样
+<p>
+DFT的快速算法叫FFT，在MATLAB和Python中都有相关库，一个模拟信号，经过ADC采样
 之后，就变成了数字信号。采样定理告诉我们，采样频率要大于信号频率的两倍，采
 样得到的数字信号，就可以做FFT变换了。N个采样点，经过FFT之后，就可以得到N个
 点的FFT结果。为了方便进行FFT运算，通常N取2的整数次方。假设采样频率为Fs，信
@@ -805,20 +955,20 @@ w_{k} \Rightarrow \frac{\pi}{M}k, (k = 0, 1, ...,M)
 第N+1个点，也可以看做是将第一个点分做两半分，另一半移到最后）则表示采样频率
 Fs，这中间被N-1个点平均分成N等份，每个点的频率依次增加。例如某点n所表示的频
 率为
-$$Fn=(n-1)*Fs/N$$
+\[Fn=(n-1)*Fs/N\]
 由上面的公式可以看出，Fn所能分辨到频率为为Fs/N，如果采样频率Fs为1024Hz，采
 样点数为1024点，则可以分辨到1Hz。1024Hz的采样率采样1024点，刚好是1秒，也就
 是说，采样1秒时间的信号并做FFT，则结果可以分析到1Hz，如果采样2秒时间的信号
 并做FFT，则结果可以分析到0.5Hz。如果要提高频率分辨力，则必须增加采样点数，
-也即采样时间。频率分辨率和采样时间是倒数关系。 </p ><p >
+也即采样时间。频率分辨率和采样时间是倒数关系。 \par
 假设FFT之后某点n用复数a+bi表示，那么这个复数的模就是
-$$An=\sqrt{a^{2}+b^{2}}$$ 
+\[An=\sqrt{a^{2}+b^{2}}\] 
 相位就是
-$$Pn=atan2(b,a)$$
+\[Pn=atan2(b,a)\]
 根据以上的结果，就可以计算出n点（n≠1，且n&lt;=N/2）对应的信号的表达式为：
-$$An/(N/2)*cos(2*pi*Fn*t+Pn)$$ 
+\[An/(N/2)*cos(2*pi*Fn*t+Pn)\] 
 即\(2*An/N*cos(2*pi*Fn*t+Pn)\)。对于n=1点的信号，是直流分量，幅度即为A1/N。
-由于FFT的对称性，通常我们只使用前半部的结果，即小于采样频率一半的结果.</p ><p >
+由于FFT的对称性，通常我们只使用前半部的结果，即小于采样频率一半的结果.\par
 总结：假设采样频率为Fs，采样点数为N，做FFT之后，某一点n（n从1开始）表示的频
 率为：Fn=(n-1)*Fs/N；该点的模值除以N/2就是对应该频率下的信号的幅度（对于直
 流信号是除以N）；该点的相位即是对应该频率下的信号的相位。相位的计算可用函数
@@ -828,93 +978,82 @@ atan2(b,a)计算。atan2(b,a)是求坐标为(a,b)点的角度值，范围从-pi�
 个问题的方法有频率细分法，比较简单的方法是采样比较短时间的信号，然后在后面
 补充一定数量的0，使其长度达到需要的点数，再做FFT，这在一定程度上能够提高频
 率分辨力。 
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 离散傅里叶变换(DFT)</h3>
+</div>
+<div id="outline-container-orgfd418a6" class="outline-3">
+<h3 id="orgfd418a6"><span class="section-number-3">2.7</span> 离散傅里叶变换(DFT)</h3>
 <div class="outline-text-3" id="text-2-7">
-
-<p>离散时间傅里叶变换（DTFT）有时也称为序列傅里叶变换。DTFT实质上就是单位圆上
+<p>
+离散时间傅里叶变换（DTFT）有时也称为序列傅里叶变换。DTFT实质上就是单位圆上
 的(双边)Z变换。当时域信号为连续信号时，用连续时间傅里叶变换；为离散信号时，
 用DTFT,DTFT使我们能够在频域（数字频域）分析离散时间信号的频谱和离散系统的频
 响特性\(X(e^{jw})\)。但还存在两个实际问题。 
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>数字频率w是一个模拟量，为了便于用数字的方法进行分析和处理，仅仅在时域将
-   时间变量t离散化还不够，还必须在频域将数字频率w离散化。 
-</li>
+时间变量t离散化还不够，还必须在频域将数字频率w离散化。</li>
 <li>实际的序列大多为无限长的，为了分析和处理的方便，必须把无限长序列截断或分
-   段，化作有限长序列来处理。 
-</li>
+段，化作有限长序列来处理。</li>
 </ol>
-
-<p>DTFT是对任意序列的傅里叶分析，它的频谱是一个连续函数；而DFT是把有限长序列作
+<p>
+DTFT是对任意序列的傅里叶分析，它的频谱是一个连续函数；而DFT是把有限长序列作
 为周期序列的一个周期，对有限长序列的傅里叶分析，DFT的特点是无论在时域还是频
 域都是有限长序列。DFT提供了使用计算机来分析信号和系统的一种方法，尤其是DFT
 的快速算法FFT。 
-</p><ul>
-<li>np.fft.fft(samplings):对samplings点做FFT变换；
-</li>
-<li>np.fft.rfft(samplings):上面的是左右两边对称的，这个是只有单边的；
-</li>
+</p>
+<ul class="org-ul">
+<li>np.fft.fft(samplings):对samplings点做FFT变换；</li>
+<li>np.fft.rfft(samplings):上面的是左右两边对称的，这个是只有单边的；</li>
 <li>np.fft.fftfreq(N):表示N点的频率序号，如果再乘以频率分辨率Fs/N, 就可以得到
-  N点的频率值；
-</li>
+N点的频率值；</li>
 <li>fft变换后，除第一个0频直流分量，频谱在频率上对称，对称点在奈奎斯特频率上，
-  即如果Fs是采样频率，对称点在Fs/2上；
-</li>
+即如果Fs是采样频率，对称点在Fs/2上；</li>
 <li>当时域数据个数和fft变换使用的数据个数相同时，频率分辨率正常(点数较少时，
-  分辨率低)，但是没有由于添零混入其他频率成分；
-</li>
+分辨率低)，但是没有由于添零混入其他频率成分；</li>
 <li>当时域信号数据加零数据后，可以增加fft变换的数据个数，可以提高频率分辨率，
-  但是振幅谱中会多出其他频率成分；
-</li>
+但是振幅谱中会多出其他频率成分；</li>
 <li>DFT和功率谱：若数据有N个点，采样频率为fs，那么DFT的分辨率为fs/N，在没有噪
-  声的情况下；如果信号恰好位于k*fs/N的频率上，那么就会在这个频点处为最大值，
-  其他频点处为0。但是，如果信号频率不是分析频率的整数倍，那么原本集中在某个
-  频点的功率就会分散到整个功率谱上去。
-</li>
+声的情况下；如果信号恰好位于k*fs/N的频率上，那么就会在这个频点处为最大值，
+其他频点处为0。但是，如果信号频率不是分析频率的整数倍，那么原本集中在某个
+频点的功率就会分散到整个功率谱上去。</li>
 <li>频率分辨率：对于fs=8000，N=64的信号，其分辨率为125Hz，所以如果两信号频率
-  之间相差小于125，那么DFT的功率谱就不会区分它们。 而假如将信号之间的频率差
-  较大，比如1个是1500Hz，另一个是1800Hz，那么64点DFT可以区分。补0是使用DFT
-  分析信号的一种常用手段，它在功率谱分析上的作用主要在于：1.将样点数变为2的
-  整数次幂，便于FFT计算；2，使DFT的频率分析点变得更细，可以更加精确的说明信
-  号的所在的频率。但是补0并不能改变DFT的分辨率，即如果将64点1500与1562.5Hz
-  的信号混合在一起，然后补64个0，那么DFT依然不能区分它们。但是如果将信号的
-  采样个数提高，那么就会有所好转   
-</li>
+之间相差小于125，那么DFT的功率谱就不会区分它们。 而假如将信号之间的频率差
+较大，比如1个是1500Hz，另一个是1800Hz，那么64点DFT可以区分。补0是使用DFT
+分析信号的一种常用手段，它在功率谱分析上的作用主要在于：1.将样点数变为2的
+整数次幂，便于FFT计算；2，使DFT的频率分析点变得更细，可以更加精确的说明信
+号的所在的频率。但是补0并不能改变DFT的分辨率，即如果将64点1500与1562.5Hz
+的信号混合在一起，然后补64个0，那么DFT依然不能区分它们。但是如果将信号的
+采样个数提高，那么就会有所好转</li>
 <li>无限长周期信号：对于原本是无限长的时域周期信号，可以通过原功率谱与窗函数
-  的卷积来描述有限点长度信号功率谱与原信号功率谱的差异。因而不同的窗函数有
-  不同的影响，虽然描述窗函数的指标很多，但是一般人们关心的主要是主瓣宽度和
-  旁瓣的幅度。但是他们是矛盾的，矩形窗具有最低的主瓣宽度，使得分辨率最高，
-  但是它的旁瓣幅度也是最高的
-</li>
+的卷积来描述有限点长度信号功率谱与原信号功率谱的差异。因而不同的窗函数有
+不同的影响，虽然描述窗函数的指标很多，但是一般人们关心的主要是主瓣宽度和
+旁瓣的幅度。但是他们是矛盾的，矩形窗具有最低的主瓣宽度，使得分辨率最高，
+但是它的旁瓣幅度也是最高的</li>
 <li>DFT有效频率：信号长度N个点，则DFT最多只能表达\(\frac{N}{2}+1\)个不同的频
-  率, 一个直流和谐波频率，超过奈奎斯特频率后就对称重复了。
-</li>
+率, 一个直流和谐波频率，超过奈奎斯特频率后就对称重复了。</li>
 </ul>
-
-
 </div>
-
-<div id="outline-container-2-7-1" class="outline-4">
-<h4 id="sec-2-7-1"><span class="section-number-4">2.7.1</span> 应用</h4>
+<div id="outline-container-org4857a2b" class="outline-4">
+<h4 id="org4857a2b"><span class="section-number-4">2.7.1</span> 应用</h4>
 <div class="outline-text-4" id="text-2-7-1">
-
-<p>假设有N=4的一个信号x(n)，x(n)={x(0), x(1), x(2), x(3)}, 则按照DFT的公式计算
+<p>
+假设有N=4的一个信号x(n)，x(n)={x(0), x(1), x(2), x(3)}, 则按照DFT的公式计算
 X(w)的过程如下。
-$$k=0:X(0)=x(0)e^{0}+x(1)e^{0}+x(2)e^{0}+x(3)e^{0}$$ 
-$$k=1:X(1)=x(0)e^{0}+x(1)e^{-j\frac{\pi}{2}}+x(2)e^{-j\frac{2\pi}{2}}+x(3)e^{-j\frac{3\pi}{2}}$$ 
-$$k=2:X(2)=x(0)e^{0}+x(1)e^{-j\frac{2\pi}{2}}+x(2)e^{-j\frac{4\pi}{2}}+x(3)e^{-j\frac{6\pi}{2}}$$ 
-$$k=3:X(3)=x(0)e^{0}+x(1)e^{-j\frac{3\pi}{2}}+x(2)e^{-j\frac{6\pi}{2}}+x(3)e^{-j\frac{9\pi}{2}}$$ 
+\[k=0:X(0)=x(0)e^{0}+x(1)e^{0}+x(2)e^{0}+x(3)e^{0}\] 
+\[k=1:X(1)=x(0)e^{0}+x(1)e^{-j\frac{\pi}{2}}+x(2)e^{-j\frac{2\pi}{2}}+x(3)e^{-j\frac{3\pi}{2}}\] 
+\[k=2:X(2)=x(0)e^{0}+x(1)e^{-j\frac{2\pi}{2}}+x(2)e^{-j\frac{4\pi}{2}}+x(3)e^{-j\frac{6\pi}{2}}\] 
+\[k=3:X(3)=x(0)e^{0}+x(1)e^{-j\frac{3\pi}{2}}+x(2)e^{-j\frac{6\pi}{2}}+x(3)e^{-j\frac{9\pi}{2}}\] 
 转换成矩阵形式有
 $$
+</p>
 \begin{bmatrix}
 X(0) \\ X(1) \\ X(2) \\ X(3)\\
 \end{bmatrix}
+<p>
 =
+</p>
 \begin{bmatrix}
 e^{0} & e^{0}           & e^{0}     & e^{0} \\
 e^{0} & e^{-j\pi{}/2}   & e^{-j\pi} & e^{-j3\pi{}/2} \\
@@ -924,203 +1063,166 @@ e^{0} & e^{-j3\pi{}/2}  & e^{-j\pi} & e^{-j\pi{}/2} \\
 \begin{bmatrix}
 x(0) \\ x(1) \\ x(2) \\ x(3)\\
 \end{bmatrix} 
-$$ 
-记做 $$X=Wx$$ 
+<p>
+\[ 
+记做 \]X=Wx\[ 
 其中W可以用复平面的单位圆来求。这样在变换时矩阵第k行(也就是求X的第几个值)
 每次移动k份得到。一般这样表示，k表示一次移动k分，n表示移动多少次，nk表示移
 动的复指数信号的角度，并且Nk表示移动一圈, 即一个周期。
-$$W_{N}^{nk} = e^{-\frac{2\pi{}nk}{N}}$$ 
-</p></div>
+\]W<sub>N</sub><sup>nk</sup> = e^{-\frac{2&pi;nk}{N}}$$ 
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 滤波器</h3>
+</div>
+<div id="outline-container-org42c4884" class="outline-3">
+<h3 id="org42c4884"><span class="section-number-3">2.8</span> 滤波器</h3>
 <div class="outline-text-3" id="text-2-8">
-
-<p>数字滤波器与LTI系统是等价的，描述方式可以有4种。
-</p><ul>
-<li>差分方程；
-</li>
+<p>
+数字滤波器与LTI系统是等价的，描述方式可以有4种。
+</p>
+<ul class="org-ul">
+<li>差分方程；</li>
 <li>单位冲激响应h(n), 可以分类如下；
-<ol>
-<li>FIR滤波器：有限脉冲响应，也就是h(n)只在一段时间内才有信号，其他都是0。
-</li>
-<li>IIR滤波器：无限脉冲响应，也就是h(n)在所有时间内都有信号。
-</li>
-</ol>
-
-</li>
+<ol class="org-ol">
+<li>FIR滤波器：有限脉冲响应，也就是h(n)只在一段时间内才有信号，其他都是0。</li>
+<li>IIR滤波器：无限脉冲响应，也就是h(n)在所有时间内都有信号。</li>
+</ol></li>
 <li>传递函数:若用X(z)表示输入x(n)的Z变换，用Y(z)表示输出y(n)的Z变换，则滤波
-   器的传递函数可以写为：
-   $$H(z)=\frac{Y(z)}{X(z)}=\frac{b_{0}+b_{1}z^{-1}+..+b_{N-1}z^{-(N-1)}}{1+a_{1}z^{-1}+..+a_{M-1}z^{-(M-1)}}$$  
-   利用该式可以用零极图和矢量等工具对滤波器进行直观的分析。通常M&gt;=N, 对FIR
-   滤波器来说H(z)的零点个数为滤波器的阶数。对IIR滤波器来说，H(z)的极点个数
-   称为滤波器的阶数。所以FIR滤波器的阶数为N-1，IIR滤波器的阶数为M-1。阶数越
-   高表明滤波器的系数越多，在实现时运算效率也越低。
-</li>
+器的传递函数可以写为：
+\[H(z)=\frac{Y(z)}{X(z)}=\frac{b_{0}+b_{1}z^{-1}+..+b_{N-1}z^{-(N-1)}}{1+a_{1}z^{-1}+..+a_{M-1}z^{-(M-1)}}\]  
+利用该式可以用零极图和矢量等工具对滤波器进行直观的分析。通常M&gt;=N, 对FIR
+滤波器来说H(z)的零点个数为滤波器的阶数。对IIR滤波器来说，H(z)的极点个数
+称为滤波器的阶数。所以FIR滤波器的阶数为N-1，IIR滤波器的阶数为M-1。阶数越
+高表明滤波器的系数越多，在实现时运算效率也越低。</li>
 <li>频率响应：复指数信号是LTI系统的特征信号，也是滤波器的特征信号，当滤波器输
-  入为单频复指数信号时，系统的输出为频率相同的单频正弦信号，只是幅度和相位
-  可能发生改变。频率响应描述的就是不同频率信号通过滤波器后幅度和相位的变化
-  情况。频率响应是H(z)在单位圆上的取值，并且与单位脉冲响应之间是傅里叶变换
-  的关系，用数学公式表示, 并且可以转为幅频响应和相频响应的乘积。可以分为 
-   $$H(e^{jw})=H(z)|_{z=e^{jw}}=\frac{Y(e^{jw})}{X(e^{jw})}$$ 
-<ol>
-<li>低通滤波器；
-</li>
-<li>高通滤波器；
-</li>
-<li>带通滤波器；
-</li>
-<li>带阻滤波器；
-</li>
-<li>全通滤波器：主要用于改善信号的相频响应；
-</li>
-</ol>
-
-</li>
+入为单频复指数信号时，系统的输出为频率相同的单频正弦信号，只是幅度和相位
+可能发生改变。频率响应描述的就是不同频率信号通过滤波器后幅度和相位的变化
+情况。频率响应是H(z)在单位圆上的取值，并且与单位脉冲响应之间是傅里叶变换
+的关系，用数学公式表示, 并且可以转为幅频响应和相频响应的乘积。可以分为 
+ \[H(e^{jw})=H(z)|_{z=e^{jw}}=\frac{Y(e^{jw})}{X(e^{jw})}\] 
+<ol class="org-ol">
+<li>低通滤波器；</li>
+<li>高通滤波器；</li>
+<li>带通滤波器；</li>
+<li>带阻滤波器；</li>
+<li>全通滤波器：主要用于改善信号的相频响应；</li>
+</ol></li>
 </ul>
-
-<p>滤波器的基本构成单元
-</p><ol>
-<li>加法单元；
-</li>
-<li>乘法单元；
-</li>
-<li>延时单元；
-</li>
+<p>
+滤波器的基本构成单元
+</p>
+<ol class="org-ol">
+<li>加法单元；</li>
+<li>乘法单元；</li>
+<li>延时单元；</li>
 </ol>
-
-
 </div>
-
-<div id="outline-container-2-8-1" class="outline-4">
-<h4 id="sec-2-8-1"><span class="section-number-4">2.8.1</span> 设计思路</h4>
+<div id="outline-container-orge07cdb9" class="outline-4">
+<h4 id="orge07cdb9"><span class="section-number-4">2.8.1</span> 设计思路</h4>
 <div class="outline-text-4" id="text-2-8-1">
-
-<ol>
-<li>在具体的应用背景中提取出数字滤波器的性能参数；
-</li>
-<li>选择合适的滤波器类型，主要是确定使用FIR还是IIR；
-</li>
-<li>采用适当方法如用MATLAB计算出滤波器的系数；
-</li>
-<li>用一个适当的结构来表示滤波器；
-</li>
-<li>分析有限字长对滤波器性能的影响；
-</li>
-<li>用软件或硬件来实现滤波器算法；
-</li>
+<ol class="org-ol">
+<li>在具体的应用背景中提取出数字滤波器的性能参数；</li>
+<li>选择合适的滤波器类型，主要是确定使用FIR还是IIR；</li>
+<li>采用适当方法如用MATLAB计算出滤波器的系数；</li>
+<li>用一个适当的结构来表示滤波器；</li>
+<li>分析有限字长对滤波器性能的影响；</li>
+<li>用软件或硬件来实现滤波器算法；</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-2" class="outline-4">
-<h4 id="sec-2-8-2"><span class="section-number-4">2.8.2</span> FIR滤波</h4>
+<div id="outline-container-org6f3a91f" class="outline-4">
+<h4 id="org6f3a91f"><span class="section-number-4">2.8.2</span> FIR滤波</h4>
 <div class="outline-text-4" id="text-2-8-2">
-
-<p>如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
-波器。因此对一个FIR滤波器，在\(n&lt;n_{1}\)和\(n&gt;n_{2}\)时h(n)=0.
-</p></div>
-
+<p>
+如果一个LTI系统的单位脉冲响应长度有限，则此系统称为有限长度脉冲响应(FIR)滤
+波器。因此对一个FIR滤波器，在\(n<n_{1}\)和\(n>n_{2}\)时h(n)=0.
+</p>
 </div>
-
-<div id="outline-container-2-8-3" class="outline-4">
-<h4 id="sec-2-8-3"><span class="section-number-4">2.8.3</span> IIR滤波</h4>
+</div>
+<div id="outline-container-orgc245560" class="outline-4">
+<h4 id="orgc245560"><span class="section-number-4">2.8.3</span> IIR滤波</h4>
 <div class="outline-text-4" id="text-2-8-3">
-
-<p>如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
+<p>
+如果一个LTI系统的脉冲响应具有无线长度，则此系统称为无限长脉冲响应(IIR)滤波
 器。
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 采样重构</h3>
+</div>
+<div id="outline-container-orgc31fffe" class="outline-3">
+<h3 id="orgc31fffe"><span class="section-number-3">2.9</span> 采样重构</h3>
 <div class="outline-text-3" id="text-2-9">
-
-
 </div>
-
-<div id="outline-container-2-9-1" class="outline-4">
-<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 采样</h4>
+<div id="outline-container-org9fc141a" class="outline-4">
+<h4 id="org9fc141a"><span class="section-number-4">2.9.1</span> 采样</h4>
 <div class="outline-text-4" id="text-2-9-1">
-
-<ul>
+<ul class="org-ul">
 <li>采样定理：如果采样频率\(F_{s}\)大于有限带宽信号\(x_{a}(t)\)带宽\(F_{D}\)
-  的2倍即 $$F_{s}&gt;2F_{D}$$ 则该信号可以由它的采样值\(x(n)=x_{a}(nT_{s})\)重
-  构，否则就会在x(n)中产生混叠。对该有限带宽模拟信号的2F<sub>D</sub>就称为奈奎斯特
-  频率。
-</li>
+的2倍即 \[F_{s}>2F_{D}\] 则该信号可以由它的采样值\(x(n)=x_{a}(nT_{s})\)重
+构，否则就会在x(n)中产生混叠。对该有限带宽模拟信号的2F<sub>D</sub>就称为奈奎斯特
+频率。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-9-2" class="outline-4">
-<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> 重构</h4>
+<div id="outline-container-org381ede6" class="outline-4">
+<h4 id="org381ede6"><span class="section-number-4">2.9.2</span> 重构</h4>
 <div class="outline-text-4" id="text-2-9-2">
-
-<p>当我们以合适的采样频率\(F_{s}\)采样到若干样本点x(n)后，这些样本点x(n)的频域
+<p>
+当我们以合适的采样频率\(F_{s}\)采样到若干样本点x(n)后，这些样本点x(n)的频域
 实际上是其模拟信号x(t)的频谱的重复，所以要从x(n)恢复x(t)只需要经过一个低通
 滤波器就能完整的恢复x(t)，理论上可以使用sinc(t)函数, 然而实际使用中不方便.
+</p>
 \begin{equation}
 sinc(t) = \frac{sin(\pi{}t)}{\pi{}t}
 \end{equation}
+<p>
 重构数学描述如下
+</p>
 \begin{equation}
 x(t) = \sum_{-\infty}^{\infty}x(n)sinc[F_{s}(t-nT_{s})]
 \end{equation}
-</p><ul>
-<li>零阶保持器内插(ZOH)：每个样本值将在整个采样周期中保持，知道收到下一个样本
-  为止，如下, 重构后，还需要再做一个滤波才能有略好的效果。或者可以理解为前
-  后两个采样点之间的数据等于前一个采样点的数据。输出信号是阶梯波，含有高次
-  谐波，相位滞后。
-  $$
-  h(t) = 
-  \begin{cases}
-  1, 0<=t<=T_{s}\\ 0, other
-  \end{cases}
-  $$ 
-</li>
-<li>一阶保持器内插(FOH)：相邻的两个样本之间用直线连接，同样需要一个后段滤波器。
-  或者可以理解为前后两点之间线性插值。
-  $$
-  h(t) = 
-  \begin{cases}
-  1+\frac{t}{T}, 0 <t<T_{s}\\ 1-\frac{t}{T}, T_{s}<=t<=2T_{s}\\0, other
-  \end{cases}
-  $$
-</li>
-<li>三次样条内插：
-</li>
+<ul class="org-ul">
+<li><p>
+零阶保持器内插(ZOH)：每个样本值将在整个采样周期中保持，知道收到下一个样本
+为止，如下, 重构后，还需要再做一个滤波才能有略好的效果。或者可以理解为前
+后两个采样点之间的数据等于前一个采样点的数据。输出信号是阶梯波，含有高次
+谐波，相位滞后。
+$$
+h(t) = 
+</p>
+\begin{cases}
+1, 0<=t<=T_{s}\\ 0, other
+\end{cases}
+<p>
+$$ 
+</p></li>
+<li><p>
+一阶保持器内插(FOH)：相邻的两个样本之间用直线连接，同样需要一个后段滤波器。
+或者可以理解为前后两点之间线性插值。
+$$
+h(t) = 
+</p>
+\begin{cases}
+1+\frac{t}{T}, 0 <t<T_{s}\\ 1-\frac{t}{T}, T_{s}<=t<=2T_{s}\\0, other
+\end{cases}
+<p>
+$$
+</p></li>
+<li>三次样条内插：</li>
 </ul>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 小波变换</h2>
-<div class="outline-text-2" id="text-3">
-
+<div id="outline-container-orged27daa" class="outline-2">
+<h2 id="orged27daa"><span class="section-number-2">3</span> 小波变换</h2>
 </div>
 </div>
-</div>
-
-<div id="postamble">
-<p class="date">Date: 2017-05-26 22:21:06 中国标准时间</p>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 18:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

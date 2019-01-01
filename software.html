@@ -1,18 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>软件 </title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="软件 "/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-09-14 13:10:59 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<!-- 2019-01-01 周二 18:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>软件</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,79 +227,53 @@
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        }
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
-<h1 class="title">软件 </h1>
-
-
+<h1 class="title">软件</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 语言</a>
+<li><a href="#org775f74b">1. 语言</a>
 <ul>
-<li><a href="#sec-1-1">1.1 C语言</a>
+<li><a href="#orgff048d0">1.1. C语言</a>
 <ul>
-<li><a href="#sec-1-1-1">1.1.1 宏定义特殊用法</a></li>
-<li><a href="#sec-1-1-2">1.1.2 位操作</a></li>
-<li><a href="#sec-1-1-3">1.1.3 嵌入式</a></li>
+<li><a href="#orga1ef3ce">1.1.1. 宏定义特殊用法</a></li>
+<li><a href="#org340afdb">1.1.2. 位操作</a></li>
+<li><a href="#org61795f7">1.1.3. 嵌入式</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">1.2 JAVA语言</a></li>
-<li><a href="#sec-1-3">1.3 PYTHON语言</a>
+<li><a href="#org226bd27">1.2. JAVA语言</a></li>
+<li><a href="#org23cca08">1.3. PYTHON语言</a>
 <ul>
-<li><a href="#sec-1-3-1">1.3.1 base</a></li>
-<li><a href="#sec-1-3-2">1.3.2 numpy</a></li>
-<li><a href="#sec-1-3-3">1.3.3 matplotlib</a>
+<li><a href="#orgf74bc89">1.3.1. base</a></li>
+<li><a href="#org40067d4">1.3.2. numpy</a></li>
+<li><a href="#org62e2dc9">1.3.3. matplotlib</a>
 <ul>
-<li><a href="#sec-1-3-3-1">1.3.3.1 画XY轴离散点图</a></li>
+<li><a href="#org41594cf">1.3.3.1. 画XY轴离散点图</a></li>
 </ul>
 </li>
 </ul>
@@ -117,393 +284,306 @@
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 语言</h2>
+<div id="outline-container-org775f74b" class="outline-2">
+<h2 id="org775f74b"><span class="section-number-2">1</span> 语言</h2>
 <div class="outline-text-2" id="text-1">
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> C语言</h3>
+<div id="outline-container-orgff048d0" class="outline-3">
+<h3 id="orgff048d0"><span class="section-number-3">1.1</span> C语言</h3>
 <div class="outline-text-3" id="text-1-1">
-
-
 </div>
-
-<div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 宏定义特殊用法</h4>
+<div id="outline-container-orga1ef3ce" class="outline-4">
+<h4 id="orga1ef3ce"><span class="section-number-4">1.1.1</span> 宏定义特殊用法</h4>
 <div class="outline-text-4" id="text-1-1-1">
-
-<ul>
-<li>从注释来看是把x转换成字符串。
-</li>
+<ul class="org-ul">
+<li>从注释来看是把x转换成字符串。</li>
 </ul>
-
-
-
-
-<pre class="example">/*
- * Macros to transform values
- * into environment strings.
- */
-#define XMK_STR(x)    #x
-#define MK_STR(x)    XMK_STR(x)
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #90ee90; font-style: italic;">/*</span>
+<span style="color: #90ee90; font-style: italic;"> * Macros to transform values</span>
+<span style="color: #90ee90; font-style: italic;"> * into environment strings.</span>
+<span style="color: #90ee90; font-style: italic;"> </span><span style="color: #90ee90; font-style: italic;">*/</span>
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">XMK_STR</span>(<span style="color: #ffd700;">x</span>)    #x
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">MK_STR</span>(<span style="color: #ffd700;">x</span>)    XMK_STR(x)
 </pre>
-
+</div>
 <p>
 找到了相关的资料，解读了这个define，还顺便认识了另外两个不常用的define
 </p>
-
-
-<pre class="example">#define Conn(x,y) x##y
-#define ToChar(x) #@x
-#define ToString(x) #x
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Conn</span>(<span style="color: #ffd700;">x</span>,<span style="color: #ffd700;">y</span>) x##y
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">ToChar</span>(<span style="color: #ffd700;">x</span>) #@x
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">ToString</span>(<span style="color: #ffd700;">x</span>) #x
 </pre>
-
+</div>
 <p>
 x##y表示什么？表示x连接y，举例说：
 </p>
-
-
-<pre class="example">int  n = Conn(123,456);  //结果就是n=123456;
-char* str = Conn("asdf", "adf")//结果就是 str = "asdfadf";
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">int</span>  <span style="color: #ffd700;">n</span> = Conn(123,456);  <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#32467;&#26524;&#23601;&#26159;n=123456;</span>
+<span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">str</span> = Conn(<span style="color: #ffa07a;">"asdf"</span>, <span style="color: #ffa07a;">"adf"</span>)<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#32467;&#26524;&#23601;&#26159; str = "asdfadf";</span>
 </pre>
-
+</div>
 <p>
 再来看#@x，其实就是给x加上单引号，结果返回是一个const char。举例说：char a = ToChar(1);结果就是a='1';做个越界试验char a
 = ToChar(123);结果是a='3'; 但是如果你的参数超过四个字符，编译器就给给你报错了！error C2015: too many characters in
 constant; 最后看看#x,估计你也明白了，他是给x加双引号
 </p>
-
-
-<pre class="example">char* str = ToString(123132);//就成了str="123132";
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">str</span> = ToString(123132);<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23601;&#25104;&#20102;str="123132";</span>
 </pre>
-
-<ul>
-<li>宏调试接口
-</li>
+</div>
+<ul class="org-ul">
+<li>宏调试接口</li>
 </ul>
-
-
-
-
-<pre class="example">#pragma diag_suppress 174 //抑制警告
-#ifdef DEBUG
-#define printfdbg printf
-#else
-#define printfdbg /\
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #87cefa; text-decoration: underline;">#pragma</span> diag_suppress 174 <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25233;&#21046;&#35686;&#21578;</span>
+<span style="color: #87cefa; text-decoration: underline;">#ifdef</span> DEBUG
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">printfdbg</span> printf
+<span style="color: #87cefa; text-decoration: underline;">#else</span>
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">printfdbg</span> /\
 /printfdbg 
-#endif
+<span style="color: #87cefa; text-decoration: underline;">#endif</span>
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> 位操作</h4>
+</div>
+<div id="outline-container-org340afdb" class="outline-4">
+<h4 id="org340afdb"><span class="section-number-4">1.1.2</span> 位操作</h4>
 <div class="outline-text-4" id="text-1-1-2">
-
-<ul>
-<li>将最右侧0改为1：
-
-
-
-<pre class="example">x|(x+1) 
+<ul class="org-ul">
+<li><p>
+将最右侧0改为1：
+</p>
+<div class="org-src-container">
+<pre class="src src-c">x|(x+1) 
 </pre>
-
-</li>
-<li>计算绝对值
-
-
-
-<pre class="example">int abs( int x ) 
+</div></li>
+<li><p>
+计算绝对值
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">abs</span>( <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">x</span> ) 
 {
-    int y ;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">y</span> ;
     y = x &gt;&gt; 31 ;
-    return (x^y)-y ;//or: (x+y)^y
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> (x^y)-y ;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">or: (x+y)^y</span>
 }
 </pre>
-
-</li>
-<li>符号函数
-
-
-
-<pre class="example">int sign(int x)
+</div></li>
+<li><p>
+符号函数
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">sign</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">x</span>)
 {
-    return (x&gt;&gt;31) | (unsigned(-x))&gt;&gt;31 ;//x=-2^31时失败(^为幂)
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> (x&gt;&gt;31) | (<span style="color: #ffff00; font-size: 105%;">unsigned</span>(-x))&gt;&gt;31 ;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">x=-2^31&#26102;&#22833;&#36133;(^&#20026;&#24130;)</span>
 }
 </pre>
-
-<ol>
-<li>sign(x) = -1, 则x&lt;0;
-</li>
-<li>sign(x) = 0, 则x==0 ;
-</li>
-<li>sign(x) = 1, 则x&gt;0
-</li>
-</ol>
-
-</li>
-<li>三值比较
-
-
-
-<pre class="example">int cmp( int x, int y )
+</div>
+<ol class="org-ol">
+<li>sign(x) = -1, 则x&lt;0;</li>
+<li>sign(x) = 0, 则x==0 ;</li>
+<li>sign(x) = 1, 则x&gt;0</li>
+</ol></li>
+<li><p>
+三值比较
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">cmp</span>( <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">x</span>, <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">y</span> )
 {
-    return (x&gt;y)-(x-y) ;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> (x&gt;y)-(x-y) ;
 }
 </pre>
-
-<ol>
-<li>cmp(x,y) = -1, 则x&lt;y;
-</li>
-<li>cmp(x,y) = 0, 则x==y;
-</li>
-<li>cmp(x,y) = 1, 则x &gt; y；
-</li>
-</ol>
-
-</li>
-<li>不使用第三方交换x,y
-
-
-
-<pre class="example">x ^= y ; y ^= x ; x ^= y ;
+</div>
+<ol class="org-ol">
+<li>cmp(x,y) = -1, 则x&lt;y;</li>
+<li>cmp(x,y) = 0, 则x==y;</li>
+<li>cmp(x,y) = 1, 则x &gt; y；</li>
+</ol></li>
+<li><p>
+不使用第三方交换x,y
+</p>
+<div class="org-src-container">
+<pre class="src src-c">x ^= y ; y ^= x ; x ^= y ;
 x = x+y ; y = x-y ; x = x-y ;
 x = x-y ; y = y+x ; x = y-x ;
 x = y-x ; x = y-x ; x = x+y ; 
 </pre>
-
-</li>
-<li>统计1位的数量
-
-
-
-<pre class="example">int pop(unsigned x)
+</div></li>
+<li><p>
+统计1位的数量
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">pop</span>(<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffd700;">x</span>)
 {
     x = x-((x&gt;&gt;1)&amp;0x55555555) ;
     x = (x&amp;0x33333333) + ((x&gt;&gt;2) &amp; 0x33333333 ) ;
     x = (x+(x&gt;&gt;4)) &amp; 0x0f0f0f0f ;
     x = x + (x&gt;&gt;8) ;
     x = x + (x&gt;&gt;16) ;
-    return x &amp; 0x0000003f ;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> x &amp; 0x0000003f ;
 }
 </pre>
-
-</li>
-<li>位反转
-
-
-
-<pre class="example">unsigned rev(unsigned x)
+</div></li>
+<li><p>
+位反转
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">rev</span>(<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffd700;">x</span>)
 {
     x = (x &amp; 0x55555555) &lt;&lt; 1 | (x&gt;&gt;1) &amp; 0x55555555 ;
     x = (x &amp; 0x33333333) &lt;&lt; 2 | (x&gt;&gt;2) &amp; 0x33333333 ;
     x = (x &amp; 0x0f0f0f0f) &lt;&lt; 4 | (x&gt;&gt;4) &amp; 0x0f0f0f0f ;
     x = (x&lt;&lt;24) | ((x&amp;0xff00)&lt;&lt;8) | ((x&gt;&gt;8) &amp; 0xff00) | (x&gt;&gt;24) ;
-    return x ;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> x ;
 }
 </pre>
-
-</li>
-<li>二进制码到GRAY码的转换
-
-
-
-<pre class="example">unsigned B2G(unsigned B )
+</div></li>
+<li><p>
+二进制码到GRAY码的转换
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">B2G</span>(<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffd700;">B</span> )
 {
-    return B ^ (B&gt;&gt;1) ;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> B ^ (B&gt;&gt;1) ;
 }
 </pre>
-
-</li>
-<li>GRAY码到二进制码
-
-
-
-<pre class="example">unsigned G2B(unsigned G)
+</div></li>
+<li><p>
+GRAY码到二进制码
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">G2B</span>(<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffd700;">G</span>)
 {
-    unsigned B ;
+    <span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffd700;">B</span> ;
     B = G ^ (G&gt;&gt;1) ;
     B = G ^ (G&gt;&gt;2) ;
     B = G ^ (G&gt;&gt;4) ;
     B = G ^ (G&gt;&gt;8) ;
     B = G ^ (G&gt;&gt;16) ;
-    return B ;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> B ;
 }
 </pre>
-
-</li>
+</div></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> 嵌入式</h4>
+<div id="outline-container-org61795f7" class="outline-4">
+<h4 id="org61795f7"><span class="section-number-4">1.1.3</span> 嵌入式</h4>
 <div class="outline-text-4" id="text-1-1-3">
-
-<ul>
-<li>printf调试：可以如下步骤
-
-
-
-<pre class="example">#include "uart.h"//串口发送单个字符的API
-#include "stdio.h"//里面有FILE结构体声明
-#pragma import(__use_no_semihosting_swi)//半主机模式
-struct __FILE//stdio.h里面的FILE结构体声明需要
+<ul class="org-ul">
+<li><p>
+printf调试：可以如下步骤
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">"uart.h"</span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20018;&#21475;&#21457;&#36865;&#21333;&#20010;&#23383;&#31526;&#30340;API</span>
+<span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">"stdio.h"</span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#37324;&#38754;&#26377;FILE&#32467;&#26500;&#20307;&#22768;&#26126;</span>
+<span style="color: #87cefa; text-decoration: underline;">#pragma</span> import(__use_no_semihosting_swi)<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21322;&#20027;&#26426;&#27169;&#24335;</span>
+<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">__FILE</span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">stdio.h&#37324;&#38754;&#30340;FILE&#32467;&#26500;&#20307;&#22768;&#26126;&#38656;&#35201;</span>
 {
-  int handle;
+  <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">handle</span>;
 };
-FILE __stdout, __stderr;//选用，如果需要分别输出
+<span style="color: #ffff00; font-size: 105%;">FILE</span> <span style="color: #ffd700;">__stdout</span>, <span style="color: #ffd700;">__stderr</span>;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#36873;&#29992;&#65292;&#22914;&#26524;&#38656;&#35201;&#20998;&#21035;&#36755;&#20986;</span>
 
-int fputc(int ch, FILE *f)//printf最终调用的接口
+<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">fputc</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">ch</span>, <span style="color: #ffff00; font-size: 105%;">FILE</span> *<span style="color: #ffd700;">f</span>)<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">printf&#26368;&#32456;&#35843;&#29992;&#30340;&#25509;&#21475;</span>
 {
-  uart_put((unsigned char)ch);
-  return ch;
+  uart_put((<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffff00; font-size: 105%;">char</span>)ch);
+  <span style="color: #ffb6c1; font-size: 105%;">return</span> ch;
 }
 </pre>
-
-</li>
+</div></li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> JAVA语言</h3>
-<div class="outline-text-3" id="text-1-2">
-
+<div id="outline-container-org226bd27" class="outline-3">
+<h3 id="org226bd27"><span class="section-number-3">1.2</span> JAVA语言</h3>
 </div>
-
-</div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> PYTHON语言</h3>
+<div id="outline-container-org23cca08" class="outline-3">
+<h3 id="org23cca08"><span class="section-number-3">1.3</span> PYTHON语言</h3>
 <div class="outline-text-3" id="text-1-3">
-
-
 </div>
-
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> base</h4>
+<div id="outline-container-orgf74bc89" class="outline-4">
+<h4 id="orgf74bc89"><span class="section-number-4">1.3.1</span> base</h4>
 <div class="outline-text-4" id="text-1-3-1">
-
-<ul>
-<li>字符串转换为变量。
-
-
-
-<pre class="example">var = "This is a string"
-varName = 'var'
-s= locals()[varName]
-s2=vars()[varName]
-print(s)
-print(s2)
-print(eval(varName))
+<ul class="org-ul">
+<li><p>
+字符串转换为变量。
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ffd700;">var</span> = <span style="color: #ffa07a;">"This is a string"</span>
+<span style="color: #ffd700;">varName</span> = <span style="color: #ffa07a;">'var'</span>
+<span style="color: #ffd700;">s</span>= <span style="color: #87cefa; text-decoration: underline;">locals</span>()[varName]
+<span style="color: #ffd700;">s2</span>=<span style="color: #87cefa; text-decoration: underline;">vars</span>()[varName]
+<span style="color: #ffb6c1; font-size: 105%;">print</span>(s)
+<span style="color: #ffb6c1; font-size: 105%;">print</span>(s2)
+<span style="color: #ffb6c1; font-size: 105%;">print</span>(<span style="color: #87cefa; text-decoration: underline;">eval</span>(varName))
 </pre>
-
-</li>
-<li>添加个人库: 比如当前工作路径下有./lib/File/filecsv.py , 然后就可以直接使
-  用filecsv里面的函数了。
-
-
-
-<pre class="example">sys.path.append('./lib')
-from File.file_csv import *
+</div></li>
+<li><p>
+添加个人库: 比如当前工作路径下有./lib/File/filecsv.py , 然后就可以直接使
+用filecsv里面的函数了。
+</p>
+<div class="org-src-container">
+<pre class="src src-python">sys.path.append(<span style="color: #ffa07a;">'./lib'</span>)
+<span style="color: #ffb6c1; font-size: 105%;">from</span> File.file_csv <span style="color: #ffb6c1; font-size: 105%;">import</span> *
 </pre>
-
-</li>
+</div></li>
 <li>重新载入模块：比如重新加载filecsv.py。
-<ol>
-<li>导入sys，imp库，import sys，imp
-</li>
-<li>查看已经导入的库，sys.modules
-</li>
-<li>找到filecsv库的字符
-</li>
-<li>重新导入模块，imp.reload(sys.modules['filecsv'])
-</li>
-</ol>
-
-</li>
+<ol class="org-ol">
+<li>导入sys，imp库，import sys，imp</li>
+<li>查看已经导入的库，sys.modules</li>
+<li>找到filecsv库的字符</li>
+<li>重新导入模块，imp.reload(sys.modules['filecsv'])</li>
+</ol></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> numpy</h4>
+<div id="outline-container-org40067d4" class="outline-4">
+<h4 id="org40067d4"><span class="section-number-4">1.3.2</span> numpy</h4>
 <div class="outline-text-4" id="text-1-3-2">
-
-<ul>
+<ul class="org-ul">
 <li>array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和
-  data.max(0)是从每列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行中获得min和max；
-</li>
+data.max(0)是从每列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行中获得min和max；</li>
 <li>指数e：numpy.exp()可以表示，但是是函数，math.exp()也是，scipy.exp()也是，
-  numpy.e和math.e和scipy.e则是一个float型量了。
-</li>
+numpy.e和math.e和scipy.e则是一个float型量了。</li>
 <li>复数：可以表示成1+3j，3和j之间不能相隔，3必须为实数不能是符号，j必须在3之
-  后，也可以使用numpy.complex(1, 3)构成1+3j, 同理也就可以构成
-  numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用numpy.angle()计算
-</li>
+后，也可以使用numpy.complex(1, 3)构成1+3j, 同理也就可以构成
+numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用numpy.angle()计算</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-3" class="outline-4">
-<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> matplotlib</h4>
+<div id="outline-container-org62e2dc9" class="outline-4">
+<h4 id="org62e2dc9"><span class="section-number-4">1.3.3</span> matplotlib</h4>
 <div class="outline-text-4" id="text-1-3-3">
-
-<p>此包注意用于画图
+<p>
+此包注意用于画图
 </p>
 </div>
-
-<div id="outline-container-1-3-3-1" class="outline-5">
-<h5 id="sec-1-3-3-1"><span class="section-number-5">1.3.3.1</span> 画XY轴离散点图</h5>
+<div id="outline-container-org41594cf" class="outline-5">
+<h5 id="org41594cf"><span class="section-number-5">1.3.3.1</span> 画XY轴离散点图</h5>
 <div class="outline-text-5" id="text-1-3-3-1">
-
-<ol>
-<li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3, 10), 其个数要一致；
-</li>
-<li>倒入画图包：import matplotlib.pyplot as plt；
-</li>
-<li>开始画图：plt.plot(x, y, 'o-'), 第3个参数用于对点进行标注；
-</li>
-<li>设置标题：plt.title('x, y test')
-</li>
-<li>设置X轴说明：plt.xlabel('x label')
-</li>
-<li>设置y轴说明：plt.ylabel('y label')
-</li>
-<li>显示图：plt.show()
-</li>
+<ol class="org-ol">
+<li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3, 10), 其个数要一致；</li>
+<li>倒入画图包：import matplotlib.pyplot as plt；</li>
+<li>开始画图：plt.plot(x, y, 'o-'), 第3个参数用于对点进行标注；</li>
+<li>设置标题：plt.title('x, y test')</li>
+<li>设置X轴说明：plt.xlabel('x label')</li>
+<li>设置y轴说明：plt.ylabel('y label')</li>
+<li>显示图：plt.show()</li>
 </ol>
-
-
-
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="date">Date: 2016-09-14 13:10:59 中国标准时间</p>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 18:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

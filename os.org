@@ -1485,7 +1485,6 @@ heap\_5.c的堆操作功能库，至于heap\_3.c完全是使用标准C库的mall
 装，因为标准C库的malloc等函数不是线程安全的函数，需要封装为安全的，所谓的封
 装为线程安全的，也就是在执行malloc前后关闭打开中断和调度器；另外对申请的堆
 空间地址和长度还涉及到对齐等细节功能操作； 
-# <<heap1-oper>>
 - heap\_1.c: 只有简单的堆空间申请操作，没有释放操作；
   #+begin_src c
     /* portBYTE_ALIGNMENT:这个常量指示字节对齐数，其默认值为8，即默认以8个
@@ -1584,8 +1583,7 @@ void *pvPortMalloc( size_t xWantedSize )
 	return pvReturn;
     }
   #+end_src
-# <<heap2-oper>>
-- heap\_2.c: 同[[heap1-oper][heap\_1.c]]差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
+- heap\_2.c: 同heap\_1.c差不多，只是采用一定算法来分配空间，增加了堆释放操作, ；
 #+begin_src c
 void vPortFree( void *pv )
 {
@@ -1651,7 +1649,7 @@ void vPortFree( void *pv )
 	}
 }
 #+end_src
-- heap\_4.c: 同[[heap2-oper][heap\_2.c]]差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
+- heap\_4.c: 同heap\_2.c差不多，只是分配算法做了更优化，并且相邻空闲空间可以合并；
 #+begin_src c
 void *pvPortMalloc( size_t xWantedSize )
 {

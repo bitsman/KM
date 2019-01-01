@@ -1,18 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-01-01 周二 20:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>外语学习</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="外语学习"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2017-05-26 22:21:08 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,912 +227,1204 @@
  }
 /*]]>*///-->
 </script>
-
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
 <h1 class="title">外语学习</h1>
-
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 短语</a></li>
-<li><a href="#sec-2">2 缩写</a></li>
+<li><a href="#org8a39a11">1. 短语</a></li>
+<li><a href="#orgeffdc1c">2. 缩写</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 短语</h2>
+<div id="outline-container-org8a39a11" class="outline-2">
+<h2 id="org8a39a11"><span class="section-number-2">1</span> 短语</h2>
 <div class="outline-text-2" id="text-1">
-
-<ul>
-<li>up to a point:一定程度上,不完全如此,在一定程度上;
-</li>
-<li>no longer necessary:不再有必要；
-</li>
-<li>dilemma:困境；
-</li>
-<li>variance：方差；
-</li>
-<li>diagonal:对角线；
-</li>
-<li>histogram:直方图
-</li>
-<li>asymptotically:渐进地；
-</li>
-<li>apart from:远离，除…之外；且不说；缺少
-</li>
-<li>effectively：实际上；
-</li>
-<li>notwithstanding：虽然，尽管；
-</li>
-<li>authentication:认证；
-</li>
-<li>authorization:授权，认可；批准，委任；
-</li>
-<li>confidentiality：保密性；
-</li>
-<li>encryption：加密；
-</li>
-<li>cipher：密码；
-</li>
-<li>as well as :也；和…一样；不但…而且；
-</li>
-<li>vice versa:反之亦然；
-</li>
-<li>every so often: 常常，偶尔；
-</li>
-<li>effortlessly：轻松地；
-</li>
-<li>inference，infer:推理；
-</li>
-<li>installments：分期付款；
-</li>
-<li>credit scoring：信用评估；
-</li>
-<li>empirical error: 经验误差；
-</li>
-<li>proportion：比例；
-</li>
-<li>overfitting:过拟合；
-</li>
-<li>underfitting：欠拟合；
-</li>
-<li>cross-validation：交叉验证；
-</li>
-<li>pessimistic:悲观的；
-</li>
-<li>anomaly: 异常；
-</li>
-<li>latent：潜藏的；
-</li>
-<li>wiggly：波动的，摇摆的；
-</li>
-<li>interpolation:插值；
-</li>
-<li>polynomial：多项式；
-</li>
-<li>multinomial：多项式的，多维度的；
-</li>
-<li>partial derivatives：偏导数；
-</li>
-<li>quadratic：二次的，二次方程；
-</li>
-<li>inductive bias: 归纳偏置，诱导偏置；
-</li>
-<li>iid:机器学习界的缩写，independent and identically distributed，独立同分布；
-</li>
-<li>slope：斜率；
-</li>
-<li>intercept：截距；
-</li>
-<li>joint distribution：联合分布；
-</li>
-<li>joint probability:联合概率；
-</li>
-<li>approximation error:逼近误差；
-</li>
-<li>naive bayesian:朴素贝叶斯；
-</li>
-<li>bayesian decision theory：贝叶斯决策伦；
-</li>
-<li>realm：领域；
-</li>
-<li>loan：贷款；
-</li>
-<li>prior probability:先验概率；
-</li>
-<li>conditional probability：条件概率；
-</li>
-<li>posterior probability:后验概率；
-</li>
-<li>mean square error： 均方差；
-</li>
-<li>unbiased estimator: 无偏估计
-</li>
-<li>discriminant：判别式；
-</li>
-<li>likelihood：可以翻译为似然，最大似然就是maximum likelihood；
-</li>
-<li>maximum likelihood estimation:最大似然估计；
-</li>
-<li>perceptron：感知机；
-</li>
-<li>gait：步态、步法；
-</li>
-<li>shank：小腿；
-</li>
-<li>forefoot：前脚掌；
-</li>
-<li>heel：后脚跟；
-</li>
-<li>velocity：速度；
-</li>
-<li>assess：评估、评价；
-</li>
-<li>kinematic：运动学的、运动的；
-</li>
-<li>acceptance testing (WAT: wafer acceptance testing) 
-</li>
-<li>acceptor: 受主，如B，掺入Si中需要接受电子 
-</li>
-<li>access：一个EDA（Engineering Data Analysis）系统 
-</li>
-<li>acid：酸 
-</li>
-<li>active device：有源器件，如MOS FET（非线性，可以对信号放大） 
-</li>
-<li>align mark(key)：对位标记 
-</li>
-<li>alloy：合金 
-</li>
-<li>aluminum：铝 
-</li>
-<li>ammonia：氨水 
-</li>
-<li>ammonium fluoride：NH4F 
-</li>
-<li>ammonium hydroxide：NH4OH 
-</li>
-<li>amorphous silicon：α-Si，非晶硅（不是多晶硅） 
-</li>
-<li>analog：模拟的 
-</li>
-<li>angstrom：A（1E-10m）埃 
-</li>
-<li>anisotropic：各向异性（如POLY ETCH） 
-</li>
-<li>antimony(Sb)锑 
-</li>
-<li>argon(Ar)氩 
-</li>
-<li>arsenic(As)砷 
-</li>
-<li>arsenic trioxide(As2O3)三氧化二砷 
-</li>
-<li>arsine(AsH3) 
-</li>
-<li>asher：去胶机 
-</li>
-<li>aspect ration：形貌比（ETCH中的深度、宽度比） 
-</li>
-<li>autodoping：自搀杂（外延时SUB的浓度高，导致有杂质蒸发到环境中后，又回掺到外延层） 
-</li>
-<li>back end：后段（CONTACT以后、PCM测试前） 
-</li>
-<li>baseline：标准流程 
-</li>
-<li>benchmark：基准 
-</li>
-<li>bipolar：双极 
-</li>
-<li>boat：扩散用（石英）舟 
-</li>
-<li>character window：特征窗口。用文字或数字描述的包含工艺所有特性的一个方形区域。 
-</li>
-<li>chemical-mechanical polish（CMP）：化学机械抛光法。一种去掉圆片表面某种物质的方法。 
-</li>
-<li>chemical vapor deposition（CVD）：化学汽相淀积。一种通过化学反应生成一层薄膜的工艺。 
-</li>
-<li>chip：碎片或芯片。 
-</li>
-<li>circuit design ：电路设计。一种将各种元器件连接起来实现一定功能的技术。 
-</li>
-<li>cleanroom：一种在温度，湿度和洁净度方面都需要满足某些特殊要求的特定区域。 
-</li>
-<li>compensation doping：补偿掺杂。向P型半导体掺入施主杂质或向N型掺入受主杂质。 
-</li>
-<li>computer-aided design（CAD）：计算机辅助设计。 
-</li>
-<li>conductivity type：传导类型，由多数载流子决定。在N型材料中多数载流子是电子，在P型材料中多数载流子是空穴。 
-</li>
-<li>contact：孔。在工艺中通常指孔1，即连接铝和硅的孔。 
-</li>
-<li>control chart：控制图。一种用统计数据描述的可以代表工艺某种性质的曲线图表。 
-</li>
-<li>correlation：相关性。 
-</li>
-<li>cycle time：圆片做完某段工艺或设定工艺段所需要的时间。通常用来衡量流通速度的快慢。 
-</li>
-<li>damage：损伤。对于单晶体来说，有时晶格缺陷在表面处理后形成无法修复的变形也可以叫做损伤。 
-</li>
-<li>defect density：缺陷密度。单位面积内的缺陷数。 
-</li>
-<li>depletion implant：耗尽注入。一种在沟道中注入离子形成耗尽晶体管的注入工艺。（耗尽晶体管指在栅压为零的情况下有电流流过的晶体管。） 
-</li>
-<li>depletion layer：耗尽层。可动载流子密度远低于施主和受主的固定电荷密度的区域。 
-</li>
-<li>depletion width：耗尽宽度。53中提到的耗尽层这个区域的宽度。 
-</li>
-<li>deposition：淀积。一种在圆片上淀积一定厚度的且不和下面层次发生化学反应的薄膜的一种方法。 
-</li>
-<li>depth of focus（DOF）：焦深。 
-</li>
-<li>design of experiments (DOE)：为了达到费用最小化、降低试验错误、以及保证数据结果的统计合理性等目的，所设计的初始工程批试验计划。 
-</li>
-<li>develop：显影（通过化学处理除去曝光区域的光刻胶，形成所需图形的过程） 
-</li>
-<li>developer：Ⅰ）显影设备； Ⅱ）显影液 
-</li>
-<li>diborane (B2H6)：乙硼烷，一种无色、易挥发、有毒的可燃气体，常用来作为半导体生产中的硼源 
-</li>
-<li>dichloromethane (CH2CL2)：二氯甲，一种无色，不可燃，不可爆的液体。 
-</li>
-<li>dichlorosilane (DSC)：二氯甲硅烷，一种可燃，有腐蚀性，无色，在潮湿环境下易水解的物质，常用于硅外延或多晶硅的成长，以及用在沉积二氧化硅、氮化硅时的化学气氛中。 
-</li>
-<li>die：硅片中一个很小的单位，包括了设计完整的单个芯片以及芯片邻近水平和垂直方向上的部分划片槽区域。 
-</li>
-<li>dielectric：Ⅰ）介质，一种绝缘材料； Ⅱ）用于陶瓷或塑料封装的表面材料，可以提供电绝缘功能。 
-</li>
-<li>diffused layer：扩散层，即杂质离子通过固态扩散进入单晶硅中，在临近硅表面的区域形成与衬底材料反型的杂质离子层。 
-</li>
-<li>disilane (Si2H6)：乙硅烷，一种无色、无腐蚀性、极易燃的气体，燃烧时能产生高火焰，暴露在空气中会自燃。在生产光电单元时，乙硅烷常用于沉积多晶硅薄膜。 
-</li>
-<li>drive-in：推阱，指运用高温过程使杂质在硅片中分布扩散。 
-</li>
-<li>dry etch：干刻，指采用反应气体或电离气体除去硅片某一层次中未受保护区域的混合了物理腐蚀及化学腐蚀的工艺过程。 
-</li>
-<li>effective layer thickness：有效层厚，指在外延片制造中，载流子密度在规定范围内的硅锭前端的深度。 
-</li>
-<li>epitaxial layer：外延层。半导体技术中，在决定晶向的基质衬底上生长一层单晶半导 体材料，这一单晶半导体层即为外延层。 
-</li>
-<li>equipment downtime：设备状态异常以及不能完成预定功能的时间。 
-</li>
-<li>etch：腐蚀，运用物理或化学方法有选择的去除不需的区域。 
-</li>
-<li>exposure：曝光，使感光材料感光或受其他辐射材料照射的过程。 
-</li>
-<li>fab：常指半导体生产的制造工厂。 
-</li>
-<li>feature size：特征尺寸，指单个图形的最小物理尺寸。 
-</li>
-<li>field-effect transistor（FET）：场效应管。包含源、漏、栅、衬四端，由源经栅到漏的多子流驱动而工作，多子流由栅下的横向电场控制。 
-</li>
-<li>film：薄膜，圆片上的一层或多层迭加的物质。 
-</li>
-<li>flat：平边 
-</li>
-<li>flatband capacitanse：平带电容 
-</li>
-<li>flatband voltage：平带电压 
-</li>
-<li>flow coefficicent：流动系数 
-</li>
-<li>flow velocity：流速计 
-</li>
-<li>flow volume：流量计 
-</li>
-<li>flux：单位时间内流过给定面积的颗粒数 
-</li>
-<li>forbidden energy gap：禁带 
-</li>
-<li>four-point probe：四点探针台 
-</li>
-<li>functional area：功能区 
-</li>
-<li>gate oxide：栅氧 
-</li>
-<li>glass transition temperature：玻璃态转换温度 
-</li>
-<li>gowning：净化服 
-</li>
-<li>gray area：灰区 
-</li>
-<li>grazing incidence interferometer：切线入射干涉仪 
-</li>
-<li>hard bake：后烘 
-</li>
-<li>heteroepitaxy：单晶长在不同材料的衬底上的外延方法 
-</li>
-<li>high-current implanter：束电流大于3ma的注入方式，用于批量生产 
-</li>
-<li>hign-efficiency particulate air(HEPA) filter：高效率空气颗粒过滤器，去掉99.97%的大于0.3um的颗粒 
-</li>
-<li>host：主机 
-</li>
-<li>hot carriers：热载流子 
-</li>
-<li>hydrophilic：亲水性 
-</li>
-<li>hydrophobic：疏水性 
-</li>
-<li>impurity：杂质 
-</li>
-<li>inductive coupled plasma(ICP)：感应等离子体 
-</li>
-<li>inert gas：惰性气体 
-</li>
-<li>initial oxide：一氧 
-</li>
-<li>insulator：绝缘 
-</li>
-<li>isolated line：隔离线 
-</li>
-<li>implant : 注入 
-</li>
-<li>impurity n : 掺杂 
-</li>
-<li>junction : 结 
-</li>
-<li>junction spiking n :铝穿刺 
-</li>
-<li>kerf :划片槽 
-</li>
-<li>landing pad n AD 
-</li>
-<li>lithography n 制版 
-</li>
-<li>maintainability, equipment : 设备产能 
-</li>
-<li>maintenance n :保养 
-</li>
-<li>majority carrier n :多数载流子 
-</li>
-<li>masks, device series of n : 一成套光刻版 
-</li>
-<li>material n :原料 
-</li>
-<li>matrix n 1 :矩阵 
-</li>
-<li>mean n : 平均值 
-</li>
-<li>measured leak rate n :测得漏率 
-</li>
-<li>median n :中间值 
-</li>
-<li>memory n : 记忆体 
-</li>
-<li>metal n :金属 
-</li>
-<li>nanometer (nm) n ：纳米 
-</li>
-<li>nanosecond (ns) n ：纳秒 
-</li>
-<li>nitride etch n ：氮化物刻蚀 
-</li>
-<li>nitrogen (N2 ) n： 氮气，一种双原子气体 
-</li>
-<li>n-type adj ：n型 
-</li>
-<li>ohms per square n：欧姆每平方: 方块电阻 
-</li>
-<li>orientation n： 晶向，一组晶列所指的方向 
-</li>
-<li>overlap n ： 交迭区 
-</li>
-<li>oxidation n ：氧化，高温下氧气或水蒸气与硅进行的化学反应 
-</li>
-<li>phosphorus (P) n ：磷 ，一种有毒的非金属元素 
-</li>
-<li>photomask n ：光刻版，用于光刻的版 
-</li>
-<li>photomask, negative n：反刻 
-</li>
-<li>images：去掉图形区域的版 
-</li>
-<li>photomask, positive n：正刻 
-</li>
-<li>pilot n ：先行批，用以验证该工艺是否符合规格的片子 
-</li>
-<li>plasma n ：等离子体，用于去胶、刻蚀或淀积的电离气体 
-</li>
-<li>plasma-enhanced chemical vapor deposition (PECVD) n： 等离子体化学气相淀积，低温条件下的等离子淀积工艺 
-</li>
-<li>plasma-enhanced TEOS oxide deposition n：TEOS淀积，淀积TEOS的一种工艺 
-</li>
-<li>pn junction n：pn结 
-</li>
-<li>pocked bead n：麻点，在20X下观察到的吸附在低压表面的水珠 
-</li>
-<li>polarization n：偏振，描述电磁波下电场矢量方向的术语 
-</li>
-<li>polycide n：多晶硅 /金属硅化物， 解决高阻的复合栅结构 
-</li>
-<li>polycrystalline silicon (poly) n：多晶硅，高浓度掺杂（&gt; 5E19）的硅，能导电。 
-</li>
-<li>polymorphism n：多态现象，多晶形成一种化合物以至少两种不同的形态结晶的现象 
-</li>
-<li>prober n :探针。在集成电路的电流测试中使用的一种设备，用以连接圆片和检测设备。 
-</li>
-<li>process control n :过程控制。半导体制造过程中，对设备或产品规范的控制能力。 
-</li>
-<li>proximity X-ray n :近X射线：一种光刻技术，用X射线照射置于光刻胶上方的掩 膜版，从而使对应的光刻胶暴光。 
-</li>
-<li>pure water n : 纯水。半导体生产中所用之水。 
-</li>
-<li>quantum device n :量子设备。一种电子设备结构，其特性源于电子的波动性。 
-</li>
-<li>quartz carrier n :石英舟。 
-</li>
-<li>random access memory (RAM) n :随机存储器。 
-</li>
-<li>random logic device n :随机逻辑器件。 
-</li>
-<li>rapid thermal processing (RTP) n :快速热处理(RTP)。 
-</li>
-<li>reactive ion etch (RIE) n : 反应离子刻蚀(RIE)。 
-</li>
-<li>reactor n :反应腔。反应进行的密封隔离腔。 
-</li>
-<li>recipe n :菜单。生产过程中对圆片所做的每一步处理规范。 
-</li>
-<li>resist n :光刻胶。 
-</li>
-<li>scanning electron microscope (SEM) n :电子显微镜(SEM)。 
-</li>
-<li>scheduled downtime n : (设备)预定停工时间。 
-</li>
-<li>Schottky barrier diodes n :肖特基二极管。 
-</li>
-<li>scribe line n :划片槽。 
-</li>
-<li>sacrificial etchback n :牺牲腐蚀。 
-</li>
-<li>semiconductor n :半导体。电导性介于导体和绝缘体之间的元素。 
-</li>
-<li>sheet resistance (Rs) (or per square) n :薄层电阻。一般用以衡量半导体表面杂质掺杂水平。 
-</li>
-<li>side load: 边缘载荷，被弯曲后产生的应力。 
-</li>
-<li>silicon on sapphire(SOS)epitaxial wafer:外延是蓝宝石衬底硅的原片 
-</li>
-<li>small scale integration(SSI):小规模综合，在单一模块上由2到10个图案的布局。 
-</li>
-<li>source code:原代码，机器代码编译者使用的，输入到程序设计语言里或编码器的代码。 
-</li>
-<li>spectral line: 光谱线，光谱镊制机或分光计在焦平面上捕捉到的狭长状的图形。 
-</li>
-<li>spin webbing: 旋转带，在旋转过程中在下表面形成的细丝状的剩余物。 
-</li>
-<li>sputter etch: 溅射刻蚀，从离子轰击产生的表面除去薄膜。 
-</li>
-<li>stacking fault:堆垛层错，原子普通堆积规律的背离产生的2次空间错误。 
-</li>
-<li>steam bath:蒸汽浴，一个大气压下，流动蒸汽或其他温度热源的暴光。 
-</li>
-<li>step response time:瞬态特性时间，大多数流量控制器实验中，普通变化时段到气流刚 到达特定地带的那个时刻之间的时间。 
-</li>
-<li>stepper: 步进光刻机（按BLOCK来曝光） 
-</li>
-<li>stress test: 应力测试，包括特定的电压、温度、湿度条件。 
-</li>
-<li>surface profile:表面轮廓，指与原片表面垂直的平面的轮廓（没有特指的情况下）。 
-</li>
-<li>symptom:征兆，人员感觉到在一定条件下产生变化的弊病的主观认识。 
-</li>
-<li>tack weld:间断焊，通常在角落上寻找预先有的地点进行的点焊（用于连接盖子）。 
-</li>
-<li>Taylor tray:泰勒盘，褐拈土组成的高膨胀物质。 
-</li>
-<li>temperature cycling:温度周期变化，测量出的重复出现相类似的高低温循环。 
-</li>
-<li>testability:易测性，对于一个已给电路来说，哪些测试是适用它的。 
-</li>
-<li>thermal deposition:热沉积，在超过950度的高温下，硅片引入化学掺杂物的过程。 
-</li>
-<li>thin film:超薄薄膜，堆积在原片表面的用于传导或绝缘的一层特殊薄膜。 
-</li>
-<li>titanium(Ti): 钛。 
-</li>
-<li>toluene(C6H5CH3): 甲苯。有毒、无色易燃的液体，它不溶于水但溶于酒精和大气。 
-</li>
-<li>1,1,1-trichloroethane(TCA)(CL3CCH3): 有毒、不易燃、有刺激性气味的液态溶剂。这种混合物不溶于水但溶于酒精和大气。 
-</li>
-<li>tungsten(W): 钨。 
-</li>
-<li>tungsten hexafluoride(WF6): 氟化钨。无色无味的气体或者是淡黄色液体。在CVD中WF6用于淀积硅化物，也可用于钨传导的薄膜。 
-</li>
-<li>tinning: 金属性表面覆盖焊点的薄层。 
-</li>
-<li>total fixed charge density(Nth): 下列是硅表面不可动电荷密度的总和：氧化层固定电荷密度(Nf)、氧化层俘获的电荷的密度(Not)、界面负获得电荷密度(Nit)。 
-</li>
-<li>watt(W): 瓦。能量单位。 
-</li>
-<li>wafer flat: 从晶片的一面直接切下去，用于表明自由载流子的导电类型和晶体表面的晶向，也可用于在处理和雕合过程中的排列晶片。 
-</li>
-<li>wafer process chamber(WPC): 对晶片进行工艺的腔体。 
-</li>
-<li>well: 阱。 
-</li>
-<li>wet chemical etch: 湿法化学腐蚀。 
-</li>
-<li>trench: 深腐蚀区域，用于从另一区域隔离出一个区域或者在硅晶片上形成存储电容器。 
-</li>
-<li>via: 通孔。使隔着电介质的上下两层金属实现电连接。 
-</li>
-<li>window: 在隔离晶片中，允许上下两层实现电连接的绝缘的通道。 
-</li>
-<li>torr : 托。压力的单位。 
-</li>
-<li>vapor pressure: 当固体或液体处于平衡态时自己拥有的蒸汽所施加的压力。蒸汽压力是与物质和温度有关的函数。 
-</li>
-<li>vacuum: 真空。 
-</li>
-<li>transition metals: 过渡金属 
-</li>
+<ul class="org-ul">
+<li>up to a point:一定程度上,不完全如此,在一定程度上;</li>
+<li>no longer necessary:不再有必要；</li>
+<li>dilemma:困境；</li>
+<li>variance：方差；</li>
+<li>diagonal:对角线；</li>
+<li>histogram:直方图</li>
+<li>asymptotically:渐进地；</li>
+<li>apart from:远离，除…之外；且不说；缺少</li>
+<li>effectively：实际上；</li>
+<li>notwithstanding：虽然，尽管；</li>
+<li>authentication:认证；</li>
+<li>authorization:授权，认可；批准，委任；</li>
+<li>confidentiality：保密性；</li>
+<li>encryption：加密；</li>
+<li>cipher：密码；</li>
+<li>as well as :也；和…一样；不但…而且；</li>
+<li>vice versa:反之亦然；</li>
+<li>every so often: 常常，偶尔；</li>
+<li>effortlessly：轻松地；</li>
+<li>inference，infer:推理；</li>
+<li>installments：分期付款；</li>
+<li>credit scoring：信用评估；</li>
+<li>empirical error: 经验误差；</li>
+<li>proportion：比例；</li>
+<li>overfitting:过拟合；</li>
+<li>underfitting：欠拟合；</li>
+<li>cross-validation：交叉验证；</li>
+<li>pessimistic:悲观的；</li>
+<li>anomaly: 异常；</li>
+<li>latent：潜藏的；</li>
+<li>wiggly：波动的，摇摆的；</li>
+<li>interpolation:插值；</li>
+<li>polynomial：多项式；</li>
+<li>multinomial：多项式的，多维度的；</li>
+<li>partial derivatives：偏导数；</li>
+<li>quadratic：二次的，二次方程；</li>
+<li>inductive bias: 归纳偏置，诱导偏置；</li>
+<li>iid:机器学习界的缩写，independent and identically distributed，独立同分布；</li>
+<li>slope：斜率；</li>
+<li>intercept：截距；</li>
+<li>joint distribution：联合分布；</li>
+<li>joint probability:联合概率；</li>
+<li>approximation error:逼近误差；</li>
+<li>naive bayesian:朴素贝叶斯；</li>
+<li>bayesian decision theory：贝叶斯决策伦；</li>
+<li>realm：领域；</li>
+<li>loan：贷款；</li>
+<li>prior probability:先验概率；</li>
+<li>conditional probability：条件概率；</li>
+<li>posterior probability:后验概率；</li>
+<li>mean square error： 均方差；</li>
+<li>unbiased estimator: 无偏估计</li>
+<li>discriminant：判别式；</li>
+<li>likelihood：可以翻译为似然，最大似然就是maximum likelihood；</li>
+<li>maximum likelihood estimation:最大似然估计；</li>
+<li>perceptron：感知机；</li>
+<li>gait：步态、步法；</li>
+<li>shank：小腿；</li>
+<li>forefoot：前脚掌；</li>
+<li>heel：后脚跟；</li>
+<li>velocity：速度；</li>
+<li>assess：评估、评价；</li>
+<li>kinematic：运动学的、运动的；</li>
+<li>acceptance testing (WAT: wafer acceptance testing)</li>
+<li>acceptor: 受主，如B，掺入Si中需要接受电子</li>
+<li>access：一个EDA（Engineering Data Analysis）系统</li>
+<li>acid：酸</li>
+<li>active device：有源器件，如MOS FET（非线性，可以对信号放大）</li>
+<li>align mark(key)：对位标记</li>
+<li>alloy：合金</li>
+<li>aluminum：铝</li>
+<li>ammonia：氨水</li>
+<li>ammonium fluoride：NH4F</li>
+<li>ammonium hydroxide：NH4OH</li>
+<li>amorphous silicon：α-Si，非晶硅（不是多晶硅）</li>
+<li>analog：模拟的</li>
+<li>angstrom：A（1E-10m）埃</li>
+<li>anisotropic：各向异性（如POLY ETCH）</li>
+<li>antimony(Sb)锑</li>
+<li>argon(Ar)氩</li>
+<li>arsenic(As)砷</li>
+<li>arsenic trioxide(As2O3)三氧化二砷</li>
+<li>arsine(AsH3)</li>
+<li>asher：去胶机</li>
+<li>aspect ration：形貌比（ETCH中的深度、宽度比）</li>
+<li>autodoping：自搀杂（外延时SUB的浓度高，导致有杂质蒸发到环境中后，又回掺到外延层）</li>
+<li>back end：后段（CONTACT以后、PCM测试前）</li>
+<li>baseline：标准流程</li>
+<li>benchmark：基准</li>
+<li>bipolar：双极</li>
+<li>boat：扩散用（石英）舟</li>
+<li>character window：特征窗口。用文字或数字描述的包含工艺所有特性的一个方形区域。</li>
+<li>chemical-mechanical polish（CMP）：化学机械抛光法。一种去掉圆片表面某种物质的方法。</li>
+<li>chemical vapor deposition（CVD）：化学汽相淀积。一种通过化学反应生成一层薄膜的工艺。</li>
+<li>chip：碎片或芯片。</li>
+<li>circuit design ：电路设计。一种将各种元器件连接起来实现一定功能的技术。</li>
+<li>cleanroom：一种在温度，湿度和洁净度方面都需要满足某些特殊要求的特定区域。</li>
+<li>compensation doping：补偿掺杂。向P型半导体掺入施主杂质或向N型掺入受主杂质。</li>
+<li>computer-aided design（CAD）：计算机辅助设计。</li>
+<li>conductivity type：传导类型，由多数载流子决定。在N型材料中多数载流子是电子，在P型材料中多数载流子是空穴。</li>
+<li>contact：孔。在工艺中通常指孔1，即连接铝和硅的孔。</li>
+<li>control chart：控制图。一种用统计数据描述的可以代表工艺某种性质的曲线图表。</li>
+<li>correlation：相关性。</li>
+<li>cycle time：圆片做完某段工艺或设定工艺段所需要的时间。通常用来衡量流通速度的快慢。</li>
+<li>damage：损伤。对于单晶体来说，有时晶格缺陷在表面处理后形成无法修复的变形也可以叫做损伤。</li>
+<li>defect density：缺陷密度。单位面积内的缺陷数。</li>
+<li>depletion implant：耗尽注入。一种在沟道中注入离子形成耗尽晶体管的注入工艺。（耗尽晶体管指在栅压为零的情况下有电流流过的晶体管。）</li>
+<li>depletion layer：耗尽层。可动载流子密度远低于施主和受主的固定电荷密度的区域。</li>
+<li>depletion width：耗尽宽度。53中提到的耗尽层这个区域的宽度。</li>
+<li>deposition：淀积。一种在圆片上淀积一定厚度的且不和下面层次发生化学反应的薄膜的一种方法。</li>
+<li>depth of focus（DOF）：焦深。</li>
+<li>design of experiments (DOE)：为了达到费用最小化、降低试验错误、以及保证数据结果的统计合理性等目的，所设计的初始工程批试验计划。</li>
+<li>develop：显影（通过化学处理除去曝光区域的光刻胶，形成所需图形的过程）</li>
+<li>developer：Ⅰ）显影设备； Ⅱ）显影液</li>
+<li>diborane (B2H6)：乙硼烷，一种无色、易挥发、有毒的可燃气体，常用来作为半导体生产中的硼源</li>
+<li>dichloromethane (CH2CL2)：二氯甲，一种无色，不可燃，不可爆的液体。</li>
+<li>dichlorosilane (DSC)：二氯甲硅烷，一种可燃，有腐蚀性，无色，在潮湿环境下易水解的物质，常用于硅外延或多晶硅的成长，以及用在沉积二氧化硅、氮化硅时的化学气氛中。</li>
+<li>die：硅片中一个很小的单位，包括了设计完整的单个芯片以及芯片邻近水平和垂直方向上的部分划片槽区域。</li>
+<li>dielectric：Ⅰ）介质，一种绝缘材料； Ⅱ）用于陶瓷或塑料封装的表面材料，可以提供电绝缘功能。</li>
+<li>diffused layer：扩散层，即杂质离子通过固态扩散进入单晶硅中，在临近硅表面的区域形成与衬底材料反型的杂质离子层。</li>
+<li>disilane (Si2H6)：乙硅烷，一种无色、无腐蚀性、极易燃的气体，燃烧时能产生高火焰，暴露在空气中会自燃。在生产光电单元时，乙硅烷常用于沉积多晶硅薄膜。</li>
+<li>drive-in：推阱，指运用高温过程使杂质在硅片中分布扩散。</li>
+<li>dry etch：干刻，指采用反应气体或电离气体除去硅片某一层次中未受保护区域的混合了物理腐蚀及化学腐蚀的工艺过程。</li>
+<li>effective layer thickness：有效层厚，指在外延片制造中，载流子密度在规定范围内的硅锭前端的深度。</li>
+<li>epitaxial layer：外延层。半导体技术中，在决定晶向的基质衬底上生长一层单晶半导 体材料，这一单晶半导体层即为外延层。</li>
+<li>equipment downtime：设备状态异常以及不能完成预定功能的时间。</li>
+<li>etch：腐蚀，运用物理或化学方法有选择的去除不需的区域。</li>
+<li>exposure：曝光，使感光材料感光或受其他辐射材料照射的过程。</li>
+<li>fab：常指半导体生产的制造工厂。</li>
+<li>feature size：特征尺寸，指单个图形的最小物理尺寸。</li>
+<li>field-effect transistor（FET）：场效应管。包含源、漏、栅、衬四端，由源经栅到漏的多子流驱动而工作，多子流由栅下的横向电场控制。</li>
+<li>film：薄膜，圆片上的一层或多层迭加的物质。</li>
+<li>flat：平边</li>
+<li>flatband capacitanse：平带电容</li>
+<li>flatband voltage：平带电压</li>
+<li>flow coefficicent：流动系数</li>
+<li>flow velocity：流速计</li>
+<li>flow volume：流量计</li>
+<li>flux：单位时间内流过给定面积的颗粒数</li>
+<li>forbidden energy gap：禁带</li>
+<li>four-point probe：四点探针台</li>
+<li>functional area：功能区</li>
+<li>gate oxide：栅氧</li>
+<li>glass transition temperature：玻璃态转换温度</li>
+<li>gowning：净化服</li>
+<li>gray area：灰区</li>
+<li>grazing incidence interferometer：切线入射干涉仪</li>
+<li>hard bake：后烘</li>
+<li>heteroepitaxy：单晶长在不同材料的衬底上的外延方法</li>
+<li>high-current implanter：束电流大于3ma的注入方式，用于批量生产</li>
+<li>hign-efficiency particulate air(HEPA) filter：高效率空气颗粒过滤器，去掉99.97%的大于0.3um的颗粒</li>
+<li>host：主机</li>
+<li>hot carriers：热载流子</li>
+<li>hydrophilic：亲水性</li>
+<li>hydrophobic：疏水性</li>
+<li>impurity：杂质</li>
+<li>inductive coupled plasma(ICP)：感应等离子体</li>
+<li>inert gas：惰性气体</li>
+<li>initial oxide：一氧</li>
+<li>insulator：绝缘</li>
+<li>isolated line：隔离线</li>
+<li>implant : 注入</li>
+<li>impurity n : 掺杂</li>
+<li>junction : 结</li>
+<li>junction spiking n :铝穿刺</li>
+<li>kerf :划片槽</li>
+<li>landing pad n AD</li>
+<li>lithography n 制版</li>
+<li>maintainability, equipment : 设备产能</li>
+<li>maintenance n :保养</li>
+<li>majority carrier n :多数载流子</li>
+<li>masks, device series of n : 一成套光刻版</li>
+<li>material n :原料</li>
+<li>matrix n 1 :矩阵</li>
+<li>mean n : 平均值</li>
+<li>measured leak rate n :测得漏率</li>
+<li>median n :中间值</li>
+<li>memory n : 记忆体</li>
+<li>metal n :金属</li>
+<li>nanometer (nm) n ：纳米</li>
+<li>nanosecond (ns) n ：纳秒</li>
+<li>nitride etch n ：氮化物刻蚀</li>
+<li>nitrogen (N2 ) n： 氮气，一种双原子气体</li>
+<li>n-type adj ：n型</li>
+<li>ohms per square n：欧姆每平方: 方块电阻</li>
+<li>orientation n： 晶向，一组晶列所指的方向</li>
+<li>overlap n ： 交迭区</li>
+<li>oxidation n ：氧化，高温下氧气或水蒸气与硅进行的化学反应</li>
+<li>phosphorus (P) n ：磷 ，一种有毒的非金属元素</li>
+<li>photomask n ：光刻版，用于光刻的版</li>
+<li>photomask, negative n：反刻</li>
+<li>images：去掉图形区域的版</li>
+<li>photomask, positive n：正刻</li>
+<li>pilot n ：先行批，用以验证该工艺是否符合规格的片子</li>
+<li>plasma n ：等离子体，用于去胶、刻蚀或淀积的电离气体</li>
+<li>plasma-enhanced chemical vapor deposition (PECVD) n： 等离子体化学气相淀积，低温条件下的等离子淀积工艺</li>
+<li>plasma-enhanced TEOS oxide deposition n：TEOS淀积，淀积TEOS的一种工艺</li>
+<li>pn junction n：pn结</li>
+<li>pocked bead n：麻点，在20X下观察到的吸附在低压表面的水珠</li>
+<li>polarization n：偏振，描述电磁波下电场矢量方向的术语</li>
+<li>polycide n：多晶硅 /金属硅化物， 解决高阻的复合栅结构</li>
+<li>polycrystalline silicon (poly) n：多晶硅，高浓度掺杂（&gt; 5E19）的硅，能导电。</li>
+<li>polymorphism n：多态现象，多晶形成一种化合物以至少两种不同的形态结晶的现象</li>
+<li>prober n :探针。在集成电路的电流测试中使用的一种设备，用以连接圆片和检测设备。</li>
+<li>process control n :过程控制。半导体制造过程中，对设备或产品规范的控制能力。</li>
+<li>proximity X-ray n :近X射线：一种光刻技术，用X射线照射置于光刻胶上方的掩 膜版，从而使对应的光刻胶暴光。</li>
+<li>pure water n : 纯水。半导体生产中所用之水。</li>
+<li>quantum device n :量子设备。一种电子设备结构，其特性源于电子的波动性。</li>
+<li>quartz carrier n :石英舟。</li>
+<li>random access memory (RAM) n :随机存储器。</li>
+<li>random logic device n :随机逻辑器件。</li>
+<li>rapid thermal processing (RTP) n :快速热处理(RTP)。</li>
+<li>reactive ion etch (RIE) n : 反应离子刻蚀(RIE)。</li>
+<li>reactor n :反应腔。反应进行的密封隔离腔。</li>
+<li>recipe n :菜单。生产过程中对圆片所做的每一步处理规范。</li>
+<li>resist n :光刻胶。</li>
+<li>scanning electron microscope (SEM) n :电子显微镜(SEM)。</li>
+<li>scheduled downtime n : (设备)预定停工时间。</li>
+<li>Schottky barrier diodes n :肖特基二极管。</li>
+<li>scribe line n :划片槽。</li>
+<li>sacrificial etchback n :牺牲腐蚀。</li>
+<li>semiconductor n :半导体。电导性介于导体和绝缘体之间的元素。</li>
+<li>sheet resistance (Rs) (or per square) n :薄层电阻。一般用以衡量半导体表面杂质掺杂水平。</li>
+<li>side load: 边缘载荷，被弯曲后产生的应力。</li>
+<li>silicon on sapphire(SOS)epitaxial wafer:外延是蓝宝石衬底硅的原片</li>
+<li>small scale integration(SSI):小规模综合，在单一模块上由2到10个图案的布局。</li>
+<li>source code:原代码，机器代码编译者使用的，输入到程序设计语言里或编码器的代码。</li>
+<li>spectral line: 光谱线，光谱镊制机或分光计在焦平面上捕捉到的狭长状的图形。</li>
+<li>spin webbing: 旋转带，在旋转过程中在下表面形成的细丝状的剩余物。</li>
+<li>sputter etch: 溅射刻蚀，从离子轰击产生的表面除去薄膜。</li>
+<li>stacking fault:堆垛层错，原子普通堆积规律的背离产生的2次空间错误。</li>
+<li>steam bath:蒸汽浴，一个大气压下，流动蒸汽或其他温度热源的暴光。</li>
+<li>step response time:瞬态特性时间，大多数流量控制器实验中，普通变化时段到气流刚 到达特定地带的那个时刻之间的时间。</li>
+<li>stepper: 步进光刻机（按BLOCK来曝光）</li>
+<li>stress test: 应力测试，包括特定的电压、温度、湿度条件。</li>
+<li>surface profile:表面轮廓，指与原片表面垂直的平面的轮廓（没有特指的情况下）。</li>
+<li>symptom:征兆，人员感觉到在一定条件下产生变化的弊病的主观认识。</li>
+<li>tack weld:间断焊，通常在角落上寻找预先有的地点进行的点焊（用于连接盖子）。</li>
+<li>Taylor tray:泰勒盘，褐拈土组成的高膨胀物质。</li>
+<li>temperature cycling:温度周期变化，测量出的重复出现相类似的高低温循环。</li>
+<li>testability:易测性，对于一个已给电路来说，哪些测试是适用它的。</li>
+<li>thermal deposition:热沉积，在超过950度的高温下，硅片引入化学掺杂物的过程。</li>
+<li>thin film:超薄薄膜，堆积在原片表面的用于传导或绝缘的一层特殊薄膜。</li>
+<li>titanium(Ti): 钛。</li>
+<li>toluene(C6H5CH3): 甲苯。有毒、无色易燃的液体，它不溶于水但溶于酒精和大气。</li>
+<li>1,1,1-trichloroethane(TCA)(CL3CCH3): 有毒、不易燃、有刺激性气味的液态溶剂。这种混合物不溶于水但溶于酒精和大气。</li>
+<li>tungsten(W): 钨。</li>
+<li>tungsten hexafluoride(WF6): 氟化钨。无色无味的气体或者是淡黄色液体。在CVD中WF6用于淀积硅化物，也可用于钨传导的薄膜。</li>
+<li>tinning: 金属性表面覆盖焊点的薄层。</li>
+<li>total fixed charge density(Nth): 下列是硅表面不可动电荷密度的总和：氧化层固定电荷密度(Nf)、氧化层俘获的电荷的密度(Not)、界面负获得电荷密度(Nit)。</li>
+<li>watt(W): 瓦。能量单位。</li>
+<li>wafer flat: 从晶片的一面直接切下去，用于表明自由载流子的导电类型和晶体表面的晶向，也可用于在处理和雕合过程中的排列晶片。</li>
+<li>wafer process chamber(WPC): 对晶片进行工艺的腔体。</li>
+<li>well: 阱。</li>
+<li>wet chemical etch: 湿法化学腐蚀。</li>
+<li>trench: 深腐蚀区域，用于从另一区域隔离出一个区域或者在硅晶片上形成存储电容器。</li>
+<li>via: 通孔。使隔着电介质的上下两层金属实现电连接。</li>
+<li>window: 在隔离晶片中，允许上下两层实现电连接的绝缘的通道。</li>
+<li>torr : 托。压力的单位。</li>
+<li>vapor pressure: 当固体或液体处于平衡态时自己拥有的蒸汽所施加的压力。蒸汽压力是与物质和温度有关的函数。</li>
+<li>vacuum: 真空。</li>
+<li>transition metals: 过渡金属</li>
+<li>Abrupt junction: 突变结</li>
+<li>Accelerated testing: 加速实验</li>
+<li>Acceptor: 受主</li>
+<li>Acceptor atom: 受主原子</li>
+<li>Accumulation: 积累、堆积</li>
+<li>Accumulating contact: 积累接触</li>
+<li>Accumulation region: 积累区</li>
+<li>Accumulation layer: 积累层</li>
+<li>Active region: 有源区</li>
+<li>Active component: 有源元</li>
+<li>Active device: 有源器件</li>
+<li>Activation: 激活</li>
+<li>Activation energy: 激活能</li>
+<li>Active region: 有源（放大）区</li>
+<li>Admittance: 导纳</li>
+<li>Allowed band: 允带</li>
+<li>Alloy-junction device:合金结器件</li>
+<li>Aluminum(Aluminium): 铝</li>
+<li>Aluminum – oxide: 铝氧化物</li>
+<li>Aluminum passivation: 铝钝化</li>
+<li>Ambipolar: 双极的</li>
+<li>Ambient temperature: 环境温度</li>
+<li>Amorphous: 无定形的，非晶体的</li>
+<li>Amplifier: 功放 扩音器 放大器</li>
+<li>Analogue(Analog) comparator: 模拟比较器 Angstrom 埃</li>
+<li>Anneal: 退火</li>
+<li>Anisotropic: 各向异性的</li>
+<li>Anode: 阳极</li>
+<li>Arsenic (AS): 砷</li>
+<li>Auger: 俄歇</li>
+<li>Auger process: 俄歇过程</li>
+<li>Avalanche: 雪崩</li>
+<li>Avalanche breakdown: 雪崩击穿</li>
+<li>Avalanche excitation:雪崩激发</li>
+<li>Background carrier: 本底载流子</li>
+<li>Background doping: 本底掺杂</li>
+<li>Backward: 反向</li>
+<li>Backward bias: 反向偏置</li>
+<li>Ballasting resistor: 整流电阻</li>
+<li>Ball bond: 球形键合</li>
+<li>Band gap: 能带间隙</li>
+<li>Barrier: 势垒</li>
+<li>Barrier layer: 势垒层</li>
+<li>Barrier width: 势垒宽度</li>
+<li>Base: 基极</li>
+<li>Base contact: 基区接触</li>
+<li>Base stretching: 基区扩展效应</li>
+<li>Base transit time: 基区渡越时间</li>
+<li>Base transport efficiency:基区输运系数</li>
+<li>Base-width modulation:基区宽度调制</li>
+<li>Basis vector: 基矢</li>
+<li>Bias: 偏置</li>
+<li>Bilateral switch: 双向开关</li>
+<li>Binary code: 二进制代码</li>
+<li>Binary compound semiconductor: 二元化合物半导体</li>
+<li>Bipolar: 双极性的</li>
+<li>Bipolar Junction Transistor (BJT):双极晶体管</li>
+<li>Bloch: 布洛赫</li>
+<li>Blocking band: 阻挡能带</li>
+<li>Blocking contact: 阻挡接触</li>
+<li>Body - centered: 体心立方</li>
+<li>Body-centred cubic structure: 体立心结构</li>
+<li>Boltzmann: 波尔兹曼</li>
+<li>Bond: 键、键合</li>
+<li>Bonding electron: 价电子</li>
+<li>Bonding pad: 键合点</li>
+<li>Bootstrap circuit: 自举电路</li>
+<li>Bootstrapped emitter follower: 自举射极跟随器</li>
+<li>Boron: 硼</li>
+<li>Borosilicate glass: 硼硅玻璃</li>
+<li>Boundary condition: 边界条件</li>
+<li>Bound electron: 束缚电子</li>
+<li>Breadboard: 模拟板、实验板</li>
+<li>Break down: 击穿</li>
+<li>Break over: 转折</li>
+<li>Brillouin: 布里渊</li>
+<li>Brillouin zone: 布里渊区</li>
+<li>Built-in: 内建的</li>
+<li>Build-in electric field: 内建电场</li>
+<li>Bulk 体/体内 Bulk absorption: 体吸收</li>
+<li>Bulk generation: 体产生</li>
+<li>Bulk recombination: 体复合</li>
+<li>Burn - in: 老化</li>
+<li>Burn out: 烧毁</li>
+<li>Buried channel: 埋沟</li>
+<li>Buried diffusion region: 隐埋扩散区</li>
+<li>Can: 外壳</li>
+<li>Capacitance: 电容</li>
+<li>Capture cross section: 俘获截面</li>
+<li>Capture carrier: 俘获载流子</li>
+<li>Carrier: 载流子、载波</li>
+<li>Carry bit: 进位位</li>
+<li>Carry-in bit: 进位输入</li>
+<li>Carry-out bit: 进位输出</li>
+<li>Cascade 级联</li>
+<li>Case 管壳</li>
+<li>Cathode 阴极</li>
+<li>Center 中心</li>
+<li>Ceramic 陶瓷（的）</li>
+<li>Channel 沟道</li>
+<li>Channel breakdown 沟道击穿</li>
+<li>Channel current 沟道电流</li>
+<li>Channel doping 沟道掺杂</li>
+<li>Channel shortening 沟道缩短</li>
+<li>Channel width 沟道宽度</li>
+<li>Characteristic impedance 特征阻抗</li>
+<li>Charge 电荷、充电</li>
+<li>Charge-compensation effects 电荷补偿效应</li>
+<li>Charge conservation 电荷守恒</li>
+<li>Charge neutrality condition 电中性条件</li>
+<li>Charge drive/exchange/sharing/transfer/storage 电荷驱动/交换/共享/转移/存储</li>
+<li>Chemmical etching 化学腐蚀法</li>
+<li>Chemically-Polish 化学抛光</li>
+<li>Chemmically-Mechanically Polish (CMP) 化学机械抛光 Chip 芯片</li>
+<li>Chip yield 芯片成品率</li>
+<li>Clamped 箝位</li>
+<li>Clamping diode 箝位二极管</li>
+<li>Cleavage plane 解理面</li>
+<li>Clock rate 时钟频率</li>
+<li>Clock generator 时钟发生器</li>
+<li>Clock flip-flop 时钟触发器</li>
+<li>Close-packed structure 密堆积结构</li>
+<li>Close-loop gain 闭环增益</li>
+<li>Collector 集电极</li>
+<li>Collision 碰撞</li>
+<li>Compensated OP-AMP 补偿运放</li>
+<li>Common-base/collector/emitter connection 共基极/集电极/发射极连接</li>
+<li>Common-gate/drain/source connection 共栅/漏/源连接</li>
+<li>Common-mode gain 共模增益</li>
+<li>Common-mode input 共模输入</li>
+<li>Common-mode rejection ratio (CMRR) 共模抑制比</li>
+<li>Compatibility 兼容性</li>
+<li>Compensation 补偿</li>
+<li>Compensated impurities 补偿杂质</li>
+<li>Compensated semiconductor 补偿半导体</li>
+<li>Complementary Darlington circuit 互补达林顿电路</li>
+<li>Complementary Metal-Oxide-Semiconductor Field-Effect-Transistor(CMOS)</li>
+<li>互补金属氧化物半导体场效应晶体管</li>
+<li>Complementary error function 余误差函数</li>
+<li>Computer-aided design (CAD)/test(CAT)/manufacture(CAM) 计算机辅助设计/ 测试 /制造</li>
+<li>Compound Semiconductor 化合物半导体</li>
+<li>Conductance 电导</li>
+<li>Conduction band (edge) 导带(底)</li>
+<li>Conduction level/state 导带态</li>
+<li>Conductor 导体</li>
+<li>Conductivity 电导率</li>
+<li>Configuration 组态</li>
+<li>Conlomb 库仑</li>
+<li>Conpled Configuration Devices 结构组态</li>
+<li>Constants 物理常数</li>
+<li>Constant energy surface 等能面</li>
+<li>Constant-source diffusion恒定源扩散</li>
+<li>Contact 接触</li>
+<li>Contamination 治污</li>
+<li>Continuity equation 连续性方程</li>
+<li>Contact hole 接触孔</li>
+<li>Contact potential 接触电势</li>
+<li>Continuity condition 连续性条件</li>
+<li>Contra doping 反掺杂</li>
+<li>Controlled 受控的</li>
+<li>Converter 转换器</li>
+<li>Conveyer 传输器</li>
+<li>Copper interconnection system 铜互连系统</li>
+<li>Couping 耦合</li>
+<li>Covalent 共阶的</li>
+<li>Crossover 跨交</li>
+<li>Critical 临界的</li>
+<li>Crossunder 穿交</li>
+<li>Crucible坩埚</li>
+<li>Crystal defect/face/orientation/lattice 晶体缺陷/晶面/晶向/晶格</li>
+<li>Current density 电流密度</li>
+<li>Curvature 曲率</li>
+<li>Cut off 截止</li>
+<li>Current drift/dirve/sharing 电流漂移/驱动/共享</li>
+<li>Current Sense 电流取样</li>
+<li>Curvature 弯曲</li>
+<li>Custom integrated circuit 定制集成电路</li>
+<li>Cylindrical 柱面的</li>
+<li>Czochralshicrystal 直立单晶</li>
+<li>Czochralski technique 切克劳斯基技术（Cz法直拉晶体J）</li>
+<li>Dangling bonds 悬挂键</li>
+<li>Dark current 暗电流</li>
+<li>Dead time 空载时间</li>
+<li>Debye length 德拜长度</li>
+<li>De.broglie 德布洛意</li>
+<li>Decderate 减速</li>
+<li>Decibel (dB) 分贝</li>
+<li>Decode 译码</li>
+<li>Deep acceptor level 深受主能级</li>
+<li>Deep donor level 深施主能级</li>
+<li>Deep impurity level 深度杂质能级</li>
+<li>Deep trap 深陷阱</li>
+<li>Defeat 缺陷</li>
+<li>Degenerate semiconductor 简并半导体</li>
+<li>Degeneracy 简并度</li>
+<li>Degradation 退化</li>
+<li>Degree Celsius(centigrade) /Kelvin 摄氏/开氏温度</li>
+<li>Delay 延迟 Density 密度</li>
+<li>Density of states 态密度</li>
+<li>Depletion 耗尽</li>
+<li>Depletion approximation 耗尽近似</li>
+<li>Depletion contact 耗尽接触</li>
+<li>Depletion depth 耗尽深度</li>
+<li>Depletion effect 耗尽效应</li>
+<li>Depletion layer 耗尽层</li>
+<li>Depletion MOS 耗尽MOS</li>
+<li>Depletion region 耗尽区</li>
+<li>Deposited film 淀积薄膜</li>
+<li>Deposition process 淀积工艺</li>
+<li>Design rules 设计规则</li>
+<li>Die 芯片（复数dice）</li>
+<li>Diode 二极管</li>
+<li>Dielectric 介电的</li>
+<li>Dielectric isolation 介质隔离</li>
+<li>Difference-mode input 差模输入</li>
+<li>Differential amplifier 差分放大器</li>
+<li>Differential capacitance 微分电容</li>
+<li>Diffused junction 扩散结</li>
+<li>Diffusion 扩散</li>
+<li>Diffusion coefficient 扩散系数</li>
+<li>Diffusion constant 扩散常数</li>
+<li>Diffusivity 扩散率</li>
+<li>Diffusion capacitance/barrier/current/furnace 扩散电容/势垒/电流/炉</li>
+<li>Digital circuit 数字电路</li>
+<li>Dipole domain 偶极畴</li>
+<li>Dipole layer 偶极层</li>
+<li>Direct-coupling 直接耦合</li>
+<li>Direct-gap semiconductor 直接带隙半导体</li>
+<li>Direct transition 直接跃迁</li>
+<li>Discharge 放电</li>
+<li>Discrete component 分立元件</li>
+<li>Dissipation 耗散</li>
+<li>Distribution 分布</li>
+<li>Distributed capacitance 分布电容</li>
+<li>Distributed model 分布模型</li>
+<li>Displacement 位移 Dislocation 位错</li>
+<li>Domain 畴 Donor 施主</li>
+<li>Donor exhaustion 施主耗尽</li>
+<li>Dopant 掺杂剂</li>
+<li>Doped semiconductor 掺杂半导体</li>
+<li>Doping concentration 掺杂浓度</li>
+<li>Double-diffusive MOS(DMOS)双扩散MOS.</li>
+<li>Drift 漂移 Drift field 漂移电场</li>
+<li>Drift mobility 迁移率</li>
+<li>Dry etching 干法腐蚀</li>
+<li>Dry/wet oxidation 干/湿法氧化</li>
+<li>Dose 剂量</li>
+<li>Duty cycle 工作周期</li>
+<li>Dual-in-line package （DIP） 双列直插式封装</li>
+<li>Dynamics 动态</li>
+<li>Dynamic characteristics 动态属性</li>
+<li>Dynamic impedance 动态阻抗</li>
+<li>Early effect 厄利效应</li>
+<li>Early failure 早期失效</li>
+<li>Effective mass 有效质量</li>
+<li>Einstein relation(ship) 爱因斯坦关系</li>
+<li>Electric Erase Programmable Read Only Memory(E2PROM) 一次性电可擦除只读存储器</li>
+<li>Electrode 电极</li>
+<li>Electrominggratim 电迁移</li>
+<li>Electron affinity 电子亲和势</li>
+<li>Electronic -grade 电子能</li>
+<li>Electron-beam photo-resist exposure 光致抗蚀剂的电子束曝光</li>
+<li>Electron gas 电子气</li>
+<li>Electron-grade water 电子级纯水</li>
+<li>Electron trapping center 电子俘获中心</li>
+<li>Electron Volt (eV) 电子伏</li>
+<li>Electrostatic 静电的</li>
+<li>Element 元素/元件/配件</li>
+<li>Elemental semiconductor 元素半导体</li>
+<li>Ellipse 椭圆</li>
+<li>Ellipsoid 椭球</li>
+<li>Emitter 发射极</li>
+<li>Emitter-coupled logic 发射极耦合逻辑</li>
+<li>Emitter-coupled pair 发射极耦合对</li>
+<li>Emitter follower 射随器</li>
+<li>Empty band 空带</li>
+<li>Emitter crowding effect 发射极集边（拥挤）效应</li>
+<li>Endurance test =life test 寿命测试</li>
+<li>Energy state 能态</li>
+<li>Energy momentum diagram 能量-动量(E-K)图</li>
+<li>Enhancement mode 增强型模式</li>
+<li>Enhancement MOS 增强性</li>
+<li>MOS Entefic (低)共溶的</li>
+<li>Environmental test 环境测试</li>
+<li>Epitaxial 外延的</li>
+<li>Epitaxial layer 外延层</li>
+<li>Epitaxial slice 外延片</li>
+<li>Expitaxy 外延</li>
+<li>Equivalent curcuit 等效电路</li>
+<li>Equilibrium majority /minority carriers 平衡多数/少数载流子</li>
+<li>Erasable Programmable ROM (EPROM)可搽取（编程）存储器</li>
+<li>Error function complement 余误差函数</li>
+<li>Etch 刻蚀</li>
+<li>Etchant 刻蚀剂</li>
+<li>Etching mask 抗蚀剂掩模</li>
+<li>Excess carrier 过剩载流子</li>
+<li>Excitation energy 激发能</li>
+<li>Excited state 激发态</li>
+<li>Exciton 激子</li>
+<li>Extrapolation 外推法</li>
+<li>Extrinsic 非本征的</li>
+<li>Extrinsic semiconductor 杂质半导体</li>
+<li>Face - centered 面心立方</li>
+<li>Fall time 下降时间</li>
+<li>Fan-in 扇入</li>
+<li>Fan-out 扇出</li>
+<li>Fast recovery 快恢复</li>
+<li>Fast surface states 快界面态</li>
+<li>Feedback 反馈</li>
+<li>Fermi level 费米能级</li>
+<li>Fermi-Dirac Distribution 费米-狄拉克分布</li>
+<li>Femi potential 费米势</li>
+<li>Fick equation 菲克方程（扩散）</li>
+<li>Field effect transistor 场效应晶体管</li>
+<li>Field oxide 场氧化层</li>
+<li>Filled band 满带</li>
+<li>Film 薄膜</li>
+<li>Flash memory 闪烁存储器</li>
+<li>Flat band 平带</li>
+<li>Flat pack 扁平封装</li>
+<li>Flicker noise 闪烁（变）噪声</li>
+<li>Flip-flop toggle 触发器翻转</li>
+<li>Floating gate 浮栅</li>
+<li>Fluoride etch 氟化氢刻蚀</li>
+<li>Forbidden band 禁带</li>
+<li>Forward bias 正向偏置</li>
+<li>Forward blocking /conducting正向阻断/导通</li>
+<li>Frequency deviation noise频率漂移噪声</li>
+<li>Frequency response 频率响应</li>
+<li>Function 函数</li>
+<li>Gain 增益 Gallium-Arsenide(GaAs) 砷化钾</li>
+<li>Gamy ray r 射线</li>
+<li>Gate 门、栅、控制极</li>
+<li>Gate oxide 栅氧化层</li>
+<li>Gauss（ian） 高斯</li>
+<li>Gaussian distribution profile 高斯掺杂分布</li>
+<li>Generation-recombination 产生-复合</li>
+<li>Geometries 几何尺寸</li>
+<li>Germanium(Ge) 锗</li>
+<li>Graded 缓变的</li>
+<li>Graded (gradual) channel 缓变沟道</li>
+<li>Graded junction 缓变结</li>
+<li>Grain 晶粒</li>
+<li>Gradient 梯度</li>
+<li>Grown junction 生长结</li>
+<li>Guard ring 保护环</li>
+<li>Gummel-Poom model 葛谋-潘 模型</li>
+<li>Gunn - effect 狄氏效应</li>
+<li>Hardened device 辐射加固器件</li>
+<li>Heat of formation 形成热</li>
+<li>Heat sink 散热器、热沉</li>
+<li>Heavy/light hole band 重/轻 空穴带</li>
+<li>Heavy saturation 重掺杂</li>
+<li>Hell - effect 霍尔效应</li>
+<li>Heterojunction 异质结</li>
+<li>Heterojunction structure 异质结结构</li>
+<li>Heterojunction Bipolar Transistor（HBT）异质结双极型晶体</li>
+<li>High field property 高场特性</li>
+<li>High-performance MOS.( H-MOS)高性能</li>
+<li>MOS. Hormalized 归一化</li>
+<li>Horizontal epitaxial reactor 卧式外延反应器</li>
+<li>Hot carrior 热载流子</li>
+<li>Hybrid integration 混合集成</li>
+<li>Image - force 镜象力</li>
+<li>Impact ionization 碰撞电离</li>
+<li>Impedance 阻抗</li>
+<li>Imperfect structure 不完整结构</li>
+<li>Implantation dose 注入剂量</li>
+<li>Implanted ion 注入离子</li>
+<li>Impurity 杂质</li>
+<li>Impurity scattering 杂志散射</li>
+<li>Incremental resistance 电阻增量（微分电阻）</li>
+<li>In-contact mask 接触式掩模</li>
+<li>Indium tin oxide (ITO) 铟锡氧化物</li>
+<li>Induced channel 感应沟道</li>
+<li>Infrared 红外的</li>
+<li>Injection 注入</li>
+<li>Input offset voltage 输入失调电压</li>
+<li>Insulator 绝缘体</li>
+<li>Insulated Gate FET(IGFET)绝缘栅</li>
+<li>FET Integrated injection logic集成注入逻辑</li>
+<li>Integration 集成、积分</li>
+<li>Interconnection 互连</li>
+<li>Interconnection time delay 互连延时</li>
+<li>Interdigitated structure 交互式结构</li>
+<li>Interface 界面</li>
+<li>Interference 干涉</li>
+<li>International system of unions国际单位制</li>
+<li>Internally scattering 谷间散射</li>
+<li>Interpolation 内插法</li>
+<li>Intrinsic 本征的</li>
+<li>Intrinsic semiconductor 本征半导体</li>
+<li>Inverse operation 反向工作</li>
+<li>Inversion 反型</li>
+<li>Inverter 倒相器</li>
+<li>Ion 离子</li>
+<li>Ion beam 离子束</li>
+<li>Ion etching 离子刻蚀</li>
+<li>Ion implantation 离子注入</li>
+<li>Ionization 电离</li>
+<li>Ionization energy 电离能</li>
+<li>Irradiation 辐照</li>
+<li>Isolation land 隔离岛</li>
+<li>Isotropic 各向同性</li>
+<li>Junction FET(JFET) 结型场效应管</li>
+<li>Junction isolation 结隔离</li>
+<li>Junction spacing 结间距</li>
+<li>Junction side-wall 结侧壁</li>
+<li>Latch up 闭锁</li>
+<li>Lateral 横向的</li>
+<li>Lattice 晶格</li>
+<li>Layout 版图</li>
+<li>Lattice binding/cell/constant/defect/distortion 晶格结合力/晶胞/晶格/晶格常熟/晶格缺陷/晶格畸变</li>
+<li>Leakage current （泄）漏电流</li>
+<li>Level shifting 电平移动</li>
+<li>Life time 寿命</li>
+<li>linearity 线性度</li>
+<li>Linked bond 共价键</li>
+<li>Liquid Nitrogen 液氮</li>
+<li>Liquid－phase epitaxial growth technique 液相外延生长技术</li>
+<li>Lithography 光刻</li>
+<li>Light Emitting Diode(LED) 发光二极管</li>
+<li>Load line or Variable 负载线</li>
+<li>Locating and Wiring 布局布线</li>
+<li>Longitudinal 纵向的</li>
+<li>Logic swing 逻辑摆幅</li>
+<li>Lorentz 洛沦兹</li>
+<li>Lumped model 集总模型</li>
+<li>Majority carrier 多数载流子</li>
+<li>Mask 掩膜板，光刻板</li>
+<li>Mask level 掩模序号</li>
+<li>Mask set 掩模组</li>
+<li>Mass - action law质量守恒定律</li>
+<li>Master-slave D flip-flop主从D触发器</li>
+<li>Matching 匹配</li>
+<li>Maxwell 麦克斯韦</li>
+<li>Mean free path 平均自由程</li>
+<li>Meandered emitter junction梳状发射极结</li>
+<li>Mean time before failure (MTBF) 平均工作时间</li>
+<li>Megeto - resistance 磁阻</li>
+<li>Mesa 台面</li>
+<li>MESFET-Metal Semiconductor金属半导体FET</li>
+<li>Metallization 金属化</li>
+<li>Microelectronic technique 微电子技术</li>
+<li>Microelectronics 微电子学</li>
+<li>Millen indices 密勒指数</li>
+<li>Minority carrier 少数载流子</li>
+<li>Misfit 失配</li>
+<li>Mismatching 失配</li>
+<li>Mobile ions 可动离子</li>
+<li>Mobility 迁移率</li>
+<li>Module 模块</li>
+<li>Modulate 调制</li>
+<li>Molecular crystal分子晶体</li>
+<li>Monolithic IC 单片IC MOSFET金属氧化物半导体场效应晶体管</li>
+<li>Mos. Transistor(MOST )MOS. 晶体管</li>
+<li>Multiplication 倍增</li>
+<li>Modulator 调制</li>
+<li>Multi-chip IC 多芯片IC</li>
+<li>Multi-chip module(MCM) 多芯片模块</li>
+<li>Multiplication coefficient倍增因子</li>
+<li>Naked chip 未封装的芯片（裸片）</li>
+<li>Negative feedback 负反馈</li>
+<li>Negative resistance 负阻</li>
+<li>Nesting 套刻</li>
+<li>Negative-temperature-coefficient 负温度系数</li>
+<li>Noise margin 噪声容限</li>
+<li>Nonequilibrium 非平衡</li>
+<li>Nonrolatile 非挥发（易失）性</li>
+<li>Normally off/on 常闭/开</li>
+<li>Numerical analysis 数值分析</li>
+<li>Occupied band 满带</li>
+<li>Officienay 功率</li>
+<li>Offset 偏移、失调</li>
+<li>On standby 待命状态</li>
+<li>Ohmic contact 欧姆接触</li>
+<li>Open circuit 开路</li>
+<li>Operating point 工作点</li>
+<li>Operating bias 工作偏置</li>
+<li>Operational amplifier (OPAMP)运算放大器</li>
+<li>Optical photon =photon 光子</li>
+<li>Optical quenching光猝灭</li>
+<li>Optical transition 光跃迁</li>
+<li>Optical-coupled isolator光耦合隔离器</li>
+<li>Organic semiconductor有机半导体</li>
+<li>Orientation 晶向、定向</li>
+<li>Outline 外形</li>
+<li>Out-of-contact mask非接触式掩模</li>
+<li>Output characteristic 输出特性</li>
+<li>Output voltage swing 输出电压摆幅</li>
+<li>Overcompensation 过补偿</li>
+<li>Over-current protection 过流保护</li>
+<li>Over shoot 过冲</li>
+<li>Over-voltage protection 过压保护</li>
+<li>Overlap 交迭</li>
+<li>Overload 过载</li>
+<li>Oscillator 振荡器</li>
+<li>Oxide 氧化物</li>
+<li>Oxidation 氧化</li>
+<li>Oxide passivation 氧化层钝化</li>
+<li>Package 封装</li>
+<li>Pad 压焊点</li>
+<li>Parameter 参数</li>
+<li>Parasitic effect 寄生效应</li>
+<li>Parasitic oscillation 寄生振荡</li>
+<li>Passination 钝化</li>
+<li>Passive component 无源元件</li>
+<li>Passive device 无源器件</li>
+<li>Passive surface 钝化界面</li>
+<li>Parasitic transistor 寄生晶体管</li>
+<li>Peak-point voltage 峰点电压</li>
+<li>Peak voltage 峰值电压</li>
+<li>Permanent-storage circuit 永久存储电路</li>
+<li>Period 周期</li>
+<li>Periodic table 周期表</li>
+<li>Permeable - base 可渗透基区</li>
+<li>Phase-lock loop 锁相环</li>
+<li>Phase drift 相移</li>
+<li>Phonon spectra 声子谱</li>
+<li>Photo conduction 光电导</li>
+<li>Photo diode 光电二极管</li>
+<li>Photoelectric cell 光电池</li>
+<li>Photoelectric effect 光电效应</li>
+<li>Photoenic devices 光子器件</li>
+<li>Photolithographic process 光刻工艺</li>
+<li>(photo) resist （光敏）抗腐蚀剂</li>
+<li>Pin 管脚</li>
+<li>Pinch off 夹断</li>
+<li>Pinning of Fermi level 费米能级的钉扎（效应）</li>
+<li>Planar process 平面工艺</li>
+<li>Planar transistor 平面晶体管</li>
+<li>Plasma 等离子体</li>
+<li>Plezoelectric effect 压电效应</li>
+<li>Poisson equation 泊松方程</li>
+<li>Point contact 点接触</li>
+<li>Polarity 极性</li>
+<li>Polycrystal 多晶</li>
+<li>Polymer semiconductor聚合物半导体</li>
+<li>Poly-silicon 多晶硅</li>
+<li>Potential (电)势</li>
+<li>Potential barrier 势垒</li>
+<li>Potential well 势阱</li>
+<li>Power dissipation 功耗</li>
+<li>Power transistor 功率晶体管</li>
+<li>Preamplifier 前置放大器</li>
+<li>Primary flat 主平面</li>
+<li>Principal axes 主轴</li>
+<li>Print-circuit board(PCB) 印制电路板</li>
+<li>Probability 几率</li>
+<li>Probe 探针</li>
+<li>Process 工艺</li>
+<li>Propagation delay 传输延时</li>
+<li>Pseudopotential method 膺势发</li>
+<li>Punch through 穿通</li>
+<li>Pulse triggering/modulating 脉冲触发/调制Pulse</li>
+<li>Widen Modulator(PWM) 脉冲宽度调制</li>
+<li>Punchthrough 穿通</li>
+<li>Push-pull stage 推挽级</li>
+<li>Quality factor 品质因子</li>
+<li>Quantization 量子化</li>
+<li>Quantum 量子</li>
+<li>Quantum efficiency量子效应</li>
+<li>Quantum mechanics 量子力学</li>
+<li>Quasi – Fermi－level准费米能级</li>
+<li>Quartz 石英</li>
+<li>Radiation conductivity 辐射电导率</li>
+<li>Radiation damage 辐射损伤</li>
+<li>Radiation flux density 辐射通量密度</li>
+<li>Radiation hardening 辐射加固</li>
+<li>Radiation protection 辐射保护</li>
+<li>Radiative - recombination辐照复合</li>
+<li>Radioactive 放射性</li>
+<li>Reach through 穿通</li>
+<li>Reactive sputtering source 反应溅射源</li>
+<li>Read diode 里德二极管</li>
+<li>Recombination 复合</li>
+<li>Recovery diode 恢复二极管</li>
+<li>Reciprocal lattice 倒核子</li>
+<li>Recovery time 恢复时间</li>
+<li>Rectifier 整流器（管）</li>
+<li>Rectifying contact 整流接触</li>
+<li>Reference 基准点 基准 参考点</li>
+<li>Refractive index 折射率</li>
+<li>Register 寄存器</li>
+<li>Registration 对准</li>
+<li>Regulate 控制 调整</li>
+<li>Relaxation lifetime 驰豫时间</li>
+<li>Reliability 可靠性</li>
+<li>Resonance 谐振</li>
+<li>Resistance 电阻</li>
+<li>Resistor 电阻器</li>
+<li>Resistivity 电阻率</li>
+<li>Regulator 稳压管（器）</li>
+<li>Relaxation 驰豫</li>
+<li>Resonant frequency共射频率</li>
+<li>Response time 响应时间</li>
+<li>Reverse 反向的</li>
+<li>Reverse bias 反向偏置</li>
+<li>Sampling circuit 取样电路</li>
+<li>Sapphire 蓝宝石（Al2O3）</li>
+<li>Satellite valley 卫星谷</li>
+<li>Saturated current range电流饱和区</li>
+<li>Saturation region 饱和区</li>
+<li>Saturation 饱和的</li>
+<li>Scaled down 按比例缩小</li>
+<li>Scattering 散射</li>
+<li>Schockley diode 肖克莱二极管</li>
+<li>Schottky 肖特基</li>
+<li>Schottky barrier 肖特基势垒</li>
+<li>Schottky contact 肖特基接触</li>
+<li>Schrodingen 薛定厄</li>
+<li>Scribing grid 划片格</li>
+<li>Secondary flat 次平面</li>
+<li>Seed crystal 籽晶</li>
+<li>Segregation 分凝</li>
+<li>Selectivity 选择性</li>
+<li>Self aligned 自对准的</li>
+<li>Self diffusion 自扩散</li>
+<li>Semiconductor 半导体</li>
+<li>Semiconductor-controlled rectifier 可控硅</li>
+<li>Sendsitivity 灵敏度</li>
+<li>Serial 串行/串联</li>
+<li>Series inductance 串联电感</li>
+<li>Settle time 建立时间</li>
+<li>Sheet resistance 薄层电阻</li>
+<li>Shield 屏蔽</li>
+<li>Short circuit 短路</li>
+<li>Shot noise 散粒噪声</li>
+<li>Shunt 分流</li>
+<li>Sidewall capacitance</li>
+<li>边墙电容 Signal 信号</li>
+<li>Silica glass 石英玻璃</li>
+<li>Silicon 硅</li>
+<li>Silicon carbide 碳化硅</li>
+<li>Silicon dioxide (SiO2) 二氧化硅</li>
+<li>Silicon Nitride(Si3N4) 氮化硅</li>
+<li>Silicon On Insulator 绝缘硅</li>
+<li>Siliver whiskers 银须</li>
+<li>Simple cubic 简立方</li>
+<li>Single crystal 单晶</li>
+<li>Sink 沉</li>
+<li>Skin effect 趋肤效应</li>
+<li>Snap time 急变时间</li>
+<li>Sneak path 潜行通路</li>
+<li>Sulethreshold 亚阈的</li>
+<li>Solar battery/cell 太阳能电池</li>
+<li>Solid circuit 固体电路</li>
+<li>Solid Solubility 固溶度</li>
+<li>Sonband 子带</li>
+<li>Source 源极</li>
+<li>Source follower 源随器</li>
+<li>Space charge 空间电荷</li>
+<li>Specific heat(PT) 热</li>
+<li>Speed-power product 速度功耗乘积 Spherical 球面的</li>
+<li>Spin 自旋 Split 分裂</li>
+<li>Spontaneous emission 自发发射</li>
+<li>Spreading resistance扩展电阻</li>
+<li>Sputter 溅射 Stacking fault 层错</li>
+<li>Static characteristic 静态特性</li>
+<li>Stimulated emission 受激发射</li>
+<li>Stimulated recombination 受激复合</li>
+<li>Storage time 存储时间</li>
+<li>Stress 应力</li>
+<li>Straggle 偏差</li>
+<li>Sublimation 升华</li>
+<li>Substrate 衬底</li>
+<li>Substitutional 替位式的</li>
+<li>Superlattice 超晶格</li>
+<li>Supply 电源 Surface 表面</li>
+<li>Surge capacity 浪涌能力</li>
+<li>Subscript 下标</li>
+<li>Switching time 开关时间</li>
+<li>Switch 开关</li>
+<li>Tailing 扩展</li>
+<li>Terminal 终端</li>
+<li>Tensor 张量 Tensorial 张量的</li>
+<li>Thermal activation 热激发</li>
+<li>Thermal conductivity 热导率</li>
+<li>Thermal equilibrium 热平衡</li>
+<li>Thermal Oxidation 热氧化</li>
+<li>Thermal resistance 热阻</li>
+<li>Thermal sink 热沉</li>
+<li>Thermal velocity 热运动</li>
+<li>Thermoelectricpovoer 温差电动势率</li>
+<li>Thick-film technique 厚膜技术</li>
+<li>Thin-film hybrid IC薄膜混合集成电路</li>
+<li>Thin-Film Transistor(TFT) 薄膜晶体</li>
+<li>Threshlod 阈值</li>
+<li>Thyistor 晶闸管</li>
+<li>Transconductance 跨导</li>
+<li>Transfer characteristic 转移特性</li>
+<li>Transfer electron 转移电子</li>
+<li>Transfer function 传输函数 Transient 瞬态的</li>
+<li>Transistor aging(stress) 晶体管老化</li>
+<li>Transit time 渡越时间</li>
+<li>Transition 跃迁</li>
+<li>Transition-metal silica 过度金属硅化物</li>
+<li>Transition probability 跃迁几率</li>
+<li>Transition region 过渡区</li>
+<li>Transport 输运 Transverse 横向的</li>
+<li>Trap 陷阱 Trapping 俘获</li>
+<li>Trapped charge 陷阱电荷</li>
+<li>Triangle generator 三角波发生器</li>
+<li>Triboelectricity 摩擦电</li>
+<li>Trigger 触发</li>
+<li>Trim 调配 调整</li>
+<li>Triple diffusion 三重扩散</li>
+<li>Truth table 真值表</li>
+<li>Tolerahce 容差</li>
+<li>Tunnel(ing) 隧道（穿）</li>
+<li>Tunnel current 隧道电流</li>
+<li>Turn over 转折</li>
+<li>Turn - off time 关断时间</li>
+<li>Ultraviolet 紫外的</li>
+<li>Unijunction 单结的</li>
+<li>Unipolar 单极的</li>
+<li>Unit cell 原（元）胞</li>
+<li>Unity-gain frequency 单位增益频率</li>
+<li>Unilateral-switch单向开关</li>
+<li>Vacancy 空位 Vacuum 真空</li>
+<li>Valence(value) band 价带 Value band edge 价带顶</li>
+<li>Valence bond 价键 Vapour phase 汽相</li>
+<li>Varactor 变容管 Varistor 变阻器</li>
+<li>Vibration 振动 Voltage 电压</li>
+<li>Wafer 晶片</li>
+<li>Wave equation 波动方程</li>
+<li>Wave guide 波导</li>
+<li>Wave number 波数</li>
+<li>Wave-particle duality 波粒二相性</li>
+<li>Wear-out 烧毁</li>
+<li>Wire routing 布线</li>
+<li>Work function 功函数</li>
+<li>Worst-case device 最坏情况器件</li>
+<li>Yield 成品率</li>
+<li>Zener breakdown 齐纳击穿</li>
+<li>Zone melting 区熔法</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 缩写</h2>
+<div id="outline-container-orgeffdc1c" class="outline-2">
+<h2 id="orgeffdc1c"><span class="section-number-2">2</span> 缩写</h2>
 <div class="outline-text-2" id="text-2">
-
-<ul>
-<li>IMU：inertial measurement units，惯性测量单元，常包含加速度和陀螺仪传感器； 
-</li>
-<li>SVM: Support Vector Machine, 支持向量机；
-</li>
-<li>ANN: artificial neural network，人工神经网络；
-</li>
-<li>PAC: probably approximately correct, 概率近似正确；
-</li>
-<li>AI: artificial intelligence，人工智能；
-</li>
-<li>RSS: residual sum of squares, 残差，也就是平方差和；
-</li>
-<li>SSE：sum of squared errors ，平方差和；
-</li>
-<li>MSE：mean squared error，均方差；
-</li>
-<li>MLE: maximum likelihood estimation，最大似然估计；
-</li>
-<li>NLL：negative log likelihood，负对数似然, 也就是MLE取负；
-</li>
-<li>OLS：ordinary least squares，普通最小二乘法；
-</li>
-<li>CMOS：complementary metal oxide semiconductor的缩写。一种将PMOS和NMOS在同一个硅衬底上混合制造的工艺。 
-</li>
-<li>CD： （Critical Dimension）临界（关键）尺寸。在工艺上通常指条宽，例如POLY CD 为多晶条宽。 
-</li>
-<li>CIM：computer-integrated manufacturing的缩写。用计算机控制和监控制造工艺的一种综合方式。 
-</li>
-<li>Cp：工艺能力，详见process capability。 
-</li>
-<li>Cpk：工艺能力指数，详见process capability index。 
-</li>
-<li>EM：electromigration，电子迁移，指由通过铝条的电流导致电子沿铝条连线进行的自扩散过程。 
-</li>
-<li>ACA: Anisotropic Conductive Adhesive 各向异性导电胶 
-</li>
-<li>ACAF: Anisotropic Conductive Adhesive Film各项异性导电胶膜 
-</li>
-<li>Al: Aluminium 铝 
-</li>
-<li>ALIVH: All Inner Via Hole 完全内部通孔 
-</li>
-<li>AOI: Automatic Optial Inspection 自动光学检查 
-</li>
-<li>ASIC: Application Specific Integrated Circuit 专用集成电路 
-</li>
-<li>ATE: Automatic Test Equipment 自动监测设备 
-</li>
-<li>AU: Gold 金 
-</li>
-<li>BCB: Benzocyclohutene,Benzo Cyclo Butene 苯丙环丁烯 
-</li>
-<li>BEO: Beryllium Oxide 氧化铍 
-</li>
-<li>BIST: Built-In Self-Test(Function) 内建自测试(功能) 
-</li>
-<li>BIT: Bipolar Transistor 双极晶体管 
-</li>
-<li>BTAB: Bumped Tape Automated Bonding 凸点载带自动焊 
-</li>
-<li>BGA: Ball Grid Array 焊球阵列 
-</li>
-<li>BQFP: Quad Flat Package With Bumper 带缓冲垫的四边引脚扁平封装 
-</li>
-<li>C4: Controlled Collapsed Chip Connection 可控塌陷芯片连接 
-</li>
-<li>CAD: Computer Aided Design 计算机辅助设计 
-</li>
-<li>CBGA: Ceramic Ball Grid Array 陶瓷焊球阵列 
-</li>
-<li>CCGA: Ceramic Column Grid Array 陶瓷焊柱阵列 
-</li>
-<li>CLCC: Ceramic Leaded Chip Carrier 带引脚的陶瓷片式载体 
-</li>
-<li>CML: Current Mode Logic 电流开关逻辑 
-</li>
-<li>CMOS: Complementary Metal-Oxide-Semiconductor 互补金属氧化物半导体 
-</li>
-<li>COB: Chip on Board 板上芯片 
-</li>
-<li>COC: Chip on Chip 叠层芯片 
-</li>
-<li>COG: Chip on Glass 玻璃板上芯片 
-</li>
-<li>CSP: Chip Size Package 芯片尺寸封装 
-</li>
-<li>CTE: Coefficient of Thermal Expansion 热膨胀系数 
-</li>
-<li>CVD: Chemical Vapor Depositon 化学汽相淀积 
-</li>
-<li>DCA: Direct Chip Attach 芯片直接安装 
-</li>
-<li>DFP: Dual Flat Package 双侧引脚扁平封装 
-</li>
-<li>DIP: Double In-Line Package 双列直插式封装 
-</li>
-<li>DMS: Direct Metallization System 直接金属化系统 
-</li>
-<li>DRAM: Dynamic Random Access Memory 动态随机存取存贮器 
-</li>
-<li>DSO: Dual Small Outline 双侧引脚小外形封装 
-</li>
-<li>DTCP: Dual Tape Carrier Package 双载带封装 
-</li>
-<li>3D: Three-Dimensional 三维 
-</li>
-<li>2D: Two-Dimensional 二维 
-</li>
-<li>EB: Electron Beam 电子束 
-</li>
-<li>ECL: Emitter-Coupled Logic 射极耦合逻辑 
-</li>
-<li>FC: Flip Chip 倒装片法 
-</li>
-<li>FCB: Flip Chip Bonding 倒装焊 
-</li>
-<li>FCOB: Flip Chip on Board 板上倒装片 
-</li>
-<li>FEM: Finite Element Method 有限元法 
-</li>
-<li>FP: Flat Package 扁平封装 
-</li>
-<li>FPBGA: Fine Pitch Ball Grid Array 窄节距BGA 
-</li>
-<li>FPD: Fine Pitch Device 窄节距器件 
-</li>
-<li>FPPQFP: Fine Pitch Plastic QFP 窄节距塑料QFP 
-</li>
-<li>GQFP: Guard-Ring Quad Flat Package 带保护环的QFP 
-</li>
-<li>HDI: High Density Interconnect 高密度互连 
-</li>
-<li>HDMI: High Density Multilayer Interconnect 高密度多层互连 
-</li>
-<li>HIC: Hybird Integrated Circuit 混合集成电路 
-</li>
-<li>HTCC: High Temperature Co-Fired Ceramic 高温共烧陶瓷 
-</li>
-<li>HTS: High Temperature Storage 高温贮存 
-</li>
-<li>IC: Integrated Circuit 集成电路 
-</li>
-<li>IGBT: Insulated Gate Bipolar Transistor 绝缘栅双极晶体管 
-</li>
-<li>ILB: Inner-Lead Bond 内引脚焊接 
-</li>
-<li>I/O: Input/Output 输入/输出 
-</li>
-<li>IVH: Inner Via Hole 内部通孔 
-</li>
-<li>JLCC: J-Leaded Chip Carrier J形引脚片式载体 
-</li>
-<li>KGD: Known Good Die 优质芯片 
-</li>
-<li>LCC: Leadless Chip Carrier 无引脚片式载体 
-</li>
-<li>LCCC: Leadless Ceramic Chip Carrier 无引脚陶瓷片式载体 
-</li>
-<li>LCCP: Lead Chip Carrier Package 有引脚片式载体封装 
-</li>
-<li>LCD: Liquid Crystal Display 液晶显示器 
-</li>
-<li>LCVD: Laser Chemical Vapor Deposition 激光化学汽相淀积 
-</li>
-<li>LDI: Laser Direct Imaging 激光直接成像 
-</li>
-<li>LGA: Land Grid Array 焊区阵列 
-</li>
-<li>LSI: Large Scale Integrated Circuit 大规模集成电路 
-</li>
-<li>LOC: Lead Over Chip 芯片上引线健合 
-</li>
-<li>LQFP: Low Profile QFP 薄形QFP 
-</li>
-<li>LTCC: Low Temperature Co-Fired Ceramic 低温共烧陶瓷 
-</li>
-<li>MBGA: Metal BGA 金属基板BGA 
-</li>
-<li>MCA: Multiple Channel Access 多通道存取 
-</li>
-<li>MCM: Multichip Module 多芯片组件 
-</li>
-<li>MCM-C: MCM with Ceramic Substrate 陶瓷基板多芯片组件 
-</li>
-<li>MCM-D: MCM with Deposited Thin Film Inteconnect Substrate 淀积薄膜互连基板多芯片组件 
-</li>
-<li>MCM-L: MCM with Laminated Substrate 叠层基板多芯片组件 
-</li>
-<li>MCP: Multichip Package 多芯片封装 
-</li>
-<li>MELF: Metal Electrode Face Bonding 金属电极表面健合 
-</li>
-<li>MEMS: Microelectro Mechanical System 微电子机械系统 
-</li>
-<li>MFP: Mini Flat Package 微型扁平封装 
-</li>
-<li>MLC: Multi-Layer Ceramic Package 多层陶瓷封装 
-</li>
-<li>MMIC: Monolithic Microwave Integrated Circuit 微波单片集成电路 
-</li>
-<li>MOSFET: Metal-Oxide-Silicon Field-Effect Transistor 金属氧化物半导体场效应晶体管 
-</li>
-<li>MPU: Microprocessor Unit 微处理器 
-</li>
-<li>MQUAD: Metal Quad 金属四列引脚 
-</li>
-<li>MSI: Medium Scale Integration 中规模集成电路 
-</li>
-<li>OLB: Outer Lead Bonding 外引脚焊接 
-</li>
-<li>PBGA: Plastic BGA 塑封BGA 
-</li>
-<li>PC: Personal Computer 个人计算机 
-</li>
-<li>PFP: Plastic Flat Package 塑料扁平封装 
-</li>
-<li>PGA: Pin Grid Array 针栅阵列 
-</li>
-<li>PI: Polymide 聚酰亚胺 
-</li>
-<li>PIH: Plug-In Hole 通孔插装 
-</li>
-<li>PTF: Plastic Leaded Chip Carrier 塑料有引脚片式载体 
-</li>
-<li>PTF: Polymer Thick Film 聚合物厚膜 
-</li>
-<li>PWB: Printed Wiring Board 印刷电路板 
-</li>
-<li>PQFP: Plastic QFP 塑料QFP 
-</li>
-<li>QFJ: Quad Flat J-leaded Package 四边J形引脚扁平封装 
-</li>
-<li>QFP: Quad Flat Package 四边引脚扁平封装 
-</li>
-<li>QIP: Quad In-Line Package 四列直插式封装 
-</li>
-<li>RAM: Random Access Memory 随机存取存贮器 
-</li>
-<li>SBB: Stud-Bump Bonding 钉头凸点焊接 
-</li>
-<li>SBC: Solder-Ball Connection 焊球连接 
-</li>
-<li>SCIM: Single Chip Integrated Module 单芯片集成模块 
-</li>
-<li>SCM: Single Chip Module 单芯片组件 
-</li>
-<li>SLIM: Single Level Integrated Module 单级集成模块 
-</li>
-<li>SDIP: Shrinkage Dual Inline Package 窄节距双列直插式封装 
-</li>
-<li>SEM: Sweep Electron Microscope 电子扫描显微镜 
-</li>
-<li>SIP: Single In-Line Package 单列直插式封装 
-</li>
-<li>SIP: System In a Package 系统级封装 
-</li>
-<li>SMC: Surface Mount Component 表面安装元件 
-</li>
-<li>SMD: Surface Mount Device 表面安装器件 
-</li>
-<li>SMP: Surface Mount Package 表面安装封装 
-</li>
-<li>SMT: Surface Mount Technology 表面安装技术 
-</li>
-<li>SOC: System On Chip 系统级芯片 
-</li>
-<li>SOIC: Small Outline Integrated Circuit 小外形封装集成电路 
-</li>
-<li>SOJ: Small Outline J-Lead Package 小外形J形引脚封装 
-</li>
-<li>SOP: Small Outline Package 小外形封装 
-</li>
-<li>SOP: System On a Package 系统级封装 
-</li>
-<li>SOT: Small Outline Transistor 小外形晶体管 
-</li>
-<li>SSI: Small Scale Integration 小规模集成电路 
-</li>
-<li>SSIP: Small Outline Single-Line Plug Package 小外形单列直插式封装 
-</li>
-<li>SSOP: Shrink Small Outline Package 窄节距小外形封装 
-</li>
-<li>SPLCC: Shrinkage Plasitc Leadless Chip Carrier 窄节距塑料无引脚片式载体 
-</li>
-<li>STRAM: Selftimed Random Access Memory 自定时随机存取存贮器 
-</li>
-<li>SVP: Surface Vertical Package 立式表面安装型封装 
-</li>
-<li>TAB: Tape Automated Bonding 载带自动焊 
-</li>
-<li>TBGA: Tape BGA 载带BGA 
-</li>
-<li>TCM: Thermal Conduction Module 热导组件 
-</li>
-<li>TCP: Tape Carrier Package 带式载体封装 
-</li>
-<li>THT: Through-Hole Technology 通孔安装技术 
-</li>
-<li>TO: Transistor Outline 晶体管外壳 
-</li>
-<li>TPQFP: Thin Plastic QFP 薄形塑料QFP 
-</li>
-<li>TQFP: Tape QFP 载带QFP 
-</li>
-<li>TSOP: Thin SOP 薄形SOP 
-</li>
-<li>TTL: Transistor-Transistor Logic 晶体管-晶体管逻辑 
-</li>
-<li>UBM: Metalization Under Bump 凸点下金属化 
-</li>
-<li>UFPD: Ultra Small Pitch Device 超窄节距器件 
-</li>
-<li>USOP: Ultra SOP 超小SOP 
-</li>
-<li>USONF: Ultra Small Outline Package Non Fin 无散热片的超小外形封装 
-</li>
-<li>UV: Ultraviolet 紫外光 
-</li>
-<li>VHSIC: Very High Speed Integrated Circuit 超高速集成电路 
-</li>
-<li>VLSI: Very Large Scale Integrated Circuit 超大规模集成电路 
-</li>
-<li>WB: Wire Bonding 引线健合 
-</li>
-<li>WLP: Wafer Level Package 圆片级封装 
-</li>
-<li>WSI: Wafer Scale Integration 圆片级规模集成
-</li>
-<li>AQL: Acceptance Quality Level,接受质量标准，在一定采样下，可以95%置信度通过质量标准（不同于可靠性，可靠性要求一定时间后的失效率） 
-</li>
-<li>ARC: Antireflective coating,抗反射层（用于METAL等层的光刻） 
-</li>
+<ul class="org-ul">
+<li>IMU：inertial measurement units，惯性测量单元，常包含加速度和陀螺仪传感器；</li>
+<li>SVM: Support Vector Machine, 支持向量机；</li>
+<li>ANN: artificial neural network，人工神经网络；</li>
+<li>PAC: probably approximately correct, 概率近似正确；</li>
+<li>AI: artificial intelligence，人工智能；</li>
+<li>RSS: residual sum of squares, 残差，也就是平方差和；</li>
+<li>SSE：sum of squared errors ，平方差和；</li>
+<li>MSE：mean squared error，均方差；</li>
+<li>MLE: maximum likelihood estimation，最大似然估计；</li>
+<li>NLL：negative log likelihood，负对数似然, 也就是MLE取负；</li>
+<li>OLS：ordinary least squares，普通最小二乘法；</li>
+<li>CMOS：complementary metal oxide semiconductor的缩写。一种将PMOS和NMOS在同一个硅衬底上混合制造的工艺。</li>
+<li>CD： （Critical Dimension）临界（关键）尺寸。在工艺上通常指条宽，例如POLY CD 为多晶条宽。</li>
+<li>CIM：computer-integrated manufacturing的缩写。用计算机控制和监控制造工艺的一种综合方式。</li>
+<li>Cp：工艺能力，详见process capability。</li>
+<li>Cpk：工艺能力指数，详见process capability index。</li>
+<li>EM：electromigration，电子迁移，指由通过铝条的电流导致电子沿铝条连线进行的自扩散过程。</li>
+<li>ACA: Anisotropic Conductive Adhesive 各向异性导电胶</li>
+<li>ACAF: Anisotropic Conductive Adhesive Film各项异性导电胶膜</li>
+<li>Al: Aluminium 铝</li>
+<li>ALIVH: All Inner Via Hole 完全内部通孔</li>
+<li>AOI: Automatic Optial Inspection 自动光学检查</li>
+<li>ASIC: Application Specific Integrated Circuit 专用集成电路</li>
+<li>ATE: Automatic Test Equipment 自动监测设备</li>
+<li>AU: Gold 金</li>
+<li>BCB: Benzocyclohutene,Benzo Cyclo Butene 苯丙环丁烯</li>
+<li>BEO: Beryllium Oxide 氧化铍</li>
+<li>BIST: Built-In Self-Test(Function) 内建自测试(功能)</li>
+<li>BIT: Bipolar Transistor 双极晶体管</li>
+<li>BTAB: Bumped Tape Automated Bonding 凸点载带自动焊</li>
+<li>BGA: Ball Grid Array 焊球阵列</li>
+<li>BQFP: Quad Flat Package With Bumper 带缓冲垫的四边引脚扁平封装</li>
+<li>C4: Controlled Collapsed Chip Connection 可控塌陷芯片连接</li>
+<li>CAD: Computer Aided Design 计算机辅助设计</li>
+<li>CBGA: Ceramic Ball Grid Array 陶瓷焊球阵列</li>
+<li>CCGA: Ceramic Column Grid Array 陶瓷焊柱阵列</li>
+<li>CLCC: Ceramic Leaded Chip Carrier 带引脚的陶瓷片式载体</li>
+<li>CML: Current Mode Logic 电流开关逻辑</li>
+<li>CMOS: Complementary Metal-Oxide-Semiconductor 互补金属氧化物半导体</li>
+<li>COB: Chip on Board 板上芯片</li>
+<li>COC: Chip on Chip 叠层芯片</li>
+<li>COG: Chip on Glass 玻璃板上芯片</li>
+<li>CSP: Chip Size Package 芯片尺寸封装</li>
+<li>CTE: Coefficient of Thermal Expansion 热膨胀系数</li>
+<li>CVD: Chemical Vapor Depositon 化学汽相淀积</li>
+<li>DCA: Direct Chip Attach 芯片直接安装</li>
+<li>DFP: Dual Flat Package 双侧引脚扁平封装</li>
+<li>DIP: Double In-Line Package 双列直插式封装</li>
+<li>DMS: Direct Metallization System 直接金属化系统</li>
+<li>DRAM: Dynamic Random Access Memory 动态随机存取存贮器</li>
+<li>DSO: Dual Small Outline 双侧引脚小外形封装</li>
+<li>DTCP: Dual Tape Carrier Package 双载带封装</li>
+<li>3D: Three-Dimensional 三维</li>
+<li>2D: Two-Dimensional 二维</li>
+<li>EB: Electron Beam 电子束</li>
+<li>ECL: Emitter-Coupled Logic 射极耦合逻辑</li>
+<li>FC: Flip Chip 倒装片法</li>
+<li>FCB: Flip Chip Bonding 倒装焊</li>
+<li>FCOB: Flip Chip on Board 板上倒装片</li>
+<li>FEM: Finite Element Method 有限元法</li>
+<li>FP: Flat Package 扁平封装</li>
+<li>FPBGA: Fine Pitch Ball Grid Array 窄节距BGA</li>
+<li>FPD: Fine Pitch Device 窄节距器件</li>
+<li>FPPQFP: Fine Pitch Plastic QFP 窄节距塑料QFP</li>
+<li>GQFP: Guard-Ring Quad Flat Package 带保护环的QFP</li>
+<li>HDI: High Density Interconnect 高密度互连</li>
+<li>HDMI: High Density Multilayer Interconnect 高密度多层互连</li>
+<li>HIC: Hybird Integrated Circuit 混合集成电路</li>
+<li>HTCC: High Temperature Co-Fired Ceramic 高温共烧陶瓷</li>
+<li>HTS: High Temperature Storage 高温贮存</li>
+<li>IC: Integrated Circuit 集成电路</li>
+<li>IGBT: Insulated Gate Bipolar Transistor 绝缘栅双极晶体管</li>
+<li>ILB: Inner-Lead Bond 内引脚焊接</li>
+<li>I/O: Input/Output 输入/输出</li>
+<li>IVH: Inner Via Hole 内部通孔</li>
+<li>JLCC: J-Leaded Chip Carrier J形引脚片式载体</li>
+<li>KGD: Known Good Die 优质芯片</li>
+<li>LCC: Leadless Chip Carrier 无引脚片式载体</li>
+<li>LCCC: Leadless Ceramic Chip Carrier 无引脚陶瓷片式载体</li>
+<li>LCCP: Lead Chip Carrier Package 有引脚片式载体封装</li>
+<li>LCD: Liquid Crystal Display 液晶显示器</li>
+<li>LCVD: Laser Chemical Vapor Deposition 激光化学汽相淀积</li>
+<li>LDI: Laser Direct Imaging 激光直接成像</li>
+<li>LGA: Land Grid Array 焊区阵列</li>
+<li>LSI: Large Scale Integrated Circuit 大规模集成电路</li>
+<li>LOC: Lead Over Chip 芯片上引线健合</li>
+<li>LQFP: Low Profile QFP 薄形QFP</li>
+<li>LTCC: Low Temperature Co-Fired Ceramic 低温共烧陶瓷</li>
+<li>MBGA: Metal BGA 金属基板BGA</li>
+<li>MCA: Multiple Channel Access 多通道存取</li>
+<li>MCM: Multichip Module 多芯片组件</li>
+<li>MCM-C: MCM with Ceramic Substrate 陶瓷基板多芯片组件</li>
+<li>MCM-D: MCM with Deposited Thin Film Inteconnect Substrate 淀积薄膜互连基板多芯片组件</li>
+<li>MCM-L: MCM with Laminated Substrate 叠层基板多芯片组件</li>
+<li>MCP: Multichip Package 多芯片封装</li>
+<li>MELF: Metal Electrode Face Bonding 金属电极表面健合</li>
+<li>MEMS: Microelectro Mechanical System 微电子机械系统</li>
+<li>MFP: Mini Flat Package 微型扁平封装</li>
+<li>MLC: Multi-Layer Ceramic Package 多层陶瓷封装</li>
+<li>MMIC: Monolithic Microwave Integrated Circuit 微波单片集成电路</li>
+<li>MOSFET: Metal-Oxide-Silicon Field-Effect Transistor 金属氧化物半导体场效应晶体管</li>
+<li>MPU: Microprocessor Unit 微处理器</li>
+<li>MQUAD: Metal Quad 金属四列引脚</li>
+<li>MSI: Medium Scale Integration 中规模集成电路</li>
+<li>OLB: Outer Lead Bonding 外引脚焊接</li>
+<li>PBGA: Plastic BGA 塑封BGA</li>
+<li>PC: Personal Computer 个人计算机</li>
+<li>PFP: Plastic Flat Package 塑料扁平封装</li>
+<li>PGA: Pin Grid Array 针栅阵列</li>
+<li>PI: Polymide 聚酰亚胺</li>
+<li>PIH: Plug-In Hole 通孔插装</li>
+<li>PTF: Plastic Leaded Chip Carrier 塑料有引脚片式载体</li>
+<li>PTF: Polymer Thick Film 聚合物厚膜</li>
+<li>PWB: Printed Wiring Board 印刷电路板</li>
+<li>PQFP: Plastic QFP 塑料QFP</li>
+<li>QFJ: Quad Flat J-leaded Package 四边J形引脚扁平封装</li>
+<li>QFP: Quad Flat Package 四边引脚扁平封装</li>
+<li>QIP: Quad In-Line Package 四列直插式封装</li>
+<li>RAM: Random Access Memory 随机存取存贮器</li>
+<li>SBB: Stud-Bump Bonding 钉头凸点焊接</li>
+<li>SBC: Solder-Ball Connection 焊球连接</li>
+<li>SCIM: Single Chip Integrated Module 单芯片集成模块</li>
+<li>SCM: Single Chip Module 单芯片组件</li>
+<li>SLIM: Single Level Integrated Module 单级集成模块</li>
+<li>SDIP: Shrinkage Dual Inline Package 窄节距双列直插式封装</li>
+<li>SEM: Sweep Electron Microscope 电子扫描显微镜</li>
+<li>SIP: Single In-Line Package 单列直插式封装</li>
+<li>SIP: System In a Package 系统级封装</li>
+<li>SMC: Surface Mount Component 表面安装元件</li>
+<li>SMD: Surface Mount Device 表面安装器件</li>
+<li>SMP: Surface Mount Package 表面安装封装</li>
+<li>SMT: Surface Mount Technology 表面安装技术</li>
+<li>SOC: System On Chip 系统级芯片</li>
+<li>SOIC: Small Outline Integrated Circuit 小外形封装集成电路</li>
+<li>SOJ: Small Outline J-Lead Package 小外形J形引脚封装</li>
+<li>SOP: Small Outline Package 小外形封装</li>
+<li>SOP: System On a Package 系统级封装</li>
+<li>SOT: Small Outline Transistor 小外形晶体管</li>
+<li>SSI: Small Scale Integration 小规模集成电路</li>
+<li>SSIP: Small Outline Single-Line Plug Package 小外形单列直插式封装</li>
+<li>SSOP: Shrink Small Outline Package 窄节距小外形封装</li>
+<li>SPLCC: Shrinkage Plasitc Leadless Chip Carrier 窄节距塑料无引脚片式载体</li>
+<li>STRAM: Selftimed Random Access Memory 自定时随机存取存贮器</li>
+<li>SVP: Surface Vertical Package 立式表面安装型封装</li>
+<li>TAB: Tape Automated Bonding 载带自动焊</li>
+<li>TBGA: Tape BGA 载带BGA</li>
+<li>TCM: Thermal Conduction Module 热导组件</li>
+<li>TCP: Tape Carrier Package 带式载体封装</li>
+<li>THT: Through-Hole Technology 通孔安装技术</li>
+<li>TO: Transistor Outline 晶体管外壳</li>
+<li>TPQFP: Thin Plastic QFP 薄形塑料QFP</li>
+<li>TQFP: Tape QFP 载带QFP</li>
+<li>TSOP: Thin SOP 薄形SOP</li>
+<li>TTL: Transistor-Transistor Logic 晶体管-晶体管逻辑</li>
+<li>UBM: Metalization Under Bump 凸点下金属化</li>
+<li>UFPD: Ultra Small Pitch Device 超窄节距器件</li>
+<li>USOP: Ultra SOP 超小SOP</li>
+<li>USONF: Ultra Small Outline Package Non Fin 无散热片的超小外形封装</li>
+<li>UV: Ultraviolet 紫外光</li>
+<li>VHSIC: Very High Speed Integrated Circuit 超高速集成电路</li>
+<li>VLSI: Very Large Scale Integrated Circuit 超大规模集成电路</li>
+<li>WB: Wire Bonding 引线健合</li>
+<li>WLP: Wafer Level Package 圆片级封装</li>
+<li>WSI: Wafer Scale Integration 圆片级规模集成</li>
+<li>AQL: Acceptance Quality Level,接受质量标准，在一定采样下，可以95%置信度通过质量标准（不同于可靠性，可靠性要求一定时间后的失效率）</li>
+<li>ARC: Antireflective coating,抗反射层（用于METAL等层的光刻）</li>
 </ul>
-
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="date">Date: 2017-05-26 22:21:08 中国标准时间</p>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 20:03</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -685,7 +685,6 @@ $$
 - 0!=1; 
 ** 期望方差
 *** 期望
-# <<probability-expectation>>
 数学期望包含了几个定理和性质。
 - 设Y是随机变量X的函数：\(Y=g(X)\) , g是连续函数，则有
   1. 如果X是离散型随机变量，它的分布律\(P{X=x_{k}}=p_{k}, k=1, 2, ...,\)若\(\sum_{k=1}^{\infty}g(x_{k})p_{k}\)绝对收敛，
@@ -866,7 +865,7 @@ $$ Var(m)=Var(\frac{\sum_{t}x^{t}}{N})=\frac{\sum_{t}Var(x^{t})}{N^{2}}=\frac{N\
 也就是说当我们采样越多(N越大)，m偏离\(\mu\)越小。同时也进一步说了m是\(\mu\)的无偏估计量。那么对于“方差”呢？
 \(s^{2}\)是\(\sigma^{2}\)的最大似然估计量 
 $$ s^{2}=\frac{\sum_{t}(x^{t}-m)^{2}}{N}=\frac{\sum_{t}(x^{t})^{2}-Nm^{2}}{N}$$ 这样有如下式子，这里用到了独立随机变量的
-几个[[probability-expectation][性质]]。
+几个性质。
 $$ E[s^{2}]=\frac{\sum_{t}E[(x^{t})^{2}]-N*E[m^{2}]}{N}$$  
 考虑到\(Var(X)=E[X^{2}]-E[X]^{2}\), 就有\(E[X^{2}]=Var(X)+E[X]^{2}\)可以得到\(E[(x^{t})^{2}]=\sigma^{2}+\mu^{2}\)和
 \(E[m^{2}]=\frac{\sigma^{2}}{N}+\mu^{2}\), 带入后就得
@@ -875,7 +874,7 @@ $$ E[s^{2}]=\frac{N(\sigma^{2}+\mu^{2})-N(\sigma^{2}/N + \mu^{2})}{N}=(\frac{N-1
 不明显了。这被称为 _渐进无偏估计量_ 。
 均方误差可以推导如下。
 $$ r(d,\theta)=E[(d-\theta)^{2}]=E[(d-E[d]+E[d]-\theta)^{2}]=E[(d-E[d])^{2}+(E[d]-\theta)^{2}+2(E[d]-\theta)(d-E[d])]$$ 
-考虑到[[probability-expectation][性质]],得
+考虑到性质,得
 $$ E[(d-E[d])^{2}]+E[(E[d]-\theta)^{2}]+2E[(E[d]-\theta)(d-E[d])]$$ 
 由于上面说了E[d]是无偏估计量，可以看做不与\(x^{t}\)相关的常数，\(\theta\)也可以看做同样的常数，所以得
 $$ E[(d-E[d])^{2}]+(E[d]-\theta)^{2}+2(E[d]-\theta)E[d-E[d]]$$ 
@@ -1003,7 +1002,6 @@ $$ P(d1|h+) * P(d2|h+) * P(d3|h+) * ..$$ 这个就是所谓的条件独立假设
 序列。常用的约定是heading-pitch-bank，这是一个标准方位，所以物体的方位，就
 是在标准方位上，让物体做heading、pitch、bank旋转，最后物体到达我们想要描述
 的方位，欧拉角以弧度为单位。 
-# <<olj-fs>>
 - heading-pitch-bank：首先让物体坐标系和惯性坐标系重合，一个方位被定义为1个
   heading角，1个pitch角，1个bank角，绕的轴不一定就是x，y，z。 
   1. heading：绕惯性坐标系的y轴的旋转量，从原点望向正端，逆时针为正；
@@ -1078,7 +1076,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
   其中\(\theta\)是两个四元数的夹角，也就是旋转轴的夹角。
   $$\theta = arccos(q_{a}.q_{b})$$ 
 **** 转换
-- 四元数转换欧拉角，沿用[[olj-fs][yaw-pitch-roll]]的方式；则有, 其中arctan是2型arctan。
+- 四元数转换欧拉角，沿用yaw-pitch-roll的方式；则有, 其中arctan是2型arctan。
   $$
   \begin{bmatrix}
   \varphi \\ \theta \\ \psi \\
@@ -1089,7 +1087,7 @@ $$p*q=(S_{p}+V_{p})*(S_{q}+V_{q})=S_{p}*S_{q}-V_{p}.V_{q}+V_{p}XV_{q}+S_{p}*V_{q
   arctan(\frac{2(wz+xy)}{1-2(y^{2}+z^{2})})\\
   \end{bmatrix}
   $$
-- 欧拉角转换四元数，沿用[[olj-fs][yaw-pitch-roll]]的方式；则有
+- 欧拉角转换四元数，沿用yaw-pitch-roll的方式；则有
   $$
   \begin{bmatrix}
   w\\x\\y\\z\\

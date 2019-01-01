@@ -1,18 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>算法 </title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="算法 "/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-09-01 17:46:37 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<!-- 2019-01-01 周二 18:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>算法</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,172 +227,153 @@
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        }
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
-<h1 class="title">算法 </h1>
-
-
+<h1 class="title">算法</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 常规算法</a>
+<li><a href="#org9cc0606">1. 常规算法</a>
 <ul>
-<li><a href="#sec-1-1">1.1 排序</a>
+<li><a href="#org757967d">1.1. 排序</a>
 <ul>
-<li><a href="#sec-1-1-1">1.1.1 快速排序</a></li>
+<li><a href="#orga6d7841">1.1.1. 快速排序</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">1.2 最优化</a>
+<li><a href="#org90bfad1">1.2. 最优化</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1 梯度下降法</a></li>
-<li><a href="#sec-1-2-2">1.2.2 共轭梯度法</a></li>
-<li><a href="#sec-1-2-3">1.2.3 拉格朗日乘子法</a></li>
-<li><a href="#sec-1-2-4">1.2.4 拉格朗日对偶</a>
+<li><a href="#org54afc64">1.2.1. 梯度下降法</a></li>
+<li><a href="#org94cec40">1.2.2. 共轭梯度法</a></li>
+<li><a href="#org3322770">1.2.3. 拉格朗日乘子法</a></li>
+<li><a href="#orga490841">1.2.4. 拉格朗日对偶</a>
 <ul>
-<li><a href="#sec-1-2-4-1">1.2.4.1 原始问题</a></li>
-<li><a href="#sec-1-2-4-2">1.2.4.2 广义拉格朗日函数</a></li>
-<li><a href="#sec-1-2-4-3">1.2.4.3 对偶问题</a></li>
-<li><a href="#sec-1-2-4-4">1.2.4.4 原始问题和对偶问题关系</a></li>
-<li><a href="#sec-1-2-4-5">1.2.4.5 KKT条件</a></li>
-</ul></li>
+<li><a href="#org53e7cb2">1.2.4.1. 原始问题</a></li>
+<li><a href="#orgd1b083b">1.2.4.2. 广义拉格朗日函数</a></li>
+<li><a href="#orgdc8bfff">1.2.4.3. 对偶问题</a></li>
+<li><a href="#org8ff9e32">1.2.4.4. 原始问题和对偶问题关系</a></li>
+<li><a href="#org6654a05">1.2.4.5. KKT条件</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 cordic算法</a>
-<ul>
-<li><a href="#sec-1-3-1">1.3.1 背景</a></li>
-<li><a href="#sec-1-3-2">1.3.2 从二分查找法说起</a></li>
-<li><a href="#sec-1-3-3">1.3.3 减少乘法运算</a></li>
-<li><a href="#sec-1-3-4">1.3.4 消除乘法运算</a></li>
-</ul></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 滤波算法</a>
+<li><a href="#org2469f5d">1.3. cordic算法</a>
 <ul>
-<li><a href="#sec-2-1">2.1 中值滤波</a></li>
-<li><a href="#sec-2-2">2.2 全期平滑滤波</a></li>
-<li><a href="#sec-2-3">2.3 移动平滑滤波</a></li>
-<li><a href="#sec-2-4">2.4 指数平滑滤波</a>
-<ul>
-<li><a href="#sec-2-4-1">2.4.1 指数平滑的公式</a></li>
-<li><a href="#sec-2-4-2">2.4.2 一次指数平滑</a></li>
-<li><a href="#sec-2-4-3">2.4.3 二次指数平滑</a></li>
-<li><a href="#sec-2-4-4">2.4.4 三次指数平滑</a></li>
-</ul></li>
+<li><a href="#org9c1ecea">1.3.1. 背景</a></li>
+<li><a href="#org18b8755">1.3.2. 从二分查找法说起</a></li>
+<li><a href="#org16cd3c4">1.3.3. 减少乘法运算</a></li>
+<li><a href="#orge9d538b">1.3.4. 消除乘法运算</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 图像处理</a>
-<ul>
-<li><a href="#sec-3-1">3.1 概念</a></li>
-<li><a href="#sec-3-2">3.2 其他</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4 机器学习</a>
+<li><a href="#org0157f5e">2. 滤波算法</a>
 <ul>
-<li><a href="#sec-4-1">4.1 基本概念</a></li>
-<li><a href="#sec-4-2">4.2 基本方法</a>
+<li><a href="#org72da9d5">2.1. 中值滤波</a></li>
+<li><a href="#org67fbdfa">2.2. 全期平滑滤波</a></li>
+<li><a href="#org78ebb3d">2.3. 移动平滑滤波</a></li>
+<li><a href="#org7663008">2.4. 指数平滑滤波</a>
 <ul>
-<li><a href="#sec-4-2-1">4.2.1 最小二乘法</a>
-<ul>
-<li><a href="#sec-4-2-1-1">4.2.1.1 解法一</a></li>
-<li><a href="#sec-4-2-1-2">4.2.1.2 解法二</a></li>
+<li><a href="#org4b46b51">2.4.1. 指数平滑的公式</a></li>
+<li><a href="#orgfa3c19e">2.4.2. 一次指数平滑</a></li>
+<li><a href="#orgd818bbb">2.4.3. 二次指数平滑</a></li>
+<li><a href="#org65cad3b">2.4.4. 三次指数平滑</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-2-2">4.2.2 核函数</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-3">4.3 k临近算法</a></li>
-<li><a href="#sec-4-4">4.4 决策树</a>
+<li><a href="#orgf5815fd">3. 图像处理</a>
+<ul>
+<li><a href="#orga38adf6">3.1. 概念</a></li>
+<li><a href="#org9673acc">3.2. 其他</a></li>
+</ul>
+</li>
+<li><a href="#org981a792">4. 机器学习</a>
+<ul>
+<li><a href="#org0ca2845">4.1. 基本概念</a></li>
+<li><a href="#org864ef00">4.2. 基本方法</a>
+<ul>
+<li><a href="#org250c96f">4.2.1. 最小二乘法</a>
+<ul>
+<li><a href="#org4e5d4db">4.2.1.1. 解法一</a></li>
+<li><a href="#org607d6d0">4.2.1.2. 解法二</a></li>
+</ul>
+</li>
+<li><a href="#orgad75073">4.2.2. 核函数</a></li>
+</ul>
+</li>
+<li><a href="#orgf3b34fb">4.3. k临近算法</a></li>
+<li><a href="#org81e4327">4.4. 决策树</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-4-4-1">4.4.1 信息熵</a></li>
-<li><a href="#sec-4-4-2">4.4.2 算法逻辑</a></li>
-<li><a href="#sec-4-4-3">4.4.3 算法实例</a>
+<li><a href="#org18cfcb6">4.4.0.1. 信息熵</a></li>
+<li><a href="#org8fc29bf">4.4.0.2. 算法逻辑</a></li>
+<li><a href="#orgadfb162">4.4.0.3. 算法实例</a>
 <ul>
-<li><a href="#sec-4-4-3-1">4.4.3.1 计算香农熵</a></li>
-<li><a href="#sec-4-4-3-2">4.4.3.2 划分数据集</a></li>
-<li><a href="#sec-4-4-3-3">4.4.3.3 选择最好的划分</a></li>
-<li><a href="#sec-4-4-3-4">4.4.3.4 构造决策树</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#org559ae53">4.4.0.3.1. 计算香农熵</a></li>
+<li><a href="#org5a5c742">4.4.0.3.2. 划分数据集</a></li>
+<li><a href="#orgd8df6ea">4.4.0.3.3. 选择最好的划分</a></li>
+<li><a href="#org10ed7d0">4.4.0.3.4. 构造决策树</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-5">4.5 贝叶斯分类</a></li>
-<li><a href="#sec-4-6">4.6 支持向量机</a></li>
-<li><a href="#sec-4-7">4.7 回归分析</a>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org964234e">4.5. 贝叶斯分类</a></li>
+<li><a href="#org385331a">4.6. 支持向量机</a></li>
+<li><a href="#orgdb6f562">4.7. 回归分析</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-4-7-1">4.7.1 线性回归</a></li>
-<li><a href="#sec-4-7-2">4.7.2 岭回归</a></li>
-<li><a href="#sec-4-7-3">4.7.3 逻辑回归</a></li>
-</ul></li>
+<li><a href="#orga149426">4.7.0.1. 线性回归</a></li>
+<li><a href="#org1d86e62">4.7.0.2. 岭回归</a></li>
+<li><a href="#orgb2d7825">4.7.0.3. 逻辑回归</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-8">4.8 神经网络</a>
-<ul>
-<li><a href="#sec-4-8-1">4.8.1 概念</a></li>
-<li><a href="#sec-4-8-2">4.8.2 感知机</a></li>
-</ul></li>
 </ul>
 </li>
-<li><a href="#sec-5">5 算法实现</a>
+<li><a href="#org34245bd">4.8. 神经网络</a>
 <ul>
-<li><a href="#sec-5-1">5.1 基于加速度数据计算速度算法</a>
+<li><a href="#orgfc033f7">4.8.1. 概念</a></li>
+<li><a href="#orgc30dcbd">4.8.2. 感知机</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org24fae07">5. 算法实现</a>
 <ul>
-<li><a href="#sec-5-1-1">5.1.1 数据源</a></li>
-<li><a href="#sec-5-1-2">5.1.2 速度算法原理</a></li>
-<li><a href="#sec-5-1-3">5.1.3 距离算法原理</a></li>
-<li><a href="#sec-5-1-4">5.1.4 着地时间算法原理</a></li>
-<li><a href="#sec-5-1-5">5.1.5 冲刺次数算法原理</a></li>
+<li><a href="#org6751b5c">5.1. 基于加速度数据计算速度算法</a>
+<ul>
+<li><a href="#org898974e">5.1.1. 数据源</a></li>
+<li><a href="#org8a872b8">5.1.2. 速度算法原理</a></li>
+<li><a href="#org8a8a2f3">5.1.3. 距离算法原理</a></li>
+<li><a href="#org5b69ae8">5.1.4. 着地时间算法原理</a></li>
+<li><a href="#org7acf3e0">5.1.5. 冲刺次数算法原理</a></li>
 </ul>
 </li>
 </ul>
@@ -208,87 +382,71 @@
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 常规算法</h2>
+<div id="outline-container-org9cc0606" class="outline-2">
+<h2 id="org9cc0606"><span class="section-number-2">1</span> 常规算法</h2>
 <div class="outline-text-2" id="text-1">
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 排序</h3>
+<div id="outline-container-org757967d" class="outline-3">
+<h3 id="org757967d"><span class="section-number-3">1.1</span> 排序</h3>
 <div class="outline-text-3" id="text-1-1">
-
-
 </div>
-
-<div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 快速排序</h4>
+<div id="outline-container-orga6d7841" class="outline-4">
+<h4 id="orga6d7841"><span class="section-number-4">1.1.1</span> 快速排序</h4>
 <div class="outline-text-4" id="text-1-1-1">
-
-<p>快速排序是冒泡排序的改进版，其思想是选定待排序数据中的一个值作为比较轴，然
+<p>
+快速排序是冒泡排序的改进版，其思想是选定待排序数据中的一个值作为比较轴，然
 后将待排序数据与该值比较，将他们分配到轴两端，其中左边的比轴小，右边的比轴
 大，循环的在左右两边的数据做快速排序操作，直到最后排序完毕。
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 最优化</h3>
+</div>
+<div id="outline-container-org90bfad1" class="outline-3">
+<h3 id="org90bfad1"><span class="section-number-3">1.2</span> 最优化</h3>
 <div class="outline-text-3" id="text-1-2">
-
-<p>许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x),
+<p>
+许多实际问题利用数学建模的方法得到下面常规的优化形式：\(min f(x),
 x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。关于f(x) 
-</p><ol>
-<li>当\(x=(x)\)时，f(x)是一条曲线；
-</li>
-<li>当\(x=(x_{1}, x_{2})\)时，\(f(x_{1}, x_{2})\)是一个曲面；
-</li>
-<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度； 
-</li>
+</p>
+<ol class="org-ol">
+<li>当\(x=(x)\)时，f(x)是一条曲线；</li>
+<li>当\(x=(x_{1}, x_{2})\)时，\(f(x_{1}, x_{2})\)是一个曲面；</li>
+<li>当\(x=(x_{1}, x_{2}, x_{3})\)时，\(f(x_{1}, x_{2}, x_{3})\)是一个体密度；</li>
 <li>当\(x=(x_{1}, x_{i}..., x_{n})\)时，\(f(x_{1}, x_{2}..., x_{n})\)是一个
-   超曲面； 
-</li>
+超曲面；</li>
 </ol>
-
-<p>所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，
+<p>
+所以，(超)曲面，就有对多极值，并且有一个全局最大值和全局最小值。有些算法，
 只能在自己的小范围内搜索极大值和极小值，称为局部优化算法，也叫经典优化算法；
 有些算法，可以搜索整个(超)曲面取值范围内搜索最大值或最小值，称为全局性优化
 算法，也叫现代优化算法。最优化问题，一般分几种。
-</p><ul>
+</p>
+<ul class="org-ul">
 <li>无约束优化问题：就是在没有任何约束条件的情况下，求函数的最优解。通常表示
-  为\(min(f(x))\); 
-</li>
+为\(min(f(x))\);</li>
 <li>等式约束优化问题: 通常给出若干个用等式表示的约束条件，然后在这些条件下，
-  求函数的最优解,通常条件表示为\(h_{i}(x)=0, i=1, ..., n\); 
-</li>
+求函数的最优解,通常条件表示为\(h_{i}(x)=0, i=1, ..., n\);</li>
 <li>不等式约束优化问题: 通常给出的约束条件有等式约束条件也有不等式约束条件，
-  不等式约束条件表示为\(g_{j}(x)&lt;=0, j=1, ..., n\); 
-</li>
+不等式约束条件表示为\(g_{j}(x)<=0, j=1, ..., n\);</li>
 </ul>
-
-
 </div>
-
-<div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 梯度下降法</h4>
+<div id="outline-container-org54afc64" class="outline-4">
+<h4 id="org54afc64"><span class="section-number-4">1.2.1</span> 梯度下降法</h4>
 <div class="outline-text-4" id="text-1-2-1">
-
-<p>梯度下降法属于无约束优化问题。
+<p>
+梯度下降法属于无约束优化问题。
 </p>
 
-
-<div id="img-optimize-example1" class="figure">
-<p><img src="file://e:/OneDrive/learning/img/optimize1.png"  alt="file://e:/OneDrive/learning/img/optimize1.png" /></p>
-<p>梯度下降法图例1</p>
+<div class="figure">
+<p><img src="img/optimize1.png" alt="optimize1.png" />
+</p>
 </div>
 
 <p>
-见图<a href="#img-optimize-example1">img-optimize-example1</a>所示，局部极小值C点x0, 梯度，即导数，但是有
+见图\ref{img-optimize-example1}所示，局部极小值C点x0, 梯度，即导数，但是有
 方向，是一个矢量，曲线情况下，表达式如下  
-$$f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}$$
-如果，\(f^{'}(x) &gt; 0\)则x增加，y增加，相当于B点；如果\(f^{'}(x)&lt;0\)则x增加，
+\[f^{'}(x)=\frac{\mathrm{d}y}{\mathrm{d}x}\]
+如果，\(f^{'}(x) > 0\)则x增加，y增加，相当于B点；如果\(f^{'}(x)<0\)则x增加，
 y减小，相当于A点。要搜索极小值C点，在A点必须向x增加方向搜索，此时与A点梯度
 方向相反；在B点必须向x减小小方向搜索，此时与B点梯度方向相反。总之，搜索极小
 值，必须向负梯度方向搜索。
@@ -297,250 +455,225 @@ y减小，相当于A点。要搜索极小值C点，在A点必须向x增加方向
 知道该点的梯度等于0，故而其终止条件也就是梯度逼近于0，也就是当搜寻区间非常
 逼近极值点时，即当如下成立时，f(a)就是寻找到的f(x)的极值，该方法是一种局部
 搜寻法。
-$$\bigtriangledown{f(a)\rightarrow{0}}$$
-求解函数在限制域下的极值 $$\min{f(x)},f\in{C}$$ 
+\[\bigtriangledown{f(a)\rightarrow{0}}\]
+求解函数在限制域下的极值 \[\min{f(x)},f\in{C}\] 
 计算步骤如下, 拿y=f(x)来类比
-</p><ol>
-<li>首先设定搜寻的初值(x<sub>0</sub>, y<sub>0</sub>), 学习率&epsilon;;
-</li>
-<li>计算梯度y'=f'(x);
-</li>
-<li>计算旧值(x<sub>0</sub>, y<sub>0</sub>)处的梯度值(x<sub>0</sub><sup>'</sup>, y<sub>0</sub><sup>'</sup>);
-</li>
-<li>通过学习率计算新的x<sub>1</sub>, x<sub>1</sub>=x<sub>0</sub>+&epsilon;*x<sub>0</sub><sup>'</sup>;
-</li>
-<li>通过x<sub>1</sub>计算新的y<sub>1</sub>, 完成一次更新返回3计算该点的梯度；
-</li>
-<li>在(x, y)不断更新的过程中，需要有终止条件；
-</li>
+</p>
+<ol class="org-ol">
+<li>首先设定搜寻的初值(x<sub>0</sub>, y<sub>0</sub>), 学习率&epsilon;;</li>
+<li>计算梯度y'=f'(x);</li>
+<li>计算旧值(x<sub>0</sub>, y<sub>0</sub>)处的梯度值(x<sub>0</sub><sup>'</sup>, y<sub>0</sub><sup>'</sup>);</li>
+<li>通过学习率计算新的x<sub>1</sub>, x<sub>1</sub>=x<sub>0</sub>+&epsilon;*x<sub>0</sub><sup>'</sup>;</li>
+<li>通过x<sub>1</sub>计算新的y<sub>1</sub>, 完成一次更新返回3计算该点的梯度；</li>
+<li>在(x, y)不断更新的过程中，需要有终止条件；</li>
 </ol>
-
-<p>例1:函数\(y=\frac{x^{2}}{2}-2x\), 其图形见<a href="#img-optimize-example2">img-optimize-example2</a>, 计算
+<p>
+例1:函数\(y=\frac{x^{2}}{2}-2x\), 其图形见\ref{img-optimize-example2}, 计算
 过程如下，由于选用的2个参数值没有取好，会导致来回震荡，在极值点附近反复搜索。
-</p><ol>
-<li>先给定2个参数\(\epsilon=1.5, \eta=0.01\);
-</li>
-<li>计算导数\(\frac{\mathrm{d}y}{\mathrm{d}x} = x-2\);
-</li>
-<li>计算当前导数值y' = -6;
-</li>
-<li>修改当前参数\(x_{0}=-4-&gt;x_{1}=x_{0}-\epsilon*y'=-4-1.5*(-6)=5.0\)
-</li>
-<li>计算当前导数值y'=3.0;
-</li>
-<li>修改当前参数\(x_{1}=5.0-&gt;x_{2}=5.0-1.5*(3.0)=0.5\);
-</li>
-<li>计算当前导数值y'=-1.5;
-</li>
-<li>……
-</li>
+</p>
+<ol class="org-ol">
+<li>先给定2个参数\(\epsilon=1.5, \eta=0.01\);</li>
+<li>计算导数\(\frac{\mathrm{d}y}{\mathrm{d}x} = x-2\);</li>
+<li>计算当前导数值y' = -6;</li>
+<li>修改当前参数\(x_{0}=-4->x_{1}=x_{0}-\epsilon*y'=-4-1.5*(-6)=5.0\)</li>
+<li>计算当前导数值y'=3.0;</li>
+<li>修改当前参数\(x_{1}=5.0->x_{2}=5.0-1.5*(3.0)=0.5\);</li>
+<li>计算当前导数值y'=-1.5;</li>
+<li>……</li>
 </ol>
 
-
-
-
-<div id="img-optimize-example2" class="figure">
-<p><img src="file://e:/OneDrive/learning/img/optimize2.png"  alt="file://e:/OneDrive/learning/img/optimize2.png" /></p>
-<p>梯度下降图例2</p>
+<div class="figure">
+<p><img src="img/optimize2.png" alt="optimize2.png" />
+</p>
 </div>
 
 <p>
 例2：用梯度下降法求\(f(x_{1}, x_{2})=x_{1}^{2}+4x_{2}^{2}\)的极小值。
-</p><ol>
-<li>设初始点\(x^{(0)}=(1, 1)^{T}\);
-</li>
-<li>f梯度：\(\bigtriangledown{f(x_{1}, x_{2})}=(2x_{1}, 8x_{2})^{T}\);
-</li>
-<li>由初始点得此点梯度值：\(\bigtriangledown{f(x^{(0)})}=(2, 8)^{T}\);
-</li>
-<li>模：\(||\bigtriangledown{f(x^{(0)})}||=8.24621\);
-</li>
-<li>第3步得负梯度：\(d^{(0)}=(-2, -8)^{T}\);
-</li>
-<li>计算最佳步长：\(\min{f(x^{(0)}+s_{0}*d^{(0)})}=\min{(1-2s_{0})^{2}+4(1-8s_{0})^{2}}\);
-</li>
-<li>得\(s_{0}=\frac{68}{520}\);
-</li>
-<li>新点：\(x^{(1)}=(1, 1)^{T}-s_{0}(2, 8)^{T}=(0.738, -0.046)^{T}\), 返回3; 
-</li>
+</p>
+<ol class="org-ol">
+<li>设初始点\(x^{(0)}=(1, 1)^{T}\);</li>
+<li>f梯度：\(\bigtriangledown{f(x_{1}, x_{2})}=(2x_{1}, 8x_{2})^{T}\);</li>
+<li>由初始点得此点梯度值：\(\bigtriangledown{f(x^{(0)})}=(2, 8)^{T}\);</li>
+<li>模：\(||\bigtriangledown{f(x^{(0)})}||=8.24621\);</li>
+<li>第3步得负梯度：\(d^{(0)}=(-2, -8)^{T}\);</li>
+<li>计算最佳步长：\(\min{f(x^{(0)}+s_{0}*d^{(0)})}=\min{(1-2s_{0})^{2}+4(1-8s_{0})^{2}}\);</li>
+<li>得\(s_{0}=\frac{68}{520}\);</li>
+<li>新点：\(x^{(1)}=(1, 1)^{T}-s_{0}(2, 8)^{T}=(0.738, -0.046)^{T}\), 返回3;</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 共轭梯度法</h4>
+<div id="outline-container-org94cec40" class="outline-4">
+<h4 id="org94cec40"><span class="section-number-4">1.2.2</span> 共轭梯度法</h4>
 <div class="outline-text-4" id="text-1-2-2">
-
-<p>共轭梯度法也属于无约束优化问题。
+<p>
+共轭梯度法也属于无约束优化问题。
 对于多元二次方程
-$$f(x)=\frac{X^{T}AX}{2}+B^{T}X+C$$
+\[f(x)=\frac{X^{T}AX}{2}+B^{T}X+C\]
 求导得
-$$f'(x)=AX+B$$
-因为针对X为向量，$$X^{T}AX$$ 对X求导得$$2AX$$ , $$B^{T}X$$ 求导得B；
-</p></div>
-
+\[f'(x)=AX+B\]
+因为针对X为向量，\[X^{T}AX\] 对X求导得\[2AX\] , \[B^{T}X\] 求导得B；
+</p>
 </div>
-
-<div id="outline-container-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 拉格朗日乘子法</h4>
+</div>
+<div id="outline-container-org3322770" class="outline-4">
+<h4 id="org3322770"><span class="section-number-4">1.2.3</span> 拉格朗日乘子法</h4>
 <div class="outline-text-4" id="text-1-2-3">
-
-<p>一般无约束优化问题f(x)，只需要求f的各个偏导数，并令其等于0，就可以解出所需
+<p>
+一般无约束优化问题f(x)，只需要求f的各个偏导数，并令其等于0，就可以解出所需
 要的极值，但是如果参入了约束条件，则不能这样做。然而拉格朗日乘子法可以将约
 束条件融合进去使之成为一个类似无约束的优化问题，如此就可以比较方便的解决问
 题。欲求n元函数\(f(x_{1}, x_{2}, ..., x_{n})\)在如下m个约束条件(m&lt;n). 
 $$
+</p>
 \begin{cases}
 y_{1}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
 y_{2}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
 ...\\
 y_{m}{x_{1}, x_{2}, ..., x_{n}} &= 0\\
 \end{cases}
-$$ 
+<p>
+\[ 
 拉格朗日方法是以\(1, C_{1}, C_{2}, ..., C_{m}\)这些未知常数顺次乘以\(f,
 y_{1}, y_{2}...\)并把它们加起来，得到新的函数F，即
-$$F(x_{1},..., x_{n})=f(x_{1}, ..., x_{n})+C_{1}y_{1}(x_{1}...x_{n})+...$$
+\]F(x<sub>1</sub>,&#x2026;, x<sub>n</sub>)=f(x<sub>1</sub>, &#x2026;, x<sub>n</sub>)+C<sub>1</sub>y<sub>1</sub>(x<sub>1</sub>&#x2026;x<sub>n</sub>)+&#x2026;\[
 注意到约束条件的各个函数都是0，所以新函数F达到极值与原函数f达到极值时自变量
 的值是相同的。函数F既然是各个x的函数，它达到极值时必然是对各个自变量x的偏微
 分分别等于0.这样，求多个偏微分以后就得到n个新的方程。
-$$
+\]
+</p>
 \begin{cases}
 \frac{\partial{f}}{\partial{x_{1}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{1}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{1}}}=0\\
 ...\\
 \frac{\partial{f}}{\partial{x_{n}}}+C_{1}\frac{\partial{y_{1}}}{\partial{x_{n}}}+...C_{m}\frac{\partial{y_{m}}}{\partial{x_{n}}}=0\\
 \end{cases}
+<p>
 $$ 
 显然，这n个方程式已经巧妙的把约束条件融合到求解的要求中。上面n个方程再加上
 约束条件的m个方程式，就可以解出n+m个未知数，即n个x，m个C。这样就得到了这个
 函数达到极值时的各自变量x的值，可以看到约束条件不同，得到的各个x值也不同。 
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-1-2-4" class="outline-4">
-<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 拉格朗日对偶</h4>
+</div>
+<div id="outline-container-orga490841" class="outline-4">
+<h4 id="orga490841"><span class="section-number-4">1.2.4</span> 拉格朗日对偶</h4>
 <div class="outline-text-4" id="text-1-2-4">
-
-<p>某些条件下，把原始的约束问题通过拉格朗日函数转化为无约束问题，如果原始问题
+<p>
+某些条件下，把原始的约束问题通过拉格朗日函数转化为无约束问题，如果原始问题
 求解棘手，在满足KKT的条件下用求解对偶问题来代替求解原始问题，使得问题求解更
 加容易。 
 </p>
 </div>
-
-<div id="outline-container-1-2-4-1" class="outline-5">
-<h5 id="sec-1-2-4-1"><span class="section-number-5">1.2.4.1</span> 原始问题</h5>
+<div id="outline-container-org53e7cb2" class="outline-5">
+<h5 id="org53e7cb2"><span class="section-number-5">1.2.4.1</span> 原始问题</h5>
 <div class="outline-text-5" id="text-1-2-4-1">
-
-<p>假设\(f(x), c_{i}(x), h_{j}(x)\)是定义在\(R^{n}\)上的连续可微函数，要解决如
+<p>
+假设\(f(x), c_{i}(x), h_{j}(x)\)是定义在\(R^{n}\)上的连续可微函数，要解决如
 下的约束优化问题。
 $$
+</p>
 \begin{cases}
 \min\limits_{x\in{R^{n}}} f(x) \\
 s.t. & c_{i}(x)=0, i=1, ..., k\\
      & h_{j}(x)<=0, j=1, ..., l\\
 \end{cases}
-$$ 
+<p>
+\[ 
 如果不考虑约束条件，原始问题就是
-$$\min\limits_{x\in{R^{n}}}f(x)$$ 
+\]min\limits<sub>x&isin;{R<sup>n</sup>}</sub>f(x)$$ 
 因为假设其是连续可微，对f(x)求导，然后令导数为0，就可解出最优解。然而现在是
 有约束条件，考虑想办法把约束条件去掉就好了，拉格朗日函数正是用于解决此问题。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-1-2-4-2" class="outline-5">
-<h5 id="sec-1-2-4-2"><span class="section-number-5">1.2.4.2</span> 广义拉格朗日函数</h5>
+</div>
+<div id="outline-container-orgd1b083b" class="outline-5">
+<h5 id="orgd1b083b"><span class="section-number-5">1.2.4.2</span> 广义拉格朗日函数</h5>
 <div class="outline-text-5" id="text-1-2-4-2">
-
-<p>一般意义下的拉格朗日函数如下
-$$
+<p>
+一般意义下的拉格朗日函数如下
+\[
 L(x, \alpha, \beta)=f(x)+ \sum_{i=1}^{k}\alpha_{i}c_{i}(x)+\sum_{j=1}^{l}\beta_{j}h_{j}(x)
-$$ 
+\] 
 \(\alpha_{i},\beta_{j}\)也就是拉格朗日乘子，其中\(\alpha_{i}\geq 0). 
 现在，如果把\(L(x, \alpha, \beta)\)看作关于\(\alpha_{i}, \beta_{j}\)的函数，
 要求其最大值，即
-$$\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta) $$ 
+\[\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta) \] 
 再次注意\(L(x, \alpha, \beta)\)是一个关于\(\alpha_{i}, \beta_{j}\)的函数，
 假设求得\(L(x, \alpha, \beta)\)的最大值时的\(\alpha_{i}, \beta_{j}\)，即
 \(\alpha_{i}, \beta_{j}\) 此时已经是确定值，则此时的\(L(x, \alpha, \beta)\)
 就只是和\(x\)有关的函数，定义这个函数为
-$$\theta_{P}(x)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta) $$ 
+\[\theta_{P}(x)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta) \] 
 下面通过考虑\(x\)是否满足约束条件来分析\(\theta_{P}\)这个函数。
-如果某些\(x\)不满足约束条件，即\(c_{i}(x)&gt;0\)或\(h_{j}(x)\neq 0\), 则反过来
+如果某些\(x\)不满足约束条件，即\(c_{i}(x)>0\)或\(h_{j}(x)\neq 0\), 则反过来
 再考虑求\(\theta_{P}(x)\)最大值时的\(\alpha_{i}, \beta_{j}\) , 可以看出此时
-不存在了，因为只要\(c_{i}(x)&gt;0\)或\(h_{j}(x)\neq 0\)，L就不会存在一个确定的
+不存在了，因为只要\(c_{i}(x)>0\)或\(h_{j}(x)\neq 0\)，L就不会存在一个确定的
 \(\alpha_{i}, \beta_{j}\)使得L取最大值。也就是\(\theta_{P}(x)\)最大值是
 \(+\infty\);
 如果有\(x\)满足约束条件，则\(\theta_{P}(x)\)取最大值时
 \(\sum_{j=1}^{l}\beta_{j}h_{j}(x)=0\) , 且
 \(\sum_{i=1}^{k}\alpha_{i}c_{i}(x)=0\), 这样就有
-$$\theta_{P}(x)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=f(x)$$ 
+\[\theta_{P}(x)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=f(x)\] 
 f(x)可以视为一个常量，常量的最大值就是本身。则在满足约束条件下
-$$\min\limits_{x}\theta_{P}(x)=\min\limits_{x}\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=\min\limits_{x}f(x)$$ 
+\[\min\limits_{x}\theta_{P}(x)=\min\limits_{x}\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=\min\limits_{x}f(x)\] 
 即\(\min\limits_{x}\theta_{P}(x)\)与原始优化问题等价，所以常用此代表原始问
-题，定义原始问题的最优值是：$$p^{'}=\min\limits_{x}\theta_{P}(x)$$ 
-</p></div>
-
+题，定义原始问题的最优值是：\[p^{'}=\min\limits_{x}\theta_{P}(x)\] 
+</p>
 </div>
-
-<div id="outline-container-1-2-4-3" class="outline-5">
-<h5 id="sec-1-2-4-3"><span class="section-number-5">1.2.4.3</span> 对偶问题</h5>
+</div>
+<div id="outline-container-orgdc8bfff" class="outline-5">
+<h5 id="orgdc8bfff"><span class="section-number-5">1.2.4.3</span> 对偶问题</h5>
 <div class="outline-text-5" id="text-1-2-4-3">
-
-<p>定义关于\(\alpha, \beta\)的函数：
-$$\theta_{D}(\alpha, \beta)=\min\limits_{x}L(x, \alpha, \beta)$$ 
+<p>
+定义关于\(\alpha, \beta\)的函数：
+\[\theta_{D}(\alpha, \beta)=\min\limits_{x}L(x, \alpha, \beta)\] 
 此时等式右边是关于x的函数的最小化，x确定后，最小值就只跟\(\alpha, \beta\)有
 关，所以是关于\(\alpha, \beta\)的函数。
 考虑极大化\(\theta_{D}(\alpha, \beta)\), 即
-$$\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha,\beta)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\min\limits_{x}L(x, \alpha, \beta)$$ 
-这就是原始问题的对偶问题。定义对偶问题的最优值：$$d^{'}=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha, \beta)$$ 
-</p></div>
-
+\[\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha,\beta)=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\min\limits_{x}L(x, \alpha, \beta)\] 
+这就是原始问题的对偶问题。定义对偶问题的最优值：\[d^{'}=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha, \beta)\] 
+</p>
 </div>
-
-<div id="outline-container-1-2-4-4" class="outline-5">
-<h5 id="sec-1-2-4-4"><span class="section-number-5">1.2.4.4</span> 原始问题和对偶问题关系</h5>
+</div>
+<div id="outline-container-org8ff9e32" class="outline-5">
+<h5 id="org8ff9e32"><span class="section-number-5">1.2.4.4</span> 原始问题和对偶问题关系</h5>
 <div class="outline-text-5" id="text-1-2-4-4">
-
-<p>定理：若原始问题和对偶问题都有最优值，则$$d^{'}\leq p^{'}$$ 
+<p>
+定理：若原始问题和对偶问题都有最优值，则\[d^{'}\leq p^{'}\] 
 证明：对任意的\(\alpha, \beta, x\)有
-$$
+\[
 \theta_{D}(\alpha, \beta)=\min\limits_{x}L(x, \alpha, \beta)\leq L(x,
 \alpha, \beta) \leq \max\limits_{\alpha, \beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=\theta_{P}(x)
-$$ 
+\] 
 由于原始问题和对偶问题都有最优值，则
-$$\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha,
-\beta)\leq \min\limits_{x}\theta_{P}(x)$$ 
+\[\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\theta_{D}(\alpha,
+\beta)\leq \min\limits_{x}\theta_{P}(x)\] 
 即
-$$d^{'}=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\min\limits_{x}L(x,
+\[d^{'}=\max\limits_{\alpha, \beta:\alpha_{i}\geq 0}\min\limits_{x}L(x,
 \alpha, \beta) \leq \min\limits_{x}\max\limits_{\alpha,
-\beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=p^{'}$$ 
+\beta:\alpha_{i}\geq 0}L(x, \alpha, \beta)=p^{'}\] 
 也就是说原始问题的最优值不小于对偶问题的最优值，但是要通过对偶问题求解原始
 问题，就必须使得原始问题的最优值与对偶问题的最优值相等，于是可以得出下面的
-推论：<br/>
+推论：<br />
 设\(x^{'}\) 和\(\alpha^{'}, \beta^{'}\)分别是原始问题和对偶问题的解，若
 \(d^{'}=p^{'}\)，那么\(x^{'}\) 和\(\alpha^{'}分别是原始问题和对偶问题的最优
 解。所以当原始问题和对偶问题的最优值相等时，可以用求对偶问题来求原始问题，
 前提是对偶问题求解更容易。但是要使\(d^{'}=p^{'}\)，则必须满足KKT条件。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-1-2-4-5" class="outline-5">
-<h5 id="sec-1-2-4-5"><span class="section-number-5">1.2.4.5</span> KKT条件</h5>
+</div>
+<div id="outline-container-org6654a05" class="outline-5">
+<h5 id="org6654a05"><span class="section-number-5">1.2.4.5</span> KKT条件</h5>
 <div class="outline-text-5" id="text-1-2-4-5">
-
-<p>定理：对于原始问题和对偶问题，假设函数f(x)和c<sub>i</sub>(x)是凸函数，h<sub>i</sub>(x)是仿
+<p>
+定理：对于原始问题和对偶问题，假设函数f(x)和c<sub>i</sub>(x)是凸函数，h<sub>i</sub>(x)是仿
 射函数（由多项式构成的函数如h(x)=Ax+b, A是矩阵，x，b是向量）, 并且假设不等
 式约束c<sub>i</sub>(x)是严格可行的，即存在x，对所有i有c<sub>i</sub>(x)&lt;0, 则存在x<sup>'</sup>和
 &alpha;<sup>'</sup>, &beta;<sup>'</sup>使得x<sup>'</sup>是原始问题的最优解，&alpha;<sup>'</sup>, &beta;<sup>'</sup>是对
 偶问题的最优解，且
-$$d^{'}=p^{'}=L(x^{'}, \alpha^{'}, \beta^{'})$$ 
+\[d^{'}=p^{'}=L(x^{'}, \alpha^{'}, \beta^{'})\] 
 定理：按照上面的定理，x<sup>'</sup>是原始问题的最优解，&alpha;<sup>'</sup>, &beta;<sup>'</sup>是对偶
 问题的最优解的充要条件是x<sup>'</sup>和&alpha;<sup>'</sup>, &beta;<sup>'</sup>满足下面的KKT条件
 $$
+</p>
 \begin{cases}
 1, \bigtriangledown_{x}L(x^{'}, \alpha^{'}, \beta^{'} &= 0\\
 2, \bigtriangledown_{\alpha}L(x^{'}, \alpha^{'}, \beta^{'} &= 0\\
@@ -550,27 +683,24 @@ $$
 6, \alpha_{i}^{'} &\geq 0, i=1, 2, ..., k\\
 7, h_{j}(x^{'}) &=0, j=1, 2, ..., l\\
 \end{cases}
+<p>
 $$ 
 前面3个条件是解析函数的知识，对各个变量的偏导数为0，后面4个条件就是原始问题
 的约束条件以及拉格朗日乘子需要满足的约束条件。
-</p></div>
+</p>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> cordic算法</h3>
+</div>
+<div id="outline-container-org2469f5d" class="outline-3">
+<h3 id="org2469f5d"><span class="section-number-3">1.3</span> cordic算法</h3>
 <div class="outline-text-3" id="text-1-3">
-
-
 </div>
-
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 背景</h4>
+<div id="outline-container-org9c1ecea" class="outline-4">
+<h4 id="org9c1ecea"><span class="section-number-4">1.3.1</span> 背景</h4>
 <div class="outline-text-4" id="text-1-3-1">
-
-<p>三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计
+<p>
+三角函数的计算是个复杂的主题，有计算机之前，人们通常通过查找三角函数表来计
 算任意角度的三角函数的值。这种表格在人们刚刚产生三角函数的概念的时候就已经
 有了，它们通常是通过从已知值（比如sin(π/2)=1）开始并重复应用半角和和差公式
 而生成。现在有了计算机，三角函数表便推出了历史的舞台。但是像我这样的喜欢刨
@@ -589,101 +719,95 @@ cordic(coordinate rotation digital computer) 算法，这个算法只利用移�
 听说过这种算法，也更不会主动的去用这种算法。其实，在嵌入式软件开发，尤其是
 在没有浮点运算指令的嵌入式平台（比如定点型dsp）上做开发时，还是会遇上可以用
 到cordic 算法的情况的，所以掌握基本的cordic算法还是有用的。  
-</p></div>
-
-</div>
-
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 从二分查找法说起</h4>
-<div class="outline-text-4" id="text-1-3-2">
-
-<p>先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），
-如何求的在极坐标系下的坐标（ρ,θ）。用计算器计算一下可知答案是（223.61，
-63.435），见图<a href="#img-cordic1">img-cordic1</a>所示。 
 </p>
-<div id="img-cordic1" class="figure">
-<p><img src="./img/cordic1.jpg"  alt="./img/cordic1.jpg" /></p>
-<p>直角坐标系到极坐标系的转换</p>
 </div>
+</div>
+<div id="outline-container-org18b8755" class="outline-4">
+<h4 id="org18b8755"><span class="section-number-4">1.3.2</span> 从二分查找法说起</h4>
+<div class="outline-text-4" id="text-1-3-2">
 <p>
+先从一个例子说起，知道平面上一点在直角坐标系下的坐标（X,Y）=（100，200），
+如何求的在极坐标系下的坐标（ρ,θ）。用计算器计算一下可知答案是（223.61，
+63.435），见图\ref{img-cordic1}所示。 
+</p>
+<p>
+<img src="./img/cordic1.jpg" alt="cordic1.jpg" />
 为了突出重点，这里我们只讨论X和Y都为正数的情况。这时\(θ=atan(y/x)\)。求θ
 的过程也就是求atan 函数的过程。cordic算法采用的想法很直接，将（X，Y）旋转一
 定的度数，如果旋转完纵坐标变为了0，那么旋转的度数就是θ。坐标旋转的公式可能
 大家都忘了，这里把公式列出了。设（x,y）是原始坐标点，将其以原点为中心，顺时
 针旋转θ之后的坐标记为（x’,y’）,则有如下公式： 
 $$ f(x)=\left\{
+</p>
 \begin{aligned}
 x' & = & x\cos(\Theta) + ysin(\Theta) \\
 y' & = & -x\sin(\Theta) + ycos(\Theta) \\
 \end{aligned}
+<p>
 \right.
-$$
+\[
 也可以写成矩阵形式：
-$$ {x' \choose y'}={cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)}{x \choose y} $$
+\] {x' \choose y'}={cos(&Theta;) \quad sin(&Theta;) \choose -sin(&Theta;) \quad cos(&Theta;)}{x \choose y} \[
 如何旋转呢，可以借鉴二分查找法的思想。我们知道θ的范围是0到90度。那么就先旋
 转45度试试。 
-$$ {212.13 \choose 70.711} = {cos(45^{\circ}) \quad sin(45^{\circ}) \choose -sin(45^{\circ}) \quad cos(45^{\circ})}{100 \choose 200}$$ 
+\] {212.13 \choose 70.711} = {cos(45<sup>&circ;</sup>) \quad sin(45<sup>&circ;</sup>) \choose -sin(45<sup>&circ;</sup>) \quad cos(45<sup>&circ;</sup>)}{100 \choose 200}\[ 
 旋转之后纵坐标为70.71，还是大于0，说明旋转的度数不够，接着再旋转22.5度（45
 度的一半）。 
-$${223.04 \choose -15.85} = {cos(45^{\circ}/2) \quad sin(45^{\circ}/2) \choose -sin(45^{\circ}/2) \quad cos(45^{\circ}/2)} {212.13 \choose 70.711} $$ 
-这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ&lt;67.5度，这时就要
+\]{223.04 \choose -15.85} = {cos(45<sup>&circ;</sup>/2) \quad sin(45<sup>&circ;</sup>/2) \choose -sin(45<sup>&circ;</sup>/2) \quad cos(45<sup>&circ;</sup>/2)} {212.13 \choose 70.711} \[ 
+这时总共旋转了45+22.5=67.5度。结果纵坐标变为了负数，说明θ<67.5度，这时就要
 往回转，还是二分查找法的思想，这次转11.25度。 
-$${221.85 \choose 27.967} = {cos(-45^{\circ}/4) \quad sin(-45^{\circ}/4) \choose -sin(-45^{\circ}/4) \quad cos(-45^{\circ}/4)} {223.04 \choose -15.851} $$ 
+\]{221.85 \choose 27.967} = {cos(-45<sup>&circ;</sup>/4) \quad sin(-45<sup>&circ;</sup>/4) \choose -sin(-45<sup>&circ;</sup>/4) \quad cos(-45<sup>&circ;</sup>/4)} {223.04 \choose -15.851} \[ 
 这时总共旋转了45+22.5-11.25=56.25度。又转过头了，接着旋转，这次顺时针转
 5.625度。 
-$${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -sin(45^{\circ}/8) \quad cos(45^{\circ}/8)} {221.85 \choose 27.967} $$ 
+\]{223.52 \choose 6.0874} = {cos(45<sup>&circ;</sup>/8) \quad sin(45<sup>&circ;</sup>/8) \choose -sin(45<sup>&circ;</sup>/8) \quad cos(45<sup>&circ;</sup>/8)} {221.85 \choose 27.967} $$ 
 这时总共旋转了45+22.5-11.25+5.625=61.875度。这时纵坐标已经很接近0了。我们只
 是说明算法的思想，因此就不接着往下计算了。计算到这里我们给的答案是
 61.875±5.625。二分查找法本质上查找的是一个区间，因此我们给出的是θ值的一个
 范围。同时，坐标到原点的距离ρ也求出来了，ρ=223.52。与标准答案比较一下计算
-的结果还是可以的。旋转的过程图示如<a href="#img-trans">img-trans</a>。 
+的结果还是可以的。旋转的过程图示如\ref{img-trans}。 
 </p>
-<div id="img-trans" class="figure">
-<p><img src="./img/cordic2.jpg"  alt="./img/cordic2.jpg" /></p>
-<p>旋转过程图</p>
-</div>
 <p>
+<img src="./img/cordic2.jpg" alt="cordic2.jpg" />
 可能有读者会问，计算中用到了sin函数和cos函数，这些值又是怎么计算呢。很简单，
 我们只用到很少的几个特殊点的sin 函数和cos 函数的值，提前计算好存起来，用时
 查表。 
 </p>
-
-
-<pre class="example">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-        double my_atan2(double x, double y);
-        int main(void)
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;stdio.h&gt;</span>
+<span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;stdlib.h&gt;</span>
+        <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">my_atan2</span>(<span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">y</span>);
+        <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">main</span>(<span style="color: #ffff00; font-size: 105%;">void</span>)
         {
-            double z = my_atan2(100.0, 200.0);
-            printf("\n z = %f \n", z);
+            <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">z</span> = my_atan2(100.0, 200.0);
+            printf(<span style="color: #ffa07a;">"\n z = %f \n"</span>, z);
 
-            return 0;
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
         }
 
-        double my_atan2(double x, double y)
+        <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">my_atan2</span>(<span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">y</span>)
         {
-            const double sine[] =
+            <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">sine</span>[] =
         {0.7071067811865,0.3826834323651,0.1950903220161,0.09801714032956, 
         0.04906767432742,0.02454122852291,0.01227153828572,0.006135884649154,0.003067956762966 
         ,0.001533980186285,7.669903187427045e-4,3.834951875713956e-4,1.917475973107033e-4, 
         9.587379909597735e-5,4.793689960306688e-5,2.396844980841822e-5 
         };
 
-            const double cosine[] =
+            <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">cosine</span>[] =
         {0.7071067811865,0.9238795325113,0.9807852804032,0.9951847266722, 
         0.9987954562052,0.9996988186962,0.9999247018391,0.9999811752826,0.9999952938096, 
         0.9999988234517,0.9999997058629,0.9999999264657,0.9999999816164,0.9999999954041,
         0.999999998851,0.9999999997128
         };
 
-    int i = 0;
-    double x_new, y_new;
-    double angleSum = 0.0;
-    double angle = 45.0;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">i</span> = 0;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x_new</span>, <span style="color: #ffd700;">y_new</span>;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">angleSum</span> = 0.0;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">angle</span> = 45.0;
 
-    for(i = 0; i &lt; 15; i++)
+    <span style="color: #ffb6c1; font-size: 105%;">for</span>(i = 0; i &lt; 15; i++)
     {
-        if(y &gt; 0)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span>(y &gt; 0)
         {
             x_new = x * cosine[i] + y * sine[i];
             y_new = y * cosine[i] - x * sine[i];
@@ -691,7 +815,7 @@ $${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -
             y = y_new;
             angleSum += angle;
         }
-        else
+        <span style="color: #ffb6c1; font-size: 105%;">else</span>
         {
             x_new = x * cosine[i] - y * sine[i];
             y_new = y * cosine[i] + x * sine[i];
@@ -699,19 +823,18 @@ $${223.52 \choose 6.0874} = {cos(45^{\circ}/8) \quad sin(45^{\circ}/8) \choose -
             y = y_new;
             angleSum -= angle;
         }
-        printf("Debug: i = %d angleSum = %f, angle = %f\n", i, angleSum, angle);
+        printf(<span style="color: #ffa07a;">"Debug: i = %d angleSum = %f, angle = %f\n"</span>, i, angleSum, angle);
         angle /= 2;
     }
-    return angleSum;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> angleSum;
 }
 </pre>
-
+</div>
 <p>
 程序运行的输出结果如下：
 </p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 45.000000, angle = 45.000000
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7fffd4;">Debug</span>: i = 0 angleSum = 45.000000, angle = 45.000000
 Debug: i = 1 angleSum = 67.500000, angle = 22.500000
 Debug: i = 2 angleSum = 56.250000, angle = 11.250000
 Debug: i = 3 angleSum = 61.875000, angle = 5.625000
@@ -728,31 +851,28 @@ Debug: i = 13 angleSum = 63.429565, angle = 0.005493
 Debug: i = 14 angleSum = 63.432312, angle = 0.002747
 z = 63.432312
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-3" class="outline-4">
-<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> 减少乘法运算</h4>
+</div>
+<div id="outline-container-org16cd3c4" class="outline-4">
+<h4 id="org16cd3c4"><span class="section-number-4">1.3.3</span> 减少乘法运算</h4>
 <div class="outline-text-4" id="text-1-3-3">
-
-<p>现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法
+<p>
+现在已经有点cordic算法的样子了，但是我们看到没次循环都要计算4次浮点数的乘法
 运算，运算量还是太大了。还需要进一步的改进。改进的切入点当然还是坐标变换的
 过程。我们将坐标变换公式变一下形。 
-$${x' \choose y'} = {cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)} {x \choose y} = cos(\Theta){1
-\quad tan(\Theta) \choose -tan(\Theta) \quad 1}{x \choose y}$$ 
+\[{x' \choose y'} = {cos(\Theta) \quad sin(\Theta) \choose -sin(\Theta) \quad cos(\Theta)} {x \choose y} = cos(\Theta){1
+\quad tan(\Theta) \choose -tan(\Theta) \quad 1}{x \choose y}\] 
 可以看出 cos(θ)可以从矩阵运算中提出来。我们可以做的再彻底些，直接把
 cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋转后的新坐标点到原点的距
 离都变长了，放缩的系数是1/cos(θ)。不过没有关系，我们求的是θ，不关心ρ的改
 变。这样的变形非常的简单，但是每次循环的运算量一下就从4次乘法降到了2次乘法
 了。还是给出 C 语言的实现： 
 </p>
-
-
-<pre class="example">double my_atan3(double x, double y)
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">my_atan3</span>(<span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">y</span>)
 {
-    const double tangent[] =
+    <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">tangent</span>[] =
 {1.0,0.4142135623731,0.1989123673797,0.09849140335716,0.04912684976947, 
 0.02454862210893,0.01227246237957,0.006136000157623,0.003067971201423,
 0.001533981991089,7.669905443430926e-4,3.83495215771441e-4,1.917476008357089e-4,
@@ -760,14 +880,14 @@ cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋转后的�
                          };
 
 
-    int i = 0;
-    double x_new, y_new;
-    double angleSum = 0.0;
-    double angle = 45.0;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">i</span> = 0;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x_new</span>, <span style="color: #ffd700;">y_new</span>;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">angleSum</span> = 0.0;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">angle</span> = 45.0;
 
-    for(i = 0; i &lt; 15; i++)
+    <span style="color: #ffb6c1; font-size: 105%;">for</span>(i = 0; i &lt; 15; i++)
     {
-        if(y &gt; 0)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span>(y &gt; 0)
         {
             x_new = x + y * tangent[i];
             y_new = y - x * tangent[i];
@@ -775,7 +895,7 @@ cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋转后的�
             y = y_new;
             angleSum += angle;
         }
-        else
+        <span style="color: #ffb6c1; font-size: 105%;">else</span>
         {
             x_new = x - y * tangent[i];
             y_new = y + x * tangent[i];
@@ -783,45 +903,42 @@ cos(θ) 给省略掉。省略cos(θ)后发生了什么呢，每次旋转后的�
             y = y_new;
             angleSum -= angle;
         }
-        printf("Debug: i = %d angleSum = %f, angle = %f, ρ = %f\n", i, angleSum, angle, hypot(x,y));
+        printf(<span style="color: #ffa07a;">"Debug: i = %d angleSum = %f, angle = %f, &#961; = %f\n"</span>, i, angleSum, angle, hypot(x,y));
         angle /= 2;
     }
-    return angleSum;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> angleSum;
 }
 </pre>
-
+</div>
 <p>
 计算的结果是：
 </p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
-Debug: i = 1 angleSum = 67.500000, angle = 22.500000, ρ = 342.282467
-Debug: i = 2 angleSum = 56.250000, angle = 11.250000, ρ = 348.988177
-Debug: i = 3 angleSum = 61.875000, angle = 5.625000, ρ = 350.676782
-Debug: i = 4 angleSum = 64.687500, angle = 2.812500, ρ = 351.099697
-Debug: i = 5 angleSum = 63.281250, angle = 1.406250, ρ = 351.205473
-Debug: i = 6 angleSum = 63.984375, angle = 0.703125, ρ = 351.231921
-Debug: i = 7 angleSum = 63.632813, angle = 0.351563, ρ = 351.238533
-Debug: i = 8 angleSum = 63.457031, angle = 0.175781, ρ = 351.240186
-Debug: i = 9 angleSum = 63.369141, angle = 0.087891, ρ = 351.240599
-Debug: i = 10 angleSum = 63.413086, angle = 0.043945, ρ = 351.240702
-Debug: i = 11 angleSum = 63.435059, angle = 0.021973, ρ = 351.240728
-Debug: i = 12 angleSum = 63.424072, angle = 0.010986, ρ = 351.240734
-Debug: i = 13 angleSum = 63.429565, angle = 0.005493, ρ = 351.240736
-Debug: i = 14 angleSum = 63.432312, angle = 0.002747, ρ = 351.240736
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7fffd4;">Debug</span>: i = 0 angleSum = 45.000000, angle = 45.000000, &#961; = 316.227766
+Debug: i = 1 angleSum = 67.500000, angle = 22.500000, &#961; = 342.282467
+Debug: i = 2 angleSum = 56.250000, angle = 11.250000, &#961; = 348.988177
+Debug: i = 3 angleSum = 61.875000, angle = 5.625000, &#961; = 350.676782
+Debug: i = 4 angleSum = 64.687500, angle = 2.812500, &#961; = 351.099697
+Debug: i = 5 angleSum = 63.281250, angle = 1.406250, &#961; = 351.205473
+Debug: i = 6 angleSum = 63.984375, angle = 0.703125, &#961; = 351.231921
+Debug: i = 7 angleSum = 63.632813, angle = 0.351563, &#961; = 351.238533
+Debug: i = 8 angleSum = 63.457031, angle = 0.175781, &#961; = 351.240186
+Debug: i = 9 angleSum = 63.369141, angle = 0.087891, &#961; = 351.240599
+Debug: i = 10 angleSum = 63.413086, angle = 0.043945, &#961; = 351.240702
+Debug: i = 11 angleSum = 63.435059, angle = 0.021973, &#961; = 351.240728
+Debug: i = 12 angleSum = 63.424072, angle = 0.010986, &#961; = 351.240734
+Debug: i = 13 angleSum = 63.429565, angle = 0.005493, &#961; = 351.240736
+Debug: i = 14 angleSum = 63.432312, angle = 0.002747, &#961; = 351.240736
 z = 63.432312
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-4" class="outline-4">
-<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> 消除乘法运算</h4>
+</div>
+<div id="outline-container-orge9d538b" class="outline-4">
+<h4 id="orge9d538b"><span class="section-number-4">1.3.4</span> 消除乘法运算</h4>
 <div class="outline-text-4" id="text-1-3-4">
-
-<p>我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要
+<p>
+我们已经成功的将乘法的次数减少了一半，还有没有可能进一步降低运算量呢？还要
 从计算式入手。第一次循环时，tan(45)=1，所以第一次循环实际上是不需要乘法运算
 的。第二次运算呢？tan(22.5)=0.4142135623731,很不幸，第二次循环乘数是个很不
 整的小数。是否能对其改造一下呢？答案是肯定的。第二次选择22.5度是因为二分查
@@ -834,9 +951,8 @@ z = 63.432312
 似的方法，第三次循环中不用11.25度，而采用 14.0362434679265 度。
 tan(14.0362434679265)= 1/4 乘数右移两位就可以了。剩下的都以此类推。 
 </p>
-
-
-<pre class="example">tan(45)= 1
+<div class="org-src-container">
+<pre class="src src-c">tan(45)= 1
 tan(26.565051177078)= 1/2
 tan(14.0362434679265)= 1/4
 tan(7.1250163489018)= 1/8
@@ -846,22 +962,21 @@ tan(0.8951737102111)= 1/64
 tan(0.4476141708606)= 1/128
 tan(0.2238105003685)= 1/256
 </pre>
-
+</div>
 <p>
 还是给出C语言的实现代码，我们采用循序渐进的方法，先给出浮点数的实现（因为用
 到了浮点数，所以并没有减少乘法运算量，查找的效率也比二分查找法要低，理论上
 说这个算法实现很低效。不过这个代码的目的在于给出算法实现的示意性说明，还是
 有意义的）。 
 </p>
-
-
-<pre class="example">double my_atan4(double x, double y)
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">my_atan4</span>(<span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">y</span>)
 {
-    const double tangent[] = {1.0, 1/2.0, 1/4.0, 1/8.0, 1/16.0,
+    <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">tangent</span>[] = {1.0, 1/2.0, 1/4.0, 1/8.0, 1/16.0,
                               1/32.0, 1/64.0, 1/128.0, 1/256.0, 1/512.0,
                               1/1024.0, 1/2048.0, 1/4096.0, 1/8192.0, 1/16384.0
                              };
-    const double angle[] = {45.0, 26.565051177078, 14.0362434679265,
+    <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">angle</span>[] = {45.0, 26.565051177078, 14.0362434679265,
 7.1250163489018, 3.57633437499735, 
                             1.78991060824607, 0.8951737102111,
 0.4476141708606, 0.2238105003685, 0.1119056770662, 
@@ -869,13 +984,13 @@ tan(0.2238105003685)= 1/256
 0.01398822714227, 0.006994113675353, 0.003497056850704 
                            };
 
-    int i = 0;
-    double x_new, y_new;
-    double angleSum = 0.0;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">i</span> = 0;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">x_new</span>, <span style="color: #ffd700;">y_new</span>;
+    <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">angleSum</span> = 0.0;
 
-    for(i = 0; i &lt; 15; i++)
+    <span style="color: #ffb6c1; font-size: 105%;">for</span>(i = 0; i &lt; 15; i++)
     {
-        if(y &gt; 0)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span>(y &gt; 0)
         {
             x_new = x + y * tangent[i];
             y_new = y - x * tangent[i];
@@ -883,7 +998,7 @@ tan(0.2238105003685)= 1/256
             y = y_new;
             angleSum += angle[i];
         }
-        else
+        <span style="color: #ffb6c1; font-size: 105%;">else</span>
         {
             x_new = x - y * tangent[i];
             y_new = y + x * tangent[i];
@@ -891,112 +1006,199 @@ tan(0.2238105003685)= 1/256
             y = y_new;
             angleSum -= angle[i];
         }
-        printf("Debug: i = %d angleSum = %f, angle = %f, ρ = %f\n", i, angleSum, angle[i], hypot(x, y));
+        printf(<span style="color: #ffa07a;">"Debug: i = %d angleSum = %f, angle = %f, &#961; = %f\n"</span>, i, angleSum, angle[i], hypot(x, y));
     }
-    return angleSum;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> angleSum;
 }
 </pre>
-
+</div>
 <p>
 程序运行的输出结果如下：
 </p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 45.000000, angle = 45.000000, ρ = 316.227766
-Debug: i = 1 angleSum = 71.565051, angle = 26.565051, ρ = 353.553391
-Debug: i = 2 angleSum = 57.528808, angle = 14.036243, ρ = 364.434493
-Debug: i = 3 angleSum = 64.653824, angle = 7.125016, ρ = 367.270602
-Debug: i = 4 angleSum = 61.077490, angle = 3.576334, ρ = 367.987229
-Debug: i = 5 angleSum = 62.867400, angle = 1.789911, ρ = 368.166866
-Debug: i = 6 angleSum = 63.762574, angle = 0.895174, ρ = 368.211805
-Debug: i = 7 angleSum = 63.314960, angle = 0.447614, ρ = 368.223042
-Debug: i = 8 angleSum = 63.538770, angle = 0.223811, ρ = 368.225852
-Debug: i = 9 angleSum = 63.426865, angle = 0.111906, ρ = 368.226554
-Debug: i = 10 angleSum = 63.482818, angle = 0.055953, ρ = 368.226729
-Debug: i = 11 angleSum = 63.454841, angle = 0.027976, ρ = 368.226773
-Debug: i = 12 angleSum = 63.440853, angle = 0.013988, ρ = 368.226784
-Debug: i = 13 angleSum = 63.433859, angle = 0.006994, ρ = 368.226787
-Debug: i = 14 angleSum = 63.437356, angle = 0.003497, ρ = 368.226788
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7fffd4;">Debug</span>: i = 0 angleSum = 45.000000, angle = 45.000000, &#961; = 316.227766
+Debug: i = 1 angleSum = 71.565051, angle = 26.565051, &#961; = 353.553391
+Debug: i = 2 angleSum = 57.528808, angle = 14.036243, &#961; = 364.434493
+Debug: i = 3 angleSum = 64.653824, angle = 7.125016, &#961; = 367.270602
+Debug: i = 4 angleSum = 61.077490, angle = 3.576334, &#961; = 367.987229
+Debug: i = 5 angleSum = 62.867400, angle = 1.789911, &#961; = 368.166866
+Debug: i = 6 angleSum = 63.762574, angle = 0.895174, &#961; = 368.211805
+Debug: i = 7 angleSum = 63.314960, angle = 0.447614, &#961; = 368.223042
+Debug: i = 8 angleSum = 63.538770, angle = 0.223811, &#961; = 368.225852
+Debug: i = 9 angleSum = 63.426865, angle = 0.111906, &#961; = 368.226554
+Debug: i = 10 angleSum = 63.482818, angle = 0.055953, &#961; = 368.226729
+Debug: i = 11 angleSum = 63.454841, angle = 0.027976, &#961; = 368.226773
+Debug: i = 12 angleSum = 63.440853, angle = 0.013988, &#961; = 368.226784
+Debug: i = 13 angleSum = 63.433859, angle = 0.006994, &#961; = 368.226787
+Debug: i = 14 angleSum = 63.437356, angle = 0.003497, &#961; = 368.226788
 z = 63.437356
 </pre>
-
+</div>
 <p>
 有了上面的准备，我们可以来讨论定点数算法了。所谓定点数运算，其实就是整数运算。我们用256 表示1度。这样的话我们就可以精确
 到1/256=0.00390625 度了，这对于大多数的情况都是足够精确的了。256 表示1度，那么45度就是 45*256 = 115200。其他的度数以此类
 推, 迭代次数见表\ref(tbl-dedaicishu)。
-</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-dedaicishu">
-<caption>迭代次数</caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="right" />
+</p>
+<table id="orgb864263" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> 迭代次数</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">number</th><th scope="col" class="right">angle</th><th scope="col" class="right">anglex256</th><th scope="col" class="right">integer</th></tr>
+<tr>
+<th scope="col" class="org-right">number</th>
+<th scope="col" class="org-right">angle</th>
+<th scope="col" class="org-right">anglex256</th>
+<th scope="col" class="org-right">integer</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">1</td><td class="right">45.0</td><td class="right">11520</td><td class="right">11520</td></tr>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">45.0</td>
+<td class="org-right">11520</td>
+<td class="org-right">11520</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">2</td><td class="right">26.565051177078</td><td class="right">6800.65310133196</td><td class="right">6801</td></tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">26.565051177078</td>
+<td class="org-right">6800.65310133196</td>
+<td class="org-right">6801</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">3</td><td class="right">14.0362434679265</td><td class="right">3593.27832778918</td><td class="right">3593</td></tr>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">14.0362434679265</td>
+<td class="org-right">3593.27832778918</td>
+<td class="org-right">3593</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">4</td><td class="right">7.1250163489018</td><td class="right">1824.00418531886</td><td class="right">1824</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">7.1250163489018</td>
+<td class="org-right">1824.00418531886</td>
+<td class="org-right">1824</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">5</td><td class="right">3.57633437499735</td><td class="right">915.541599999322</td><td class="right">916</td></tr>
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">3.57633437499735</td>
+<td class="org-right">915.541599999322</td>
+<td class="org-right">916</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">6</td><td class="right">1.78991060824607</td><td class="right">458.217115710994</td><td class="right">458</td></tr>
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">1.78991060824607</td>
+<td class="org-right">458.217115710994</td>
+<td class="org-right">458</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">7</td><td class="right">0.8951737102111</td><td class="right">229.164469814035</td><td class="right">229</td></tr>
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">0.8951737102111</td>
+<td class="org-right">229.164469814035</td>
+<td class="org-right">229</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">8</td><td class="right">0.4476141708606</td><td class="right">114.589227740302</td><td class="right">115</td></tr>
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">0.4476141708606</td>
+<td class="org-right">114.589227740302</td>
+<td class="org-right">115</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">9</td><td class="right">0.2238105003685</td><td class="right">57.2954880943458</td><td class="right">57</td></tr>
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">0.2238105003685</td>
+<td class="org-right">57.2954880943458</td>
+<td class="org-right">57</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">10</td><td class="right">0.1119056770662</td><td class="right">28.647853328949</td><td class="right">29</td></tr>
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">0.1119056770662</td>
+<td class="org-right">28.647853328949</td>
+<td class="org-right">29</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">11</td><td class="right">0.0559528918938</td><td class="right">14.3239403248137</td><td class="right">14</td></tr>
+<tr>
+<td class="org-right">11</td>
+<td class="org-right">0.0559528918938</td>
+<td class="org-right">14.3239403248137</td>
+<td class="org-right">14</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">12</td><td class="right">0.027976452617</td><td class="right">7.16197186995294</td><td class="right">7</td></tr>
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">0.027976452617</td>
+<td class="org-right">7.16197186995294</td>
+<td class="org-right">7</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">13</td><td class="right">0.01398822714227</td><td class="right">3.58098614841984</td><td class="right">4</td></tr>
+<tr>
+<td class="org-right">13</td>
+<td class="org-right">0.01398822714227</td>
+<td class="org-right">3.58098614841984</td>
+<td class="org-right">4</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">14</td><td class="right">0.006994113675353</td><td class="right">1.79049310089035</td><td class="right">2</td></tr>
+<tr>
+<td class="org-right">14</td>
+<td class="org-right">0.006994113675353</td>
+<td class="org-right">1.79049310089035</td>
+<td class="org-right">2</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="right">15</td><td class="right">0.003497056850704</td><td class="right">0.8952465537802</td><td class="right">1</td></tr>
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">0.003497056850704</td>
+<td class="org-right">0.8952465537802</td>
+<td class="org-right">1</td>
+</tr>
 </tbody>
 </table>
-
+<p>
 C 代码如下：
-
-
-
-<pre class="example">int my_atan5(int x, int y)
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">my_atan5</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">x</span>, <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">y</span>)
 {
-    const int angle[] = {11520, 6801, 3593, 1824, 916, 458, 229, 115, 57,
+    <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">angle</span>[] = {11520, 6801, 3593, 1824, 916, 458, 229, 115, 57,
 29, 14, 7, 4, 2, 1}; 
 
-    int i = 0;
-    int x_new, y_new;
-    int angleSum = 0;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">i</span> = 0;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">x_new</span>, <span style="color: #ffd700;">y_new</span>;
+    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">angleSum</span> = 0;
 
-    x *= 1024;// 将 X Y 放大一些，结果会更准确
+    x *= 1024;<span style="color: #90ee90; font-style: italic;">// </span><span style="color: #90ee90; font-style: italic;">&#23558; X Y &#25918;&#22823;&#19968;&#20123;&#65292;&#32467;&#26524;&#20250;&#26356;&#20934;&#30830;</span>
     y *= 1024;
 
-    for(i = 0; i &lt; 15; i++)
+    <span style="color: #ffb6c1; font-size: 105%;">for</span>(i = 0; i &lt; 15; i++)
     {
-        if(y &gt; 0)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span>(y &gt; 0)
         {
             x_new = x + (y &gt;&gt; i);
             y_new = y - (x &gt;&gt; i);
@@ -1004,7 +1206,7 @@ C 代码如下：
             y = y_new;
             angleSum += angle[i];
         }
-        else
+        <span style="color: #ffb6c1; font-size: 105%;">else</span>
         {
             x_new = x - (y &gt;&gt; i);
             y_new = y + (x &gt;&gt; i);
@@ -1012,18 +1214,17 @@ C 代码如下：
             y = y_new;
             angleSum -= angle[i];
         }
-        printf("Debug: i = %d angleSum = %d, angle = %d\n", i, angleSum, angle[i]);
+        printf(<span style="color: #ffa07a;">"Debug: i = %d angleSum = %d, angle = %d\n"</span>, i, angleSum, angle[i]);
     }
-    return angleSum;
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> angleSum;
 }
 </pre>
-
+</div>
 <p>
 计算结果如下:
 </p>
-
-
-<pre class="example">Debug: i = 0 angleSum = 11520, angle = 11520
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7fffd4;">Debug</span>: i = 0 angleSum = 11520, angle = 11520
 Debug: i = 1 angleSum = 18321, angle = 6801
 Debug: i = 2 angleSum = 14728, angle = 3593
 Debug: i = 3 angleSum = 16552, angle = 1824
@@ -1040,7 +1241,7 @@ Debug: i = 13 angleSum = 16237, angle = 2
 Debug: i = 14 angleSum = 16238, angle = 1
 z = 16238
 </pre>
-
+</div>
 <p>
 16238/256=63.4296875度，精确的结果是63.4349499度，两个结果的差为0.00526，还
 是很精确的。到这里cordic算法的最核心的思想就介绍完了。当然，这里介绍的只是
@@ -1053,356 +1254,286 @@ cordic算法最基本的内容，实际上，利用cordic 算法不光可以计�
 </div>
 </div>
 </div>
-
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 滤波算法</h2>
+<div id="outline-container-org0157f5e" class="outline-2">
+<h2 id="org0157f5e"><span class="section-number-2">2</span> 滤波算法</h2>
 <div class="outline-text-2" id="text-2">
-
-
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 中值滤波</h3>
+<div id="outline-container-org72da9d5" class="outline-3">
+<h3 id="org72da9d5"><span class="section-number-3">2.1</span> 中值滤波</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p>中值滤波法是一种非线性的信号处理技术。中值滤波将一个长度为给定奇数的移动窗
+<p>
+中值滤波法是一种非线性的信号处理技术。中值滤波将一个长度为给定奇数的移动窗
 作用于序列，该窗中心位置的值用窗口内各点排序后的中值替代，待处理点的前面后
 面数据数目一样。中值滤波器能有效的克服因为偶然因素引起的波动干扰，比如脉冲
 噪声。因为在窗口内排序后，最小的和最大的值将排在窗口两边，滤波后的序列将不
 会包含这些点。所以滤除脉冲比较有效。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 全期平滑滤波</h3>
+</div>
+<div id="outline-container-org67fbdfa" class="outline-3">
+<h3 id="org67fbdfa"><span class="section-number-3">2.2</span> 全期平滑滤波</h3>
 <div class="outline-text-3" id="text-2-2">
-
-<p>简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
-</p></div>
-
+<p>
+简单的全期平滑法是对时间数列的过去数据一个不漏的全部加以同等利用；
+</p>
 </div>
-
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 移动平滑滤波</h3>
+</div>
+<div id="outline-container-org78ebb3d" class="outline-3">
+<h3 id="org78ebb3d"><span class="section-number-3">2.3</span> 移动平滑滤波</h3>
 <div class="outline-text-3" id="text-2-3">
-
-<p>移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
+<p>
+移动平滑法不考虑较远期的数据，并在加权移动平均法中给予近期资料更大的权重；
 通常做法是，使用一个队列或数组作为移动窗口，有新数据时就插入队列头，当队列
 数据满了，则再增加一个数据就从队尾去除一个数据；每有新数据时就用队列数据的
 平均值作为输出替代。
-</p><ul>
-<li>优点：能够比较好的抑制随机噪声，如果窗口选择大，则最终输出数据平滑效果好；
-</li>
-<li>缺点：对新数据的权重比较低，导致对新输入不够敏感，比较迟滞。
-</li>
+</p>
+<ul class="org-ul">
+<li>优点：能够比较好的抑制随机噪声，如果窗口选择大，则最终输出数据平滑效果好；</li>
+<li>缺点：对新数据的权重比较低，导致对新输入不够敏感，比较迟滞。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 指数平滑滤波</h3>
+<div id="outline-container-org7663008" class="outline-3">
+<h3 id="org7663008"><span class="section-number-3">2.4</span> 指数平滑滤波</h3>
 <div class="outline-text-3" id="text-2-4">
-
-<p>指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
+<p>
+指数平滑法则兼容了全期平均和移动平均所长，不舍弃过去的数据，但是仅给与逐渐
 减弱的影响权重，即随着数据的远离，赋予逐渐收敛于零的权重。
 </p>
 </div>
-
-<div id="outline-container-2-4-1" class="outline-4">
-<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 指数平滑的公式</h4>
+<div id="outline-container-org4b46b51" class="outline-4">
+<h4 id="org4b46b51"><span class="section-number-4">2.4.1</span> 指数平滑的公式</h4>
 <div class="outline-text-4" id="text-2-4-1">
-
-<p>  \begin{equation}
-  \label{equ-pinghua}
-  s_{t} = \alpha{}.y_{t} + (1-\alpha{}).s_{t-1}
-  \end{equation}
-</p><ol>
-<li>s<sub>t</sub>: 当前时刻t的平滑输出值；
-</li>
-<li>y<sub>t</sub>: 当前时刻t的实际输入值；
-</li>
-<li>s<sub>t-1</sub>: 上一时刻t-1的平滑值；
-</li>
-<li>&alpha;: 平滑比例常数，取值范围[0, 1]
-</li>
+\begin{equation}
+\label{equ-pinghua}
+s_{t} = \alpha{}.y_{t} + (1-\alpha{}).s_{t-1}
+\end{equation}
+<ol class="org-ol">
+<li>s<sub>t</sub>: 当前时刻t的平滑输出值；</li>
+<li>y<sub>t</sub>: 当前时刻t的实际输入值；</li>
+<li>s<sub>t-1</sub>: 上一时刻t-1的平滑值；</li>
+<li>&alpha;: 平滑比例常数，取值范围[0, 1]</li>
 </ol>
-
-<p>  由式子<a href="#equ-pinghua">equ-pinghua</a>可知：
-</p><ol>
-<li>s<sub>t</sub>是y<sub>t</sub>和s<sub>t-1</sub>的加权算术平均数，随着&alpha;取值的大小变化，决定
-     y<sub>t</sub>和s<sub>t-1</sub>对s<sub>t</sub>的影响程度，当&alpha;取1时，\(s_{t}=y_{t}\); 当取0
-     时，\(s_{t}=s_{t-1}\).
-</li>
+<p>
+由式子\ref{equ-pinghua}可知：
+</p>
+<ol class="org-ol">
+<li>s<sub>t</sub>是y<sub>t</sub>和s<sub>t-1</sub>的加权算术平均数，随着\alpha取值的大小变化，决定
+y<sub>t</sub>和s<sub>t-1</sub>对s<sub>t</sub>的影响程度，当\alpha取1时，\(s_{t}=y_{t}\); 当取0
+时，\(s_{t}=s_{t-1}\).</li>
 <li>s<sub>t</sub>具有逐期追溯性质，可探源至s<sub>t-(t-t)</sub>为止。包括全部数据，其过程中，
-     平滑常数以指数形式递减，所以称为指数平滑法。如果能够找到y<sub>1</sub>以前的历
-     史数据，那么初始值s<sub>1</sub>的确定是可行的，数据较少时可以用全期平均，移动
-     平均法；数据较多时，可以用最小二乘法。但不能使用指数平滑法本身确定初始
-     值，因为数据会匮竭。如果仅有从y1开始的数据，那么确定初始值的方法有：
-<ol>
-<li>取s<sub>1</sub>等于y<sub>1</sub>；
-</li>
+平滑常数以指数形式递减，所以称为指数平滑法。如果能够找到y<sub>1</sub>以前的历
+史数据，那么初始值s<sub>1</sub>的确定是可行的，数据较少时可以用全期平均，移动
+平均法；数据较多时，可以用最小二乘法。但不能使用指数平滑法本身确定初始
+值，因为数据会匮竭。如果仅有从y1开始的数据，那么确定初始值的方法有：
+<ol class="org-ol">
+<li>取s<sub>1</sub>等于y<sub>1</sub>；</li>
 <li>待积累若干数据后，取s<sub>1</sub>等于前面若干数据的简单算术平均数，如：
-        \(s_{1}=（y_{1}+ y_{2}+y_{3}）/3\)等等。 
-</li>
+\(s_{1}=（y_{1}+ y_{2}+y_{3}）/3\)等等。</li>
+</ol></li>
 </ol>
-
-</li>
-</ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-4-2" class="outline-4">
-<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 一次指数平滑</h4>
+<div id="outline-container-orgfa3c19e" class="outline-4">
+<h4 id="orgfa3c19e"><span class="section-number-4">2.4.2</span> 一次指数平滑</h4>
 <div class="outline-text-4" id="text-2-4-2">
-
-<p>设时间序列为\(y_{1}, y_{2}, ..., y_{t}...\)，则一次指数平滑
-  公式如式<a href="#equ-pinghua">equ-pinghua</a>.通过展开可以有
-  \begin{equation}
-  \label{equ-pinghuazk}
-  s_{t} = \alpha.\sum_{j=0}^{t-1}(1-\alpha)^{j}y_{t-j}+(1-\alpha)^{t}s_{0}
-  \end{equation}
-  由于\(0&lt;\alpha&lt;1\), 当\(t\Rightarrow \infty\)时，
-  \((1-\alpha)^{t}\Rightarrow 0\)，式子<a href="#equ-pinghuazk">equ-pinghuazk</a>变为
-  \begin{equation}
-  s_{t} = \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j}y_{t-j}
-  \end{equation}
-  由此可见，s<sub>t</sub>实际上是\(y_{t}, y_{t-1}...\)的加权平均，加权系数分别为
-  \(\alpha, \alpha(1-\alpha), \alpha(1-\alpha)^{2}...\)是按照几何级数递减。
-  越近的数据，权重越大，越远的数据，权重越小，且权重之和等于1
-  \begin{equation}
-  \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j} = 1
-  \end{equation}
-  因为加权系数符合指数规律，且又具有平滑数据的功能，所以称为指数平滑。
-</p></div>
-
+<p>
+设时间序列为\(y_{1}, y_{2}, ..., y_{t}...\)，则一次指数平滑
+  公式如式\ref{equ-pinghua}.通过展开可以有
+</p>
+\begin{equation}
+\label{equ-pinghuazk}
+s_{t} = \alpha.\sum_{j=0}^{t-1}(1-\alpha)^{j}y_{t-j}+(1-\alpha)^{t}s_{0}
+\end{equation}
+<p>
+由于\(0<\alpha<1\), 当\(t\Rightarrow \infty\)时，
+\((1-\alpha)^{t}\Rightarrow 0\)，式子\ref{equ-pinghuazk}变为
+</p>
+\begin{equation}
+s_{t} = \alpha\sum_{j=0}^{\infty}(1-\alpha)^{j}y_{t-j}
+\end{equation}
+<p>
+由此可见，s<sub>t</sub>实际上是\(y_{t}, y_{t-1}...\)的加权平均，加权系数分别为
+\(\alpha, \alpha(1-\alpha), \alpha(1-\alpha)^{2}...\)是按照几何级数递减。
+越近的数据，权重越大，越远的数据，权重越小，且权重之和等于1
+</p>
+\begin{equation}
+\alpha\sum_{j=0}^{\infty}(1-\alpha)^{j} = 1
+\end{equation}
+<p>
+因为加权系数符合指数规律，且又具有平滑数据的功能，所以称为指数平滑。
+</p>
 </div>
-
-<div id="outline-container-2-4-3" class="outline-4">
-<h4 id="sec-2-4-3"><span class="section-number-4">2.4.3</span> 二次指数平滑</h4>
+</div>
+<div id="outline-container-orgd818bbb" class="outline-4">
+<h4 id="orgd818bbb"><span class="section-number-4">2.4.3</span> 二次指数平滑</h4>
 <div class="outline-text-4" id="text-2-4-3">
-
-<p>  当时间序列没有明显的趋势变动时，使用第t周期一次指数平滑就能直接预测第t+1
-  期之值。但当时间序列的变动出现直线趋势时，用一次指数平滑法来预测仍存在着
-  明显的滞后偏差。因此，也需要进行修正。 修正的方法也是在一次指数平滑
-  的基础上再作二次指数平滑，利用滞后偏差的规律找出曲线的发展方向和发展趋势，
-  然后建立直线趋势预测模型。故称为二次指数平滑法。
-  设一次指数平滑为\(s_{t}\)，则二次指数平滑\(s_{t}^{(2)}\)的计算公式为
-  \begin{equation}
-  s_{t}^{(2)} = \alpha{}s_{t}^{(1)}+(1-\alpha)s_{t-1}^{(2)} 
-  \end{equation}
-  若y<sub>t</sub>从某时刻开始具有直线趋势，且认为未来时期亦按此直线趋势变化，则可以
-  用二次指数平滑。
-</p></div>
-
+<p>
+当时间序列没有明显的趋势变动时，使用第t周期一次指数平滑就能直接预测第t+1
+期之值。但当时间序列的变动出现直线趋势时，用一次指数平滑法来预测仍存在着
+明显的滞后偏差。因此，也需要进行修正。 修正的方法也是在一次指数平滑
+的基础上再作二次指数平滑，利用滞后偏差的规律找出曲线的发展方向和发展趋势，
+然后建立直线趋势预测模型。故称为二次指数平滑法。
+设一次指数平滑为\(s_{t}\)，则二次指数平滑\(s_{t}^{(2)}\)的计算公式为
+</p>
+\begin{equation}
+s_{t}^{(2)} = \alpha{}s_{t}^{(1)}+(1-\alpha)s_{t-1}^{(2)} 
+\end{equation}
+<p>
+若y<sub>t</sub>从某时刻开始具有直线趋势，且认为未来时期亦按此直线趋势变化，则可以
+用二次指数平滑。
+</p>
 </div>
-
-<div id="outline-container-2-4-4" class="outline-4">
-<h4 id="sec-2-4-4"><span class="section-number-4">2.4.4</span> 三次指数平滑</h4>
+</div>
+<div id="outline-container-org65cad3b" class="outline-4">
+<h4 id="org65cad3b"><span class="section-number-4">2.4.4</span> 三次指数平滑</h4>
 <div class="outline-text-4" id="text-2-4-4">
-
-<p>  若时间序列的变动呈现出二次曲线趋势，则需要用三次指数平滑法。三次指数平滑
-  是在二次指数平滑的基础上再进行一次平滑，其计算公式为
-  \begin{equation}
-  s_{t}^{(3)}=\alpha{}s_{t}^{(2)}+(1-\alpha)s_{t-1}^{(3)}
-  \end{equation}
-</p><ul>
+<p>
+若时间序列的变动呈现出二次曲线趋势，则需要用三次指数平滑法。三次指数平滑
+是在二次指数平滑的基础上再进行一次平滑，其计算公式为
+</p>
+\begin{equation}
+s_{t}^{(3)}=\alpha{}s_{t}^{(2)}+(1-\alpha)s_{t-1}^{(3)}
+\end{equation}
+<ul class="org-ul">
 <li>指数平滑系数：指数平滑法的计算中，关键是 的取值大小，但 的取值又容易受主
-  观影响，因此合理确定 的取值方法十分重要，一般来说，如果数据波动较大， 值
-  应取大一些，可以增加近期数据对预测结果的影响。如果数据波动平稳， 值应取小
-  一些。经验判断法：
-<ol>
-<li>当时间序列呈现较稳定的水平趋势时，应选较小的 值，一般可在0.05～0.20之间取值；
-</li>
-<li>当时间序列有波动，但长期趋势变化不大时，可选稍大的 值，常在0.1～0.4之间取值；
-</li>
+观影响，因此合理确定 的取值方法十分重要，一般来说，如果数据波动较大， 值
+应取大一些，可以增加近期数据对预测结果的影响。如果数据波动平稳， 值应取小
+一些。经验判断法：
+<ol class="org-ol">
+<li>当时间序列呈现较稳定的水平趋势时，应选较小的 值，一般可在0.05～0.20之间取值；</li>
+<li>当时间序列有波动，但长期趋势变化不大时，可选稍大的 值，常在0.1～0.4之间取值；</li>
 <li>当时间序列波动很大，长期趋势变化幅度较大，呈现明显且迅速的上升或下降趋
-     势时，宜选择较大的 值，如可在0.6～0.8间选值，以使预测模型灵敏度高些，能迅速跟上数据的变化；
-</li>
-<li>当时间序列数据是上升（或下降）的发展趋势类型， 应取较大值，在0.6~1之间。 
-</li>
-</ol>
-
-</li>
+势时，宜选择较大的 值，如可在0.6～0.8间选值，以使预测模型灵敏度高些，能迅速跟上数据的变化；</li>
+<li>当时间序列数据是上升（或下降）的发展趋势类型， 应取较大值，在0.6~1之间。</li>
+</ol></li>
 </ul>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 图像处理</h2>
+<div id="outline-container-orgf5815fd" class="outline-2">
+<h2 id="orgf5815fd"><span class="section-number-2">3</span> 图像处理</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方
+<p>
+数字图像定义：数字图像指的是一个被采样和量化后的二维函数(该二维函数由光学方
 法产生), 采用等距离矩形网格采样，对幅度进行等间隔量化。至此一副数字图像是一
 个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。 
 </p>
 </div>
-
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 概念</h3>
+<div id="outline-container-orga38adf6" class="outline-3">
+<h3 id="orga38adf6"><span class="section-number-3">3.1</span> 概念</h3>
 <div class="outline-text-3" id="text-3-1">
-
-<ul>
+<ul class="org-ul">
 <li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过
-  程是显示； 
-</li>
-<li>扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；
-</li>
+程是显示；</li>
+<li>扫描：指对一副图像内给定位置的寻址，在扫描过程中被寻址的最小单元是像素；</li>
 <li>采样：是指在一副图像的每个像素位置上测量灰度值。采样通常由一个图像传感器
-  来完成，将每个像素处的亮度转换成与其成正比的电压值； 
-</li>
-<li>量化：是将测量的灰度值用一个整数表示，离散化；
-</li>
-<li>对比度：是指一幅图像中灰度反差的大小；
-</li>
+来完成，将每个像素处的亮度转换成与其成正比的电压值；</li>
+<li>量化：是将测量的灰度值用一个整数表示，离散化；</li>
+<li>对比度：是指一幅图像中灰度反差的大小；</li>
 <li>灰度分辨率：是指值的单位幅度上包含的灰度级数，如用8bit存储一副数字图像，
-  其灰度级为256； 
-</li>
-<li>采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；
-</li>
-<li>像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；
-</li>
-<li>放大率：指图像中物体与其对应的景物中物体的大小比例关系；
-</li>
+其灰度级为256；</li>
+<li>采样密度：是指在图像上单位长度包含的采样点数(pixel/mm)；</li>
+<li>像素间距：是指像素点之间的距离长度，采样密度的倒数(mm/pixel)；</li>
+<li>放大率：指图像中物体与其对应的景物中物体的大小比例关系；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 其他</h3>
+<div id="outline-container-org9673acc" class="outline-3">
+<h3 id="org9673acc"><span class="section-number-3">3.2</span> 其他</h3>
 <div class="outline-text-3" id="text-3-2">
-
-<ul>
+<ul class="org-ul">
 <li>人眼只能分辨约40级灰度，也就是如果黑白之间的灰度范围被分为40个以上的等分，
-  相邻的灰度级可能对人眼对来说看起来是相同的； 
-</li>
+相邻的灰度级可能对人眼对来说看起来是相同的；</li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 机器学习</h2>
+<div id="outline-container-org981a792" class="outline-2">
+<h2 id="org981a792"><span class="section-number-2">4</span> 机器学习</h2>
 <div class="outline-text-2" id="text-4">
-
-
 </div>
-
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 基本概念</h3>
+<div id="outline-container-org0ca2845" class="outline-3">
+<h3 id="org0ca2845"><span class="section-number-3">4.1</span> 基本概念</h3>
 <div class="outline-text-3" id="text-4-1">
-
-<ul>
+<ul class="org-ul">
 <li>过拟合：overfitting，一个过分复杂的系统单纯对训练样本集能获得完美的表现，
-  但是对于新鲜样本则可能不令人满意的现象称为过拟合；
-</li>
+但是对于新鲜样本则可能不令人满意的现象称为过拟合；</li>
 <li>样本集合：一般样本集合可以分为
-<ol>
-<li>training set：训练集，用于训练得出我们的候选算法集合；
-</li>
-<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法； 
-</li>
-<li>test set：测试集，用于测试我们选出的这个错误率最低的算法；
-</li>
-</ol>
-
-</li>
+<ol class="org-ol">
+<li>training set：训练集，用于训练得出我们的候选算法集合；</li>
+<li>validation set：验证集，用于在候选算法集合中选出一个错误率最低的算法；</li>
+<li>test set：测试集，用于测试我们选出的这个错误率最低的算法；</li>
+</ol></li>
 <li>样本集打散：假如存在一个N个样本的样本集能够被一个函数集中的函数按照2<sup>N</sup>
-  种所有可能形式分为2类，则称该函数集能够把样本数为N的样本集打散(shatter)，
-  其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定
-  义为：对于给定集合S={X1, &hellip;, Xi}, 如果一个假设类H能够实现集合S中所有元素
-  的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个样本，假设类H
-  就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把
-  2<sup>N</sup>种分类的每一种看做一个学习问题，那么2<sup>N</sup>种学习问题就可以用N个点定义； 
-</li>
+种所有可能形式分为2类，则称该函数集能够把样本数为N的样本集打散(shatter)，
+其实这里的2类只是一种特例的标记方式，可以延伸到任意一种标记方式，官方的定
+义为：对于给定集合S={X1, &#x2026;, Xi}, 如果一个假设类H能够实现集合S中所有元素
+的任意一种标记方式，则称H能够打散S，这里的集合S就是上面的N个样本，假设类H
+就是上面的函数集，任意一种标记方式的一种特列就是上面的分成2类，如果把
+2<sup>N</sup>种分类的每一种看做一个学习问题，那么2<sup>N</sup>种学习问题就可以用N个点定义；</li>
 <li>VC维：依照样本集打散的概念，该函数集的VC维就是用这个函数集中的函数能够打
-  散的最大样本集的样本数目, 而所谓的打散，指的是这个函数集能够按照任意个数
-  的类别来分开这么多个样本，也就是说，若存在N个样本的样本集能够被函数集打散，
-  而不存在N+1个样本集能够打散，则该函数集的VC维就是N。另外，若对于任意的样
-  本数，总能找到一个样本集能够被这个函数集打散，则函数集的VC维就是无穷大，
-  当我们在衡量一个函数集能否分类一堆样本时，理论上这个函数集的VC维越大则表
-  示这个函数集能够分类的样本数量越大，否则越小，但是在实际中，并不是说VC维
-  越大越有用，因为对样本进行分类时并不是说要做到0错误，只需要保证可接受的错
-  误率就行，这时对函数集的VC维要求就放宽了，一般函数集的VC维越大函数集越复
-  杂越难实现，所以实际中，常常用到的是VC维比较低的函数集； 
-</li>
+散的最大样本集的样本数目, 而所谓的打散，指的是这个函数集能够按照任意个数
+的类别来分开这么多个样本，也就是说，若存在N个样本的样本集能够被函数集打散，
+而不存在N+1个样本集能够打散，则该函数集的VC维就是N。另外，若对于任意的样
+本数，总能找到一个样本集能够被这个函数集打散，则函数集的VC维就是无穷大，
+当我们在衡量一个函数集能否分类一堆样本时，理论上这个函数集的VC维越大则表
+示这个函数集能够分类的样本数量越大，否则越小，但是在实际中，并不是说VC维
+越大越有用，因为对样本进行分类时并不是说要做到0错误，只需要保证可接受的错
+误率就行，这时对函数集的VC维要求就放宽了，一般函数集的VC维越大函数集越复
+杂越难实现，所以实际中，常常用到的是VC维比较低的函数集；</li>
 <li>PAC: Probably Approximately Correct，概率近似正确(学习模型) ，主要用于解
-  决这一的学习问题：由于我们采集的样本空间不能完全的满足真正的完整空间的数
-  据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习
-  器通过对样本空间学习得来的经验不能完全的满足未来新数据的处理，所以提出了
-  PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数&epsilon;范围
-  内，&epsilon;可以任意小； 
-</li>
+决这一的学习问题：由于我们采集的样本空间不能完全的满足真正的完整空间的数
+据，所以我们的样本空间与现实的完整空间存在一定的误差，这将导致我们的学习
+器通过对样本空间学习得来的经验不能完全的满足未来新数据的处理，所以提出了
+PAC学习模型，以使得我们对满足未来新数据的错误率被限制在某常数\epsilon范围
+内，\epsilon可以任意小；</li>
 <li>inductive bias：归纳偏置，机器学习试图去建造一个可以学习的算法，用来预测
-  某个目标的结果。要达到此目的，要给于学习算法一些训练样本，样本说明输入与
-  输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练
-  中未出现的样本。既然未知状况可以是任意的结果，若没有其它额外的假设，这任
-  务就无法解决。这种关于目标函数的必要假设就称为归纳偏置； 
-</li>
+某个目标的结果。要达到此目的，要给于学习算法一些训练样本，样本说明输入与
+输出之间的预期关系。然后假设学习器在预测中逼近正确的结果，其中包括在训练
+中未出现的样本。既然未知状况可以是任意的结果，若没有其它额外的假设，这任
+务就无法解决。这种关于目标函数的必要假设就称为归纳偏置；</li>
 <li>generalization：一般化，指的是，我们通过样本集训练出的算法可以推广到未知
-  输入得到正确输出； 
-</li>
-<li>Loss function:损失函数，表示实际输出值与我们拟合算法输出值的差；
-</li>
+输入得到正确输出；</li>
+<li>Loss function:损失函数，表示实际输出值与我们拟合算法输出值的差；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 基本方法</h3>
+<div id="outline-container-org864ef00" class="outline-3">
+<h3 id="org864ef00"><span class="section-number-3">4.2</span> 基本方法</h3>
 <div class="outline-text-3" id="text-4-2">
-
-
 </div>
-
-<div id="outline-container-4-2-1" class="outline-4">
-<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> 最小二乘法</h4>
+<div id="outline-container-org250c96f" class="outline-4">
+<h4 id="org250c96f"><span class="section-number-4">4.2.1</span> 最小二乘法</h4>
 <div class="outline-text-4" id="text-4-2-1">
-
-
 </div>
-
-<div id="outline-container-4-2-1-1" class="outline-5">
-<h5 id="sec-4-2-1-1"><span class="section-number-5">4.2.1.1</span> 解法一</h5>
+<div id="outline-container-org4e5d4db" class="outline-5">
+<h5 id="org4e5d4db"><span class="section-number-5">4.2.1.1</span> 解法一</h5>
 <div class="outline-text-5" id="text-4-2-1-1">
-
-<p>最小二乘法是为了求一组观察数据(变量X和Y)之间的函数关系Y=f(X)=A<sup>T</sup>X.其
+<p>
+最小二乘法是为了求一组观察数据(变量X和Y)之间的函数关系Y=f(X)=A<sup>T</sup>X.其
 中X是训练特征矩阵，Y是结果向量。应用条件如下 
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>若变量间的函数形式根据理论分析或者以往的经验已经确定好了，只是其中某些参
-   数是未知的，则可以通过观察数据来确定这些参数；
-</li>
-<li>若变量间的具体函数形式尚未确定，则需要通过观测数据来确定函数形式和参数；
-</li>
-<li>X必须是列满秩；
-</li>
+数是未知的，则可以通过观察数据来确定这些参数；</li>
+<li>若变量间的具体函数形式尚未确定，则需要通过观测数据来确定函数形式和参数；</li>
+<li>X必须是列满秩；</li>
 </ol>
-
-<p>最终求得的A参数为$$A=(X^{T}X)^{-1}X^{T}Y$$ 
-在选取的参数估计值A-&gt;a<sub>1</sub><sup>'</sup>, a<sub>2</sub><sup>'</sup>,&hellip;, a<sub>k</sub><sup>'</sup>, 应
-使得变量Y的诸多观测值y<sub>i</sub>与其真值的估计值(又叫拟合值)，即f(X<sub>i</sub>; a<sub>1</sub>, &hellip;, a<sub>k</sub>)
+<p>
+最终求得的A参数为\[A=(X^{T}X)^{-1}X^{T}Y\] 
+在选取的参数估计值A-&gt;a<sub>1</sub><sup>'</sup>, a<sub>2</sub><sup>'</sup>,&#x2026;, a<sub>k</sub><sup>'</sup>, 应
+使得变量Y的诸多观测值y<sub>i</sub>与其真值的估计值(又叫拟合值)，即f(X<sub>i</sub>; a<sub>1</sub>, &#x2026;, a<sub>k</sub>)
 之差的平方和最小，用式子表示时，记残差v<sub>i</sub>为
- $$ v_{i}=y_{i}-\hat{y_{i}}=y_{i}-f(X_{i}; a_{1}, ..., a_{k})$$ 
+ \[ v_{i}=y_{i}-\hat{y_{i}}=y_{i}-f(X_{i}; a_{1}, ..., a_{k})\] 
 最小二乘法就是要求下面式子的最小值时的a<sub>i</sub>参数。
-$$R=\sum_{i=1}^{n}v_{i}^{2}$$ 
+\[R=\sum_{i=1}^{n}v_{i}^{2}\] 
 在这个条件下，用数学中求极值的方法可以求出这些参数。根据数学分析中求函数极
 值的条件
+</p>
 \begin{equation}
 \begin{cases}
 \frac{\partial R}{\partial a_{1}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{1}}=0\\
@@ -1410,52 +1541,50 @@ $$R=\sum_{i=1}^{n}v_{i}^{2}$$
 \frac{\partial R}{\partial a_{k}}=\frac{\partial\sum_{i=1}^{n}v_{i}^{2}}{\partial a_{k}}=0\\
 \end{cases}
 \end{equation}
+<p>
 共得到k个方程，求这k个方程的联立解就可以求出a<sub>i</sub><sup>'</sup>的值。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-4-2-1-2" class="outline-5">
-<h5 id="sec-4-2-1-2"><span class="section-number-5">4.2.1.2</span> 解法二</h5>
+</div>
+<div id="outline-container-org607d6d0" class="outline-5">
+<h5 id="org607d6d0"><span class="section-number-5">4.2.1.2</span> 解法二</h5>
 <div class="outline-text-5" id="text-4-2-1-2">
-
-<p>函数关系是\(Y=f(X)=A^{T}X\), 损失函数为平方差的和，写成矩阵的形式为
-$$L(W)=(Y-XW)'(Y-XW)$$ 
+<p>
+函数关系是\(Y=f(X)=A^{T}X\), 损失函数为平方差的和，写成矩阵的形式为
+\[L(W)=(Y-XW)'(Y-XW)\] 
 可以看出L(W)是一个向量也算一个矩阵，则可以采用矩阵L对列向量W求导，并令其等
 于0来计算出W的值。
-$$\frac{dL}{dW}=-2X'Y+2X'XW=0$$ 
+\[\frac{dL}{dW}=-2X'Y+2X'XW=0\] 
 由此得
-$$X'XW=X'Y$$ 
+\[X'XW=X'Y\] 
 其中如果\(X'X\)的逆存在，最小二乘问题的解是：
-$$W=(X'X)^{-1}X'Y$$ 
-</p></div>
+\[W=(X'X)^{-1}X'Y\] 
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-4-2-2" class="outline-4">
-<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> 核函数</h4>
+</div>
+<div id="outline-container-orgad75073" class="outline-4">
+<h4 id="orgad75073"><span class="section-number-4">4.2.2</span> 核函数</h4>
 <div class="outline-text-4" id="text-4-2-2">
-
-<p>核是一个函数K，对所有\(x, z \in{}X\)，满足：
-$$K(x, z) = &lt;\phi{}(x).\phi{}(z)&gt;$$ 
-这里\(\phi\)是从X到特征空间F的映射。<br/>
+<p>
+核是一个函数K，对所有\(x, z \in{}X\)，满足：
+\[K(x, z) = <\phi{}(x).\phi{}(z)>\] 
+这里\(\phi\)是从X到特征空间F的映射。<br />
 核这个名字是从积分算子理论中来的，这个理论以核与其相关特征空间的关系的理论
 为基础。对偶表达的一个重要结果是特征空间的维数不再影响计算。当不再显示表达
 特征空间向量，而是通过计算核函数的值来计算内积时所需算子数目不一定与特征的
 数目成比例。核的使用使得将数据隐式表达为特征空间，并在其中训练一个线性学习
 器成为可能，从而越过了本来需要的计算特征映射的问题。关于训练样例的唯一信息
 是他们在特征空间的Gram矩阵。这个句子又称为核矩阵。
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> k临近算法</h3>
+</div>
+<div id="outline-container-orgf3b34fb" class="outline-3">
+<h3 id="orgf3b34fb"><span class="section-number-3">4.3</span> k临近算法</h3>
 <div class="outline-text-3" id="text-4-3">
-
-<p>K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
+<p>
+K临近算法举例，已知若干电影(训练集)的标签有“爱情片”，“动作片”，而这些标 
 签大体是由这些电影中所含的打斗场景和接吻场景次数(特征)决定。现在有一部电影
 已知打斗场景和接吻场景次数，但是标签未知，需要判断。则可以计算由这些特征组
 成的样本点之间的距离，并选出离训练集中前k个最近的点，再统计这k个样本点的标
@@ -1464,289 +1593,260 @@ $$K(x, z) = &lt;\phi{}(x).\phi{}(z)&gt;$$
 本的各个元素代表其特征值，labels给出了group的每个样本的标签；实质上也是欧式
 距离的应用。 <b>注意:</b> 要运行必须要删除所有的中文注释。  
 </p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ffb6c1; font-size: 105%;">import</span> numpy <span style="color: #ffb6c1; font-size: 105%;">as</span> np
+<span style="color: #ffb6c1; font-size: 105%;">import</span> scipy <span style="color: #ffb6c1; font-size: 105%;">as</span> sp
+<span style="color: #ffb6c1; font-size: 105%;">import</span> operator
 
+<span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">createDataSet</span>():
+        <span style="color: #ffd700;">group</span> = np.array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
+        <span style="color: #ffd700;">labels</span> = [<span style="color: #ffa07a;">'A'</span>, <span style="color: #ffa07a;">'A'</span>, <span style="color: #ffa07a;">'B'</span>, <span style="color: #ffa07a;">'B'</span>]
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> group, labels
 
-<pre class="example">import numpy as np
-import scipy as sp
-import operator
+<span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">inX&#21644;dataSet&#30340;&#34892;&#21521;&#37327;&#24212;&#35813;&#26159;&#19968;&#33268;&#30340;</span>
+<span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#27599;&#20010;&#34892;&#20195;&#34920;&#19968;&#20010;&#26679;&#26412;</span>
+<span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">classify0</span>(inX, dataSet, labels, k):
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">dataSet&#26159;&#19968;&#20010;numpy array&#65292;shape&#23646;&#24615;&#21253;&#21547;&#34892;&#25968;&#21644;&#21015;&#25968;&#65292;&#27604;&#22914;shape[0]&#32473;&#20986;&#34892;&#25968;&#65292;shape[1]&#32473;&#20986;&#21015;&#25968;&#65292;&#36825;&#37324;&#25105;&#20204;&#38656;&#35201;&#34892;&#25968;&#65292;&#23427;&#23545;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#24212;&#20110;&#35266;&#23519;&#28857;(dataSet)&#30340;&#25968;&#30446;&#65292;&#21015;&#25968;&#23545;&#24212;&#27599;&#20010;&#28857;&#23545;&#24212;&#30340;&#29305;&#24449;&#39033;</span>
+        <span style="color: #ffd700;">dataSetSize</span> = dataSet.shape[0]
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">inX&#26159;&#19968;&#20010;list&#65292;&#36825;&#19968;&#34892;&#34920;&#31034;&#23558;inX&#22797;&#21046;&#24635;&#20849;dataSetSize&#27425;&#65292;tile&#20989;&#25968;&#31532;&#19968;&#20010;&#21442;&#25968;&#34920;&#31034;&#38656;&#35201;&#22797;&#21046;&#30340;&#37327;&#65292;&#31532;&#20108;&#20010;&#21442;&#25968;&#34920;&#31034;&#38656;&#35201;&#22797;&#21046;&#30340;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#24418;&#24335;&#65292;&#20063;&#23601;&#26159;&#35828;&#23558;inX&#22797;&#21046;dataSetSize&#34892;&#65292;1&#21015;&#65292;&#20854;&#32500;&#24230;&#28385;&#36275;dataSet</span>
+        <span style="color: #ffd700;">matrExt</span> = tile(inX, (dataSetSize, 1)) 
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#24320;&#22987;&#35745;&#31639;inX&#21644;dataSet&#20013;&#27599;&#20010;&#26679;&#26412;&#30340;&#36317;&#31163;</span>
+        <span style="color: #ffd700;">diffMat</span> = matrExt - dataSet
+        <span style="color: #ffd700;">sqDiffMat</span> = diffMat**2
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#20197;&#21015;&#32500;&#24230;&#30456;&#21152;, &#22914;&#26524;axis=0, &#23558;&#20197;&#34892;&#32500;&#24230;&#36827;&#34892;&#30456;&#21152;&#65292;&#22914;&#26524;&#30452;&#25509;&#29992;sum()&#23558;&#20250;&#35745;&#31639;&#25152;&#26377;&#20803;&#32032;&#30340;&#21644;</span>
+        <span style="color: #ffd700;">sqDistances</span> = sqDiffMat.<span style="color: #87cefa; text-decoration: underline;">sum</span>(axis=1) 
+        <span style="color: #ffd700;">distances</span> = sqDistances**0.5
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">argsort&#20989;&#25968;&#36820;&#22238;&#25968;&#32452;&#20540;&#20174;&#23567;&#21040;&#22823;&#30340;&#32034;&#24341;&#20540; </span>
+        <span style="color: #ffd700;">sortedDistInddicies</span> = distances.argsort() 
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#24314;&#31435;&#19968;&#20010;&#31354;&#23383;&#20856;/&#21704;&#24076;&#34920;/&#26144;&#23556;:&#38190;&#20540;&#20026;label;&#20540;&#20026;&#27599;&#20010;label&#20986;&#29616;&#30340;&#39057;&#29575;</span>
+        <span style="color: #ffd700;">classCount</span>={}
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#36825;&#37324;&#20027;&#35201;&#36827;&#34892;&#25237;&#31080;</span>
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> i <span style="color: #ffb6c1; font-size: 105%;">in</span> <span style="color: #87cefa; text-decoration: underline;">range</span>(k):
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#23547;&#25214;&#21040;&#21069;K&#20010;&#36317;&#31163;&#26368;&#36817;&#28857;&#30340;&#26631;&#31614;&#65292;&#28982;&#21518;&#23545;&#27599;&#20010;&#26631;&#31614;&#22312;&#23383;&#20856;classCount&#37324;&#38754;&#32479;&#35745;&#20986;&#29616;&#30340;&#27425;&#25968;</span>
+                <span style="color: #ffd700;">voteIlabel</span> = labels[sortedDistInddicies[i]]
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">dict.get(key, default=None)</span>
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">key &#23383;&#20856;&#20013;&#35201;&#26597;&#25214;&#30340;&#38190;&#12290;default &#22914;&#26524;&#25351;&#23450;&#38190;&#30340;&#20540;&#19981;&#23384;&#22312;&#65292;&#36820;&#22238;&#35813;&#40664;&#35748;&#20540;&#20540;&#12290;</span>
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#24050;labels&#20026;&#26631;&#31614;&#19979;&#26631;&#65292;&#32479;&#35745;&#27599;&#20010;&#26631;&#31614;&#25152;&#20986;&#29616;&#30340;&#39057;&#29575;</span>
+                <span style="color: #ffd700;">classCount</span>[voteIlabel]=classCount.get(voteIlabel, 0)+1
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#26368;&#32456;&#24471;&#21040;&#30340;classCount&#22823;&#27010;&#38271;&#36825;&#26679;{'A': 3, 'C': 5, 'B': 2}&#65292;&#20063;&#23601;&#26159;&#24847;&#21619;&#30528;&#26631;&#31614;C&#20986;&#29616;&#30340;&#27425;&#25968;&#26368;&#22810;&#65292;&#30446;&#30340;&#23601;&#26159;&#35201;&#36820;&#22238;&#26368;&#22810;&#30340;&#65292;&#19979;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#38754;&#36825;&#34892;&#20195;&#30721;&#23558;&#23383;&#20856;&#25490;&#24207;&#25104;list&#65292;&#22823;&#30340;&#22312;&#21069;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">classCount.items(), &#23558;&#24471;&#21040;dict_items([('c', 5), ('b', 2), ('a', 3)])</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">operator.itemgetter(1)&#23450;&#20041;&#20102;&#19968;&#20010;&#20989;&#25968;&#65292;&#33719;&#21462;&#23545;&#35937;&#19978;&#30340;&#20540;&#65292;&#24517;&#39035;&#35201;&#20316;&#29992;&#21040;&#23545;&#35937;&#19978;&#25165;&#34892;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">Python&#20869;&#32622;&#30340;&#25490;&#24207;&#20989;&#25968;sorted&#21487;&#20197;&#23545;list&#25110;&#32773;iterator&#36827;&#34892;&#25490;&#24207;;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#32508;&#21512;&#26469;&#30475;&#19979;&#38754;&#20808;&#23558;classCount&#36716;&#21270;&#20026;list&#65292;&#20803;&#32032;&#20026;&#20803;&#32452;&#65292;&#28982;&#21518;key&#25351;&#23450;&#25490;&#24207;&#26102;&#20351;&#29992;&#30340;&#25490;&#24207;&#26041;&#27861;(&#20803;&#32452;&#30340;&#31532;1&#20010;&#20803;&#32032;)&#65292;&#30001;reverse&#25351;&#23450;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#26159;&#36870;&#24207;&#25490;&#24207;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#26368;&#21518;sortedClassCount&#24418;&#22914;[('c', 5), ('a', 3), ('b', 2)]</span>
+        <span style="color: #ffd700;">sortedClassCount</span> = <span style="color: #87cefa; text-decoration: underline;">sorted</span>(classCount.items(), key=operator.itemgetter(1), reverse = <span style="color: #7fffd4;">True</span>)
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#36820;&#22238;'c'</span>
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> sortedClassCount[0][0]
 
-def createDataSet():
-    group = np.array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
-    labels = ['A', 'A', 'B', 'B']
-    return group, labels
-
-# inX和dataSet的行向量应该是一致的
-# 每个行代表一个样本
-def classify0(inX, dataSet, labels, k):
-    # dataSet是一个numpy array，shape属性包含行数和列数，比如shape[0]给出行数，shape[1]给出列数，这里我们需要行数，它对
-    # 应于观察点(dataSet)的数目，列数对应每个点对应的特征项
-    dataSetSize = dataSet.shape[0]
-    # inX是一个list，这一行表示将inX复制总共dataSetSize次，tile函数第一个参数表示需要复制的量，第二个参数表示需要复制的
-    # 形式，也就是说将inX复制dataSetSize行，1列，其维度满足dataSet
-    matrExt = tile(inX, (dataSetSize, 1)) 
-    # 开始计算inX和dataSet中每个样本的距离
-    diffMat = matrExt - dataSet
-    sqDiffMat = diffMat**2
-    # 以列维度相加, 如果axis=0, 将以行维度进行相加，如果直接用sum()将会计算所有元素的和
-    sqDistances = sqDiffMat.sum(axis=1) 
-    distances = sqDistances**0.5
-    # argsort函数返回数组值从小到大的索引值 
-    sortedDistInddicies = distances.argsort() 
-    # 建立一个空字典/哈希表/映射:键值为label;值为每个label出现的频率
-    classCount={}
-    # 这里主要进行投票
-    for i in range(k):
-        # 寻找到前K个距离最近点的标签，然后对每个标签在字典classCount里面统计出现的次数
-        voteIlabel = labels[sortedDistInddicies[i]]
-        # dict.get(key, default=None)
-        # key 字典中要查找的键。default 如果指定键的值不存在，返回该默认值值。
-        # 已labels为标签下标，统计每个标签所出现的频率
-        classCount[voteIlabel]=classCount.get(voteIlabel, 0)+1
-    # 最终得到的classCount大概长这样{'A': 3, 'C': 5, 'B': 2}，也就是意味着标签C出现的次数最多，目的就是要返回最多的，下
-    # 面这行代码将字典排序成list，大的在前
-    # classCount.items(), 将得到dict_items([('c', 5), ('b', 2), ('a', 3)])
-    # operator.itemgetter(1)定义了一个函数，获取对象上的值，必须要作用到对象上才行
-    # Python内置的排序函数sorted可以对list或者iterator进行排序;
-    # 综合来看下面先将classCount转化为list，元素为元组，然后key指定排序时使用的排序方法(元组的第1个元素)，由reverse指定
-    # 是逆序排序
-    # 最后sortedClassCount形如[('c', 5), ('a', 3), ('b', 2)]
-    sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse = True)
-    # 返回'c'
-    return sortedClassCount[0][0]
-
-point0 = [0, 0]
-g, l = createDataSet()
-print("resualt: %r" %classify0(point0, g, l, 3))
+<span style="color: #ffd700;">point0</span> = [0, 0]
+<span style="color: #ffd700;">g</span>, <span style="color: #ffd700;">l</span> = createDataSet()
+<span style="color: #ffb6c1; font-size: 105%;">print</span>(<span style="color: #ffa07a;">"resualt: %r"</span> %classify0(point0, g, l, 3))
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 决策树</h3>
+</div>
+<div id="outline-container-org81e4327" class="outline-3">
+<h3 id="org81e4327"><span class="section-number-3">4.4</span> 决策树</h3>
 <div class="outline-text-3" id="text-4-4">
-
-
 </div>
-
-<div id="outline-container-4-4-1" class="outline-5">
-<h5 id="sec-4-4-1"><span class="section-number-5">4.4.1</span> 信息熵</h5>
-<div class="outline-text-5" id="text-4-4-1">
-
-<p>信息熵用来衡量信息量的大小
-</p><ul>
-<li>若某个集合中不确定性越大，则信息量越大，熵越大；
-</li>
-<li>若某个集合中不确定性越小，则信息量越小，熵越小；
-</li>
+<div id="outline-container-org18cfcb6" class="outline-5">
+<h5 id="org18cfcb6"><span class="section-number-5">4.4.0.1</span> 信息熵</h5>
+<div class="outline-text-5" id="text-4-4-0-1">
+<p>
+信息熵用来衡量信息量的大小
+</p>
+<ul class="org-ul">
+<li>若某个集合中不确定性越大，则信息量越大，熵越大；</li>
+<li>若某个集合中不确定性越小，则信息量越小，熵越小；</li>
 </ul>
-
-<p>定义：一个值域为\({x_{1}...x_{n}}\)的随机变量X的信息熵H定义为：
-$$H(X) = E(I(X))$$ 
+<p>
+定义：一个值域为\({x_{1}...x_{n}}\)的随机变量X的信息熵H定义为：
+\[H(X) = E(I(X))\] 
 其中，E代表期望函数，I(X)是X的信息量，I(X)本身也是个随机变量，如果p是概率函
 数，则H(X)可以表示为
-$$H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})$$ 
+\[H(X)=\sum_{i=1}^{n}p(x_{i})I(x_{i})=-\sum_{i=1}^{n}p(x_{i})log_{b}p(x_{i})\] 
 在这里b是对数所使用的底。
-</p><ul>
-<li>当b=2时熵的单位是bit；
-</li>
-<li>当b=e时熵单位是nat；
-</li>
-<li>当b=10时熵单位是dit。
-</li>
+</p>
+<ul class="org-ul">
+<li>当b=2时熵的单位是bit；</li>
+<li>当b=e时熵单位是nat；</li>
+<li>当b=10时熵单位是dit。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-4-2" class="outline-5">
-<h5 id="sec-4-4-2"><span class="section-number-5">4.4.2</span> 算法逻辑</h5>
-<div class="outline-text-5" id="text-4-4-2">
-
-<p>构建决策树的过程，就是减小信息熵，减小不确定性。从而完整构造决策树模型。所
+<div id="outline-container-org8fc29bf" class="outline-5">
+<h5 id="org8fc29bf"><span class="section-number-5">4.4.0.2</span> 算法逻辑</h5>
+<div class="outline-text-5" id="text-4-4-0-2">
+<p>
+构建决策树的过程，就是减小信息熵，减小不确定性。从而完整构造决策树模型。所
 以我们需要在每一次选择分支属性时，计算这样分类所带来的信息熵的增益，增益越
 大，不确定性越小，最终也就是我们要选择的分支属性。 
-</p><ul>
+</p>
+<ul class="org-ul">
 <li>首先, 我们会在未进行任何分类前求取一个信息熵，这个信息熵涉及到只是简单的
-  求取样本标签的分布，然后按照公式求解信息熵。
-</li>
+求取样本标签的分布，然后按照公式求解信息熵。</li>
 <li>然后，在选用某一个属性作为分支属性后，我们需要计算每一个子分支中的样本标
-  签的分布，然后计算每个子样本的信息熵，最后加权平均（期望），求得总信息熵。
-</li>
+签的分布，然后计算每个子样本的信息熵，最后加权平均（期望），求得总信息熵。</li>
 <li>计算前后两个信息熵的差值，选择最大的增益属性作为分支属性。一直递归下去，
-  对每一个子样本套用上述方法。直到所有的样本都被归类于某个叶节点，即不可再
-  分为止。 
-</li>
+对每一个子样本套用上述方法。直到所有的样本都被归类于某个叶节点，即不可再
+分为止。</li>
 </ul>
-
-<p>以上方法是 <b>ID3</b> 方法，还有更好的 <b>C4.5</b> 方法，C4.5方法选用信息增益比，克服
+<p>
+以上方法是 <b>ID3</b> 方法，还有更好的 <b>C4.5</b> 方法，C4.5方法选用信息增益比，克服
 了ID3使用信息增益选择属性时偏向取值较多的属性的不足。 
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-4-4-3" class="outline-5">
-<h5 id="sec-4-4-3"><span class="section-number-5">4.4.3</span> 算法实例</h5>
-<div class="outline-text-5" id="text-4-4-3">
-
-
 </div>
-
-<div id="outline-container-4-4-3-1" class="outline-6">
-<h6 id="sec-4-4-3-1"><span class="section-number-6">4.4.3.1</span> 计算香农熵</h6>
-<div class="outline-text-6" id="text-4-4-3-1">
-
-<p>根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
+<div id="outline-container-orgadfb162" class="outline-5">
+<h5 id="orgadfb162"><span class="section-number-5">4.4.0.3</span> 算法实例</h5>
+<div class="outline-text-5" id="text-4-4-0-3">
+</div>
+<div id="outline-container-org559ae53" class="outline-6">
+<h6 id="org559ae53"><span class="section-number-6">4.4.0.3.1</span> 计算香农熵</h6>
+<div class="outline-text-6" id="text-4-4-0-3-1">
+<p>
+根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
 性和一个标签，即某个标签具有若干属性，每个标签和属性都有若干值。以某个标签
 为基准计算所有标签值的香农熵。数据集可以用Excel表格表示，每一行代表一个数据，
 每一列代表数据的一个特征，最后一列代表数据的标签，比如加速度值，每一行代表
 采集的一次加速度值，包含3列xyz，表示3个轴的加速度分量，最后一列表示标签，可
 以取'跑步','走路'等值，代码 
 </p>
-
-
-<pre class="example"># dataSet：数据集
-def calcShannonEnt(dataSet):
-    numEntries = len(dataSet)   
-    labelCounts = {}            #标签，键是标签的值，值是每个标签值的个数
-    for featVec in dataSet:     #featVec是dataSet中的某组数据记录
-        currentLabel = featVec[-1] #featVec[-1]表示某组数据的标签
-        # 统计每个标签值的个数
-        if currentLabel not in labelCounts.keys(): 
-            labelCounts[currentLabel] = 0
-        labelCounts[currentLabel] += 1
-    shannonEnt = 0.0
-    # 计算每种标签值的频率以及香农熵统计
-    for key in labelCounts:
-        prob = float(labelCounts[key])/numEntries
-        shannonEnt -= prob * log(prob,2) #log base 2
-    return shannonEnt
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">dataSet&#65306;&#25968;&#25454;&#38598;</span>
+<span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">calcShannonEnt</span>(dataSet):
+        <span style="color: #ffd700;">numEntries</span> = <span style="color: #87cefa; text-decoration: underline;">len</span>(dataSet)   
+        <span style="color: #ffd700;">labelCounts</span> = {}            <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#26631;&#31614;&#65292;&#38190;&#26159;&#26631;&#31614;&#30340;&#20540;&#65292;&#20540;&#26159;&#27599;&#20010;&#26631;&#31614;&#20540;&#30340;&#20010;&#25968;</span>
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> featVec <span style="color: #ffb6c1; font-size: 105%;">in</span> dataSet:     <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">featVec&#26159;dataSet&#20013;&#30340;&#26576;&#32452;&#25968;&#25454;&#35760;&#24405;</span>
+                <span style="color: #ffd700;">currentLabel</span> = featVec[-1] <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">featVec[-1]&#34920;&#31034;&#26576;&#32452;&#25968;&#25454;&#30340;&#26631;&#31614;</span>
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#32479;&#35745;&#27599;&#20010;&#26631;&#31614;&#20540;&#30340;&#20010;&#25968;</span>
+                <span style="color: #ffb6c1; font-size: 105%;">if</span> currentLabel <span style="color: #ffb6c1; font-size: 105%;">not</span> <span style="color: #ffb6c1; font-size: 105%;">in</span> labelCounts.keys(): 
+                        <span style="color: #ffd700;">labelCounts</span>[currentLabel] = 0
+                <span style="color: #ffd700;">labelCounts</span>[currentLabel] += 1
+        <span style="color: #ffd700;">shannonEnt</span> = 0.0
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#35745;&#31639;&#27599;&#31181;&#26631;&#31614;&#20540;&#30340;&#39057;&#29575;&#20197;&#21450;&#39321;&#20892;&#29109;&#32479;&#35745;</span>
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> key <span style="color: #ffb6c1; font-size: 105%;">in</span> labelCounts:
+                <span style="color: #ffd700;">prob</span> = <span style="color: #87cefa; text-decoration: underline;">float</span>(labelCounts[key])/numEntries
+                <span style="color: #ffd700;">shannonEnt</span> -= prob * log(prob,2) <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">log base 2</span>
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> shannonEnt
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-4-3-2" class="outline-6">
-<h6 id="sec-4-4-3-2"><span class="section-number-6">4.4.3.2</span> 划分数据集</h6>
-<div class="outline-text-6" id="text-4-4-3-2">
-
-<p>指按照给定的特征以及特征的值提取出这样的数据集。代码
+</div>
+<div id="outline-container-org5a5c742" class="outline-6">
+<h6 id="org5a5c742"><span class="section-number-6">4.4.0.3.2</span> 划分数据集</h6>
+<div class="outline-text-6" id="text-4-4-0-3-2">
+<p>
+指按照给定的特征以及特征的值提取出这样的数据集。代码
 </p>
-
-
-<pre class="example"># dataSet：数据集
-# axis：取值x或y或z
-# value：表示某个x(yz)分量的值
-# return：返回在dataSet中删除了axis列的样本，这些样本的axis列值等于value，
-# 不等于value的样本属于另一个树分支
-def splitDataSet(dataSet, axis, value):
-    retDataSet = []
-    for featVec in dataSet:
-        if featVec[axis] == value:
-            reducedFeatVec = featVec[:axis] 
-            reducedFeatVec.extend(featVec[axis+1:])
-            retDataSet.append(reducedFeatVec)
-    return retDataSet
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">dataSet&#65306;&#25968;&#25454;&#38598;</span>
+<span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">axis&#65306;&#21462;&#20540;x&#25110;y&#25110;z</span>
+<span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">value&#65306;&#34920;&#31034;&#26576;&#20010;x(yz)&#20998;&#37327;&#30340;&#20540;</span>
+<span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">return&#65306;&#36820;&#22238;&#22312;dataSet&#20013;&#21024;&#38500;&#20102;axis&#21015;&#30340;&#26679;&#26412;&#65292;&#36825;&#20123;&#26679;&#26412;&#30340;axis&#21015;&#20540;&#31561;&#20110;value&#65292;</span>
+<span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#19981;&#31561;&#20110;value&#30340;&#26679;&#26412;&#23646;&#20110;&#21478;&#19968;&#20010;&#26641;&#20998;&#25903;</span>
+<span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">splitDataSet</span>(dataSet, axis, value):
+        <span style="color: #ffd700;">retDataSet</span> = []
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> featVec <span style="color: #ffb6c1; font-size: 105%;">in</span> dataSet:
+                <span style="color: #ffb6c1; font-size: 105%;">if</span> featVec[axis] == value:
+                        <span style="color: #ffd700;">reducedFeatVec</span> = featVec[:axis] 
+                        reducedFeatVec.extend(featVec[axis+1:])
+                        retDataSet.append(reducedFeatVec)
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> retDataSet
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-4-3-3" class="outline-6">
-<h6 id="sec-4-4-3-3"><span class="section-number-6">4.4.3.3</span> 选择最好的划分</h6>
-<div class="outline-text-6" id="text-4-4-3-3">
-
-<p>在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
+</div>
+<div id="outline-container-orgd8df6ea" class="outline-6">
+<h6 id="orgd8df6ea"><span class="section-number-6">4.4.0.3.3</span> 选择最好的划分</h6>
+<div class="outline-text-6" id="text-4-4-0-3-3">
+<p>
+在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
 熵(按样本标签计算)。然后按照该特征下每个特征值占的比例计算该特征的香农熵总
 和，再用原始熵减去这个熵得熵增益，得出按照该特征划分时的效果量化值。最后比
 较每种按特征划分后的香农熵，找出最大香农熵的一种划分方式。 
 </p>
-
-
-<pre class="example">def chooseBestFeatureToSplit(dataSet):
-    numFeatures = len(dataSet[0]) - 1      # 特征个数
-    baseEntropy = calcShannonEnt(dataSet) #原始香农熵
-    bestInfoGain = 0.0; bestFeature = -1
-    # 遍历每个特征
-    for i in range(numFeatures):        #iterate over all the features
-        # python的list推导式
-        featList = [example[i] for example in dataSet]
-        uniqueVals = set(featList)       #get a set of unique values
-        newEntropy = 0.0
-        # 遍历当前特征下每个特征值
-        for value in uniqueVals:
-            # 计算当前特征，当前特征值提取出的数据集
-            subDataSet = splitDataSet(dataSet, i, value)
-            # 计算当前特征值占该特征数量的比例
-            prob = len(subDataSet)/float(len(dataSet))
-            # 计算当前特征的加权香农熵
-            newEntropy += prob * calcShannonEnt(subDataSet)     
-        # 计算香农熵增益
-        infoGain = baseEntropy - newEntropy
-        # 提炼出最大香农熵增益下的特征序号
-        if (infoGain &gt; bestInfoGain):    
-            bestInfoGain = infoGain      
-            bestFeature = i
-    return bestFeature                      #returns an integer
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">chooseBestFeatureToSplit</span>(dataSet):
+        <span style="color: #ffd700;">numFeatures</span> = <span style="color: #87cefa; text-decoration: underline;">len</span>(dataSet[0]) - 1      <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#29305;&#24449;&#20010;&#25968;</span>
+        <span style="color: #ffd700;">baseEntropy</span> = calcShannonEnt(dataSet) <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#21407;&#22987;&#39321;&#20892;&#29109;</span>
+        <span style="color: #ffd700;">bestInfoGain</span> = 0.0; <span style="color: #ffd700;">bestFeature</span> = -1
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#36941;&#21382;&#27599;&#20010;&#29305;&#24449;</span>
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> i <span style="color: #ffb6c1; font-size: 105%;">in</span> <span style="color: #87cefa; text-decoration: underline;">range</span>(numFeatures):        <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">iterate over all the features</span>
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">python&#30340;list&#25512;&#23548;&#24335;</span>
+                <span style="color: #ffd700;">featList</span> = [example[i] <span style="color: #ffb6c1; font-size: 105%;">for</span> example <span style="color: #ffb6c1; font-size: 105%;">in</span> dataSet]
+                <span style="color: #ffd700;">uniqueVals</span> = <span style="color: #87cefa; text-decoration: underline;">set</span>(featList)       <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">get a set of unique values</span>
+                <span style="color: #ffd700;">newEntropy</span> = 0.0
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#36941;&#21382;&#24403;&#21069;&#29305;&#24449;&#19979;&#27599;&#20010;&#29305;&#24449;&#20540;</span>
+                <span style="color: #ffb6c1; font-size: 105%;">for</span> value <span style="color: #ffb6c1; font-size: 105%;">in</span> uniqueVals:
+                        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#35745;&#31639;&#24403;&#21069;&#29305;&#24449;&#65292;&#24403;&#21069;&#29305;&#24449;&#20540;&#25552;&#21462;&#20986;&#30340;&#25968;&#25454;&#38598;</span>
+                        <span style="color: #ffd700;">subDataSet</span> = splitDataSet(dataSet, i, value)
+                        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#35745;&#31639;&#24403;&#21069;&#29305;&#24449;&#20540;&#21344;&#35813;&#29305;&#24449;&#25968;&#37327;&#30340;&#27604;&#20363;</span>
+                        <span style="color: #ffd700;">prob</span> = <span style="color: #87cefa; text-decoration: underline;">len</span>(subDataSet)/<span style="color: #87cefa; text-decoration: underline;">float</span>(<span style="color: #87cefa; text-decoration: underline;">len</span>(dataSet))
+                        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#35745;&#31639;&#24403;&#21069;&#29305;&#24449;&#30340;&#21152;&#26435;&#39321;&#20892;&#29109;</span>
+                        <span style="color: #ffd700;">newEntropy</span> += prob * calcShannonEnt(subDataSet)     
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#35745;&#31639;&#39321;&#20892;&#29109;&#22686;&#30410;</span>
+                <span style="color: #ffd700;">infoGain</span> = baseEntropy - newEntropy
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#25552;&#28860;&#20986;&#26368;&#22823;&#39321;&#20892;&#29109;&#22686;&#30410;&#19979;&#30340;&#29305;&#24449;&#24207;&#21495;</span>
+                <span style="color: #ffb6c1; font-size: 105%;">if</span> (infoGain &gt; bestInfoGain):    
+                        <span style="color: #ffd700;">bestInfoGain</span> = infoGain      
+                        <span style="color: #ffd700;">bestFeature</span> = i
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> bestFeature                      <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">returns an integer</span>
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-4-3-4" class="outline-6">
-<h6 id="sec-4-4-3-4"><span class="section-number-6">4.4.3.4</span> 构造决策树</h6>
-<div class="outline-text-6" id="text-4-4-3-4">
-
-<p>采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
+</div>
+<div id="outline-container-org10ed7d0" class="outline-6">
+<h6 id="org10ed7d0"><span class="section-number-6">4.4.0.3.4</span> 构造决策树</h6>
+<div class="outline-text-6" id="text-4-4-0-3-4">
+<p>
+采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
 是，使用特征标签作为key，其value要么是类别标签作为树的终止叶子节点，要么是
 另一个字典，以此递归。 
 </p>
 
-
-<pre class="example">def createTree(dataSet, labels):  
-    # 样本集的类别标签
-    classList = [example[-1] for example in dataSet]  
-    #类别标签完全相同则停止继续划分，返回类标签(叶子节点)  
-    if classList.count(classList[0]) == len(classList):  
-        return classList[0]  
-    #遍历完所有的特征时返回出现次数最多  
-    if len(dataSet[0]) == 1:  
-        return majorityCnt(classList)       
-    bestFeat = chooseBestFeatureToSplit(dataSet)  
-    bestFeatLabel = labels[bestFeat]  
-    # 每一级递归中用类别标签作为key，其value将是该标签的每个值
-    myTree = {bestFeatLabel:{}}  
-    # 删除一个特征
-    del(labels[bestFeat])  
-    # 得到的列表包含所有的属性值  
-    featValues = [example[bestFeat] for example in dataSet]    
-    uniqueVals = set(featValues)  
-    # 遍历每个值作为字典的value
-    for value in uniqueVals:  
-        subLabels = labels[:]  
-        # 其值就是上面的两个终止条件返回的类别标签
-        myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)  
-    return myTree 
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">createTree</span>(dataSet, labels):  
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#26679;&#26412;&#38598;&#30340;&#31867;&#21035;&#26631;&#31614;</span>
+        <span style="color: #ffd700;">classList</span> = [example[-1] <span style="color: #ffb6c1; font-size: 105%;">for</span> example <span style="color: #ffb6c1; font-size: 105%;">in</span> dataSet]  
+        <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#31867;&#21035;&#26631;&#31614;&#23436;&#20840;&#30456;&#21516;&#21017;&#20572;&#27490;&#32487;&#32493;&#21010;&#20998;&#65292;&#36820;&#22238;&#31867;&#26631;&#31614;(&#21494;&#23376;&#33410;&#28857;)  </span>
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> classList.count(classList[0]) == <span style="color: #87cefa; text-decoration: underline;">len</span>(classList):  
+                <span style="color: #ffb6c1; font-size: 105%;">return</span> classList[0]  
+        <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#36941;&#21382;&#23436;&#25152;&#26377;&#30340;&#29305;&#24449;&#26102;&#36820;&#22238;&#20986;&#29616;&#27425;&#25968;&#26368;&#22810;  </span>
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #87cefa; text-decoration: underline;">len</span>(dataSet[0]) == 1:  
+                <span style="color: #ffb6c1; font-size: 105%;">return</span> majorityCnt(classList)       
+        <span style="color: #ffd700;">bestFeat</span> = chooseBestFeatureToSplit(dataSet)  
+        <span style="color: #ffd700;">bestFeatLabel</span> = labels[bestFeat]  
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#27599;&#19968;&#32423;&#36882;&#24402;&#20013;&#29992;&#31867;&#21035;&#26631;&#31614;&#20316;&#20026;key&#65292;&#20854;value&#23558;&#26159;&#35813;&#26631;&#31614;&#30340;&#27599;&#20010;&#20540;</span>
+        <span style="color: #ffd700;">myTree</span> = {bestFeatLabel:{}}  
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#21024;&#38500;&#19968;&#20010;&#29305;&#24449;</span>
+        <span style="color: #ffb6c1; font-size: 105%;">del</span>(labels[bestFeat])  
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#24471;&#21040;&#30340;&#21015;&#34920;&#21253;&#21547;&#25152;&#26377;&#30340;&#23646;&#24615;&#20540;  </span>
+        <span style="color: #ffd700;">featValues</span> = [example[bestFeat] <span style="color: #ffb6c1; font-size: 105%;">for</span> example <span style="color: #ffb6c1; font-size: 105%;">in</span> dataSet]    
+        <span style="color: #ffd700;">uniqueVals</span> = <span style="color: #87cefa; text-decoration: underline;">set</span>(featValues)  
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#36941;&#21382;&#27599;&#20010;&#20540;&#20316;&#20026;&#23383;&#20856;&#30340;value</span>
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> value <span style="color: #ffb6c1; font-size: 105%;">in</span> uniqueVals:  
+                <span style="color: #ffd700;">subLabels</span> = labels[:]  
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#20854;&#20540;&#23601;&#26159;&#19978;&#38754;&#30340;&#20004;&#20010;&#32456;&#27490;&#26465;&#20214;&#36820;&#22238;&#30340;&#31867;&#21035;&#26631;&#31614;</span>
+                myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)  
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> myTree 
 </pre>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-4-5" class="outline-3">
-<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 贝叶斯分类</h3>
+</div>
+<div id="outline-container-org964234e" class="outline-3">
+<h3 id="org964234e"><span class="section-number-3">4.5</span> 贝叶斯分类</h3>
 <div class="outline-text-3" id="text-4-5">
-
-<p>贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
+<p>
+贝叶斯分类一般是，训练集中有若干类样本c<sub>i</sub>, 每个样本有若干个特征构成特征向
 量，这样不同的特征向量构成特征向量集合v<sub>j</sub>, 当我们获得新的特征向量v时，需
-要判断其属于哪个类别。贝叶斯条件概率如下 $$p(c_{i}|v)=\frac{p(v|c_{i})p(c_{i})}{p(v)}$$ 
+要判断其属于哪个类别。贝叶斯条件概率如下 \[p(c_{i}|v)=\frac{p(v|c_{i})p(c_{i})}{p(v)}\] 
 其中，p(c<sub>i</sub>|v)表示我们有了新的特征向量v，判断其属于某个类别c的概率，在计
 算出所有类别后取其大者为v的类别。
 p(v|c<sub>i</sub>)表示该类别c下特征v在训练集中的概率。
@@ -1756,23 +1856,63 @@ p(v)表示该特征v在训练集中出现的概率。
 关系，而朴素贝叶斯思想就是假定特征向量中每个特征之间是相互独立的，则
 p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘积。例如
 某个医院早上收了六个门诊病人，如下表。
-</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">症状　</th><th scope="col" class="left">　职业　　</th><th scope="col" class="left">　疾病</th></tr>
+<tr>
+<th scope="col" class="org-left">症状　</th>
+<th scope="col" class="org-left">　职业　　</th>
+<th scope="col" class="org-left">　疾病</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="left">　　打喷嚏　</td><td class="left">护士　　　</td><td class="left">感冒</td></tr>
-<tr><td class="left">　　打喷嚏　</td><td class="left">农夫　　　</td><td class="left">过敏</td></tr>
-<tr><td class="left">　　头痛　　</td><td class="left">建筑工人　</td><td class="left">脑震荡</td></tr>
-<tr><td class="left">　　头痛　　</td><td class="left">建筑工人　</td><td class="left">感冒</td></tr>
-<tr><td class="left">　　打喷嚏　</td><td class="left">教师　　　</td><td class="left">感冒</td></tr>
-<tr><td class="left">　　头痛　　</td><td class="left">教师　　　</td><td class="left">脑震荡</td></tr>
+<tr>
+<td class="org-left">　　打喷嚏　</td>
+<td class="org-left">护士　　　</td>
+<td class="org-left">感冒</td>
+</tr>
+
+<tr>
+<td class="org-left">　　打喷嚏　</td>
+<td class="org-left">农夫　　　</td>
+<td class="org-left">过敏</td>
+</tr>
+
+<tr>
+<td class="org-left">　　头痛　　</td>
+<td class="org-left">建筑工人　</td>
+<td class="org-left">脑震荡</td>
+</tr>
+
+<tr>
+<td class="org-left">　　头痛　　</td>
+<td class="org-left">建筑工人　</td>
+<td class="org-left">感冒</td>
+</tr>
+
+<tr>
+<td class="org-left">　　打喷嚏　</td>
+<td class="org-left">教师　　　</td>
+<td class="org-left">感冒</td>
+</tr>
+
+<tr>
+<td class="org-left">　　头痛　　</td>
+<td class="org-left">教师　　　</td>
+<td class="org-left">脑震荡</td>
+</tr>
 </tbody>
 </table>
-
+<p>
 现在又来了第七个病人，是一个打喷嚏的建筑工人。请问他患上感冒的概率有多大？
 根据贝叶斯定理得P(感冒|打喷嚏*建筑工人)=P(打喷嚏*建筑工人|感冒)*P(感冒)/P(打
 喷嚏*建筑工人) , 假定"打喷嚏"和"建筑工人"这两个特征是独立的，因此，上面的等
@@ -1780,342 +1920,273 @@ p(v|c<sub>i</sub>)计算时可以计算所有子特征在类别c下的概率乘�
 喷嚏)*P(建筑工人) 最终计算得P(感冒|打喷嚏*建筑工人)=0.66*0.33*0.5/0.5*0.33=0.66  
 因此，这个打喷嚏的建筑工人，有66%的概率是得了感冒。同理，可以计算这个病人患
 上过敏或脑震荡的概率 
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-4-6" class="outline-3">
-<h3 id="sec-4-6"><span class="section-number-3">4.6</span> 支持向量机</h3>
-<div class="outline-text-3" id="text-4-6">
-
+<div id="outline-container-org385331a" class="outline-3">
+<h3 id="org385331a"><span class="section-number-3">4.6</span> 支持向量机</h3>
 </div>
-
-</div>
-
-<div id="outline-container-4-7" class="outline-3">
-<h3 id="sec-4-7"><span class="section-number-3">4.7</span> 回归分析</h3>
+<div id="outline-container-orgdb6f562" class="outline-3">
+<h3 id="orgdb6f562"><span class="section-number-3">4.7</span> 回归分析</h3>
 <div class="outline-text-3" id="text-4-7">
-
-<p>回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
+<p>
+回归是一种极易理解的模型，就相当于\(y=f(x)\)，表明自变量x与因变量y的关系。最常见问题有如医生治病时的望、闻、问、切，之后
 判定病人是否生病或生了什么病，其中的望闻问切就是获取自变量x，即特征数据，判断是否生病就相当于获取因变量y，即预测分类。 
 随机变量间的关系，可以从多个角度来分析, 并可以参考<a href="./math.html">相关系数</a> 。
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>从涉及的变量数量看
-<ul>
-<li>简单相关：两个变量间；
-</li>
-<li>多重相关：多个变量间；
-</li>
-</ul>
-
-</li>
+<ul class="org-ul">
+<li>简单相关：两个变量间；</li>
+<li>多重相关：多个变量间；</li>
+</ul></li>
 <li>从变量相关关系的表现形式看：
-<ul>
-<li>线性相关：散布图上样本接近一条直线；
-</li>
-<li>非线性相关：散布图上样本接近一条曲线；
-</li>
-</ul>
-
-</li>
+<ul class="org-ul">
+<li>线性相关：散布图上样本接近一条直线；</li>
+<li>非线性相关：散布图上样本接近一条曲线；</li>
+</ul></li>
 <li>从变量相关关系变化的方向看：
-<ul>
-<li>正相关：变量同方向变化，同增同减；
-</li>
-<li>负相关：变量反方向变化，一增一减；
-</li>
-<li>不相关：无规律；
-</li>
-</ul>
-
-</li>
+<ul class="org-ul">
+<li>正相关：变量同方向变化，同增同减；</li>
+<li>负相关：变量反方向变化，一增一减；</li>
+<li>不相关：无规律；</li>
+</ul></li>
 </ol>
-
-<p>关于回归分析问题的一般步骤如下
-</p><ol>
-<li>寻找H函数：hypothesis，即模型假设；
-</li>
-<li>构造J函数：即损失函数，比如最小二乘法；
-</li>
-<li>求模型参数：想办法使得J函数最小求出模型参数，常用最大似然，梯度下降，这一套可以归咎为 <span style="text-decoration:underline;">最优化理论</span> 。
-</li>
+<p>
+关于回归分析问题的一般步骤如下
+</p>
+<ol class="org-ol">
+<li>寻找H函数：hypothesis，即模型假设；</li>
+<li>构造J函数：即损失函数，比如最小二乘法；</li>
+<li>求模型参数：想办法使得J函数最小求出模型参数，常用最大似然，梯度下降，这一套可以归咎为 <span class="underline">最优化理论</span> 。</li>
 </ol>
-
-
 </div>
-
-<div id="outline-container-4-7-1" class="outline-5">
-<h5 id="sec-4-7-1"><span class="section-number-5">4.7.1</span> 线性回归</h5>
-<div class="outline-text-5" id="text-4-7-1">
-
-<p>最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
+<div id="outline-container-orga149426" class="outline-5">
+<h5 id="orga149426"><span class="section-number-5">4.7.0.1</span> 线性回归</h5>
+<div class="outline-text-5" id="text-4-7-0-1">
+<p>
+最简单的回归就是线性回归，包括单变量回归，和多变量回归。一个坐标系下(可以是n维)，有若干个点，找一直线(或其他图，圆)来最
 大可能的近似这些点的走势趋势，然后使用最小二乘法等方法接触相应的参数，就是线性回归，另外线性回归 是以 高斯分布 为误差分
-析模型。用向量来表示，数据集的模型可以这样表示 $$ h_{\theta}(x)=\theta^{T}\chi$$ 也就是带了一系列的参数\(\theta\)和一系
+析模型。用向量来表示，数据集的模型可以这样表示 \[ h_{\theta}(x)=\theta^{T}\chi\] 也就是带了一系列的参数\(\theta\)和一系
 列的维度变量\(x_{i}\), 这就是一个组合问题，已知一些数据，如何求里面的未知参数，给出一个最优解。 一个线性矩阵方程，直接求
 解，很可能无法直接求解。有唯一解的数据集，微乎其微。基本上都是解不存在的超定方程组。因此，需要退一步，将参数求解问题，转
 化为求最小误差问题，求出一个最接近的解，这就是一个松弛求解。 求一个最接近解，直观上，就能想到，误差最小的表达形式。仍然
 是一个含未知参数的线性模型，一堆观测数据，其模型与数据误差最小的形式，模型与数据差的平方和最小, 这就是损失函数的来源。求
 解方法有 
-$$ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}$$ 
-</p><ol>
-<li>最小二乘法：是一个直接的数学求解公式，不过它要求X是列满秩的；
-</li>
+\[ J(\theta)=\frac{\sum_{i=1}^{m}(h_{\theta}(x^{i})-y^{i})^{2}}{2}\] 
+</p>
+<ol class="org-ol">
+<li>最小二乘法：是一个直接的数学求解公式，不过它要求X是列满秩的；</li>
 <li>梯度下降法：分别有梯度下降法，批梯度下降法，增量梯度下降。本质上，都是偏导数，步长/最佳学习率，更新，收敛的问题。这个
-   算法只是最优化原理中的一个普通的方法；
-</li>
+算法只是最优化原理中的一个普通的方法；</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-7-2" class="outline-5">
-<h5 id="sec-4-7-2"><span class="section-number-5">4.7.2</span> 岭回归</h5>
-<div class="outline-text-5" id="text-4-7-2">
-
-<p>如果在最小二乘法中\(X'X\)矩阵不是满秩，或者在其他情况下数值解不稳定，则可以
+<div id="outline-container-org1d86e62" class="outline-5">
+<h5 id="org1d86e62"><span class="section-number-5">4.7.0.2</span> 岭回归</h5>
+<div class="outline-text-5" id="text-4-7-0-2">
+<p>
+如果在最小二乘法中\(X'X\)矩阵不是满秩，或者在其他情况下数值解不稳定，则可以
 使用下面的解
-$$W=(X'X+\lambda{}I_{n})^{-1}X'Y$$ 
+\[W=(X'X+\lambda{}I_{n})^{-1}X'Y\] 
 上面的公式可以通过矩阵\(X'X\)上增加对角矩阵\(I_{n}\)的乘子\(\lambda \in
 R^{+}\)来得到，这里\(I_{n}\)是一个(n+1, n+1)项为0的单位矩阵，这就是岭回归。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-4-7-3" class="outline-5">
-<h5 id="sec-4-7-3"><span class="section-number-5">4.7.3</span> 逻辑回归</h5>
-<div class="outline-text-5" id="text-4-7-3">
-
-<p>线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
+</div>
+<div id="outline-container-orgb2d7825" class="outline-5">
+<h5 id="orgb2d7825"><span class="section-number-5">4.7.0.3</span> 逻辑回归</h5>
+<div class="outline-text-5" id="text-4-7-0-3">
+<p>
+线性回归的鲁棒性很差，主要是由于线性回归在整个实数域内敏感度一样，而我们一般的数据点都是有一定范围。这时逻辑回归就用于限
 制预测范围，比如常用的sigma函数将值域限制在[0, 1]范围。所以逻辑回归其实仅为在线性回归的基础上，套用一个逻辑函数，将线性
 回归实数值域映射到一定小范围，另外逻辑回归 采用的是 伯努利分布 分析误差。
 逻辑回归的模型 是一个非线性模型，sigmoid函数，又称逻辑回归函数。但是它本质上又是一个线性回归模型，因为除去sigmoid映射函
 数关系，其他的步骤，算法都是线性回归的。可以说，逻辑回归，都是以线性回归为理论支持的。只不过，线性模型，无法做到sigmoid
 的非线性形式，sigmoid可以轻松处理0/1分类问题。 
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-4-8" class="outline-3">
-<h3 id="sec-4-8"><span class="section-number-3">4.8</span> 神经网络</h3>
+</div>
+<div id="outline-container-org34245bd" class="outline-3">
+<h3 id="org34245bd"><span class="section-number-3">4.8</span> 神经网络</h3>
 <div class="outline-text-3" id="text-4-8">
-
-<p>此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/神经网络">http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C</a>
-</p><ul>
+<p>
+此处有斯坦福的课程网页：<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">http://ufldl.stanford.edu/wiki/index.php/神经网络</a>
+</p>
+<ul class="org-ul">
 <li>常用的激活函数
-<ol>
-<li>线性函数 $$ f(x)=k*x + c$$
-</li>
+<ol class="org-ol">
+<li>线性函数 \[ f(x)=k*x + c\]</li>
 <li>斜面函数 
-     $$  
+\[  
      f(x) = \{
      T, x>c 
      k*x, |x|\leq{c}
      -T, x < -c
-     $$
-</li>
-<li>阈值函数
-     $$
-     f(x)=\{
-     \begin{aligned}
-     1, x\geq c \\
-     0, x < c
-     \end{aligned}
-     $$
-</li>
-</ol>
-
-</li>
+     \]</li>
+<li><p>
+阈值函数
+$$
+f(x)=\{
+</p>
+\begin{aligned}
+1, x\geq c \\
+0, x < c
+\end{aligned}
+<p>
+$$
+</p></li>
+</ol></li>
 </ul>
-
-
 </div>
-
-<div id="outline-container-4-8-1" class="outline-4">
-<h4 id="sec-4-8-1"><span class="section-number-4">4.8.1</span> 概念</h4>
+<div id="outline-container-orgfc033f7" class="outline-4">
+<h4 id="orgfc033f7"><span class="section-number-4">4.8.1</span> 概念</h4>
 <div class="outline-text-4" id="text-4-8-1">
-
-<ul>
+<ul class="org-ul">
 <li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
-  W表示权重向量同时也是超平面的法向量，X表示特征向量，B表示超平面的偏置或者截距；
-</li>
+W表示权重向量同时也是超平面的法向量，X表示特征向量，B表示超平面的偏置或者截距；</li>
 <li>点到超平面距离：根据几何知识x<sub>0</sub>到f(X)的距离可以表示如下，分子是x<sub>0</sub>带
-  入f(X)求绝对值，分母是法向量的二范数。
-  $$L=\frac{|f(x_{0})|}{||W||}$$
-</li>
-<li>损失函数：又叫代价函数也叫错误函数
-</li>
+入f(X)求绝对值，分母是法向量的二范数。
+\[L=\frac{|f(x_{0})|}{||W||}\]</li>
+<li>损失函数：又叫代价函数也叫错误函数</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-4-8-2" class="outline-4">
-<h4 id="sec-4-8-2"><span class="section-number-4">4.8.2</span> 感知机</h4>
+<div id="outline-container-orgc30dcbd" class="outline-4">
+<h4 id="orgc30dcbd"><span class="section-number-4">4.8.2</span> 感知机</h4>
 <div class="outline-text-4" id="text-4-8-2">
-
-<p>感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
+<p>
+感知机（perceptron）是一种二类分类的线性分类模型，也就是说，使用于将数据分
 成两类的，并且数据要线性可分的情况。线性可分是指存在一个超平面能够将空间分
 成两部分，每一部分为一类，感知机的目的就在于找这样的一个超平面。 
 假设输入数据形式为\(x=(x_{1},x_{2}....x_{n})\),即所谓的特征向量。y代表输入
 数据的类别，为{+1，-1}，感知机的形式为
-$$(f(x)=sign(w*x+b)$$
-</p><ul>
-<li>当w*x+b&gt;=0时，f(x)=+1;
-</li>
-<li>当w*x+b&lt;0时，f(x)=-1;   
-</li>
+\[(f(x)=sign(w*x+b)\]
+</p>
+<ul class="org-ul">
+<li>当w*x+b&gt;=0时，f(x)=+1;</li>
+<li>当w*x+b&lt;0时，f(x)=-1;</li>
 </ul>
-
-<p>f(x)就是我们对输入数据的分类，感知机的目的就在于找到合适的w和b，使得f(x)能
+<p>
+f(x)就是我们对输入数据的分类，感知机的目的就在于找到合适的w和b，使得f(x)能
 正确分类。w是和x维数相同的向量（一个是行向量，一个是列向量），w是我们求的超
-平面的法向量，b是超平面的截距。 <br/>
+平面的法向量，b是超平面的截距。 <br />
 定义损失函数：误分类点到超平面的总距离（不定成误分类的点的个数是因为这样损
 失函数对w,b不是连续可导，不易优化），假设误分类点为0，那么总距离为0. 空间中
 任意一点到超平面的距离为|w*x+b|/(||w||),我们只要使得分子部分变成0就行。 对
 于误分类点\((x_{i},y_{i})\)来说，如果 
-\(w*x_{i}+b&gt;=0\),本应该为+1，但是误分类的话\(y_{i}=-1\),如果
-\(w*x_{i}+b&lt;0\),本应该为-1，但是误分类的话\(y_{i}=+1\),这样我们就能得到
-\(-y_{i}(w*x_{i}+b)&gt;0\),即我们可以使对误分类点的\(-y_{i}(w*x_{i}+b)\)求和，
+\(w*x_{i}+b>=0\),本应该为+1，但是误分类的话\(y_{i}=-1\),如果
+\(w*x_{i}+b<0\),本应该为-1，但是误分类的话\(y_{i}=+1\),这样我们就能得到
+\(-y_{i}(w*x_{i}+b)>0\),即我们可以使对误分类点的\(-y_{i}(w*x_{i}+b)\)求和，
 使之最小化，当然这里是指变成0.  
 感知机算法的原始形式:
 </p>
-
-
-<pre class="example">//给定线性可分的数据集S和学习率e
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#32473;&#23450;&#32447;&#24615;&#21487;&#20998;&#30340;&#25968;&#25454;&#38598;S&#21644;&#23398;&#20064;&#29575;e</span>
 w_{0}=0; 
 b_{0}=0; 
 k = 0; 
 R = max_{1&lt;=i&lt;=l}||x_{i}||
-while(1)
+<span style="color: #ffb6c1; font-size: 105%;">while</span>(1)
 {
-    for i = 1 to l
-        if y_{i}(&lt;w_{k}*x_{i}&gt;+b_{k})&lt;=0 then
+    <span style="color: #ffb6c1; font-size: 105%;">for</span> i = 1 to l
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> y_{i}(&lt;w_{k}*x_{i}&gt;+b_{k})&lt;=0 then
             w_{k+1}=w_{k}+e*y_{i}*x_{i}
             b_{k+1}=b_{k}+e*y_{i}*R^{2}
             k=k+1
-        end if
-    end for
-//直到在for循环中没有错误发生
-//返回(w_{k}, b_{k})，这里k是错误次数
+        end <span style="color: #ffb6c1; font-size: 105%;">if</span>
+    end <span style="color: #ffb6c1; font-size: 105%;">for</span>
+<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#30452;&#21040;&#22312;for&#24490;&#29615;&#20013;&#27809;&#26377;&#38169;&#35823;&#21457;&#29983;</span>
+<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#36820;&#22238;(w_{k}, b_{k})&#65292;&#36825;&#37324;k&#26159;&#38169;&#35823;&#27425;&#25968;</span>
 }
 </pre>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 算法实现</h2>
+</div>
+<div id="outline-container-org24fae07" class="outline-2">
+<h2 id="org24fae07"><span class="section-number-2">5</span> 算法实现</h2>
 <div class="outline-text-2" id="text-5">
-
-
 </div>
-
-<div id="outline-container-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 基于加速度数据计算速度算法</h3>
+<div id="outline-container-org6751b5c" class="outline-3">
+<h3 id="org6751b5c"><span class="section-number-3">5.1</span> 基于加速度数据计算速度算法</h3>
 <div class="outline-text-3" id="text-5-1">
-
-
 </div>
-
-<div id="outline-container-5-1-1" class="outline-4">
-<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> 数据源</h4>
+<div id="outline-container-org898974e" class="outline-4">
+<h4 id="org898974e"><span class="section-number-4">5.1.1</span> 数据源</h4>
 <div class="outline-text-4" id="text-5-1-1">
-
-<p>基础数据来源于加速度数据，具体要求如下
-</p><ul>
-<li>X轴正方向指向脚尖，
-</li>
-<li>X轴正负16G范围；
-</li>
-<li>X轴数据6点均值滤波；
-</li>
+<p>
+基础数据来源于加速度数据，具体要求如下
+</p>
+<ul class="org-ul">
+<li>X轴正方向指向脚尖，</li>
+<li>X轴正负16G范围；</li>
+<li>X轴数据6点均值滤波；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-5-1-2" class="outline-4">
-<h4 id="sec-5-1-2"><a name="velocity-alg" id="velocity-alg"></a><span class="section-number-4">5.1.2</span> 速度算法原理</h4>
+<div id="outline-container-org8a872b8" class="outline-4">
+<h4 id="org8a872b8"><span class="section-number-4">5.1.2</span> 速度算法原理</h4>
 <div class="outline-text-4" id="text-5-1-2">
-
-<p>在跑步时，X轴加速度数据呈现类正弦波波形，波峰为脚往前脚迈刚接触到大地的时刻，
+<p>
+#<a id="org63606a6"></a>
+在跑步时，X轴加速度数据呈现类正弦波波形，波峰为脚往前脚迈刚接触到大地的时刻，
 波谷为脚往后蹬刚离开大地时刻，两个波峰之间的数据刚好是脚迈出1步的数据。通过
 提取一个正弦波数据中的特征\(X\)，并经过线性回归分析，得出速度和特征之间的函
 数关系\(V(X)\)，经过训练集数据的训练得出权重W和截距B，如果有新的特征\(X\)
 时，经过\(V(X)\)计算得出速度值。1步内特征包含
-</p><ol>
-<li>加速度数据的均值；
-</li>
-<li>加速度数据的标准差；
-</li>
-<li>功率：加速度平方/(n*1000); 
-</li>
+</p>
+<ol class="org-ol">
+<li>加速度数据的均值；</li>
+<li>加速度数据的标准差；</li>
+<li>功率：加速度平方/(n*1000);</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-5-1-3" class="outline-4">
-<h4 id="sec-5-1-3"><span class="section-number-4">5.1.3</span> 距离算法原理</h4>
+<div id="outline-container-org8a8a2f3" class="outline-4">
+<h4 id="org8a8a2f3"><span class="section-number-4">5.1.3</span> 距离算法原理</h4>
 <div class="outline-text-4" id="text-5-1-3">
-
-<p>通过<a href="#sec-5-1-2">速度算法</a>计算出1个正弦波速度V，在计算1个正弦波的时间T，1个正弦波的距离l
+<p>
+通过<a href="#org63606a6">速度算法</a>计算出1个正弦波速度V，在计算1个正弦波的时间T，1个正弦波的距离l
 通过公式可以计算出1步的距离。通过总的步数N可以计算出总的距离\(L=N*l\)。
-$$l=V*T$$ 
-</p></div>
-
+\[l=V*T\] 
+</p>
 </div>
-
-<div id="outline-container-5-1-4" class="outline-4">
-<h4 id="sec-5-1-4"><span class="section-number-4">5.1.4</span> 着地时间算法原理</h4>
+</div>
+<div id="outline-container-org5b69ae8" class="outline-4">
+<h4 id="org5b69ae8"><span class="section-number-4">5.1.4</span> 着地时间算法原理</h4>
 <div class="outline-text-4" id="text-5-1-4">
-
-<p>通过<a href="#sec-5-1-2">速度算法原理</a>中描述的跑步过程，可知，1步的着地时间，可以通过计算波峰和
+<p>
+通过<a href="#org63606a6">速度算法原理</a>中描述的跑步过程，可知，1步的着地时间，可以通过计算波峰和
 波谷之间的时间来估算，总的着地时间即为步数乘以1步的着地时间。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-5-1-5" class="outline-4">
-<h4 id="sec-5-1-5"><span class="section-number-4">5.1.5</span> 冲刺次数算法原理</h4>
+</div>
+<div id="outline-container-org7acf3e0" class="outline-4">
+<h4 id="org7acf3e0"><span class="section-number-4">5.1.5</span> 冲刺次数算法原理</h4>
 <div class="outline-text-4" id="text-5-1-5">
-
-<p>基于<a href="#sec-5-1-2">速度算法原理</a>输出的速度参数，统计在一定时间t内，速度递增v，表示一次冲刺，
+<p>
+基于<a href="#org63606a6">速度算法原理</a>输出的速度参数，统计在一定时间t内，速度递增v，表示一次冲刺，
 目前t阈值设置为5秒，v设置为1m/s，步骤如下；
-</p><ol>
-<li>缓存t时间内的速度输出n个；
-</li>
-<li>校验n个v是否递增，如果不递增清空缓存，否则进到第三步；
-</li>
-<li>以第n个v减去第1个v，如果相差1m/s，则判断为1次冲刺；
-</li>
-<li>清空缓存，重复第1到第4步；
-</li>
+</p>
+<ol class="org-ol">
+<li>缓存t时间内的速度输出n个；</li>
+<li>校验n个v是否递增，如果不递增清空缓存，否则进到第三步；</li>
+<li>以第n个v减去第1个v，如果相差1m/s，则判断为1次冲刺；</li>
+<li>清空缓存，重复第1到第4步；</li>
 </ol>
-
-
-
-
 </div>
 </div>
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="date">Date: 2016-09-01 17:46:37 中国标准时间</p>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 18:24</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -394,8 +394,8 @@ gtd状态之间转换可以使用快捷键C-c C-t;
   (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
   #+end_src
 - 文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下, 行
-  [[(all-todo)]]可以定义两种关键字，行[[(seq-todo)]]可以定义工作流状态，行
-  [[(type-todo)]]可以定义工作类型。
+  (all-todo)可以定义两种关键字，行(seq-todo)可以定义工作流状态，行
+  (type-todo)可以定义工作类型。
   #+begin_src emacs-lisp -n -r
   #+TODO: TODO FEEDBACK VERIFY | DONE CANCELED (ref: all-todo)
   #+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED (ref: seq-todo)
@@ -408,7 +408,6 @@ gtd状态之间转换可以使用快捷键C-c C-t;
          ("CANCELED" . (:foreground "blue" :weight bold))))
   #+end_src
 *** 换行
-# <<my-new-line>>
 一般使用一个空行表示换行，也可以使用latex的斜杠par，如果需要在某个行强行折
 行，可以使用两个斜杠。如果想写类似诗句一样的格式可以使用如下方式
 #+BEGIN_VERSE
@@ -419,7 +418,7 @@ Snow covers Emacs
          -- AlexSchroeder
 #+END_VERSE
 *** babel
-1. verse: 见[[my-new-line][换行]]一节的用法
+1. verse: 见换行一节的用法
 2. quote：如果从别的文章中引用一段话，通常需要将这些语句左右都流出一定空间，
    如下面所示
    #+begin_quote
@@ -448,7 +447,6 @@ Snow covers Emacs
    In line [[(sc)]] we remember the current position. Line [[(jump)][(jump)]]
    jumps to point-min.
 *** 宏
-# <org-macro>
 可以在org中定义宏，类似c的宏，然后可以在段落、标题、引用块、表格、列表中使
 用。系统内建的宏有
 1. title：org文档的标题；
@@ -513,7 +511,7 @@ Snow covers Emacs
 **** 配置
 可以使用 _\#+opinion_ 等关键字对文档导出做配置，也可以将这些配置写入某个 _filename_
 文件中，然后在头使用 _\#+setupfile: filename_ 加载这些配置。
-- 关键字：见[[org-macro][宏]]，或见表\ref{tbl-key-words}所示；
+- 关键字：见宏，或见表\ref{tbl-key-words}所示；
   #+caption: 配置关键字
   #+label: tbl-key-words
   #+attr_latex: placement=[H]

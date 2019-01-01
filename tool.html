@@ -1,18 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-01-01 周二 18:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工具</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="工具"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-09-14 13:11:44 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content="description-bitsman"/>
-<meta name="keywords" content="emacs keil iar"/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<meta name="description" content="description-bitsman"
+ />
+<meta name="keywords" content="emacs keil iar" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,1683 +230,2279 @@
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        }
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
-<h1 class="title">工具</h1>
-
-
-
+<h1 class="title">工具
+<br />
+<span class="subtitle">subtitle-bitsman</span>
+</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 emacs</a>
+<li><a href="#orgeead4d3">1. emacs</a>
 <ul>
-<li><a href="#sec-1-1">1.1 安装</a></li>
-<li><a href="#sec-1-2">1.2 基本操作</a>
+<li><a href="#orgc62baf1">1.1. 安装</a></li>
+<li><a href="#org7ff5ea3">1.2. 基本操作</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1 按键命令</a></li>
-<li><a href="#sec-1-2-2">1.2.2 其他</a></li>
-<li><a href="#sec-1-2-3">1.2.3 计算器</a></li>
-<li><a href="#sec-1-2-4">1.2.4 图片</a></li>
-<li><a href="#sec-1-2-5">1.2.5 字体</a></li>
-<li><a href="#sec-1-2-6">1.2.6 编码</a></li>
+<li><a href="#org1cdee4d">1.2.1. 按键命令</a></li>
+<li><a href="#orga4b3e91">1.2.2. 其他</a></li>
+<li><a href="#org26cf496">1.2.3. 计算器</a></li>
+<li><a href="#org5a93c3a">1.2.4. 图片</a></li>
+<li><a href="#orgc883e43">1.2.5. 字体</a></li>
+<li><a href="#org6b755b7">1.2.6. 编码</a></li>
+<li><a href="#org6f749fd">1.2.7. 外部程序</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 elisp</a>
+<li><a href="#org6e9b1a8">1.3. elisp</a>
 <ul>
-<li><a href="#sec-1-3-1">1.3.1 函数</a></li>
-<li><a href="#sec-1-3-2">1.3.2 功能</a></li>
+<li><a href="#org05c3c05">1.3.1. 函数</a></li>
+<li><a href="#org9a4ef51">1.3.2. 功能</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4">1.4 org-mode</a>
+<li><a href="#org1f70df7">1.4. org-mode</a>
 <ul>
-<li><a href="#sec-1-4-1">1.4.1 可视化</a></li>
-<li><a href="#sec-1-4-2">1.4.2 抽屉</a></li>
-<li><a href="#sec-1-4-3">1.4.3 块</a></li>
-<li><a href="#sec-1-4-4">1.4.4 脚注</a></li>
-<li><a href="#sec-1-4-5">1.4.5 序号</a></li>
-<li><a href="#sec-1-4-6">1.4.6 字体</a></li>
-<li><a href="#sec-1-4-7">1.4.7 公式</a></li>
-<li><a href="#sec-1-4-8">1.4.8 表格</a>
+<li><a href="#orgcb0a83c">1.4.1. 可视化</a></li>
+<li><a href="#org2ae6c6f">1.4.2. 抽屉</a></li>
+<li><a href="#org516e3b2">1.4.3. 块</a></li>
+<li><a href="#orgaee86a0">1.4.4. 脚注</a></li>
+<li><a href="#orgd0dc48a">1.4.5. 序号</a></li>
+<li><a href="#orgcfe7cfe">1.4.6. 字体</a></li>
+<li><a href="#orgef108ce">1.4.7. 公式</a></li>
+<li><a href="#org1aa1c0a">1.4.8. 表格</a>
 <ul>
-<li><a href="#sec-1-4-8-1">1.4.8.1 内建表格</a></li>
-<li><a href="#sec-1-4-8-2">1.4.8.2 表格插件</a></li>
-<li><a href="#sec-1-4-8-3">1.4.8.3 表格第三方</a></li>
-<li><a href="#sec-1-4-8-4">1.4.8.4 表格计算</a></li>
+<li><a href="#org9e95bb8">1.4.8.1. 内建表格</a></li>
+<li><a href="#org7351228">1.4.8.2. 表格插件</a></li>
+<li><a href="#org1a093c4">1.4.8.3. 表格第三方</a></li>
+<li><a href="#org5f4b1e8">1.4.8.4. 表格计算</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4-9">1.4.9 画图</a></li>
-<li><a href="#sec-1-4-10">1.4.10 链接</a></li>
-<li><a href="#sec-1-4-11">1.4.11 gtd</a></li>
-<li><a href="#sec-1-4-12">1.4.12 换行</a></li>
-<li><a href="#sec-1-4-13">1.4.13 babel</a></li>
-<li><a href="#sec-1-4-14">1.4.14 宏</a></li>
-<li><a href="#sec-1-4-15">1.4.15 注释</a></li>
-<li><a href="#sec-1-4-16">1.4.16 导出</a>
+<li><a href="#orga7fda0c">1.4.9. 画图</a></li>
+<li><a href="#org5f65826">1.4.10. 链接</a></li>
+<li><a href="#org570d814">1.4.11. gtd</a></li>
+<li><a href="#org2aabbe6">1.4.12. 换行</a></li>
+<li><a href="#orgf50f4c8">1.4.13. babel</a></li>
+<li><a href="#org90e7549">1.4.14. 宏</a></li>
+<li><a href="#org1634a5e">1.4.15. 注释</a></li>
+<li><a href="#org8b6aaca">1.4.16. 导出</a>
 <ul>
-<li><a href="#sec-1-4-16-1">1.4.16.1 配置</a></li>
-<li><a href="#sec-1-4-16-2">1.4.16.2 beamer</a></li>
-<li><a href="#sec-1-4-16-3">1.4.16.3 pdf</a></li>
-<li><a href="#sec-1-4-16-4">1.4.16.4 html</a></li>
-<li><a href="#sec-1-4-16-5">1.4.16.5 特殊符号</a></li>
+<li><a href="#org048412f">1.4.16.1. 配置</a></li>
+<li><a href="#org4982685">1.4.16.2. beamer</a></li>
+<li><a href="#orgc0e5778">1.4.16.3. pdf</a></li>
+<li><a href="#org9e56fda">1.4.16.4. html</a></li>
+<li><a href="#org2b413d1">1.4.16.5. 特殊符号</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-4-17">1.4.17 latex</a></li>
+<li><a href="#org3d76b57">1.4.17. latex</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-5">1.5 python-mode</a></li>
-<li><a href="#sec-1-6">1.6 dired-mode</a></li>
-<li><a href="#sec-1-7">1.7 git</a>
+<li><a href="#orgc442c26">1.5. python-mode</a></li>
+<li><a href="#orga769f28">1.6. dired-mode</a></li>
+<li><a href="#org92facd3">1.7. git</a>
 <ul>
-<li><a href="#sec-1-7-1">1.7.1 配置</a></li>
-<li><a href="#sec-1-7-2">1.7.2 push</a></li>
-</ul></li>
+<li><a href="#org86b57ba">1.7.1. 配置</a></li>
+<li><a href="#orgfc22fb6">1.7.2. push</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 latex</a>
-<ul>
-<li><a href="#sec-2-1">2.1 方法</a></li>
-<li><a href="#sec-2-2">2.2 符号</a>
-<ul>
-<li><a href="#sec-2-2-1">2.2.1 数学模式重音符号</a></li>
-<li><a href="#sec-2-2-2">2.2.2 小写希腊字母</a></li>
-<li><a href="#sec-2-2-3">2.2.3 大写希腊字母</a></li>
-<li><a href="#sec-2-2-4">2.2.4 二元关系符</a></li>
-<li><a href="#sec-2-2-5">2.2.5 二元运算符</a></li>
-<li><a href="#sec-2-2-6">2.2.6 大尺寸运算符</a></li>
-<li><a href="#sec-2-2-7">2.2.7 箭头</a></li>
-<li><a href="#sec-2-2-8">2.2.8 定界符</a></li>
-<li><a href="#sec-2-2-9">2.2.9 大尺寸定界符</a></li>
-<li><a href="#sec-2-2-10">2.2.10 其他符号</a></li>
-<li><a href="#sec-2-2-11">2.2.11 非数学符号</a></li>
-<li><a href="#sec-2-2-12">2.2.12 AMS定界符</a></li>
-<li><a href="#sec-2-2-13">2.2.13 AMS希腊和希伯来字母</a></li>
-<li><a href="#sec-2-2-14">2.2.14 AMS二元关系符</a></li>
-<li><a href="#sec-2-2-15">2.2.15 AMS箭头</a></li>
-<li><a href="#sec-2-2-16">2.2.16 AMS二元否定关系符和箭头</a></li>
-<li><a href="#sec-2-2-17">2.2.17 AMS二元运算符</a></li>
-<li><a href="#sec-2-2-18">2.2.18 AMS其他符号</a></li>
-<li><a href="#sec-2-2-19">2.2.19 微积分符号</a></li>
-</ul></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 keil</a></li>
-<li><a href="#sec-4">4 iar</a></li>
+<li><a href="#org1f767b4">2. latex</a>
+<ul>
+<li><a href="#orgae5ff9b">2.1. 方法</a></li>
+<li><a href="#orga375ed7">2.2. 符号</a>
+<ul>
+<li><a href="#org7542ec7">2.2.1. 数学模式重音符号</a></li>
+<li><a href="#orge066df8">2.2.2. 小写希腊字母</a></li>
+<li><a href="#org8034322">2.2.3. 大写希腊字母</a></li>
+<li><a href="#orgfe57f7a">2.2.4. 二元关系符</a></li>
+<li><a href="#orgf2ce33a">2.2.5. 二元运算符</a></li>
+<li><a href="#org7b57b4b">2.2.6. 大尺寸运算符</a></li>
+<li><a href="#org4e7a619">2.2.7. 箭头</a></li>
+<li><a href="#org3064ccd">2.2.8. 定界符</a></li>
+<li><a href="#org8397403">2.2.9. 大尺寸定界符</a></li>
+<li><a href="#org857673c">2.2.10. 其他符号</a></li>
+<li><a href="#org02223b9">2.2.11. 非数学符号</a></li>
+<li><a href="#org3f5aebd">2.2.12. AMS定界符</a></li>
+<li><a href="#org9139b4b">2.2.13. AMS希腊和希伯来字母</a></li>
+<li><a href="#org37e1a98">2.2.14. AMS二元关系符</a></li>
+<li><a href="#orgcde32c4">2.2.15. AMS箭头</a></li>
+<li><a href="#org1fd7a8f">2.2.16. AMS二元否定关系符和箭头</a></li>
+<li><a href="#org50ca9cc">2.2.17. AMS二元运算符</a></li>
+<li><a href="#orgfa2d25a">2.2.18. AMS其他符号</a></li>
+<li><a href="#org6205df2">2.2.19. 微积分符号</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4c78aaa">3. keil</a></li>
+<li><a href="#org04266ba">4. iar</a></li>
+</ul>
+</div>
+</div>
+<div id="list-of-tables">
+<h2>List of Tables</h2>
+<div id="text-list-of-tables">
+<ul>
+<li><a href="#org279aff3"><span class="table-number">Table 1:</span> emacs使用汇总</a></li>
+<li><a href="#orgfc2b377"><span class="table-number">Table 2:</span> 配置关键字</a></li>
+<li><a href="#org179d5f9"><span class="table-number">Table 3:</span> option项的参数说明</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> emacs</h2>
+<div id="outline-container-orgeead4d3" class="outline-2">
+<h2 id="orgeead4d3"><span class="section-number-2">1</span> emacs</h2>
 <div class="outline-text-2" id="text-1">
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-orgc62baf1" class="outline-3">
+<h3 id="orgc62baf1"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
-
-<ul>
+<ul class="org-ul">
 <li>gnuserv安装：将emacs目录拷贝后，在系统环境变量中增加HOME键值等于emacs路径
-  (d:\emacs)，即可； 
-</li>
+(d:\emacs)，即可；</li>
 <li>自动安装插件：M-x package-list-packages获取插件包列表，enter进入选中插件，
-  点击install开始安装；
-</li>
-<li>重新加载配置文件(pymacs)：M-x load-library RET pymacs RET
-</li>
+点击install开始安装；</li>
+<li>重新加载配置文件(pymacs)：M-x load-library RET pymacs RET</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 基本操作</h3>
+<div id="outline-container-org7ff5ea3" class="outline-3">
+<h3 id="org7ff5ea3"><span class="section-number-3">1.2</span> 基本操作</h3>
 <div class="outline-text-3" id="text-1-2">
-
-
 </div>
-
-<div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 按键命令</h4>
+<div id="outline-container-org1cdee4d" class="outline-4">
+<h4 id="org1cdee4d"><span class="section-number-4">1.2.1</span> 按键命令</h4>
 <div class="outline-text-4" id="text-1-2-1">
-
-<ul>
+<ul class="org-ul">
 <li>按键自定义方式
-<ol>
-<li>定义全局按键
-
-
-
-<pre class="example">(global-set-key "\M-;" 'qiang-comment-dwim-line)
+<ol class="org-ol">
+<li><p>
+定义全局按键
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(global-set-key <span style="color: #ffa07a;">"\M-;"</span> 'qiang-comment-dwim-line)
 </pre>
-
-</li>
-<li>定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
-
-
-
-<pre class="example">(define-key org-mode-map (kbd "C-S-a") 'org-archive-subtree)
+</div></li>
+<li><p>
+定义模式相关的快捷键：如下定义一个快捷键，只有在org-mode中起作用
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(define-key org-mode-map (kbd <span style="color: #ffa07a;">"C-S-a"</span>) 'org-archive-subtree)
 </pre>
-
-</li>
-<li>同一个按键适用于多个模式：表示只在text-mode和org-mode里打开flyspell的功能，并且绑定了C-c C-v按键，这里用到了 dolist
-     函数来遍历需要设置的mode      
-
-
-
-<pre class="example">(dolist (hook '(text-mode-hook org-mode-hook))
+</div></li>
+<li><p>
+同一个按键适用于多个模式：表示只在text-mode和org-mode里打开flyspell的功能，并且绑定了C-c C-v按键，这里用到了 dolist
+函数来遍历需要设置的mode      
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #ffb6c1; font-size: 105%;">dolist</span> (hook '(text-mode-hook org-mode-hook))
          (add-hook hook
-               (lambda ()
+               (<span style="color: #ffb6c1; font-size: 105%;">lambda</span> ()
                    (flyspell-mode 1)
-                   (local-set-key (kbd "C-c C-v") flyspell-goto-next-error))))
+                   (local-set-key (kbd <span style="color: #ffa07a;">"C-c C-v"</span>) flyspell-goto-next-error))))
 </pre>
-
-</li>
-<li>使用local-set-key做局部绑定，暂定；
-</li>
-</ol>
-
-</li>
-<li>定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
-
-
-
-<pre class="example">(defun gtd ()
+</div></li>
+<li>使用local-set-key做局部绑定，暂定；</li>
+</ol></li>
+<li><p>
+定义自己的M-x指令：如下指令进行M-x gtd，可以打开相应的文件；
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #ffb6c1; font-size: 105%;">defun</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">gtd</span> ()
  (interactive)
- (find-file "c:/homes/charles/gtd/gtd/mygtd.org"))
+ (find-file <span style="color: #ffa07a;">"c:/homes/charles/gtd/gtd/mygtd.org"</span>))
 </pre>
+</div></li>
+<li><p>
+表格\ref{tbl-emacs-inf}总结了平时需要的快捷键、模式、命令等操作；
+</p>
+<table id="org279aff3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> emacs使用汇总</caption>
 
-</li>
-<li>表格<a href="#tbl-emacs-inf">tbl-emacs-inf</a>总结了平时需要的快捷键、模式、命令等操作；
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-emacs-inf">
-<caption>emacs使用汇总</caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">模式</th><th scope="col" class="left">按键</th><th scope="col" class="left">函数</th><th scope="col" class="left">功能</th><th scope="col" class="left">备注</th></tr>
+<tr>
+<th scope="col" class="org-left">模式</th>
+<th scope="col" class="org-left">按键</th>
+<th scope="col" class="org-left">函数</th>
+<th scope="col" class="org-left">功能</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="left"></td><td class="left">C-c a</td><td class="left">org-agenda</td><td class="left">进入org模式的agenda</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-c b</td><td class="left">org-iswitchb</td><td class="left">进入org模式的iswitchb</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-c c</td><td class="left">org-capture</td><td class="left">进入org模式的capture</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-c l</td><td class="left">org-store-link</td><td class="left">进入org模式的org-store-link</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">F9</td><td class="left">emacs-maximize</td><td class="left">窗口最大化</td><td class="left">实际上延时后最大化</td></tr>
-<tr><td class="left"></td><td class="left">C-F9</td><td class="left">emacs-normal</td><td class="left">窗口大小还原</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-x 4 4</td><td class="left">split-window-h2v2</td><td class="left">窗口分成4份，水平2份垂直2份</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x 4 3</td><td class="left">split-window-h2v1</td><td class="left">窗口分成3份，水平2份垂直1份</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x 4 5</td><td class="left">split-window-h1v2</td><td class="left">窗口分成3份，水平1份垂直2份</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">M-j</td><td class="left">split-window-rotate</td><td class="left">窗口顺时针旋转</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">M-S-j</td><td class="left">split-window-hv-turn</td><td class="left">窗口逆时针旋转</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">M-g</td><td class="left">goto-line</td><td class="left">跳转到某行</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-,</td><td class="left">scroll-left</td><td class="left">屏幕左移命令</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-.</td><td class="left">scroll-right</td><td class="left">屏幕右移命令</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">F3</td><td class="left">repeat-complex-command</td><td class="left">重复上一命令</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x z</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">F8</td><td class="left">eshell</td><td class="left">打开eshell</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-F8</td><td class="left">open-eshell-other-<a href="#buffer">buffer</a></td><td class="left">在另一个<a href="#buffer">buffer</a>里面打开eshell</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-;</td><td class="left">set-mark-command</td><td class="left">设置标记起始位置</td><td class="left">原来绑定在C-SPC上</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">F2</td><td class="left">ecb-hide-ecb-windows</td><td class="left">ecb模式窗口隐藏</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-F2</td><td class="left">ecb-show-ecb-windows</td><td class="left">ecb模式窗口显示</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">M-;</td><td class="left">user-comment-dwim-line</td><td class="left">代码注释</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">F7</td><td class="left">quick-compile</td><td class="left">编译</td><td class="left">设置编译C</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">F10</td><td class="left">my-transparent</td><td class="left">设置或者取消emacs透明</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-c 1</td><td class="left">org-time-stamp</td><td class="left">org模式时间戳</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-c d</td><td class="left">insert-current-date</td><td class="left">插入当前日期</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-c t</td><td class="left">insert-current-time</td><td class="left">插入当前时间</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-F1</td><td class="left">manual-entry</td><td class="left">进入manual</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">F1</td><td class="left">open-key-info-file</td><td class="left">进入自定义快捷键帮助</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left"></td><td class="left">byte-compile-file</td><td class="left">编译elisp文件</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">describe-current-coding-system</td><td class="left">显示当前<a href="#buffer">buffer</a>的编码格式</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x RET f</td><td class="left"></td><td class="left">改变当前<a href="#buffer">buffer</a>的编码格式</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left">C-x {</td><td class="left"></td><td class="left">往左加宽<a href="#buffer">buffer</a>尺寸</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x }</td><td class="left"></td><td class="left">往右加宽<a href="#buffer">buffer</a>尺寸</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x ^</td><td class="left"></td><td class="left">往上加高<a href="#buffer">buffer</a>尺寸</td><td class="left"></td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">目录模式</td><td class="left">n</td><td class="left"></td><td class="left">向下查看文件</td><td class="left"></td></tr>
-<tr><td class="left">C-x d</td><td class="left">p</td><td class="left"></td><td class="left">向上查看文件</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">&gt;</td><td class="left"></td><td class="left">向下查看目录</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">&lt;</td><td class="left"></td><td class="left">向上查看目录</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">^</td><td class="left"></td><td class="left">返回上一级目录</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">M-(</td><td class="left"></td><td class="left">向下查看已标记</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">M-)</td><td class="left"></td><td class="left">向上查看已标记</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">g</td><td class="left"></td><td class="left">刷新</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">s</td><td class="left"></td><td class="left">切换名称/日期排序方式</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">i</td><td class="left"></td><td class="left">当前窗口下面打开该子目录</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">v</td><td class="left"></td><td class="left">查看当前文件（当前窗口）</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">o</td><td class="left"></td><td class="left">查看当前文件（另一窗口）</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">y</td><td class="left"></td><td class="left">查看当前文件类型</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">等号</td><td class="left"></td><td class="left">比较文件，相当于shell下的diff</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">m</td><td class="left"></td><td class="left">标记（mark）</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">u</td><td class="left"></td><td class="left">取消标记</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">U</td><td class="left"></td><td class="left">取消所有标记</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">* /</td><td class="left"></td><td class="left">标记所有文件夹</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">* *</td><td class="left"></td><td class="left">标记所有可执行文件</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">* @</td><td class="left"></td><td class="left">标记所有符号链接</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">* c</td><td class="left"></td><td class="left">改变标记的符号</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">% m</td><td class="left"></td><td class="left">根据正则表达式改变标记文件</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">% g</td><td class="left"></td><td class="left">根据正则表达式改变标记文件的内容</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">d</td><td class="left"></td><td class="left">标记为删除</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">~</td><td class="left"></td><td class="left">标记所有备份文件为删除</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">#</td><td class="left"></td><td class="left">将存盘文件标记为删除</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">&amp; d</td><td class="left"></td><td class="left">根据正则表达式标记删除</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">X</td><td class="left"></td><td class="left">执行标记的操作</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">+</td><td class="left"></td><td class="left">新建目录</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">C-x C-q</td><td class="left"></td><td class="left">将文件列表设置为只读</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">D</td><td class="left"></td><td class="left">删除文件</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">C</td><td class="left"></td><td class="left">拷贝</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">O</td><td class="left"></td><td class="left">改变用户</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">G</td><td class="left"></td><td class="left">改变群组</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">S</td><td class="left"></td><td class="left">符号链接</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">H</td><td class="left"></td><td class="left">硬链接</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">Z</td><td class="left"></td><td class="left">压缩</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">W</td><td class="left"></td><td class="left">复制文件名</td><td class="left">标记（m）后的操作</td></tr>
-<tr><td class="left"></td><td class="left">K</td><td class="left"></td><td class="left">删除行，刷新后可恢复</td><td class="left">标记（m）后的操作</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left"></td><td class="left"></td><td class="left">revert-<a href="#buffer">buffer</a></td><td class="left">刷新<a href="#buffer">buffer</a></td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">emacs -q</td><td class="left">进入emacs默认最小配置</td><td class="left">启动emacs时使用</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">eval-current-<a href="#buffer">buffer</a></td><td class="left">当前配置立马生效</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">rename-<a href="#buffer">buffer</a></td><td class="left">重命名当前<a href="#buffer">buffer</a></td><td class="left"></td></tr>
-</tbody>
-</table>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c a</td>
+<td class="org-left">org-agenda</td>
+<td class="org-left">进入org模式的agenda</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 
-</li>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c b</td>
+<td class="org-left">org-iswitchb</td>
+<td class="org-left">进入org模式的iswitchb</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c c</td>
+<td class="org-left">org-capture</td>
+<td class="org-left">进入org模式的capture</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c l</td>
+<td class="org-left">org-store-link</td>
+<td class="org-left">进入org模式的org-store-link</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F9</td>
+<td class="org-left">emacs-maximize</td>
+<td class="org-left">窗口最大化</td>
+<td class="org-left">实际上延时后最大化</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-F9</td>
+<td class="org-left">emacs-normal</td>
+<td class="org-left">窗口大小还原</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x 4 4</td>
+<td class="org-left">split-window-h2v2</td>
+<td class="org-left">窗口分成4份，水平2份垂直2份</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x 4 3</td>
+<td class="org-left">split-window-h2v1</td>
+<td class="org-left">窗口分成3份，水平2份垂直1份</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x 4 5</td>
+<td class="org-left">split-window-h1v2</td>
+<td class="org-left">窗口分成3份，水平1份垂直2份</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">M-j</td>
+<td class="org-left">split-window-rotate</td>
+<td class="org-left">窗口顺时针旋转</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">M-S-j</td>
+<td class="org-left">split-window-hv-turn</td>
+<td class="org-left">窗口逆时针旋转</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">M-g</td>
+<td class="org-left">goto-line</td>
+<td class="org-left">跳转到某行</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-,</td>
+<td class="org-left">scroll-left</td>
+<td class="org-left">屏幕左移命令</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-.</td>
+<td class="org-left">scroll-right</td>
+<td class="org-left">屏幕右移命令</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F3</td>
+<td class="org-left">repeat-complex-command</td>
+<td class="org-left">重复上一命令</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x z</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F8</td>
+<td class="org-left">eshell</td>
+<td class="org-left">打开eshell</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-F8</td>
+<td class="org-left">open-eshell-other-<a href="#org566c419">buffer</a></td>
+<td class="org-left">在另一个buffer里面打开eshell</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-;</td>
+<td class="org-left">set-mark-command</td>
+<td class="org-left">设置标记起始位置</td>
+<td class="org-left">原来绑定在C-SPC上</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F2</td>
+<td class="org-left">ecb-hide-ecb-windows</td>
+<td class="org-left">ecb模式窗口隐藏</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-F2</td>
+<td class="org-left">ecb-show-ecb-windows</td>
+<td class="org-left">ecb模式窗口显示</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">M-;</td>
+<td class="org-left">user-comment-dwim-line</td>
+<td class="org-left">代码注释</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F7</td>
+<td class="org-left">quick-compile</td>
+<td class="org-left">编译</td>
+<td class="org-left">设置编译C</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F10</td>
+<td class="org-left">my-transparent</td>
+<td class="org-left">设置或者取消emacs透明</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c 1</td>
+<td class="org-left">org-time-stamp</td>
+<td class="org-left">org模式时间戳</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c d</td>
+<td class="org-left">insert-current-date</td>
+<td class="org-left">插入当前日期</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-c t</td>
+<td class="org-left">insert-current-time</td>
+<td class="org-left">插入当前时间</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-F1</td>
+<td class="org-left">manual-entry</td>
+<td class="org-left">进入manual</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F1</td>
+<td class="org-left">open-key-info-file</td>
+<td class="org-left">进入自定义快捷键帮助</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">byte-compile-file</td>
+<td class="org-left">编译elisp文件</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">describe-current-coding-system</td>
+<td class="org-left">显示当前buffer的编码格式</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x RET f</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">改变当前buffer的编码格式</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x {</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">往左加宽buffer尺寸</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x }</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">往右加宽buffer尺寸</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x ^</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">往上加高buffer尺寸</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">目录模式</td>
+<td class="org-left">n</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">向下查看文件</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x d</td>
+<td class="org-left">p</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">向上查看文件</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&gt;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">向下查看目录</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&lt;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">向上查看目录</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">^</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">返回上一级目录</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">M-(</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">向下查看已标记</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">M-)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">向上查看已标记</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">g</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">刷新</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">s</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">切换名称/日期排序方式</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">i</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">当前窗口下面打开该子目录</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">v</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">查看当前文件（当前窗口）</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">o</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">查看当前文件（另一窗口）</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">y</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">查看当前文件类型</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">等号</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">比较文件，相当于shell下的diff</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">m</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">标记（mark）</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">u</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">取消标记</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">U</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">取消所有标记</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">* /</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">标记所有文件夹</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">* *</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">标记所有可执行文件</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">* @</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">标记所有符号链接</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">* c</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">改变标记的符号</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">% m</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">根据正则表达式改变标记文件</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">% g</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">根据正则表达式改变标记文件的内容</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">d</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">标记为删除</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">~</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">标记所有备份文件为删除</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">#</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">将存盘文件标记为删除</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&amp; d</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">根据正则表达式标记删除</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">X</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">执行标记的操作</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">+</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">新建目录</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C-x C-q</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">将文件列表设置为只读</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">D</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">删除文件</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">C</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">拷贝</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">O</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">改变用户</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">G</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">改变群组</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">S</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">符号链接</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">H</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">硬链接</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Z</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">压缩</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">W</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">复制文件名</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">K</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">删除行，刷新后可恢复</td>
+<td class="org-left">标记（m）后的操作</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">revert-<a href="#org566c419">buffer</a></td>
+<td class="org-left">刷新buffer</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">emacs -q</td>
+<td class="org-left">进入emacs默认最小配置</td>
+<td class="org-left">启动emacs时使用</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">eval-current-<a href="#org566c419">buffer</a></td>
+<td class="org-left">当前配置立马生效</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rename-<a href="#org566c419">buffer</a></td>
+<td class="org-left">重命名当前buffer</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 其他</h4>
+<div id="outline-container-orga4b3e91" class="outline-4">
+<h4 id="orga4b3e91"><span class="section-number-4">1.2.2</span> 其他</h4>
 <div class="outline-text-4" id="text-1-2-2">
-
-<ul>
-<li>在eshell中使用$PATH$可以输出当前emacs的路径path；
-</li>
-<li>查询当前模式:C-h m或者M-x describe-mode ;
-</li>
+<ul class="org-ul">
+<li>在eshell中使用$PATH$可以输出当前emacs的路径path；</li>
+<li>查询当前模式:C-h m或者M-x describe-mode ;</li>
 <li>el源文件编译:对于emacs某些包，有生成的elc的编译文件，emacs启动时，调用elc启动速度会更快，但是如果修改了源文件el，则可
-  以使用M-x：byte-recompile-directory来重新编译，才能将修改的地方起作用。比如org mode中修改latex的生成模式函数
-  org-export-latex-make-header
-</li>
-<li>右键菜单配置打开命令：在注册表\HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\下面新建一项Emacs，再在下面新建command项，
-  看起来应该是这样：\HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\Emacs\command\ 然后把command项右边的默认值设为
-  Path\gnuclientw.exe，并加上"%1"
-</li>
-<li>emacs配置立马生效: 可以M-x eval-current-<a href="#buffer">buffer</a>立马生效;
-</li>
+以使用M-x：byte-recompile-directory来重新编译，才能将修改的地方起作用。比如org mode中修改latex的生成模式函数
+org-export-latex-make-header</li>
+<li>右键菜单配置打开命令：在注册表\HKEY\<sub>CLASSES</sub>\<sub>ROOT\AllFilesystemObjects\shell\下面新建一项Emacs</sub>，再在下面新建command项，
+看起来应该是这样：\HKEY\<sub>CLASSES</sub>\<sub>ROOT\AllFilesystemObjects\shell\Emacs\command</sub>\ 然后把command项右边的默认值设为
+Path\gnuclientw.exe，并加上&ldquo;%1&rdquo;</li>
+<li>emacs配置立马生效: 可以M-x eval-current-buffer立马生效;</li>
 <li>查看emacs占用资源：M-x profiler-start 然后选cpu+mem然后执行
-  profiler-report；
-</li>
+profiler-report；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 计算器</h4>
+<div id="outline-container-org26cf496" class="outline-4">
+<h4 id="org26cf496"><span class="section-number-4">1.2.3</span> 计算器</h4>
 <div class="outline-text-4" id="text-1-2-3">
-
-<ul>
-<li>计算器模式1：M-x calc进入，输入"10"回车"d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以"2#"开头,以表
-  示它们是二进制形式。如果要重新用十进制显示，则输入"d0"即可，同样，也可以用"d8""，"d6"来显示八进制和十六进制的格式。如
-  果要进行进制转换，比如讲二进制的1010转换为十六进制，可以这样先d6设定16进制模式，然后再minibuffer中输入2#1010，回车；
-</li>
-<li>计算器模式2：M-x quick-calc进入，启动后会在minibuffer里提示输入数学计算式，回车就显示结果；
-</li>
+<ul class="org-ul">
+<li>计算器模式1：M-x calc进入，输入&ldquo;10&rdquo;回车&ldquo;d2，这个d2会把窗口中的所有数字显示为二进制形式，所有的数字都会以&rdquo;2#&ldquo;开头,以表
+示它们是二进制形式。如果要重新用十进制显示，则输入&rdquo;d0&ldquo;即可，同样，也可以用&rdquo;d8&ldquo;&rdquo;，&ldquo;d6&rdquo;来显示八进制和十六进制的格式。如
+果要进行进制转换，比如讲二进制的1010转换为十六进制，可以这样先d6设定16进制模式，然后再minibuffer中输入2#1010，回车；</li>
+<li>计算器模式2：M-x quick-calc进入，启动后会在minibuffer里提示输入数学计算式，回车就显示结果；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2-4" class="outline-4">
-<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 图片</h4>
+<div id="outline-container-org5a93c3a" class="outline-4">
+<h4 id="org5a93c3a"><span class="section-number-4">1.2.4</span> 图片</h4>
 <div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li><p>
+导入图片见图\ref{img-pic-test}:可以通过调节width=.1\ linewidth来限制图片输出的大小, 其中.1表示倍率，或者使用scale=0.2
+进行调节
+</p>
 
-<ul>
-<li>导入图片见图<a href="#img-pic-test">img-pic-test</a>:可以通过调节width=.1\ linewidth来限制图片输出的大小, 其中.1表示倍率，或者使用scale=0.2
-  进行调节
-  <div id="img-pic-test" class="figure">
-<p><img src="./img/emacs1.jpg"  alt="./img/emacs1.jpg" /></p>
-<p>emacs导图测试</p>
-</div>
-</li>
+<div id="org0a52f5b" class="figure">
+<p><img src="./img/emacs1.jpg" alt="emacs1.jpg" />
+</p>
+<p><span class="figure-number">Figure 1: </span>emacs导图测试</p>
+</div></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2-5" class="outline-4">
-<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> 字体</h4>
+<div id="outline-container-orgc883e43" class="outline-4">
+<h4 id="orgc883e43"><span class="section-number-4">1.2.5</span> 字体</h4>
 <div class="outline-text-4" id="text-1-2-5">
-
-<ul>
-<li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn
-</li>
+<ul class="org-ul">
+<li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2-6" class="outline-4">
-<h4 id="sec-1-2-6"><span class="section-number-4">1.2.6</span> 编码</h4>
+<div id="outline-container-org6b755b7" class="outline-4">
+<h4 id="org6b755b7"><span class="section-number-4">1.2.6</span> 编码</h4>
 <div class="outline-text-4" id="text-1-2-6">
-
-<ul>
+<ul class="org-ul">
 <li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
-  变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#buffer">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
-  编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8
-</li>
-<li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；
-</li>
+变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#org566c419">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8</li>
+<li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；</li>
 </ul>
-
 </div>
 </div>
-
+<div id="outline-container-org6f749fd" class="outline-4">
+<h4 id="org6f749fd"><span class="section-number-4">1.2.7</span> 外部程序</h4>
+<div class="outline-text-4" id="text-1-2-7">
+<p>
+使用M-x shell-command然后输入win下程序，可以调用执行之。也可以绑定到
+按键上。 
+</p>
 </div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> elisp</h3>
+</div>
+</div>
+<div id="outline-container-org6e9b1a8" class="outline-3">
+<h3 id="org6e9b1a8"><span class="section-number-3">1.3</span> elisp</h3>
 <div class="outline-text-3" id="text-1-3">
-
-
 </div>
-
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 函数</h4>
+<div id="outline-container-org05c3c05" class="outline-4">
+<h4 id="org05c3c05"><span class="section-number-4">1.3.1</span> 函数</h4>
 <div class="outline-text-4" id="text-1-3-1">
-
-<ul>
-<li>concat：将字符串连接，如下
-
-
-
-<pre class="example">(concat "gcc" "-W -o")
+<ul class="org-ul">
+<li><p>
+concat：将字符串连接，如下
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(concat <span style="color: #ffa07a;">"gcc"</span> <span style="color: #ffa07a;">"-W -o"</span>)
 </pre>
-
-</li>
-<li>file-name-sans-extension: 获得文件名，除了后缀名；
-</li>
-<li><a href="#buffer">buffer</a>-file-name: 获得文件名，带后缀名；
-</li>
-<li>current-<a href="#buffer">buffer</a>: 当前<a href="#buffer">buffer</a>名；
-</li>
+</div></li>
+<li>file-name-sans-extension: 获得文件名，除了后缀名；</li>
+<li><a href="#org566c419">buffer</a>-file-name: 获得文件名，带后缀名；</li>
+<li>current-<a href="#org566c419">buffer</a>: 当前buffer名；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 功能</h4>
+<div id="outline-container-org9a4ef51" class="outline-4">
+<h4 id="org9a4ef51"><span class="section-number-4">1.3.2</span> 功能</h4>
 <div class="outline-text-4" id="text-1-3-2">
-
-<ul>
-<li>获取<a href="#buffer">buffer</a>文件名: 行<a href="#coderef-extn" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-extn');" onmouseout="CodeHighlightOff(this, 'coderef-extn');">1</a>带有后缀名，行<a href="#coderef-noextn" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-noextn');" onmouseout="CodeHighlightOff(this, 'coderef-noextn');">2</a>不带后缀名；
-
-
-
-<pre class="example"><span id="coderef-extn" class="coderef-off"><span class="linenr">1:  </span>(buffer-file-name (current-buffer))</span>
-<span id="coderef-noextn" class="coderef-off"><span class="linenr">2:  </span>(file-name-sans-extension (buffer-file-name (current-buffer)))</span>
+<ul class="org-ul">
+<li><p>
+获取buffer文件名: 行<a href="#coderef-extn" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-extn');" onmouseout="CodeHighlightOff(this, 'coderef-extn');">1</a>带有后缀名，行<a href="#coderef-noextn" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-noextn');" onmouseout="CodeHighlightOff(this, 'coderef-noextn');">2</a>不带后缀名；
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp"><span id="coderef-extn" class="coderef-off"><span class="linenr">1: </span>(buffer-file-name (current-buffer))</span>
+<span id="coderef-noextn" class="coderef-off"><span class="linenr">2: </span>(file-name-sans-extension (buffer-file-name (current-buffer)))</span>
 </pre>
-
-</li>
+</div></li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><a name="org-mode" id="org-mode"></a><span class="section-number-3">1.4</span> org-mode</h3>
+<div id="outline-container-org1f70df7" class="outline-3">
+<h3 id="org1f70df7"><span class="section-number-3">1.4</span> org-mode</h3>
 <div class="outline-text-3" id="text-1-4">
-
-<p>org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
+<p>
+org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
 </p>
 </div>
-
-<div id="outline-container-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> 可视化</h4>
+<div id="outline-container-orgcb0a83c" class="outline-4">
+<h4 id="orgcb0a83c"><span class="section-number-4">1.4.1</span> 可视化</h4>
 <div class="outline-text-4" id="text-1-4-1">
-
-<ul>
+<ul class="org-ul">
 <li>初始可视化：在org文档的开始，加上#+startup: overview, 其中overview可以是
-  如下选项
-<ol>
-<li>overview：只显示第一级标题；
-</li>
-<li>content：显示所有标题；
-</li>
-<li>showall：显示所有标题和正文；
-</li>
-<li>showeverything：显示所有标题和正文, 雷同showall；
-</li>
-</ol>
-
-</li>
+如下选项
+<ol class="org-ol">
+<li>overview：只显示第一级标题；</li>
+<li>content：显示所有标题；</li>
+<li>showall：显示所有标题和正文；</li>
+<li>showeverything：显示所有标题和正文, 雷同showall；</li>
+</ol></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-2" class="outline-4">
-<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> 抽屉</h4>
+<div id="outline-container-org2ae6c6f" class="outline-4">
+<h4 id="org2ae6c6f"><span class="section-number-4">1.4.2</span> 抽屉</h4>
 <div class="outline-text-4" id="text-1-4-2">
-
-<p>使用抽屉drawer，在导出时，drawer里面的文字不会被到导出, 可以在里面放入一些
-注解, 可以使用命令'org-insert-property-drawer' 
-</p></div>
-
+<p>
+使用抽屉drawer，在导出时，drawer里面的文字不会被到导出, 可以在里面放入一些
+注解, 可以使用命令&rsquo;org-insert-property-drawer&rsquo; 
+</p>
+<p>
+抽屉内部
+</p>
 </div>
-
-<div id="outline-container-1-4-3" class="outline-4">
-<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> 块</h4>
+</div>
+<div id="outline-container-org516e3b2" class="outline-4">
+<h4 id="org516e3b2"><span class="section-number-4">1.4.3</span> 块</h4>
 <div class="outline-text-4" id="text-1-4-3">
-
-<p>代码块可以设置#+startup: hideblocks, 做初始化折叠或打开。可以有如下选项
-</p><ol>
-<li>hideblocks：隐藏代码块；
-</li>
-<li>nohideblocks：显示代码块；
-</li>
+<p>
+代码块可以设置#+startup: hideblocks, 做初始化折叠或打开。可以有如下选项
+</p>
+<ol class="org-ol">
+<li>hideblocks：隐藏代码块；</li>
+<li>nohideblocks：显示代码块；</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-4" class="outline-4">
-<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> 脚注</h4>
+<div id="outline-container-orgaee86a0" class="outline-4">
+<h4 id="orgaee86a0"><span class="section-number-4">1.4.4</span> 脚注</h4>
 <div class="outline-text-4" id="text-1-4-4">
-
-<p>脚注注解可以放在任何正文位置，脚注形式有；
-</p><ul>
-<li>脚注一, 普通序号脚注<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup>;
-</li>
-<li>脚注二，带名字脚注<sup><a class="footref" name="fnr.2" href="#fn.2">2</a></sup>;
-</li>
-<li>脚注三, 匿名脚注<sup><a class="footref" name="fnr.3" href="#fn.3">3</a></sup>; 
-</li>
-<li>脚注四，带描述的脚注<sup><a class="footref" name="fnr.4" href="#fn.4">4</a></sup>; 
-</li>
+<p>
+脚注注解可以放在任何正文位置，脚注形式有；
+</p>
+<ul class="org-ul">
+<li>脚注一, 普通序号脚注<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>;</li>
+<li>脚注二，带名字脚注<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>;</li>
+<li>脚注三, 匿名脚注<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>;</li>
+<li>脚注四，带描述的脚注<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>;</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-5" class="outline-4">
-<h4 id="sec-1-4-5"><span class="section-number-4">1.4.5</span> 序号</h4>
+<div id="outline-container-orgd0dc48a" class="outline-4">
+<h4 id="orgd0dc48a"><span class="section-number-4">1.4.5</span> 序号</h4>
 <div class="outline-text-4" id="text-1-4-5">
-
-<ul>
-<li>无序号：无序号符号可以是'-'和'+'和'*'；
-</li>
-<li>有序号：可以是'1.'和'1)';
-</li>
-<li>对序号的描述；
-</li>
+<ul class="org-ul">
+<li>无序号：无序号符号可以是&rsquo;-&rsquo;和&rsquo;+&rsquo;和&rsquo;*&rsquo;；</li>
+<li>有序号：可以是&rsquo;1.&rsquo;和&rsquo;1)&rsquo;;</li>
+<li id="描述">对序号的描述；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-6" class="outline-4">
-<h4 id="sec-1-4-6"><span class="section-number-4">1.4.6</span> 字体</h4>
+<div id="outline-container-orgcfe7cfe" class="outline-4">
+<h4 id="orgcfe7cfe"><span class="section-number-4">1.4.6</span> 字体</h4>
 <div class="outline-text-4" id="text-1-4-6">
-
-<p>试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span style="text-decoration:underline;">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
-</p></div>
-
+<p>
+试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span class="underline">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
+</p>
 </div>
-
-<div id="outline-container-1-4-7" class="outline-4">
-<h4 id="sec-1-4-7"><span class="section-number-4">1.4.7</span> 公式</h4>
+</div>
+<div id="outline-container-orgef108ce" class="outline-4">
+<h4 id="orgef108ce"><span class="section-number-4">1.4.7</span> 公式</h4>
 <div class="outline-text-4" id="text-1-4-7">
-
-<ol>
-<li>公式：在本行，\(a^2+b^2=c^2\)
-</li>
-<li>公式：在本行，\(a^2 + b^2 = c^2\)
-</li>
-<li>公式：单独成行。$$a^2 + b^2 = c^2$$
-</li>
-<li>公式：单独成行。\[a^2 + b^2 = c^2\]
-</li>
-<li>公式：在本行，\(\sqrt{2}\)
-</li>
-<li>和公式：$$a=\sum_{i=0}^{n}a_{i}$$
-</li>
-<li>分数公式：$$\frac{x}{y}$$
-</li>
+<ol class="org-ol">
+<li>公式：在本行，\(a^2+b^2=c^2\)</li>
+<li>公式：在本行，\(a^2 + b^2 = c^2\)</li>
+<li>公式：单独成行。\[a^2 + b^2 = c^2\]</li>
+<li>公式：单独成行。\[a^2 + b^2 = c^2\]</li>
+<li>公式：在本行，\(\sqrt{2}\)</li>
+<li>和公式：\[a=\sum_{i=0}^{n}a_{i}\]</li>
+<li>分数公式：\[\frac{x}{y}\]</li>
 <li>输入equ，然后按tab也可以进入begin end模式，编辑公式，可以有标号，可以设
-   置label标签引用。
-</li>
+置label标签引用。</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-8" class="outline-4">
-<h4 id="sec-1-4-8"><span class="section-number-4">1.4.8</span> 表格</h4>
+<div id="outline-container-org1aa1c0a" class="outline-4">
+<h4 id="org1aa1c0a"><span class="section-number-4">1.4.8</span> 表格</h4>
 <div class="outline-text-4" id="text-1-4-8">
-
-
 </div>
-
-<div id="outline-container-1-4-8-1" class="outline-5">
-<h5 id="sec-1-4-8-1"><span class="section-number-5">1.4.8.1</span> 内建表格</h5>
+<div id="outline-container-org9e95bb8" class="outline-5">
+<h5 id="org9e95bb8"><span class="section-number-5">1.4.8.1</span> 内建表格</h5>
 <div class="outline-text-5" id="text-1-4-8-1">
-
-<ul>
+<ul class="org-ul">
 <li>固定列宽：可以在某列中写入&lt;n&gt;，n表示n个英文字符宽度，超出宽度的字符将隐
-  藏，并且以'=&gt;'结尾, 使用鼠标将光标移到'=&gt;'上，emacs将弹出小窗口显示内容，
-  如果要编辑，可以使用C-c ', 可以在文件头使用#+startup: align来显示与否
-<ol>
-<li>align: 隐藏多余的字符；
-</li>
-<li>noalign：显示多余的字符；
-</li>
-</ol>
-
-</li>
+藏，并且以&rsquo;=&gt;&rsquo;结尾, 使用鼠标将光标移到&rsquo;=&gt;&rsquo;上，emacs将弹出小窗口显示内容，
+如果要编辑，可以使用C-c &rsquo;, 可以在文件头使用#+startup: align来显示与否
+<ol class="org-ol">
+<li>align: 隐藏多余的字符；</li>
+<li>noalign：显示多余的字符；</li>
+</ol></li>
 <li>表格对齐
-<ol>
-<li>'&lt;r&gt;': 表格右对齐；
-</li>
-<li>'&lt;c&gt;': 表格左对齐；
-</li>
-<li>'&lt;l&gt;': 表格左对齐；
-</li>
-</ol>
-
-</li>
-<li>表格合并：在一空行中，首列使用'/', 将需要合并的列用'&lt;&gt;'括起来，则导出的文
-  档中合并了的列，将会有垂直线显示；
-</li>
+<ol class="org-ol">
+<li>&rsquo;&lt;r&gt;&rsquo;: 表格右对齐；</li>
+<li>&rsquo;&lt;c&gt;&rsquo;: 表格左对齐；</li>
+<li>&rsquo;&lt;l&gt;&rsquo;: 表格左对齐；</li>
+</ol></li>
+<li>表格合并：在一空行中，首列使用&rsquo;/&rsquo;, 将需要合并的列用&rsquo;&lt;&gt;&rsquo;括起来，则导出的文
+档中合并了的列，将会有垂直线显示；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-8-2" class="outline-5">
-<h5 id="sec-1-4-8-2"><span class="section-number-5">1.4.8.2</span> 表格插件</h5>
+<div id="outline-container-org7351228" class="outline-5">
+<h5 id="org7351228"><span class="section-number-5">1.4.8.2</span> 表格插件</h5>
 <div class="outline-text-5" id="text-1-4-8-2">
-
-<p>可以使用table-mode，命令table-insert可以插入一个n行n列的表格，
+<p>
+可以使用table-mode，命令table-insert可以插入一个n行n列的表格，
 table-span-cell可以合并单元格。 
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-1-4-8-3" class="outline-5">
-<h5 id="sec-1-4-8-3"><span class="section-number-5">1.4.8.3</span> 表格第三方</h5>
+</div>
+<div id="outline-container-org1a093c4" class="outline-5">
+<h5 id="org1a093c4"><span class="section-number-5">1.4.8.3</span> 表格第三方</h5>
 <div class="outline-text-5" id="text-1-4-8-3">
-
-<p>可以将内建表格用在其他mode中,只需要配置.
+<p>
+可以将内建表格用在其他mode中,只需要配置.
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(add-hook 'message-mode-hook 'turn-on-orgtbl)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f4b1e8" class="outline-5">
+<h5 id="org5f4b1e8"><span class="section-number-5">1.4.8.4</span> 表格计算</h5>
+<div class="outline-text-5" id="text-1-4-8-4">
+<ul class="org-ul">
+<li>行表示：第2行：@2;</li>
+<li>列表示：第2列：$2;</li>
+<li>表格表示：第2行第2列：@2$2, 或者B2;</li>
+<li>打开表格符号帮助：C-c ?;</li>
+<li>显示行列帮助：C-c };</li>
+<li>公式引用：在表格下方的计算公式上使用C-c C-c，或者在表格中使用C-u C-c *;</li>
+<li>表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；</li>
+<li>在mini buffer中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;</li>
+<li>在单独的buffer中输入公式：C-c &rsquo;;</li>
+<li>求平均值函数vmean:例如:=vmean($2..$3)；</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orga7fda0c" class="outline-4">
+<h4 id="orga7fda0c"><span class="section-number-4">1.4.9</span> 画图</h4>
+<div class="outline-text-4" id="text-1-4-9">
+<ul class="org-ul">
+<li><p>
+ditaa测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar
+时的默认格式, 效果如图\ref{img-test}所示 
 </p>
 
+<div class="figure">
+<p><img src="./img/img-zhongwen.png" alt="img-zhongwen.png" />
+</p>
+</div></li>
 
-<pre class="example">(add-hook 'message-mode-hook 'turn-on-orgtbl)
-</pre>
+<li><p>
+gnuplot，见图\ref{img-gnuplot-test}所示：
+</p>
 
-</div>
-
-</div>
-
-<div id="outline-container-1-4-8-4" class="outline-5">
-<h5 id="sec-1-4-8-4"><span class="section-number-5">1.4.8.4</span> 表格计算</h5>
-<div class="outline-text-5" id="text-1-4-8-4">
-
-<ul>
-<li>行表示：第2行：@2;
-</li>
-<li>列表示：第2列：$2;
-</li>
-<li>表格表示：第2行第2列：@2$2, 或者B2;
-</li>
-<li>打开表格符号帮助：C-c ?;
-</li>
-<li>显示行列帮助：C-c };
-</li>
-<li>公式引用：在表格下方的计算公式上使用C-c C-c，或者在表格中使用C-u C-c *;
-</li>
-<li>表格中输入计算公式：在表格中使用=表示列计算方式，使用:=表格单个表格计算公式；
-</li>
-<li>在mini <a href="#buffer">buffer</a>中输入公式：列计算模式C-c =，表格计算模式C-u C-c = ;
-</li>
-<li>在单独的<a href="#buffer">buffer</a>中输入公式：C-c ';
-</li>
-<li>求平均值函数vmean:例如:=vmean($2..$3)；
-</li>
-</ul>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-1-4-9" class="outline-4">
-<h4 id="sec-1-4-9"><span class="section-number-4">1.4.9</span> 画图</h4>
-<div class="outline-text-4" id="text-1-4-9">
-
-<ul>
-<li>ditaa测试：如果要支持中文，org文档需为utf-8的格式，这是java调用ditaa.jar
-  时的默认格式, 效果如图<a href="#img-test">img-test</a>所示 
-
-
-
-<div id="img-test" class="figure">
-<p><img src="./img/img-zhongwen.png"  alt="./img/img-zhongwen.png" /></p>
-<p>测试画图</p>
-</div>
-
-</li>
-<li>gnuplot，见图<a href="#img-gnuplot-test">img-gnuplot-test</a>所示：
-
-
-
-<div id="img-gnuplot-test" class="figure">
-<p><img src="./img/img-gnuplot-test.png"  alt="./img/img-gnuplot-test.png" /></p>
-<p>测试图</p>
+<div class="figure">
+<p><img src="./img/img-gnuplot-test.png" alt="img-gnuplot-test.png" />
+</p>
 </div>
 
 <p>
-  引用表格画图：表格见表<a href="#tbl-data-plot">tbl-data-plot</a>所示。
-  #+plot: title: "example table" ind: 1 type: 2d with: lines
-</p><table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-data-plot">
-<caption></caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" />
+引用表格画图：表格见表\ref{tbl-data-plot}所示。
+</p>
+<table id="orgee67747" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">independent var</th><th scope="col" class="right">first dependent var</th><th scope="col" class="right">second dependent var</th></tr>
+<tr>
+<th scope="col" class="org-right">independent var</th>
+<th scope="col" class="org-right">first dependent var</th>
+<th scope="col" class="org-right">second dependent var</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">0.1</td><td class="right">0.425</td><td class="right">0.375</td></tr>
-<tr><td class="right">0.2</td><td class="right">0.3125</td><td class="right">0.3375</td></tr>
-<tr><td class="right">0.3</td><td class="right">0.24999993</td><td class="right">0.28333338</td></tr>
-<tr><td class="right">0.4</td><td class="right">0.275</td><td class="right">0.28125</td></tr>
-<tr><td class="right">0.5</td><td class="right">0.26</td><td class="right">0.27</td></tr>
-<tr><td class="right">0.6</td><td class="right">0.25833338</td><td class="right">0.24999993</td></tr>
-<tr><td class="right">0.7</td><td class="right">0.24642845</td><td class="right">0.23928553</td></tr>
-<tr><td class="right">0.8</td><td class="right">0.23125</td><td class="right">0.2375</td></tr>
-<tr><td class="right">0.9</td><td class="right">0.23333323</td><td class="right">0.2333332</td></tr>
-<tr><td class="right">1</td><td class="right">0.2225</td><td class="right">0.22</td></tr>
-<tr><td class="right">1.1</td><td class="right">0.20909075</td><td class="right">0.22272708</td></tr>
-<tr><td class="right">1.2</td><td class="right">0.19999998</td><td class="right">0.21458333</td></tr>
-<tr><td class="right">1.3</td><td class="right">0.19615368</td><td class="right">0.21730748</td></tr>
-<tr><td class="right">1.4</td><td class="right">0.18571433</td><td class="right">0.21071435</td></tr>
-<tr><td class="right">1.5</td><td class="right">0.19000008</td><td class="right">0.2150001</td></tr>
-<tr><td class="right">1.6</td><td class="right">0.1828125</td><td class="right">0.2046875</td></tr>
-<tr><td class="right">1.7</td><td class="right">0.18088253</td><td class="right">0.1985296</td></tr>
-<tr><td class="right">1.8</td><td class="right">0.17916675</td><td class="right">0.18888898</td></tr>
-<tr><td class="right">1.9</td><td class="right">0.19342103</td><td class="right">0.21315783</td></tr>
-<tr><td class="right">2</td><td class="right">0.19</td><td class="right">0.21625</td></tr>
-<tr><td class="right">2.1</td><td class="right">0.18214268</td><td class="right">0.20714265</td></tr>
-<tr><td class="right">2.2</td><td class="right">0.17727275</td><td class="right">0.2022727</td></tr>
-<tr><td class="right">2.3</td><td class="right">0.1739131</td><td class="right">0.1989131</td></tr>
-<tr><td class="right">2.4</td><td class="right">0.16770833</td><td class="right">0.1916667</td></tr>
-<tr><td class="right">2.5</td><td class="right">0.164</td><td class="right">0.188</td></tr>
-<tr><td class="right">2.6</td><td class="right">0.15769238</td><td class="right">0.18076923</td></tr>
-<tr><td class="right">2.7</td><td class="right">0.1592591</td><td class="right">0.1888887</td></tr>
-<tr><td class="right">2.8</td><td class="right">0.1598214</td><td class="right">0.18928565</td></tr>
-<tr><td class="right">2.9</td><td class="right">0.15603453</td><td class="right">0.1844828</td></tr>
+<tr>
+<td class="org-right">0.1</td>
+<td class="org-right">0.425</td>
+<td class="org-right">0.375</td>
+</tr>
+
+<tr>
+<td class="org-right">0.2</td>
+<td class="org-right">0.3125</td>
+<td class="org-right">0.3375</td>
+</tr>
+
+<tr>
+<td class="org-right">0.3</td>
+<td class="org-right">0.24999993</td>
+<td class="org-right">0.28333338</td>
+</tr>
+
+<tr>
+<td class="org-right">0.4</td>
+<td class="org-right">0.275</td>
+<td class="org-right">0.28125</td>
+</tr>
+
+<tr>
+<td class="org-right">0.5</td>
+<td class="org-right">0.26</td>
+<td class="org-right">0.27</td>
+</tr>
+
+<tr>
+<td class="org-right">0.6</td>
+<td class="org-right">0.25833338</td>
+<td class="org-right">0.24999993</td>
+</tr>
+
+<tr>
+<td class="org-right">0.7</td>
+<td class="org-right">0.24642845</td>
+<td class="org-right">0.23928553</td>
+</tr>
+
+<tr>
+<td class="org-right">0.8</td>
+<td class="org-right">0.23125</td>
+<td class="org-right">0.2375</td>
+</tr>
+
+<tr>
+<td class="org-right">0.9</td>
+<td class="org-right">0.23333323</td>
+<td class="org-right">0.2333332</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0.2225</td>
+<td class="org-right">0.22</td>
+</tr>
+
+<tr>
+<td class="org-right">1.1</td>
+<td class="org-right">0.20909075</td>
+<td class="org-right">0.22272708</td>
+</tr>
+
+<tr>
+<td class="org-right">1.2</td>
+<td class="org-right">0.19999998</td>
+<td class="org-right">0.21458333</td>
+</tr>
+
+<tr>
+<td class="org-right">1.3</td>
+<td class="org-right">0.19615368</td>
+<td class="org-right">0.21730748</td>
+</tr>
+
+<tr>
+<td class="org-right">1.4</td>
+<td class="org-right">0.18571433</td>
+<td class="org-right">0.21071435</td>
+</tr>
+
+<tr>
+<td class="org-right">1.5</td>
+<td class="org-right">0.19000008</td>
+<td class="org-right">0.2150001</td>
+</tr>
+
+<tr>
+<td class="org-right">1.6</td>
+<td class="org-right">0.1828125</td>
+<td class="org-right">0.2046875</td>
+</tr>
+
+<tr>
+<td class="org-right">1.7</td>
+<td class="org-right">0.18088253</td>
+<td class="org-right">0.1985296</td>
+</tr>
+
+<tr>
+<td class="org-right">1.8</td>
+<td class="org-right">0.17916675</td>
+<td class="org-right">0.18888898</td>
+</tr>
+
+<tr>
+<td class="org-right">1.9</td>
+<td class="org-right">0.19342103</td>
+<td class="org-right">0.21315783</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">0.19</td>
+<td class="org-right">0.21625</td>
+</tr>
+
+<tr>
+<td class="org-right">2.1</td>
+<td class="org-right">0.18214268</td>
+<td class="org-right">0.20714265</td>
+</tr>
+
+<tr>
+<td class="org-right">2.2</td>
+<td class="org-right">0.17727275</td>
+<td class="org-right">0.2022727</td>
+</tr>
+
+<tr>
+<td class="org-right">2.3</td>
+<td class="org-right">0.1739131</td>
+<td class="org-right">0.1989131</td>
+</tr>
+
+<tr>
+<td class="org-right">2.4</td>
+<td class="org-right">0.16770833</td>
+<td class="org-right">0.1916667</td>
+</tr>
+
+<tr>
+<td class="org-right">2.5</td>
+<td class="org-right">0.164</td>
+<td class="org-right">0.188</td>
+</tr>
+
+<tr>
+<td class="org-right">2.6</td>
+<td class="org-right">0.15769238</td>
+<td class="org-right">0.18076923</td>
+</tr>
+
+<tr>
+<td class="org-right">2.7</td>
+<td class="org-right">0.1592591</td>
+<td class="org-right">0.1888887</td>
+</tr>
+
+<tr>
+<td class="org-right">2.8</td>
+<td class="org-right">0.1598214</td>
+<td class="org-right">0.18928565</td>
+</tr>
+
+<tr>
+<td class="org-right">2.9</td>
+<td class="org-right">0.15603453</td>
+<td class="org-right">0.1844828</td>
+</tr>
 </tbody>
 </table>
 
 
-
-
-<p>
-    <img src="./img/data-plot.png"  alt="./img/data-plot.png" />
+<div class="figure">
+<p><img src="./img/data-plot.png" alt="data-plot.png" />
 </p>
-</li>
+</div></li>
 </ul>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-1-4-10" class="outline-4">
-<h4 id="sec-1-4-10"><span class="section-number-4">1.4.10</span> 链接</h4>
+<div id="outline-container-org5f65826" class="outline-4">
+<h4 id="org5f65826"><span class="section-number-4">1.4.10</span> 链接</h4>
 <div class="outline-text-4" id="text-1-4-10">
-
-<ul>
-<li>链接之间跳转：C-c C-x n和C-c C-x p
-</li>
-<li>内部链接：只需要在某个需要链接到的地方使用# <a name="target" class="target">target</a> ，设置一个标点，再
-  在使用的地方，使用像[[][]]这样的格式去定位标点，并给出描述符，或者直接使
-  用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用
-  [[][]]定位过去就是 <a href="#sec-1-4">org-mode</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
-  标点。
-</li>
+<ul class="org-ul">
+<li>链接之间跳转：C-c C-x n和C-c C-x p</li>
+<li>内部链接：只需要在某个需要链接到的地方使用# <a id="org8cc8fd3"></a>，设置一个标点，再
+在使用的地方，使用像[[][]]这样的格式去定位标点，并给出描述符，或者直接使
+用快捷键C-c C-l添加该点，比如已经在org-mode标题处设置了标点，然后使用
+[[][]]定位过去就是 <a href="#org1f70df7">1.4</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
+标点。</li>
 <li>辐射链接：使用3个尖括号括起的锚点，可以将文档中所有的锚点链接起来，比如
-  <a name="buffer" class="target">buffer</a> ;
-</li>
-<li>外部链接：包括链接到文件、网址、email等
-</li>
-<li>包含：可以在头部使用#+include:"path/file"包含某个文件，比如org，然后就可
-  以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
-  定的数据，比如添加 <span style="text-decoration:underline;">src c</span> ，可以导入c代码；使用 <span style="text-decoration:underline;">lines</span> 关键字可以导入文
-  件的某几行
-</li>
+<a id="org566c419">buffer</a> ;</li>
+<li>外部链接：包括链接到文件、网址、email等</li>
+<li>包含：可以在头部使用#+include:&ldquo;path/file&rdquo;包含某个文件，比如org，然后就可
+以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
+定的数据，比如添加 <span class="underline">src c</span> ，可以导入c代码；使用 <span class="underline">lines</span> 关键字可以导入文
+件的某几行</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-11" class="outline-4">
-<h4 id="sec-1-4-11"><span class="section-number-4">1.4.11</span> gtd</h4>
+<div id="outline-container-org570d814" class="outline-4">
+<h4 id="org570d814"><span class="section-number-4">1.4.11</span> gtd</h4>
 <div class="outline-text-4" id="text-1-4-11">
-
-<p>gtd状态之间转换可以使用快捷键C-c C-t;  
-</p><ul>
-<li>工作流状态: 对于一个工作流可以使用 <span style="text-decoration:underline;">sequence</span> 的工作流设置状态如, 其中竖
-  线用于分割，一边是用于需要动作的，一边只是记录不需要动作。颜色也有不同，
-  如果没有竖线，最后一个状态将代表DONE状态
-
-
-
-<pre class="example">(setq org-todo-keywords '((sequence "TODO" "VERIFY" "|" "DONE")))
+<p>
+gtd状态之间转换可以使用快捷键C-c C-t;  
+</p>
+<ul class="org-ul">
+<li><p>
+工作流状态: 对于一个工作流可以使用 <span class="underline">sequence</span> 的工作流设置状态如, 其中竖
+线用于分割，一边是用于需要动作的，一边只是记录不需要动作。颜色也有不同，
+如果没有竖线，最后一个状态将代表DONE状态
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-todo-keywords '((sequence <span style="color: #ffa07a;">"TODO"</span> <span style="color: #ffa07a;">"VERIFY"</span> <span style="color: #ffa07a;">"|"</span> <span style="color: #ffa07a;">"DONE"</span>)))
 </pre>
-
-</li>
-<li>工作类型: 使用 <span style="text-decoration:underline;">type</span> 设置工作类型如
-
-
-
-<pre class="example">(setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
+</div></li>
+<li><p>
+工作类型: 使用 <span class="underline">type</span> 设置工作类型如
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-todo-keywords '((type <span style="color: #ffa07a;">"Fred"</span> <span style="color: #ffa07a;">"Sara"</span> <span style="color: #ffa07a;">"Lucy"</span> <span style="color: #ffa07a;">"|"</span> <span style="color: #ffa07a;">"DONE"</span>)))
 </pre>
-
-</li>
-<li>文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下, 行
-  <a href="#coderef-all-todo" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-all-todo');" onmouseout="CodeHighlightOff(this, 'coderef-all-todo');">nil</a>可以定义两种关键字，行<a href="#coderef-seq-todo" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-seq-todo');" onmouseout="CodeHighlightOff(this, 'coderef-seq-todo');">nil</a>可以定义工作流状态，行
-  <a href="#coderef-type-todo" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-type-todo');" onmouseout="CodeHighlightOff(this, 'coderef-type-todo');">nil</a>可以定义工作类型。
-
-
-
-<pre class="example"><span id="coderef- all-todo" class="coderef-off"><span class="linenr">1:  </span>#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED</span>
-<span id="coderef- seq-todo" class="coderef-off"><span class="linenr">2:  </span>#+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED</span>
-<span id="coderef- type-todo" class="coderef-off"><span class="linenr">3:  </span>#+TYP_TODO: Fred Sara Lucy Mike | DONE</span>
+</div></li>
+<li><p>
+文件个性化状态：针对每个org文件设置状态切换关键字，在org头设置如下, 行
+(all-todo)可以定义两种关键字，行(seq-todo)可以定义工作流状态，行
+(type-todo)可以定义工作类型。
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">1: </span>#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED (ref: all-todo)
+<span class="linenr">2: </span>#+SEQ_TODO: TODO FEEDBACK VERIFY | DONE CANCELED (ref: seq-todo)
+<span class="linenr">3: </span>#+TYP_TODO: Fred Sara Lucy Mike | DONE            (ref: type-todo)
 </pre>
-
-</li>
-<li>状态样式：各种状态可以设置不同的颜色，字体等如
-
-
-
-<pre class="example">(setq org-todo-keyword-faces
-      '(("TODO" . org-warning) ("STARTED" . "yellow")
-       ("CANCELED" . (:foreground "blue" :weight bold))))
+</div></li>
+<li><p>
+状态样式：各种状态可以设置不同的颜色，字体等如
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-todo-keyword-faces
+      '((<span style="color: #ffa07a;">"TODO"</span> . org-warning) (<span style="color: #ffa07a;">"STARTED"</span> . <span style="color: #ffa07a;">"yellow"</span>)
+       (<span style="color: #ffa07a;">"CANCELED"</span> . (<span style="color: #87cefa; text-decoration: underline;">:foreground</span> <span style="color: #ffa07a;">"blue"</span> <span style="color: #87cefa; text-decoration: underline;">:weight</span> bold))))
 </pre>
-
-</li>
+</div></li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-12" class="outline-4">
-<h4 id="sec-1-4-12"><a name="my-new-line" id="my-new-line"></a><span class="section-number-4">1.4.12</span> 换行</h4>
+<div id="outline-container-org2aabbe6" class="outline-4">
+<h4 id="org2aabbe6"><span class="section-number-4">1.4.12</span> 换行</h4>
 <div class="outline-text-4" id="text-1-4-12">
-
-<p>一般使用一个空行表示换行，也可以使用latex的斜杠par，如果需要在某个行强行折
+<p>
+一般使用一个空行表示换行，也可以使用latex的斜杠par，如果需要在某个行强行折
 行，可以使用两个斜杠。如果想写类似诗句一样的格式可以使用如下方式
 </p>
 <p class="verse">
-Great clouds overhead<br/>
-Tiny black birds rise and fall<br/>
-Snow covers Emacs<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &ndash; AlexSchroeder<br/>
+Great clouds overhead<br />
+Tiny black birds rise and fall<br />
+Snow covers Emacs<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#x2013; AlexSchroeder<br />
 </p>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-13" class="outline-4">
-<h4 id="sec-1-4-13"><span class="section-number-4">1.4.13</span> babel</h4>
+<div id="outline-container-orgf50f4c8" class="outline-4">
+<h4 id="orgf50f4c8"><span class="section-number-4">1.4.13</span> babel</h4>
 <div class="outline-text-4" id="text-1-4-13">
-
-<ol>
-<li>verse: 见<a href="#sec-1-4-12">换行</a>一节的用法
-</li>
-<li>quote：如果从别的文章中引用一段话，通常需要将这些语句左右都流出一定空间，
-   如下面所示
-<blockquote>
-
-<p>Everything should be made as simple as possible,
-but not any simpler &ndash; Albert Einstein
+<ol class="org-ol">
+<li>verse: 见换行一节的用法</li>
+<li><p>
+quote：如果从别的文章中引用一段话，通常需要将这些语句左右都流出一定空间，
+如下面所示
 </p>
-</blockquote>
-
-
-</li>
-<li>center: 如果需要将某些文字中心对齐，可以使用如下方式
-
-<div style="text-align: center">
-<p>Everything should be made as simple as possible, <br/>
+<blockquote>
+<p>
+Everything should be made as simple as possible,
+but not any simpler &#x2013; Albert Einstein
+</p>
+</blockquote></li>
+<li><p>
+center: 如果需要将某些文字中心对齐，可以使用如下方式
+</p>
+<div class="org-center">
+<p>
+Everything should be made as simple as possible, <br />
 but not any simpler
 </p>
-</div>
-
-</li>
-<li>example: 里面的文字不会被解析，原样导出
-
-
-
-<pre class="example">Some example from a text_file.
-</pre>
-
-<p>
-   也可以在首行使用冒号加一个空格后面添加文字作为一个简化方式，如
-</p><pre class="example">
+</div></li>
+<li><p>
+example: 里面的文字不会被解析，原样导出
+</p>
+<pre class="example">
 Some example from a text_file.
 </pre>
-
-</li>
-<li>src: 可以放入一些代码, 使用-n或者+n会对代码标记行号, 其中-n会使代码行号
-   重新计数，+n从上一个代码片段累计计数，使用-r表示可以引用行号，只需要在某
-   行末尾使用（ref：name），在引用的地方使用C-c C-l 输入连接（name）就可引
-   用了。使用-i可以对某些代码做合理缩进 
-
-
-
-<pre class="example"><span id="coderef-sc" class="coderef-off"><span class="linenr">1:  </span>(save-excursion</span>
-<span id="coderef-jump" class="coderef-off"><span class="linenr">2:  </span>   (goto-char (point-min)))</span>
-</pre>
-
 <p>
-   In line <a href="#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');">1</a> we remember the current position. Line <a href="#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');">2</a>
-   jumps to point-min.
+也可以在首行使用冒号加一个空格后面添加文字作为一个简化方式，如
+</p>
+<pre class="example">
+Some example from a text_file.
+
+</pre></li>
+<li><p>
+src: 可以放入一些代码, 使用-n或者+n会对代码标记行号, 其中-n会使代码行号
+重新计数，+n从上一个代码片段累计计数，使用-r表示可以引用行号，只需要在某
+行末尾使用（ref：name），在引用的地方使用C-c C-l 输入连接（name）就可引
+用了。使用-i可以对某些代码做合理缩进 
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span id="coderef-sc" class="coderef-off"><span class="linenr">1: </span>(<span style="color: #ffb6c1; font-size: 105%;">save-excursion</span></span>
+<span id="coderef-jump" class="coderef-off"><span class="linenr">2: </span>   (goto-char (point-min)))</span>
+</pre>
+</div>
+<p>
+In line <a href="#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');">1</a> we remember the current position. Line <a href="#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');">2</a>
+jumps to point-min.
 </p></li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-14" class="outline-4">
-<h4 id="sec-1-4-14"><span class="section-number-4">1.4.14</span> 宏</h4>
+<div id="outline-container-org90e7549" class="outline-4">
+<h4 id="org90e7549"><span class="section-number-4">1.4.14</span> 宏</h4>
 <div class="outline-text-4" id="text-1-4-14">
-
-<p>可以在org中定义宏，类似c的宏，然后可以在段落、标题、引用块、表格、列表中使
+<p>
+可以在org中定义宏，类似c的宏，然后可以在段落、标题、引用块、表格、列表中使
 用。系统内建的宏有
-</p><ol>
-<li>title：org文档的标题；
-</li>
-<li>author：org文档的作者；
-</li>
-<li>email：邮件地址；
-</li>
-<li>date：日期戳，还可以定义时间戳的格式，参考<a href="http://orgmode.org/org.html#Macro-replacement">宏帮助文档</a>；
-</li>
-<li>time: 时间戳，同date；
-</li>
-<li>modification-time：date和time的叠加；
-</li>
-<li>input-file：This macro refers to the filename of the exported file；
-</li>
-<li>property：属性，暂未知；
-</li>
-<li>select_tags: 如果在节标题中做了tag标注，可以使用这个来选择性的导出某些
-   节。
-</li>
-<li>exclude_tags: 和select_tags相反；
-</li>
+</p>
+<ol class="org-ol">
+<li>title：org文档的标题；</li>
+<li>author：org文档的作者；</li>
+<li>email：邮件地址；</li>
+<li>date：日期戳，还可以定义时间戳的格式，参考<a href="http://orgmode.org/org.html#Macro-replacement">宏帮助文档</a>；</li>
+<li>time: 时间戳，同date；</li>
+<li>modification-time：date和time的叠加；</li>
+<li>input-file：This macro refers to the filename of the exported file；</li>
+<li>property：属性，暂未知；</li>
+<li>select\<sub>tags</sub>: 如果在节标题中做了tag标注，可以使用这个来选择性的导出某些
+节。</li>
+<li>exclude\<sub>tags</sub>: 和select\<sub>tags相反</sub>；</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-4-15" class="outline-4">
-<h4 id="sec-1-4-15"><span class="section-number-4">1.4.15</span> 注释</h4>
+<div id="outline-container-org1634a5e" class="outline-4">
+<h4 id="org1634a5e"><span class="section-number-4">1.4.15</span> 注释</h4>
 <div class="outline-text-4" id="text-1-4-15">
-
-<p>可以使用快捷键C-c ; 将某个小节注释掉，导出时不会出现在导出文档中。
-‘#+BEGIN_COMMENT’ &hellip; ‘#+END_COMMENT’好像不起作用； 
-</p></div>
-
+<p>
+可以使用快捷键C-c ; 将某个小节注释掉，导出时不会出现在导出文档中。
+‘#+BEGIN\<sub>COMMENT</sub>’ &#x2026; ‘#+END\<sub>COMMENT</sub>’好像不起作用； 
+</p>
 </div>
-
-<div id="outline-container-1-4-16" class="outline-4">
-<h4 id="sec-1-4-16"><span class="section-number-4">1.4.16</span> 导出</h4>
+</div>
+<div id="outline-container-org8b6aaca" class="outline-4">
+<h4 id="org8b6aaca"><span class="section-number-4">1.4.16</span> 导出</h4>
 <div class="outline-text-4" id="text-1-4-16">
-
-<ul>
-<li>org-mode转换到pdf需要在org-mode文件中头部使用如下头;
-
-
-
-<pre class="example">#+ title: 我的记事本
+<ul class="org-ul">
+<li><p>
+org-mode转换到pdf需要在org-mode文件中头部使用如下头;
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">#+ title: &#25105;&#30340;&#35760;&#20107;&#26412;
 #+ author: lxc
 #+ latex_class: org-latex-pdf
 #+ latex: \newpage
 </pre>
-
-</li>
-<li>中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。
-</li>
+</div></li>
+<li>中文首行缩进2格：可以在上一自然段末尾使用斜线加par或者在两个自然段直接空两行。</li>
+<li>换最新版本orgmode，可以将标题首页和目录分开；</li>
 <li>由于org文档转换为latex文本时，中间需要软件iconv将之转换为utf-8格式，而org
-  源文档是gbk格式，所以如果将org文档由gbk格式转换为了别的格式，比如utf-8，
-  则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el” 
-</li>
-<li>如果需要修改org文档中嵌入的代码宽度高度，可以修改"my-org-mode.el"中的如下
-  代码"页边距"
-
-
-
-<pre class="example">\lstset{numbers=left, %设置行号位置
-      numberstyle=\\tiny, %设置行号大小
-        keywordstyle=\\color{blue}, %设置关键字颜色
-        commentstyle=\\color[cmyk]{1,0,1,0}, %设置注释颜色
-        frame=single, %设置边框格式
-        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
-        breaklines, %自动折行
-        extendedchars=false, %解决代码跨页时,章节标题，页眉汉字不显示
-        xleftmargin=10em,xrightmargin=5em, aboveskip=0.5em, %设置页边距
-        tabsize=4, %设置tab空格数
-        showspaces=false} %不显示空格
+源文档是gbk格式，所以如果将org文档由gbk格式转换为了别的格式，比如utf-8，
+则需要修改iconv的转换命令，详细见org个配置文档“my-org-mode.el”</li>
+<li><p>
+如果需要修改org文档中嵌入的代码宽度高度，可以修改&ldquo;my-org-mode.el&rdquo;中的如下
+代码&ldquo;页边距&rdquo;
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">\lstset{numbers=left, %&#35774;&#32622;&#34892;&#21495;&#20301;&#32622;
+      numberstyle=\\tiny, %&#35774;&#32622;&#34892;&#21495;&#22823;&#23567;
+        keywordstyle=\\color{blue}, %&#35774;&#32622;&#20851;&#38190;&#23383;&#39068;&#33394;
+        commentstyle=\\color[cmyk]{1,0,1,0}, %&#35774;&#32622;&#27880;&#37322;&#39068;&#33394;
+        frame=single, %&#35774;&#32622;&#36793;&#26694;&#26684;&#24335;
+        escapeinside=``, %&#36867;&#36920;&#23383;&#31526;(1&#24038;&#38754;&#30340;&#38190;)&#65292;&#29992;&#20110;&#26174;&#31034;&#20013;&#25991;
+        breaklines, %&#33258;&#21160;&#25240;&#34892;
+        extendedchars=false, %&#35299;&#20915;&#20195;&#30721;&#36328;&#39029;&#26102;,&#31456;&#33410;&#26631;&#39064;&#65292;&#39029;&#30473;&#27721;&#23383;&#19981;&#26174;&#31034;
+        xleftmargin=10em,xrightmargin=5em, aboveskip=0.5em, %&#35774;&#32622;&#39029;&#36793;&#36317;
+        tabsize=4, %&#35774;&#32622;tab&#31354;&#26684;&#25968;
+        showspaces=false} %&#19981;&#26174;&#31034;&#31354;&#26684;
 </pre>
-
-</li>
-<li>大纲级别:若需导出更深入的大纲级别,可设置 <span style="text-decoration:underline;">org-export-headline-levels</span>
-  或者在文件头使用
-
-
-
-<pre class="example">#+options: h:4
+</div></li>
+<li><p>
+大纲级别:若需导出更深入的大纲级别,可设置 <span class="underline">org-export-headline-levels</span>
+或者在文件头使用
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">#+options: h:4
 </pre>
-
-</li>
+</div></li>
 <li>目录：
-<ol>
-<li>可以设置目录的生成级别或者不导出目录，可设置 <span style="text-decoration:underline;">org-export-with-toc</span>
-     或者在每个文件中使用
-
-
-
-<pre class="example">#+OPTIONS: toc:2          only inlcude two levels in TOC
+<ol class="org-ol">
+<li><p>
+可以设置目录的生成级别或者不导出目录，可设置 <span class="underline">org-export-with-toc</span>
+或者在每个文件中使用
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">#+OPTIONS: toc:2          only inlcude two levels in TOC
 #+OPTIONS: toc:nil        no default TOC at all
 </pre>
-
-</li>
-<li>可以设置目录导出成list或者table
-
-
-
-<pre class="example">#+TOC: listings           build a list of listings
+</div></li>
+<li><p>
+可以设置目录导出成list或者table
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">#+TOC: listings           build a list of images
 #+TOC: tables             build a list of tables
 </pre>
-
-</li>
-</ol>
-
-</li>
+</div></li>
+</ol></li>
 </ul>
-
-
 </div>
-
-<div id="outline-container-1-4-16-1" class="outline-5">
-<h5 id="sec-1-4-16-1"><span class="section-number-5">1.4.16.1</span> 配置</h5>
+<div id="outline-container-org048412f" class="outline-5">
+<h5 id="org048412f"><span class="section-number-5">1.4.16.1</span> 配置</h5>
 <div class="outline-text-5" id="text-1-4-16-1">
+<p>
+可以使用 <span class="underline">\#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span class="underline">filename</span>
+文件中，然后在头使用 <span class="underline">\#+setupfile: filename</span> 加载这些配置。
+</p>
+<ul class="org-ul">
+<li><p>
+关键字：见宏，或见表\ref{tbl-key-words}所示；
+</p>
+<table id="orgfc2b377" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> 配置关键字</caption>
 
-<p>可以使用 <span style="text-decoration:underline;">\#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span style="text-decoration:underline;">filename</span>
-文件中，然后在头使用 <span style="text-decoration:underline;">\#+setupfile: filename</span> 加载这些配置。
-</p><ul>
-<li>关键字：见<a href="#org-macro">宏</a>，或见表<a href="#tbl-key-words">tbl-key-words</a>所示；
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-key-words">
-<caption>配置关键字</caption>
-<colgroup><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">项</th><th scope="col" class="left">说明</th></tr>
+<tr>
+<th scope="col" class="org-left">项</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
 </thead>
 <tbody>
-</tbody>
-<tbody>
-<tr><td class="left">#+TITLE:</td><td class="left">the title to be shown (default is the <a href="#buffer">buffer</a> name)</td></tr>
-<tr><td class="left">#+AUTHOR:</td><td class="left">the author (default taken from user-full-name)</td></tr>
-<tr><td class="left">#+DATE:</td><td class="left">a date, an Org timestamp119, or a format string for format-time-string</td></tr>
-<tr><td class="left">#+EMAIL:</td><td class="left">his/her email address (default from user-mail-address)</td></tr>
-<tr><td class="left">#+DESCRIPTION:</td><td class="left">某些pdf软件可以查看pdf的属性，属性包括文章描述</td></tr>
-<tr><td class="left">#+KEYWORDS:</td><td class="left">某些pdf软件可以查看pdf的属性，属性包括文章关键字</td></tr>
-<tr><td class="left">#+LANGUAGE:</td><td class="left">language for HTML, e.g. ‘en’ (org-export-default-language)</td></tr>
-<tr><td class="left">#+TEXT:</td><td class="left">Some descriptive text to be inserted at the beginning.</td></tr>
-<tr><td class="left">#+TEXT:</td><td class="left">Several lines may be given.</td></tr>
-<tr><td class="left">#+OPTIONS:</td><td class="left">H:2 num:t toc:t \backslash{}n:nil @:t ::t     &#124;:t ^:t f:t TeX:t &hellip;</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">#+BIND:</td><td class="left">lisp-var lisp-val, e.g.: org-export-latex-low-levels itemize</td></tr>
-<tr><td class="left"></td><td class="left">You need to confirm using these, or configure org-export-allow-BIND</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">#+LINK_UP:</td><td class="left">the ``up'' link of an exported page</td></tr>
-<tr><td class="left">#+LINK_HOME:</td><td class="left">the ``home'' link of an exported page</td></tr>
-<tr><td class="left">#+LATEX_HEADER:</td><td class="left">extra line(s) for the LaTeX header, like \usepackage{xyz}</td></tr>
-<tr><td class="left">#+EXPORT_SELECT_TAGS:</td><td class="left">Tags that select a tree for export</td></tr>
-<tr><td class="left">#+EXPORT_EXCLUDE_TAGS:</td><td class="left">Tags that exclude a tree from export</td></tr>
-<tr><td class="left">#+XSLT:</td><td class="left">the XSLT stylesheet used by DocBook exporter to generate FO file</td></tr>
-</tbody>
-</table>
+<tr>
+<td class="org-left">#+TITLE:</td>
+<td class="org-left">the title to be shown (default is the <a href="#org566c419">buffer</a> name)</td>
+</tr>
 
-</li>
-<li>options: 带一定的<a href="http://orgmode.org/org.html#Export-settings">参数</a> 可以配置不同的导出形式, 见表<a href="#tbl-option-para">tbl-option-para</a>,
-  比如后面跟 <span style="text-decoration:underline;">email:nil</span> 表示导出的文档不带email地址， <span style="text-decoration:underline;">email:t</span> 表示带地址。
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-option-para">
-<caption>option项的参数说明</caption>
-<colgroup><col class="left" /><col class="left" />
+<tr>
+<td class="org-left">#+AUTHOR:</td>
+<td class="org-left">the author (default taken from user-full-name)</td>
+</tr>
+
+<tr>
+<td class="org-left">#+DATE:</td>
+<td class="org-left">a date, an Org timestamp119, or a format string for format-time-string</td>
+</tr>
+
+<tr>
+<td class="org-left">#+EMAIL:</td>
+<td class="org-left">his/her email address (default from user-mail-address)</td>
+</tr>
+
+<tr>
+<td class="org-left">#+DESCRIPTION:</td>
+<td class="org-left">某些pdf软件可以查看pdf的属性，属性包括文章描述</td>
+</tr>
+
+<tr>
+<td class="org-left">#+KEYWORDS:</td>
+<td class="org-left">某些pdf软件可以查看pdf的属性，属性包括文章关键字</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LANGUAGE:</td>
+<td class="org-left">language for HTML, e.g. ‘en’ (org-export-default-language)</td>
+</tr>
+
+<tr>
+<td class="org-left">#+TEXT:</td>
+<td class="org-left">Some descriptive text to be inserted at the beginning.</td>
+</tr>
+
+<tr>
+<td class="org-left">#+TEXT:</td>
+<td class="org-left">Several lines may be given.</td>
+</tr>
+
+<tr>
+<td class="org-left">#+OPTIONS:</td>
+<td class="org-left">H:2 num:t toc:t \backslash{}n:nil @:t ::t     &vert;:t ^:t f:t TeX:t &#x2026;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">#+BIND:</td>
+<td class="org-left">lisp-var lisp-val, e.g.: org-export-latex-low-levels itemize</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">You need to confirm using these, or configure org-export-allow-BIND</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">#+LINK\<sub>UP</sub>:</td>
+<td class="org-left">the ``up&rsquo;&rsquo; link of an exported page</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LINK\<sub>HOME</sub>:</td>
+<td class="org-left">the ``home&rsquo;&rsquo; link of an exported page</td>
+</tr>
+
+<tr>
+<td class="org-left">#+LATEX\<sub>HEADER</sub>:</td>
+<td class="org-left">extra line(s) for the LaTeX header, like \usepackage{xyz}</td>
+</tr>
+
+<tr>
+<td class="org-left">#+EXPORT\<sub>SELECT</sub>\<sub>TAGS</sub>:</td>
+<td class="org-left">Tags that select a tree for export</td>
+</tr>
+
+<tr>
+<td class="org-left">#+EXPORT\<sub>EXCLUDE</sub>\<sub>TAGS</sub>:</td>
+<td class="org-left">Tags that exclude a tree from export</td>
+</tr>
+
+<tr>
+<td class="org-left">#+XSLT:</td>
+<td class="org-left">the XSLT stylesheet used by DocBook exporter to generate FO file</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+options: 带一定的<a href="http://orgmode.org/org.html#Export-settings">参数</a> 可以配置不同的导出形式, 见表\ref{tbl-option-para},
+比如后面跟 <span class="underline">email:nil</span> 表示导出的文档不带email地址， <span class="underline">email:t</span> 表示带地址。
+</p>
+<table id="org179d5f9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> option项的参数说明</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">项</th><th scope="col" class="left">说明</th></tr>
+<tr>
+<th scope="col" class="org-left">项</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
 </thead>
 <tbody>
-</tbody>
-<tbody>
-<tr><td class="left">H:</td><td class="left">set the number of headline levels for export</td></tr>
-<tr><td class="left">num:</td><td class="left">turn on/off section-numbers</td></tr>
-<tr><td class="left">toc:</td><td class="left">turn on/off table of contents, or set level limit (integer)</td></tr>
-<tr><td class="left">\n:</td><td class="left">turn on/off line-break-preservation (DOES NOT WORK)</td></tr>
-<tr><td class="left">@:</td><td class="left">turn on/off quoted HTML tags</td></tr>
-<tr><td class="left">::</td><td class="left">turn on/off fixed-width sections</td></tr>
-<tr><td class="left">&#124; :</td><td class="left">turn on/off tables</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">&and;:</td><td class="left">turn on/off TeX-like syntax for sub- and superscripts.  If</td></tr>
-<tr><td class="left"></td><td class="left">you write "^:{}", a<sub>b</sub> will be interpreted, but</td></tr>
-<tr><td class="left"></td><td class="left">the simple a<sub>b</sub> will be left as it is.</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">\mathrm{-}:</td><td class="left">turn on/off conversion of special strings.</td></tr>
-<tr><td class="left">f:</td><td class="left">turn on/off footnotes like this<sup><a class="footref" name="fnr.5" href="#fn.5">5</a></sup>.</td></tr>
-<tr><td class="left">todo:</td><td class="left">turn on/off inclusion of TODO keywords into exported text</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">tasks:</td><td class="left">turn on/off inclusion of tasks (TODO items), can be nil to remove</td></tr>
-<tr><td class="left"></td><td class="left">all tasks, todo to remove DONE tasks, or list of kwds to keep</td></tr>
-</tbody>
-<tbody>
-<tr><td class="left">pri:</td><td class="left">turn on/off priority cookies</td></tr>
-<tr><td class="left">tags:</td><td class="left">turn on/off inclusion of tags, may also be not-in-toc</td></tr>
-<tr><td class="left">&lt;:</td><td class="left">turn on/off inclusion of any time/date stamps like DEADLINES</td></tr>
-<tr><td class="left">*:</td><td class="left">turn on/off emphasized text (bold, italic, underlined)</td></tr>
-<tr><td class="left">TeX:</td><td class="left">turn on/off simple TeX macros in plain text</td></tr>
-<tr><td class="left">LaTeX:</td><td class="left">configure export of LaTeX fragments.  Default auto</td></tr>
-<tr><td class="left">skip:</td><td class="left">turn on/off skipping the text before the first heading</td></tr>
-<tr><td class="left">author:</td><td class="left">turn on/off inclusion of author name/email into exported file</td></tr>
-<tr><td class="left">email:</td><td class="left">turn on/off inclusion of author email into exported file</td></tr>
-<tr><td class="left">creator</td><td class="left">turn on/off inclusion of creator info into exported file</td></tr>
-<tr><td class="left">timestamp:</td><td class="left">turn on/off inclusion creation time into exported file</td></tr>
-<tr><td class="left">d:</td><td class="left">turn on/off inclusion of drawers</td></tr>
-</tbody>
-</table>
+<tr>
+<td class="org-left">H:</td>
+<td class="org-left">set the number of headline levels for export</td>
+</tr>
 
-</li>
-<li>标题级数：使用如下配置可以设置标题显示级数，使用option的h参数不够。
+<tr>
+<td class="org-left">num:</td>
+<td class="org-left">turn on/off section-numbers</td>
+</tr>
 
+<tr>
+<td class="org-left">toc:</td>
+<td class="org-left">turn on/off table of contents, or set level limit (integer)</td>
+</tr>
 
+<tr>
+<td class="org-left">\n:</td>
+<td class="org-left">turn on/off line-break-preservation (DOES NOT WORK)</td>
+</tr>
 
-<pre class="example">#+latex_header: \setcounter{tocdepth}{5}
+<tr>
+<td class="org-left">@:</td>
+<td class="org-left">turn on/off quoted HTML tags</td>
+</tr>
+
+<tr>
+<td class="org-left">::</td>
+<td class="org-left">turn on/off fixed-width sections</td>
+</tr>
+
+<tr>
+<td class="org-left">&vert; :</td>
+<td class="org-left">turn on/off tables</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&and;:</td>
+<td class="org-left">turn on/off TeX-like syntax for sub- and superscripts.  If</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">you write &ldquo;^:{}&rdquo;, a<sub>b</sub> will be interpreted, but</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">the simple a<sub>b</sub> will be left as it is.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\mathrm{-}:</td>
+<td class="org-left">turn on/off conversion of special strings.</td>
+</tr>
+
+<tr>
+<td class="org-left">f:</td>
+<td class="org-left">turn on/off footnotes like this[1].</td>
+</tr>
+
+<tr>
+<td class="org-left">todo:</td>
+<td class="org-left">turn on/off inclusion of TODO keywords into exported text</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tasks:</td>
+<td class="org-left">turn on/off inclusion of tasks (TODO items), can be nil to remove</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">all tasks, todo to remove DONE tasks, or list of kwds to keep</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">pri:</td>
+<td class="org-left">turn on/off priority cookies</td>
+</tr>
+
+<tr>
+<td class="org-left">tags:</td>
+<td class="org-left">turn on/off inclusion of tags, may also be not-in-toc</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;:</td>
+<td class="org-left">turn on/off inclusion of any time/date stamps like DEADLINES</td>
+</tr>
+
+<tr>
+<td class="org-left">*:</td>
+<td class="org-left">turn on/off emphasized text (bold, italic, underlined)</td>
+</tr>
+
+<tr>
+<td class="org-left">TeX:</td>
+<td class="org-left">turn on/off simple TeX macros in plain text</td>
+</tr>
+
+<tr>
+<td class="org-left">LaTeX:</td>
+<td class="org-left">configure export of LaTeX fragments.  Default auto</td>
+</tr>
+
+<tr>
+<td class="org-left">skip:</td>
+<td class="org-left">turn on/off skipping the text before the first heading</td>
+</tr>
+
+<tr>
+<td class="org-left">author:</td>
+<td class="org-left">turn on/off inclusion of author name/email into exported file</td>
+</tr>
+
+<tr>
+<td class="org-left">email:</td>
+<td class="org-left">turn on/off inclusion of author email into exported file</td>
+</tr>
+
+<tr>
+<td class="org-left">creator</td>
+<td class="org-left">turn on/off inclusion of creator info into exported file</td>
+</tr>
+
+<tr>
+<td class="org-left">timestamp:</td>
+<td class="org-left">turn on/off inclusion creation time into exported file</td>
+</tr>
+
+<tr>
+<td class="org-left">d:</td>
+<td class="org-left">turn on/off inclusion of drawers</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+标题级数：使用如下配置可以设置标题显示级数，使用option的h参数不够。
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">#+latex_header: \setcounter{tocdepth}{5}
 #+latex_header: \setcounter{secnumdepth}{5}
 </pre>
-
-</li>
+</div></li>
 </ul>
-
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-1-4-16-2" class="outline-5">
-<h5 id="sec-1-4-16-2"><span class="section-number-5">1.4.16.2</span> beamer</h5>
+<div id="outline-container-org4982685" class="outline-5">
+<h5 id="org4982685"><span class="section-number-5">1.4.16.2</span> beamer</h5>
 <div class="outline-text-5" id="text-1-4-16-2">
-
-<p>不用#+latex<sub>class也可以导出幻灯片，见</sub><a href="http://orgmode.org/org.html#A-Beamer-Example">代码</a>。
-</p></div>
-
-</div>
-
-<div id="outline-container-1-4-16-3" class="outline-5">
-<h5 id="sec-1-4-16-3"><span class="section-number-5">1.4.16.3</span> pdf</h5>
-<div class="outline-text-5" id="text-1-4-16-3">
-
-<p>可以设置一些导出配置选项
-</p><ul>
-<li>DESCRIPTION：文档的描述；
-</li>
-<li>LATEX_CLASS：预定义的一些latex配置；
-</li>
-<li>LATEX_CLASS_OPTIONS: 配置选项；
-</li>
-<li>LATEX_HEADER: 添加一些latex包；
-</li>
-<li>LATEX_HEADER_EXTRA: 添加的一些其他配置；
-</li>
-<li>KEYWORDS：文档关键字；
-</li>
-<li>SUBTITLE：文档小标题；
-</li>
-<li>装了完整版ctex，用org-mode导出是可能还是会有错误，多半是缺乏字体引起。
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-4-16-4" class="outline-5">
-<h5 id="sec-1-4-16-4"><span class="section-number-5">1.4.16.4</span> html</h5>
-<div class="outline-text-5" id="text-1-4-16-4">
-
-</div>
-
-</div>
-
-<div id="outline-container-1-4-16-5" class="outline-5">
-<h5 id="sec-1-4-16-5"><span class="section-number-5">1.4.16.5</span> 特殊符号</h5>
-<div class="outline-text-5" id="text-1-4-16-5">
-
-<ul>
-<li>表格里面的竖线: latex命令&#124;; 
-</li>
-<li>表格里面的横线：latex命令\mathrm{-};
-</li>
-<li>表格里面的上尖括号：latex命令&and;；
-</li>
-<li>表格里面的左尖括号：latex命令\textless{};
-</li>
-<li>表格里面的右尖括号：latex命令\textgreater{}; 
-</li>
-</ul>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-1-4-17" class="outline-4">
-<h4 id="sec-1-4-17"><span class="section-number-4">1.4.17</span> latex</h4>
-<div class="outline-text-4" id="text-1-4-17">
-
-<p>可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
-模块。
-</p></div>
-</div>
-
-</div>
-
-<div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> python-mode</h3>
-<div class="outline-text-3" id="text-1-5">
-
-<ul>
-<li>进入交互python模式：进入某个<a href="#buffer">buffer</a>，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在<a href="#buffer">buffer</a>里面写好程序，在C-c
-  C-z直接运行<a href="#buffer">buffer</a>的代码；
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> dired-mode</h3>
-<div class="outline-text-3" id="text-1-6">
-
-<ul>
-<li>压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip test.zip *，
-  回车就压缩到test.zip里面了。其他如7z类似；
-</li>
-<li>正则标记：使用快捷键%+m；
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7"><span class="section-number-3">1.7</span> git</h3>
-<div class="outline-text-3" id="text-1-7">
-
-<p>使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
+<p>
+不用#+latex<sub>class也可以导出幻灯片</sub>，见<a href="http://orgmode.org/org.html#A-Beamer-Example">代码</a>。
 </p>
 </div>
-
-<div id="outline-container-1-7-1" class="outline-4">
-<h4 id="sec-1-7-1"><span class="section-number-4">1.7.1</span> 配置</h4>
-<div class="outline-text-4" id="text-1-7-1">
-
-<ul>
-<li>使用M-x git-config-init 配置用户名和email；
-</li>
-<li>如果github使用https方式，则在环境变量中设置HOME变量，值是某目录；
-</li>
-<li>在该目录下新建文件<sub>netrc；</sub>
-</li>
-<li>在<sub>netrc中写入</sub>
-
-
-
-<pre class="example">machine github.com
-login bitman@163.com
-password github的登录密码
-</pre>
-
-</li>
-<li>进入eshell使用命令设置远端仓库的别名；
-
-
-
-<pre class="example">git remote add learn https://github.com/bitsman/bitsman.github.io.git 
-</pre>
-
-</li>
-<li>然后就可以使用git bash进行免输入密码push；
-</li>
+</div>
+<div id="outline-container-orgc0e5778" class="outline-5">
+<h5 id="orgc0e5778"><span class="section-number-5">1.4.16.3</span> pdf</h5>
+<div class="outline-text-5" id="text-1-4-16-3">
+<p>
+可以设置一些导出配置选项
+</p>
+<ul class="org-ul">
+<li>DESCRIPTION：文档的描述；</li>
+<li>LATEX\<sub>CLASS</sub>：预定义的一些latex配置；</li>
+<li>LATEX\<sub>CLASS</sub>\<sub>OPTIONS</sub>: 配置选项；</li>
+<li>LATEX\<sub>HEADER</sub>: 添加一些latex包；</li>
+<li>LATEX\<sub>HEADER</sub>\<sub>EXTRA</sub>: 添加的一些其他配置；</li>
+<li>KEYWORDS：文档关键字；</li>
+<li>SUBTITLE：文档小标题；</li>
+<li>装了完整版ctex，用org-mode导出是可能还是会有错误，多半是缺乏字体引起。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-7-2" class="outline-4">
-<h4 id="sec-1-7-2"><span class="section-number-4">1.7.2</span> push</h4>
+<div id="outline-container-org9e56fda" class="outline-5">
+<h5 id="org9e56fda"><span class="section-number-5">1.4.16.4</span> html</h5>
+</div>
+<div id="outline-container-org2b413d1" class="outline-5">
+<h5 id="org2b413d1"><span class="section-number-5">1.4.16.5</span> 特殊符号</h5>
+<div class="outline-text-5" id="text-1-4-16-5">
+<ul class="org-ul">
+<li>表格里面的竖线: latex命令&vert;;</li>
+<li>表格里面的横线：latex命令\mathrm{-};</li>
+<li>表格里面的上尖括号：latex命令&and;；</li>
+<li>表格里面的左尖括号：latex命令\textless{};</li>
+<li>表格里面的右尖括号：latex命令\textgreater{};</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3d76b57" class="outline-4">
+<h4 id="org3d76b57"><span class="section-number-4">1.4.17</span> latex</h4>
+<div class="outline-text-4" id="text-1-4-17">
+<p>
+可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
+模块。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc442c26" class="outline-3">
+<h3 id="orgc442c26"><span class="section-number-3">1.5</span> python-mode</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>进入交互python模式：进入某个buffer，M-x python-mode，然后C-c C-z即可进入交互模式，也可以在buffer里面写好程序，在C-c
+C-z直接运行buffer的代码；</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga769f28" class="outline-3">
+<h3 id="orga769f28"><span class="section-number-3">1.6</span> dired-mode</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>压缩文件：使用m标记待压缩的文件，按！进入minishell，输命令zip
+test.zip * 就可以完成压缩，
+回车就压缩到test.zip里面了。其他如7z类似；</li>
+<li>正则标记：使用快捷键 %+m；</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org92facd3" class="outline-3">
+<h3 id="org92facd3"><span class="section-number-3">1.7</span> git</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
+</p>
+</div>
+<div id="outline-container-org86b57ba" class="outline-4">
+<h4 id="org86b57ba"><span class="section-number-4">1.7.1</span> 配置</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li>使用M-x git-config-init 配置用户名和email；</li>
+<li>如果github使用https方式，则在环境变量中设置HOME变量，值是某目录；</li>
+<li>在该目录下新建文件<sub>netrc</sub>；</li>
+<li><p>
+在<sub>netrc中写入</sub>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">machine</span> <span style="color: #ffd700;">github</span>.com
+login bitman@163.com
+password github&#30340;&#30331;&#24405;&#23494;&#30721;
+</pre>
+</div></li>
+<li><p>
+进入eshell使用命令设置远端仓库的别名；
+</p>
+<div class="org-src-container">
+<pre class="src src-c">git remote add <span style="color: #ffff00; font-size: 105%;">learn</span> https:<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">github.com/bitsman/bitsman.github.io.git </span>
+</pre>
+</div></li>
+<li>然后就可以使用git bash进行免输入密码push；</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfc22fb6" class="outline-4">
+<h4 id="orgfc22fb6"><span class="section-number-4">1.7.2</span> push</h4>
 <div class="outline-text-4" id="text-1-7-2">
-
-<ol>
-<li>进入git仓库，或者打开仓库里面的文件；
-</li>
-<li>按F1；
-</li>
-<li>使用p/n等进行上下移动，选中修改过的文件使用a键添加进仓库；
-</li>
-<li>使用c键进行commit；
-</li>
-<li>在跳出的<a href="#buffer">buffer</a>中写入日志；
-</li>
-<li>使用C-c C-c进行commit；
-</li>
-<li>使用点.键调出git bash，输入push learn master推送到远端；
-</li>
+<ol class="org-ol">
+<li>进入git仓库，或者打开仓库里面的文件；</li>
+<li>按F1；</li>
+<li>使用p/n等进行上下移动，选中修改过的文件使用a键添加进仓库；</li>
+<li>使用c键进行commit；</li>
+<li>在跳出的buffer中写入日志；</li>
+<li>使用C-c C-c进行commit；</li>
+<li>使用点.键调出git bash，输入push learn master推送到远端；</li>
 </ol>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> latex</h2>
+<div id="outline-container-org1f767b4" class="outline-2">
+<h2 id="org1f767b4"><span class="section-number-2">2</span> latex</h2>
 <div class="outline-text-2" id="text-2">
-
-
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 方法</h3>
+<div id="outline-container-orgae5ff9b" class="outline-3">
+<h3 id="orgae5ff9b"><span class="section-number-3">2.1</span> 方法</h3>
 <div class="outline-text-3" id="text-2-1">
-
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 符号</h3>
+<div id="outline-container-orga375ed7" class="outline-3">
+<h3 id="orga375ed7"><span class="section-number-3">2.2</span> 符号</h3>
 <div class="outline-text-3" id="text-2-2">
-
-
 </div>
-
-<div id="outline-container-2-2-1" class="outline-4">
-<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 数学模式重音符号</h4>
+<div id="outline-container-org7542ec7" class="outline-4">
+<h4 id="org7542ec7"><span class="section-number-4">2.2.1</span> 数学模式重音符号</h4>
 <div class="outline-text-4" id="text-2-2-1">
 
-<p><img src="./img/shuxuemoshizhongyinfu.jpg"  alt="./img/shuxuemoshizhongyinfu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/shuxuemoshizhongyinfu.jpg" alt="shuxuemoshizhongyinfu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-2" class="outline-4">
-<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 小写希腊字母</h4>
+</div>
+</div>
+<div id="outline-container-orge066df8" class="outline-4">
+<h4 id="orge066df8"><span class="section-number-4">2.2.2</span> 小写希腊字母</h4>
 <div class="outline-text-4" id="text-2-2-2">
 
-<p><img src="./img/xiaoxiexilazimu.jpg"  alt="./img/xiaoxiexilazimu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/xiaoxiexilazimu.jpg" alt="xiaoxiexilazimu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-3" class="outline-4">
-<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> 大写希腊字母</h4>
+</div>
+</div>
+<div id="outline-container-org8034322" class="outline-4">
+<h4 id="org8034322"><span class="section-number-4">2.2.3</span> 大写希腊字母</h4>
 <div class="outline-text-4" id="text-2-2-3">
 
-<p><img src="./img/daxiexilazimu.jpg"  alt="./img/daxiexilazimu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/daxiexilazimu.jpg" alt="daxiexilazimu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-4" class="outline-4">
-<h4 id="sec-2-2-4"><span class="section-number-4">2.2.4</span> 二元关系符</h4>
+</div>
+</div>
+<div id="outline-container-orgfe57f7a" class="outline-4">
+<h4 id="orgfe57f7a"><span class="section-number-4">2.2.4</span> 二元关系符</h4>
 <div class="outline-text-4" id="text-2-2-4">
-
-<p>可以在前面加上\ not来得到其否定形式。
-<img src="./img/eryuanguanxifu.jpg"  alt="./img/eryuanguanxifu.jpg" />
-</p></div>
-
+<p>
+可以在前面加上\ not来得到其否定形式。
+<img src="./img/eryuanguanxifu.jpg" alt="eryuanguanxifu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-5" class="outline-4">
-<h4 id="sec-2-2-5"><span class="section-number-4">2.2.5</span> 二元运算符</h4>
+</div>
+<div id="outline-container-orgf2ce33a" class="outline-4">
+<h4 id="orgf2ce33a"><span class="section-number-4">2.2.5</span> 二元运算符</h4>
 <div class="outline-text-4" id="text-2-2-5">
 
-<p><img src="./img/eryuanyunsuanfu.jpg"  alt="./img/eryuanyunsuanfu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/eryuanyunsuanfu.jpg" alt="eryuanyunsuanfu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-6" class="outline-4">
-<h4 id="sec-2-2-6"><span class="section-number-4">2.2.6</span> 大尺寸运算符</h4>
+</div>
+</div>
+<div id="outline-container-org7b57b4b" class="outline-4">
+<h4 id="org7b57b4b"><span class="section-number-4">2.2.6</span> 大尺寸运算符</h4>
 <div class="outline-text-4" id="text-2-2-6">
 
-<p><img src="./img/dachicunyunsuanfu.jpg"  alt="./img/dachicunyunsuanfu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/dachicunyunsuanfu.jpg" alt="dachicunyunsuanfu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-7" class="outline-4">
-<h4 id="sec-2-2-7"><span class="section-number-4">2.2.7</span> 箭头</h4>
+</div>
+</div>
+<div id="outline-container-org4e7a619" class="outline-4">
+<h4 id="org4e7a619"><span class="section-number-4">2.2.7</span> 箭头</h4>
 <div class="outline-text-4" id="text-2-2-7">
 
-<p><img src="./img/jiantou.jpg"  alt="./img/jiantou.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/jiantou.jpg" alt="jiantou.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-8" class="outline-4">
-<h4 id="sec-2-2-8"><span class="section-number-4">2.2.8</span> 定界符</h4>
+</div>
+</div>
+<div id="outline-container-org3064ccd" class="outline-4">
+<h4 id="org3064ccd"><span class="section-number-4">2.2.8</span> 定界符</h4>
 <div class="outline-text-4" id="text-2-2-8">
 
-<p><img src="./img/dingjiefu.jpg"  alt="./img/dingjiefu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/dingjiefu.jpg" alt="dingjiefu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-9" class="outline-4">
-<h4 id="sec-2-2-9"><span class="section-number-4">2.2.9</span> 大尺寸定界符</h4>
+</div>
+</div>
+<div id="outline-container-org8397403" class="outline-4">
+<h4 id="org8397403"><span class="section-number-4">2.2.9</span> 大尺寸定界符</h4>
 <div class="outline-text-4" id="text-2-2-9">
 
-<p><img src="./img/dachicundingjiefu.jpg"  alt="./img/dachicundingjiefu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/dachicundingjiefu.jpg" alt="dachicundingjiefu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-10" class="outline-4">
-<h4 id="sec-2-2-10"><span class="section-number-4">2.2.10</span> 其他符号</h4>
+</div>
+</div>
+<div id="outline-container-org857673c" class="outline-4">
+<h4 id="org857673c"><span class="section-number-4">2.2.10</span> 其他符号</h4>
 <div class="outline-text-4" id="text-2-2-10">
 
-<p><img src="./img/qitafuhao.jpg"  alt="./img/qitafuhao.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/qitafuhao.jpg" alt="qitafuhao.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-11" class="outline-4">
-<h4 id="sec-2-2-11"><span class="section-number-4">2.2.11</span> 非数学符号</h4>
+</div>
+</div>
+<div id="outline-container-org02223b9" class="outline-4">
+<h4 id="org02223b9"><span class="section-number-4">2.2.11</span> 非数学符号</h4>
 <div class="outline-text-4" id="text-2-2-11">
 
-<p><img src="./img/feishuxuefuhao.jpg"  alt="./img/feishuxuefuhao.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/feishuxuefuhao.jpg" alt="feishuxuefuhao.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-12" class="outline-4">
-<h4 id="sec-2-2-12"><span class="section-number-4">2.2.12</span> AMS定界符</h4>
+</div>
+</div>
+<div id="outline-container-org3f5aebd" class="outline-4">
+<h4 id="org3f5aebd"><span class="section-number-4">2.2.12</span> AMS定界符</h4>
 <div class="outline-text-4" id="text-2-2-12">
 
-<p><img src="./img/amsdingjiefu.jpg"  alt="./img/amsdingjiefu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amsdingjiefu.jpg" alt="amsdingjiefu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-13" class="outline-4">
-<h4 id="sec-2-2-13"><span class="section-number-4">2.2.13</span> AMS希腊和希伯来字母</h4>
+</div>
+</div>
+<div id="outline-container-org9139b4b" class="outline-4">
+<h4 id="org9139b4b"><span class="section-number-4">2.2.13</span> AMS希腊和希伯来字母</h4>
 <div class="outline-text-4" id="text-2-2-13">
 
-<p><img src="./img/amsxilahexibolaizimu.jpg"  alt="./img/amsxilahexibolaizimu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amsxilahexibolaizimu.jpg" alt="amsxilahexibolaizimu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-14" class="outline-4">
-<h4 id="sec-2-2-14"><span class="section-number-4">2.2.14</span> AMS二元关系符</h4>
+</div>
+</div>
+<div id="outline-container-org37e1a98" class="outline-4">
+<h4 id="org37e1a98"><span class="section-number-4">2.2.14</span> AMS二元关系符</h4>
 <div class="outline-text-4" id="text-2-2-14">
 
-<p><img src="./img/amseryuanguanxifu.jpg"  alt="./img/amseryuanguanxifu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amseryuanguanxifu.jpg" alt="amseryuanguanxifu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-15" class="outline-4">
-<h4 id="sec-2-2-15"><span class="section-number-4">2.2.15</span> AMS箭头</h4>
+</div>
+</div>
+<div id="outline-container-orgcde32c4" class="outline-4">
+<h4 id="orgcde32c4"><span class="section-number-4">2.2.15</span> AMS箭头</h4>
 <div class="outline-text-4" id="text-2-2-15">
 
-<p><img src="./img/amsjiantou.jpg"  alt="./img/amsjiantou.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amsjiantou.jpg" alt="amsjiantou.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-16" class="outline-4">
-<h4 id="sec-2-2-16"><span class="section-number-4">2.2.16</span> AMS二元否定关系符和箭头</h4>
+</div>
+</div>
+<div id="outline-container-org1fd7a8f" class="outline-4">
+<h4 id="org1fd7a8f"><span class="section-number-4">2.2.16</span> AMS二元否定关系符和箭头</h4>
 <div class="outline-text-4" id="text-2-2-16">
 
-<p><img src="./img/amseryuanfoudingguanxifuhejiantou.jpg"  alt="./img/amseryuanfoudingguanxifuhejiantou.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amseryuanfoudingguanxifuhejiantou.jpg" alt="amseryuanfoudingguanxifuhejiantou.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-17" class="outline-4">
-<h4 id="sec-2-2-17"><span class="section-number-4">2.2.17</span> AMS二元运算符</h4>
+</div>
+</div>
+<div id="outline-container-org50ca9cc" class="outline-4">
+<h4 id="org50ca9cc"><span class="section-number-4">2.2.17</span> AMS二元运算符</h4>
 <div class="outline-text-4" id="text-2-2-17">
 
-<p><img src="./img/amseryuanyunsuanfu.jpg"  alt="./img/amseryuanyunsuanfu.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amseryuanyunsuanfu.jpg" alt="amseryuanyunsuanfu.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-18" class="outline-4">
-<h4 id="sec-2-2-18"><span class="section-number-4">2.2.18</span> AMS其他符号</h4>
+</div>
+</div>
+<div id="outline-container-orgfa2d25a" class="outline-4">
+<h4 id="orgfa2d25a"><span class="section-number-4">2.2.18</span> AMS其他符号</h4>
 <div class="outline-text-4" id="text-2-2-18">
 
-<p><img src="./img/amsqitafuhao.jpg"  alt="./img/amsqitafuhao.jpg" />
-</p></div>
-
+<div class="figure">
+<p><img src="./img/amsqitafuhao.jpg" alt="amsqitafuhao.jpg" />
+</p>
 </div>
-
-<div id="outline-container-2-2-19" class="outline-4">
-<h4 id="sec-2-2-19"><span class="section-number-4">2.2.19</span> 微积分符号</h4>
+</div>
+</div>
+<div id="outline-container-org6205df2" class="outline-4">
+<h4 id="org6205df2"><span class="section-number-4">2.2.19</span> 微积分符号</h4>
 <div class="outline-text-4" id="text-2-2-19">
-
-<ol>
-<li>\(\int_{0}^{n}\)
-</li>
-<li>\(\sum_{i=0}^{n}\)
-</li>
-<li>\(\sum\limits_{i=0}^{n}\)
-</li>
-<li>\(\mathrm{d}x\)
-</li>
+<ol class="org-ol">
+<li>\(\int_{0}^{n}\)</li>
+<li>\(\sum_{i=0}^{n}\)</li>
+<li>\(\sum\limits_{i=0}^{n}\)</li>
+<li>\(\mathrm{d}x\)</li>
 </ol>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> keil</h2>
+<div id="outline-container-org4c78aaa" class="outline-2">
+<h2 id="org4c78aaa"><span class="section-number-2">3</span> keil</h2>
 <div class="outline-text-2" id="text-3">
-
-<ul>
+<ul class="org-ul">
 <li>设置emacs编辑器：在Customer Tools Menu菜单中，Command设置emacs路径，在Argument中!E代表编辑当前文件；在Menu Content中新
-  建个命令emacs(&amp;E), 括号里面的代表快捷键.
-</li>
+建个命令emacs(&amp;E), 括号里面的代表快捷键.</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> iar</h2>
+<div id="outline-container-org04266ba" class="outline-2">
+<h2 id="org04266ba"><span class="section-number-2">4</span> iar</h2>
 <div class="outline-text-2" id="text-4">
-
-<ul>
+<ul class="org-ul">
 <li>设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&amp;E), 括号里面的代表快捷键，在Command中设置emacs路径，
-  在Argument中 \\(FILE_PATH\\) 代表编辑当前文件.  
-</li>
+在Argument中 \\(FILE_PATH\\) 代表编辑当前文件.</li>
 </ul>
-
-
+</div>
+</div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
-<p class="footnote"><sup><a class="footnum" name="fn.1" href="#fnr.1">1</a></sup> 普通序号脚注
-</p>
 
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+普通序号脚注
+</p></div></div>
 
-<p class="footnote"><sup><a class="footnum" name="fn.2" href="#fnr.2">2</a></sup> 带名字脚注
-</p>
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+带名字脚注
+</p></div></div>
 
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">匿名脚注</div></div>
 
-<p class="footnote"><sup><a class="footnum" name="fn.3" href="#fnr.3">3</a></sup> 匿名脚注
-</p>
-
-
-<p class="footnote"><sup><a class="footnum" name="fn.4" href="#fnr.4">4</a></sup> 带描述的脚注
-</p>
-
-
-<p class="footnote"><sup><a class="footnum" name="fn.5" href="#fnr.5">5</a></sup> DEFINITION NOT FOUND: 1
-</p>
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">带描述的脚注</div></div>
 
 
 </div>
-</div>
-
-</div>
-</div>
-</div>
-
-<div id="postamble">
-<p class="date">Date: 2016-09-14 13:11:44 中国标准时间</p>
+</div></div>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="email"><a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 18:48</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

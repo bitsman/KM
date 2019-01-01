@@ -1,18 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-01-01 周二 18:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>装修日记</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="装修日记"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016-09-14 13:10:09 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,71 +227,63 @@
  }
 /*]]>*///-->
 </script>
-
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
 <h1 class="title">装修日记</h1>
-
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 验房</a>
+<li><a href="#org5f198b1">1. 验房</a>
 <ul>
-<li><a href="#sec-1-1">1.1 证件</a></li>
-<li><a href="#sec-1-2">1.2 工具</a></li>
-<li><a href="#sec-1-3">1.3 流程</a></li>
+<li><a href="#orgdf43ecb">1.1. 证件</a></li>
+<li><a href="#org56945f4">1.2. 工具</a></li>
+<li><a href="#orga3f0c8e">1.3. 流程</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 装修</a>
+<li><a href="#orgfaf8881">2. 装修</a>
 <ul>
-<li><a href="#sec-2-1">2.1 装修流程</a></li>
-<li><a href="#sec-2-2">2.2 设计师的服务流程</a></li>
-<li><a href="#sec-2-3">2.3 设计师的收费方式和内容</a></li>
-<li><a href="#sec-2-4">2.4 施工队进度表</a></li>
-<li><a href="#sec-2-5">2.5 常用单位换算</a></li>
-<li><a href="#sec-2-6">2.6 空间</a>
+<li><a href="#org039f381">2.1. 装修流程</a></li>
+<li><a href="#org71b9ed3">2.2. 设计师的服务流程</a></li>
+<li><a href="#org73819e3">2.3. 设计师的收费方式和内容</a></li>
+<li><a href="#org8043312">2.4. 施工队进度表</a></li>
+<li><a href="#org07be7a2">2.5. 常用单位换算</a></li>
+<li><a href="#org5e30574">2.6. 空间</a>
 <ul>
-<li><a href="#sec-2-6-1">2.6.1 测量前的准备</a></li>
-<li><a href="#sec-2-6-2">2.6.2 卧室</a></li>
+<li><a href="#orgab7a9c2">2.6.1. 测量前的准备</a></li>
+<li><a href="#org59633cc">2.6.2. 卧室</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-7">2.7 合同</a>
+<li><a href="#org9154380">2.7. 合同</a>
 <ul>
-<li><a href="#sec-2-7-1">2.7.1 设计合同</a></li>
-<li><a href="#sec-2-7-2">2.7.2 施工合同</a></li>
+<li><a href="#orgdcdebc8">2.7.1. 设计合同</a></li>
+<li><a href="#org1158b53">2.7.2. 施工合同</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-8">2.8 建材</a>
+<li><a href="#orgd6e7a3f">2.8. 建材</a>
 <ul>
-<li><a href="#sec-2-8-1">2.8.1 木质地板</a></li>
-<li><a href="#sec-2-8-2">2.8.2 石材</a></li>
-<li><a href="#sec-2-8-3">2.8.3 瓷砖</a></li>
-<li><a href="#sec-2-8-4">2.8.4 地毯</a></li>
-<li><a href="#sec-2-8-5">2.8.5 涂料</a></li>
-<li><a href="#sec-2-8-6">2.8.6 壁饰类</a></li>
-<li><a href="#sec-2-8-7">2.8.7 玻璃类</a></li>
-<li><a href="#sec-2-8-8">2.8.8 料理台</a></li>
-<li><a href="#sec-2-8-9">2.8.9 水槽</a></li>
+<li><a href="#org79fc960">2.8.1. 木质地板</a></li>
+<li><a href="#org9eee778">2.8.2. 石材</a></li>
+<li><a href="#orgb8daee3">2.8.3. 瓷砖</a></li>
+<li><a href="#org761b27d">2.8.4. 地毯</a></li>
+<li><a href="#org5cebb29">2.8.5. 涂料</a></li>
+<li><a href="#org9aae332">2.8.6. 壁饰类</a></li>
+<li><a href="#org3a699f1">2.8.7. 玻璃类</a></li>
+<li><a href="#org60c024a">2.8.8. 料理台</a></li>
+<li><a href="#org5eceedb">2.8.9. 水槽</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-9">2.9 监工表单</a>
+<li><a href="#org287c2a4">2.9. 监工表单</a>
 <ul>
-<li><a href="#sec-2-9-1">2.9.1 石材监工检查表单</a></li>
+<li><a href="#orgc30e615">2.9.1. 石材监工检查表单</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-10">2.10 插座开关灯</a></li>
-<li><a href="#sec-2-11">2.11 家具</a>
+<li><a href="#org889f1a4">2.10. 插座开关灯</a></li>
+<li><a href="#org3c5b51e">2.11. 家具</a>
 <ul>
-<li><a href="#sec-2-11-1">2.11.1 桌子</a></li>
-<li><a href="#sec-2-11-2">2.11.2 床</a></li>
+<li><a href="#org257929a">2.11.1. 桌子</a></li>
+<li><a href="#org250ac2f">2.11.2. 床</a></li>
 </ul>
 </li>
 </ul>
@@ -107,814 +292,1114 @@
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 验房</h2>
+<div id="outline-container-org5f198b1" class="outline-2">
+<h2 id="org5f198b1"><span class="section-number-2">1</span> 验房</h2>
 <div class="outline-text-2" id="text-1">
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 证件</h3>
+<div id="outline-container-orgdf43ecb" class="outline-3">
+<h3 id="orgdf43ecb"><span class="section-number-3">1.1</span> 证件</h3>
 <div class="outline-text-3" id="text-1-1">
-
-<p>在签合同时增加这样的约定：“交房时，应先验房然后办收房手续”，如果当初没有来得及在合同上约定，则可在收楼文件中注明“房内
+<p>
+在签合同时增加这样的约定：“交房时，应先验房然后办收房手续”，如果当初没有来得及在合同上约定，则可在收楼文件中注明“房内
 情况未看”或“未验房”等字样，以下两书一表必须是原件。
-</p><ul>
-<li>《住宅质量保证书》：开发商针对房屋质量及保修期限、范围作出的承诺，可带走；
-</li>
-<li>《住宅使用说明书》：针对房屋设计、施工及验收中的具体技术指标，如抗震指数、墙体结构类型等的说明，可带走；
-</li>
-<li>《竣工验收备案表》：检查其中各项分项是否备案，且确定自己的楼是否在备案表范围内；
-</li>
-<li>《管线分布竣工图》：可带走；
-</li>
-<li>《面积实测表》：国家认可的专业测绘单位对面积的实测数据；
-</li>
+</p>
+<ul class="org-ul">
+<li>《住宅质量保证书》：开发商针对房屋质量及保修期限、范围作出的承诺，可带走；</li>
+<li>《住宅使用说明书》：针对房屋设计、施工及验收中的具体技术指标，如抗震指数、墙体结构类型等的说明，可带走；</li>
+<li>《竣工验收备案表》：检查其中各项分项是否备案，且确定自己的楼是否在备案表范围内；</li>
+<li>《管线分布竣工图》：可带走；</li>
+<li>《面积实测表》：国家认可的专业测绘单位对面积的实测数据；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 工具</h3>
+<div id="outline-container-org56945f4" class="outline-3">
+<h3 id="org56945f4"><span class="section-number-3">1.2</span> 工具</h3>
 <div class="outline-text-3" id="text-1-2">
-
-<ul>
-<li>量具：5m盒尺、25~33cm直角尺、50~60cm丁字尺、1m直尺；
-</li>
+<ul class="org-ul">
+<li>量具：5m盒尺、25~33cm直角尺、50~60cm丁字尺、1m直尺；</li>
 <li>电钳工具：两带头、三头插头（最好是带有指示灯的插座）；用于电话线、电视线、宽带线的各种插头；万用表、摇表、多用螺丝刀；
-  5号电池2节、测电笔、手锤、小锤、大灯泡、小灯泡；
-</li>
-<li>辅助工具：镜子、手电、塑料袋多个、火柴、卫生纸、凳子、笔记本、笔；
-</li>
-<li>验房不能少的专业工具：垂直检测尺、多功能内外直角检测尺、多功能垂直校正器、游标塞尺、对角检测尺、反光镜、伸缩杆；
-</li>
-<li>1只塑料洗脸盆，用于验收下水管道；
-</li>
-<li>1只小榔头、用于验收房子墙体与地面是否空鼓；
-</li>
-<li>1只塞尺，用于测裂缝的宽度；
-</li>
-<li>1只5米卷尺，用于测量房子的净高；
-</li>
-<li>1只万用表，用于测试各个强电插座及弱电类是否畅通；
-</li>
-<li>1只计算器，用于计算数据；
-</li>
-<li>1只水笔，用于签字；
-</li>
-<li>1只扫把，打扫卫生；
-</li>
-<li>1只凳子，坐着休息；
-</li>
-<li>1只乒乓球：验证各种地板，桌板坡度，空心；
-</li>
+5号电池2节、测电笔、手锤、小锤、大灯泡、小灯泡；</li>
+<li>辅助工具：镜子、手电、塑料袋多个、火柴、卫生纸、凳子、笔记本、笔；</li>
+<li>验房不能少的专业工具：垂直检测尺、多功能内外直角检测尺、多功能垂直校正器、游标塞尺、对角检测尺、反光镜、伸缩杆；</li>
+<li>1只塑料洗脸盆，用于验收下水管道；</li>
+<li>1只小榔头、用于验收房子墙体与地面是否空鼓；</li>
+<li>1只塞尺，用于测裂缝的宽度；</li>
+<li>1只5米卷尺，用于测量房子的净高；</li>
+<li>1只万用表，用于测试各个强电插座及弱电类是否畅通；</li>
+<li>1只计算器，用于计算数据；</li>
+<li>1只水笔，用于签字；</li>
+<li>1只扫把，打扫卫生；</li>
+<li>1只凳子，坐着休息；</li>
+<li>1只乒乓球：验证各种地板，桌板坡度，空心；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 流程</h3>
+<div id="outline-container-orga3f0c8e" class="outline-3">
+<h3 id="orga3f0c8e"><span class="section-number-3">1.3</span> 流程</h3>
 <div class="outline-text-3" id="text-1-3">
-
-<ul>
-<li>检查厨房烟道：用纸卷点火后灭火冒烟，放在烟道口下方10厘米左右，看烟是否上升到烟道口立即拐弯吸走；
-</li>
-<li>检查卫生间通风情况：卫生间如没有窗户，至少要有通风孔，用上一方法检查抽力，用手电筒查看内部是否有建筑垃圾；
-</li>
-<li>窗边与混凝土接口不能有缝隙：
-</li>
-<li>电路检查：打开所有的灯具开关，检查是否亮。拉下总开关箱内的开关，多次，测试插排；
-</li>
-<li>检查插座和弱电：
-</li>
-<li>检查房屋有无倾斜：从房顶放垂线；
-</li>
-<li>检查有无渗漏：墙面是否变色、气泡、脱皮、掉灰；
-</li>
-<li>检查保温墙面是否滴水：如果是冬天，墙面有结露，则表示有问题；
-</li>
-<li>检查房屋有无裂缝：
-</li>
-<li>检查乳胶漆质量：天花板是否平整；
-</li>
-<li>检查室内门上下是否油漆：使用镜子放到门顶部和底部，检查；
-</li>
-<li>检查墙地砖：有无开裂，有无空鼓；
-</li>
-<li>检查门窗的密封：
-</li>
-<li>检查窗户：
-</li>
-<li>检查管道安装、通畅和密封：
-</li>
-<li>闭存水试验：
-</li>
-<li>水表空转试验：关闭房屋各个水阀开关，看看是否空战，如果有则有问题；
-</li>
-<li>检查厕所、浴具有无列横：
-</li>
-<li>检查供暖设备：
-</li>
-<li>检查建材的品牌与合同是否相符：
-</li>
-<li>检查室内有害气体是否超标：可找正规机构检测；
-</li>
+<ul class="org-ul">
+<li>检查厨房烟道：用纸卷点火后灭火冒烟，放在烟道口下方10厘米左右，看烟是否上升到烟道口立即拐弯吸走；</li>
+<li>检查卫生间通风情况：卫生间如没有窗户，至少要有通风孔，用上一方法检查抽力，用手电筒查看内部是否有建筑垃圾；</li>
+<li>窗边与混凝土接口不能有缝隙：</li>
+<li>电路检查：打开所有的灯具开关，检查是否亮。拉下总开关箱内的开关，多次，测试插排；</li>
+<li>检查插座和弱电：</li>
+<li>检查房屋有无倾斜：从房顶放垂线；</li>
+<li>检查有无渗漏：墙面是否变色、气泡、脱皮、掉灰；</li>
+<li>检查保温墙面是否滴水：如果是冬天，墙面有结露，则表示有问题；</li>
+<li>检查房屋有无裂缝：</li>
+<li>检查乳胶漆质量：天花板是否平整；</li>
+<li>检查室内门上下是否油漆：使用镜子放到门顶部和底部，检查；</li>
+<li>检查墙地砖：有无开裂，有无空鼓；</li>
+<li>检查门窗的密封：</li>
+<li>检查窗户：</li>
+<li>检查管道安装、通畅和密封：</li>
+<li>闭存水试验：</li>
+<li>水表空转试验：关闭房屋各个水阀开关，看看是否空战，如果有则有问题；</li>
+<li>检查厕所、浴具有无列横：</li>
+<li>检查供暖设备：</li>
+<li>检查建材的品牌与合同是否相符：</li>
+<li>检查室内有害气体是否超标：可找正规机构检测；</li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 装修</h2>
+<div id="outline-container-orgfaf8881" class="outline-2">
+<h2 id="orgfaf8881"><span class="section-number-2">2</span> 装修</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>装修原则：轻装修，重装饰, 一般包括：水电改造，贴砖，刷墙，做厨房，卫生间吊
+<p>
+装修原则：轻装修，重装饰, 一般包括：水电改造，贴砖，刷墙，做厨房，卫生间吊
 顶，橱柜等； 
 </p>
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 装修流程</h3>
+<div id="outline-container-org039f381" class="outline-3">
+<h3 id="org039f381"><span class="section-number-3">2.1</span> 装修流程</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p>按照时间顺序大体30步多：
-</p><ol>
-<li>办理开工手续：替工人办理门禁等手续；
-</li>
-<li>自行测量
-</li>
-<li>前期设计
-</li>
-<li>主体拆改
-</li>
-<li>木门厂家上门测量
-</li>
-<li>橱柜第一次测量
-</li>
-<li>水电改造
-</li>
-<li>卫生间防水
-</li>
-<li>主料进场
-</li>
-<li>木工:包立管、做装饰吊顶、贴石膏线之类; 
-</li>
-<li>贴砖
-</li>
-<li>安装油烟机
-</li>
-<li>橱柜第二次测量
-</li>
-<li>刷墙面漆
-</li>
-<li>厨卫吊顶
-</li>
-<li>通煤气
-</li>
-<li>橱柜安装：同时安装水槽、煤气灶
-</li>
-<li>木门安装
-</li>
-<li>地板安装
-</li>
-<li>铺贴壁纸
-</li>
-<li>散热器安装
-</li>
-<li>开关插座安装
-</li>
-<li>灯具安装
-</li>
-<li>五金洁具安装
-</li>
-<li>窗帘杆安装
-</li>
-<li>拓荒保洁
-</li>
-<li>家具进场
-</li>
-<li>家电安装
-</li>
-<li>家居配饰
-</li>
-<li>搬家
-</li>
+<p>
+按照时间顺序大体30步多：
+</p>
+<ol class="org-ol">
+<li>办理开工手续：替工人办理门禁等手续；</li>
+<li>自行测量</li>
+<li>前期设计</li>
+<li>主体拆改</li>
+<li>木门厂家上门测量</li>
+<li>橱柜第一次测量</li>
+<li>水电改造</li>
+<li>卫生间防水</li>
+<li>主料进场</li>
+<li>木工:包立管、做装饰吊顶、贴石膏线之类;</li>
+<li>贴砖</li>
+<li>安装油烟机</li>
+<li>橱柜第二次测量</li>
+<li>刷墙面漆</li>
+<li>厨卫吊顶</li>
+<li>通煤气</li>
+<li>橱柜安装：同时安装水槽、煤气灶</li>
+<li>木门安装</li>
+<li>地板安装</li>
+<li>铺贴壁纸</li>
+<li>散热器安装</li>
+<li>开关插座安装</li>
+<li>灯具安装</li>
+<li>五金洁具安装</li>
+<li>窗帘杆安装</li>
+<li>拓荒保洁</li>
+<li>家具进场</li>
+<li>家电安装</li>
+<li>家居配饰</li>
+<li>搬家</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 设计师的服务流程</h3>
+<div id="outline-container-org71b9ed3" class="outline-3">
+<h3 id="org71b9ed3"><span class="section-number-3">2.2</span> 设计师的服务流程</h3>
 <div class="outline-text-3" id="text-2-2">
-
-<ul>
-<li>现场勘查及丈量空间尺寸
-</li>
-<li>平面规划及预算评估
-</li>
-<li>签订设计合同
-</li>
-<li>施工图设计，确认工程内容及细节
-</li>
-<li>确认工程估价，包含数量、材料、施工方法
-</li>
-<li>签订工程合同
-</li>
-<li>确定施工日期及各项工程工期
-</li>
-<li>工程施工及监工
-</li>
-<li>完工验收
-</li>
-<li>维修及保修
-</li>
+<ul class="org-ul">
+<li>现场勘查及丈量空间尺寸</li>
+<li>平面规划及预算评估</li>
+<li>签订设计合同</li>
+<li>施工图设计，确认工程内容及细节</li>
+<li>确认工程估价，包含数量、材料、施工方法</li>
+<li>签订工程合同</li>
+<li>确定施工日期及各项工程工期</li>
+<li>工程施工及监工</li>
+<li>完工验收</li>
+<li>维修及保修</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 设计师的收费方式和内容</h3>
+<div id="outline-container-org73819e3" class="outline-3">
+<h3 id="org73819e3"><span class="section-number-3">2.3</span> 设计师的收费方式和内容</h3>
 <div class="outline-text-3" id="text-2-3">
+<table id="org5e5e5b4" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> 设计师收费方式</caption>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-designer-money">
-<caption>设计师收费方式</caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">项目</th><th scope="col" class="left">收费方式</th><th scope="col" class="left">备注</th></tr>
+<tr>
+<th scope="col" class="org-left">项目</th>
+<th scope="col" class="org-left">收费方式</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="left">设计费</td><td class="left">1. 按面积计算，一平米100元~1000元</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">2. 按一式算，不管面积大小，费用从几千到几万</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">3. 按装修总金额计算，为10%~20%</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">设计费</td>
+<td class="org-left">1. 按面积计算，一平米100元~1000元</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2. 按一式算，不管面积大小，费用从几千到几万</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">3. 按装修总金额计算，为10%~20%</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">工程费</td><td class="left">按实际施工的工种及工时计算</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">工程费</td>
+<td class="org-left">按实际施工的工种及工时计算</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">监工费</td><td class="left">一般占工程总金额的5%~10%</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">监工费</td>
+<td class="org-left">一般占工程总金额的5%~10%</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 施工队进度表</h3>
+<div id="outline-container-org8043312" class="outline-3">
+<h3 id="org8043312"><span class="section-number-3">2.4</span> 施工队进度表</h3>
 <div class="outline-text-3" id="text-2-4">
+<table id="orgfd5233b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> 工程进度表</caption>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-work-step">
-<caption>工程进度表</caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">工程项目</th><th scope="col" class="left">子项目</th><th scope="col" class="left">时间进度(1~30日期)</th></tr>
+<tr>
+<th scope="col" class="org-left">工程项目</th>
+<th scope="col" class="org-left">子项目</th>
+<th scope="col" class="org-left">时间进度(1~30日期)</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="left">拆除工程</td><td class="left"></td><td class="left">进场</td></tr>
-<tr><td class="left"></td><td class="left">原有墙面拆除运费</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">原有旅门窗拆除运费</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">原有装潢工程拆除运费</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">原有厨房浴室拆除运费</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">拆除工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">进场</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">原有墙面拆除运费</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">原有旅门窗拆除运费</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">原有装潢工程拆除运费</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">原有厨房浴室拆除运费</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">水泥工程</td><td class="left"></td><td class="left">施工</td></tr>
-<tr><td class="left"></td><td class="left">砌墙</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">墙面粉刷</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">防水工程</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">瓷砖铺设</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">水泥工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">施工</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">砌墙</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">墙面粉刷</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">防水工程</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">瓷砖铺设</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">铝铁工程</td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-left">铝铁工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">水电工程</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">管线迁移</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">配线新增开关挖孔</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">嵌灯</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">客厅灯具安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">餐厅灯具安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">卧室灯具安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">厨房灯具安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">卫浴灯具安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">水电工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">管线迁移</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">配线新增开关挖孔</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">嵌灯</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">客厅灯具安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">餐厅灯具安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">卧室灯具安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">厨房灯具安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">卫浴灯具安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">木工工程</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">玄关柜子</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">客厅电视柜</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">客厅主墙面</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">餐柜</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">卧室拉门</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">卧室床头柜</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">书桌</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">书柜</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">木地板</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">天花板</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">踢脚板</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">窗帘盒</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">线板</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">拉门</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">木工工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">玄关柜子</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">客厅电视柜</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">客厅主墙面</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">餐柜</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">卧室拉门</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">卧室床头柜</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">书桌</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">书柜</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">木地板</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">天花板</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">踢脚板</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">窗帘盒</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">线板</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">拉门</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">油漆工程</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">墙面油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">柜子木皮油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">天花板油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">线板油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">踢脚板油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">窗帘盒油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">拉门油漆</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">油漆工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">墙面油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">柜子木皮油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">天花板油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">线板油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">踢脚板油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">窗帘盒油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">拉门油漆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">玻璃工程</td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-left">玻璃工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">厨具工程</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">橱柜安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">料理台安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">抽油烟机安装</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">厨具工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">橱柜安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">料理台安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">抽油烟机安装</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">空调工程</td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-left">空调工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">卫浴设备及配件</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">浴缸</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">马桶</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">洗脸台</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">淋浴设备</td><td class="left"></td></tr>
-<tr><td class="left"></td><td class="left">其他</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">卫浴设备及配件</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">浴缸</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">马桶</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">洗脸台</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">淋浴设备</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">其他</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">保全工程</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left">自动控制系统</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left">阳台园艺工程</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left">杂项及清洁工程</td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-left">保全工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">自动控制系统</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">阳台园艺工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">杂项及清洁工程</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 常用单位换算</h3>
+<div id="outline-container-org07be7a2" class="outline-3">
+<h3 id="org07be7a2"><span class="section-number-3">2.5</span> 常用单位换算</h3>
 <div class="outline-text-3" id="text-2-5">
+<table id="org32167fe" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> 单位换算</caption>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-dw-hs">
-<caption>单位换算</caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">计价单位</th><th scope="col" class="left">换算</th><th scope="col" class="left">用途</th></tr>
+<tr>
+<th scope="col" class="org-left">计价单位</th>
+<th scope="col" class="org-left">换算</th>
+<th scope="col" class="org-left">用途</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="left">1尺</td><td class="left">33.3厘米</td><td class="left">1. 用在木作工程，如衣柜、书柜计量单位</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">2. 组合家具、橱柜的油漆计价</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">3. 铝窗、玻璃工程计价单位</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">4. 部分瓷砖计价</td></tr>
+<tr>
+<td class="org-left">1尺</td>
+<td class="org-left">33.3厘米</td>
+<td class="org-left">1. 用在木作工程，如衣柜、书柜计量单位</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2. 组合家具、橱柜的油漆计价</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">3. 铝窗、玻璃工程计价单位</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">4. 部分瓷砖计价</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1寸</td><td class="left">3.3厘米</td><td class="left"></td></tr>
-<tr><td class="left">1分</td><td class="left">0.3厘米</td><td class="left"></td></tr>
-<tr><td class="left">1才</td><td class="left">30.3厘米*30.3厘米</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">1寸</td>
+<td class="org-left">3.3厘米</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">1分</td>
+<td class="org-left">0.3厘米</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">1才</td>
+<td class="org-left">30.3厘米*30.3厘米</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1平</td><td class="left">1平米, 1P</td><td class="left">1. 地板的计价单位，木地板、地砖</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">2. 壁面建材的计价单位，瓷砖</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">3. 壁面油漆的计价单位</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">4. 地板的拆除工程计价，木地板、地砖</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">5. 天花板工程的计价单位</td></tr>
+<tr>
+<td class="org-left">1平</td>
+<td class="org-left">1平米, 1P</td>
+<td class="org-left">1. 地板的计价单位，木地板、地砖</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2. 壁面建材的计价单位，瓷砖</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">3. 壁面油漆的计价单位</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">4. 地板的拆除工程计价，木地板、地砖</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">5. 天花板工程的计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1片</td><td class="left">60厘米*60厘米</td><td class="left">1. 大理石或特殊瓷砖的计价单位</td></tr>
-<tr><td class="left"></td><td class="left">80厘米*80厘米</td><td class="left"></td></tr>
+<tr>
+<td class="org-left">1片</td>
+<td class="org-left">60厘米*60厘米</td>
+<td class="org-left">1. 大理石或特殊瓷砖的计价单位</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">80厘米*80厘米</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1支</td><td class="left">1.75尺*33尺/36</td><td class="left">1. 壁纸的计价单位</td></tr>
+<tr>
+<td class="org-left">1支</td>
+<td class="org-left">1.75尺*33尺/36</td>
+<td class="org-left">1. 壁纸的计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1盏</td><td class="left"></td><td class="left">1. 灯具计价单位</td></tr>
+<tr>
+<td class="org-left">1盏</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1. 灯具计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1口</td><td class="left"></td><td class="left">1. 部分泥做工程，排水管洗孔的计价单位</td></tr>
+<tr>
+<td class="org-left">1口</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1. 部分泥做工程，排水管洗孔的计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1组</td><td class="left"></td><td class="left">1. 水电工程的计价单位</td></tr>
+<tr>
+<td class="org-left">1组</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1. 水电工程的计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1樘</td><td class="left"></td><td class="left">1. 门窗拆除工程计价单位</td></tr>
-<tr><td class="left"></td><td class="left"></td><td class="left">2. 门或窗的计价单位</td></tr>
+<tr>
+<td class="org-left">1樘</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1. 门窗拆除工程计价单位</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2. 门或窗的计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1车</td><td class="left"></td><td class="left">1. 运输计价单位</td></tr>
+<tr>
+<td class="org-left">1车</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">1. 运输计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1码</td><td class="left">3英尺=91.4402厘米</td><td class="left">1. 窗帘及家饰布料的计价单位</td></tr>
+<tr>
+<td class="org-left">1码</td>
+<td class="org-left">3英尺=91.4402厘米</td>
+<td class="org-left">1. 窗帘及家饰布料的计价单位</td>
+</tr>
 </tbody>
 <tbody>
-<tr><td class="left">1式</td><td class="left"></td><td class="left">计算方式模糊，需附图说明，所有工程都用</td></tr>
+<tr>
+<td class="org-left">1式</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">计算方式模糊，需附图说明，所有工程都用</td>
+</tr>
 </tbody>
 </table>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 空间</h3>
+<div id="outline-container-org5e30574" class="outline-3">
+<h3 id="org5e30574"><span class="section-number-3">2.6</span> 空间</h3>
 <div class="outline-text-3" id="text-2-6">
-
-
 </div>
-
-<div id="outline-container-2-6-1" class="outline-4">
-<h4 id="sec-2-6-1"><span class="section-number-4">2.6.1</span> 测量前的准备</h4>
+<div id="outline-container-orgab7a9c2" class="outline-4">
+<h4 id="orgab7a9c2"><span class="section-number-4">2.6.1</span> 测量前的准备</h4>
 <div class="outline-text-4" id="text-2-6-1">
-
-<ul>
-<li>卷尺：5米长；
-</li>
-<li>笔：不同颜色共3支；
-</li>
-<li>纸：A4以上；
-</li>
-<li>数码相机；
-</li>
+<ul class="org-ul">
+<li>卷尺：5米长；</li>
+<li>笔：不同颜色共3支；</li>
+<li>纸：A4以上；</li>
+<li>数码相机；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-6-2" class="outline-4">
-<h4 id="sec-2-6-2"><span class="section-number-4">2.6.2</span> 卧室</h4>
+<div id="outline-container-org59633cc" class="outline-4">
+<h4 id="org59633cc"><span class="section-number-4">2.6.2</span> 卧室</h4>
 <div class="outline-text-4" id="text-2-6-2">
-
-<ul>
-<li>至少要10平米；
-</li>
-<li>床两边过道要留50厘米的空间才够；
-</li>
+<ul class="org-ul">
+<li>至少要10平米；</li>
+<li>床两边过道要留50厘米的空间才够；</li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 合同</h3>
+<div id="outline-container-org9154380" class="outline-3">
+<h3 id="org9154380"><span class="section-number-3">2.7</span> 合同</h3>
 <div class="outline-text-3" id="text-2-7">
-
-<p>合同中定金不可退，订金可以退；避免在装修过程中不停增加预算，必要时可以在合同预算清单中约定“设计方案微调的情况下，允许实
+<p>
+合同中定金不可退，订金可以退；避免在装修过程中不停增加预算，必要时可以在合同预算清单中约定“设计方案微调的情况下，允许实
 际用料与预算有5%的偏差，超过该范围拒绝付款”；
-</p><ul>
-<li>一般有7天的合同考虑时间；
-</li>
-<li>如果有任何工程追加，一定要经过双方书面同意。
-</li>
-<li>合同中标示建材等级；
-</li>
-<li>附进度表掌握工期；
-</li>
-<li>合同章要完整；
-</li>
-<li>保存正本合同并检查公司的营业执照；
-</li>
+</p>
+<ul class="org-ul">
+<li>一般有7天的合同考虑时间；</li>
+<li>如果有任何工程追加，一定要经过双方书面同意。</li>
+<li>合同中标示建材等级；</li>
+<li>附进度表掌握工期；</li>
+<li>合同章要完整；</li>
+<li>保存正本合同并检查公司的营业执照；</li>
 <li>范围：
-<ul>
-<li>工程范围；
-</li>
-<li>工程期限；
-</li>
-<li>付款方法；
-</li>
-<li>工程变更；
-</li>
-<li>违约责任；
-</li>
-<li>工程验收；
-</li>
-<li>保修；
-</li>
-<li>其他事项；
-</li>
-<li>公司及负责人公章；
-</li>
+<ul class="org-ul">
+<li>工程范围；</li>
+<li>工程期限；</li>
+<li>付款方法；</li>
+<li>工程变更；</li>
+<li>违约责任；</li>
+<li>工程验收；</li>
+<li>保修；</li>
+<li>其他事项；</li>
+<li>公司及负责人公章；</li>
+</ul></li>
 </ul>
-
-</li>
-</ul>
-
-
 </div>
-
-<div id="outline-container-2-7-1" class="outline-4">
-<h4 id="sec-2-7-1"><span class="section-number-4">2.7.1</span> 设计合同</h4>
+<div id="outline-container-orgdcdebc8" class="outline-4">
+<h4 id="orgdcdebc8"><span class="section-number-4">2.7.1</span> 设计合同</h4>
 <div class="outline-text-4" id="text-2-7-1">
-
-<p>同设计师签的合同；
-</p></div>
-
+<p>
+同设计师签的合同；
+</p>
 </div>
-
-<div id="outline-container-2-7-2" class="outline-4">
-<h4 id="sec-2-7-2"><span class="section-number-4">2.7.2</span> 施工合同</h4>
+</div>
+<div id="outline-container-org1158b53" class="outline-4">
+<h4 id="org1158b53"><span class="section-number-4">2.7.2</span> 施工合同</h4>
 <div class="outline-text-4" id="text-2-7-2">
-
-<p>同施工方签的合同，施工合同一般都含监工；
-</p></div>
+<p>
+同施工方签的合同，施工合同一般都含监工；
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 建材</h3>
+</div>
+<div id="outline-container-orgd6e7a3f" class="outline-3">
+<h3 id="orgd6e7a3f"><span class="section-number-3">2.8</span> 建材</h3>
 <div class="outline-text-3" id="text-2-8">
-
-
 </div>
-
-<div id="outline-container-2-8-1" class="outline-4">
-<h4 id="sec-2-8-1"><span class="section-number-4">2.8.1</span> 木质地板</h4>
+<div id="outline-container-org79fc960" class="outline-4">
+<h4 id="org79fc960"><span class="section-number-4">2.8.1</span> 木质地板</h4>
 <div class="outline-text-4" id="text-2-8-1">
-
-<ul>
+<ul class="org-ul">
 <li>实木地板：厚度1.5~2.1厘米的整块原木切割而成，天然木纹清晰，但天然的木头表面不耐磨。出入频繁易沾灰的玄关不适合；浴室门
-  口不适合；
-</li>
-<li>超耐磨地板：构造为耐火板+密集板。符合世界标准的环保材料；
-</li>
-<li>海岛型木地板：构造如三明治，针对海岛型气候，抗潮湿强，不易变形。不耐磨，不适合于玄关；
-</li>
-<li>亚麻地板：其原料为天然亚麻籽油，天然树脂，木屑和黄麻，适合有地热的场所，可以直接在上面架高施工；
-</li>
-<li>白竹复合式地板：表层使用竹材；
-</li>
+口不适合；</li>
+<li>超耐磨地板：构造为耐火板+密集板。符合世界标准的环保材料；</li>
+<li>海岛型木地板：构造如三明治，针对海岛型气候，抗潮湿强，不易变形。不耐磨，不适合于玄关；</li>
+<li>亚麻地板：其原料为天然亚麻籽油，天然树脂，木屑和黄麻，适合有地热的场所，可以直接在上面架高施工；</li>
+<li>白竹复合式地板：表层使用竹材；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-2" class="outline-4">
-<h4 id="sec-2-8-2"><span class="section-number-4">2.8.2</span> 石材</h4>
+<div id="outline-container-org9eee778" class="outline-4">
+<h4 id="org9eee778"><span class="section-number-4">2.8.2</span> 石材</h4>
 <div class="outline-text-4" id="text-2-8-2">
-
-<ul>
-<li>花岗岩：硬度高，地质密，耐磨，耐压，不易风化，价格高昂；
-</li>
-<li>大理石：硬度不及花岗岩，纹路明显，使用时需要对花对纹，会有损耗率；
-</li>
-<li>人造石：硬度不及花岗岩，比大理石硬，取天然石材的碎石制成；
-</li>
+<ul class="org-ul">
+<li>花岗岩：硬度高，地质密，耐磨，耐压，不易风化，价格高昂；</li>
+<li>大理石：硬度不及花岗岩，纹路明显，使用时需要对花对纹，会有损耗率；</li>
+<li>人造石：硬度不及花岗岩，比大理石硬，取天然石材的碎石制成；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-3" class="outline-4">
-<h4 id="sec-2-8-3"><span class="section-number-4">2.8.3</span> 瓷砖</h4>
+<div id="outline-container-orgb8daee3" class="outline-4">
+<h4 id="orgb8daee3"><span class="section-number-4">2.8.3</span> 瓷砖</h4>
 <div class="outline-text-4" id="text-2-8-3">
-
-<p>分墙面砖，地面砖；
-</p><ul>
-<li>釉面砖：表面涂釉彩，有不同图案；
-</li>
-<li>马赛克砖：表面涂釉彩，各为小块状瓷砖，常用于浴室厨房壁面及玄关地面；
-</li>
-<li>石英砖：砖面有小细点，成品多为正方形或长方形，比较流行于浴室空间，厨房作为壁材；
-</li>
+<p>
+分墙面砖，地面砖；
+</p>
+<ul class="org-ul">
+<li>釉面砖：表面涂釉彩，有不同图案；</li>
+<li>马赛克砖：表面涂釉彩，各为小块状瓷砖，常用于浴室厨房壁面及玄关地面；</li>
+<li>石英砖：砖面有小细点，成品多为正方形或长方形，比较流行于浴室空间，厨房作为壁材；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-4" class="outline-4">
-<h4 id="sec-2-8-4"><span class="section-number-4">2.8.4</span> 地毯</h4>
+<div id="outline-container-org761b27d" class="outline-4">
+<h4 id="org761b27d"><span class="section-number-4">2.8.4</span> 地毯</h4>
 <div class="outline-text-4" id="text-2-8-4">
-
-<ul>
-<li>羊毛地毯：保暖，柔软，不易受潮变形，耐用，清洁保养困难；
-</li>
-<li>椰麻地毯：透气干燥，不易掉毛好整理，耐脏，需干洗，水洗会缩水，表面粗糙，不宜卧室使用；
-</li>
-<li>棉质地毯：需干洗，
-</li>
-<li>化学纤维地毯：价格低，耐磨耐压，清洁容易，不易褪色，使用年限短；
-</li>
+<ul class="org-ul">
+<li>羊毛地毯：保暖，柔软，不易受潮变形，耐用，清洁保养困难；</li>
+<li>椰麻地毯：透气干燥，不易掉毛好整理，耐脏，需干洗，水洗会缩水，表面粗糙，不宜卧室使用；</li>
+<li>棉质地毯：需干洗，</li>
+<li>化学纤维地毯：价格低，耐磨耐压，清洁容易，不易褪色，使用年限短；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-5" class="outline-4">
-<h4 id="sec-2-8-5"><span class="section-number-4">2.8.5</span> 涂料</h4>
+<div id="outline-container-org5cebb29" class="outline-4">
+<h4 id="org5cebb29"><span class="section-number-4">2.8.5</span> 涂料</h4>
 <div class="outline-text-4" id="text-2-8-5">
-
-<ul>
-<li>水泥漆：采用水溶性亚克力合成树脂为成分，可耐酸耐水洗，又分平光漆，亮光漆；
-</li>
-<li>乳胶漆：主要用于室内涂装，以水溶性亚克力树脂及烯醋酸为主要成分，不耐酸碱；
-</li>
-<li>防霉漆：色泽亮丽，漆膜坚韧，耐久不易腿色，防霉；
-</li>
+<ul class="org-ul">
+<li>水泥漆：采用水溶性亚克力合成树脂为成分，可耐酸耐水洗，又分平光漆，亮光漆；</li>
+<li>乳胶漆：主要用于室内涂装，以水溶性亚克力树脂及烯醋酸为主要成分，不耐酸碱；</li>
+<li>防霉漆：色泽亮丽，漆膜坚韧，耐久不易腿色，防霉；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-6" class="outline-4">
-<h4 id="sec-2-8-6"><span class="section-number-4">2.8.6</span> 壁饰类</h4>
+<div id="outline-container-org9aae332" class="outline-4">
+<h4 id="org9aae332"><span class="section-number-4">2.8.6</span> 壁饰类</h4>
 <div class="outline-text-4" id="text-2-8-6">
-
-<ul>
-<li>壁纸：通气性好，原料为纸张加涂刷树脂或者压花纹处理；
-</li>
-<li>壁布：吸音性能好，材料为棉花，麻类和化学纤维等；
-</li>
+<ul class="org-ul">
+<li>壁纸：通气性好，原料为纸张加涂刷树脂或者压花纹处理；</li>
+<li>壁布：吸音性能好，材料为棉花，麻类和化学纤维等；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-7" class="outline-4">
-<h4 id="sec-2-8-7"><span class="section-number-4">2.8.7</span> 玻璃类</h4>
+<div id="outline-container-org3a699f1" class="outline-4">
+<h4 id="org3a699f1"><span class="section-number-4">2.8.7</span> 玻璃类</h4>
 <div class="outline-text-4" id="text-2-8-7">
-
-<ul>
-<li>清玻璃：透视性100%；
-</li>
-<li>毛玻璃：半透明；
-</li>
-<li>绵纸玻璃：把绵纸加在清玻璃间，则只透光；
-</li>
-<li>玻璃砖：常常用于取代较为厚实的墙面
-</li>
+<ul class="org-ul">
+<li>清玻璃：透视性100%；</li>
+<li>毛玻璃：半透明；</li>
+<li>绵纸玻璃：把绵纸加在清玻璃间，则只透光；</li>
+<li>玻璃砖：常常用于取代较为厚实的墙面</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-8-8" class="outline-4">
-<h4 id="sec-2-8-8"><span class="section-number-4">2.8.8</span> 料理台</h4>
+<div id="outline-container-org60c024a" class="outline-4">
+<h4 id="org60c024a"><span class="section-number-4">2.8.8</span> 料理台</h4>
 <div class="outline-text-4" id="text-2-8-8">
-
-<ul>
-<li>耐火板：不易刮伤，但不耐湿，易翻翘，实用性不佳
-</li>
-<li>大理石或花岗岩：有热胀冷缩特性，易吸附水气和油污，时间长易发黄，不耐重物在上面剁；
-</li>
-<li>不锈钢：易产生水纹，生锈产生黑纹；
-</li>
-<li>珍珠板：不易变形防水，价格不高，接缝明显，不易修复；
-</li>
-<li>人造大理石：不易吸附油污，防火防水；
-</li>
+<ul class="org-ul">
+<li>耐火板：不易刮伤，但不耐湿，易翻翘，实用性不佳</li>
+<li>大理石或花岗岩：有热胀冷缩特性，易吸附水气和油污，时间长易发黄，不耐重物在上面剁；</li>
+<li>不锈钢：易产生水纹，生锈产生黑纹；</li>
+<li>珍珠板：不易变形防水，价格不高，接缝明显，不易修复；</li>
+<li>人造大理石：不易吸附油污，防火防水；</li>
 </ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-2-8-9" class="outline-4">
-<h4 id="sec-2-8-9"><span class="section-number-4">2.8.9</span> 水槽</h4>
-<div class="outline-text-4" id="text-2-8-9">
-
 </div>
 </div>
-
+<div id="outline-container-org5eceedb" class="outline-4">
+<h4 id="org5eceedb"><span class="section-number-4">2.8.9</span> 水槽</h4>
 </div>
-
-<div id="outline-container-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 监工表单</h3>
+</div>
+<div id="outline-container-org287c2a4" class="outline-3">
+<h3 id="org287c2a4"><span class="section-number-3">2.9</span> 监工表单</h3>
 <div class="outline-text-3" id="text-2-9">
-
-
 </div>
-
-<div id="outline-container-2-9-1" class="outline-4">
-<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> 石材监工检查表单</h4>
+<div id="outline-container-orgc30e615" class="outline-4">
+<h4 id="orgc30e615"><span class="section-number-4">2.9.1</span> 石材监工检查表单</h4>
 <div class="outline-text-4" id="text-2-9-1">
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="right" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">序号</th><th scope="col" class="left">点检项目</th><th scope="col" class="left">备注</th><th scope="col" class="left">结果</th><th scope="col" class="left">解决办法</th></tr>
+<tr>
+<th scope="col" class="org-right">序号</th>
+<th scope="col" class="org-left">点检项目</th>
+<th scope="col" class="org-left">备注</th>
+<th scope="col" class="org-left">结果</th>
+<th scope="col" class="org-left">解决办法</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">1</td><td class="left">原石剖片是否有编号</td><td class="left">严禁抽片，以免纹路无法连接</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="left">石材有无破损现象</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">3</td><td class="left">打孔的石材要先确认卫浴配件位置是否相符</td><td class="left">配件孔径，位置，距离</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="left">&hellip;</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">原石剖片是否有编号</td>
+<td class="org-left">严禁抽片，以免纹路无法连接</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">石材有无破损现象</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">打孔的石材要先确认卫浴配件位置是否相符</td>
+<td class="org-left">配件孔径，位置，距离</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 插座开关灯</h3>
+<div id="outline-container-org889f1a4" class="outline-3">
+<h3 id="org889f1a4"><span class="section-number-3">2.10</span> 插座开关灯</h3>
 <div class="outline-text-3" id="text-2-10">
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">插座</th><th scope="col" class="left">开关</th><th scope="col" class="left">灯</th></tr>
+<tr>
+<th scope="col" class="org-left">插座</th>
+<th scope="col" class="org-left">开关</th>
+<th scope="col" class="org-left">灯</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="left">卫生间便器处</td><td class="left">床头装双控开关</td><td class="left"></td></tr>
-<tr><td class="left">电视墙</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left">床头装2~3个</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left">厨房插座要带开关</td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-left">卫生间便器处</td>
+<td class="org-left">床头装双控开关</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">电视墙</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">床头装2~3个</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">厨房插座要带开关</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-11" class="outline-3">
-<h3 id="sec-2-11"><span class="section-number-3">2.11</span> 家具</h3>
+<div id="outline-container-org3c5b51e" class="outline-3">
+<h3 id="org3c5b51e"><span class="section-number-3">2.11</span> 家具</h3>
 <div class="outline-text-3" id="text-2-11">
-
-
 </div>
-
-<div id="outline-container-2-11-1" class="outline-4">
-<h4 id="sec-2-11-1"><span class="section-number-4">2.11.1</span> 桌子</h4>
+<div id="outline-container-org257929a" class="outline-4">
+<h4 id="org257929a"><span class="section-number-4">2.11.1</span> 桌子</h4>
 <div class="outline-text-4" id="text-2-11-1">
-
-<ul>
-<li>餐桌：可以买伸缩餐桌；
-</li>
-<li>梳妆台：镜子可以折叠；
-</li>
+<ul class="org-ul">
+<li>餐桌：可以买伸缩餐桌；</li>
+<li>梳妆台：镜子可以折叠；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-11-2" class="outline-4">
-<h4 id="sec-2-11-2"><span class="section-number-4">2.11.2</span> 床</h4>
+<div id="outline-container-org250ac2f" class="outline-4">
+<h4 id="org250ac2f"><span class="section-number-4">2.11.2</span> 床</h4>
 <div class="outline-text-4" id="text-2-11-2">
-
-<ul>
-<li>床：1.8米的床，其实是1.9米的，1.5米的其实是1.6米的，关系到插座开关位置；
-</li>
-<li>儿童床：可以上面床，下面书桌；
-</li>
+<ul class="org-ul">
+<li>床：1.8米的床，其实是1.9米的，1.5米的其实是1.6米的，关系到插座开关位置；</li>
+<li>儿童床：可以上面床，下面书桌；</li>
 </ul>
-
-
-
-
-
 </div>
 </div>
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="date">Date: 2016-09-14 13:10:09 中国标准时间</p>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 18:25</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

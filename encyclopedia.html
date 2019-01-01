@@ -1,18 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-01-01 周二 18:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>百科知识</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="百科知识"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2017-05-26 22:21:32 中国标准时间"/>
-<meta name="author" content="比克曼"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<link rel='stylesheet' type='text/css' href='css/org-manual.css' />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="比克曼" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/org-manual.css"/>
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -34,855 +227,687 @@
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
         displayAlign: "center",
-        displayIndent: "2em",
+        displayIndent: "0em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
              }
-        }
-    });
-/*]]>*///-->
+});
 </script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
 <h1 class="title">百科知识</h1>
-
-
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 百科理工</a>
+<li><a href="#org0f768eb">1. 百科理工</a>
 <ul>
-<li><a href="#sec-1-1">1.1 GPS</a>
+<li><a href="#orge670396">1.1. GPS</a>
 <ul>
-<li><a href="#sec-1-1-1">1.1.1 GPS组成</a>
+<li><a href="#org1395f44">1.1.1. GPS组成</a>
 <ul>
-<li><a href="#sec-1-1-1-1">1.1.1.1 空间段</a></li>
-<li><a href="#sec-1-1-1-2">1.1.1.2 控制段</a></li>
-<li><a href="#sec-1-1-1-3">1.1.1.3 用户段</a></li>
-<li><a href="#sec-1-1-1-4">1.1.1.4 GPS通信信号</a></li>
+<li><a href="#org3979105">1.1.1.1. 空间段</a></li>
+<li><a href="#org8361359">1.1.1.2. 控制段</a></li>
+<li><a href="#org1a650ff">1.1.1.3. 用户段</a></li>
+<li><a href="#orgede16ce">1.1.1.4. GPS通信信号</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-1-2">1.1.2 时间系统</a></li>
-<li><a href="#sec-1-1-3">1.1.3 GPS定位</a>
+<li><a href="#orga390e5b">1.1.2. 时间系统</a></li>
+<li><a href="#org068f300">1.1.3. GPS定位</a>
 <ul>
-<li><a href="#sec-1-1-3-1">1.1.3.1 定位原理</a></li>
-<li><a href="#sec-1-1-3-2">1.1.3.2 定位精度影响</a></li>
-<li><a href="#sec-1-1-3-3">1.1.3.3 首次定位时间</a></li>
-<li><a href="#sec-1-1-3-4">1.1.3.4 AGPS</a></li>
-<li><a href="#sec-1-1-3-5">1.1.3.5 网络定位</a></li>
+<li><a href="#orgfa3fbac">1.1.3.1. 定位原理</a></li>
+<li><a href="#org0b25828">1.1.3.2. 定位精度影响</a></li>
+<li><a href="#org6c936c7">1.1.3.3. 首次定位时间</a></li>
+<li><a href="#org30f1681">1.1.3.4. AGPS</a></li>
+<li><a href="#orgcd02702">1.1.3.5. 网络定位</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-1-4">1.1.4 经纬度转换</a></li>
-<li><a href="#sec-1-1-5">1.1.5 经纬度转换米</a></li>
-<li><a href="#sec-1-1-6">1.1.6 任意两点的经纬度计算两点距离</a></li>
+<li><a href="#org153e40a">1.1.4. 经纬度转换</a></li>
+<li><a href="#org021f682">1.1.5. 经纬度转换米</a></li>
+<li><a href="#org74545aa">1.1.6. 任意两点的经纬度计算两点距离</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">1.2 汽车</a>
+<li><a href="#orgebb064b">1.2. 汽车</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1 概念</a></li>
+<li><a href="#org379110e">1.2.1. 概念</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3">1.3 跑鞋</a>
+<li><a href="#orge176d47">1.3. 跑鞋</a>
 <ul>
-<li><a href="#sec-1-3-1">1.3.1 鞋底结构</a>
+<li><a href="#org87cc6e7">1.3.1. 鞋底结构</a>
 <ul>
-<li><a href="#sec-1-3-1-1">1.3.1.1 外底</a></li>
-<li><a href="#sec-1-3-1-2">1.3.1.2 中底</a></li>
-<li><a href="#sec-1-3-1-3">1.3.1.3 内底</a></li>
+<li><a href="#org9a1b001">1.3.1.1. 外底</a></li>
+<li><a href="#orgbd15d3d">1.3.1.2. 中底</a></li>
+<li><a href="#orga3de34b">1.3.1.3. 内底</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3-2">1.3.2 数据项</a>
+<li><a href="#org547493f">1.3.2. 数据项</a>
 <ul>
-<li><a href="#sec-1-3-2-1">1.3.2.1 最大垂直力</a></li>
-<li><a href="#sec-1-3-2-2">1.3.2.2 加载率</a></li>
-<li><a href="#sec-1-3-2-3">1.3.2.3 足底压强</a></li>
-<li><a href="#sec-1-3-2-4">1.3.2.4 能量回弹</a></li>
+<li><a href="#orga84d12b">1.3.2.1. 最大垂直力</a></li>
+<li><a href="#orgaf3b092">1.3.2.2. 加载率</a></li>
+<li><a href="#orgc49d06f">1.3.2.3. 足底压强</a></li>
+<li><a href="#orgcb6864b">1.3.2.4. 能量回弹</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-3-3">1.3.3 观点</a></li>
-</ul></li>
+<li><a href="#org206ecc9">1.3.3. 观点</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 百科经济</a>
+</ul>
+</li>
+<li><a href="#org9cc0398">2. 百科经济</a>
 <ul>
-<li><a href="#sec-2-1">2.1 基本概念</a></li>
+<li><a href="#orge5cc954">2.1. 基本概念</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 百科理工</h2>
+<div id="outline-container-org0f768eb" class="outline-2">
+<h2 id="org0f768eb"><span class="section-number-2">1</span> 百科理工</h2>
 <div class="outline-text-2" id="text-1">
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> GPS</h3>
+<div id="outline-container-orge670396" class="outline-3">
+<h3 id="orge670396"><span class="section-number-3">1.1</span> GPS</h3>
 <div class="outline-text-3" id="text-1-1">
-
-<ul>
+<ul class="org-ul">
 <li>地球经纬线：地轴是一根通过地球南北极和地球中心的假想线，在地球中腰画一个与地轴垂直的大圆圈，使圆圈的每个点都和南北极的
-  距离相等，这个圆圈就叫做“赤道”，在赤道的南北两边，画出许多和赤道平行的圆圈叫纬线，赤道定为纬度零度，向南向北各90°，
-  北极就是北纬90°，南极就是南纬90°；从北极点到南极点，画出许多南北方向的与地球赤道垂直的大圆圈，叫做经度，国际上规定以
-  通过英国伦敦近郊的格林尼治天文台的经线作为计算经度的起点，即经度零度零分零秒，也称“本初子午线”；在它东面的为东经，共
-  180度，在它西面的为西经，共180度；因为地球是圆的，所以东经180度和西经180度的经线是同一条经线；规定180度经线为“国
-  际日期变更线”。为了避免同一地区使用两个不同的日期，国际日期变线在遇陆地时略有偏离；每一经度和纬度还可以再细分为60分，
-  每一分再分为60秒以及秒的小数。利用经纬线，我们就可以确定地球上每一个地方的具体位置，并且把它在地图或地球仪上表示出来；
-  经度和纬度都是一种角度。
-</li>
+距离相等，这个圆圈就叫做“赤道”，在赤道的南北两边，画出许多和赤道平行的圆圈叫纬线，赤道定为纬度零度，向南向北各90°，
+北极就是北纬90°，南极就是南纬90°；从北极点到南极点，画出许多南北方向的与地球赤道垂直的大圆圈，叫做经度，国际上规定以
+通过英国伦敦近郊的格林尼治天文台的经线作为计算经度的起点，即经度零度零分零秒，也称“本初子午线”；在它东面的为东经，共
+180度，在它西面的为西经，共180度；因为地球是圆的，所以东经180度和西经180度的经线是同一条经线；规定180度经线为“国
+际日期变更线”。为了避免同一地区使用两个不同的日期，国际日期变线在遇陆地时略有偏离；每一经度和纬度还可以再细分为60分，
+每一分再分为60秒以及秒的小数。利用经纬线，我们就可以确定地球上每一个地方的具体位置，并且把它在地图或地球仪上表示出来；
+经度和纬度都是一种角度。</li>
 <li>经度: 是个两面角，是两个经线平面的夹角。因所有经线都一样长，为度量经度选取一个起点面(本初子午线),本初子午线平面是起点
-  面，终点面是本地经线平面,某一点的经度，就是该点所在的经线平面与本初子午线平面间的夹角。
-</li>
+面，终点面是本地经线平面,某一点的经度，就是该点所在的经线平面与本初子午线平面间的夹角。</li>
 <li>纬度：是个线面角。起点面是赤道平面，线是本地的地面法线。所谓法线，即垂直于参考扁球体表面的线；某地的纬度就是该地的法线
-  与赤道平面之间的夹角。纬度数值在0至30度之间的地区称为低纬地区，纬度数值在30至60度之间的地区称为中纬地区，纬度数值在60
-  至90度之间的地区称为高纬地区。
-</li>
-<li>ECI坐标系：地心惯性坐标系，earth centered intertial，用于描述卫星的位置，坐标系固定不变；
-</li>
+与赤道平面之间的夹角。纬度数值在0至30度之间的地区称为低纬地区，纬度数值在30至60度之间的地区称为中纬地区，纬度数值在60
+至90度之间的地区称为高纬地区。</li>
+<li>ECI坐标系：地心惯性坐标系，earth centered intertial，用于描述卫星的位置，坐标系固定不变；</li>
 <li>ECEF坐标系：地心地球固连坐标系，earth centered，earth fixed，用于描述地面接收器的位置，随着地球自转而旋转，在具体定位
-  时，需要将卫星的ECI坐标系的位置转换成它在ECEF坐标系的位置；
-</li>
+时，需要将卫星的ECI坐标系的位置转换成它在ECEF坐标系的位置；</li>
 <li>星历表：本来用来记录天体特定时刻的位置。而在GNSS中，星历表则记录了卫星的运行参数，它使的我们通过星历表就可以计算出任意
-  时刻的导航卫星的位置和速度，其数据量较大，传输时间长，也有简版星历表叫历书；
-</li>
-<li>历书：包含卫星的位置等信息；
-</li>
+时刻的导航卫星的位置和速度，其数据量较大，传输时间长，也有简版星历表叫历书；</li>
+<li>历书：包含卫星的位置等信息；</li>
 </ul>
-
-
 </div>
-
-<div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> GPS组成</h4>
+<div id="outline-container-org1395f44" class="outline-4">
+<h4 id="org1395f44"><span class="section-number-4">1.1.1</span> GPS组成</h4>
 <div class="outline-text-4" id="text-1-1-1">
-
-
 </div>
-
-<div id="outline-container-1-1-1-1" class="outline-5">
-<h5 id="sec-1-1-1-1"><span class="section-number-5">1.1.1.1</span> 空间段</h5>
+<div id="outline-container-org3979105" class="outline-5">
+<h5 id="org3979105"><span class="section-number-5">1.1.1.1</span> 空间段</h5>
 <div class="outline-text-5" id="text-1-1-1-1">
-
-<p>空间段由GPS卫星组成；
-</p></div>
-
+<p>
+空间段由GPS卫星组成；
+</p>
 </div>
-
-<div id="outline-container-1-1-1-2" class="outline-5">
-<h5 id="sec-1-1-1-2"><span class="section-number-5">1.1.1.2</span> 控制段</h5>
+</div>
+<div id="outline-container-org8361359" class="outline-5">
+<h5 id="org8361359"><span class="section-number-5">1.1.1.2</span> 控制段</h5>
 <div class="outline-text-5" id="text-1-1-1-2">
-
-<p>控制段用来控制和监视GPS的运行，控制段包含
-</p><ul>
-<li>主控站：
-</li>
-<li>监控站：
-</li>
-<li>地面控制站：
-</li>
-<li>地面天线
-</li>
+<p>
+控制段用来控制和监视GPS的运行，控制段包含
+</p>
+<ul class="org-ul">
+<li>主控站：</li>
+<li>监控站：</li>
+<li>地面控制站：</li>
+<li>地面天线</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-1-3" class="outline-5">
-<h5 id="sec-1-1-1-3"><span class="section-number-5">1.1.1.3</span> 用户段</h5>
+<div id="outline-container-org1a650ff" class="outline-5">
+<h5 id="org1a650ff"><span class="section-number-5">1.1.1.3</span> 用户段</h5>
 <div class="outline-text-5" id="text-1-1-1-3">
-
-<ul>
-<li>民用用户：提供标准定位服务；
-</li>
-<li>军用用户：提供精密定位服务；
-</li>
+<ul class="org-ul">
+<li>民用用户：提供标准定位服务；</li>
+<li>军用用户：提供精密定位服务；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-1-4" class="outline-5">
-<h5 id="sec-1-1-1-4"><span class="section-number-5">1.1.1.4</span> GPS通信信号</h5>
+<div id="outline-container-orgede16ce" class="outline-5">
+<h5 id="orgede16ce"><span class="section-number-5">1.1.1.4</span> GPS通信信号</h5>
 <div class="outline-text-5" id="text-1-1-1-4">
-
-<p>GPS通信频率都位于L频段，共有3个频率；
-</p><ul>
-<li>L1频率：中心频率为1575.42MHz，传输民用的CA码，军用的P(Y)码；
-</li>
-<li>L2频率：中心频率为1227.6MHz；
-</li>
-<li>L5频率：中心频率为1176.45MHz, 主要为航空安全服务；
-</li>
+<p>
+GPS通信频率都位于L频段，共有3个频率；
+</p>
+<ul class="org-ul">
+<li>L1频率：中心频率为1575.42MHz，传输民用的CA码，军用的P(Y)码；</li>
+<li>L2频率：中心频率为1227.6MHz；</li>
+<li>L5频率：中心频率为1176.45MHz, 主要为航空安全服务；</li>
 </ul>
-
-<p>GPS信号包含几个部分
-</p><ul>
+<p>
+GPS信号包含几个部分
+</p>
+<ul class="org-ul">
 <li>测距码：用来测量卫星和接收器间距离的信号，其本质是精心设计的伪随机噪声，也就是上面提到的民用CA码和军用P(Y)码；
-<ol>
+<ol class="org-ol">
 <li>CA码：频率F=1.023MHz，周期T=1ms，码长N=1023，码元宽度L=293.05m，测距精度2m到3m，光速为C，码长表示周期范围内有多少个
-     脉冲码元，N=F*T，码元宽度计算公式； $$ L = T*C/N $$  
-</li>
-<li>P(Y)码：频率10.23MHz，周期7天，码长6.1871*10<sup>12，码元周期0</sup>.097752us，码元宽度为29.3m，测距精度为0.3m，对P码加密后就
-     是Y码；
-</li>
-</ol>
+脉冲码元，N=F*T，码元宽度计算公式； \[ L = T*C/N \]</li>
+<li>P(Y)码：频率10.23MHz，周期7天，码长6.1871*10<sup>12</sup>，码元周期0.097752us，码元宽度为29.3m，测距精度为0.3m，对P码加密后就
+是Y码；</li>
+</ol></li>
+<li><p>
+D码：也叫导航电文，星历和时间信息就封装在导航电文中，其基本单位是帧，一帧包含1500bit，其传输速率为50bit/s，所以传输完
+一帧需要30s, 一个完整的GPS导航电文包含25帧，具体某颗卫星的数据(GPS时间+星历数据)包含在帧的最开始部分，所以每隔30s就可
+以得到更新，共37500bit=4688byte=4.7k，所以传输完需要12.5分钟, 导航电文帧数据内容见表  
+\ref{tbl-dcode}；  
+</p>
+<table id="org27cb130" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> 导航电文内容</caption>
 
-</li>
-<li>D码：也叫导航电文，星历和时间信息就封装在导航电文中，其基本单位是帧，一帧包含1500bit，其传输速率为50bit/s，所以传输完
-  一帧需要30s, 一个完整的GPS导航电文包含25帧，具体某颗卫星的数据(GPS时间+星历数据)包含在帧的最开始部分，所以每隔30s就可
-  以得到更新，共37500bit=4688byte=4.7k，所以传输完需要12.5分钟, 导航电文帧数据内容见表  
-  <a href="#tbl-dcode">tbl-dcode</a>；  
-<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="tbl-dcode">
-<caption>导航电文内容</caption>
-<colgroup><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
-<tr><th scope="col" class="left">帧</th><th scope="col" class="left">数据</th></tr>
+<tr>
+<th scope="col" class="org-left">帧</th>
+<th scope="col" class="org-left">数据</th>
+</tr>
 </thead>
 <tbody>
-</tbody>
-<tbody>
-<tr><td class="left">1~25</td><td class="left">发送卫星的时间等信息</td></tr>
-<tr><td class="left">1~25</td><td class="left">发送卫星的星历数据</td></tr>
-<tr><td class="left">1, 6, 11, 16, 21</td><td class="left">保留</td></tr>
-<tr><td class="left">2, 3, 4, 5, 7, 8, 9, 10</td><td class="left">SV-25到SV-32的历书数据</td></tr>
-<tr><td class="left">12，19，20, 22, 23, 24</td><td class="left">保留</td></tr>
-<tr><td class="left">13</td><td class="left">NMCT导航电文改正表</td></tr>
-<tr><td class="left">14, 15</td><td class="left">保留</td></tr>
-<tr><td class="left">17</td><td class="left">特殊消息</td></tr>
-<tr><td class="left">18</td><td class="left">电离层参数和UTC数据</td></tr>
-<tr><td class="left">25</td><td class="left">32颗卫星的配置情况以及卫星的健康状况</td></tr>
-<tr><td class="left">1~24</td><td class="left">SV-1到SV-24的历书数据</td></tr>
-<tr><td class="left">25</td><td class="left">SV-1到SV-24的健康状态和历书参考时间</td></tr>
-</tbody>
-</table>
+<tr>
+<td class="org-left">1~25</td>
+<td class="org-left">发送卫星的时间等信息</td>
+</tr>
 
-</li>
+<tr>
+<td class="org-left">1~25</td>
+<td class="org-left">发送卫星的星历数据</td>
+</tr>
+
+<tr>
+<td class="org-left">1, 6, 11, 16, 21</td>
+<td class="org-left">保留</td>
+</tr>
+
+<tr>
+<td class="org-left">2, 3, 4, 5, 7, 8, 9, 10</td>
+<td class="org-left">SV-25到SV-32的历书数据</td>
+</tr>
+
+<tr>
+<td class="org-left">12，19，20, 22, 23, 24</td>
+<td class="org-left">保留</td>
+</tr>
+
+<tr>
+<td class="org-left">13</td>
+<td class="org-left">NMCT导航电文改正表</td>
+</tr>
+
+<tr>
+<td class="org-left">14, 15</td>
+<td class="org-left">保留</td>
+</tr>
+
+<tr>
+<td class="org-left">17</td>
+<td class="org-left">特殊消息</td>
+</tr>
+
+<tr>
+<td class="org-left">18</td>
+<td class="org-left">电离层参数和UTC数据</td>
+</tr>
+
+<tr>
+<td class="org-left">25</td>
+<td class="org-left">32颗卫星的配置情况以及卫星的健康状况</td>
+</tr>
+
+<tr>
+<td class="org-left">1~24</td>
+<td class="org-left">SV-1到SV-24的历书数据</td>
+</tr>
+
+<tr>
+<td class="org-left">25</td>
+<td class="org-left">SV-1到SV-24的健康状态和历书参考时间</td>
+</tr>
+</tbody>
+</table></li>
 </ul>
-
-
 </div>
 </div>
-
 </div>
 
-<div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> 时间系统</h4>
+<div id="outline-container-orga390e5b" class="outline-4">
+<h4 id="orga390e5b"><span class="section-number-4">1.1.2</span> 时间系统</h4>
 <div class="outline-text-4" id="text-1-1-2">
-
-<ul>
-<li>国际原子时钟：IAT，international atomic time；
-</li>
-<li>协调世界时钟：UTC，coordinated universal time，互联网使用的网络时间协议(NTP)，获取的时间就是UTC，格式年月日时分秒；
-</li>
-<li>GPS时间：GPST，gps time，以IAT时钟为准，时间原点定于1980年1月6日0时；
-</li>
-<li>本地时间：local time, 基于UTC时间，将全球分为24个时区，每个时区的中心为相隔15度经线，第一时区的中心位于子午线；
-</li>
+<ul class="org-ul">
+<li>国际原子时钟：IAT，international atomic time；</li>
+<li>协调世界时钟：UTC，coordinated universal time，互联网使用的网络时间协议(NTP)，获取的时间就是UTC，格式年月日时分秒；</li>
+<li>GPS时间：GPST，gps time，以IAT时钟为准，时间原点定于1980年1月6日0时；</li>
+<li>本地时间：local time, 基于UTC时间，将全球分为24个时区，每个时区的中心为相隔15度经线，第一时区的中心位于子午线；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> GPS定位</h4>
+<div id="outline-container-org068f300" class="outline-4">
+<h4 id="org068f300"><span class="section-number-4">1.1.3</span> GPS定位</h4>
 <div class="outline-text-4" id="text-1-1-3">
-
-<p>纯粹利用GPS卫星做的定位，叫autonomous模式定位，为了加快定位速度，还可以采用AGPS模式定位，在没有卫星信号时还可以采用移动
+<p>
+纯粹利用GPS卫星做的定位，叫autonomous模式定位，为了加快定位速度，还可以采用AGPS模式定位，在没有卫星信号时还可以采用移动
 蜂窝定位；
 </p>
 </div>
-
-<div id="outline-container-1-1-3-1" class="outline-5">
-<h5 id="sec-1-1-3-1"><span class="section-number-5">1.1.3.1</span> 定位原理</h5>
+<div id="outline-container-orgfa3fbac" class="outline-5">
+<h5 id="orgfa3fbac"><span class="section-number-5">1.1.3.1</span> 定位原理</h5>
 <div class="outline-text-5" id="text-1-1-3-1">
-
-<ul>
+<ul class="org-ul">
 <li>定位：GPS定位时，需要求出接收器的笛卡尔坐标系下的坐标(x, y, z), 已知的东西有如下，但是卫星的时间是精确的同步的，而接收
-  器的时间不够精确，这样在第二点上计算的距离就有误差，这个误差是由时间差t导致，这样就出现了4个未知数，本来一个三维坐标系
-  只需要3个卫星通过距离公式就能确定，现在有4个未知数了，所以需要4个卫星的距离公式，这样组成一个方程组，4个方程组，就能解
-  出4个未知数，这样接收器的笛卡尔坐标系(x, y, z)就能获得，然后再转换，就能得到地球经纬度的位置；
-<ol>
-<li>卫星自身的坐标，通过坐标系转换可以由卫星的坐标系转换到接收器的坐标系；
-</li>
-<li>卫星到接收器的距离，通过测距码的无线电波速度和传输时间可以算得；
-</li>
-</ol>
-
-</li>
+器的时间不够精确，这样在第二点上计算的距离就有误差，这个误差是由时间差t导致，这样就出现了4个未知数，本来一个三维坐标系
+只需要3个卫星通过距离公式就能确定，现在有4个未知数了，所以需要4个卫星的距离公式，这样组成一个方程组，4个方程组，就能解
+出4个未知数，这样接收器的笛卡尔坐标系(x, y, z)就能获得，然后再转换，就能得到地球经纬度的位置；
+<ol class="org-ol">
+<li>卫星自身的坐标，通过坐标系转换可以由卫星的坐标系转换到接收器的坐标系；</li>
+<li>卫星到接收器的距离，通过测距码的无线电波速度和传输时间可以算得；</li>
+</ol></li>
 <li>速度：根据多普勒效应，无线电波实际的传输频率和接收器以一定速度运动时接收到的频率是有一定关系的，由于GPS卫星的速度可以
-  根据导航电文的信息计算得到，频率也已知，而接收器接收到的频率可以测量得到，这样就可以根据多普勒效应频率和速度的关系，推
-  导出接收器此时的速度；
-</li>
+根据导航电文的信息计算得到，频率也已知，而接收器接收到的频率可以测量得到，这样就可以根据多普勒效应频率和速度的关系，推
+导出接收器此时的速度；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-3-2" class="outline-5">
-<h5 id="sec-1-1-3-2"><span class="section-number-5">1.1.3.2</span> 定位精度影响</h5>
+<div id="outline-container-org0b25828" class="outline-5">
+<h5 id="org0b25828"><span class="section-number-5">1.1.3.2</span> 定位精度影响</h5>
 <div class="outline-text-5" id="text-1-1-3-2">
-
-<p>定位精度的影响因素有
-</p><ol>
-<li>卫星时钟：虽然卫星的时钟精度已经很高，但是由于光速的值太大，就造成时间上误差10ns，距离上误差3m；
-</li>
-<li>卫星本身的轨道位置：卫星在轨的位置精度在5m左右；
-</li>
-<li>光速：GPS信号从卫星到地面接收器传输时其速度不是固定值而是会受到电离层，对流层等的影响；
-</li>
-<li>接收器的时钟：接收器时钟和卫星时钟不同步；
-</li>
-<li>GPS信号的多路径效应：其他建筑物和物体的反射等；
-</li>
+<p>
+定位精度的影响因素有
+</p>
+<ol class="org-ol">
+<li>卫星时钟：虽然卫星的时钟精度已经很高，但是由于光速的值太大，就造成时间上误差10ns，距离上误差3m；</li>
+<li>卫星本身的轨道位置：卫星在轨的位置精度在5m左右；</li>
+<li>光速：GPS信号从卫星到地面接收器传输时其速度不是固定值而是会受到电离层，对流层等的影响；</li>
+<li>接收器的时钟：接收器时钟和卫星时钟不同步；</li>
+<li>GPS信号的多路径效应：其他建筑物和物体的反射等；</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-3-3" class="outline-5">
-<h5 id="sec-1-1-3-3"><span class="section-number-5">1.1.3.3</span> 首次定位时间</h5>
+<div id="outline-container-org6c936c7" class="outline-5">
+<h5 id="org6c936c7"><span class="section-number-5">1.1.3.3</span> 首次定位时间</h5>
 <div class="outline-text-5" id="text-1-1-3-3">
-
-<p>首次定位时间(TTFF), time to first fix, 描述的是GPS接收器需要花费多长时间来捕获GPS卫星信号并计算出自己的位置，因启动模式
+<p>
+首次定位时间(TTFF), time to first fix, 描述的是GPS接收器需要花费多长时间来捕获GPS卫星信号并计算出自己的位置，因启动模式
 不同可以分为3种情况；
-</p><ul>
+</p>
+<ul class="org-ul">
 <li>冷启动模式：GPS接收器没有保存有效星历、时间及位置信息，它需要从周围可搜索到的GPS卫星那里接收信号并获取用于定位的数据，
-  而一个完整的GPS导航电文需要12.5分钟传输，信号非常好的情况下，所以TTFF至少需要12.5分钟；
-</li>
+而一个完整的GPS导航电文需要12.5分钟传输，信号非常好的情况下，所以TTFF至少需要12.5分钟；</li>
 <li>暖启动模式：GPS接收器保存有星历数据(不超过180天)，旧时间信息(不超过20秒)及旧位置信息(不超过100公里)，但星历数据失效(超
-  过4小时)，在计算位置时，需要从卫星处获取到星历数据，但是星历数据在每帧导航电文都有，而一帧传输时间为30秒，所以在这个模
-  式下，TTFF至少30秒。
-</li>
+过4小时)，在计算位置时，需要从卫星处获取到星历数据，但是星历数据在每帧导航电文都有，而一帧传输时间为30秒，所以在这个模
+式下，TTFF至少30秒。</li>
 <li>热启动模式：GPS接收器具有有效的星历数据，时间，位置等信息，GPS接收器无需解码GPS导航电文中的星历数据，它只要利用GPS信号
-  进行测距计算就可以了，此时速度最快，TTFF可以做到10秒以内；
-</li>
+进行测距计算就可以了，此时速度最快，TTFF可以做到10秒以内；</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-3-4" class="outline-5">
-<h5 id="sec-1-1-3-4"><span class="section-number-5">1.1.3.4</span> AGPS</h5>
+<div id="outline-container-org30f1681" class="outline-5">
+<h5 id="org30f1681"><span class="section-number-5">1.1.3.4</span> AGPS</h5>
 <div class="outline-text-5" id="text-1-1-3-4">
-
-<p>AGPS就是通过本地网络下载星历数据，从而减小等待时间；AGPS需要在全球建造一个用于收集GPS卫星数据的参考网络，对卫星做跟踪，
+<p>
+AGPS就是通过本地网络下载星历数据，从而减小等待时间；AGPS需要在全球建造一个用于收集GPS卫星数据的参考网络，对卫星做跟踪，
 比如IGS组织，其<a href="http://igscb.jpl.nasa.gov/">官网</a> 提供GLONASS和GPS的卫星数据下载服务, AGPS将收集到的这些数据放在服务器上并对外提供下载，支持AGPS的手机
 就可以通过网络发起下载请求；手机利用AGPS进行定位的方式有
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>MSB模式：手机从AGPS服务器上下载辅助数据，然后手机在结合GPS卫星信号进行定位计算，这种方式需要手机下载辅助数据，同时需
-   要利用自身的CPU等资源进行定位计算，这样网络负担小定位延时小，适合短时间内的连续定位；
-</li>
+要利用自身的CPU等资源进行定位计算，这样网络负担小定位延时小，适合短时间内的连续定位；</li>
 <li>MSA模式：手机接收并解调GPS卫星信号，然后将这些伪距信息传给AGPS服务器，服务器根据这些数据，自己保存的卫星数据以及手机
-   当时通信的基站位置计算出所在位置，然后将该信息返回给手机；此模式下，手机无需使用自己的CPU等资源来计算，这样对手机的性
-   能要求低，但是定位延迟大，不适合高速行驶时的定位；
-</li>
+当时通信的基站位置计算出所在位置，然后将该信息返回给手机；此模式下，手机无需使用自己的CPU等资源来计算，这样对手机的性
+能要求低，但是定位延迟大，不适合高速行驶时的定位；</li>
 </ol>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-3-5" class="outline-5">
-<h5 id="sec-1-1-3-5"><span class="section-number-5">1.1.3.5</span> 网络定位</h5>
+<div id="outline-container-orgcd02702" class="outline-5">
+<h5 id="orgcd02702"><span class="section-number-5">1.1.3.5</span> 网络定位</h5>
 <div class="outline-text-5" id="text-1-1-3-5">
-
-<p>某地区的移动通信基站或者无线网络AP的位置信息都已经事先获取并保存在相关服务器上，当手机使用网络定位时，手机首先向服务器查询
+<p>
+某地区的移动通信基站或者无线网络AP的位置信息都已经事先获取并保存在相关服务器上，当手机使用网络定位时，手机首先向服务器查询
 自己所连接或搜索到的基站或AP的位置，然后根据信号的强度推算自己的大致位置，相比GPS定位，网络定位速度快，耗电少，但精度低；
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-1-1-4" class="outline-4">
-<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> 经纬度转换</h4>
+</div>
+<div id="outline-container-org153e40a" class="outline-4">
+<h4 id="org153e40a"><span class="section-number-4">1.1.4</span> 经纬度转换</h4>
 <div class="outline-text-4" id="text-1-1-4">
-
-<ul>
+<ul class="org-ul">
 <li>度转度分秒
-  如何将度(DDD)：108.90593度换算成“度分秒(DMS)“，东经E 108度54分22.2秒?转换方法是将108.90593整数位不变取108(度),用
-  0.90593*60=54.3558,取整数位54(分),0.3558*60=21.348再取整数位21(秒),故转化为108度54分21秒. 
-</li>
+如何将度(DDD)：108.90593度换算成“度分秒(DMS)“，东经E 108度54分22.2秒?转换方法是将108.90593整数位不变取108(度),用
+0.90593*60=54.3558,取整数位54(分),0.3558*60=21.348再取整数位21(秒),故转化为108度54分21秒.</li>
 <li>度分秒转度
-  同样将度分秒(DMS):东经E 108度54分22.2秒 换算成度(DDD)的方法如下:108度54分22.2秒=108+(54/60)+(22.2/3600)=108.90616度；
-  因为计算时小数位保留的原因，导致正反计算存在一定误差，但误差影响不是很大。1秒的误差就是几米的样子。 
-</li>
+同样将度分秒(DMS):东经E 108度54分22.2秒 换算成度(DDD)的方法如下:108度54分22.2秒=108+(54/60)+(22.2/3600)=108.90616度；
+因为计算时小数位保留的原因，导致正反计算存在一定误差，但误差影响不是很大。1秒的误差就是几米的样子。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-5" class="outline-4">
-<h4 id="sec-1-1-5"><span class="section-number-4">1.1.5</span> 经纬度转换米</h4>
+<div id="outline-container-org021f682" class="outline-4">
+<h4 id="org021f682"><span class="section-number-4">1.1.5</span> 经纬度转换米</h4>
 <div class="outline-text-4" id="text-1-1-5">
-
-<ul>
-<li>子午线总长度大约L=40008km；
-</li>
-<li>赤道半径 = 大约6378.140km；
-</li>
-<li>极半径 = 大约6356.755km；
-</li>
-<li>地球平均半径 = 大约6371.004km；
-</li>
-<li>纬度1度 = (L/2)/180=大约111km ;
-</li>
-<li>纬度1分 = 111km/60 = 大约1.85km ;
-</li>
-<li>纬度1秒 = 1.85km/60 = 大约30.9m;  
-</li>
+<ul class="org-ul">
+<li>子午线总长度大约L=40008km；</li>
+<li>赤道半径 = 大约6378.140km；</li>
+<li>极半径 = 大约6356.755km；</li>
+<li>地球平均半径 = 大约6371.004km；</li>
+<li>纬度1度 = (L/2)/180=大约111km ;</li>
+<li>纬度1分 = 111km/60 = 大约1.85km ;</li>
+<li>纬度1秒 = 1.85km/60 = 大约30.9m;</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-1-6" class="outline-4">
-<h4 id="sec-1-1-6"><span class="section-number-4">1.1.6</span> 任意两点的经纬度计算两点距离</h4>
+<div id="outline-container-org74545aa" class="outline-4">
+<h4 id="org74545aa"><span class="section-number-4">1.1.6</span> 任意两点的经纬度计算两点距离</h4>
 <div class="outline-text-4" id="text-1-1-6">
-
-<p>地球是一个近乎标准的椭球体，它的赤道半径为6378.140千米，极半径为 6356.755千米，平均半径6371.004千米。如果我们假设地球是
+<p>
+地球是一个近乎标准的椭球体，它的赤道半径为6378.140千米，极半径为 6356.755千米，平均半径6371.004千米。如果我们假设地球是
 一个完美的球体，那么它的半径就是地球的平均半径，记为R。如果以0度经线为基 准，那么根据地球表面任意两点的经纬度就可以计算
 出这两点间的地表距离（这里忽略地球表面地形对计算带来的误差，仅仅是理论上的估算值）。设第一点A的经 纬度为(LonA, LatA)，第
 二点B的经纬度为(LonB, LatB)，按照0度经线的基准，东经取经度的正值(Longitude)，西经取经度负值(-Longitude)，北纬取90-纬度值
 (90- Latitude)，南纬取90+纬度值(90+Latitude)，则经过上述处理过后的两点被计为(MLonA, MLatA)和(MLonB, MLatB)。那么根据三角
 推导，可以得到计算两点距离的如下公式：
 </p>
-
-
-<pre class="example">C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)
+<div class="org-src-container">
+<pre class="src src-c">C = sin(MLatA)*sin(MLatB)*cos(MLonA-MLonB) + cos(MLatA)*cos(MLatB)
 Distance = R*Arccos(C)*Pi/180
 </pre>
-
+</div>
 <p>
 这里，R和Distance单位是相同，如果是采用6371.004千米作为半径，那么Distance就是千米为单位，如果要使用其他单位，比如mile，
 还需要做单位换算，1千米=0.621371192mile; 如果仅对经度作正负的处理，而不对纬度作90-Latitude(假设都是北半球，南半球只有澳
 洲具有应用意义)的处理，那么公式将是： 
 </p>
-
-
-<pre class="example">C = sin(LatA)*sin(LatB) + cos(LatA)*cos(LatB)*cos(MLonA-MLonB)
+<div class="org-src-container">
+<pre class="src src-c">C = sin(LatA)*sin(LatB) + cos(LatA)*cos(LatB)*cos(MLonA-MLonB)
 Distance = R*Arccos(C)*Pi/180
 </pre>
-
+</div>
 <p>
 以上通过简单的三角变换就可以推出。如果三角函数的输入和输出都采用弧度值，那么公式还可以写作：
 </p>
-
-
-<pre class="example">C = sin(LatA*Pi/180)*sin(LatB*Pi/180) + cos(LatA*Pi/180)*cos(LatB*Pi/180)*cos((MLonA-MLonB)*Pi/180)
+<div class="org-src-container">
+<pre class="src src-c">C = sin(LatA*Pi/180)*sin(LatB*Pi/180) + cos(LatA*Pi/180)*cos(LatB*Pi/180)*cos((MLonA-MLonB)*Pi/180)
 Distance = R*Arccos(C)*Pi/180
 </pre>
-
+</div>
 <p>
 也就是：
 </p>
-
-
-<pre class="example">C = sin(LatA/57.2958)*sin(LatB/57.2958) + cos(LatA/57.2958)*cos(LatB/57.2958)*cos((MLonA-MLonB)/57.2958)
+<div class="org-src-container">
+<pre class="src src-c">C = sin(LatA/57.2958)*sin(LatB/57.2958) + cos(LatA/57.2958)*cos(LatB/57.2958)*cos((MLonA-MLonB)/57.2958)
 Distance = R*Arccos(C) = 6371.004*Arccos(C) kilometer = 0.621371192*6371.004*Arccos(C) mile = 3958.758349716768*Arccos(C) mile
 </pre>
-
+</div>
 <p>
 在实际应用当中，一般是通过一个个体的邮政编码来查找该邮政编码对应的地区中心的经纬度，然 后再根据这些经纬度来计算彼此的距
 离，从而估算出某些群体之间的大致距离范围(比如酒店旅客的分布范围-各个旅客的邮政编码对应的经纬度和酒店的经纬度所 计算的距
 离范围-等等)，所以，通过邮政编码查询经纬度这样一个数据库是一个很有用的资源。 附：C#代码： 
 </p>
-
-
-<pre class="example">private const double EARTH_RADIUS = 6378.137;//地球半径
-private static double rad(double d)
+<div class="org-src-container">
+<pre class="src src-c++"><span style="color: #ffb6c1; font-size: 105%;">private</span> <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">double</span> EARTH_RADIUS = 6378.137;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#22320;&#29699;&#21322;&#24452;</span>
+<span style="color: #ffb6c1; font-size: 105%;">private</span> <span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">double</span> rad(<span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">d</span>)
 {
-   return d * Math.PI / 180.0;
+   <span style="color: #ffb6c1; font-size: 105%;">return</span> d * Math.PI / 180.0;
 }
 
-public static double GetDistance(double lat1, double lng1, double lat2, double lng2)
+<span style="color: #ffb6c1; font-size: 105%;">public</span> <span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">double</span> GetDistance(<span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">lat1</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">lng1</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">lat2</span>, <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">lng2</span>)
 {
-   double radLat1 = rad(lat1);
-   double radLat2 = rad(lat2);
-   double a = radLat1 - radLat2;
-   double b = rad(lng1) - rad(lng2);
-   double s = 2 * Math.Asin(Math.Sqrt(Math.Pow(Math.Sin(a/2),2) +
+   <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">radLat1</span> = rad(lat1);
+   <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">radLat2</span> = rad(lat2);
+   <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">a</span> = radLat1 - radLat2;
+   <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">b</span> = rad(lng1) - rad(lng2);
+   <span style="color: #ffff00; font-size: 105%;">double</span> <span style="color: #ffd700;">s</span> = 2 * Math.Asin(Math.Sqrt(Math.Pow(Math.Sin(a/2),2) +
     Math.Cos(radLat1)*Math.Cos(radLat2)*Math.Pow(Math.Sin(b/2),2)));
    s = s * EARTH_RADIUS;
-   s = Math.Round(s * 10000) / 10000;
-   return s;
+   s = Math.Round(<span style="color: #ffff00; font-size: 105%;">s</span> * 10000) / 10000;
+   <span style="color: #ffb6c1; font-size: 105%;">return</span> s;
 }
 </pre>
-
-
+</div>
+</div>
 </div>
 </div>
 
-</div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 汽车</h3>
+<div id="outline-container-orgebb064b" class="outline-3">
+<h3 id="orgebb064b"><span class="section-number-3">1.2</span> 汽车</h3>
 <div class="outline-text-3" id="text-1-2">
-
-
 </div>
-
-<div id="outline-container-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 概念</h4>
+<div id="outline-container-org379110e" class="outline-4">
+<h4 id="org379110e"><span class="section-number-4">1.2.1</span> 概念</h4>
 <div class="outline-text-4" id="text-1-2-1">
-
-<ul>
+<ul class="org-ul">
 <li>四冲程：
-<ol>
-<li>进气；
-</li>
-<li>压缩；
-</li>
-<li>做工；
-</li>
-<li>排气；
-</li>
-</ol>
-
-</li>
+<ol class="org-ol">
+<li>进气；</li>
+<li>压缩；</li>
+<li>做工；</li>
+<li>排气；</li>
+</ol></li>
 <li>扭矩：物理学中表示力矩，等于力和力臂的乘积，单位牛米，通俗讲就是劲道大小，
-  汽车的扭矩最大点在一定的转速处，低于或高于此转速扭矩达不到最大值，扭矩越
-  大加速就越快；
-</li>
+汽车的扭矩最大点在一定的转速处，低于或高于此转速扭矩达不到最大值，扭矩越
+大加速就越快；</li>
 <li>功率：指物体在单位时间内所做的功。功率越大转速越高，汽车的最高速度也越高，
-  最大功率一般用马力（PS）或千瓦（KW）表示，1PS=0.735KW，功率就是扭矩和转速
-  的乘积，最大功率在最高转速时输出；
-</li>
+最大功率一般用马力（PS）或千瓦（KW）表示，1PS=0.735KW，功率就是扭矩和转速
+的乘积，最大功率在最高转速时输出；</li>
 <li>排量：就是气缸容积，越大也就意味着能够吸入更多的油气混合物，做工时爆炸能
-  量就更强，输出扭矩就越大；
-</li>
+量就更强，输出扭矩就越大；</li>
 </ul>
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 跑鞋</h3>
+<div id="outline-container-orge176d47" class="outline-3">
+<h3 id="orge176d47"><span class="section-number-3">1.3</span> 跑鞋</h3>
 <div class="outline-text-3" id="text-1-3">
-
-
 </div>
-
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 鞋底结构</h4>
+<div id="outline-container-org87cc6e7" class="outline-4">
+<h4 id="org87cc6e7"><span class="section-number-4">1.3.1</span> 鞋底结构</h4>
 <div class="outline-text-4" id="text-1-3-1">
-
-
 </div>
-
-<div id="outline-container-1-3-1-1" class="outline-5">
-<h5 id="sec-1-3-1-1"><span class="section-number-5">1.3.1.1</span> 外底</h5>
+<div id="outline-container-org9a1b001" class="outline-5">
+<h5 id="org9a1b001"><span class="section-number-5">1.3.1.1</span> 外底</h5>
 <div class="outline-text-5" id="text-1-3-1-1">
-
-<p>功能是增加地面与运动鞋之间的摩擦力。
-</p></div>
-
+<p>
+功能是增加地面与运动鞋之间的摩擦力。
+</p>
 </div>
-
-<div id="outline-container-1-3-1-2" class="outline-5">
-<h5 id="sec-1-3-1-2"><span class="section-number-5">1.3.1.2</span> 中底</h5>
+</div>
+<div id="outline-container-orgbd15d3d" class="outline-5">
+<h5 id="orgbd15d3d"><span class="section-number-5">1.3.1.2</span> 中底</h5>
 <div class="outline-text-5" id="text-1-3-1-2">
-
-<ul>
-<li>功能：位于外底和内底之间，是运动鞋缓冲性能以及能量回弹的主要来源。
-</li>
-<li>材料：气垫、弹力胶、EVA、PU、弹簧
-</li>
-<li>减震性能：硬度低些好；
-</li>
-<li>回弹性能：硬度高些好；
-</li>
+<ul class="org-ul">
+<li>功能：位于外底和内底之间，是运动鞋缓冲性能以及能量回弹的主要来源。</li>
+<li>材料：气垫、弹力胶、EVA、PU、弹簧</li>
+<li>减震性能：硬度低些好；</li>
+<li>回弹性能：硬度高些好；</li>
 <li>跑步中，在足与运动表面接触的20到30ms之内地面的垂直反作用力会达到人体体重
-  的2～3倍。
-</li>
+的2～3倍。</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-1-3" class="outline-5">
-<h5 id="sec-1-3-1-3"><span class="section-number-5">1.3.1.3</span> 内底</h5>
+<div id="outline-container-orga3de34b" class="outline-5">
+<h5 id="orga3de34b"><span class="section-number-5">1.3.1.3</span> 内底</h5>
 <div class="outline-text-5" id="text-1-3-1-3">
-
-<p>功能是提供舒适性。
-</p></div>
+<p>
+功能是提供舒适性。
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 数据项</h4>
+</div>
+<div id="outline-container-org547493f" class="outline-4">
+<h4 id="org547493f"><span class="section-number-4">1.3.2</span> 数据项</h4>
 <div class="outline-text-4" id="text-1-3-2">
-
-
 </div>
-
-<div id="outline-container-1-3-2-1" class="outline-5">
-<h5 id="sec-1-3-2-1"><span class="section-number-5">1.3.2.1</span> 最大垂直力</h5>
+<div id="outline-container-orga84d12b" class="outline-5">
+<h5 id="orga84d12b"><span class="section-number-5">1.3.2.1</span> 最大垂直力</h5>
 <div class="outline-text-5" id="text-1-3-2-1">
-
-<p>最大垂直力，是运动学研究的物理用词，简化来说，慢跑时地面作用于垂直方向碰撞
+<p>
+最大垂直力，是运动学研究的物理用词，简化来说，慢跑时地面作用于垂直方向碰撞
 力，也就是你每踏出一步，脚能感受到的压力。通常情况下，这个垂直力的最大值在
 你自身体重的1.2倍到4倍之间。这个数据的用意在于，检测出跑鞋在鞋底功能上对脚
 部的压力缓解是否做到最好，得出的数据越小，表示鞋对减震效果越佳。减震性能好
 的运动鞋可以减小最大垂直力  
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-1-3-2-2" class="outline-5">
-<h5 id="sec-1-3-2-2"><span class="section-number-5">1.3.2.2</span> 加载率</h5>
+</div>
+<div id="outline-container-orgaf3b092" class="outline-5">
+<h5 id="orgaf3b092"><span class="section-number-5">1.3.2.2</span> 加载率</h5>
 <div class="outline-text-5" id="text-1-3-2-2">
-
-<p>平均加载率是指跑步每一次脚与地面接触时，单位时间内身体受到的总的作用力，通
+<p>
+平均加载率是指跑步每一次脚与地面接触时，单位时间内身体受到的总的作用力，通
 常用体重的倍数来衡量。由于每次脚与地面的接触时间仅为30～60毫秒，所以按1秒钟
 计算出来的平均加载率数值较大。数据越大，说明鞋对地面反作用力的减震效果越差 
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-1-3-2-3" class="outline-5">
-<h5 id="sec-1-3-2-3"><span class="section-number-5">1.3.2.3</span> 足底压强</h5>
+</div>
+<div id="outline-container-orgc49d06f" class="outline-5">
+<h5 id="orgc49d06f"><span class="section-number-5">1.3.2.3</span> 足底压强</h5>
 <div class="outline-text-5" id="text-1-3-2-3">
-
-<p>足底压强，反映出人在运动时脚受到作用力在不同区域的分布情况。如果在相同的运
+<p>
+足底压强，反映出人在运动时脚受到作用力在不同区域的分布情况。如果在相同的运
 动速度下，脚底的最大压强值越小，说明鞋的减震效果越好，或足底接触面积较大，
 让人的脚在运动时感觉更舒适 
-</p><ul>
-<li>足底压强分布区域特征；
-</li>
-<li>平均最大压强值特征；
-</li>
-<li>平均压强值特征；
-</li>
-<li>纵跳落地缓冲压力值变化的时间差异性；
-</li>
+</p>
+<ul class="org-ul">
+<li>足底压强分布区域特征；</li>
+<li>平均最大压强值特征；</li>
+<li>平均压强值特征；</li>
+<li>纵跳落地缓冲压力值变化的时间差异性；</li>
 </ul>
-
-<p>影响因数
-</p><ul>
+<p>
+影响因数
+</p>
+<ul class="org-ul">
 <li>体重：足底压力和体重的相关系数为0.37，足底压力的形成中体重贡献仅为13.8%，
-  因为体重和足底接触面积成正相关。
-</li>
-<li>年龄；
-</li>
-<li>性别；
-</li>
-<li>鞋底结构；
-</li>
-<li>步速：随步速加快而增大
-</li>
+因为体重和足底接触面积成正相关。</li>
+<li>年龄；</li>
+<li>性别；</li>
+<li>鞋底结构；</li>
+<li>步速：随步速加快而增大</li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-1-3-2-4" class="outline-5">
-<h5 id="sec-1-3-2-4"><span class="section-number-5">1.3.2.4</span> 能量回弹</h5>
+<div id="outline-container-orgcb6864b" class="outline-5">
+<h5 id="orgcb6864b"><span class="section-number-5">1.3.2.4</span> 能量回弹</h5>
 <div class="outline-text-5" id="text-1-3-2-4">
-
-<p>可以增加跳高高度和加快跑步速度，回弹的能量主要来自鞋受到冲击后鞋底受到挤压
+<p>
+可以增加跳高高度和加快跑步速度，回弹的能量主要来自鞋受到冲击后鞋底受到挤压
 发生的形变，弹性势能储存在鞋底。
 一般，能量回弹性能越好，缓冲性能越差。
-</p></div>
+</p>
 </div>
-
 </div>
-
-<div id="outline-container-1-3-3" class="outline-4">
-<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> 观点</h4>
+</div>
+<div id="outline-container-org206ecc9" class="outline-4">
+<h4 id="org206ecc9"><span class="section-number-4">1.3.3</span> 观点</h4>
 <div class="outline-text-4" id="text-1-3-3">
-
-<ul>
+<ul class="org-ul">
 <li>磨损与距离：规律运动跑者，跑500～800公里就得换鞋，一双跑鞋能穿多久？目
-  前国外多以公里数來计算，因为跑者的每一步踩下去都是压力、挤压，运动鞋经
-  反覆挤压就会变形，公里数直接影响跑鞋的鞋況，针对运动鞋材料进行疲劳性测试
-  发现，一双鞋大約可以跑500公里，假使以一个星期跑4次，每次跑5公里计算，25个
-  星期（约6个月）就跑了500公里，也就是说，大约半年就得换双鞋。若是每天跑步，
-  每次跑4～5公里，半年下來也累积了800公里，差不多该是换鞋的时候。
-</li>
+前国外多以公里数來计算，因为跑者的每一步踩下去都是压力、挤压，运动鞋经
+反覆挤压就会变形，公里数直接影响跑鞋的鞋況，针对运动鞋材料进行疲劳性测试
+发现，一双鞋大約可以跑500公里，假使以一个星期跑4次，每次跑5公里计算，25个
+星期（约6个月）就跑了500公里，也就是说，大约半年就得换双鞋。若是每天跑步，
+每次跑4～5公里，半年下來也累积了800公里，差不多该是换鞋的时候。</li>
 <li>磨损与场地：跑步场地也会影响运动鞋的使用时间长短，在PU跑道跑步的磨损程度
-  会比在健身房的跑步机上来得大，在柏油路上跑的磨损又比在PU跑道大；习惯在健
-  身房跑步的人，鞋子的寿命大多比较长 。
-</li>
+会比在健身房的跑步机上来得大，在柏油路上跑的磨损又比在PU跑道大；习惯在健
+身房跑步的人，鞋子的寿命大多比较长 。</li>
 <li>磨损与体重：跑者的体重、跑法也是运动鞋的寿命的影响因素之一，体重较重的人，
-  跑鞋承受较大挤压力；双脚若是重重拖在地面摩擦的跑法，也比轻盈跑法的磨损大
-</li>
+跑鞋承受较大挤压力；双脚若是重重拖在地面摩擦的跑法，也比轻盈跑法的磨损大</li>
 <li>磨损与跑姿：有些人因跑步姿势不同，运动鞋磨损、挤压的位置比较特殊，可能还
-  沒到特定公里数，鞋子就已经变形，这时就得视鞋况决定是否换鞋。 
-</li>
-<li>人在负重的状态下徒步行走，每公里大约600～700步。
-</li>
-<li>脚触地瞬间，受到地面的冲击力将达到人体重量的2～4倍；
-</li>
-<li>脚在触地到抬离地面，受到一个向上的冲击力和向前的摩擦力。
-</li>
-<li>80%的人是以脚后跟外侧先着地；
-</li>
+沒到特定公里数，鞋子就已经变形，这时就得视鞋况决定是否换鞋。</li>
+<li>人在负重的状态下徒步行走，每公里大约600～700步。</li>
+<li>脚触地瞬间，受到地面的冲击力将达到人体重量的2～4倍；</li>
+<li>脚在触地到抬离地面，受到一个向上的冲击力和向前的摩擦力。</li>
+<li>80%的人是以脚后跟外侧先着地；</li>
 </ul>
-
 </div>
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 百科经济</h2>
+<div id="outline-container-org9cc0398" class="outline-2">
+<h2 id="org9cc0398"><span class="section-number-2">2</span> 百科经济</h2>
 <div class="outline-text-2" id="text-2">
-
-
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 基本概念</h3>
+<div id="outline-container-orge5cc954" class="outline-3">
+<h3 id="orge5cc954"><span class="section-number-3">2.1</span> 基本概念</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<ul>
+<ul class="org-ul">
 <li>利率：储蓄存款利率由国家统一规定，人民银行挂牌公告。利率也称为利息率，是在一定日期内利息与本金的比率，一般分为年利率、
-  月利率、日利率三种。年利率以百分比表示，月利率以千分比表示，日利率以万分比表示。如年息九厘写为9%，即每百元存款定期一年
-  利息9元，月息六厘写为6‰，即每千元存款一月利息6元，日息一厘五毫写为1.5，即每万元存款每日利息l元5角，目前我国储蓄存款用
-  月利率挂牌。为了计息方便，三种利率之间可以换算，其换算公式为；
-<ol>
-<li>年利率÷12=月利率
-</li>
-<li>月利率÷30=日利率
-</li>
-<li>年利率÷360=日利率
-</li>
-</ol>
-
-</li>
+月利率、日利率三种。年利率以百分比表示，月利率以千分比表示，日利率以万分比表示。如年息九厘写为9%，即每百元存款定期一年
+利息9元，月息六厘写为6‰，即每千元存款一月利息6元，日息一厘五毫写为1.5，即每万元存款每日利息l元5角，目前我国储蓄存款用
+月利率挂牌。为了计息方便，三种利率之间可以换算，其换算公式为；
+<ol class="org-ol">
+<li>年利率÷12=月利率</li>
+<li>月利率÷30=日利率</li>
+<li>年利率÷360=日利率</li>
+</ol></li>
 <li>计息起点：储蓄存款利息计算时，本金以“元”为起息点，元以下的角、分不计息，利息的金额算至分位，分位以下四舍五入。分段计
-  息算至厘位，合计利息后分以下四舍五入；
-</li>
+息算至厘位，合计利息后分以下四舍五入；</li>
 <li>存期计算规定：
-<ol>
-<li>算头不算尾，计算利息时，存款天数一律算头不算尾，即从存入日起算至取款前一天止;
-</li>
-<li>不论闰年、平年，不分月大、月小，全年按360天，每月均按30天计算;
-</li>
+<ol class="org-ol">
+<li>算头不算尾，计算利息时，存款天数一律算头不算尾，即从存入日起算至取款前一天止;</li>
+<li>不论闰年、平年，不分月大、月小，全年按360天，每月均按30天计算;</li>
 <li>对年、对月、对日计算，各种定期存款的到期日均以对年、对月、对日为准。即自存入日至次年同月同日为一对年，存入日至下月
-     同一日为对月;
-</li>
-<li>定期储蓄到期日，如遇例假不办公，可以提前一日支取，视同到期计算利息，手续同提前支取办理。
-</li>
-</ol>
-
-</li>
+同一日为对月;</li>
+<li>定期储蓄到期日，如遇例假不办公，可以提前一日支取，视同到期计算利息，手续同提前支取办理。</li>
+</ol></li>
 <li>计算利息基本方法：由于存款种类不同，具体计息方法也各有不同，但计息的基本公式不变，即利息是本金、存期、利率三要素的乘积，
-  公式为：利息=本金*利率*时间.如用日利率计算，利息=本金×日利率×存款天数，如用月利率计算，利息=本金×月利率×月数；
-<ol>
-<li>计算过期天数的方法：过期天数=(支取年-到期年)×360+支取月、日数-到期月、日数
-</li>
+公式为：利息=本金*利率*时间.如用日利率计算，利息=本金×日利率×存款天数，如用月利率计算，利息=本金×月利率×月数；
+<ol class="org-ol">
+<li>计算过期天数的方法：过期天数=(支取年-到期年)×360+支取月、日数-到期月、日数</li>
 <li>计算利息的方法：
-<ul>
-<li>百元基数计息法。适用于定期整存整取、活期存单式储蓄种类的利息计算。
-</li>
-<li>积数计息法。适用于零存整取储蓄利息的计算，也可用于计算活期存折的利息。
-</li>
-<li>利余计息法。适用于活期存折储蓄利息的计算。
-</li>
-</ul>
-
-</li>
-</ol>
-
-</li>
+<ul class="org-ul">
+<li>百元基数计息法。适用于定期整存整取、活期存单式储蓄种类的利息计算。</li>
+<li>积数计息法。适用于零存整取储蓄利息的计算，也可用于计算活期存折的利息。</li>
+<li>利余计息法。适用于活期存折储蓄利息的计算。</li>
+</ul></li>
+</ol></li>
 <li>各储蓄种类的利息计算：
-<ol>
-<li>活期储蓄存款在办理存取业务时，应逐笔在帐页上结出利息余额，俟储户清户时一次计付利息。
-</li>
+<ol class="org-ol">
+<li>活期储蓄存款在办理存取业务时，应逐笔在帐页上结出利息余额，俟储户清户时一次计付利息。</li>
 <li>活期储蓄(存折)存款每年结息一次(每年六月三十日为结息日).结息时可把“元”以上利息并入本金，”元”以下角分部分转入下年
-     利息余额内。 
-</li>
+利息余额内。</li>
 <li>活期储蓄存款在存入期间遇有利率调整，按结息日挂牌公告的活期储蓄存款利率计算利息。全部支取活期储蓄存款，按清户日挂牌
-     公告的活期储蓄存款利率计付利息。
-</li>
+公告的活期储蓄存款利率计付利息。</li>
 <li>活期储蓄的利息计算公式, 活期储蓄的本金和存期经常变动，因而，活期储蓄利息的计算比较复杂。但只要掌握一定方法，所有的
-     计算问题也就迎刃而解了。　　    
-</li>
-</ol>
-
-</li>
+计算问题也就迎刃而解了。　　</li>
+</ol></li>
 <li>固定资产折旧的计算方法：企业一般用年限平均法计提折旧，他是根据固定资产的原值减去残值后的余额，固定资产残值一般按固定资
-  产的原值的5%预计，(也可根据实际使用年限预计残值)一般建筑类使用20年，设备类使用15年。公式：固定资产年折旧额=固定资产原
-  值-净残值/固定资产预计使用年限，年折旧额除以12=月折旧额；
-</li>
-<li>M0货币：就是社会上的现金；
-</li>
-<li>M1货币：就是M0+企业的活期存款；
-</li>
-<li>M2货币：就是M1+全国的定期存款；
-</li>
+产的原值的5%预计，(也可根据实际使用年限预计残值)一般建筑类使用20年，设备类使用15年。公式：固定资产年折旧额=固定资产原
+值-净残值/固定资产预计使用年限，年折旧额除以12=月折旧额；</li>
+<li>M0货币：就是社会上的现金；</li>
+<li>M1货币：就是M0+企业的活期存款；</li>
+<li>M2货币：就是M1+全国的定期存款；</li>
 </ul>
-
 </div>
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="date">Date: 2017-05-26 22:21:32 中国标准时间</p>
+<div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
-<p class="creator">Org version 7.8.11 with Emacs version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+<p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
+<p class="date">Created: 2019-01-01 周二 18:25</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

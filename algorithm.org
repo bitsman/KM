@@ -32,7 +32,7 @@ x\in{D}\), 其中x是n维矢量，D是问题的定义域，F是可行域。关�
 #+caption: 梯度下降法图例1
 #+label: img-optimize-example1
 #+attr_latex: placement=[H] scale=0.5
-#+begin_src gnuplot :exports results :file e:/OneDrive/learning/img/optimize1.png
+#+begin_src gnuplot :exports results :file e:/LXC/work/bitman/KM/img/optimize1.png
 reset
 set title "example of optimize"
 set xlabel "X"
@@ -85,7 +85,7 @@ $$\bigtriangledown{f(a)\rightarrow{0}}$$
 #+caption: 梯度下降图例2
 #+label: img-optimize-example2
 #+attr_latex: placement=[H] scale=0.5
-#+begin_src gnuplot :exports results :file  e:/OneDrive/learning/img/optimize2.png
+#+begin_src gnuplot :exports results :file e:/LXC/work/bitman/KM/img/optimize2.png
 reset
 set xlabel "X"
 set ylabel "Y"
