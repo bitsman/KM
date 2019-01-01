@@ -1,8 +1,10 @@
 #+title: 操作系统
 #+author: 比克曼
 #+latex_class: org-latex-pdf 
-#+latex: \newpage 
-
+#+toc: tables 
+#+latex: \clearpage\pagenumbering{arabic} 
+#+options: h:4 
+#+startup: overview
 
 
 * 基本概念

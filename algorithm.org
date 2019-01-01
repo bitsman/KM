@@ -1,7 +1,10 @@
-#+title: 算法 
+#+title: 算法
 #+author: 比克曼
 #+latex_class: org-latex-pdf 
-#+latex: \newpage 
+#+toc: tables 
+#+latex: \clearpage\pagenumbering{arabic} 
+#+options: h:4 
+#+startup: overview
 
 * 常规算法
 ** 排序

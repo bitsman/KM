@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-01 周二 18:24 -->
+<!-- 2019-01-01 周二 22:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>算法</title>
@@ -307,7 +307,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgf5815fd">3. 图像处理</a>
 <ul>
-<li><a href="#orga38adf6">3.1. 概念</a></li>
+<li><a href="#orgfc033f7">3.1. 概念</a></li>
 <li><a href="#org9673acc">3.2. 其他</a></li>
 </ul>
 </li>
@@ -332,14 +332,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org18cfcb6">4.4.0.1. 信息熵</a></li>
 <li><a href="#org8fc29bf">4.4.0.2. 算法逻辑</a></li>
-<li><a href="#orgadfb162">4.4.0.3. 算法实例</a>
-<ul>
-<li><a href="#org559ae53">4.4.0.3.1. 计算香农熵</a></li>
-<li><a href="#org5a5c742">4.4.0.3.2. 划分数据集</a></li>
-<li><a href="#orgd8df6ea">4.4.0.3.3. 选择最好的划分</a></li>
-<li><a href="#org10ed7d0">4.4.0.3.4. 构造决策树</a></li>
-</ul>
-</li>
+<li><a href="#orgadfb162">4.4.0.3. 算法实例</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +352,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org34245bd">4.8. 神经网络</a>
 <ul>
-<li><a href="#orgfc033f7">4.8.1. 概念</a></li>
+<li><a href="#org78327e7">4.8.1. 概念</a></li>
 <li><a href="#orgc30dcbd">4.8.2. 感知机</a></li>
 </ul>
 </li>
@@ -378,6 +371,14 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+<div id="list-of-tables">
+<h2>List of Tables</h2>
+<div id="text-list-of-tables">
+<ul>
+<li><a href="#orgb864263"><span class="table-number">Table 1:</span> 迭代次数</a></li>
 </ul>
 </div>
 </div>
@@ -1423,8 +1424,8 @@ s_{t}^{(3)}=\alpha{}s_{t}^{(2)}+(1-\alpha)s_{t-1}^{(3)}
 个被量化的采样数值的二维矩阵，对维度、量化进行推广，还可以得到广义图像定义。 
 </p>
 </div>
-<div id="outline-container-orga38adf6" class="outline-3">
-<h3 id="orga38adf6"><span class="section-number-3">3.1</span> 概念</h3>
+<div id="outline-container-orgfc033f7" class="outline-3">
+<h3 id="orgfc033f7"><span class="section-number-3">3.1</span> 概念</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>数字化：是将一幅图像从其原来的形式转换为数字形式的处理过程。数字化的逆过
@@ -1705,8 +1706,8 @@ K临近算法举例，已知若干电影(训练集)的标签有“爱情片”�
 <h5 id="orgadfb162"><span class="section-number-5">4.4.0.3</span> 算法实例</h5>
 <div class="outline-text-5" id="text-4-4-0-3">
 </div>
-<div id="outline-container-org559ae53" class="outline-6">
-<h6 id="org559ae53"><span class="section-number-6">4.4.0.3.1</span> 计算香农熵</h6>
+<ol class="org-ol">
+<li><a id="org559ae53"></a>计算香农熵<br />
 <div class="outline-text-6" id="text-4-4-0-3-1">
 <p>
 根据信息熵的计算公式计算某个数据集中的信息熵。一组数据dataSet包含若干特征属
@@ -1736,9 +1737,8 @@ K临近算法举例，已知若干电影(训练集)的标签有“爱情片”�
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org5a5c742" class="outline-6">
-<h6 id="org5a5c742"><span class="section-number-6">4.4.0.3.2</span> 划分数据集</h6>
+</li>
+<li><a id="org5a5c742"></a>划分数据集<br />
 <div class="outline-text-6" id="text-4-4-0-3-2">
 <p>
 指按照给定的特征以及特征的值提取出这样的数据集。代码
@@ -1753,16 +1753,15 @@ K临近算法举例，已知若干电影(训练集)的标签有“爱情片”�
         <span style="color: #ffd700;">retDataSet</span> = []
         <span style="color: #ffb6c1; font-size: 105%;">for</span> featVec <span style="color: #ffb6c1; font-size: 105%;">in</span> dataSet:
                 <span style="color: #ffb6c1; font-size: 105%;">if</span> featVec[axis] == value:
-                        <span style="color: #ffd700;">reducedFeatVec</span> = featVec[:axis] 
+                        reducedFeatVec = featVec[:axis] 
                         reducedFeatVec.extend(featVec[axis+1:])
                         retDataSet.append(reducedFeatVec)
         <span style="color: #ffb6c1; font-size: 105%;">return</span> retDataSet
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-orgd8df6ea" class="outline-6">
-<h6 id="orgd8df6ea"><span class="section-number-6">4.4.0.3.3</span> 选择最好的划分</h6>
+</li>
+<li><a id="orgd8df6ea"></a>选择最好的划分<br />
 <div class="outline-text-6" id="text-4-4-0-3-3">
 <p>
 在不同的特征，不同的特征值情况下，计算被splitDataSet()提取出来的样本的香农
@@ -1799,9 +1798,8 @@ K临近算法举例，已知若干电影(训练集)的标签有“爱情片”�
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org10ed7d0" class="outline-6">
-<h6 id="org10ed7d0"><span class="section-number-6">4.4.0.3.4</span> 构造决策树</h6>
+</li>
+<li><a id="org10ed7d0"></a>构造决策树<br />
 <div class="outline-text-6" id="text-4-4-0-3-4">
 <p>
 采用递归将决策树存储在字典中，使用字典可以存在于字典中的特性。最终，字典将
@@ -1837,7 +1835,8 @@ K临近算法举例，已知若干电影(训练集)的标签有“爱情片”�
 </pre>
 </div>
 </div>
-</div>
+</li>
+</ol>
 </div>
 </div>
 <div id="outline-container-org964234e" class="outline-3">
@@ -2040,8 +2039,8 @@ $$
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-orgfc033f7" class="outline-4">
-<h4 id="orgfc033f7"><span class="section-number-4">4.8.1</span> 概念</h4>
+<div id="outline-container-org78327e7" class="outline-4">
+<h4 id="org78327e7"><span class="section-number-4">4.8.1</span> 概念</h4>
 <div class="outline-text-4" id="text-4-8-1">
 <ul class="org-ul">
 <li>超平面：n维超平面的表达方式为\(f(X)=W^{T}X+B\), 其中W和X都是n维向量，一般
@@ -2185,7 +2184,7 @@ R = max_{1&lt;=i&lt;=l}||x_{i}||
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2019-01-01 周二 18:24</p>
+<p class="date">Created: 2019-01-01 周二 22:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

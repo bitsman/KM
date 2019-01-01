@@ -1,7 +1,10 @@
 #+title: 装修日记
 #+author: 比克曼
-#+latex_class: org-latex-pdf
-#+latex: \newpage
+#+latex_class: org-latex-pdf 
+#+toc: tables 
+#+latex: \clearpage\pagenumbering{arabic} 
+#+options: h:4 
+#+startup: overview
 
 * 验房
 ** 证件

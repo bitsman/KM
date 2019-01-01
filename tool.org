@@ -6,6 +6,9 @@
 #+email: bitman@163.com
 #+latex_class: org-latex-pdf 
 #+latex: \newpage 
+#+toc: tables 
+#+latex: \clearpage\pagenumbering{arabic} 
+#+options: h:4 
 #+startup: overview
 #+startup: hideblocks
 #+startup: align
@@ -18,7 +21,7 @@
 #+keywords: emacs keil iar
 #+creator: creator-bitsman 
 #+DESCRIPTION: description-bitsman
-#+SUBTITLE: subtitle-bitsman
+#+SUBTITLE: 这里会做一些emacs测试
 
 * emacs
 ** 安装

@@ -1,7 +1,10 @@
 #+title: 外语学习
 #+author: 比克曼
-#+latex_class: org-latex-pdf
-#+latex: \newpage
+#+latex_class: org-latex-pdf 
+#+toc: tables 
+#+latex: \clearpage\pagenumbering{arabic} 
+#+options: h:4 
+#+startup: overview
 
 * 短语
 - up to a point:一定程度上,不完全如此,在一定程度上;

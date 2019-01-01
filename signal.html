@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-01 周二 18:42 -->
+<!-- 2019-01-01 周二 22:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>信号与系统</title>
@@ -275,31 +275,31 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org8278b50">2.2.1. 傅里叶级数(FT)</a>
 <ul>
-<li><a href="#org0eabce3">2.2.1.1. 正变换</a></li>
-<li><a href="#org4d6583c">2.2.1.2. 逆变换</a></li>
+<li><a href="#org240b29d">2.2.1.1. 正变换</a></li>
+<li><a href="#org28e06fa">2.2.1.2. 逆变换</a></li>
 </ul>
 </li>
 <li><a href="#orgea26ad4">2.2.2. 傅里叶变换(CTFT)</a>
 <ul>
-<li><a href="#org876d584">2.2.2.1. 正变换</a></li>
-<li><a href="#org7977259">2.2.2.2. 逆变换</a></li>
+<li><a href="#orge420571">2.2.2.1. 正变换</a></li>
+<li><a href="#orgb0bb4c4">2.2.2.2. 逆变换</a></li>
 <li><a href="#orgcf1cb35">2.2.2.3. 关系</a></li>
 <li><a href="#org6bb3484">2.2.2.4. 离散时间傅里叶变换</a></li>
 </ul>
 </li>
 <li><a href="#org8009b49">2.2.3. 傅里叶变换(DFT)</a>
 <ul>
-<li><a href="#org240b29d">2.2.3.1. 正变换</a></li>
-<li><a href="#org28e06fa">2.2.3.2. 逆变换</a></li>
+<li><a href="#org6615ca0">2.2.3.1. 正变换</a></li>
+<li><a href="#org91d387d">2.2.3.2. 逆变换</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#org2f676c9">2.3. 卷积</a></li>
-<li><a href="#orgca7d304">2.4. 傅里叶级数</a>
+<li><a href="#orgde99f34">2.4. 傅里叶级数</a>
 <ul>
 <li><a href="#org9bc5534">2.4.1. 泰勒级数</a></li>
-<li><a href="#orgab36d7c">2.4.2. 傅里叶级数</a>
+<li><a href="#orgca7d304">2.4.2. 傅里叶级数</a>
 <ul>
 <li><a href="#orga3b4ca6">2.4.2.1. 问题</a></li>
 </ul>
@@ -334,6 +334,14 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orged27daa">3. 小波变换</a></li>
+</ul>
+</div>
+</div>
+<div id="list-of-tables">
+<h2>List of Tables</h2>
+<div id="text-list-of-tables">
+<ul>
+<li><a href="#orgee0466a"><span class="table-number">Table 1:</span> 变换时频特性</a></li>
 </ul>
 </div>
 </div>
@@ -583,8 +591,8 @@ H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(
 <h4 id="org8278b50"><span class="section-number-4">2.2.1</span> 傅里叶级数(FT)</h4>
 <div class="outline-text-4" id="text-2-2-1">
 </div>
-<div id="outline-container-org0eabce3" class="outline-5">
-<h5 id="org0eabce3"><span class="section-number-5">2.2.1.1</span> 正变换</h5>
+<div id="outline-container-org240b29d" class="outline-5">
+<h5 id="org240b29d"><span class="section-number-5">2.2.1.1</span> 正变换</h5>
 <div class="outline-text-5" id="text-2-2-1-1">
 <p>
 \[x(t)=\sum_{k=-\infty}^{\infty}a_{k}e^{jk\Omega{}_{0}t}\] 
@@ -592,8 +600,8 @@ H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(
 </p>
 </div>
 </div>
-<div id="outline-container-org4d6583c" class="outline-5">
-<h5 id="org4d6583c"><span class="section-number-5">2.2.1.2</span> 逆变换</h5>
+<div id="outline-container-org28e06fa" class="outline-5">
+<h5 id="org28e06fa"><span class="section-number-5">2.2.1.2</span> 逆变换</h5>
 <div class="outline-text-5" id="text-2-2-1-2">
 <p>
 \[a_{k}=\frac{1}{T}\int_{T}x(t)e^{-jk\Omega{}_{0}t}dt\] 
@@ -610,16 +618,16 @@ H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(
 <h4 id="orgea26ad4"><span class="section-number-4">2.2.2</span> 傅里叶变换(CTFT)</h4>
 <div class="outline-text-4" id="text-2-2-2">
 </div>
-<div id="outline-container-org876d584" class="outline-5">
-<h5 id="org876d584"><span class="section-number-5">2.2.2.1</span> 正变换</h5>
+<div id="outline-container-orge420571" class="outline-5">
+<h5 id="orge420571"><span class="section-number-5">2.2.2.1</span> 正变换</h5>
 <div class="outline-text-5" id="text-2-2-2-1">
 <p>
 \[x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(jw)e^{jwt}dw\] 
 </p>
 </div>
 </div>
-<div id="outline-container-org7977259" class="outline-5">
-<h5 id="org7977259"><span class="section-number-5">2.2.2.2</span> 逆变换</h5>
+<div id="outline-container-orgb0bb4c4" class="outline-5">
+<h5 id="orgb0bb4c4"><span class="section-number-5">2.2.2.2</span> 逆变换</h5>
 <div class="outline-text-5" id="text-2-2-2-2">
 <p>
 \[X(jw)=\int_{-\infty}^{\infty}x(t)e^{-jwt}dt\] 
@@ -646,8 +654,8 @@ H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(
 <h4 id="org8009b49"><span class="section-number-4">2.2.3</span> 傅里叶变换(DFT)</h4>
 <div class="outline-text-4" id="text-2-2-3">
 </div>
-<div id="outline-container-org240b29d" class="outline-5">
-<h5 id="org240b29d"><span class="section-number-5">2.2.3.1</span> 正变换</h5>
+<div id="outline-container-org6615ca0" class="outline-5">
+<h5 id="org6615ca0"><span class="section-number-5">2.2.3.1</span> 正变换</h5>
 <div class="outline-text-5" id="text-2-2-3-1">
 <p>
 \[X[k]=\sum_{n=0}^{N-1}x[n]e^{-j\frac{k2\pi{}}{N}n}\] 
@@ -656,8 +664,8 @@ H(s)和H(z)就是该系统的系统函数。当s和n是纯虚数j&Omega;时，H(
 </p>
 </div>
 </div>
-<div id="outline-container-org28e06fa" class="outline-5">
-<h5 id="org28e06fa"><span class="section-number-5">2.2.3.2</span> 逆变换</h5>
+<div id="outline-container-org91d387d" class="outline-5">
+<h5 id="org91d387d"><span class="section-number-5">2.2.3.2</span> 逆变换</h5>
 <div class="outline-text-5" id="text-2-2-3-2">
 <p>
 \[x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{j\frac{k2\pi{}}{N}n}\]
@@ -688,8 +696,8 @@ MATLAB或者python的卷积计算函数都不用带时间信息，只需要输�
 \end{equation}
 </div>
 </div>
-<div id="outline-container-orgca7d304" class="outline-3">
-<h3 id="orgca7d304"><span class="section-number-3">2.4</span> 傅里叶级数</h3>
+<div id="outline-container-orgde99f34" class="outline-3">
+<h3 id="orgde99f34"><span class="section-number-3">2.4</span> 傅里叶级数</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 傅里叶级数和泰勒级数都是为了将一个函数分解成若干基函数叠加形式。
@@ -725,8 +733,8 @@ f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}
 </p>
 </div>
 </div>
-<div id="outline-container-orgab36d7c" class="outline-4">
-<h4 id="orgab36d7c"><span class="section-number-4">2.4.2</span> 傅里叶级数</h4>
+<div id="outline-container-orgca7d304" class="outline-4">
+<h4 id="orgca7d304"><span class="section-number-4">2.4.2</span> 傅里叶级数</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 傅里叶级数也叫三角级数一般为
@@ -1221,7 +1229,7 @@ $$
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2019-01-01 周二 18:42</p>
+<p class="date">Created: 2019-01-01 周二 22:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
