@@ -1397,8 +1397,748 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
         sm.unregisterListener(sensorEventListener);
    }
    #+end_src
-** jni
-JNI是java native interface的缩写
+** hal
+本小结主要参考[[https://blog.csdn.net/luoshengyang/article/details/6567257][CSDN]]博客。
+android hal的介绍从android的整体架构开始，从kernel driver开始到最终的
+app调用硬件模块。
+*** 架构
+Android的hal，简单来说，就是对Linux内核驱动程序的封装，向上提供接口，
+屏蔽低层的实现细节。也就是说，把对硬件的支持分成了两层.
+- 用户空间:User Space, hal运行在用户空间; 
+- 内核空间:Kernel Space, Linux内核驱动程序运行在内核空间; 
+
+把hal和内核驱动整合在一起放在内核空间不可行吗？从技术实现的角度来看，
+是可以的，然而从商业的角度来看，把对硬件的支持逻辑都放在内核空间，可
+能会损害厂家的利益。一般划分.
+- Linux内核代码:版权遵循GNU License, 在发布产品时，必须公布源代码;
+- Android源代码:版权遵循Apache License, 在发布产品时，无须发布源代码;
+
+如果把对硬件支持的所有代码都放在Linux驱动层，那就意味着发布时要公开驱
+动程序的源代码，而公开源代码就意味着把硬件的相关参数和实现都公开了,损
+害很大。因此，Android才会想到把对硬件的支持分成hal和内核驱动层，内核
+驱动层只提供简单的访问硬件逻辑，例如读写硬件寄存器的通道，至于从硬件
+中读写到了什么值，都放在hal中去了，这样就可以把商业秘密隐藏起来了。
+
+也正是由于这个分层的原因，Android被踢出了Linux内核主线代码树中。
+Android放在内核空间的驱动程序对硬件的支持是不完整的，把Linux内核移植
+到别的机器上去时，由于缺乏hal的支持，硬件就完全不能用了，这也是为什么
+说Android是开放系统而不是开源系统的原因。 
+
+android从下到上涉及到了android系统多层，如图[[fig:android-frmwk]]所示。
+#+CAPTION: android框架
+#+NAME: fig:android-frmwk
+#+attr_latex: :placement [H] :width 0.6\textwidth
+[[./img/img-android-frmwk.png]]
+
+- 硬件驱动层：driver层, 一般实现简单io操作，如iic，uart等;
+- 硬件抽象层：hal层，控制driver层的io做些逻辑操作；
+- 运行时库：jni层，将下层的c域运行时相互转换到高层的java虚拟机域；
+- 应用程序框架层：framework层，利用aidl技术进程通信，从进程角度做划分；
+- api：对framework层做进一步抽象，提炼api便于app调用硬件功能；
+
+*** driver
+为了方便描述为Android系统编写内核驱动程序的过程，使用一个虚拟的硬件设
+备，这个设备只有一个4字节的寄存器，可读可写。把这个虚拟的设备命名为
+“hello”，而这个内核驱动程序也命名为hello驱动程序。其实，Android内核
+驱动程序和一般Linux内核驱动程序的编写方法是一样的，都是以Linux模块的
+形式实现的。  
+
+**** 驱动路径
+进入到kernel/common/drivers目录，新建hello目录。
+#+BEGIN_SRC shell -n 1 :exports code
+  USER-NAME@MACHINE-NAME:~/Android$ cd kernel/common/drivers
+  USER-NAME@MACHINE-NAME:~/Android/kernel/common/drivers$ mkdir hello
+#+END_SRC
+
+**** 驱动接口
+在hello目录中增加hello.h文件。
+#+BEGIN_SRC c -n 1 :exports code
+  #ifndef _HELLO_ANDROID_H_
+  #define _HELLO_ANDROID_H_
+
+  #include <linux/cdev.h>
+  #include <linux/semaphore.h>
+  //后面要用到
+  #define HELLO_DEVICE_NODE_NAME  "hello"
+  #define HELLO_DEVICE_FILE_NAME  "hello"
+  #define HELLO_DEVICE_PROC_NAME  "hello"
+  #define HELLO_DEVICE_CLASS_NAME "hello"
+  // 虚拟的硬件设备
+  struct hello_android_dev 
+  {
+      int val;//代表设备里面的寄存器
+      struct semaphore sem;//信号量，同步对val的访问
+      struct cdev dev;//表示该设备是内嵌的字符设备
+  };
+  #endif
+#+END_SRC
+
+**** 驱动实现
+在hello目录中增加hello.c文件，这是驱动程序的实现部分。驱动程序的功能
+主要是向上层提供访问设备的寄存器的值，包括读和写。提供了三种访问设备
+寄存器的方法，详细见代码所示 。
+- 通过proc文件系统来访问；
+- 通过传统的设备文件的方法来访问；
+- 通过devfs文件系统来访问；
+
+#+BEGIN_SRC c -n 1 :exports code
+  //首先是包含必要的头文件和定义三种访问设备的方法
+  #include <linux/init.h>
+  #include <linux/module.h>
+  #include <linux/types.h>
+  #include <linux/fs.h>
+  #include <linux/proc_fs.h>
+  #include <linux/device.h>
+  #include <asm/uaccess.h>
+
+  #include "hello.h"
+  //主设备和从设备号变量
+  static int hello_major = 0;
+  static int hello_minor = 0;
+  //设备类别和设备变量
+  static struct class* hello_class = NULL;
+  static struct hello_android_dev* hello_dev = NULL;
+  //传统的设备文件操作方法
+  static int hello_open(struct inode* inode, struct file* filp);
+  static int hello_release(struct inode* inode, struct file* filp);
+  static ssize_t hello_read(struct file* filp,
+                            char __user* buf,
+                            size_t count,
+                            loff_t* f_pos);
+  static ssize_t hello_write(struct file* filp,
+                             const char __user* buf,
+                             size_t count, loff_t* f_pos);
+  //设备文件操作方法表
+  static struct file_operations hello_fops =
+  {
+      .owner = THIS_MODULE,
+      .open = hello_open,
+      .release = hello_release,
+      .read = hello_read,
+      .write = hello_write, 
+  };
+  //访问设置属性方法
+  static ssize_t hello_val_show(struct device* dev,
+                                struct device_attribute* attr,
+                                char* buf);
+  static ssize_t hello_val_store(struct device* dev,
+                                 struct device_attribute* attr,
+                                 const char* buf, size_t count);
+
+  //定义设备属性
+  static DEVICE_ATTR(val, S_IRUGO | S_IWUSR, hello_val_show, hello_val_store);
+#+END_SRC
+- 传统方式
+  定义传统的设备文件访问方法，主要是定义
+  + hello_open：打开;
+  + hello_release：释放;
+  + hello_read：读；
+  + hello_write：写；
+    
+  #+BEGIN_SRC c +n :exports code
+    //打开设备方法
+    static int hello_open(struct inode* inode, struct file* filp)
+    {
+        struct hello_android_dev* dev;        
+        //将自定义设备结构体保存在文件指针的私有数据域中，以便访问设备时拿来用
+        dev = container_of(inode->i_cdev, struct hello_android_dev, dev);
+        filp->private_data = dev;
+        return 0;
+    }
+    //设备文件释放时调用，空实现
+    static int hello_release(struct inode* inode, struct file* filp)
+    {
+        return 0;
+    }
+    //读取设备的寄存器val的值
+    static ssize_t hello_read(struct file* filp,
+                              char __user* buf,
+                              size_t count,
+                              loff_t* f_pos)
+    {
+        ssize_t err = 0;
+        struct hello_android_dev* dev = filp->private_data;        
+        //同步访问
+        if(down_interruptible(&(dev->sem)))
+        {
+            return -ERESTARTSYS;
+        }
+        if(count < sizeof(dev->val))
+        {
+            goto out;
+        }        
+        //将寄存器val的值拷贝到用户提供的缓冲区
+        if(copy_to_user(buf, &(dev->val), sizeof(dev->val)))
+        {
+            err = -EFAULT;
+            goto out;
+        }
+        err = sizeof(dev->val);
+      out:
+        up(&(dev->sem));
+        return err;
+    }
+    //写设备的寄存器值val
+    static ssize_t hello_write(struct file* filp,
+                               const char __user* buf,
+                               size_t count,
+                               loff_t* f_pos)
+    {
+        struct hello_android_dev* dev = filp->private_data;
+        ssize_t err = 0;        
+        //同步访问
+        if(down_interruptible(&(dev->sem)))
+        {
+            return -ERESTARTSYS;        
+        }        
+        if(count != sizeof(dev->val))
+        {
+            goto out;        
+        }        
+        //将用户提供的缓冲区的值写到设备寄存器去
+        if(copy_from_user(&(dev->val), buf, count))
+        {
+            err = -EFAULT;
+            goto out;
+        }
+        err = sizeof(dev->val);
+      out:
+        up(&(dev->sem));
+        return err;
+    }
+  #+END_SRC
+
+- devfs方式
+  定义通过devfs文件系统访问方法，这里把设备的寄存器val看成是设备的一
+  个属性，通过读写这个属性来对设备进行访问，主要是实现两个方法。
+  + hello_val_show；
+  + hello_val_store；
+  
+  同时定义了两个内部使用的访问val值的方法
+  + __hello_get_val；
+  + __hello_set_val；
+  
+  #+BEGIN_SRC c +n :exports code
+    //读取寄存器val的值到缓冲区buf中，内部使用
+    static ssize_t __hello_get_val(struct hello_android_dev* dev, char* buf) 
+    {
+        int val = 0;        
+        //同步访问
+        if(down_interruptible(&(dev->sem)))
+        {                
+            return -ERESTARTSYS;        
+        }        
+        val = dev->val;        
+        up(&(dev->sem));        
+        return snprintf(buf, PAGE_SIZE, "%d\n", val);
+    }
+ 
+    //把缓冲区buf的值写到设备寄存器val中去，内部使用
+    static ssize_t __hello_set_val(struct hello_android_dev* dev,
+                                   const char* buf, size_t count)
+    {
+        int val = 0;        
+        //将字符串转换成数字        
+        val = simple_strtol(buf, NULL, 10);        
+        //同步访问        
+        if(down_interruptible(&(dev->sem)))
+        {                
+            return -ERESTARTSYS;        
+        }        
+        dev->val = val;        
+        up(&(dev->sem));
+        return count;
+    }
+    //读取设备属性val
+    static ssize_t hello_val_show(struct device* dev,
+                                  struct device_attribute* attr,
+                                  char* buf)
+    {
+        struct hello_android_dev* hdev =
+            (struct hello_android_dev*)dev_get_drvdata(dev);        
+        return __hello_get_val(hdev, buf);
+    }
+    //写设备属性val
+    static ssize_t hello_val_store(struct device* dev,
+                                   struct device_attribute* attr,
+                                   const char* buf, size_t count)
+    { 
+        struct hello_android_dev* hdev =
+            (struct hello_android_dev*)dev_get_drvdata(dev);  
+        return __hello_set_val(hdev, buf, count);
+    }
+  #+END_SRC
+
+- proc方式
+  定义通过proc文件系统访问方法，主要实现了两个方法
+  + hello_proc_read；
+  + hello_proc_write；
+    
+  同时定义了在proc文件系统创建和删除文件的方法
+  + hello_create_proc；
+  + hello_remove_proc；
+
+  #+BEGIN_SRC c +n :exports code
+    //读取设备寄存器val的值，保存在page缓冲区中
+    static ssize_t hello_proc_read(char* page,
+                                   char* * start,
+                                   off_t off,
+                                   int count,
+                                   int* eof,
+                                   void* data)
+    {
+        if(off > 0)
+        {
+            ,*eof = 1;
+            return 0;
+        }
+        return __hello_get_val(hello_dev, page);
+    }
+    //把缓冲区的值buff保存到设备寄存器val中去
+    static ssize_t hello_proc_write(struct file* filp,
+                                    const char __user *buff,
+                                    unsigned long len,
+                                    void* data)
+    {
+        int err = 0;
+        char* page = NULL;
+        if(len > PAGE_SIZE)
+        {
+            printk(KERN_ALERT"The buff is too large: %lu.\n", len);
+            return -EFAULT;
+        }
+        page = (char*)__get_free_page(GFP_KERNEL);
+        if(!page)
+        {                
+            printk(KERN_ALERT"Failed to alloc page.\n");
+            return -ENOMEM;
+        }        
+        //先把用户提供的缓冲区值拷贝到内核缓冲区中去
+        if(copy_from_user(page, buff, len))
+        {
+            printk(KERN_ALERT"Failed to copy buff from user.\n");                
+            err = -EFAULT;
+            goto out;
+        }
+        err = __hello_set_val(hello_dev, page, len);
+      out:
+        free_page((unsigned long)page);
+        return err;
+    }
+ 
+    //创建/proc/hello文件
+    static void hello_create_proc(void)
+    {
+        struct proc_dir_entry* entry;
+        entry = create_proc_entry(HELLO_DEVICE_PROC_NAME, 0, NULL);
+        if(entry)
+        {
+            entry->owner = THIS_MODULE;
+            entry->read_proc = hello_proc_read;
+            entry->write_proc = hello_proc_write;
+        }
+    }
+    //删除/proc/hello文件
+    static void hello_remove_proc(void)
+    {
+        remove_proc_entry(HELLO_DEVICE_PROC_NAME, NULL);
+    }
+
+  #+END_SRC
+
+**** 驱动注册
+最后，定义模块加载和卸载方法，这里只要是执行设备注册和初始化操作。
+#+BEGIN_SRC c +n :exports code
+  //初始化设备
+  static int  __hello_setup_dev(struct hello_android_dev* dev)
+  {
+      int err;
+      dev_t devno = MKDEV(hello_major, hello_minor);
+      memset(dev, 0, sizeof(struct hello_android_dev));
+      cdev_init(&(dev->dev), &hello_fops);
+      dev->dev.owner = THIS_MODULE;
+      dev->dev.ops = &hello_fops;        
+      //注册字符设备
+      err = cdev_add(&(dev->dev),devno, 1);
+      if(err)
+      {
+          return err;
+      }        
+      //初始化信号量和寄存器val的值
+      init_MUTEX(&(dev->sem));
+      dev->val = 0;
+      return 0;
+  }
+  //模块加载方法
+  static int __init hello_init(void)
+  { 
+      int err = -1;
+      dev_t dev = 0;
+      struct device* temp = NULL;
+      printk(KERN_ALERT"Initializing hello device.\n");        
+      //动态分配主设备和从设备号
+      err = alloc_chrdev_region(&dev, 0, 1, HELLO_DEVICE_NODE_NAME);
+      if(err < 0)
+      {
+          printk(KERN_ALERT"Failed to alloc char dev region.\n");
+          goto fail;
+      }
+      hello_major = MAJOR(dev);
+      hello_minor = MINOR(dev);        
+      //分配helo设备结构体变量
+      hello_dev = kmalloc(sizeof(struct hello_android_dev), GFP_KERNEL);
+      if(!hello_dev)
+      {
+          err = -ENOMEM;
+          printk(KERN_ALERT"Failed to alloc hello_dev.\n");
+          goto unregister;
+      }        
+      //初始化设备
+      err = __hello_setup_dev(hello_dev);
+      if(err)
+      {
+          printk(KERN_ALERT"Failed to setup dev: %d.\n", err);
+          goto cleanup;
+      }        
+      //在/sys/class/目录下创建设备类别目录hello
+      hello_class = class_create(THIS_MODULE, HELLO_DEVICE_CLASS_NAME);
+      if(IS_ERR(hello_class))
+      {
+          err = PTR_ERR(hello_class);
+          printk(KERN_ALERT"Failed to create hello class.\n");
+          goto destroy_cdev;
+      }        
+      //在/dev/目录和/sys/class/hello目录下分别创建设备文件hello
+      temp = device_create(hello_class, NULL, dev, "%s", HELLO_DEVICE_FILE_NAME);
+      if(IS_ERR(temp))
+      {
+          err = PTR_ERR(temp);
+          printk(KERN_ALERT"Failed to create hello device.");
+          goto destroy_class;
+      }        
+      //在/sys/class/hello/hello目录下创建属性文件val
+      err = device_create_file(temp, &dev_attr_val);
+      if(err < 0)
+      {
+          printk(KERN_ALERT"Failed to create attribute val.");                
+          goto destroy_device;
+      }
+      dev_set_drvdata(temp, hello_dev);        
+      //创建/proc/hello文件
+      hello_create_proc();
+      printk(KERN_ALERT"Succedded to initialize hello device.\n");
+      return 0;
+    destroy_device:
+      device_destroy(hello_class, dev);
+    destroy_class:
+      class_destroy(hello_class);
+    destroy_cdev:
+      cdev_del(&(hello_dev->dev));
+    cleanup:
+      kfree(hello_dev);
+    unregister:
+      unregister_chrdev_region(MKDEV(hello_major, hello_minor), 1);
+    fail:
+      return err;
+  }
+  //模块卸载方法
+  static void __exit hello_exit(void)
+  {
+      dev_t devno = MKDEV(hello_major, hello_minor);
+      printk(KERN_ALERT"Destroy hello device.\n");        
+      //删除/proc/hello文件
+      hello_remove_proc();        
+      //销毁设备类别和设备
+      if(hello_class)
+      {
+          device_destroy(hello_class, MKDEV(hello_major, hello_minor));
+          class_destroy(hello_class);
+      }        
+      //删除字符设备和释放设备内存
+      if(hello_dev)
+      {
+          cdev_del(&(hello_dev->dev));
+          kfree(hello_dev);
+      }        
+      //释放设备号
+      unregister_chrdev_region(devno, 1);
+  }
+  MODULE_LICENSE("GPL");
+  MODULE_DESCRIPTION("First Android Driver");
+  module_init(hello_init);
+  module_exit(hello_exit);
+#+END_SRC
+
+**** 驱动构建
+在hello目录中新增两个文件
+- Kconfig：在编译前执行配置命令make menuconfig时用到的；
+  #+BEGIN_SRC shell -n 1 :exports code
+    config HELLO
+    tristate "First Android Driver"
+    default n
+    help
+    This is the first android driver.
+  #+END_SRC
+- Makefile：执行编译命令make是用到的；
+  #+BEGIN_SRC shell -n 1 :exports code
+    obj-$(CONFIG_HELLO) += hello.o
+  #+END_SRC
+
+在Kconfig文件中，tristate表示编译选项HELLO支持在编译内核时，hello模块
+支持以模块、内建和不编译三种编译方法，默认是不编译，因此，在编译内核
+前，我们还需要执行make menuconfig命令来配置编译选项，使得hello可以以
+模块或者内建的方法进行编译.
+
+在Makefile文件中，根据选项HELLO的值，执行不同的编译方法。
+
+**** 驱动测试
+在这个名为hello的Linux内核驱动程序中，创建三个不同的文件节点来供用户
+空间访问。
++ 传统的设备文件：/dev/hello；
++ proc系统文件：/proc/hello；
++ devfs系统属性文件：/sys/class/hello/hello/val。
+
+进一步，还通过cat命令来直接访问/proc/hello和
+/sys/class/hello/hello/val文件来，以验证驱动程序的正确性。 
+- 测试目录
+  进入到Android源代码工程的external目录，创建hello目录。
+  #+BEGIN_SRC shell -n 1 :exports code
+    USER-NAME@MACHINE-NAME:~/Android$ cd external
+    USER-NAME@MACHINE-NAME:~/Android/external$ mkdir hello
+  #+END_SRC
+
+- 测试文件
+  在hello目录中新建hello.c文件,从/dev/hello文件读写的值实际上就是我们
+  虚拟的硬件的寄存器val的值。 
+  #+BEGIN_SRC c -n 1 :exports code
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <fcntl.h>
+    #define DEVICE_NAME "/dev/hello"
+    int main(int argc, char** argv)
+    {
+        int fd = -1;
+        int val = 0;
+        // 打开/dev/hello文件
+        fd = open(DEVICE_NAME, O_RDWR); //系统调用
+        if(fd == -1)
+        {
+            printf("Failed to open device %s.\n", DEVICE_NAME);
+            return -1;
+        }
+        printf("Read original value:\n");
+        //先读出/dev/hello文件中的值
+        read(fd, &val, sizeof(val)); //系统调用
+        printf("%d.\n\n", val);
+        val = 5;
+        printf("Write value %d to %s.\n\n", val, DEVICE_NAME);
+        //写入值5到/dev/hello中去
+        write(fd, &val, sizeof(val)); //系统调用
+        printf("Read the value again:\n");
+        //再次读出/dev/hello文件中的值
+        read(fd, &val, sizeof(val)); //系统调用
+        printf("%d.\n\n", val);
+        close(fd);    //系统调用
+        return 0;
+    }
+  #+END_SRC
+*** hal
+这里介绍Android系统如何在hal中增加硬件模块来和内核驱动程序交互。完成
+内核驱动程序后，可以在Android系统中得到三个文件，这里通过设备文件
+/dev/hello来连接硬件抽象层模块和Linux内核驱动程序模块 。 
++ /dev/hello；
++ /sys/class/hello/hello/val；
++ /proc/hello。
+
+**** hal路径
+进入到在hardware/libhardware/include/hardware目录，新建hello.h文件
+#+BEGIN_SRC shell -n 1 :exports code
+  USER-NAME@MACHINE-NAME:~/Android$ cd hardware/libhardware/include/hardware
+  USER-NAME@MACHINE-NAME:~/Android/hardware/libhardware/include/hardware$ vi hello.h
+#+END_SRC
+
+**** hal接口
+hello.h文件的内容如下
+#+BEGIN_SRC c -n 1 :exports code
+  #ifndef ANDROID_HELLO_INTERFACE_H
+  #define ANDROID_HELLO_INTERFACE_H
+  #include <hardware/hardware.h>
+  __BEGIN_DECLS
+  //定义模块ID
+  #define HELLO_HARDWARE_MODULE_ID "hello"
+  //硬件模块结构体
+  struct hello_module_t
+  {
+      struct hw_module_t common;
+  };
+  //硬件接口结构体
+  struct hello_device_t
+  {
+      struct hw_device_t common;
+      int fd;//设备文件描述符，对应/dev/hello
+      //该hal对上提供的函数接口
+      int (*set_val)(struct hello_device_t* dev, int val);
+      int (*get_val)(struct hello_device_t* dev, int* val);
+  };
+  __END_DECLS
+  #endif
+#+END_SRC
+
+**** hal实现
+进入hardware/libhardware/modules目录，新建hello目录，添加hello.c文件。  
+- 首先是包含相关头文件和定义相关结构
+  #+BEGIN_SRC c -n 1 :exports code
+    #define LOG_TAG "HelloStub"
+ 
+    #include <hardware/hardware.h>
+    #include <hardware/hello.h>
+    #include <fcntl.h>
+    #include <errno.h>
+    #include <cutils/log.h>
+    #include <cutils/atomic.h>
+ 
+    #define DEVICE_NAME "/dev/hello"
+    #define MODULE_NAME "Hello"
+    #define MODULE_AUTHOR "shyluo@gmail.com"
+ 
+    //设备打开和关闭接口
+    static int hello_device_open(const struct hw_module_t* module, 
+                                 const char* name,
+                                 struct hw_device_t * * device);
+    static int hello_device_close(struct hw_device_t* device);
+    //设备访问接口
+    static int hello_set_val(struct hello_device_t* dev, int val);
+    static int hello_get_val(struct hello_device_t* dev, int* val);
+    //模块方法表
+    static struct hw_module_methods_t hello_module_methods =
+    {//通过该方法打开/dev/hello设备文件，用malloc做内存映射，
+     //就可以访问该驱动文件的各种方法和属性
+      open: hello_device_open
+    };
+    //模块实例变量，hal规定该名称固定
+    struct hello_module_t HAL_MODULE_INFO_SYM =
+    {
+      common: {
+          tag: HARDWARE_MODULE_TAG,//hal规定该名称固定
+          version_major: 1,
+          version_minor: 0,
+          id: HELLO_HARDWARE_MODULE_ID,//hal规定该名称固定
+          name: MODULE_NAME,
+          author: MODULE_AUTHOR,
+          methods: &hello_module_methods,//上面的方法表
+      }
+    };
+  #+END_SRC
+
+- 定义hello_device_open函数.
+  #+BEGIN_SRC c +n :exports code
+    static int hello_device_open(const struct hw_module_t* module,
+                                 const char* name,
+                                 struct hw_device_t * * device)
+    {
+        struct hello_device_t* dev;
+        // /dev/hello的内存映射buffer
+        dev = (struct hello_device_t*)malloc(sizeof(struct hello_device_t));
+        if(!dev)
+        {
+            LOGE("Hello Stub: failed to alloc space");
+            return -EFAULT;
+        }
+        memset(dev, 0, sizeof(struct hello_device_t));
+        // hal规定该名称固定
+        dev->common.tag = HARDWARE_DEVICE_TAG;
+        dev->common.version = 0;
+        dev->common.module = (hw_module_t*)module;
+        dev->common.close = hello_device_close;
+        //hal对上层的方法映射
+        dev->set_val = hello_set_val;
+        dev->get_val = hello_get_val;
+        if((dev->fd = open(DEVICE_NAME, O_RDWR)) == -1)
+        {
+            LOGE("Hello Stub: failed to open /dev/hello -- %s.", 
+                 strerror(errno));
+            free(dev);
+            return -EFAULT;
+        }
+        ,*device = &(dev->common);
+        LOGI("Hello Stub: open /dev/hello successfully.");
+        return 0;
+    }
+
+  #+END_SRC
+
+- 定义hello_device_close、hello_set_val和hello_get_val这三个函数
+  #+BEGIN_SRC c +n :exports code
+    static int hello_device_close(struct hw_device_t* device)
+    {
+        struct hello_device_t* hello_device = (struct hello_device_t*)device;
+        if(hello_device)
+        {
+            close(hello_device->fd);
+            free(hello_device);
+        }
+        return 0;
+    }
+ 
+    static int hello_set_val(struct hello_device_t* dev, int val)
+    {
+        LOGI("Hello Stub: set value %d to device.", val);
+        //系统调用
+        write(dev->fd, &val, sizeof(val));
+        return 0;
+    }
+ 
+    static int hello_get_val(struct hello_device_t* dev, int* val)
+    {
+        if(!val)
+        {
+            LOGE("Hello Stub: error val pointer");
+            return -EFAULT;
+        }
+        //系统调用 
+        read(dev->fd, val, sizeof(*val));
+        LOGI("Hello Stub: get value %d from device", *val);
+        return 0;
+    }
+  #+END_SRC
+**** hal构建
+- mk文件
+  继续在hello目录下新建Android.mk文件, LOCAL_MODULE的定义规则，hello
+  后面跟有default，hello.default能够保证我们的模块总能被hal层加载到。  
+  #+BEGIN_SRC shell -n 1 :exports code
+    LOCAL_PATH := $(call my-dir)
+            include $(CLEAR_VARS)
+            LOCAL_MODULE_TAGS := optional
+            LOCAL_PRELINK_MODULE := false
+            LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+            LOCAL_SHARED_LIBRARIES := liblog
+            LOCAL_SRC_FILES := hello.c
+            LOCAL_MODULE := hello.default
+    include $(BUILD_SHARED_LIBRARY)
+  #+END_SRC
+
+- 编译
+  编译成功后，就可以在out/target/product/generic/system/lib/hw目录下
+  看到hello.default.so文件了。 
+    #+BEGIN_SRC shell -n 1 :exports code
+    USER-NAME@MACHINE-NAME:~/Android$ mmm hardware/libhardware/modules/hello
+  #+END_SRC
+
+- 打包
+  重新打包Android系统镜像system.img, 就包含我们定义的硬件抽象层模块
+  hello.default了。 
+  #+BEGIN_SRC shell -n 1 :exports code
+    USER-NAME@MACHINE-NAME:~/Android$ make snod
+  #+END_SRC
+
+  虽然我们在Android系统为我们自己的硬件增加了一个硬件抽象层模块，但是
+  现在Java应用程序还不能访问到我们的硬件。我们还必须编写JNI方法和在
+  Android的Application Frameworks层增加API接口，才能让上层Application
+  访问我们的硬件。在接下来的文章中，我们还将完成这一系统过程，使得我
+  们能够在Java应用程序中访问我们自己定制的硬件。 
+
+*** jni
+*** framework
 * rtos
 ** FreeRTOS
 FreeRTOS是一个迷你操作系统内核的小型嵌入式系统。作为一个轻量级的操作系统，

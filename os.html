@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-01 周二 22:14 -->
+<!-- 2019-01-06 周日 13:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>操作系统</title>
@@ -356,7 +356,31 @@ for the JavaScript code in this tag.
 <li><a href="#org36df6ff">3.12.2. 使用方法</a></li>
 </ul>
 </li>
-<li><a href="#orgca38ff9">3.13. jni</a></li>
+<li><a href="#org8220841">3.13. hal</a>
+<ul>
+<li><a href="#org08b3050">3.13.1. 架构</a></li>
+<li><a href="#orge90ce18">3.13.2. driver</a>
+<ul>
+<li><a href="#orga9c91c1">3.13.2.1. 驱动路径</a></li>
+<li><a href="#org1deaa14">3.13.2.2. 驱动接口</a></li>
+<li><a href="#org1c8aad0">3.13.2.3. 驱动实现</a></li>
+<li><a href="#orgee3ffc2">3.13.2.4. 驱动注册</a></li>
+<li><a href="#org237d502">3.13.2.5. 驱动构建</a></li>
+<li><a href="#orge5bbab6">3.13.2.6. 驱动测试</a></li>
+</ul>
+</li>
+<li><a href="#orged72b79">3.13.3. hal</a>
+<ul>
+<li><a href="#org05396f5">3.13.3.1. hal路径</a></li>
+<li><a href="#org16edaec">3.13.3.2. hal接口</a></li>
+<li><a href="#org8d6d707">3.13.3.3. hal实现</a></li>
+<li><a href="#orgf0b0f35">3.13.3.4. hal构建</a></li>
+</ul>
+</li>
+<li><a href="#orgca38ff9">3.13.4. jni</a></li>
+<li><a href="#org6716256">3.13.5. framework</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#orgbce054f">4. rtos</a>
@@ -2346,12 +2370,931 @@ mBluetoothAdapter.closeProfileProxy(mBluetoothHeadset);
 </div>
 </div>
 </div>
-<div id="outline-container-orgca38ff9" class="outline-3">
-<h3 id="orgca38ff9"><span class="section-number-3">3.13</span> jni</h3>
+<div id="outline-container-org8220841" class="outline-3">
+<h3 id="org8220841"><span class="section-number-3">3.13</span> hal</h3>
 <div class="outline-text-3" id="text-3-13">
 <p>
-JNI是java native interface的缩写
+本小结主要参考<a href="https://blog.csdn.net/luoshengyang/article/details/6567257">CSDN</a>博客。
+android hal的介绍从android的整体架构开始，从kernel driver开始到最终的
+app调用硬件模块。
 </p>
+</div>
+<div id="outline-container-org08b3050" class="outline-4">
+<h4 id="org08b3050"><span class="section-number-4">3.13.1</span> 架构</h4>
+<div class="outline-text-4" id="text-3-13-1">
+<p>
+Android的hal，简单来说，就是对Linux内核驱动程序的封装，向上提供接口，
+屏蔽低层的实现细节。也就是说，把对硬件的支持分成了两层.
+</p>
+<ul class="org-ul">
+<li>用户空间:User Space, hal运行在用户空间;</li>
+<li>内核空间:Kernel Space, Linux内核驱动程序运行在内核空间;</li>
+</ul>
+
+<p>
+把hal和内核驱动整合在一起放在内核空间不可行吗？从技术实现的角度来看，
+是可以的，然而从商业的角度来看，把对硬件的支持逻辑都放在内核空间，可
+能会损害厂家的利益。一般划分.
+</p>
+<ul class="org-ul">
+<li>Linux内核代码:版权遵循GNU License, 在发布产品时，必须公布源代码;</li>
+<li>Android源代码:版权遵循Apache License, 在发布产品时，无须发布源代码;</li>
+</ul>
+
+<p>
+如果把对硬件支持的所有代码都放在Linux驱动层，那就意味着发布时要公开驱
+动程序的源代码，而公开源代码就意味着把硬件的相关参数和实现都公开了,损
+害很大。因此，Android才会想到把对硬件的支持分成hal和内核驱动层，内核
+驱动层只提供简单的访问硬件逻辑，例如读写硬件寄存器的通道，至于从硬件
+中读写到了什么值，都放在hal中去了，这样就可以把商业秘密隐藏起来了。
+</p>
+
+<p>
+也正是由于这个分层的原因，Android被踢出了Linux内核主线代码树中。
+Android放在内核空间的驱动程序对硬件的支持是不完整的，把Linux内核移植
+到别的机器上去时，由于缺乏hal的支持，硬件就完全不能用了，这也是为什么
+说Android是开放系统而不是开源系统的原因。 
+</p>
+
+<p>
+android从下到上涉及到了android系统多层，如图<a href="#orgbdeb08f">2</a>所示。
+</p>
+
+<div id="orgbdeb08f" class="figure">
+<p><img src="./img/img-android-frmwk.png" alt="img-android-frmwk.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>android框架</p>
+</div>
+
+<ul class="org-ul">
+<li>硬件驱动层：driver层, 一般实现简单io操作，如iic，uart等;</li>
+<li>硬件抽象层：hal层，控制driver层的io做些逻辑操作；</li>
+<li>运行时库：jni层，将下层的c域运行时相互转换到高层的java虚拟机域；</li>
+<li>应用程序框架层：framework层，利用aidl技术进程通信，从进程角度做划分；</li>
+<li>api：对framework层做进一步抽象，提炼api便于app调用硬件功能；</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge90ce18" class="outline-4">
+<h4 id="orge90ce18"><span class="section-number-4">3.13.2</span> driver</h4>
+<div class="outline-text-4" id="text-3-13-2">
+<p>
+为了方便描述为Android系统编写内核驱动程序的过程，使用一个虚拟的硬件设
+备，这个设备只有一个4字节的寄存器，可读可写。把这个虚拟的设备命名为
+“hello”，而这个内核驱动程序也命名为hello驱动程序。其实，Android内核
+驱动程序和一般Linux内核驱动程序的编写方法是一样的，都是以Linux模块的
+形式实现的。  
+</p>
+</div>
+
+<div id="outline-container-orga9c91c1" class="outline-5">
+<h5 id="orga9c91c1"><span class="section-number-5">3.13.2.1</span> 驱动路径</h5>
+<div class="outline-text-5" id="text-3-13-2-1">
+<p>
+进入到kernel/common/drivers目录，新建hello目录。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>USER-NAME@MACHINE-NAME:~/Android$ cd kernel/common/drivers
+<span class="linenr">2: </span>USER-NAME@MACHINE-NAME:~/Android/kernel/common/drivers$ mkdir hello
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1deaa14" class="outline-5">
+<h5 id="org1deaa14"><span class="section-number-5">3.13.2.2</span> 驱动接口</h5>
+<div class="outline-text-5" id="text-3-13-2-2">
+<p>
+在hello目录中增加hello.h文件。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #87cefa; text-decoration: underline;">#if</span><span style="color: #87cefa; text-decoration: underline;">n</span><span style="color: #87cefa; text-decoration: underline;">def</span> _HELLO_ANDROID_H_
+<span class="linenr"> 2: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">_HELLO_ANDROID_H_</span>
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/cdev.h&gt;</span>
+<span class="linenr"> 5: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/semaphore.h&gt;</span>
+<span class="linenr"> 6: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21518;&#38754;&#35201;&#29992;&#21040;</span>
+<span class="linenr"> 7: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">HELLO_DEVICE_NODE_NAME</span>  <span style="color: #ffa07a;">"hello"</span>
+<span class="linenr"> 8: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">HELLO_DEVICE_FILE_NAME</span>  <span style="color: #ffa07a;">"hello"</span>
+<span class="linenr"> 9: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">HELLO_DEVICE_PROC_NAME</span>  <span style="color: #ffa07a;">"hello"</span>
+<span class="linenr">10: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">HELLO_DEVICE_CLASS_NAME</span> <span style="color: #ffa07a;">"hello"</span>
+<span class="linenr">11: </span><span style="color: #90ee90; font-style: italic;">// </span><span style="color: #90ee90; font-style: italic;">&#34394;&#25311;&#30340;&#30828;&#20214;&#35774;&#22791;</span>
+<span class="linenr">12: </span><span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span> 
+<span class="linenr">13: </span>{
+<span class="linenr">14: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span>;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20195;&#34920;&#35774;&#22791;&#37324;&#38754;&#30340;&#23492;&#23384;&#22120;</span>
+<span class="linenr">15: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">semaphore</span> <span style="color: #ffd700;">sem</span>;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#37327;&#65292;&#21516;&#27493;&#23545;val&#30340;&#35775;&#38382;</span>
+<span class="linenr">16: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">cdev</span> <span style="color: #ffd700;">dev</span>;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#34920;&#31034;&#35813;&#35774;&#22791;&#26159;&#20869;&#23884;&#30340;&#23383;&#31526;&#35774;&#22791;</span>
+<span class="linenr">17: </span>};
+<span class="linenr">18: </span><span style="color: #87cefa; text-decoration: underline;">#endif</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c8aad0" class="outline-5">
+<h5 id="org1c8aad0"><span class="section-number-5">3.13.2.3</span> 驱动实现</h5>
+<div class="outline-text-5" id="text-3-13-2-3">
+<p>
+在hello目录中增加hello.c文件，这是驱动程序的实现部分。驱动程序的功能
+主要是向上层提供访问设备的寄存器的值，包括读和写。提供了三种访问设备
+寄存器的方法，详细见代码所示 。
+</p>
+<ul class="org-ul">
+<li>通过proc文件系统来访问；</li>
+<li>通过传统的设备文件的方法来访问；</li>
+<li>通过devfs文件系统来访问；</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#39318;&#20808;&#26159;&#21253;&#21547;&#24517;&#35201;&#30340;&#22836;&#25991;&#20214;&#21644;&#23450;&#20041;&#19977;&#31181;&#35775;&#38382;&#35774;&#22791;&#30340;&#26041;&#27861;</span>
+<span class="linenr"> 2: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/init.h&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/module.h&gt;</span>
+<span class="linenr"> 4: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/types.h&gt;</span>
+<span class="linenr"> 5: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/fs.h&gt;</span>
+<span class="linenr"> 6: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/proc_fs.h&gt;</span>
+<span class="linenr"> 7: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;linux/device.h&gt;</span>
+<span class="linenr"> 8: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;asm/uaccess.h&gt;</span>
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">"hello.h"</span>
+<span class="linenr">11: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20027;&#35774;&#22791;&#21644;&#20174;&#35774;&#22791;&#21495;&#21464;&#37327;</span>
+<span class="linenr">12: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">hello_major</span> = 0;
+<span class="linenr">13: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">hello_minor</span> = 0;
+<span class="linenr">14: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35774;&#22791;&#31867;&#21035;&#21644;&#35774;&#22791;&#21464;&#37327;</span>
+<span class="linenr">15: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">class</span>* <span style="color: #ffd700;">hello_class</span> = <span style="color: #7fffd4;">NULL</span>;
+<span class="linenr">16: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">hello_dev</span> = <span style="color: #7fffd4;">NULL</span>;
+<span class="linenr">17: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20256;&#32479;&#30340;&#35774;&#22791;&#25991;&#20214;&#25805;&#20316;&#26041;&#27861;</span>
+<span class="linenr">18: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_open</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">inode</span>* <span style="color: #ffd700;">inode</span>, <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>);
+<span class="linenr">19: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_release</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">inode</span>* <span style="color: #ffd700;">inode</span>, <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>);
+<span class="linenr">20: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_read</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>,
+<span class="linenr">21: </span>                          <span style="color: #ffff00; font-size: 105%;">char</span> <span style="color: #ffd700;">__user</span>* buf,
+<span class="linenr">22: </span>                          <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>,
+<span class="linenr">23: </span>                          <span style="color: #ffff00; font-size: 105%;">loff_t</span>* <span style="color: #ffd700;">f_pos</span>);
+<span class="linenr">24: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_write</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>,
+<span class="linenr">25: </span>                           <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span> <span style="color: #ffd700;">__user</span>* buf,
+<span class="linenr">26: </span>                           <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>, <span style="color: #ffff00; font-size: 105%;">loff_t</span>* <span style="color: #ffd700;">f_pos</span>);
+<span class="linenr">27: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35774;&#22791;&#25991;&#20214;&#25805;&#20316;&#26041;&#27861;&#34920;</span>
+<span class="linenr">28: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file_operations</span> <span style="color: #ffd700;">hello_fops</span> =
+<span class="linenr">29: </span>{
+<span class="linenr">30: </span>    .owner = THIS_MODULE,
+<span class="linenr">31: </span>    .open = hello_open,
+<span class="linenr">32: </span>    .release = hello_release,
+<span class="linenr">33: </span>    .read = hello_read,
+<span class="linenr">34: </span>    .write = hello_write, 
+<span class="linenr">35: </span>};
+<span class="linenr">36: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35775;&#38382;&#35774;&#32622;&#23646;&#24615;&#26041;&#27861;</span>
+<span class="linenr">37: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_val_show</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device</span>* <span style="color: #ffd700;">dev</span>,
+<span class="linenr">38: </span>                              <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device_attribute</span>* <span style="color: #ffd700;">attr</span>,
+<span class="linenr">39: </span>                              <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">buf</span>);
+<span class="linenr">40: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_val_store</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device</span>* <span style="color: #ffd700;">dev</span>,
+<span class="linenr">41: </span>                               <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device_attribute</span>* <span style="color: #ffd700;">attr</span>,
+<span class="linenr">42: </span>                               <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">buf</span>, <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>);
+<span class="linenr">43: </span>
+<span class="linenr">44: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23450;&#20041;&#35774;&#22791;&#23646;&#24615;</span>
+<span class="linenr">45: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">DEVICE_ATTR</span>(val, S_IRUGO | S_IWUSR, hello_val_show, hello_val_store);
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+传统方式
+定义传统的设备文件访问方法，主要是定义
+</p>
+<ul class="org-ul">
+<li>hello<sub>open</sub>：打开;</li>
+<li>hello<sub>release</sub>：释放;</li>
+<li>hello<sub>read</sub>：读；</li>
+<li>hello<sub>write</sub>：写；</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 46: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25171;&#24320;&#35774;&#22791;&#26041;&#27861;</span>
+<span class="linenr"> 47: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_open</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">inode</span>* <span style="color: #ffd700;">inode</span>, <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>)
+<span class="linenr"> 48: </span>{
+<span class="linenr"> 49: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">dev</span>;        
+<span class="linenr"> 50: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23558;&#33258;&#23450;&#20041;&#35774;&#22791;&#32467;&#26500;&#20307;&#20445;&#23384;&#22312;&#25991;&#20214;&#25351;&#38024;&#30340;&#31169;&#26377;&#25968;&#25454;&#22495;&#20013;&#65292;&#20197;&#20415;&#35775;&#38382;&#35774;&#22791;&#26102;&#25343;&#26469;&#29992;</span>
+<span class="linenr"> 51: </span>    dev = container_of(inode-&gt;i_cdev, <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>, dev);
+<span class="linenr"> 52: </span>    filp-&gt;private_data = dev;
+<span class="linenr"> 53: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr"> 54: </span>}
+<span class="linenr"> 55: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35774;&#22791;&#25991;&#20214;&#37322;&#25918;&#26102;&#35843;&#29992;&#65292;&#31354;&#23454;&#29616;</span>
+<span class="linenr"> 56: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_release</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">inode</span>* <span style="color: #ffd700;">inode</span>, <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>)
+<span class="linenr"> 57: </span>{
+<span class="linenr"> 58: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr"> 59: </span>}
+<span class="linenr"> 60: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35835;&#21462;&#35774;&#22791;&#30340;&#23492;&#23384;&#22120;val&#30340;&#20540;</span>
+<span class="linenr"> 61: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_read</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>,
+<span class="linenr"> 62: </span>                          <span style="color: #ffff00; font-size: 105%;">char</span> <span style="color: #ffd700;">__user</span>* buf,
+<span class="linenr"> 63: </span>                          <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>,
+<span class="linenr"> 64: </span>                          <span style="color: #ffff00; font-size: 105%;">loff_t</span>* <span style="color: #ffd700;">f_pos</span>)
+<span class="linenr"> 65: </span>{
+<span class="linenr"> 66: </span>    <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #ffd700;">err</span> = 0;
+<span class="linenr"> 67: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">dev</span> = filp-&gt;private_data;        
+<span class="linenr"> 68: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21516;&#27493;&#35775;&#38382;</span>
+<span class="linenr"> 69: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(down_interruptible(&amp;(dev-&gt;sem)))
+<span class="linenr"> 70: </span>    {
+<span class="linenr"> 71: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -ERESTARTSYS;
+<span class="linenr"> 72: </span>    }
+<span class="linenr"> 73: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(count &lt; <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(dev-&gt;val))
+<span class="linenr"> 74: </span>    {
+<span class="linenr"> 75: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">out</span>;
+<span class="linenr"> 76: </span>    }        
+<span class="linenr"> 77: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23558;&#23492;&#23384;&#22120;val&#30340;&#20540;&#25335;&#36125;&#21040;&#29992;&#25143;&#25552;&#20379;&#30340;&#32531;&#20914;&#21306;</span>
+<span class="linenr"> 78: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(copy_to_user(buf, &amp;(dev-&gt;val), <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(dev-&gt;val)))
+<span class="linenr"> 79: </span>    {
+<span class="linenr"> 80: </span>        err = -EFAULT;
+<span class="linenr"> 81: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">out</span>;
+<span class="linenr"> 82: </span>    }
+<span class="linenr"> 83: </span>    err = <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(dev-&gt;val);
+<span class="linenr"> 84: </span>  <span style="color: #7fffd4;">out</span>:
+<span class="linenr"> 85: </span>    up(&amp;(dev-&gt;sem));
+<span class="linenr"> 86: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> err;
+<span class="linenr"> 87: </span>}
+<span class="linenr"> 88: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20889;&#35774;&#22791;&#30340;&#23492;&#23384;&#22120;&#20540;val</span>
+<span class="linenr"> 89: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_write</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>,
+<span class="linenr"> 90: </span>                           <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span> <span style="color: #ffd700;">__user</span>* buf,
+<span class="linenr"> 91: </span>                           <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>,
+<span class="linenr"> 92: </span>                           <span style="color: #ffff00; font-size: 105%;">loff_t</span>* <span style="color: #ffd700;">f_pos</span>)
+<span class="linenr"> 93: </span>{
+<span class="linenr"> 94: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">dev</span> = filp-&gt;private_data;
+<span class="linenr"> 95: </span>    <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #ffd700;">err</span> = 0;        
+<span class="linenr"> 96: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21516;&#27493;&#35775;&#38382;</span>
+<span class="linenr"> 97: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(down_interruptible(&amp;(dev-&gt;sem)))
+<span class="linenr"> 98: </span>    {
+<span class="linenr"> 99: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -ERESTARTSYS;        
+<span class="linenr">100: </span>    }        
+<span class="linenr">101: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(count != <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(dev-&gt;val))
+<span class="linenr">102: </span>    {
+<span class="linenr">103: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">out</span>;        
+<span class="linenr">104: </span>    }        
+<span class="linenr">105: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23558;&#29992;&#25143;&#25552;&#20379;&#30340;&#32531;&#20914;&#21306;&#30340;&#20540;&#20889;&#21040;&#35774;&#22791;&#23492;&#23384;&#22120;&#21435;</span>
+<span class="linenr">106: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(copy_from_user(&amp;(dev-&gt;val), buf, count))
+<span class="linenr">107: </span>    {
+<span class="linenr">108: </span>        err = -EFAULT;
+<span class="linenr">109: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">out</span>;
+<span class="linenr">110: </span>    }
+<span class="linenr">111: </span>    err = <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(dev-&gt;val);
+<span class="linenr">112: </span>  <span style="color: #7fffd4;">out</span>:
+<span class="linenr">113: </span>    up(&amp;(dev-&gt;sem));
+<span class="linenr">114: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> err;
+<span class="linenr">115: </span>}
+</pre>
+</div></li>
+
+<li><p>
+devfs方式
+定义通过devfs文件系统访问方法，这里把设备的寄存器val看成是设备的一
+个属性，通过读写这个属性来对设备进行访问，主要是实现两个方法。
+</p>
+<ul class="org-ul">
+<li>hello<sub>val</sub><sub>show</sub>；</li>
+<li>hello<sub>val</sub><sub>store</sub>；</li>
+</ul>
+
+<p>
+同时定义了两个内部使用的访问val值的方法
+</p>
+<ul class="org-ul">
+<li>_<sub>hello</sub><sub>get</sub><sub>val</sub>；</li>
+<li>_<sub>hello</sub><sub>set</sub><sub>val</sub>；</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">116: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35835;&#21462;&#23492;&#23384;&#22120;val&#30340;&#20540;&#21040;&#32531;&#20914;&#21306;buf&#20013;&#65292;&#20869;&#37096;&#20351;&#29992;</span>
+<span class="linenr">117: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">__hello_get_val</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">buf</span>) 
+<span class="linenr">118: </span>{
+<span class="linenr">119: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span> = 0;        
+<span class="linenr">120: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21516;&#27493;&#35775;&#38382;</span>
+<span class="linenr">121: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(down_interruptible(&amp;(dev-&gt;sem)))
+<span class="linenr">122: </span>    {                
+<span class="linenr">123: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -ERESTARTSYS;        
+<span class="linenr">124: </span>    }        
+<span class="linenr">125: </span>    val = dev-&gt;val;        
+<span class="linenr">126: </span>    up(&amp;(dev-&gt;sem));        
+<span class="linenr">127: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> snprintf(buf, PAGE_SIZE, <span style="color: #ffa07a;">"%d\n"</span>, val);
+<span class="linenr">128: </span>}
+<span class="linenr">129: </span>
+<span class="linenr">130: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25226;&#32531;&#20914;&#21306;buf&#30340;&#20540;&#20889;&#21040;&#35774;&#22791;&#23492;&#23384;&#22120;val&#20013;&#21435;&#65292;&#20869;&#37096;&#20351;&#29992;</span>
+<span class="linenr">131: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">__hello_set_val</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">dev</span>,
+<span class="linenr">132: </span>                               <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">buf</span>, <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>)
+<span class="linenr">133: </span>{
+<span class="linenr">134: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span> = 0;        
+<span class="linenr">135: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23558;&#23383;&#31526;&#20018;&#36716;&#25442;&#25104;&#25968;&#23383;        </span>
+<span class="linenr">136: </span>    val = simple_strtol(buf, <span style="color: #7fffd4;">NULL</span>, 10);        
+<span class="linenr">137: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21516;&#27493;&#35775;&#38382;        </span>
+<span class="linenr">138: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(down_interruptible(&amp;(dev-&gt;sem)))
+<span class="linenr">139: </span>    {                
+<span class="linenr">140: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -ERESTARTSYS;        
+<span class="linenr">141: </span>    }        
+<span class="linenr">142: </span>    dev-&gt;val = val;        
+<span class="linenr">143: </span>    up(&amp;(dev-&gt;sem));
+<span class="linenr">144: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> count;
+<span class="linenr">145: </span>}
+<span class="linenr">146: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35835;&#21462;&#35774;&#22791;&#23646;&#24615;val</span>
+<span class="linenr">147: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_val_show</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device</span>* <span style="color: #ffd700;">dev</span>,
+<span class="linenr">148: </span>                              <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device_attribute</span>* <span style="color: #ffd700;">attr</span>,
+<span class="linenr">149: </span>                              <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">buf</span>)
+<span class="linenr">150: </span>{
+<span class="linenr">151: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">hdev</span> =
+<span class="linenr">152: </span>        (<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>*)dev_get_drvdata(dev);        
+<span class="linenr">153: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> __hello_get_val(hdev, buf);
+<span class="linenr">154: </span>}
+<span class="linenr">155: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20889;&#35774;&#22791;&#23646;&#24615;val</span>
+<span class="linenr">156: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_val_store</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device</span>* <span style="color: #ffd700;">dev</span>,
+<span class="linenr">157: </span>                               <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device_attribute</span>* <span style="color: #ffd700;">attr</span>,
+<span class="linenr">158: </span>                               <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">buf</span>, <span style="color: #ffff00; font-size: 105%;">size_t</span> <span style="color: #ffd700;">count</span>)
+<span class="linenr">159: </span>{ 
+<span class="linenr">160: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">hdev</span> =
+<span class="linenr">161: </span>        (<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>*)dev_get_drvdata(dev);  
+<span class="linenr">162: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> __hello_set_val(hdev, buf, count);
+<span class="linenr">163: </span>}
+</pre>
+</div></li>
+
+<li><p>
+proc方式
+定义通过proc文件系统访问方法，主要实现了两个方法
+</p>
+<ul class="org-ul">
+<li>hello<sub>proc</sub><sub>read</sub>；</li>
+<li>hello<sub>proc</sub><sub>write</sub>；</li>
+</ul>
+
+<p>
+同时定义了在proc文件系统创建和删除文件的方法
+</p>
+<ul class="org-ul">
+<li>hello<sub>create</sub><sub>proc</sub>；</li>
+<li>hello<sub>remove</sub><sub>proc</sub>；</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">164: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35835;&#21462;&#35774;&#22791;&#23492;&#23384;&#22120;val&#30340;&#20540;&#65292;&#20445;&#23384;&#22312;page&#32531;&#20914;&#21306;&#20013;</span>
+<span class="linenr">165: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_proc_read</span>(<span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">page</span>,
+<span class="linenr">166: </span>                               <span style="color: #ffff00; font-size: 105%;">char</span>* * <span style="color: #ffd700;">start</span>,
+<span class="linenr">167: </span>                               <span style="color: #ffff00; font-size: 105%;">off_t</span> <span style="color: #ffd700;">off</span>,
+<span class="linenr">168: </span>                               <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">count</span>,
+<span class="linenr">169: </span>                               <span style="color: #ffff00; font-size: 105%;">int</span>* <span style="color: #ffd700;">eof</span>,
+<span class="linenr">170: </span>                               <span style="color: #ffff00; font-size: 105%;">void</span>* <span style="color: #ffd700;">data</span>)
+<span class="linenr">171: </span>{
+<span class="linenr">172: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(off &gt; 0)
+<span class="linenr">173: </span>    {
+<span class="linenr">174: </span>        *eof = 1;
+<span class="linenr">175: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">176: </span>    }
+<span class="linenr">177: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> __hello_get_val(hello_dev, page);
+<span class="linenr">178: </span>}
+<span class="linenr">179: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25226;&#32531;&#20914;&#21306;&#30340;&#20540;buff&#20445;&#23384;&#21040;&#35774;&#22791;&#23492;&#23384;&#22120;val&#20013;&#21435;</span>
+<span class="linenr">180: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">ssize_t</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_proc_write</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">file</span>* <span style="color: #ffd700;">filp</span>,
+<span class="linenr">181: </span>                                <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span> <span style="color: #ffd700;">__user</span> *buff,
+<span class="linenr">182: </span>                                <span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffff00; font-size: 105%;">long</span> <span style="color: #ffd700;">len</span>,
+<span class="linenr">183: </span>                                <span style="color: #ffff00; font-size: 105%;">void</span>* <span style="color: #ffd700;">data</span>)
+<span class="linenr">184: </span>{
+<span class="linenr">185: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">err</span> = 0;
+<span class="linenr">186: </span>    <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">page</span> = <span style="color: #7fffd4;">NULL</span>;
+<span class="linenr">187: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(len &gt; PAGE_SIZE)
+<span class="linenr">188: </span>    {
+<span class="linenr">189: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"The buff is too large: %lu.\n"</span>, len);
+<span class="linenr">190: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -EFAULT;
+<span class="linenr">191: </span>    }
+<span class="linenr">192: </span>    page = (<span style="color: #ffff00; font-size: 105%;">char</span>*)__get_free_page(GFP_KERNEL);
+<span class="linenr">193: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(!page)
+<span class="linenr">194: </span>    {                
+<span class="linenr">195: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to alloc page.\n"</span>);
+<span class="linenr">196: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -ENOMEM;
+<span class="linenr">197: </span>    }        
+<span class="linenr">198: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20808;&#25226;&#29992;&#25143;&#25552;&#20379;&#30340;&#32531;&#20914;&#21306;&#20540;&#25335;&#36125;&#21040;&#20869;&#26680;&#32531;&#20914;&#21306;&#20013;&#21435;</span>
+<span class="linenr">199: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(copy_from_user(page, buff, len))
+<span class="linenr">200: </span>    {
+<span class="linenr">201: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to copy buff from user.\n"</span>);                
+<span class="linenr">202: </span>        err = -EFAULT;
+<span class="linenr">203: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">out</span>;
+<span class="linenr">204: </span>    }
+<span class="linenr">205: </span>    err = __hello_set_val(hello_dev, page, len);
+<span class="linenr">206: </span>  <span style="color: #7fffd4;">out</span>:
+<span class="linenr">207: </span>    free_page((<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffff00; font-size: 105%;">long</span>)page);
+<span class="linenr">208: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> err;
+<span class="linenr">209: </span>}
+<span class="linenr">210: </span>
+<span class="linenr">211: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21019;&#24314;/proc/hello&#25991;&#20214;</span>
+<span class="linenr">212: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_create_proc</span>(<span style="color: #ffff00; font-size: 105%;">void</span>)
+<span class="linenr">213: </span>{
+<span class="linenr">214: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">proc_dir_entry</span>* <span style="color: #ffd700;">entry</span>;
+<span class="linenr">215: </span>    entry = create_proc_entry(HELLO_DEVICE_PROC_NAME, 0, <span style="color: #7fffd4;">NULL</span>);
+<span class="linenr">216: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(entry)
+<span class="linenr">217: </span>    {
+<span class="linenr">218: </span>        entry-&gt;owner = THIS_MODULE;
+<span class="linenr">219: </span>        entry-&gt;read_proc = hello_proc_read;
+<span class="linenr">220: </span>        entry-&gt;write_proc = hello_proc_write;
+<span class="linenr">221: </span>    }
+<span class="linenr">222: </span>}
+<span class="linenr">223: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21024;&#38500;/proc/hello&#25991;&#20214;</span>
+<span class="linenr">224: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_remove_proc</span>(<span style="color: #ffff00; font-size: 105%;">void</span>)
+<span class="linenr">225: </span>{
+<span class="linenr">226: </span>    remove_proc_entry(HELLO_DEVICE_PROC_NAME, <span style="color: #7fffd4;">NULL</span>);
+<span class="linenr">227: </span>}
+<span class="linenr">228: </span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgee3ffc2" class="outline-5">
+<h5 id="orgee3ffc2"><span class="section-number-5">3.13.2.4</span> 驱动注册</h5>
+<div class="outline-text-5" id="text-3-13-2-4">
+<p>
+最后，定义模块加载和卸载方法，这里只要是执行设备注册和初始化操作。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">229: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21021;&#22987;&#21270;&#35774;&#22791;</span>
+<span class="linenr">230: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span>  <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">__hello_setup_dev</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>* <span style="color: #ffd700;">dev</span>)
+<span class="linenr">231: </span>{
+<span class="linenr">232: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">err</span>;
+<span class="linenr">233: </span>    <span style="color: #ffff00; font-size: 105%;">dev_t</span> <span style="color: #ffd700;">devno</span> = MKDEV(hello_major, hello_minor);
+<span class="linenr">234: </span>    memset(dev, 0, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>));
+<span class="linenr">235: </span>    cdev_init(&amp;(dev-&gt;dev), &amp;hello_fops);
+<span class="linenr">236: </span>    dev-&gt;dev.owner = THIS_MODULE;
+<span class="linenr">237: </span>    dev-&gt;dev.ops = &amp;hello_fops;        
+<span class="linenr">238: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27880;&#20876;&#23383;&#31526;&#35774;&#22791;</span>
+<span class="linenr">239: </span>    err = cdev_add(&amp;(dev-&gt;dev),devno, 1);
+<span class="linenr">240: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(err)
+<span class="linenr">241: </span>    {
+<span class="linenr">242: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> err;
+<span class="linenr">243: </span>    }        
+<span class="linenr">244: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21021;&#22987;&#21270;&#20449;&#21495;&#37327;&#21644;&#23492;&#23384;&#22120;val&#30340;&#20540;</span>
+<span class="linenr">245: </span>    init_MUTEX(&amp;(dev-&gt;sem));
+<span class="linenr">246: </span>    dev-&gt;val = 0;
+<span class="linenr">247: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">248: </span>}
+<span class="linenr">249: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27169;&#22359;&#21152;&#36733;&#26041;&#27861;</span>
+<span class="linenr">250: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">__init</span> hello_init(<span style="color: #ffff00; font-size: 105%;">void</span>)
+<span class="linenr">251: </span>{ 
+<span class="linenr">252: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">err</span> = -1;
+<span class="linenr">253: </span>    <span style="color: #ffff00; font-size: 105%;">dev_t</span> <span style="color: #ffd700;">dev</span> = 0;
+<span class="linenr">254: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">device</span>* <span style="color: #ffd700;">temp</span> = <span style="color: #7fffd4;">NULL</span>;
+<span class="linenr">255: </span>    printk(KERN_ALERT<span style="color: #ffa07a;">"Initializing hello device.\n"</span>);        
+<span class="linenr">256: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21160;&#24577;&#20998;&#37197;&#20027;&#35774;&#22791;&#21644;&#20174;&#35774;&#22791;&#21495;</span>
+<span class="linenr">257: </span>    err = alloc_chrdev_region(&amp;dev, 0, 1, HELLO_DEVICE_NODE_NAME);
+<span class="linenr">258: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(err &lt; 0)
+<span class="linenr">259: </span>    {
+<span class="linenr">260: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to alloc char dev region.\n"</span>);
+<span class="linenr">261: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">fail</span>;
+<span class="linenr">262: </span>    }
+<span class="linenr">263: </span>    hello_major = MAJOR(dev);
+<span class="linenr">264: </span>    hello_minor = MINOR(dev);        
+<span class="linenr">265: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20998;&#37197;helo&#35774;&#22791;&#32467;&#26500;&#20307;&#21464;&#37327;</span>
+<span class="linenr">266: </span>    hello_dev = kmalloc(<span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_android_dev</span>), GFP_KERNEL);
+<span class="linenr">267: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(!hello_dev)
+<span class="linenr">268: </span>    {
+<span class="linenr">269: </span>        err = -ENOMEM;
+<span class="linenr">270: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to alloc hello_dev.\n"</span>);
+<span class="linenr">271: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">unregister</span>;
+<span class="linenr">272: </span>    }        
+<span class="linenr">273: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21021;&#22987;&#21270;&#35774;&#22791;</span>
+<span class="linenr">274: </span>    err = __hello_setup_dev(hello_dev);
+<span class="linenr">275: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(err)
+<span class="linenr">276: </span>    {
+<span class="linenr">277: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to setup dev: %d.\n"</span>, err);
+<span class="linenr">278: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">cleanup</span>;
+<span class="linenr">279: </span>    }        
+<span class="linenr">280: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#22312;/sys/class/&#30446;&#24405;&#19979;&#21019;&#24314;&#35774;&#22791;&#31867;&#21035;&#30446;&#24405;hello</span>
+<span class="linenr">281: </span>    hello_class = class_create(THIS_MODULE, HELLO_DEVICE_CLASS_NAME);
+<span class="linenr">282: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(IS_ERR(hello_class))
+<span class="linenr">283: </span>    {
+<span class="linenr">284: </span>        err = PTR_ERR(hello_class);
+<span class="linenr">285: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to create hello class.\n"</span>);
+<span class="linenr">286: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">destroy_cdev</span>;
+<span class="linenr">287: </span>    }        
+<span class="linenr">288: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#22312;/dev/&#30446;&#24405;&#21644;/sys/class/hello&#30446;&#24405;&#19979;&#20998;&#21035;&#21019;&#24314;&#35774;&#22791;&#25991;&#20214;hello</span>
+<span class="linenr">289: </span>    temp = device_create(hello_class, <span style="color: #7fffd4;">NULL</span>, dev, <span style="color: #ffa07a;">"%s"</span>, HELLO_DEVICE_FILE_NAME);
+<span class="linenr">290: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(IS_ERR(temp))
+<span class="linenr">291: </span>    {
+<span class="linenr">292: </span>        err = PTR_ERR(temp);
+<span class="linenr">293: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to create hello device."</span>);
+<span class="linenr">294: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">destroy_class</span>;
+<span class="linenr">295: </span>    }        
+<span class="linenr">296: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#22312;/sys/class/hello/hello&#30446;&#24405;&#19979;&#21019;&#24314;&#23646;&#24615;&#25991;&#20214;val</span>
+<span class="linenr">297: </span>    err = device_create_file(temp, &amp;dev_attr_val);
+<span class="linenr">298: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(err &lt; 0)
+<span class="linenr">299: </span>    {
+<span class="linenr">300: </span>        printk(KERN_ALERT<span style="color: #ffa07a;">"Failed to create attribute val."</span>);                
+<span class="linenr">301: </span>        <span style="color: #ffb6c1; font-size: 105%;">goto</span> <span style="color: #7fffd4;">destroy_device</span>;
+<span class="linenr">302: </span>    }
+<span class="linenr">303: </span>    dev_set_drvdata(temp, hello_dev);        
+<span class="linenr">304: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21019;&#24314;/proc/hello&#25991;&#20214;</span>
+<span class="linenr">305: </span>    hello_create_proc();
+<span class="linenr">306: </span>    printk(KERN_ALERT<span style="color: #ffa07a;">"Succedded to initialize hello device.\n"</span>);
+<span class="linenr">307: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">308: </span>  <span style="color: #7fffd4;">destroy_device</span>:
+<span class="linenr">309: </span>    device_destroy(hello_class, dev);
+<span class="linenr">310: </span>  <span style="color: #7fffd4;">destroy_class</span>:
+<span class="linenr">311: </span>    class_destroy(hello_class);
+<span class="linenr">312: </span>  <span style="color: #7fffd4;">destroy_cdev</span>:
+<span class="linenr">313: </span>    cdev_del(&amp;(hello_dev-&gt;dev));
+<span class="linenr">314: </span>  <span style="color: #7fffd4;">cleanup</span>:
+<span class="linenr">315: </span>    kfree(hello_dev);
+<span class="linenr">316: </span>  <span style="color: #7fffd4;">unregister</span>:
+<span class="linenr">317: </span>    unregister_chrdev_region(MKDEV(hello_major, hello_minor), 1);
+<span class="linenr">318: </span>  <span style="color: #7fffd4;">fail</span>:
+<span class="linenr">319: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> err;
+<span class="linenr">320: </span>}
+<span class="linenr">321: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27169;&#22359;&#21368;&#36733;&#26041;&#27861;</span>
+<span class="linenr">322: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">__exit</span> hello_exit(<span style="color: #ffff00; font-size: 105%;">void</span>)
+<span class="linenr">323: </span>{
+<span class="linenr">324: </span>    <span style="color: #ffff00; font-size: 105%;">dev_t</span> <span style="color: #ffd700;">devno</span> = MKDEV(hello_major, hello_minor);
+<span class="linenr">325: </span>    printk(KERN_ALERT<span style="color: #ffa07a;">"Destroy hello device.\n"</span>);        
+<span class="linenr">326: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21024;&#38500;/proc/hello&#25991;&#20214;</span>
+<span class="linenr">327: </span>    hello_remove_proc();        
+<span class="linenr">328: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#38144;&#27585;&#35774;&#22791;&#31867;&#21035;&#21644;&#35774;&#22791;</span>
+<span class="linenr">329: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(hello_class)
+<span class="linenr">330: </span>    {
+<span class="linenr">331: </span>        device_destroy(hello_class, MKDEV(hello_major, hello_minor));
+<span class="linenr">332: </span>        class_destroy(hello_class);
+<span class="linenr">333: </span>    }        
+<span class="linenr">334: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21024;&#38500;&#23383;&#31526;&#35774;&#22791;&#21644;&#37322;&#25918;&#35774;&#22791;&#20869;&#23384;</span>
+<span class="linenr">335: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(hello_dev)
+<span class="linenr">336: </span>    {
+<span class="linenr">337: </span>        cdev_del(&amp;(hello_dev-&gt;dev));
+<span class="linenr">338: </span>        kfree(hello_dev);
+<span class="linenr">339: </span>    }        
+<span class="linenr">340: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#37322;&#25918;&#35774;&#22791;&#21495;</span>
+<span class="linenr">341: </span>    unregister_chrdev_region(devno, 1);
+<span class="linenr">342: </span>}
+<span class="linenr">343: </span>MODULE_LICENSE(<span style="color: #ffa07a;">"GPL"</span>);
+<span class="linenr">344: </span>MODULE_DESCRIPTION(<span style="color: #ffa07a;">"First Android Driver"</span>);
+<span class="linenr">345: </span>module_init(hello_init);
+<span class="linenr">346: </span>module_exit(hello_exit);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org237d502" class="outline-5">
+<h5 id="org237d502"><span class="section-number-5">3.13.2.5</span> 驱动构建</h5>
+<div class="outline-text-5" id="text-3-13-2-5">
+<p>
+在hello目录中新增两个文件
+</p>
+<ul class="org-ul">
+<li><p>
+Kconfig：在编译前执行配置命令make menuconfig时用到的；
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>config HELLO
+<span class="linenr">2: </span>tristate <span style="color: #ffa07a;">"First Android Driver"</span>
+<span class="linenr">3: </span>default n
+<span class="linenr">4: </span>help
+<span class="linenr">5: </span>This is the first android driver.
+</pre>
+</div></li>
+<li><p>
+Makefile：执行编译命令make是用到的；
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>obj-$(CONFIG_HELLO) += hello.o
+</pre>
+</div></li>
+</ul>
+
+<p>
+在Kconfig文件中，tristate表示编译选项HELLO支持在编译内核时，hello模块
+支持以模块、内建和不编译三种编译方法，默认是不编译，因此，在编译内核
+前，我们还需要执行make menuconfig命令来配置编译选项，使得hello可以以
+模块或者内建的方法进行编译.
+</p>
+
+<p>
+在Makefile文件中，根据选项HELLO的值，执行不同的编译方法。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge5bbab6" class="outline-5">
+<h5 id="orge5bbab6"><span class="section-number-5">3.13.2.6</span> 驱动测试</h5>
+<div class="outline-text-5" id="text-3-13-2-6">
+<p>
+在这个名为hello的Linux内核驱动程序中，创建三个不同的文件节点来供用户
+空间访问。
+</p>
+<ul class="org-ul">
+<li>传统的设备文件：/dev/hello；</li>
+<li>proc系统文件：/proc/hello；</li>
+<li>devfs系统属性文件：/sys/class/hello/hello/val。</li>
+</ul>
+
+<p>
+进一步，还通过cat命令来直接访问/proc/hello和
+/sys/class/hello/hello/val文件来，以验证驱动程序的正确性。 
+</p>
+<ul class="org-ul">
+<li><p>
+测试目录
+进入到Android源代码工程的external目录，创建hello目录。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>USER-NAME@MACHINE-NAME:~/Android$ cd external
+<span class="linenr">2: </span>USER-NAME@MACHINE-NAME:~/Android/external$ mkdir hello
+</pre>
+</div></li>
+
+<li><p>
+测试文件
+在hello目录中新建hello.c文件,从/dev/hello文件读写的值实际上就是我们
+虚拟的硬件的寄存器val的值。 
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;stdio.h&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;stdlib.h&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;fcntl.h&gt;</span>
+<span class="linenr"> 4: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">DEVICE_NAME</span> <span style="color: #ffa07a;">"/dev/hello"</span>
+<span class="linenr"> 5: </span><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">main</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">argc</span>, <span style="color: #ffff00; font-size: 105%;">char</span>** <span style="color: #ffd700;">argv</span>)
+<span class="linenr"> 6: </span>{
+<span class="linenr"> 7: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">fd</span> = -1;
+<span class="linenr"> 8: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span> = 0;
+<span class="linenr"> 9: </span>    <span style="color: #90ee90; font-style: italic;">// </span><span style="color: #90ee90; font-style: italic;">&#25171;&#24320;/dev/hello&#25991;&#20214;</span>
+<span class="linenr">10: </span>    fd = open(DEVICE_NAME, O_RDWR); <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992;</span>
+<span class="linenr">11: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(fd == -1)
+<span class="linenr">12: </span>    {
+<span class="linenr">13: </span>        printf(<span style="color: #ffa07a;">"Failed to open device %s.\n"</span>, DEVICE_NAME);
+<span class="linenr">14: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -1;
+<span class="linenr">15: </span>    }
+<span class="linenr">16: </span>    printf(<span style="color: #ffa07a;">"Read original value:\n"</span>);
+<span class="linenr">17: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20808;&#35835;&#20986;/dev/hello&#25991;&#20214;&#20013;&#30340;&#20540;</span>
+<span class="linenr">18: </span>    read(fd, &amp;val, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(val)); <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992;</span>
+<span class="linenr">19: </span>    printf(<span style="color: #ffa07a;">"%d.\n\n"</span>, val);
+<span class="linenr">20: </span>    val = 5;
+<span class="linenr">21: </span>    printf(<span style="color: #ffa07a;">"Write value %d to %s.\n\n"</span>, val, DEVICE_NAME);
+<span class="linenr">22: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20889;&#20837;&#20540;5&#21040;/dev/hello&#20013;&#21435;</span>
+<span class="linenr">23: </span>    write(fd, &amp;val, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(val)); <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992;</span>
+<span class="linenr">24: </span>    printf(<span style="color: #ffa07a;">"Read the value again:\n"</span>);
+<span class="linenr">25: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20877;&#27425;&#35835;&#20986;/dev/hello&#25991;&#20214;&#20013;&#30340;&#20540;</span>
+<span class="linenr">26: </span>    read(fd, &amp;val, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(val)); <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992;</span>
+<span class="linenr">27: </span>    printf(<span style="color: #ffa07a;">"%d.\n\n"</span>, val);
+<span class="linenr">28: </span>    close(fd);    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992;</span>
+<span class="linenr">29: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">30: </span>}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orged72b79" class="outline-4">
+<h4 id="orged72b79"><span class="section-number-4">3.13.3</span> hal</h4>
+<div class="outline-text-4" id="text-3-13-3">
+<p>
+这里介绍Android系统如何在hal中增加硬件模块来和内核驱动程序交互。完成
+内核驱动程序后，可以在Android系统中得到三个文件，这里通过设备文件
+/dev/hello来连接硬件抽象层模块和Linux内核驱动程序模块 。 
+</p>
+<ul class="org-ul">
+<li>/dev/hello；</li>
+<li>/sys/class/hello/hello/val；</li>
+<li>/proc/hello。</li>
+</ul>
+</div>
+
+<div id="outline-container-org05396f5" class="outline-5">
+<h5 id="org05396f5"><span class="section-number-5">3.13.3.1</span> hal路径</h5>
+<div class="outline-text-5" id="text-3-13-3-1">
+<p>
+进入到在hardware/libhardware/include/hardware目录，新建hello.h文件
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>USER-NAME@MACHINE-NAME:~/Android$ cd hardware/libhardware/include/hardware
+<span class="linenr">2: </span>USER-NAME@MACHINE-NAME:~/Android/hardware/libhardware/include/hardware$ vi hello.h
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org16edaec" class="outline-5">
+<h5 id="org16edaec"><span class="section-number-5">3.13.3.2</span> hal接口</h5>
+<div class="outline-text-5" id="text-3-13-3-2">
+<p>
+hello.h文件的内容如下
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #87cefa; text-decoration: underline;">#if</span><span style="color: #87cefa; text-decoration: underline;">n</span><span style="color: #87cefa; text-decoration: underline;">def</span> ANDROID_HELLO_INTERFACE_H
+<span class="linenr"> 2: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">ANDROID_HELLO_INTERFACE_H</span>
+<span class="linenr"> 3: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;hardware/hardware.h&gt;</span>
+<span class="linenr"> 4: </span>__BEGIN_DECLS
+<span class="linenr"> 5: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23450;&#20041;&#27169;&#22359;ID</span>
+<span class="linenr"> 6: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">HELLO_HARDWARE_MODULE_ID</span> <span style="color: #ffa07a;">"hello"</span>
+<span class="linenr"> 7: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#30828;&#20214;&#27169;&#22359;&#32467;&#26500;&#20307;</span>
+<span class="linenr"> 8: </span><span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_module_t</span>
+<span class="linenr"> 9: </span>{
+<span class="linenr">10: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_module_t</span> <span style="color: #ffd700;">common</span>;
+<span class="linenr">11: </span>};
+<span class="linenr">12: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#30828;&#20214;&#25509;&#21475;&#32467;&#26500;&#20307;</span>
+<span class="linenr">13: </span><span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>
+<span class="linenr">14: </span>{
+<span class="linenr">15: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_device_t</span> <span style="color: #ffd700;">common</span>;
+<span class="linenr">16: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">fd</span>;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35774;&#22791;&#25991;&#20214;&#25551;&#36848;&#31526;&#65292;&#23545;&#24212;/dev/hello</span>
+<span class="linenr">17: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35813;hal&#23545;&#19978;&#25552;&#20379;&#30340;&#20989;&#25968;&#25509;&#21475;</span>
+<span class="linenr">18: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> (*<span style="color: #1e90ff; font-size: 105%; font-weight: bold;">set_val</span>)(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span>);
+<span class="linenr">19: </span>    <span style="color: #ffff00; font-size: 105%;">int</span> (*<span style="color: #1e90ff; font-size: 105%; font-weight: bold;">get_val</span>)(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">int</span>* <span style="color: #ffd700;">val</span>);
+<span class="linenr">20: </span>};
+<span class="linenr">21: </span>__END_DECLS
+<span class="linenr">22: </span><span style="color: #87cefa; text-decoration: underline;">#endif</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d6d707" class="outline-5">
+<h5 id="org8d6d707"><span class="section-number-5">3.13.3.3</span> hal实现</h5>
+<div class="outline-text-5" id="text-3-13-3-3">
+<p>
+进入hardware/libhardware/modules目录，新建hello目录，添加hello.c文件。  
+</p>
+<ul class="org-ul">
+<li><p>
+首先是包含相关头文件和定义相关结构
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">LOG_TAG</span> <span style="color: #ffa07a;">"HelloStub"</span>
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;hardware/hardware.h&gt;</span>
+<span class="linenr"> 4: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;hardware/hello.h&gt;</span>
+<span class="linenr"> 5: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;fcntl.h&gt;</span>
+<span class="linenr"> 6: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;errno.h&gt;</span>
+<span class="linenr"> 7: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;cutils/log.h&gt;</span>
+<span class="linenr"> 8: </span><span style="color: #87cefa; text-decoration: underline;">#include</span> <span style="color: #ffa07a;">&lt;cutils/atomic.h&gt;</span>
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">DEVICE_NAME</span> <span style="color: #ffa07a;">"/dev/hello"</span>
+<span class="linenr">11: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">MODULE_NAME</span> <span style="color: #ffa07a;">"Hello"</span>
+<span class="linenr">12: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">MODULE_AUTHOR</span> <span style="color: #ffa07a;">"shyluo@gmail.com"</span>
+<span class="linenr">13: </span>
+<span class="linenr">14: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35774;&#22791;&#25171;&#24320;&#21644;&#20851;&#38381;&#25509;&#21475;</span>
+<span class="linenr">15: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_device_open</span>(<span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_module_t</span>* <span style="color: #ffd700;">module</span>, 
+<span class="linenr">16: </span>                             <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">name</span>,
+<span class="linenr">17: </span>                             <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_device_t</span> * * <span style="color: #ffd700;">device</span>);
+<span class="linenr">18: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_device_close</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_device_t</span>* <span style="color: #ffd700;">device</span>);
+<span class="linenr">19: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35774;&#22791;&#35775;&#38382;&#25509;&#21475;</span>
+<span class="linenr">20: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_set_val</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span>);
+<span class="linenr">21: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_get_val</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">int</span>* <span style="color: #ffd700;">val</span>);
+<span class="linenr">22: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27169;&#22359;&#26041;&#27861;&#34920;</span>
+<span class="linenr">23: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_module_methods_t</span> <span style="color: #ffd700;">hello_module_methods</span> =
+<span class="linenr">24: </span>{<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#36890;&#36807;&#35813;&#26041;&#27861;&#25171;&#24320;/dev/hello&#35774;&#22791;&#25991;&#20214;&#65292;&#29992;malloc&#20570;&#20869;&#23384;&#26144;&#23556;&#65292;</span>
+<span class="linenr">25: </span> <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23601;&#21487;&#20197;&#35775;&#38382;&#35813;&#39537;&#21160;&#25991;&#20214;&#30340;&#21508;&#31181;&#26041;&#27861;&#21644;&#23646;&#24615;</span>
+<span class="linenr">26: </span>  open: hello_device_open
+<span class="linenr">27: </span>};
+<span class="linenr">28: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27169;&#22359;&#23454;&#20363;&#21464;&#37327;&#65292;hal&#35268;&#23450;&#35813;&#21517;&#31216;&#22266;&#23450;</span>
+<span class="linenr">29: </span><span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_module_t</span> <span style="color: #ffd700;">HAL_MODULE_INFO_SYM</span> =
+<span class="linenr">30: </span>{
+<span class="linenr">31: </span>  common: {
+<span class="linenr">32: </span>      tag: HARDWARE_MODULE_TAG,<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">hal&#35268;&#23450;&#35813;&#21517;&#31216;&#22266;&#23450;</span>
+<span class="linenr">33: </span>      version_major: 1,
+<span class="linenr">34: </span>      version_minor: 0,
+<span class="linenr">35: </span>      id: HELLO_HARDWARE_MODULE_ID,<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">hal&#35268;&#23450;&#35813;&#21517;&#31216;&#22266;&#23450;</span>
+<span class="linenr">36: </span>      name: MODULE_NAME,
+<span class="linenr">37: </span>      author: MODULE_AUTHOR,
+<span class="linenr">38: </span>      methods: &amp;hello_module_methods,<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#19978;&#38754;&#30340;&#26041;&#27861;&#34920;</span>
+<span class="linenr">39: </span>  }
+<span class="linenr">40: </span>};
+</pre>
+</div></li>
+
+<li><p>
+定义hello<sub>device</sub><sub>open函数</sub>.
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">41: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_device_open</span>(<span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_module_t</span>* <span style="color: #ffd700;">module</span>,
+<span class="linenr">42: </span>                             <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">name</span>,
+<span class="linenr">43: </span>                             <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_device_t</span> * * <span style="color: #ffd700;">device</span>)
+<span class="linenr">44: </span>{
+<span class="linenr">45: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>;
+<span class="linenr">46: </span>    <span style="color: #90ee90; font-style: italic;">// </span><span style="color: #90ee90; font-style: italic;">/dev/hello&#30340;&#20869;&#23384;&#26144;&#23556;buffer</span>
+<span class="linenr">47: </span>    dev = (<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>*)malloc(<span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>));
+<span class="linenr">48: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(!dev)
+<span class="linenr">49: </span>    {
+<span class="linenr">50: </span>        LOGE(<span style="color: #ffa07a;">"Hello Stub: failed to alloc space"</span>);
+<span class="linenr">51: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -EFAULT;
+<span class="linenr">52: </span>    }
+<span class="linenr">53: </span>    memset(dev, 0, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>));
+<span class="linenr">54: </span>    <span style="color: #90ee90; font-style: italic;">// </span><span style="color: #90ee90; font-style: italic;">hal&#35268;&#23450;&#35813;&#21517;&#31216;&#22266;&#23450;</span>
+<span class="linenr">55: </span>    dev-&gt;common.tag = HARDWARE_DEVICE_TAG;
+<span class="linenr">56: </span>    dev-&gt;common.version = 0;
+<span class="linenr">57: </span>    dev-&gt;common.module = (<span style="color: #ffff00; font-size: 105%;">hw_module_t</span>*)module;
+<span class="linenr">58: </span>    dev-&gt;common.close = hello_device_close;
+<span class="linenr">59: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">hal&#23545;&#19978;&#23618;&#30340;&#26041;&#27861;&#26144;&#23556;</span>
+<span class="linenr">60: </span>    dev-&gt;set_val = hello_set_val;
+<span class="linenr">61: </span>    dev-&gt;get_val = hello_get_val;
+<span class="linenr">62: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>((dev-&gt;fd = open(DEVICE_NAME, O_RDWR)) == -1)
+<span class="linenr">63: </span>    {
+<span class="linenr">64: </span>        LOGE(<span style="color: #ffa07a;">"Hello Stub: failed to open /dev/hello -- %s."</span>, 
+<span class="linenr">65: </span>             strerror(errno));
+<span class="linenr">66: </span>        free(dev);
+<span class="linenr">67: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -EFAULT;
+<span class="linenr">68: </span>    }
+<span class="linenr">69: </span>    *device = &amp;(dev-&gt;common);
+<span class="linenr">70: </span>    LOGI(<span style="color: #ffa07a;">"Hello Stub: open /dev/hello successfully."</span>);
+<span class="linenr">71: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">72: </span>}
+<span class="linenr">73: </span>
+</pre>
+</div></li>
+
+<li><p>
+定义hello<sub>device</sub><sub>close</sub>、hello<sub>set</sub><sub>val和hello</sub><sub>get</sub><sub>val这三个函数</sub>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 74: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_device_close</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hw_device_t</span>* <span style="color: #ffd700;">device</span>)
+<span class="linenr"> 75: </span>{
+<span class="linenr"> 76: </span>    <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">hello_device</span> = (<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>*)device;
+<span class="linenr"> 77: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(hello_device)
+<span class="linenr"> 78: </span>    {
+<span class="linenr"> 79: </span>        close(hello_device-&gt;fd);
+<span class="linenr"> 80: </span>        free(hello_device);
+<span class="linenr"> 81: </span>    }
+<span class="linenr"> 82: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr"> 83: </span>}
+<span class="linenr"> 84: </span>
+<span class="linenr"> 85: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_set_val</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">val</span>)
+<span class="linenr"> 86: </span>{
+<span class="linenr"> 87: </span>    LOGI(<span style="color: #ffa07a;">"Hello Stub: set value %d to device."</span>, val);
+<span class="linenr"> 88: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992;</span>
+<span class="linenr"> 89: </span>    write(dev-&gt;fd, &amp;val, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(val));
+<span class="linenr"> 90: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr"> 91: </span>}
+<span class="linenr"> 92: </span>
+<span class="linenr"> 93: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">hello_get_val</span>(<span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">hello_device_t</span>* <span style="color: #ffd700;">dev</span>, <span style="color: #ffff00; font-size: 105%;">int</span>* <span style="color: #ffd700;">val</span>)
+<span class="linenr"> 94: </span>{
+<span class="linenr"> 95: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span>(!val)
+<span class="linenr"> 96: </span>    {
+<span class="linenr"> 97: </span>        LOGE(<span style="color: #ffa07a;">"Hello Stub: error val pointer"</span>);
+<span class="linenr"> 98: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> -EFAULT;
+<span class="linenr"> 99: </span>    }
+<span class="linenr">100: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#31995;&#32479;&#35843;&#29992; </span>
+<span class="linenr">101: </span>    read(dev-&gt;fd, val, <span style="color: #ffb6c1; font-size: 105%;">sizeof</span>(*val));
+<span class="linenr">102: </span>    LOGI(<span style="color: #ffa07a;">"Hello Stub: get value %d from device"</span>, *val);
+<span class="linenr">103: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">104: </span>}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf0b0f35" class="outline-5">
+<h5 id="orgf0b0f35"><span class="section-number-5">3.13.3.4</span> hal构建</h5>
+<div class="outline-text-5" id="text-3-13-3-4">
+<ul class="org-ul">
+<li><p>
+mk文件
+继续在hello目录下新建Android.mk文件, LOCAL<sub>MODULE的定义规则</sub>，hello
+后面跟有default，hello.default能够保证我们的模块总能被hal层加载到。  
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>LOCAL_PATH := $(call my-dir)
+<span class="linenr">2: </span>        include $(CLEAR_VARS)
+<span class="linenr">3: </span>        LOCAL_MODULE_TAGS := optional
+<span class="linenr">4: </span>        LOCAL_PRELINK_MODULE := false
+<span class="linenr">5: </span>        LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+<span class="linenr">6: </span>        LOCAL_SHARED_LIBRARIES := liblog
+<span class="linenr">7: </span>        LOCAL_SRC_FILES := hello.c
+<span class="linenr">8: </span>        LOCAL_MODULE := hello.default
+<span class="linenr">9: </span>include $(BUILD_SHARED_LIBRARY)
+</pre>
+</div></li>
+
+<li><p>
+编译
+编译成功后，就可以在out/target/product/generic/system/lib/hw目录下
+看到hello.default.so文件了。 
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>USER-NAME@MACHINE-NAME:~/Android$ mmm hardware/libhardware/modules/hello
+</pre>
+</div></li>
+
+<li><p>
+打包
+重新打包Android系统镜像system.img, 就包含我们定义的硬件抽象层模块
+hello.default了。 
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="linenr">1: </span>USER-NAME@MACHINE-NAME:~/Android$ make snod
+</pre>
+</div>
+
+<p>
+虽然我们在Android系统为我们自己的硬件增加了一个硬件抽象层模块，但是
+现在Java应用程序还不能访问到我们的硬件。我们还必须编写JNI方法和在
+Android的Application Frameworks层增加API接口，才能让上层Application
+访问我们的硬件。在接下来的文章中，我们还将完成这一系统过程，使得我
+们能够在Java应用程序中访问我们自己定制的硬件。 
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgca38ff9" class="outline-4">
+<h4 id="orgca38ff9"><span class="section-number-4">3.13.4</span> jni</h4>
+</div>
+<div id="outline-container-org6716256" class="outline-4">
+<h4 id="org6716256"><span class="section-number-4">3.13.5</span> framework</h4>
 </div>
 </div>
 </div>
@@ -2860,7 +3803,7 @@ svc调用，svc有相应的号；</li>
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2019-01-01 周二 22:14</p>
+<p class="date">Created: 2019-01-06 周日 13:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
