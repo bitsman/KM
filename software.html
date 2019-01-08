@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-01 周二 22:14 -->
+<!-- 2019-01-08 周二 21:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>软件</title>
@@ -257,11 +257,11 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org775f74b">1. 语言</a>
+<li><a href="#org3fd3f10">1. 编程语言</a>
 <ul>
 <li><a href="#orgff048d0">1.1. C语言</a>
 <ul>
-<li><a href="#orga1ef3ce">1.1.1. 宏定义特殊用法</a></li>
+<li><a href="#org68f2b54">1.1.1. 宏操作</a></li>
 <li><a href="#org340afdb">1.1.2. 位操作</a></li>
 <li><a href="#org61795f7">1.1.3. 嵌入式</a></li>
 </ul>
@@ -284,31 +284,34 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org775f74b" class="outline-2">
-<h2 id="org775f74b"><span class="section-number-2">1</span> 语言</h2>
+<div id="outline-container-org3fd3f10" class="outline-2">
+<h2 id="org3fd3f10"><span class="section-number-2">1</span> 编程语言</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 <div id="outline-container-orgff048d0" class="outline-3">
 <h3 id="orgff048d0"><span class="section-number-3">1.1</span> C语言</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orga1ef3ce" class="outline-4">
-<h4 id="orga1ef3ce"><span class="section-number-4">1.1.1</span> 宏定义特殊用法</h4>
+<div id="outline-container-org68f2b54" class="outline-4">
+<h4 id="org68f2b54"><span class="section-number-4">1.1.1</span> 宏操作</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
-<li>从注释来看是把x转换成字符串。</li>
-</ul>
+<li><p>
+从注释来看是把x转换成字符串。
+</p>
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #90ee90; font-style: italic;">/*</span>
 <span style="color: #90ee90; font-style: italic;"> * Macros to transform values</span>
 <span style="color: #90ee90; font-style: italic;"> * into environment strings.</span>
 <span style="color: #90ee90; font-style: italic;"> </span><span style="color: #90ee90; font-style: italic;">*/</span>
-<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">XMK_STR</span>(<span style="color: #ffd700;">x</span>)    #x
-<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">MK_STR</span>(<span style="color: #ffd700;">x</span>)    XMK_STR(x)
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">XMK_STR</span>(<span style="color: #ffd700;">x</span>)  #x
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">MK_STR</span>(<span style="color: #ffd700;">x</span>)   XMK_STR(x)
 </pre>
 </div>
+
 <p>
-找到了相关的资料，解读了这个define，还顺便认识了另外两个不常用的define
+找到了相关的资料，解读了这个define，还顺便认识了另外两个不常用的
+define
 </p>
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Conn</span>(<span style="color: #ffd700;">x</span>,<span style="color: #ffd700;">y</span>) x##y
@@ -316,6 +319,7 @@ for the JavaScript code in this tag.
 <span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">ToString</span>(<span style="color: #ffd700;">x</span>) #x
 </pre>
 </div>
+
 <p>
 x##y表示什么？表示x连接y，举例说：
 </p>
@@ -324,28 +328,58 @@ x##y表示什么？表示x连接y，举例说：
 <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">str</span> = Conn(<span style="color: #ffa07a;">"asdf"</span>, <span style="color: #ffa07a;">"adf"</span>)<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#32467;&#26524;&#23601;&#26159; str = "asdfadf";</span>
 </pre>
 </div>
+
 <p>
-再来看#@x，其实就是给x加上单引号，结果返回是一个const char。举例说：char a = ToChar(1);结果就是a='1';做个越界试验char a
-= ToChar(123);结果是a='3'; 但是如果你的参数超过四个字符，编译器就给给你报错了！error C2015: too many characters in
-constant; 最后看看#x,估计你也明白了，他是给x加双引号
+再来看#@x，其实就是给x加上单引号，结果返回是一个const char。举例说：
+char a = ToChar(1);结果就是a='1';做个越界试验char a=ToChar(123);结
+果是a='3'; 但是如果你的参数超过四个字符，编译器就给给你报错了！
+error C2015: too many characters in constant; 最后看看#x,估计你也明
+白了，他是给x加双引号
 </p>
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">str</span> = ToString(123132);<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#23601;&#25104;&#20102;str="123132";</span>
 </pre>
-</div>
-<ul class="org-ul">
-<li>宏调试接口</li>
-</ul>
+</div></li>
+<li><p>
+宏调试接口
+</p>
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #87cefa; text-decoration: underline;">#pragma</span> diag_suppress 174 <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25233;&#21046;&#35686;&#21578;</span>
 <span style="color: #87cefa; text-decoration: underline;">#ifdef</span> DEBUG
 <span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">printfdbg</span> printf
 <span style="color: #87cefa; text-decoration: underline;">#else</span>
-<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">printfdbg</span> /\
-/printfdbg 
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">printfdbg</span> /                             \
+    /printfdbg 
 <span style="color: #87cefa; text-decoration: underline;">#endif</span>
 </pre>
-</div>
+</div></li>
+<li><p>
+可变参宏函数
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21487;&#21464;&#21442;&#23439;&#20989;&#25968;&#23450;&#20041;</span>
+<span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">HAL_FUN</span>(<span style="color: #ffd700;">FUN_NAME</span>, ...)   \
+    FUN_NAME(__VA_ARGS__);
+<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">1&#21442;&#25968;&#20989;&#25968;&#23450;&#20041;</span>
+<span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">funTest1</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">a</span>)
+{
+    printf (<span style="color: #ffa07a;">"a:%d\n"</span>, a);
+}
+<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">2&#21442;&#25968;&#20989;&#25968;&#23450;&#20041;</span>
+<span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">funTest1</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">a</span>, <span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">b</span>)
+{
+    printf (<span style="color: #ffa07a;">"sum:%d\n"</span>, a+b);
+}
+<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#35843;&#29992;&#23454;&#20363;</span>
+<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">main</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">argc</span>, <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffd700;">argv</span>[])
+{
+    HAL_FUN(funTest1, 2);
+    HAL_FUN(funTest1, 1, 3);
+    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+}
+</pre>
+</div></li>
+</ul>
 </div>
 </div>
 <div id="outline-container-org340afdb" class="outline-4">
@@ -486,7 +520,7 @@ printf调试：可以如下步骤
 };
 <span style="color: #ffff00; font-size: 105%;">FILE</span> <span style="color: #ffd700;">__stdout</span>, <span style="color: #ffd700;">__stderr</span>;<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#36873;&#29992;&#65292;&#22914;&#26524;&#38656;&#35201;&#20998;&#21035;&#36755;&#20986;</span>
 
-<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">fputc</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">ch</span>, <span style="color: #ffff00; font-size: 105%;">FILE</span> *<span style="color: #ffd700;">f</span>)<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">printf&#26368;&#32456;&#35843;&#29992;&#30340;&#25509;&#21475;</span>
+<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">fputc</span>(<span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #ffd700;">ch</span>, <span style="color: #ffff00; font-size: 105%;">FILE</span>* <span style="color: #ffd700;">f</span>)<span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">printf&#26368;&#32456;&#35843;&#29992;&#30340;&#25509;&#21475;</span>
 {
   uart_put((<span style="color: #ffff00; font-size: 105%;">unsigned</span> <span style="color: #ffff00; font-size: 105%;">char</span>)ch);
   <span style="color: #ffb6c1; font-size: 105%;">return</span> ch;
@@ -544,13 +578,16 @@ printf调试：可以如下步骤
 <h4 id="org40067d4"><span class="section-number-4">1.3.2</span> numpy</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
-<li>array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3], [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和
-data.max(0)是从每列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行中获得min和max；</li>
-<li>指数e：numpy.exp()可以表示，但是是函数，math.exp()也是，scipy.exp()也是，
-numpy.e和math.e和scipy.e则是一个float型量了。</li>
-<li>复数：可以表示成1+3j，3和j之间不能相隔，3必须为实数不能是符号，j必须在3之
-后，也可以使用numpy.complex(1, 3)构成1+3j, 同理也就可以构成
-numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用numpy.angle()计算</li>
+<li>array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3],
+[8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和data.max(0)是从每
+列中获取的min和max，组成一个向量，data.min(1) 和data.max(1)是从每行
+中获得min和max；</li>
+<li>指数e：numpy.exp()可以表示，但是是函数，math.exp()也是，scipy.exp()
+也是，numpy.e和math.e和scipy.e则是一个float型量了。</li>
+<li>复数：可以表示成1+3j，3和j之间不能相隔，3必须为实数不能是符号，j必
+须在3之后，也可以使用numpy.complex(1, 3)构成1+3j, 同理也就可以构成
+numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用
+numpy.angle()计算</li>
 </ul>
 </div>
 </div>
@@ -565,7 +602,8 @@ numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用numpy.angle()计
 <h5 id="org41594cf"><span class="section-number-5">1.3.3.1</span> 画XY轴离散点图</h5>
 <div class="outline-text-5" id="text-1-3-3-1">
 <ol class="org-ol">
-<li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3, 10), 其个数要一致；</li>
+<li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3,
+10), 其个数要一致；</li>
 <li>倒入画图包：import matplotlib.pyplot as plt；</li>
 <li>开始画图：plt.plot(x, y, 'o-'), 第3个参数用于对点进行标注；</li>
 <li>设置标题：plt.title('x, y test')</li>
@@ -582,7 +620,7 @@ numpy.complex(1, numpy.pi)即\(e^{1+pi j}\)，复数的角度用numpy.angle()计
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2019-01-01 周二 22:14</p>
+<p class="date">Created: 2019-01-08 周二 21:17</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
