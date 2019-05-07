@@ -31,6 +31,18 @@
 总结平时用到的英语知识、短语、翻译技巧等。 
 * [[./decoration.org][装修]]
 介绍一些装修常识和问题点。
+* 附录
+我的公钥指纹：
+#+BEGIN_EXAMPLE
+  pub   rsa2048 2019-05-07 [SC]
+        E622 558B A9B8 4ACE 5E05  66D1 6F44 A889 D571 A5AA
+#+END_EXAMPLE
+
+你可以使用如下命令获得我的公钥
+#+BEGIN_EXAMPLE
+  gpg --keyserver hkps://hkps.pool.sks-keyservers.net --search-keys bitman@163.com
+#+END_EXAMPLE
+
 
 
 
