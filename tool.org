@@ -729,100 +729,174 @@ Snow covers Emacs
 - git add test.txt testdir: add files or dir
 - git commit -m "log": commit with log message
 - git push -u origin master
-** other
-- base operation
-  + git help <command>: 显示command的help
-  + git show: 显示某次提交的内容 git show $id
-  + git co -- <file>: 抛弃工作区修改
-  + git co .: 抛弃工作区修改
-  + git add <file>: 将工作文件修改提交到本地暂存区
-  + git add .: 将所有修改过的工作文件提交暂存区
-  + git rm <file>: 从版本库中删除文件
-  + git rm <file> --cached: 从版本库中删除文件，但不删除文件
-  + git reset <file>: 从暂存区恢复到工作文件
-  + git reset -- .: 从暂存区恢复到工作文件
-  + git reset --hard: 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改
-  + git ci <file> 
-  + git ci . 
-  + git ci -a: 将git add, git rm和git ci等操作都合并在一起做
-  + git ci -am "some comments"
-  + git ci --amend: 修改最后一次提交记录
-  + git revert <$id>: 恢复某次提交的状态，恢复动作本身也创建次提交对象
-  + git revert HEAD: 恢复最后一次提交的状态查看文件diff
-  + git diff <file>: 比较当前文件和暂存区文件差异 git diff
-  + git diff <id1><id2>: 比较两次提交之间的差异
-  + git diff <branch1>..<branch2>: 在两个分支之间比较
-  + git diff --staged: 比较暂存区和版本库差异
-  + git diff --cached: 比较暂存区和版本库差异
-  + git diff --stat: 仅仅比较统计信息查看提交记录
-  + git log git log <file>: 查看该文件每次提交记录
-  + git log -p <file>: 查看每次详细修改内容的diff
-  + git log -p -2: 查看最近两次详细修改内容的diff
-  + git log --stat:查看提交统计信息
-- Git 本地分支管理查看、切换、创建和删除分支
-  + git br -r: 查看远程分支
-  + git br <new_branch>: 创建新的分支
-  + git br -v: 查看各个分支最后提交信息
-  + git br --merged: 查看已经被合并到当前分支的分支
-  + git br --no-merged: 查看尚未被合并到当前分支的分支
-  + git co <branch>: 切换到某个分支
-  + git co -b <new_branch>: 创建新的分支，并且切换过去
-  + git co -b <new_branch> <branch>: 基于branch创建新的new_branch
-  + git co $id: 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除
-  + git co $id -b <new_branch>: 把某次历史提交记录checkout出来，创建成一个分支
-  + git br -d <branch>: 删除某个分支
-  + git br -D <branch>: 强制删除某个分支 (未被合并的分支被删除的时候需
-    要强制)分支合并和rebase
-  + git merge <branch>: 将branch分支合并到当前分支
-  + git merge origin/master --no-ff: 不要Fast-Foward合并，这样可以生成merge提交
-  + git rebase master <branch>: 将master rebase到branch，相当于:git co
-    <branch> && git rebase master && git co master && git merge
-    <branch>  
-- Git补丁管理(方便在多台机器上开发同步时用)
-  + git diff > ../sync.patch: 生成补丁
-  + git apply ../sync.patch: 打补丁
-  + git apply --check ../sync.patch:测试补丁能否成功
-- Git暂存管理
-  + git stash: 暂存
-  + git stash list: 列所有stash
-  + git stash apply: 恢复暂存的内容
-  + git stash drop: 删除暂存区
-- Git远程分支管理
-  + git pull: 抓取远程仓库所有分支更新并合并到本地
-  + git pull --no-ff: 抓取远程仓库所有分支更新并合并到本地，不要快进合并
-  + git fetch origin: 抓取远程仓库更新
-  + git merge origin/master: 将远程主分支合并到本地当前分支
-  + git co --track origin/branch: 跟踪某个远程分支创建相应的本地分支
-  + git co -b <local_branch> origin/<remote_branch>: 基于远程分支创建
-    本地分支，功能同上 
-  + git push: push所有分支
-  + git push origin master: 将本地主分支推到远程主分支
-  + git push -u origin master: 将本地主分支推到远程(如无远程主分支则创
-    建，用于初始化远程仓库) 
-  + git push origin <local_branch>: 创建远程分支， origin是远程仓库名
-  + git push origin <local_branch>:<remote_branch>: 创建远程分支
-  + git push origin :<remote_branch>:先删除本地分支(git br -d
-    <branch>)，然后再push删除远程分支 
-- Git远程仓库管理
-  + git remote -v: 查看远程服务器地址和仓库名称
-  + git remote show origin: 查看远程服务器仓库状态
-  + git remote add origin git@ github:robbin/robbin_site.git: 添加远程仓库地址
-  + git remote set-url origin git@ github.com:robbin/robbin_site.git:
-    设置远程仓库地址(用于修改远程仓库地址)  
-  + git remote rm <repository>: 删除远程仓库
-- 创建远程仓库
-  + git clone --bare robbin_site robbin_site.git: 用带版本的项目创建纯版本仓库
-  + scp -r my_project.git git@ git.csdn.net:~: 将纯仓库上传到服务器上
-  + mkdir robbin_site.git && cd robbin_site.git && git --bare init: 在
-    服务器创建纯仓库 
-  + git remote add origin git@ github.com:robbin/robbin_site.git: 设置
-    远程仓库地址 
-  + git push -u origin master: 客户端首次提交
-  + git push -u origin develop: 首次将本地develop分支提交到远程develop
-    分支，并且track 
-  + git remote set-head origin master: 设置远程仓库的HEAD指向master分
-    支也可以命令设置跟踪远程库和本地库
-  + git branch --set-upstream master origin/master
-  + git branch --set-upstream develop origin/develop
+** role
+interaction flow is like figure [[imggititactf]].
+#+BEGIN_SRC plantuml :exports results :file ./img/cmdflow.png
+  actor "WORK" as W
+  entity "STAGE(INDEX)" as S
+  database "MASTER(HEAD)" as M
 
+  W -> S: git add <file>
+  S -> M: git commit -m "message"
+  S -> M: git commit --allow-empty -m "message"
+  W -> M: git commit -a -m "message"
+  W -> S: git diff
+  W -> M: git diff HEAD(or MASTER)
+  S -> M: git diff - -cached(or - -staged)
+  S <- M: git reset HEAD(or ID)
+  S <- M: git reset --hard HEAD(or ID)^
+  W <- M: git reset --hard HEAD(or ID)^
+  S <->S: git reset -<file>
+  S -> S: git rm --cached <file>
+  W <- S: git checkout
+  W <- S: git checkout - <file>
+  W <- M: git checkout HEAD(or <file>)
+  S <- M: git checkout HEAD(or <file>)
+  M <-> M: git ls-tree -l HEAD
+  S <-> S: git ls-files -s
+  W <-> W: git clean -fd
+#+END_SRC
+#+CAPTION: Git Interaction Flow
+#+NAME: imggititactf
+#+attr_latex: :placement [H] :width 0.6\textwidth
+#+results:
+[[file:./img/cmdflow.png]]
 
+** command
+- config
+  + git config --global user.name "bitman":提交记录会用到
+  + git config --global user.email bitsman@163.com:提交记录会用到
+  + git config --unset --global user.name: 删除username
+  + git config --unset --global user.email: 删除useremail
+  + git config user.name: 查看user name
+  + git config user.email: 查看user email
+  + git --exec-path: 展示git安装位置
+- status
+  + git status: 显示完整信息；
+  + git status -s: 显示简略信息
+- directory
+  + git rev-parse --git-dir: 显示版本库.git目录所在的位置。
+  + git rev-parse --show-toplevel: 显示工作区根目录。
+  + git rev-parse --show-prefix: 相对于工作区根目录的相对目录。
+  + git rev-parse --show-cdup: 显示从当前目录（cd）后退（up）到工作区的根的深度。
+  + git rev-parse --symbolic --tags: 显示所有tag
+  + git rev-parse HEAD: 显示head对应的sha1；  
+- alias
+  + git config --global alias.st status
+  + git config --global alias.cm "commit -m"
+  + git config --global alias.co checkout
+  + git config --global alias.br branch
+- commit
+  + git commit --allow-empty -m "my message": 允许不修改文件做提交
+  + git commit -a -m "message": 工作区直接提交到版本库, 绕过stage区；
+  + git commit --amend -m "message": 修改最近的提交说明；
+- diff
+  + git diff: 工作区和stage区的文件做对比；
+  + git diff head（或master）: 工作区中的文件和版本库(HEAD)的文件做对比；
+  + git diff --cached（或--staged）: 版本库中的文件和stage区的文件做对比；
+  + git diff tagA tagB:比较里程碑A和B；
+  + git diff tagA：工作区和里程碑A比较；
+  + git diff --cached tagA: 比较stage区和里程碑A；
+  + git diff ID1 ID2 -- <file>:比较记录ID1和ID2下文件file的区别；
+- log
+  + git log：完整log信息
+  + git log --oneline：简略log信息
+  + git log --oneline --decorate：简略log信息加tag信息branch信息
+  + git log --graph --oneline:字符图显示分之log
+  + git log --stat -2：最近2次的log记录；
+- show
+  + git show tagname --stat:显示里程碑tagname及其提交；
+  + git show ID1:README > README.OLD:检出某文件的历史版本到其他文件名
+- reset:一般修改分支游标(master等)
+  + git reset HEAD(可不加): 用版本库的复位stage的文件，工作区不受影响；
+  + git reset --hard head(or ID)^: 回退到父版，工作区和stage区修改全部丢失；
+  + git reset -<file>: git add <file>反向操作；
+- rm
+  + git rm --cached <file> :从stage区删除file文件，工作区不受影响；
+  + git add -u:将工作区删除的文件，标记到stage区，做同一删除
+- add
+  + git add -A :工作区中所有改动以及新增文件添加到暂存区
+- checkout:一般修改HEAD
+  + git checkout HEAD(可不加): 汇总显示工作区、暂存区与HEAD的差异。
+  + git checkout .:用stage区复位工作区的文件，会清除工作区的改动；
+  + git checkout - .:用stage区复位工作区的文件，会清除工作区的改动；
+  + git checkout - <file>: 用stage区的file文件复位工作区的file文件
+  + git checkout HEAD .:用版本库的复位stage和工作区的文件；
+  + git checkout HEAD <file>: 用版本库的复位stage和工作区的file文件；
+  + git checkout <branch>: 检出branch分支。更新HEAD以指向branch分支，以
+    branch指向的树更新暂存区和工作区。
+  + git checkout branch - filename: 维持HEAD的指向不变。将branch所指向
+    的提交中的filename替换暂存区和工作区中相应的文件。注意会将暂存区和
+    工作区中的filename文件直接覆盖。
+  + git checkout -b <new_branch> [<commit>]:基于提交commit创建分支
+    new_branch并切换到new_branch分支上；
+- ls
+  + git ls-tree -l HEAD: 显示版本库中的文件树；
+  + git ls-files -s: 显示stage区的文件树；
+- clean
+  + git clean -fd:清除工作区中未加入版本库的文件和目录    
+- branch
+  + git branch: 显示本地分支列表，带星号的是当前分支；
+  + git branch <branchname>：创建分支（基于HEAD）；
+  + git branch <branchname> <commit>：创建分支（基于commit）；
+  + git branch -d <branchname>：删除分支，删除前检查是否已合并到其他分
+    支，否则拒绝删除；
+  + git branch -D <branchname>：强制删除分支；
+  + git branch -m <oldbranch> <newbranch>：重命名分支，如果版本库中存
+    在newbranch，则拒绝重命名；
+  + git branch -M <oldbranch> <newbranch>：强制重命名分支；
+- stash
+  + git stash:缓存工作区和stage区，再刷新工作区和stage区到之前的一致态
+  + git stash list: 列出缓存的列表；
+  + git stash pop: 弹出最新的stash缓存
+  + git stash apply:类似pop，但不删除缓存；
+  + git stash drop: 删除一个缓存
+  + git stash clear：删除所有缓存；
+  + git stash branch：基于进度创建分之；
+- reflog
+  + git reflog: 
+- tag
+  + git tag -m "message" tagname:打tag, 名字叫tagname
+  + git tag -a <tagname> [<commit>]：类似-m参数
+  + git tag <tagname> [<commit>]: 对提交commit建立tag为tagname；
+  + git tag -s <tagname> [<commit>]：创建带GPG签名的里程碑
+  + git tag -u <key-id> <tagname> [<commit>]：创建带GPG签名的里程碑，-u参数选择指定的私钥进行签名。
+  + git tag -d <tagname>：删除tag；
+  + git tag: 显示当前版本库的里程碑列表;
+  + git tag -n<number>: 显示当前版本库的里程碑列表number条；
+  + git tag -l v2*： 通配符只显示v2版本的子版本；
+- describe
+  + git describe: 将提交显示为一个易记的名称；
+  + git describe <commit>: 将提交commit显示为一个易记的名称；
+- archive
+  + git archive -o latest.zip HEAD:基于最新提交建立归档文件latest.zip
+  + git archive -o partial.tar  HEAD src doc:只将目录src和doc建到归档中
+  + git archive --format=tar --prefix=1.0/ v1.0 | gzip >foo-1.0.tar.gz:
+    基于里程碑v1.0建立归档，并且为归档中文件添加目录前缀1.0 
+- blame:
+  + git blame <file>: 逐行显示，在每行行首显示此行最早是在什么版本引入，
+    由谁引入
+- clone:
+  + git clone dir1 dir2: 将本地版本库dir1备份克隆到本地dir2；
+- pull
+  + git pull：在本地备份版本库中获取源库的更新，git pull=git fetch+git merge
+- push
+  + git push origin mytag：将本地里程碑mytag推送到远程origin；
+  + git push origin refs/tags/*：将本地所有里程碑推送到远程origin；
+  + git push origin:<tagname>: 删除远程origin的里程碑tagname
+- fetch
+  + git fetch: 拉取
+- remote
+  + git remote -v: 显示已经注册的远程版本库
+  + git remote set-url origin file:///path/to/repos/xxx.git: 修改远程版本地址
+  + git remote set-url --push origin /path/to/repos/xxx.git: 只修改push地址
+  + git remote rename new-remote user2：将远程版本库new-remote名称修改为user2
+  + git remote update： 获得所有远程版本的更新；
+  + git remote rm user2：删除远程版本库；
+- merge
+  + git merge origin/master: 合并origin的master到本地master
+  + git merge <branchname>：将分支branchname合并到当前分支（master）
+- patch
+  + git format-patch -s HEAD~3..HEAD：将最近三个提交转换为补丁文件；
+- gitk
+  + gitk --all：图形界面显示所有log日志
