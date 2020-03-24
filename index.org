@@ -25,13 +25,19 @@
 总结工作中用到的操作系统，Android、Linux、嵌入式操作系统等。
 * [[./communication.org][通信]]
 总结通信系统的方方面面，从基础到LTE。
-* [[./encyclopedia.org][百科知识]]
+* [[./encyclopedia.org][百科知识]]             :noexport:
 总结工作中接触到的百科知识比如GPS等。
-* [[./language.org][外语]]
+* [[./language.org][外语]]               :noexport:
 总结平时用到的英语知识、短语、翻译技巧等。 
-* [[./decoration.org][装修]]
+* [[./decoration.org][装修]]               :noexport:
 介绍一些装修常识和问题点。
 * 附录
+** 帮助
+*** blog生成
+- 修改[[~/.emacs.d/org-mode/bitman-org-blog.el]]中的
+  org-publish-project-alist变中的blog路径，并使之生效；
+- 执行“C-c C-e P(Publish) p(Current project)”;
+** 公钥指纹
 我的公钥指纹：
 #+BEGIN_EXAMPLE
   pub   rsa2048 2019-05-07 [SC]
