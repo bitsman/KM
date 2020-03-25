@@ -222,5 +222,324 @@
 5. 设置X轴说明：plt.xlabel('x label')
 6. 设置y轴说明：plt.ylabel('y label')
 7. 显示图：plt.show()
+* 状态机和信号量
+** 断言
+#+BEGIN_SRC c -n
+  #ifdef NF_NDEBUG
+  #define NF_ASSERT(_exp) ((void)0)
+  #else
+  #define NF_ASSERT(_exp) ((_exp) ? (void)0 :
+              NF_Assert_Failed((const char * )__FILE__, __LINE__))
+  extern void NF_Assert_Failed(const char * file, NF_Int32U line);
+  #endif
+#+END_SRC 
+** 信号量
+*** 信号值
+#+BEGIN_SRC c -n 
+  typedef uint32_t SignalValue_T;
+#+END_SRC 
+*** 信号名
+#+BEGIN_SRC c -n 
+  typedef const char* SignalName_T;
+#+END_SRC
+*** 信号ID
+#+BEGIN_SRC c -n 
+  typedef uint32_t SignalID_T;
+#+END_SRC
+*** 信号对象
+#+BEGIN_SRC c -n 
+  typedef struct _sig
+  {
+      SignalName_T  Name;
+      SignalValue_T Value;
+  }Signal_T;
+#+END_SRC
+*** 信号存储表
+#+BEGIN_SRC c -n
+  #define MAX_SIGNAL_NUM    50  
+  static Signal_T Signal_SigList[MAX_SIGNAL_NUM] = {0};
+  static uint32_t Signal_SigListCnt = 0;
+#+END_SRC
+*** 信号内部操作
+- 信号搜索
+  #+BEGIN_SRC c -n 
+    //按信号名在表中查找信号对象
+    Signal_T* Signal_Search(SignalName_T name, SignalID_T* id_ret)
+    {
+        uint32_t i;
+  
+        //信号名不能为空
+        NF_ASSERT( name != NULL_PTR );
+  
+        for (i = 0; i < Signal_SigListCnt; i ++)
+        {
+            if ( strcmp(Signal_SigList[i].Name, name) == 0 )
+            {
+                //通过回调参数返回ID号
+                if (id_ret != NULL_PTR)
+                {
+                    *id_ret = i;
+                }
+  
+                return &(Signal_SigList[i]);
+            }
+        }
+        //没有找到，返回空指针
+        return NULL_PTR;
+    }
+  #+END_SRC
+- 创建信号
+  #+BEGIN_SRC c -n 
+    Signal_T* Signal_Create(SignalName_T name, SignalValue_T val, SignalID_T* id_ret)
+    {
+        //信号名不能为空
+        NF_ASSERT( name != NULL_PTR );
+        if (Signal_SigListCnt < MAX_SIGNAL_NUM)
+        {
+            Signal_SigList[Signal_SigListCnt].Name  = name;
+            Signal_SigList[Signal_SigListCnt].Value = val;
+            Signal_SigListCnt ++;
+            //通过回调参数返回ID号
+            if (id_ret != NULL_PTR)
+            {
+                ,*id_ret = Signal_SigListCnt - 1;
+            }
+            return &(Signal_SigList[Signal_SigListCnt - 1]);
+        }
+        else
+        {
+            //信号列表满，创建失败
+            //此时应加大头文件中最大信号数量宏MAX_SIGNAL_NUM
+            return NULL_PTR;
+        }
+    }
+  #+END_SRC
+*** 信号操作API
+- 通过信号名设置值
+  #+BEGIN_SRC c -n
+    SignalID_T Signal_Set(SignalName_T name, SignalValue_T val)
+    {
+        Signal_T* sig = NULL_PTR;
+        SignalID_T id;
+        //信号名不能为空
+        ASSERT( name != NULL_PTR );
+        sig = Signal_Search(name, &id);
+        if (sig != NULL_PTR)
+        {
+            sig->Value = val;
+            return id;
+        }
+        else
+        {
+            sig = Signal_Create(name, val, &id);
+            //断言失败则信号列表满，需增大NF_MAX_SIGNAL_NUM
+            ASSERT( sig != NULL_PTR );
+            return id;
+        }
+    }
+  #+END_SRC
+- 通过信号ID设置值
+  #+BEGIN_SRC c -n 
+    void Signal_SetID(SignalID_T id, SignalValue_T val)
+    {
+        //ID号需有效
+        ASSERT( id < Signal_SigListCnt );
+        if (id < Signal_SigListCnt)
+        {
+            Signal_SigList[id].Value = val;
+        }
+    }
+  #+END_SRC
+- 通过信号名获取值
+  #+BEGIN_SRC c -n
+    SignalValue_T Signal_Get(SignalName_T name)
+    {
+        Signal_T* sig = NULL_PTR;
+        //信号名不能为空
+        ASSERT( name != NULL_PTR );
+        sig = Signal_Search(name, NULL_PTR);
 
+        if (sig != NULL_PTR)
+        {
+            //搜索成功返回信号值
+            return sig->Value;
+        }
+        else
+        {
+            //搜索失败返回0
+            return 0;
+        }
+    }
+  #+END_SRC
+- 通过信号ID获取值
+  #+BEGIN_SRC c -n 
+    SignalValue_T Signal_GetID(SignalID_T id)
+    {
+        //ID号需有效
+        ASSERT( id < Signal_SigListCnt );
 
+        if (id < Signal_SigListCnt)
+        {
+            return Signal_SigList[id].Value;
+        }
+    }
+  #+END_SRC
+** 状态机
+*** 状态机
+#+BEGIN_SRC c -n
+  typedef struct _sta_machine
+  {
+      State_T     State;
+      FSM_Name_T  Name;
+  }FSM_T;
+
+#+END_SRC
+*** 状态名称
+#+BEGIN_SRC c -n 
+ typedef const char* FSM_Name_T;
+#+END_SRC
+*** 状态处理函数
+#+BEGIN_SRC c -n 
+  typedef void (*FSM_Handler_T)(FSM_T* me, SignalName_T name, SignalValue_T val);
+#+END_SRC
+*** 状态定义
+#+BEGIN_SRC c -n
+  typedef struct _sta
+  {
+      FSM_Handler_T Dispatch;
+      FSM_Name_T    Name;
+  }State_T;
+#+END_SRC
+*** 状态转换函数
+- 检查信号状态并派发给状态机
+  #+BEGIN_SRC c -n 
+    void FSM_CheckSignal(FSM_T* me, SignalName_T name)
+    {
+        ASSERT( me != NULL_PTR );
+        me->State.Dispatch(me, name, Signal_Get(name));
+    }
+  #+END_SRC
+- 转换状态机状态
+  #+BEGIN_SRC c -n
+    void FSM_Translate(FSM_T* me, State_T state) 
+    {
+        ASSERT( me != NULL_PTR );
+        me->State = state;
+    }   
+  #+END_SRC
+** 应用
+*** 状态机转换
+#+BEGIN_SRC plantuml :exports results :file ./img/stmch_app.png
+  state IDLE
+  state QDOWN
+  state QEDOWN
+
+  IDLE -right-> QDOWN: Q Press
+
+  QDOWN --> IDLE: Q Release
+  QDOWN -right-> QEDOWN: E Press
+
+  QEDOWN --> QDOWN: E Release
+  QEDOWN --> IDLE: Q Release
+#+END_SRC 
+#+CAPTION: 状态机应用
+#+NAME: imgstmchapp
+#+attr_latex: :placement [H] :width 0.6\textwidth
+#+results:
+[[file:./img/stmch_app.png]]
+
+*** 源码
+#+BEGIN_SRC c -n
+  //GetKeyState:windows api监测键盘按键
+  #define IS_KEY_PRESS(_key) ((GetKeyState(_key) >= 0) ? Bool_False : Bool_True )
+
+  //信号产生者
+  void Test_Key_Process(void)
+  {
+      if ( IS_KEY_PRESS('Q') ){
+          Signal_Set("key_q_press", 1);
+      }
+      else{
+          Signal_Set("key_q_press", 0);
+      }
+
+      if ( IS_KEY_PRESS('E') ){
+          Signal_Set("key_e_press", 1);
+      }
+      else{
+          Signal_Set("key_e_press", 0);
+      }
+  }
+
+  //状态机对象
+  FSM_T Test_FSM_QandE;
+
+  //状态机的三个状态处理函数
+  //IDLE状态处理函数
+  void Test_FSM_QandE_IDLE(FSM_T* me, SignalName_T name, SignalValue_T val)
+  {
+      if ( FSM_NameIs(name, "key_q_press") )
+      {
+          if ( val == 1 )
+          {
+              FSM_TRAN(Test_FSM_QandE_QDOWN);
+              printf("Test_FSM_QandE State Translate : IDLE --> QDOWN\n");
+          }
+      }
+  }
+
+  //QDOWN状态处理函数
+  void Test_FSM_QandE_QDOWN(FSM_T* me, SignalName_T name, SignalValue_T val)
+  {
+      if ( FSM_NameIs(name, "key_e_press") )
+      {
+          if ( val == 1 )
+          {
+              FSM_TRAN(Test_FSM_QandE_QEDOWN);
+              printf("Test_FSM_QandE State Translate : QDOWN --> QEDOWN\n");
+          }
+      }
+      else if( FSM_NameIs(name, "key_q_press") )
+      {
+          if ( val == 0 )
+          {
+              FSM_TRAN(Test_FSM_QandE_IDLE);
+              printf("Test_FSM_QandE State Translate : QDOWN --> IDLE\n");
+          }
+      }
+  }
+
+  //QEDOWN状态处理函数
+  void Test_FSM_QandE_QEDOWN(FSM_T* me, SignalName_T name, SignalValue_T val)
+  {
+      if ( FSM_NameIs(name, "key_e_press") )
+      {
+          if ( val == 0 )
+          {
+              FSM_TRAN(Test_FSM_QandE_QDOWN);
+              printf("Test_FSM_QandE State Translate : QEDOWN --> QDOWN\n");
+          }
+      }
+      else if( FSM_NameIs(name, "key_q_press") )
+      {
+          if ( val == 0 )
+          {
+              FSM_TRAN(Test_FSM_QandE_IDLE);
+              printf("Test_FSM_QandE State Translate : QEDOWN --> IDLE\n");
+          }
+      }
+  }
+
+  int main(void)
+  {
+      //初始化状态机
+      FSM_Translate(&Test_FSM_QandE, FSM_State(Test_FSM_QandE_IDLE));
+
+      for (;;)
+      {
+          Test_Key_Process();
+          FSM_CheckSignal(&Test_FSM_QandE, "key_q_press");
+          FSM_CheckSignal(&Test_FSM_QandE, "key_e_press");
+      }
+  }
+#+END_SRC

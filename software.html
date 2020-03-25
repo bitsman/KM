@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-24 周二 10:29 -->
+<!-- 2020-03-25 周三 15:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>软件</title>
@@ -276,6 +276,37 @@ for the JavaScript code in this tag.
 <li><a href="#org07b221b">1.3.3.1. 画XY轴离散点图</a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org243ff6d">2. 状态机和信号量</a>
+<ul>
+<li><a href="#org3a10d4e">2.1. 断言</a></li>
+<li><a href="#org67a0025">2.2. 信号量</a>
+<ul>
+<li><a href="#orgb94ad3e">2.2.1. 信号值</a></li>
+<li><a href="#org8621a26">2.2.2. 信号名</a></li>
+<li><a href="#org2f795da">2.2.3. 信号ID</a></li>
+<li><a href="#orgd2452a0">2.2.4. 信号对象</a></li>
+<li><a href="#orgcd68ca7">2.2.5. 信号存储表</a></li>
+<li><a href="#org9c12bbe">2.2.6. 信号内部操作</a></li>
+<li><a href="#orgfb5fd5f">2.2.7. 信号操作API</a></li>
+</ul>
+</li>
+<li><a href="#orgd6ee261">2.3. 状态机</a>
+<ul>
+<li><a href="#orgb418c43">2.3.1. 状态机</a></li>
+<li><a href="#orgfaa64be">2.3.2. 状态名称</a></li>
+<li><a href="#orga270376">2.3.3. 状态处理函数</a></li>
+<li><a href="#org8f9b27d">2.3.4. 状态定义</a></li>
+<li><a href="#orgba399b2">2.3.5. 状态转换函数</a></li>
+</ul>
+</li>
+<li><a href="#org90e4293">2.4. 应用</a>
+<ul>
+<li><a href="#org1864322">2.4.1. 状态机转换</a></li>
+<li><a href="#orgf0e1880">2.4.2. 源码</a></li>
 </ul>
 </li>
 </ul>
@@ -616,11 +647,437 @@ numpy.angle()计算</li>
 </div>
 </div>
 </div>
+<div id="outline-container-org243ff6d" class="outline-2">
+<h2 id="org243ff6d"><span class="section-number-2">2</span> 状态机和信号量</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org3a10d4e" class="outline-3">
+<h3 id="org3a10d4e"><span class="section-number-3">2.1</span> 断言</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #87cefa; text-decoration: underline;">#ifdef</span> NF_NDEBUG
+<span class="linenr">2: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">NF_ASSERT</span>(<span style="color: #ffd700;">_exp</span>) ((<span style="color: #ffff00; font-size: 105%;">void</span>)0)
+<span class="linenr">3: </span><span style="color: #87cefa; text-decoration: underline;">#else</span>
+<span class="linenr">4: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">NF_ASSERT</span>(<span style="color: #ffd700;">_exp</span>) ((_exp) ? (<span style="color: #ffff00; font-size: 105%;">void</span>)0 :
+<span class="linenr">5: </span>        NF_Assert_Failed((<span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span> * )__FILE__, __LINE__))
+<span class="linenr">6: </span><span style="color: #ffb6c1; font-size: 105%;">extern</span> <span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">NF_Assert_Failed</span>(<span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span> * <span style="color: #ffd700;">file</span>, <span style="color: #ffff00; font-size: 105%;">NF_Int32U</span> <span style="color: #ffd700;">line</span>);
+<span class="linenr">7: </span><span style="color: #87cefa; text-decoration: underline;">#endif</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org67a0025" class="outline-3">
+<h3 id="org67a0025"><span class="section-number-3">2.2</span> 信号量</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgb94ad3e" class="outline-4">
+<h4 id="orgb94ad3e"><span class="section-number-4">2.2.1</span> 信号值</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffff00; font-size: 105%;">uint32_t</span> <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8621a26" class="outline-4">
+<h4 id="org8621a26"><span class="section-number-4">2.2.2</span> 信号名</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffff00; font-size: 105%;">SignalName_T</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2f795da" class="outline-4">
+<h4 id="org2f795da"><span class="section-number-4">2.2.3</span> 信号ID</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffff00; font-size: 105%;">uint32_t</span> <span style="color: #ffff00; font-size: 105%;">SignalID_T</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd2452a0" class="outline-4">
+<h4 id="orgd2452a0"><span class="section-number-4">2.2.4</span> 信号对象</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sig</span>
+<span class="linenr">2: </span>{
+<span class="linenr">3: </span>    <span style="color: #ffff00; font-size: 105%;">SignalName_T</span>  <span style="color: #ffd700;">Name</span>;
+<span class="linenr">4: </span>    <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">Value</span>;
+<span class="linenr">5: </span>}<span style="color: #ffff00; font-size: 105%;">Signal_T</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcd68ca7" class="outline-4">
+<h4 id="orgcd68ca7"><span class="section-number-4">2.2.5</span> 信号存储表</h4>
+<div class="outline-text-4" id="text-2-2-5">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">MAX_SIGNAL_NUM</span>    50  
+<span class="linenr">2: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">Signal_T</span> <span style="color: #ffd700;">Signal_SigList</span>[MAX_SIGNAL_NUM] = {0};
+<span class="linenr">3: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">uint32_t</span> <span style="color: #ffd700;">Signal_SigListCnt</span> = 0;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9c12bbe" class="outline-4">
+<h4 id="org9c12bbe"><span class="section-number-4">2.2.6</span> 信号内部操作</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<ul class="org-ul">
+<li><p>
+信号搜索
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25353;&#20449;&#21495;&#21517;&#22312;&#34920;&#20013;&#26597;&#25214;&#20449;&#21495;&#23545;&#35937;</span>
+<span class="linenr"> 2: </span><span style="color: #ffff00; font-size: 105%;">Signal_T</span>* <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Signal_Search</span>(<span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalID_T</span>* <span style="color: #ffd700;">id_ret</span>)
+<span class="linenr"> 3: </span>{
+<span class="linenr"> 4: </span>    <span style="color: #ffff00; font-size: 105%;">uint32_t</span> <span style="color: #ffd700;">i</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#21517;&#19981;&#33021;&#20026;&#31354;</span>
+<span class="linenr"> 7: </span>    NF_ASSERT( name != NULL_PTR );
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    <span style="color: #ffb6c1; font-size: 105%;">for</span> (i = 0; i &lt; Signal_SigListCnt; i ++)
+<span class="linenr">10: </span>    {
+<span class="linenr">11: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( strcmp(Signal_SigList[i].Name, name) == 0 )
+<span class="linenr">12: </span>    {
+<span class="linenr">13: </span>        <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#36890;&#36807;&#22238;&#35843;&#21442;&#25968;&#36820;&#22238;ID&#21495;</span>
+<span class="linenr">14: </span>        <span style="color: #ffb6c1; font-size: 105%;">if</span> (id_ret != NULL_PTR)
+<span class="linenr">15: </span>        {
+<span class="linenr">16: </span>        *id_ret = i;
+<span class="linenr">17: </span>        }
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>        <span style="color: #ffb6c1; font-size: 105%;">return</span> &amp;(Signal_SigList[i]);
+<span class="linenr">20: </span>    }
+<span class="linenr">21: </span>    }
+<span class="linenr">22: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27809;&#26377;&#25214;&#21040;&#65292;&#36820;&#22238;&#31354;&#25351;&#38024;</span>
+<span class="linenr">23: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> NULL_PTR;
+<span class="linenr">24: </span>}
+</pre>
+</div></li>
+<li><p>
+创建信号
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #ffff00; font-size: 105%;">Signal_T</span>* <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Signal_Create</span>(<span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>, <span style="color: #ffff00; font-size: 105%;">SignalID_T</span>* <span style="color: #ffd700;">id_ret</span>)
+<span class="linenr"> 2: </span>{
+<span class="linenr"> 3: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#21517;&#19981;&#33021;&#20026;&#31354;</span>
+<span class="linenr"> 4: </span>    NF_ASSERT( name != NULL_PTR );
+<span class="linenr"> 5: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> (Signal_SigListCnt &lt; MAX_SIGNAL_NUM)
+<span class="linenr"> 6: </span>    {
+<span class="linenr"> 7: </span>    Signal_SigList[Signal_SigListCnt].Name  = name;
+<span class="linenr"> 8: </span>    Signal_SigList[Signal_SigListCnt].Value = val;
+<span class="linenr"> 9: </span>    Signal_SigListCnt ++;
+<span class="linenr">10: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#36890;&#36807;&#22238;&#35843;&#21442;&#25968;&#36820;&#22238;ID&#21495;</span>
+<span class="linenr">11: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> (id_ret != NULL_PTR)
+<span class="linenr">12: </span>    {
+<span class="linenr">13: </span>        *id_ret = Signal_SigListCnt - 1;
+<span class="linenr">14: </span>    }
+<span class="linenr">15: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> &amp;(Signal_SigList[Signal_SigListCnt - 1]);
+<span class="linenr">16: </span>    }
+<span class="linenr">17: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span>
+<span class="linenr">18: </span>    {
+<span class="linenr">19: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#21015;&#34920;&#28385;&#65292;&#21019;&#24314;&#22833;&#36133;</span>
+<span class="linenr">20: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#27492;&#26102;&#24212;&#21152;&#22823;&#22836;&#25991;&#20214;&#20013;&#26368;&#22823;&#20449;&#21495;&#25968;&#37327;&#23439;MAX_SIGNAL_NUM</span>
+<span class="linenr">21: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> NULL_PTR;
+<span class="linenr">22: </span>    }
+<span class="linenr">23: </span>}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfb5fd5f" class="outline-4">
+<h4 id="orgfb5fd5f"><span class="section-number-4">2.2.7</span> 信号操作API</h4>
+<div class="outline-text-4" id="text-2-2-7">
+<ul class="org-ul">
+<li><p>
+通过信号名设置值
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #ffff00; font-size: 105%;">SignalID_T</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Signal_Set</span>(<span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>)
+<span class="linenr"> 2: </span>{
+<span class="linenr"> 3: </span>    <span style="color: #ffff00; font-size: 105%;">Signal_T</span>* <span style="color: #ffd700;">sig</span> = NULL_PTR;
+<span class="linenr"> 4: </span>    <span style="color: #ffff00; font-size: 105%;">SignalID_T</span> <span style="color: #ffd700;">id</span>;
+<span class="linenr"> 5: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#21517;&#19981;&#33021;&#20026;&#31354;</span>
+<span class="linenr"> 6: </span>    ASSERT( name != NULL_PTR );
+<span class="linenr"> 7: </span>    sig = Signal_Search(name, &amp;id);
+<span class="linenr"> 8: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> (sig != NULL_PTR)
+<span class="linenr"> 9: </span>    {
+<span class="linenr">10: </span>    sig-&gt;Value = val;
+<span class="linenr">11: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> id;
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span>
+<span class="linenr">14: </span>    {
+<span class="linenr">15: </span>    sig = Signal_Create(name, val, &amp;id);
+<span class="linenr">16: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#26029;&#35328;&#22833;&#36133;&#21017;&#20449;&#21495;&#21015;&#34920;&#28385;&#65292;&#38656;&#22686;&#22823;NF_MAX_SIGNAL_NUM</span>
+<span class="linenr">17: </span>    ASSERT( sig != NULL_PTR );
+<span class="linenr">18: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> id;
+<span class="linenr">19: </span>    }
+<span class="linenr">20: </span>}
+</pre>
+</div></li>
+<li><p>
+通过信号ID设置值
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Signal_SetID</span>(<span style="color: #ffff00; font-size: 105%;">SignalID_T</span> <span style="color: #ffd700;">id</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>)
+<span class="linenr">2: </span>{
+<span class="linenr">3: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">ID&#21495;&#38656;&#26377;&#25928;</span>
+<span class="linenr">4: </span>    ASSERT( id &lt; Signal_SigListCnt );
+<span class="linenr">5: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> (id &lt; Signal_SigListCnt)
+<span class="linenr">6: </span>    {
+<span class="linenr">7: </span>    Signal_SigList[id].Value = val;
+<span class="linenr">8: </span>    }
+<span class="linenr">9: </span>}
+</pre>
+</div></li>
+<li><p>
+通过信号名获取值
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Signal_Get</span>(<span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>)
+<span class="linenr"> 2: </span>{
+<span class="linenr"> 3: </span>    <span style="color: #ffff00; font-size: 105%;">Signal_T</span>* <span style="color: #ffd700;">sig</span> = NULL_PTR;
+<span class="linenr"> 4: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#21517;&#19981;&#33021;&#20026;&#31354;</span>
+<span class="linenr"> 5: </span>    ASSERT( name != NULL_PTR );
+<span class="linenr"> 6: </span>    sig = Signal_Search(name, NULL_PTR);
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> (sig != NULL_PTR)
+<span class="linenr"> 9: </span>    {
+<span class="linenr">10: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25628;&#32034;&#25104;&#21151;&#36820;&#22238;&#20449;&#21495;&#20540;</span>
+<span class="linenr">11: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> sig-&gt;Value;
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span>
+<span class="linenr">14: </span>    {
+<span class="linenr">15: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#25628;&#32034;&#22833;&#36133;&#36820;&#22238;0</span>
+<span class="linenr">16: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> 0;
+<span class="linenr">17: </span>    }
+<span class="linenr">18: </span>}
+</pre>
+</div></li>
+<li><p>
+通过信号ID获取值
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Signal_GetID</span>(<span style="color: #ffff00; font-size: 105%;">SignalID_T</span> <span style="color: #ffd700;">id</span>)
+<span class="linenr"> 2: </span>{
+<span class="linenr"> 3: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">ID&#21495;&#38656;&#26377;&#25928;</span>
+<span class="linenr"> 4: </span>    ASSERT( id &lt; Signal_SigListCnt );
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> (id &lt; Signal_SigListCnt)
+<span class="linenr"> 7: </span>    {
+<span class="linenr"> 8: </span>    <span style="color: #ffb6c1; font-size: 105%;">return</span> Signal_SigList[id].Value;
+<span class="linenr"> 9: </span>    }
+<span class="linenr">10: </span>}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd6ee261" class="outline-3">
+<h3 id="orgd6ee261"><span class="section-number-3">2.3</span> 状态机</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-orgb418c43" class="outline-4">
+<h4 id="orgb418c43"><span class="section-number-4">2.3.1</span> 状态机</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sta_machine</span>
+<span class="linenr">2: </span>{
+<span class="linenr">3: </span>    <span style="color: #ffff00; font-size: 105%;">State_T</span>     <span style="color: #ffd700;">State</span>;
+<span class="linenr">4: </span>    <span style="color: #ffff00; font-size: 105%;">FSM_Name_T</span>  <span style="color: #ffd700;">Name</span>;
+<span class="linenr">5: </span>}<span style="color: #ffff00; font-size: 105%;">FSM_T</span>;
+<span class="linenr">6: </span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfaa64be" class="outline-4">
+<h4 id="orgfaa64be"><span class="section-number-4">2.3.2</span> 状态名称</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffff00; font-size: 105%;">FSM_Name_T</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga270376" class="outline-4">
+<h4 id="orga270376"><span class="section-number-4">2.3.3</span> 状态处理函数</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffff00; font-size: 105%;">void</span> (*<span style="color: #ffff00; font-size: 105%;">FSM_Handler_T</span>)(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>);
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8f9b27d" class="outline-4">
+<h4 id="org8f9b27d"><span class="section-number-4">2.3.4</span> 状态定义</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sta</span>
+<span class="linenr">2: </span>{
+<span class="linenr">3: </span>    <span style="color: #ffff00; font-size: 105%;">FSM_Handler_T</span> <span style="color: #ffd700;">Dispatch</span>;
+<span class="linenr">4: </span>    <span style="color: #ffff00; font-size: 105%;">FSM_Name_T</span>    <span style="color: #ffd700;">Name</span>;
+<span class="linenr">5: </span>}<span style="color: #ffff00; font-size: 105%;">State_T</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgba399b2" class="outline-4">
+<h4 id="orgba399b2"><span class="section-number-4">2.3.5</span> 状态转换函数</h4>
+<div class="outline-text-4" id="text-2-3-5">
+<ul class="org-ul">
+<li><p>
+检查信号状态并派发给状态机
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">FSM_CheckSignal</span>(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>)
+<span class="linenr">2: </span>{
+<span class="linenr">3: </span>    ASSERT( me != NULL_PTR );
+<span class="linenr">4: </span>    me-&gt;State.Dispatch(me, name, Signal_Get(name));
+<span class="linenr">5: </span>}
+</pre>
+</div></li>
+<li><p>
+转换状态机状态
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">FSM_Translate</span>(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">State_T</span> <span style="color: #ffd700;">state</span>) 
+<span class="linenr">2: </span>{
+<span class="linenr">3: </span>    ASSERT( me != NULL_PTR );
+<span class="linenr">4: </span>    me-&gt;State = state;
+<span class="linenr">5: </span>}   
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org90e4293" class="outline-3">
+<h3 id="org90e4293"><span class="section-number-3">2.4</span> 应用</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-org1864322" class="outline-4">
+<h4 id="org1864322"><span class="section-number-4">2.4.1</span> 状态机转换</h4>
+<div class="outline-text-4" id="text-2-4-1">
+
+<div id="org0ea8edd" class="figure">
+<p><img src="./img/stmch_app.png" alt="stmch_app.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>状态机应用</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0e1880" class="outline-4">
+<h4 id="orgf0e1880"><span class="section-number-4">2.4.2</span> 源码</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<div class="org-src-container">
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">GetKeyState:windows api&#30417;&#27979;&#38190;&#30424;&#25353;&#38190;</span>
+<span class="linenr"> 2: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">IS_KEY_PRESS</span>(<span style="color: #ffd700;">_key</span>) ((GetKeyState(_key) &gt;= 0) ? Bool_False : Bool_True )
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#20449;&#21495;&#20135;&#29983;&#32773;</span>
+<span class="linenr"> 5: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Test_Key_Process</span>(<span style="color: #ffff00; font-size: 105%;">void</span>)
+<span class="linenr"> 6: </span>{
+<span class="linenr"> 7: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( IS_KEY_PRESS(<span style="color: #ffa07a;">'Q'</span>) ){
+<span class="linenr"> 8: </span>    Signal_Set(<span style="color: #ffa07a;">"key_q_press"</span>, 1);
+<span class="linenr"> 9: </span>    }
+<span class="linenr">10: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span>{
+<span class="linenr">11: </span>    Signal_Set(<span style="color: #ffa07a;">"key_q_press"</span>, 0);
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( IS_KEY_PRESS(<span style="color: #ffa07a;">'E'</span>) ){
+<span class="linenr">15: </span>    Signal_Set(<span style="color: #ffa07a;">"key_e_press"</span>, 1);
+<span class="linenr">16: </span>    }
+<span class="linenr">17: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span>{
+<span class="linenr">18: </span>    Signal_Set(<span style="color: #ffa07a;">"key_e_press"</span>, 0);
+<span class="linenr">19: </span>    }
+<span class="linenr">20: </span>}
+<span class="linenr">21: </span>
+<span class="linenr">22: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#29366;&#24577;&#26426;&#23545;&#35937;</span>
+<span class="linenr">23: </span><span style="color: #ffff00; font-size: 105%;">FSM_T</span> <span style="color: #ffd700;">Test_FSM_QandE</span>;
+<span class="linenr">24: </span>
+<span class="linenr">25: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#29366;&#24577;&#26426;&#30340;&#19977;&#20010;&#29366;&#24577;&#22788;&#29702;&#20989;&#25968;</span>
+<span class="linenr">26: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">IDLE&#29366;&#24577;&#22788;&#29702;&#20989;&#25968;</span>
+<span class="linenr">27: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Test_FSM_QandE_IDLE</span>(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>)
+<span class="linenr">28: </span>{
+<span class="linenr">29: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( FSM_NameIs(name, <span style="color: #ffa07a;">"key_q_press"</span>) )
+<span class="linenr">30: </span>    {
+<span class="linenr">31: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( val == 1 )
+<span class="linenr">32: </span>    {
+<span class="linenr">33: </span>        FSM_TRAN(Test_FSM_QandE_QDOWN);
+<span class="linenr">34: </span>        printf(<span style="color: #ffa07a;">"Test_FSM_QandE State Translate : IDLE --&gt; QDOWN\n"</span>);
+<span class="linenr">35: </span>    }
+<span class="linenr">36: </span>    }
+<span class="linenr">37: </span>}
+<span class="linenr">38: </span>
+<span class="linenr">39: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">QDOWN&#29366;&#24577;&#22788;&#29702;&#20989;&#25968;</span>
+<span class="linenr">40: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Test_FSM_QandE_QDOWN</span>(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>)
+<span class="linenr">41: </span>{
+<span class="linenr">42: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( FSM_NameIs(name, <span style="color: #ffa07a;">"key_e_press"</span>) )
+<span class="linenr">43: </span>    {
+<span class="linenr">44: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( val == 1 )
+<span class="linenr">45: </span>    {
+<span class="linenr">46: </span>        FSM_TRAN(Test_FSM_QandE_QEDOWN);
+<span class="linenr">47: </span>        printf(<span style="color: #ffa07a;">"Test_FSM_QandE State Translate : QDOWN --&gt; QEDOWN\n"</span>);
+<span class="linenr">48: </span>    }
+<span class="linenr">49: </span>    }
+<span class="linenr">50: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span> <span style="color: #ffb6c1; font-size: 105%;">if</span>( FSM_NameIs(name, <span style="color: #ffa07a;">"key_q_press"</span>) )
+<span class="linenr">51: </span>    {
+<span class="linenr">52: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( val == 0 )
+<span class="linenr">53: </span>    {
+<span class="linenr">54: </span>        FSM_TRAN(Test_FSM_QandE_IDLE);
+<span class="linenr">55: </span>        printf(<span style="color: #ffa07a;">"Test_FSM_QandE State Translate : QDOWN --&gt; IDLE\n"</span>);
+<span class="linenr">56: </span>    }
+<span class="linenr">57: </span>    }
+<span class="linenr">58: </span>}
+<span class="linenr">59: </span>
+<span class="linenr">60: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">QEDOWN&#29366;&#24577;&#22788;&#29702;&#20989;&#25968;</span>
+<span class="linenr">61: </span><span style="color: #ffff00; font-size: 105%;">void</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">Test_FSM_QandE_QEDOWN</span>(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>)
+<span class="linenr">62: </span>{
+<span class="linenr">63: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( FSM_NameIs(name, <span style="color: #ffa07a;">"key_e_press"</span>) )
+<span class="linenr">64: </span>    {
+<span class="linenr">65: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( val == 0 )
+<span class="linenr">66: </span>    {
+<span class="linenr">67: </span>        FSM_TRAN(Test_FSM_QandE_QDOWN);
+<span class="linenr">68: </span>        printf(<span style="color: #ffa07a;">"Test_FSM_QandE State Translate : QEDOWN --&gt; QDOWN\n"</span>);
+<span class="linenr">69: </span>    }
+<span class="linenr">70: </span>    }
+<span class="linenr">71: </span>    <span style="color: #ffb6c1; font-size: 105%;">else</span> <span style="color: #ffb6c1; font-size: 105%;">if</span>( FSM_NameIs(name, <span style="color: #ffa07a;">"key_q_press"</span>) )
+<span class="linenr">72: </span>    {
+<span class="linenr">73: </span>    <span style="color: #ffb6c1; font-size: 105%;">if</span> ( val == 0 )
+<span class="linenr">74: </span>    {
+<span class="linenr">75: </span>        FSM_TRAN(Test_FSM_QandE_IDLE);
+<span class="linenr">76: </span>        printf(<span style="color: #ffa07a;">"Test_FSM_QandE State Translate : QEDOWN --&gt; IDLE\n"</span>);
+<span class="linenr">77: </span>    }
+<span class="linenr">78: </span>    }
+<span class="linenr">79: </span>}
+<span class="linenr">80: </span>
+<span class="linenr">81: </span><span style="color: #ffff00; font-size: 105%;">int</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">main</span>(<span style="color: #ffff00; font-size: 105%;">void</span>)
+<span class="linenr">82: </span>{
+<span class="linenr">83: </span>    <span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">&#21021;&#22987;&#21270;&#29366;&#24577;&#26426;</span>
+<span class="linenr">84: </span>    FSM_Translate(&amp;Test_FSM_QandE, FSM_State(Test_FSM_QandE_IDLE));
+<span class="linenr">85: </span>
+<span class="linenr">86: </span>    <span style="color: #ffb6c1; font-size: 105%;">for</span> (;;)
+<span class="linenr">87: </span>    {
+<span class="linenr">88: </span>    Test_Key_Process();
+<span class="linenr">89: </span>    FSM_CheckSignal(&amp;Test_FSM_QandE, <span style="color: #ffa07a;">"key_q_press"</span>);
+<span class="linenr">90: </span>    FSM_CheckSignal(&amp;Test_FSM_QandE, <span style="color: #ffa07a;">"key_e_press"</span>);
+<span class="linenr">91: </span>    }
+<span class="linenr">92: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-03-24 周二 10:29</p>
+<p class="date">Created: 2020-03-25 周三 15:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
