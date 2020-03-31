@@ -6,7 +6,7 @@
 #+latex: \clearpage\pagenumbering{arabic} 
 #+options: h:4 
 #+startup: overview
-   
+    
 * [[./math.org][数学]]
 汇总工作中需要用到数学知识。
 * [[./algorithm.org][算法]]
