@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-30 周一 20:05 -->
+<!-- 2020-04-02 周四 21:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工具</title>
@@ -272,15 +272,18 @@ for the JavaScript code in this tag.
 <li><a href="#orga629258">1.2.2. 其他</a></li>
 <li><a href="#org9ae47ac">1.2.3. 计算器</a></li>
 <li><a href="#org322186c">1.2.4. 图片</a></li>
-<li><a href="#org7d953b0">1.2.5. 字体</a></li>
+<li><a href="#orgedc74e1">1.2.5. 字体</a></li>
 <li><a href="#orga4c5c98">1.2.6. 编码</a></li>
 <li><a href="#orgc3acf4d">1.2.7. 外部程序</a></li>
 </ul>
 </li>
 <li><a href="#org2097fa2">1.3. elisp</a>
 <ul>
-<li><a href="#orgf2fc45e">1.3.1. 函数</a></li>
-<li><a href="#org214b66a">1.3.2. 功能</a></li>
+<li><a href="#org5c25fa9">1.3.1. 变量</a></li>
+<li><a href="#org7a32949">1.3.2. 符号</a></li>
+<li><a href="#org8bc0169">1.3.3. 表达式</a></li>
+<li><a href="#orgf2fc45e">1.3.4. 函数</a></li>
+<li><a href="#org214b66a">1.3.5. 功能</a></li>
 </ul>
 </li>
 <li><a href="#org031ce71">1.4. org-mode</a>
@@ -290,7 +293,7 @@ for the JavaScript code in this tag.
 <li><a href="#org6376ad6">1.4.3. 块</a></li>
 <li><a href="#orga67a35f">1.4.4. 脚注</a></li>
 <li><a href="#org8b13311">1.4.5. 序号</a></li>
-<li><a href="#orgedc74e1">1.4.6. 字体</a></li>
+<li><a href="#org577b16a">1.4.6. 字体</a></li>
 <li><a href="#org01b0f5f">1.4.7. 公式</a></li>
 <li><a href="#org434f889">1.4.8. 表格</a>
 <ul>
@@ -309,31 +312,31 @@ for the JavaScript code in this tag.
 <li><a href="#org519dedc">1.4.15. 注释</a></li>
 <li><a href="#org392bb9c">1.4.16. 导出</a>
 <ul>
-<li><a href="#org178874f">1.4.16.1. 配置</a></li>
+<li><a href="#orgdef12e0">1.4.16.1. 配置</a></li>
 <li><a href="#org0e3e373">1.4.16.2. beamer</a></li>
 <li><a href="#orge0bd737">1.4.16.3. pdf</a></li>
 <li><a href="#orgfc70177">1.4.16.4. html</a></li>
 <li><a href="#org83ebdc7">1.4.16.5. 特殊符号</a></li>
 </ul>
 </li>
-<li><a href="#org003a5fe">1.4.17. latex</a></li>
+<li><a href="#org5ccb900">1.4.17. latex</a></li>
 <li><a href="#org4093047">1.4.18. capture</a></li>
 </ul>
 </li>
 <li><a href="#orge257ce9">1.5. python-mode</a></li>
 <li><a href="#org1f4cbb0">1.6. dired-mode</a></li>
-<li><a href="#org5682e38">1.7. git</a>
+<li><a href="#org7a5fd80">1.7. git</a>
 <ul>
-<li><a href="#orgdef12e0">1.7.1. 配置</a></li>
+<li><a href="#org08b56de">1.7.1. 配置</a></li>
 <li><a href="#orgdc7936a">1.7.2. push</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5ccb900">2. latex</a>
+<li><a href="#orgb31e668">2. latex</a>
 <ul>
 <li><a href="#orgd20df77">2.1. 方法</a></li>
-<li><a href="#org7a32949">2.2. 符号</a>
+<li><a href="#orgb01864f">2.2. 符号</a>
 <ul>
 <li><a href="#org4196a64">2.2.1. 数学模式重音符号</a></li>
 <li><a href="#org5a57de1">2.2.2. 小写希腊字母</a></li>
@@ -360,7 +363,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgcd74bd9">3. keil</a></li>
 <li><a href="#orgb60ba11">4. iar</a></li>
-<li><a href="#org7a5fd80">5. git</a>
+<li><a href="#org628ba47">5. git</a>
 <ul>
 <li><a href="#org2128faf">5.1. account</a></li>
 <li><a href="#org37f4861">5.2. local repository creation</a></li>
@@ -409,7 +412,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>M-x eval-last-sexp 使当前 elisp 配置中光标前的那一条语句立刻生效；</li>
 <li>M-x eval-region 使当前 elisp 配置中选中的 region 中的语句立刻生效；</li>
-<li>M-x eval-<a href="#orge21fa15">buffer</a> 使当前的 <a href="#orge21fa15">buffer</a> 中的设置语句立刻生效；</li>
+<li>M-x eval-<a href="#org365d707">buffer</a> 使当前的 <a href="#org365d707">buffer</a> 中的设置语句立刻生效；</li>
 <li>M-x load-file ~/.emacs 载入 .emacs 文件，从而使其中的设置生效，要
 生效其它 elisp 文件只需要把 .emacs 文件名换成其它的即可。</li>
 </ul></li>
@@ -635,7 +638,7 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">C-F8</td>
-<td class="org-left">open-eshell-other-<a href="#orge21fa15">buffer</a></td>
+<td class="org-left">open-eshell-other-<a href="#org365d707">buffer</a></td>
 <td class="org-left">在另一个buffer里面打开eshell</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1103,7 +1106,7 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">revert-<a href="#orge21fa15">buffer</a></td>
+<td class="org-left">revert-<a href="#org365d707">buffer</a></td>
 <td class="org-left">刷新buffer</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1119,7 +1122,7 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">eval-current-<a href="#orge21fa15">buffer</a></td>
+<td class="org-left">eval-current-<a href="#org365d707">buffer</a></td>
 <td class="org-left">当前配置立马生效</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1127,7 +1130,7 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">rename-<a href="#orge21fa15">buffer</a></td>
+<td class="org-left">rename-<a href="#org365d707">buffer</a></td>
 <td class="org-left">重命名当前buffer</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1182,8 +1185,8 @@ profiler-report；</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7d953b0" class="outline-4">
-<h4 id="org7d953b0"><span class="section-number-4">1.2.5</span> 字体</h4>
+<div id="outline-container-orgedc74e1" class="outline-4">
+<h4 id="orgedc74e1"><span class="section-number-4">1.2.5</span> 字体</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <ul class="org-ul">
 <li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn</li>
@@ -1195,7 +1198,7 @@ profiler-report；</li>
 <div class="outline-text-4" id="text-1-2-6">
 <ul class="org-ul">
 <li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
-变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#orge21fa15">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#org365d707">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
 编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8</li>
 <li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；</li>
 </ul>
@@ -1215,10 +1218,90 @@ profiler-report；</li>
 <h3 id="org2097fa2"><span class="section-number-3">1.3</span> elisp</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgf2fc45e" class="outline-4">
-<h4 id="orgf2fc45e"><span class="section-number-4">1.3.1</span> 函数</h4>
+<div id="outline-container-org5c25fa9" class="outline-4">
+<h4 id="org5c25fa9"><span class="section-number-4">1.3.1</span> 变量</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
+<li>list：
+要得到一个list，可以使用下面的方式，第3种方式如果不加单引号，elisp将
+会把1当成函数把2和3当成参数，结果就会报错。
+<ol class="org-ol">
+<li>(list 1 2 3)：产生一个list对象，且每次产生的都是新的对象</li>
+<li>(quote (1 2 3))：产生一个list对象，但每次产生的对象可能都是指向同
+一个</li>
+<li>&rsquo;(1 2 3)：相同quote方式。</li>
+</ol></li>
+<li>全局变量
+<ul class="org-ul">
+<li>defvar:定义全局变量</li>
+</ul></li>
+<li>局部变量
+<ul class="org-ul">
+<li>let：定义局部变量</li>
+</ul></li>
+<li>作用域(scope)</li>
+<li>生存期(extent)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7a32949" class="outline-4">
+<h4 id="org7a32949"><span class="section-number-4">1.3.2</span> 符号</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+elisp中符号(symbol)是一个Lisp对象，它是一个数据结构，由以下4个部分组成，
+</p>
+<ul class="org-ul">
+<li>name：symbol的名字</li>
+<li>value cell：作为一个动态变量，symbol的值</li>
+<li>function cell：作为一个函数，它的函数值</li>
+<li>property list：属性列表</li>
+</ul>
+
+
+<p>
+symbol的标识符直接在Lisp代码中出现，会被读取为一个符号（symbol）， 然
+后在不同的上下文中 ，Lisp求值器会看情况取出value cell或者function cell
+的内容， 作为该符号（symbol）的值（value）。如果某一个函数接受符号
+（symbol）而不是它的值（value）作为参数，我们就得引用（quote）它， 即，
+我们使用引用，可以创建一个符号（symbol）字面量（literal）。symbol-name
+函数可以用来获取符号（symbol）x的name，
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(symbol-name 'x)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8bc0169" class="outline-4">
+<h4 id="org8bc0169"><span class="section-number-4">1.3.3</span> 表达式</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+形如(+ 1 2)叫表达式，从左到右位于第一个位置的元素，表示
+</p>
+<ul class="org-ul">
+<li>一个函数：其参数必需要先求值完毕</li>
+<li>一个宏：其参数有自己的对参数的求值策略</li>
+<li>一个内置的特殊命令：其参数有自己的对参数的求值策略</li>
+</ul>
+<p>
+其他位置的元素称为参数；
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf2fc45e" class="outline-4">
+<h4 id="orgf2fc45e"><span class="section-number-4">1.3.4</span> 函数</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li>interactive: 该特殊表表示该函数可以做交互，且定义函数参数类型。
+<ul class="org-ul">
+<li>星号*：表示如果有错误，就产生一个错误消息；</li>
+<li>p：表示传送给函数的参数的是一个处理过的前缀参量的值，前缀参量用
+C-u值的形式传递</li>
+<li>cxx: 指交互表达式希望产生一个提示xx并且后续的参数将是一个字符</li>
+<li>r：使emacs将位点所在区域的开始值和结束值作为函数的两个参数；</li>
+<li>Bxx：告诉emacs用缓冲区的名字作为函数的参数,并用xx作为提示</li>
+</ul></li>
 <li><p>
 concat：将字符串连接，如下
 </p>
@@ -1227,14 +1310,15 @@ concat：将字符串连接，如下
 </pre>
 </div></li>
 <li>file-name-sans-extension: 获得文件名，除了后缀名；</li>
-<li><a href="#orge21fa15">buffer</a>-file-name: 获得文件名，带后缀名；</li>
-<li>current-<a href="#orge21fa15">buffer</a>: 当前buffer名；</li>
+<li><a href="#org365d707">buffer</a>-file-name: 获得文件名，带后缀名；</li>
+<li>current-<a href="#org365d707">buffer</a>: 当前buffer名；</li>
+<li>progn: 该函数使其每个参数表达式被逐一求值，并返回最后1个表达式的值</li>
 </ul>
 </div>
 </div>
 <div id="outline-container-org214b66a" class="outline-4">
-<h4 id="org214b66a"><span class="section-number-4">1.3.2</span> 功能</h4>
-<div class="outline-text-4" id="text-1-3-2">
+<h4 id="org214b66a"><span class="section-number-4">1.3.5</span> 功能</h4>
+<div class="outline-text-4" id="text-1-3-5">
 <ul class="org-ul">
 <li><p>
 获取buffer文件名: 行<a href="#coderef-extn" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-extn');" onmouseout="CodeHighlightOff(this, 'coderef-extn');">1</a>带有后缀名，行<a href="#coderef-noextn" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-noextn');" onmouseout="CodeHighlightOff(this, 'coderef-noextn');">2</a>不带后缀名；
@@ -1318,8 +1402,8 @@ org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
 </ul>
 </div>
 </div>
-<div id="outline-container-orgedc74e1" class="outline-4">
-<h4 id="orgedc74e1"><span class="section-number-4">1.4.6</span> 字体</h4>
+<div id="outline-container-org577b16a" class="outline-4">
+<h4 id="org577b16a"><span class="section-number-4">1.4.6</span> 字体</h4>
 <div class="outline-text-4" id="text-1-4-6">
 <p>
 试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span class="underline">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
@@ -1647,7 +1731,7 @@ gnuplot，见图\ref{img-gnuplot-test}所示：
 [[][]]定位过去就是 <a href="#org031ce71">1.4</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
 标点。</li>
 <li>辐射链接：使用3个尖括号括起的锚点，可以将文档中所有的锚点链接起来，比如
-<a id="orge21fa15">buffer</a> ;</li>
+<a id="org365d707">buffer</a> ;</li>
 <li>外部链接：包括链接到文件、网址、email等</li>
 <li>包含：可以在头部使用#+include:&ldquo;path/file&rdquo;包含某个文件，比如org，然后就可
 以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
@@ -1871,8 +1955,8 @@ org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org178874f" class="outline-5">
-<h5 id="org178874f"><span class="section-number-5">1.4.16.1</span> 配置</h5>
+<div id="outline-container-orgdef12e0" class="outline-5">
+<h5 id="orgdef12e0"><span class="section-number-5">1.4.16.1</span> 配置</h5>
 <div class="outline-text-5" id="text-1-4-16-1">
 <p>
 可以使用 <span class="underline">\#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span class="underline">filename</span>
@@ -1899,7 +1983,7 @@ org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 <tbody>
 <tr>
 <td class="org-left">#+TITLE:</td>
-<td class="org-left">the title to be shown (default is the <a href="#orge21fa15">buffer</a> name)</td>
+<td class="org-left">the title to be shown (default is the <a href="#org365d707">buffer</a> name)</td>
 </tr>
 
 <tr>
@@ -2203,8 +2287,8 @@ options: 带一定的<a href="http://orgmode.org/org.html#Export-settings">参�
 </div>
 </div>
 </div>
-<div id="outline-container-org003a5fe" class="outline-4">
-<h4 id="org003a5fe"><span class="section-number-4">1.4.17</span> latex</h4>
+<div id="outline-container-org5ccb900" class="outline-4">
+<h4 id="org5ccb900"><span class="section-number-4">1.4.17</span> latex</h4>
 <div class="outline-text-4" id="text-1-4-17">
 <p>
 可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
@@ -2242,15 +2326,15 @@ test.zip * 就可以完成压缩，
 </ul>
 </div>
 </div>
-<div id="outline-container-org5682e38" class="outline-3">
-<h3 id="org5682e38"><span class="section-number-3">1.7</span> git</h3>
+<div id="outline-container-org7a5fd80" class="outline-3">
+<h3 id="org7a5fd80"><span class="section-number-3">1.7</span> git</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 </p>
 </div>
-<div id="outline-container-orgdef12e0" class="outline-4">
-<h4 id="orgdef12e0"><span class="section-number-4">1.7.1</span> 配置</h4>
+<div id="outline-container-org08b56de" class="outline-4">
+<h4 id="org08b56de"><span class="section-number-4">1.7.1</span> 配置</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li>使用M-x git-config-init 配置用户名和email；</li>
@@ -2292,8 +2376,8 @@ password github&#30340;&#30331;&#24405;&#23494;&#30721;
 </div>
 </div>
 </div>
-<div id="outline-container-org5ccb900" class="outline-2">
-<h2 id="org5ccb900"><span class="section-number-2">2</span> latex</h2>
+<div id="outline-container-orgb31e668" class="outline-2">
+<h2 id="orgb31e668"><span class="section-number-2">2</span> latex</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 <div id="outline-container-orgd20df77" class="outline-3">
@@ -2301,8 +2385,8 @@ password github&#30340;&#30331;&#24405;&#23494;&#30721;
 <div class="outline-text-3" id="text-2-1">
 </div>
 </div>
-<div id="outline-container-org7a32949" class="outline-3">
-<h3 id="org7a32949"><span class="section-number-3">2.2</span> 符号</h3>
+<div id="outline-container-orgb01864f" class="outline-3">
+<h3 id="orgb01864f"><span class="section-number-3">2.2</span> 符号</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
 <div id="outline-container-org4196a64" class="outline-4">
@@ -2515,8 +2599,8 @@ password github&#30340;&#30331;&#24405;&#23494;&#30721;
 </ul>
 </div>
 </div>
-<div id="outline-container-org7a5fd80" class="outline-2">
-<h2 id="org7a5fd80"><span class="section-number-2">5</span> git</h2>
+<div id="outline-container-org628ba47" class="outline-2">
+<h2 id="org628ba47"><span class="section-number-2">5</span> git</h2>
 <div class="outline-text-2" id="text-5">
 </div>
 <div id="outline-container-org2128faf" class="outline-3">
@@ -2795,7 +2879,7 @@ new<sub>branch并切换到new</sub><sub>branch分支上</sub>；</li>
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-03-30 周一 20:05</p>
+<p class="date">Created: 2020-04-02 周四 21:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -202,7 +202,52 @@
 使用M-x shell-command然后输入win下程序，可以调用执行之。也可以绑定到
 按键上。 
 ** elisp
+*** 变量
+- list：
+  要得到一个list，可以使用下面的方式，第3种方式如果不加单引号，elisp将
+  会把1当成函数把2和3当成参数，结果就会报错。
+  1. (list 1 2 3)：产生一个list对象，且每次产生的都是新的对象
+  2. (quote (1 2 3))：产生一个list对象，但每次产生的对象可能都是指向同
+     一个
+  3. '(1 2 3)：相同quote方式。
+- 全局变量
+  + defvar:定义全局变量
+- 局部变量
+  + let：定义局部变量
+- 作用域(scope)
+- 生存期(extent)
+*** 符号 
+elisp中符号(symbol)是一个Lisp对象，它是一个数据结构，由以下4个部分组成，
+- name：symbol的名字
+- value cell：作为一个动态变量，symbol的值
+- function cell：作为一个函数，它的函数值
+- property list：属性列表
+
+
+symbol的标识符直接在Lisp代码中出现，会被读取为一个符号（symbol）， 然
+后在不同的上下文中 ，Lisp求值器会看情况取出value cell或者function cell
+的内容， 作为该符号（symbol）的值（value）。如果某一个函数接受符号
+（symbol）而不是它的值（value）作为参数，我们就得引用（quote）它， 即，
+我们使用引用，可以创建一个符号（symbol）字面量（literal）。symbol-name
+函数可以用来获取符号（symbol）x的name，
+#+BEGIN_SRC emacs-lisp
+  (symbol-name 'x)
+#+END_SRC
+*** 表达式
+形如(+ 1 2)叫表达式，从左到右位于第一个位置的元素，表示
+- 一个函数：其参数必需要先求值完毕
+- 一个宏：其参数有自己的对参数的求值策略
+- 一个内置的特殊命令：其参数有自己的对参数的求值策略
+其他位置的元素称为参数；
+
 *** 函数
+- interactive: 该特殊表表示该函数可以做交互，且定义函数参数类型。
+  + 星号*：表示如果有错误，就产生一个错误消息；
+  + p：表示传送给函数的参数的是一个处理过的前缀参量的值，前缀参量用
+    C-u值的形式传递
+  + cxx: 指交互表达式希望产生一个提示xx并且后续的参数将是一个字符
+  + r：使emacs将位点所在区域的开始值和结束值作为函数的两个参数；
+  + Bxx：告诉emacs用缓冲区的名字作为函数的参数,并用xx作为提示
 - concat：将字符串连接，如下
   #+begin_src lisp
   (concat "gcc" "-W -o")
@@ -210,6 +255,7 @@
 - file-name-sans-extension: 获得文件名，除了后缀名；
 - buffer-file-name: 获得文件名，带后缀名；
 - current-buffer: 当前buffer名；
+- progn: 该函数使其每个参数表达式被逐一求值，并返回最后1个表达式的值
 *** 功能
 - 获取buffer文件名: 行[[(extn)]]带有后缀名，行[[(noextn)]]不带后缀名；
   #+begin_src lisp -n -r
