@@ -256,6 +256,7 @@ symbol的标识符直接在Lisp代码中出现，会被读取为一个符号（s
 - buffer-file-name: 获得文件名，带后缀名；
 - current-buffer: 当前buffer名；
 - progn: 该函数使其每个参数表达式被逐一求值，并返回最后1个表达式的值
+- p: 末尾带p(predicate)的函数一般都是判断函数，返回true或false;
 *** 功能
 - 获取buffer文件名: 行[[(extn)]]带有后缀名，行[[(noextn)]]不带后缀名；
   #+begin_src lisp -n -r
