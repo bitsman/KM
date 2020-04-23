@@ -1,8 +1,8 @@
 #+TITLE: Sitemap
 
+- [[file:software.org][Èí¼þ]]
 - [[file:tool.org][¹¤¾ß]]
 - [[file:index.org][±È¿ËÂüµÄÖªÊ¶¹ÜÀí]]
-- [[file:software.org][Èí¼þ]]
 - [[file:security.org][°²È«]]
 - [[file:signal.org][ÐÅºÅÓëÏµÍ³]]
 - [[file:protocol.org][Ð­Òé]]
