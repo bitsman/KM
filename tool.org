@@ -35,7 +35,83 @@
   + M-x eval-region 使当前 elisp 配置中选中的 region 中的语句立刻生效；
   + M-x eval-buffer 使当前的 buffer 中的设置语句立刻生效；
   + M-x load-file ~/.emacs 载入 .emacs 文件，从而使其中的设置生效，要
-    生效其它 elisp 文件只需要把 .emacs 文件名换成其它的即可。  
+    生效其它 elisp 文件只需要把 .emacs 文件名换成其它的即可。
+*** Win编译安装
+以64位为例。首先安装x86_64版的MSYS2。安装后运行安装目录里的
+msys2_shell.bat，会看到一个BASH的命令行窗口。使用命令安装所需的包：
+#+BEGIN_SRC shell -n 
+  pacman -S base-devel mingw-w64-x86_64-toolchain \
+         mingw-w64-x86_64-xpm-nox\
+         mingw-w64-x86_64-libtiff \
+         mingw-w64-x86_64-giflib\
+         mingw-w64-x86_64-libpng \
+         mingw-w64-x86_64-libjpeg-turbo\
+         mingw-w64-x86_64-librsvg \
+         mingw-w64-x86_64-libxml2\
+         mingw-w64-x86_64-gnutls
+#+END_SRC
+
+
+其中，除了前两项外其他是可选的。它们的功能分别是
+- 基础：base-devel mingw-w64-x86_64-toolchain
+- 图形库:
+  + mingw-w64-x86_64-libtiff
+  + mingw-w64-x86_64-giflib
+  + mingw-w64-x86_64-libpng
+  + mingw-w64-x86_64-libjpeg-turbo
+  + mingw-w64-x86_64-librsvg
+- 用于Libxml2： mingw-w64-x86_64-libxml2
+- 用于GnuTLS： mingw-w64-x86_64-gnutls
+
+emacs源码可以在ftp或者github上获得；
+
+下面就是编译安装了。运行开始菜单中的mingw64_shell，注意必须是它，这会
+启动一个MinGW-w64的环境。cd到源码所在的目录，运行下面的命令编译Emacs并
+且安装到C:\emacs。如果是从开发版编译，第一行是必须的，否则
+#+BEGIN_SRC shell
+  ./autogen.sh
+  PKG_CONFIG_PATH=/mingw64/lib/pkgconfig ./configure --host=x86_64-w64-mingw32 \
+                 --target=x86_64-w64-mingw32\
+                 --build=x86_64-w64-mingw32\
+                 --with-wide-int \
+                 --with-jpeg\
+                 --with-xpm\
+                 --with-png\
+                 --with-tiff\
+                 --with-rsvg\
+                 --with-xml2 \
+                 --with-gnutls\
+                 --with-xft\
+                 --without-imagemagick\
+                 --with-modules
+  make
+  make install prefix=/c/emacs
+#+END_SRC
+
+
+如果成功的话C:\emacs目录里就有编译好的Emacs。因为编译时用了很多第三方
+库, 所以编译的这个Emacs是需要那些DLL才能运行的。如果系统里面MSYS2已经
+被添加到PATH环境变量里(例如PATH里包含了C:\msys2\mingw64\bin)了这不是问
+题，但如果环境变量里没有或者想在其他电脑上用，需要用下面的命令复制所需
+的DLL到Emacs所在目录：
+#+BEGIN_SRC shell
+  cp /mingw64/bin/{libwinpthread-*.dll,libXpm-noX*.dll,libdbus-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libgomp-*.dll,libgcc_s_seh-*.dll,libglib-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libintl-*.dll,libiconv-*.dll,libgobject-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libffi-*.dll,libgdk_pixbuf-*.dll,libgio-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libgmodule-*.dll,zlib*.dll,librsvg-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libcairo-*.dll,libcroco-*.dll,libpango-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libpangocairo-*.dll,libxml2-*.dll,libfontconfig-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libfreetype-*.dll,libpixman-*.dll,libpng*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libpangoft*.dll,libpangowin32-*.dll,liblzma-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libexpat-*.dll,libharfbuzz-*.dll,libgnutls-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libgnutlsxx-*.dll,libtiff-*.dll,libtiffxx-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libjpeg-*.dll,libgif-*.dll,libbz2-*.dll,libjbig-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libgmp-*.dll,libhogweed-*.dll,libnettle-*.dll} /c/emacs/bin
+  cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
+#+END_SRC
+
+
 ** 基本操作
 *** 按键命令
 - 按键自定义方式
@@ -581,7 +657,7 @@ Snow covers Emacs
   | #+EMAIL:                 | his/her email address (default from user-mail-address)                    |
   | #+DESCRIPTION:           | 某些pdf软件可以查看pdf的属性，属性包括文章描述                            |
   | #+KEYWORDS:              | 某些pdf软件可以查看pdf的属性，属性包括文章关键字                          |
-  | #+LANGUAGE:              | language for HTML, e.g. ‘en’ (org-export-default-language)              |
+  | #+LANGUAGE:              | language for HTML, e.g. ‘en’ (org-export-default-language)                |
   | #+TEXT:                  | Some descriptive text to be inserted at the beginning.                    |
   | #+TEXT:                  | Several lines may be given.                                               |
   | #+OPTIONS:               | H:2 num:t toc:t \backslash{}n:nil @:t ::t     \vert{}:t ^:t f:t TeX:t ... |
@@ -701,6 +777,166 @@ Snow covers Emacs
 5. 在跳出的buffer中写入日志；
 6. 使用C-c C-c进行commit；
 7. 使用点.键调出git bash，输入push learn master推送到远端；
+** dynamic-load
+该功能只有在emacs25以上才有，经过编译安装时，使用--with-modules来做
+configure，这个emacs才具备dynamic load dll或者so的能力，默认是关闭的。
+具备了该功能后，就写c模块。如下两个例子。
+*** demo1
+- c文件
+  #+BEGIN_SRC c -n  
+    #include "emacs-module.h"//头文件从源码src文件夹下获得
+  
+    /* Declare mandatory GPL symbol.  */
+    int plugin_is_GPL_compatible;
+  
+    /* New emacs lisp function. All function exposed to Emacs must have this prototype. */
+    static emacs_value
+    Fmymod_test (emacs_env *env, int nargs, emacs_value args[], void *data)
+    {
+        return env->make_integer (env, 43);
+    }
+  
+    /* Bind NAME to FUN.  */
+    static void
+    bind_function (emacs_env *env, const char *name, emacs_value Sfun)
+    {
+        /* Set the function cell of the symbol named NAME to SFUN using
+           the 'fset' function.  */
+  
+        /* Convert the strings to symbols by interning them */
+        emacs_value Qfset = env->intern (env, "fset");
+        emacs_value Qsym = env->intern (env, name);
+  
+        /* Prepare the arguments array */
+        emacs_value args[] = { Qsym, Sfun };
+  
+        /* Make the call (2 == nb of arguments) */
+        env->funcall (env, Qfset, 2, args);
+    }
+  
+    /* Provide FEATURE to Emacs.  */
+    static void
+    provide (emacs_env *env, const char *feature)
+    {
+        /* call 'provide' with FEATURE converted to a symbol */
+  
+        emacs_value Qfeat = env->intern (env, feature);
+        emacs_value Qprovide = env->intern (env, "provide");
+        emacs_value args[] = { Qfeat };
+  
+        env->funcall (env, Qprovide, 1, args);
+    }
+  
+    int
+    emacs_module_init (struct emacs_runtime *ert)
+    {
+        emacs_env *env = ert->get_environment (ert);
+  
+        /* create a lambda (returns an emacs_value) */
+        emacs_value fun = env->make_function (env,
+                                              0,      /* min. number of arguments */
+                                              0,      /* max. number of arguments */
+                                              Fmymod_test,/* actual function pointer */
+                                              "doc",      /* docstring */
+                                              NULL /* user pointer of your choice (data param in Fmymod_test) */
+                                              );
+  
+        bind_function (env, "mymod-test", fun);
+        provide (env, "mymod");
+  
+        /* loaded successfully */
+        return 0;
+    }
+  #+END_SRC
+- Makefile
+  #+BEGIN_SRC makefile
+    # path to the emacs source dir
+    # (you can provide it here or on the command line)
+    # ROOT    = e:/emacs-26.1
+    CC      = gcc
+    LD      = gcc
+    CFLAGS  = -ggdb3 -Wall
+    LDFLAGS =
+
+    all: mymod.dll
+
+    # make shared library out of the object file
+    %.dll: %.o
+            $(LD) -shared $(LDFLAGS) -o $@ $<
+
+    # compile source file to object file
+    %.o: %.c
+            $(CC) $(CFLAGS) -fPIC -c $<
+            # $(CC) $(CFLAGS) -I$(ROOT)/src -fPIC -c $<
+  #+END_SRC
+- run:经过make编译后，生成mymod.dll，然后再草稿buffer中使用如下方式就
+  能打印出结果。
+  #+BEGIN_SRC emacs-lisp
+    (add-to-list 'load-path "path/to/dll")
+    (require 'mymod)
+    (mymod-test)
+  #+END_SRC
+  
+*** demo2
+- c文件
+  #+BEGIN_SRC c -n
+    #include "emacs-module.h"
+    int plugin_is_GPL_compatible;
+    /* Provide FEATURE to Emacs.  */
+    static void
+    provide (emacs_env *env, const char *feature)
+    {
+        /* call 'provide' with FEATURE converted to a symbol */
+
+        emacs_value Qfeat = env->intern (env, feature);
+        emacs_value Qprovide = env->intern (env, "provide");
+        emacs_value args[] = { Qfeat };
+
+        env->funcall (env, Qprovide, 1, args);
+    }
+
+    int
+    emacs_module_init(struct emacs_runtime *ert)
+    {
+        emacs_env *env = ert->get_environment(ert);
+        emacs_value message = env->intern(env, "message");
+        const char hi[] = "Hello, cruel world!";
+        emacs_value string = env->make_string(env, hi, sizeof(hi) - 1);
+        env->funcall(env, message, 1, &string);
+        provide (env, "emtest");
+
+        return 0;
+    }
+
+  #+END_SRC
+- Makefile
+  #+BEGIN_SRC makefile
+    # path to the emacs source dir
+    # (you can provide it here or on the command line)
+    # ROOT    = e:/emacs-26.1
+    CC      = gcc
+    LD      = gcc
+    CFLAGS  = -ggdb3 -Wall
+    LDFLAGS =
+
+    all: emtest.dll
+
+    # make shared library out of the object file
+    %.dll: %.o
+            $(LD) -shared $(LDFLAGS) -o $@ $<
+
+    # compile source file to object file
+    %.o: %.c
+            $(CC) $(CFLAGS) -fPIC -c $<
+            # $(CC) $(CFLAGS) -I$(ROOT)/src -fPIC -c $<
+  #+END_SRC
+- run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如下方式就
+  能打印出结果。
+  #+BEGIN_SRC emacs-lisp
+    (add-to-list 'load-path "path/to/dll")
+    (require 'emtest)
+  #+END_SRC
+
 * latex
 ** 方法
 # - 固定latex插入的图片位置
