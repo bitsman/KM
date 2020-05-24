@@ -999,6 +999,187 @@ configure，这个emacs才具备dynamic load dll或者so的能力，默认是关
 - 设置emacs编辑器：在Configure Tool中Menu Content中新建个命令emacs(&E), 括号里面的代表快捷键，在Command中设置emacs路径，
   在Argument中 \$FILE_PATH\$ 代表编辑当前文件.  
 * git
+** gitolite
+Linux下git server目前有3种解决方案。
+- Gitosis：轻量级， 开源项目，使用SSH公钥认证，只能做到库级的权限控
+  制。目前项目已经停止开发，不再维护。 
+- Gitolite：轻量级，开源项目，使用SSH公钥认证，能做到分支级的权限控制。  
+- Git+Repo+Gerrit:超级重量级，集版本控制，库管理和代码审核为一身。可管
+  理大型及超大型项目
+
+
+对于一般项目的git管理，gitolite是个不错的选择。
+*** 安装基础包
+#+BEGIN_SRC shell
+  yum install perl openssh git
+#+END_SRC
+*** 创建git用户
+系统中创建git用户。
+#+BEGIN_SRC shell
+  adduser git 
+  passwd git
+#+END_SRC
+*** 安装gitolite
+- 切换到git用户：
+  #+BEGIN_SRC shell
+    su – git
+  #+END_SRC
+- 创建文件夹bin
+  #+BEGIN_SRC shell
+    mkdir /home/git/bin
+  #+END_SRC
+- 从github克隆gitolite的源码
+  #+BEGIN_SRC shell
+    git clone https://github.com/sitaramc/gitolite.git
+  #+END_SRC
+- 安装gitolite
+  #+BEGIN_SRC shell
+    ./gitolite/install -to /home/git/bin/
+  #+END_SRC
+
+至此gitolite的安装安装，可以查看bin目录里的内容。
+*** 配置gitolite管理员
+- 管理员公玥复制到服务器:密钥产生方式查询网络
+  #+BEGIN_SRC shell
+    cp id_rsa.pub /tmp/admin.pub
+  #+END_SRC
+- 在服务器切换回git用户，为gitolite配置管理员
+  #+BEGIN_SRC shell
+    /home/git/bin/gitolite setup -pk /tmp/admin.pub 
+  #+END_SRC
+*** 配置SSH
+- 修改sshd配置文件(/etc/ssh/sshd_config)，找到以下内容，并去掉注释
+  符"#"，其中authorized_keys文件是gitolite管理所有git用户公玥的文件，
+  里面包含了刚刚设置的gitolite管理员账户公玥。
+  #+BEGIN_SRC shell
+    RSAAuthentication yes
+    PubkeyAuthentication yes
+    AuthorizedKeysFile  /home/git/.ssh/authorized_keys
+  #+END_SRC
+- 重启ssh服务
+  #+BEGIN_SRC shell
+    service sshd restart
+  #+END_SRC
+*** 使用git-shell来限制用户ssh登陆
+出于安全的考虑，我们最好限制用户只能进行git push/pull，但无法登陆。这
+可以使用git-shell来完成(好像这一节不起作用)
+- 查看一下git-shell的位置
+  #+BEGIN_SRC shell
+    which git-shell
+  #+END_SRC
+- 将git-shell的路径添加到 /etc/shells文件中
+- 修改git用户的shell：
+  #+BEGIN_SRC shell
+    sudo chsh git
+  #+END_SRC
+*** 克隆 gitolite-admin 管理库
+管理员在本机克隆Gitolite管理库
+#+BEGIN_SRC shell
+  git clone git@yourServerIP:gitolite-admin.git
+#+END_SRC
+可以看到在管理库gitolite-admin里，有两个目录， conf/和keydir/，其中
+conf/下面有个名为gitolite.conf的配置文件。 
+- conf/gitolite.conf 用于Git项目配置，访问权限设置。
+- keydir/ 用于存储用户的SSH public key(公钥）。
+*** 权限
+- C：代表创建，仅在通配符版本库授权时使用，用于指定谁可以创建与通配符
+  匹配的版本库
+- R：R为只读
+- RW：RW为读写权限
+- RW+：RW+代表除了拥有读写权限，还可以强制执行推送，强制更新，创建和删
+  除引用
+- RWC：RW+C
+- RWD：RW+D，D代表允许删除和正则匹配的引用
+- RWCD：RW+CD
+
+
+传统模式的引用授权：指的是在授权指令中只采用R、RW和RW+的传统授权关键字， 
+而不包括扩展授权指令。传统的授权指令没有把分支的创建和分支删除权限细分，
+而是和写操作及强制推送操作混杂在一起。
+#+BEGIN_SRC shell
+  1  @administrators = jiangxin admin
+  2  @dev                  = dev1 dev2 badboy
+  3  @test                  = test1 test2
+  4
+  5  repo    test/repo1
+  6          RW+           = @administrators
+  7          RW master refs/heads/feature/ = @dev
+  8          R                 = @test
+#+END_SRC
+
+- 第6行:对于版本库test/repo1，管理员组用户jiangxin和admin可以读写任意
+  分支、强制推送，以及创建和删除引用。 
+- 第7行:用户组@dev除了对master和refs/heads/feature/开头的引用具有读写
+  权限外，实际上可以读取所有引用。这是因为读取操作授权阶段无法获知引用。   
+- 第8行:用户组@test对版本库拥有只读授权。
+
+
+扩展模式的引用授权，指的是该版本库的授权指令出现了下列授权关键字中的一
+个或多个：RWC、RWD、RWCD、RW+C、RW+D、RW+CD，将分支的创建权限和删除权
+限从读写权限中分离出来，从而可对分支进行更为精细的权限控制。  
+- 非快进式推送必须拥有上述关键字中的+方可授权。
+- 创建引用必须拥有上述关键字中的C方可授权。
+- 删除引用必须拥有上述关键字中的D方可授权。
+即引用的创建和删除使用了单独的授权关键字，和写权限和强制推送权限分开。
+#+BEGIN_SRC shell
+  1   repo    test/repo2
+  2           RW+C = @administrators
+  3           RW+   = @dev
+  4           RW      = @test
+  5
+  6   repo    test/repo3
+  7           RW+CD  = @administrators
+  8           RW+C    = @dev
+  9           RW         = @test
+#+END_SRC
+
+
+库test/repo2.git具有如下的授权：
+- 第2行:用户组@administrators中的用户，具有创建和删除引用的权限，并且
+  能强制推送。其中创建引用来自授权关键字中的C，删除引用来自授权关键中
+  的+，因为该版本库授权指令中没有出现D，因而删除应用授权沿用传统授权关
+  键字。
+- 第3行，用户组@dev中的用户，不能创建引用，但可以删除引用，并且可以强
+  制推送。因为第2行授权关键字中字符C的出现，使得创建引用采用扩展授权关
+  键字，因而用户组@dev不具有创建引用的权限。
+- 第4行，用户组@test中的用户，拥有读写权限，但是不能创建引用，不能删除
+  引用，也不能强制推送。
+
+
+库test/repo3.git具有如下的授权：
+- 第7行，用户组@administrators中的用户，具有创建和删除引用的权限，并且
+  能强制推送。其中创建引用来自授权关键字中的C，删除引用来自授权关键中
+  的D。
+- 第8行，用户组@dev中的用户，可以创建引用，并能够强制推送，但不能删除
+  引用。因为第7行授权关键字中字符C和D的出现，使得创建和删除引用都采用
+  扩展授权关键字，因而用户组@dev不具有删除引用的权限。
+- 第9行，用户组@test中的用户，可以推送到任何引用，但是不能创建引用，不
+  能删除引用，也不能强制推送。 
+
+
+对路径的写授权, 在授权文件中，如果一个版本库的授权指令中的正则引用字段
+出现了以"NAME/"开头的引用，则表明该授权指令是针对路径进行的写授权，并
+且该版本库要进行基于路径的写授权判断。
+#+BEGIN_SRC shell
+  1  repo foo
+  2      RW                 =   @junior_devs @senior_devs
+  3
+  4      RW  NAME/          =   @senior_devs
+  5      -   NAME/Makefile  =   @junior_devs
+  6      RW  NAME/          =   @junior_devs
+#+END_SRC
+- 第2行，初级程序员@junior_devs和高级程序员@senior_devs可以对版本库foo
+  进行读写操作。 
+- 第4行，设定高级程序员@senior_devs对所有文件（NAME/）进行写操作。
+- 第5行和第6行，设定初级程序员@junior_devs对除了根目录的Makefile文件外
+  的其他文件具有写权限。
+*** 查询操作
+利用ssh可以查询自己的账户有哪些库和权限
+#+BEGIN_SRC shell
+  ssh git@ip help			# 查询该账户可以运行哪些命令
+  ssh git@ip info			# 查询该账户有哪些库和权限
+#+END_SRC
+
 ** account
 - key:
   + generate private key and public key,keys place into dir "~/.ssh/";
@@ -1186,3 +1367,29 @@ interaction flow is like figure [[imggititactf]].
   + git format-patch -s HEAD~3..HEAD：将最近三个提交转换为补丁文件；
 - gitk
   + gitk --all：图形界面显示所有log日志
+* ssh
+ssh可以利用公私密钥和目标服务器建立绑定，在服务器上保存客户端对应的公
+钥，然后可以在客户端使用简单方式获取服务器的shell。步骤
+- 服务器(centos)建立测试账户：
+  #+BEGIN_SRC shell
+    # -s: 指定shell
+    # -g: 将gituser添加到gitgroup中
+    # 假定server地址叫ip
+    useradd -s /bin/bash -g gitgroup gituser 
+    pass gituser # 设置账户密码password1
+  #+END_SRC
+- 客户端生成和上传公钥到服务器
+  #+BEGIN_SRC shell
+    # 如果客户端的~/.ssh已经有公私密钥，则直接copy公钥
+    # 如果客户端的没有，则生成后copy公钥
+    # 需要输入上面的账户密码password1
+    # 由此建立了账户绑定
+    ssh-copy-id gituser@ip
+  #+END_SRC
+- 客户端ssh登录服务器账户
+  #+BEGIN_SRC shell
+    # 后台会使用客户端的私钥和服务器的公钥做校验
+    # 登录成功，直接获取到gituser的/bin/bash
+    ssh gituser@ip
+  #+END_SRC
+
