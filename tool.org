@@ -1368,6 +1368,25 @@ interaction flow is like figure [[imggititactf]].
 - gitk
   + gitk --all：图形界面显示所有log日志
 * ssh
+** 建立互信
+以下只在Linux上做了测试，好像两个机子必须用相同的账户名，测试用的root
+账。
+- A机生成ssh-key
+  #+BEGIN_SRC shell
+    # 生成id_rsa和id_rsa.pub
+    ssh-kengen -t rsa -C "bitman@163"
+  #+END_SRC
+- 建立互信通道：将A机的公钥拷贝到B机的.ssh/authorized_keys中，期间需要
+  输入B机账户(root)密码。
+  #+BEGIN_SRC shell
+    ssh-copy-id -i ~/.ssh/id_rsa.pub 192.168.0.25
+  #+END_SRC
+- 通道测试:A机拷贝文件到B机root目录下。
+  #+BEGIN_SRC shell
+    scp test.txt root@192.168.0.25:/root 
+  #+END_SRC
+- 如果要建立双向互信，B机也要同样在A机注册密钥
+** 获取shell
 ssh可以利用公私密钥和目标服务器建立绑定，在服务器上保存客户端对应的公
 钥，然后可以在客户端使用简单方式获取服务器的shell。步骤
 - 服务器(centos)建立测试账户：
