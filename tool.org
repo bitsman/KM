@@ -1179,6 +1179,16 @@ conf/下面有个名为gitolite.conf的配置文件。
   ssh git@ip help			# 查询该账户可以运行哪些命令
   ssh git@ip info			# 查询该账户有哪些库和权限
 #+END_SRC
+*** 修改库名
+分两步操作。
+- 服务器修改库名：使用账号登入gitolite服务器，mv A.git B.git,修改库名。
+- 配置文件修改库名：编辑gitolite-admin/conf/gitolite.conf里面的A为B，
+  并提交服务器。
+*** 删除库
+分两步操作。
+- 配置文件删除库：删除gitolite-admin/conf/gitolite.conf里面的库，并提
+  交gitolite服务器；
+- 服务器删除库：使用账号进入gitolite服务器，删除对应的git库
 
 ** account
 - key:
