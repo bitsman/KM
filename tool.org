@@ -110,8 +110,6 @@ emacs源码可以在ftp或者github上获得；
   cp /mingw64/bin/{libgmp-*.dll,libhogweed-*.dll,libnettle-*.dll} /c/emacs/bin
   cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 #+END_SRC
-
-
 ** 基本操作
 *** 按键命令
 - 按键自定义方式
@@ -1422,3 +1420,33 @@ ssh可以利用公私密钥和目标服务器建立绑定，在服务器上保�
     ssh gituser@ip
   #+END_SRC
 
+* jenkins
+- 单个git库被触发的设置：
+  1. 保证git服务器和Jenkins服务器网络通畅；
+  2. 在该git库的.git/hooks/中新建post-receive脚本
+     #+BEGIN_SRC shell
+       #!/bin/sh
+       # jenkins_username: 用户登陆Jenkins的用户名
+       # Jenkins_username_tokenvalue:在Jenkins用户管理中设置的该用户的token值
+       # ip:port:Jenkins服务器地址
+       # jobname: Jenkins中该用户的job名称
+       # token_name: 在Jenkins用户管理中设置的该用户的token名称
+       curl -X POST http://jenkins_username:jenkins_username_tokenvalue@ip:port/job/jobname/build?token=token_name
+     #+END_SRC
+  3. 这样对该git库提交，就会触发该job
+- 批量git库设置触发：
+  1. 保证git服务器和Jenkins服务器网络通畅；
+  2. 进入git服务器的 ~/.gitolite/hooks/common，编辑post-receive
+     #+BEGIN_SRC shell
+       #!/bin/sh
+       JENKINS_URL=http://ip:port
+       GIT_URL=git@ip2:port2
+       echo -n "Notifying Jenkins..."
+       wget -q $JENKINS_URL/git/notifyCommit\?url=$GIT_URL:$GL_REPO -O /dev/null
+       echo "done."
+     #+END_SRC
+  3. 运行命令gitolite setup。为每个git库建立软连接到该脚本，这样在做库
+     的clone，pull时该脚本也不会被拉到本地。
+     
+
+  
