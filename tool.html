@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-05 周五 00:06 -->
+<!-- 2020-06-05 周五 17:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工具</title>
@@ -276,7 +276,7 @@ for the JavaScript code in this tag.
 <li><a href="#org6ae1ff6">1.2.2. 其他</a></li>
 <li><a href="#orgfdb6caf">1.2.3. 计算器</a></li>
 <li><a href="#org8356dde">1.2.4. 图片</a></li>
-<li><a href="#org2831451">1.2.5. 字体</a></li>
+<li><a href="#orge3c3b4d">1.2.5. 字体</a></li>
 <li><a href="#org2a0cafc">1.2.6. 编码</a></li>
 <li><a href="#org4d6433f">1.2.7. 外部程序</a></li>
 </ul>
@@ -284,7 +284,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgd7701c9">1.3. elisp</a>
 <ul>
 <li><a href="#org55c6a61">1.3.1. 变量</a></li>
-<li><a href="#orga326353">1.3.2. 符号</a></li>
+<li><a href="#orgfeda33f">1.3.2. 符号</a></li>
 <li><a href="#org73c68dd">1.3.3. 表达式</a></li>
 <li><a href="#orgf8adb14">1.3.4. 函数</a></li>
 <li><a href="#orgc39ce92">1.3.5. 功能</a></li>
@@ -297,7 +297,7 @@ for the JavaScript code in this tag.
 <li><a href="#orga8fda77">1.4.3. 块</a></li>
 <li><a href="#org8069ba5">1.4.4. 脚注</a></li>
 <li><a href="#org39701b8">1.4.5. 序号</a></li>
-<li><a href="#orge3c3b4d">1.4.6. 字体</a></li>
+<li><a href="#org196d195">1.4.6. 字体</a></li>
 <li><a href="#orge38da06">1.4.7. 公式</a></li>
 <li><a href="#org2113f80">1.4.8. 表格</a>
 <ul>
@@ -316,22 +316,22 @@ for the JavaScript code in this tag.
 <li><a href="#org3647546">1.4.15. 注释</a></li>
 <li><a href="#org8bc811e">1.4.16. 导出</a>
 <ul>
-<li><a href="#org518fb87">1.4.16.1. 配置</a></li>
+<li><a href="#orgd4944b7">1.4.16.1. 配置</a></li>
 <li><a href="#orgd75ce86">1.4.16.2. beamer</a></li>
 <li><a href="#orgb1fc9a1">1.4.16.3. pdf</a></li>
 <li><a href="#org1509263">1.4.16.4. html</a></li>
 <li><a href="#orgfb12bf7">1.4.16.5. 特殊符号</a></li>
 </ul>
 </li>
-<li><a href="#org64b1947">1.4.17. latex</a></li>
+<li><a href="#orgec881de">1.4.17. latex</a></li>
 <li><a href="#orgbffb759">1.4.18. capture</a></li>
 </ul>
 </li>
 <li><a href="#org1cfbbcb">1.5. python-mode</a></li>
 <li><a href="#org5cff841">1.6. dired-mode</a></li>
-<li><a href="#org34b7dda">1.7. git</a>
+<li><a href="#org19ba490">1.7. git</a>
 <ul>
-<li><a href="#orgd4944b7">1.7.1. 配置</a></li>
+<li><a href="#org9b75697">1.7.1. 配置</a></li>
 <li><a href="#org193f9b4">1.7.2. push</a></li>
 </ul>
 </li>
@@ -343,10 +343,10 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgec881de">2. latex</a>
+<li><a href="#org638cc4b">2. latex</a>
 <ul>
 <li><a href="#org3b88bbb">2.1. 方法</a></li>
-<li><a href="#orgfeda33f">2.2. 符号</a>
+<li><a href="#orgd429208">2.2. 符号</a>
 <ul>
 <li><a href="#org4e36336">2.2.1. 数学模式重音符号</a></li>
 <li><a href="#org8ac82f6">2.2.2. 小写希腊字母</a></li>
@@ -373,7 +373,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org074d352">3. keil</a></li>
 <li><a href="#org5114a23">4. iar</a></li>
-<li><a href="#org19ba490">5. git</a>
+<li><a href="#org1d697e6">5. git</a>
 <ul>
 <li><a href="#orgaa9f8c8">5.1. gitolite</a>
 <ul>
@@ -403,6 +403,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgdede6ea">7. jenkins</a></li>
+<li><a href="#org0ec877b">8. share</a></li>
 </ul>
 </div>
 </div>
@@ -444,7 +445,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>M-x eval-last-sexp 使当前 elisp 配置中光标前的那一条语句立刻生效；</li>
 <li>M-x eval-region 使当前 elisp 配置中选中的 region 中的语句立刻生效；</li>
-<li>M-x eval-<a href="#org5afbc1e">buffer</a> 使当前的 <a href="#org5afbc1e">buffer</a> 中的设置语句立刻生效；</li>
+<li>M-x eval-<a href="#org71222a1">buffer</a> 使当前的 <a href="#org71222a1">buffer</a> 中的设置语句立刻生效；</li>
 <li>M-x load-file ~/.emacs 载入 .emacs 文件，从而使其中的设置生效，要
 生效其它 elisp 文件只需要把 .emacs 文件名换成其它的即可。</li>
 </ul></li>
@@ -765,7 +766,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">C-F8</td>
-<td class="org-left">open-eshell-other-<a href="#org5afbc1e">buffer</a></td>
+<td class="org-left">open-eshell-other-<a href="#org71222a1">buffer</a></td>
 <td class="org-left">在另一个buffer里面打开eshell</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1233,7 +1234,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">revert-<a href="#org5afbc1e">buffer</a></td>
+<td class="org-left">revert-<a href="#org71222a1">buffer</a></td>
 <td class="org-left">刷新buffer</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1249,7 +1250,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">eval-current-<a href="#org5afbc1e">buffer</a></td>
+<td class="org-left">eval-current-<a href="#org71222a1">buffer</a></td>
 <td class="org-left">当前配置立马生效</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1257,7 +1258,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">rename-<a href="#org5afbc1e">buffer</a></td>
+<td class="org-left">rename-<a href="#org71222a1">buffer</a></td>
 <td class="org-left">重命名当前buffer</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1312,8 +1313,8 @@ profiler-report；</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2831451" class="outline-4">
-<h4 id="org2831451"><span class="section-number-4">1.2.5</span> 字体</h4>
+<div id="outline-container-orge3c3b4d" class="outline-4">
+<h4 id="orge3c3b4d"><span class="section-number-4">1.2.5</span> 字体</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <ul class="org-ul">
 <li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn</li>
@@ -1325,7 +1326,7 @@ profiler-report；</li>
 <div class="outline-text-4" id="text-1-2-6">
 <ul class="org-ul">
 <li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
-变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#org5afbc1e">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#org71222a1">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
 编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8</li>
 <li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；</li>
 </ul>
@@ -1371,8 +1372,8 @@ profiler-report；</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga326353" class="outline-4">
-<h4 id="orga326353"><span class="section-number-4">1.3.2</span> 符号</h4>
+<div id="outline-container-orgfeda33f" class="outline-4">
+<h4 id="orgfeda33f"><span class="section-number-4">1.3.2</span> 符号</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 elisp中符号(symbol)是一个Lisp对象，它是一个数据结构，由以下4个部分组成，
@@ -1437,8 +1438,8 @@ concat：将字符串连接，如下
 </pre>
 </div></li>
 <li>file-name-sans-extension: 获得文件名，除了后缀名；</li>
-<li><a href="#org5afbc1e">buffer</a>-file-name: 获得文件名，带后缀名；</li>
-<li>current-<a href="#org5afbc1e">buffer</a>: 当前buffer名；</li>
+<li><a href="#org71222a1">buffer</a>-file-name: 获得文件名，带后缀名；</li>
+<li>current-<a href="#org71222a1">buffer</a>: 当前buffer名；</li>
 <li>progn: 该函数使其每个参数表达式被逐一求值，并返回最后1个表达式的值</li>
 <li>p: 末尾带p(predicate)的函数一般都是判断函数，返回true或false;</li>
 </ul>
@@ -1530,8 +1531,8 @@ org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
 </ul>
 </div>
 </div>
-<div id="outline-container-orge3c3b4d" class="outline-4">
-<h4 id="orge3c3b4d"><span class="section-number-4">1.4.6</span> 字体</h4>
+<div id="outline-container-org196d195" class="outline-4">
+<h4 id="org196d195"><span class="section-number-4">1.4.6</span> 字体</h4>
 <div class="outline-text-4" id="text-1-4-6">
 <p>
 试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span class="underline">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
@@ -1859,7 +1860,7 @@ gnuplot，见图\ref{img-gnuplot-test}所示：
 [[][]]定位过去就是 <a href="#org51fc1c0">1.4</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
 标点。</li>
 <li>辐射链接：使用3个尖括号括起的锚点，可以将文档中所有的锚点链接起来，比如
-<a id="org5afbc1e">buffer</a> ;</li>
+<a id="org71222a1">buffer</a> ;</li>
 <li>外部链接：包括链接到文件、网址、email等</li>
 <li>包含：可以在头部使用#+include:&ldquo;path/file&rdquo;包含某个文件，比如org，然后就可
 以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
@@ -2083,8 +2084,8 @@ org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org518fb87" class="outline-5">
-<h5 id="org518fb87"><span class="section-number-5">1.4.16.1</span> 配置</h5>
+<div id="outline-container-orgd4944b7" class="outline-5">
+<h5 id="orgd4944b7"><span class="section-number-5">1.4.16.1</span> 配置</h5>
 <div class="outline-text-5" id="text-1-4-16-1">
 <p>
 可以使用 <span class="underline">\#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span class="underline">filename</span>
@@ -2111,7 +2112,7 @@ org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 <tbody>
 <tr>
 <td class="org-left">#+TITLE:</td>
-<td class="org-left">the title to be shown (default is the <a href="#org5afbc1e">buffer</a> name)</td>
+<td class="org-left">the title to be shown (default is the <a href="#org71222a1">buffer</a> name)</td>
 </tr>
 
 <tr>
@@ -2415,8 +2416,8 @@ options: 带一定的<a href="http://orgmode.org/org.html#Export-settings">参�
 </div>
 </div>
 </div>
-<div id="outline-container-org64b1947" class="outline-4">
-<h4 id="org64b1947"><span class="section-number-4">1.4.17</span> latex</h4>
+<div id="outline-container-orgec881de" class="outline-4">
+<h4 id="orgec881de"><span class="section-number-4">1.4.17</span> latex</h4>
 <div class="outline-text-4" id="text-1-4-17">
 <p>
 可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
@@ -2454,15 +2455,15 @@ test.zip * 就可以完成压缩，
 </ul>
 </div>
 </div>
-<div id="outline-container-org34b7dda" class="outline-3">
-<h3 id="org34b7dda"><span class="section-number-3">1.7</span> git</h3>
+<div id="outline-container-org19ba490" class="outline-3">
+<h3 id="org19ba490"><span class="section-number-3">1.7</span> git</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 </p>
 </div>
-<div id="outline-container-orgd4944b7" class="outline-4">
-<h4 id="orgd4944b7"><span class="section-number-4">1.7.1</span> 配置</h4>
+<div id="outline-container-org9b75697" class="outline-4">
+<h4 id="org9b75697"><span class="section-number-4">1.7.1</span> 配置</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li>使用M-x git-config-init 配置用户名和email；</li>
@@ -2700,8 +2701,8 @@ run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如�
 </div>
 </div>
 
-<div id="outline-container-orgec881de" class="outline-2">
-<h2 id="orgec881de"><span class="section-number-2">2</span> latex</h2>
+<div id="outline-container-org638cc4b" class="outline-2">
+<h2 id="org638cc4b"><span class="section-number-2">2</span> latex</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 <div id="outline-container-org3b88bbb" class="outline-3">
@@ -2709,8 +2710,8 @@ run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如�
 <div class="outline-text-3" id="text-2-1">
 </div>
 </div>
-<div id="outline-container-orgfeda33f" class="outline-3">
-<h3 id="orgfeda33f"><span class="section-number-3">2.2</span> 符号</h3>
+<div id="outline-container-orgd429208" class="outline-3">
+<h3 id="orgd429208"><span class="section-number-3">2.2</span> 符号</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
 <div id="outline-container-org4e36336" class="outline-4">
@@ -2923,8 +2924,8 @@ run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如�
 </ul>
 </div>
 </div>
-<div id="outline-container-org19ba490" class="outline-2">
-<h2 id="org19ba490"><span class="section-number-2">5</span> git</h2>
+<div id="outline-container-org1d697e6" class="outline-2">
+<h2 id="org1d697e6"><span class="section-number-2">5</span> git</h2>
 <div class="outline-text-2" id="text-5">
 </div>
 <div id="outline-container-orgaa9f8c8" class="outline-3">
@@ -3643,6 +3644,327 @@ wget -q $<span style="color: #ffd700;">JENKINS_URL</span>/git/notifyCommit<span 
 </ul>
 </div>
 </div>
+<div id="outline-container-org0ec877b" class="outline-2">
+<h2 id="org0ec877b"><span class="section-number-2">8</span> share</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+利用python脚本可以做简单的文件夹共享(包括其子目录)
+</p>
+<ul class="org-ul">
+<li>支持下载、上传</li>
+<li>使用方法：将脚本放在需要共享的顶层目录，并运行。</li>
+<li>在其他电脑上浏览器中输入<a href="http://ip:8000">http://ip:8000</a> 即可打开共享目录</li>
+<li>ip将在python脚本第一行输出。</li>
+<li>只在局域网内测试过。</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">-*- coding: utf-8 -*-</span>
+<span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">!/usr/bin/env python3</span>
+<span style="color: #ffa07a;">"""Simple HTTP Server With Upload.</span>
+
+<span style="color: #ffa07a;">This module builds on BaseHTTPServer by implementing the standard GET</span>
+<span style="color: #ffa07a;">and HEAD requests in a fairly straightforward manner.</span>
+
+<span style="color: #ffa07a;">see: https://gist.github.com/UniIsland/3346170</span>
+<span style="color: #ffa07a;">"""</span>
+
+
+<span style="color: #ffd700;">__version__</span> = <span style="color: #ffa07a;">"0.1"</span>
+<span style="color: #87cefa; text-decoration: underline;">__all__</span> = [<span style="color: #ffa07a;">"SimpleHTTPRequestHandler"</span>]
+
+<span style="color: #ffb6c1; font-size: 105%;">import</span> os
+<span style="color: #ffb6c1; font-size: 105%;">import</span> posixpath
+<span style="color: #ffb6c1; font-size: 105%;">import</span> http.server
+<span style="color: #ffb6c1; font-size: 105%;">import</span> urllib.request, urllib.parse, urllib.error
+<span style="color: #ffb6c1; font-size: 105%;">import</span> cgi
+<span style="color: #ffb6c1; font-size: 105%;">import</span> shutil
+<span style="color: #ffb6c1; font-size: 105%;">import</span> mimetypes
+<span style="color: #ffb6c1; font-size: 105%;">import</span> re
+<span style="color: #ffb6c1; font-size: 105%;">from</span> io <span style="color: #ffb6c1; font-size: 105%;">import</span> BytesIO
+<span style="color: #ffb6c1; font-size: 105%;">import</span> socket
+
+
+<span style="color: #ffb6c1; font-size: 105%;">class</span> <span style="color: #ffff00; font-size: 105%;">SimpleHTTPRequestHandler</span>(http.server.BaseHTTPRequestHandler):
+
+    <span style="color: #ffa07a;">"""Simple HTTP request handler with GET/HEAD/POST commands.</span>
+
+<span style="color: #ffa07a;">    This serves files from the current directory and any of its</span>
+<span style="color: #ffa07a;">    subdirectories.  The MIME type for files is determined by</span>
+<span style="color: #ffa07a;">    calling the .guess_type() method. And can reveive file uploaded</span>
+<span style="color: #ffa07a;">    by client.</span>
+
+<span style="color: #ffa07a;">    The GET/HEAD/POST requests are identical except that the HEAD</span>
+<span style="color: #ffa07a;">    request omits the actual contents of the file.</span>
+
+<span style="color: #ffa07a;">    """</span>
+
+    <span style="color: #ffd700;">server_version</span> = <span style="color: #ffa07a;">"SimpleHTTPWithUpload/"</span> + __version__
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">do_GET</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>):
+        <span style="color: #ffa07a;">"""Serve a GET request."""</span>
+        <span style="color: #ffd700;">f</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_head()
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> f:
+            <span style="color: #ffb6c1; font-size: 105%;">self</span>.copyfile(f, <span style="color: #ffb6c1; font-size: 105%;">self</span>.wfile)
+            f.close()
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">do_HEAD</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>):
+        <span style="color: #ffa07a;">"""Serve a HEAD request."""</span>
+        <span style="color: #ffd700;">f</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_head()
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> f:
+            f.close()
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">do_POST</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>):
+        <span style="color: #ffa07a;">"""Serve a POST request."""</span>
+        <span style="color: #ffd700;">r</span>, <span style="color: #ffd700;">info</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.deal_post_data()
+        <span style="color: #ffb6c1; font-size: 105%;">print</span>((r, info, <span style="color: #ffa07a;">"by: "</span>, <span style="color: #ffb6c1; font-size: 105%;">self</span>.client_address))
+        <span style="color: #ffd700;">f</span> = BytesIO()
+        f.write(b<span style="color: #ffa07a;">'&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;'</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;html&gt;\n&lt;title&gt;Upload Result Page&lt;/title&gt;\n"</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;body&gt;\n&lt;h2&gt;Upload Result Page&lt;/h2&gt;\n"</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;hr&gt;\n"</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> r:
+            f.write(b<span style="color: #ffa07a;">"&lt;strong&gt;Success:&lt;/strong&gt;"</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">else</span>:
+            f.write(b<span style="color: #ffa07a;">"&lt;strong&gt;Failed:&lt;/strong&gt;"</span>)
+        f.write(info.encode())
+        f.write((<span style="color: #ffa07a;">"&lt;br&gt;&lt;a href=\"%s\"&gt;back&lt;/a&gt;"</span> % <span style="color: #ffb6c1; font-size: 105%;">self</span>.headers[<span style="color: #ffa07a;">'referer'</span>]).encode())
+        f.write(b<span style="color: #ffa07a;">"&lt;hr&gt;&lt;small&gt;Powerd By: bones7456, check new version at "</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;a href=\"http://li2z.cn/?s=SimpleHTTPServerWithUpload\"&gt;"</span>)
+        f.write(b<span style="color: #ffa07a;">"here&lt;/a&gt;.&lt;/small&gt;&lt;/body&gt;\n&lt;/html&gt;\n"</span>)
+        <span style="color: #ffd700;">length</span> = f.tell()
+        f.seek(0)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_response(200)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Content-type"</span>, <span style="color: #ffa07a;">"text/html"</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Content-Length"</span>, <span style="color: #87cefa; text-decoration: underline;">str</span>(length))
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.end_headers()
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> f:
+            <span style="color: #ffb6c1; font-size: 105%;">self</span>.copyfile(f, <span style="color: #ffb6c1; font-size: 105%;">self</span>.wfile)
+            f.close()
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">deal_post_data</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>):
+        <span style="color: #ffd700;">content_type</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.headers[<span style="color: #ffa07a;">'content-type'</span>]
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #ffb6c1; font-size: 105%;">not</span> content_type:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> (<span style="color: #7fffd4;">False</span>, <span style="color: #ffa07a;">"Content-Type header doesn't contain boundary"</span>)
+        <span style="color: #ffd700;">boundary</span> = content_type.split(<span style="color: #ffa07a;">"="</span>)[1].encode()
+        <span style="color: #ffd700;">remainbytes</span> = <span style="color: #87cefa; text-decoration: underline;">int</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>.headers[<span style="color: #ffa07a;">'content-length'</span>])
+        <span style="color: #ffd700;">line</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.rfile.readline()
+        <span style="color: #ffd700;">remainbytes</span> -= <span style="color: #87cefa; text-decoration: underline;">len</span>(line)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #ffb6c1; font-size: 105%;">not</span> boundary <span style="color: #ffb6c1; font-size: 105%;">in</span> line:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> (<span style="color: #7fffd4;">False</span>, <span style="color: #ffa07a;">"Content NOT begin with boundary"</span>)
+        <span style="color: #ffd700;">line</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.rfile.readline()
+        <span style="color: #ffd700;">remainbytes</span> -= <span style="color: #87cefa; text-decoration: underline;">len</span>(line)
+        <span style="color: #ffd700;">fn</span> = re.findall(r<span style="color: #ffa07a;">'Content-Disposition.*name="file"; filename="(.*)"'</span>, line.decode())
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #ffb6c1; font-size: 105%;">not</span> fn:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> (<span style="color: #7fffd4;">False</span>, <span style="color: #ffa07a;">"Can't find out file name..."</span>)
+        <span style="color: #ffd700;">path</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.translate_path(<span style="color: #ffb6c1; font-size: 105%;">self</span>.path)
+        <span style="color: #ffd700;">fn</span> = os.path.join(path, fn[0])
+        <span style="color: #ffd700;">line</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.rfile.readline()
+        <span style="color: #ffd700;">remainbytes</span> -= <span style="color: #87cefa; text-decoration: underline;">len</span>(line)
+        <span style="color: #ffd700;">line</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.rfile.readline()
+        <span style="color: #ffd700;">remainbytes</span> -= <span style="color: #87cefa; text-decoration: underline;">len</span>(line)
+        <span style="color: #ffb6c1; font-size: 105%;">try</span>:
+            <span style="color: #ffd700;">out</span> = <span style="color: #87cefa; text-decoration: underline;">open</span>(fn, <span style="color: #ffa07a;">'wb'</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">except</span> <span style="color: #ffff00; font-size: 105%;">IOError</span>:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> (<span style="color: #7fffd4;">False</span>, <span style="color: #ffa07a;">"Can't create file to write, do you have permission to write?"</span>)
+
+        <span style="color: #ffd700;">preline</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.rfile.readline()
+        <span style="color: #ffd700;">remainbytes</span> -= <span style="color: #87cefa; text-decoration: underline;">len</span>(preline)
+        <span style="color: #ffb6c1; font-size: 105%;">while</span> remainbytes &gt; 0:
+            <span style="color: #ffd700;">line</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.rfile.readline()
+            <span style="color: #ffd700;">remainbytes</span> -= <span style="color: #87cefa; text-decoration: underline;">len</span>(line)
+            <span style="color: #ffb6c1; font-size: 105%;">if</span> boundary <span style="color: #ffb6c1; font-size: 105%;">in</span> line:
+                <span style="color: #ffd700;">preline</span> = preline[0:-1]
+                <span style="color: #ffb6c1; font-size: 105%;">if</span> preline.endswith(b<span style="color: #ffa07a;">'\r'</span>):
+                    <span style="color: #ffd700;">preline</span> = preline[0:-1]
+                out.write(preline)
+                out.close()
+                <span style="color: #ffb6c1; font-size: 105%;">return</span> (<span style="color: #7fffd4;">True</span>, <span style="color: #ffa07a;">"File '%s' upload success!"</span> % fn)
+            <span style="color: #ffb6c1; font-size: 105%;">else</span>:
+                out.write(preline)
+                <span style="color: #ffd700;">preline</span> = line
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> (<span style="color: #7fffd4;">False</span>, <span style="color: #ffa07a;">"Unexpect Ends of data."</span>)
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">send_head</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>):
+        <span style="color: #ffa07a;">"""Common code for GET and HEAD commands.</span>
+
+<span style="color: #ffa07a;">        This sends the response code and MIME headers.</span>
+
+<span style="color: #ffa07a;">        Return value is either a file object (which has to be copied</span>
+<span style="color: #ffa07a;">        to the outputfile by the caller unless the command was HEAD,</span>
+<span style="color: #ffa07a;">        and must be closed by the caller under all circumstances), or</span>
+<span style="color: #ffa07a;">        None, in which case the caller has nothing further to do.</span>
+
+<span style="color: #ffa07a;">        """</span>
+        <span style="color: #ffd700;">path</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.translate_path(<span style="color: #ffb6c1; font-size: 105%;">self</span>.path)
+        <span style="color: #ffd700;">f</span> = <span style="color: #7fffd4;">None</span>
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> os.path.isdir(path):
+            <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #ffb6c1; font-size: 105%;">not</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.path.endswith(<span style="color: #ffa07a;">'/'</span>):
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">redirect browser - doing basically what apache does</span>
+                <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_response(301)
+                <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Location"</span>, <span style="color: #ffb6c1; font-size: 105%;">self</span>.path + <span style="color: #ffa07a;">"/"</span>)
+                <span style="color: #ffb6c1; font-size: 105%;">self</span>.end_headers()
+                <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #7fffd4;">None</span>
+            <span style="color: #ffb6c1; font-size: 105%;">for</span> index <span style="color: #ffb6c1; font-size: 105%;">in</span> <span style="color: #ffa07a;">"index.html"</span>, <span style="color: #ffa07a;">"index.htm"</span>:
+                <span style="color: #ffd700;">index</span> = os.path.join(path, index)
+                <span style="color: #ffb6c1; font-size: 105%;">if</span> os.path.exists(index):
+                    <span style="color: #ffd700;">path</span> = index
+                    <span style="color: #ffb6c1; font-size: 105%;">break</span>
+            <span style="color: #ffb6c1; font-size: 105%;">else</span>:
+                <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.list_directory(path)
+        <span style="color: #ffd700;">ctype</span> = <span style="color: #ffb6c1; font-size: 105%;">self</span>.guess_type(path)
+        <span style="color: #ffb6c1; font-size: 105%;">try</span>:
+            <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">Always read in binary mode. Opening files in text mode may cause</span>
+            <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">newline translations, making the actual size of the content</span>
+            <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">transmitted *less* than the content-length!</span>
+            <span style="color: #ffd700;">f</span> = <span style="color: #87cefa; text-decoration: underline;">open</span>(path, <span style="color: #ffa07a;">'rb'</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">except</span> <span style="color: #ffff00; font-size: 105%;">IOError</span>:
+            <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_error(404, <span style="color: #ffa07a;">"File not found"</span>)
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #7fffd4;">None</span>
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_response(200)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Content-type"</span>, ctype)
+        <span style="color: #ffd700;">fs</span> = os.fstat(f.fileno())
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Content-Length"</span>, <span style="color: #87cefa; text-decoration: underline;">str</span>(fs[6]))
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Last-Modified"</span>, <span style="color: #ffb6c1; font-size: 105%;">self</span>.date_time_string(fs.st_mtime))
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.end_headers()
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> f
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">list_directory</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>, path):
+        <span style="color: #ffa07a;">"""Helper to produce a directory listing (absent index.html).</span>
+
+<span style="color: #ffa07a;">        Return value is either a file object, or None (indicating an</span>
+<span style="color: #ffa07a;">        error).  In either case, the headers are sent, making the</span>
+<span style="color: #ffa07a;">        interface the same as for send_head().</span>
+
+<span style="color: #ffa07a;">        """</span>
+        <span style="color: #ffb6c1; font-size: 105%;">try</span>:
+            <span style="color: #87cefa; text-decoration: underline;">list</span> = os.listdir(path)
+        <span style="color: #ffb6c1; font-size: 105%;">except</span> os.error:
+            <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_error(404, <span style="color: #ffa07a;">"No permission to list directory"</span>)
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #7fffd4;">None</span>
+        <span style="color: #87cefa; text-decoration: underline;">list</span>.sort(key=<span style="color: #ffb6c1; font-size: 105%;">lambda</span> a: a.lower())
+        <span style="color: #ffd700;">f</span> = BytesIO()
+        <span style="color: #ffd700;">displaypath</span> = cgi.escape(urllib.parse.unquote(<span style="color: #ffb6c1; font-size: 105%;">self</span>.path))
+        f.write(b<span style="color: #ffa07a;">'&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;'</span>)
+        f.write((<span style="color: #ffa07a;">"&lt;html&gt;\n&lt;title&gt;Directory listing for %s&lt;/title&gt;\n"</span> % displaypath).encode())
+        f.write((<span style="color: #ffa07a;">"&lt;body&gt;\n&lt;h2&gt;Directory listing for %s&lt;/h2&gt;\n"</span> % displaypath).encode())
+        f.write(b<span style="color: #ffa07a;">"&lt;hr&gt;\n"</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;form ENCTYPE=\"multipart/form-data\" method=\"post\"&gt;"</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;input name=\"file\" type=\"file\"/&gt;"</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;input type=\"submit\" value=\"upload\"/&gt;&lt;/form&gt;\n"</span>)
+        f.write(b<span style="color: #ffa07a;">"&lt;hr&gt;\n&lt;ul&gt;\n"</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> name <span style="color: #ffb6c1; font-size: 105%;">in</span> <span style="color: #87cefa; text-decoration: underline;">list</span>:
+            <span style="color: #ffd700;">fullname</span> = os.path.join(path, name)
+            <span style="color: #ffd700;">displayname</span> = <span style="color: #ffd700;">linkname</span> = name
+            <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">Append / for directories or @ for symbolic links</span>
+            <span style="color: #ffb6c1; font-size: 105%;">if</span> os.path.isdir(fullname):
+                <span style="color: #ffd700;">displayname</span> = name + <span style="color: #ffa07a;">"/"</span>
+                <span style="color: #ffd700;">linkname</span> = name + <span style="color: #ffa07a;">"/"</span>
+            <span style="color: #ffb6c1; font-size: 105%;">if</span> os.path.islink(fullname):
+                <span style="color: #ffd700;">displayname</span> = name + <span style="color: #ffa07a;">"@"</span>
+                <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">Note: a link to a directory displays with @ and links with /</span>
+            f.write((<span style="color: #ffa07a;">'&lt;li&gt;&lt;a href="%s"&gt;%s&lt;/a&gt;\n'</span>
+                    % (urllib.parse.quote(linkname), cgi.escape(displayname))).encode())
+        f.write(b<span style="color: #ffa07a;">"&lt;/ul&gt;\n&lt;hr&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n"</span>)
+        <span style="color: #ffd700;">length</span> = f.tell()
+        f.seek(0)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_response(200)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Content-type"</span>, <span style="color: #ffa07a;">"text/html"</span>)
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.send_header(<span style="color: #ffa07a;">"Content-Length"</span>, <span style="color: #87cefa; text-decoration: underline;">str</span>(length))
+        <span style="color: #ffb6c1; font-size: 105%;">self</span>.end_headers()
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> f
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">translate_path</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>, path):
+        <span style="color: #ffa07a;">"""Translate a /-separated PATH to the local filename syntax.</span>
+
+<span style="color: #ffa07a;">        Components that mean special things to the local file system</span>
+<span style="color: #ffa07a;">        (e.g. drive or directory names) are ignored.  (XXX They should</span>
+<span style="color: #ffa07a;">        probably be diagnosed.)</span>
+
+<span style="color: #ffa07a;">        """</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">abandon query parameters</span>
+        <span style="color: #ffd700;">path</span> = path.split(<span style="color: #ffa07a;">'?'</span>,1)[0]
+        <span style="color: #ffd700;">path</span> = path.split(<span style="color: #ffa07a;">'#'</span>,1)[0]
+        <span style="color: #ffd700;">path</span> = posixpath.normpath(urllib.parse.unquote(path))
+        <span style="color: #ffd700;">words</span> = path.split(<span style="color: #ffa07a;">'/'</span>)
+        <span style="color: #ffd700;">words</span> = [_f <span style="color: #ffb6c1; font-size: 105%;">for</span> _f <span style="color: #ffb6c1; font-size: 105%;">in</span> words <span style="color: #ffb6c1; font-size: 105%;">if</span> _f]
+        <span style="color: #ffd700;">path</span> = os.getcwd()
+        <span style="color: #ffb6c1; font-size: 105%;">for</span> word <span style="color: #ffb6c1; font-size: 105%;">in</span> words:
+            <span style="color: #ffd700;">drive</span>, <span style="color: #ffd700;">word</span> = os.path.splitdrive(word)
+            <span style="color: #ffd700;">head</span>, <span style="color: #ffd700;">word</span> = os.path.split(word)
+            <span style="color: #ffb6c1; font-size: 105%;">if</span> word <span style="color: #ffb6c1; font-size: 105%;">in</span> (os.curdir, os.pardir): <span style="color: #ffb6c1; font-size: 105%;">continue</span>
+            <span style="color: #ffd700;">path</span> = os.path.join(path, word)
+        <span style="color: #ffb6c1; font-size: 105%;">return</span> path
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">copyfile</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>, source, outputfile):
+        <span style="color: #ffa07a;">"""Copy all data between two file objects.</span>
+
+<span style="color: #ffa07a;">        The SOURCE argument is a file object open for reading</span>
+<span style="color: #ffa07a;">        (or anything with a read() method) and the DESTINATION</span>
+<span style="color: #ffa07a;">        argument is a file object open for writing (or</span>
+<span style="color: #ffa07a;">        anything with a write() method).</span>
+
+<span style="color: #ffa07a;">        The only reason for overriding this would be to change</span>
+<span style="color: #ffa07a;">        the block size or perhaps to replace newlines by CRLF</span>
+<span style="color: #ffa07a;">        -- note however that this the default server uses this</span>
+<span style="color: #ffa07a;">        to copy binary data as well.</span>
+
+<span style="color: #ffa07a;">        """</span>
+        shutil.copyfileobj(source, outputfile)
+
+    <span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">guess_type</span>(<span style="color: #ffb6c1; font-size: 105%;">self</span>, path):
+        <span style="color: #ffa07a;">"""Guess the type of a file.</span>
+
+<span style="color: #ffa07a;">        Argument is a PATH (a filename).</span>
+
+<span style="color: #ffa07a;">        Return value is a string of the form type/subtype,</span>
+<span style="color: #ffa07a;">        usable for a MIME Content-type header.</span>
+
+<span style="color: #ffa07a;">        The default implementation looks the file's extension</span>
+<span style="color: #ffa07a;">        up in the table self.extensions_map, using application/octet-stream</span>
+<span style="color: #ffa07a;">        as a default; however it would be permissible (if</span>
+<span style="color: #ffa07a;">        slow) to look inside the data to make a better guess.</span>
+
+<span style="color: #ffa07a;">        """</span>
+
+        <span style="color: #ffd700;">base</span>, <span style="color: #ffd700;">ext</span> = posixpath.splitext(path)
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> ext <span style="color: #ffb6c1; font-size: 105%;">in</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.extensions_map:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.extensions_map[ext]
+        <span style="color: #ffd700;">ext</span> = ext.lower()
+        <span style="color: #ffb6c1; font-size: 105%;">if</span> ext <span style="color: #ffb6c1; font-size: 105%;">in</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.extensions_map:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.extensions_map[ext]
+        <span style="color: #ffb6c1; font-size: 105%;">else</span>:
+            <span style="color: #ffb6c1; font-size: 105%;">return</span> <span style="color: #ffb6c1; font-size: 105%;">self</span>.extensions_map[<span style="color: #ffa07a;">''</span>]
+
+    <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #ffb6c1; font-size: 105%;">not</span> mimetypes.inited:
+        mimetypes.init() <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">try to read system mime.types</span>
+    <span style="color: #ffd700;">extensions_map</span> = mimetypes.types_map.copy()
+    extensions_map.update({
+        <span style="color: #ffa07a;">''</span>: <span style="color: #ffa07a;">'application/octet-stream'</span>, <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">Default</span>
+        <span style="color: #ffa07a;">'.py'</span>: <span style="color: #ffa07a;">'text/plain'</span>,
+        <span style="color: #ffa07a;">'.c'</span>: <span style="color: #ffa07a;">'text/plain'</span>,
+        <span style="color: #ffa07a;">'.h'</span>: <span style="color: #ffa07a;">'text/plain'</span>,
+        })
+
+
+<span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">test</span>(HandlerClass = SimpleHTTPRequestHandler,
+         ServerClass = http.server.HTTPServer):
+    http.server.test(HandlerClass, ServerClass)
+
+<span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">get_server_ip</span>():
+    <span style="color: #ffd700;">hostname</span> = socket.gethostname()
+    <span style="color: #ffd700;">ip</span> = socket.gethostbyname(hostname)
+    <span style="color: #ffb6c1; font-size: 105%;">print</span>(<span style="color: #ffa07a;">"Server IP: %s"</span> %ip)
+
+<span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #87cefa; text-decoration: underline;">__name__</span> == <span style="color: #ffa07a;">'__main__'</span>:
+    get_server_ip()
+    test()  
+
+</pre>
+</div>
+</div>
+</div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
@@ -3665,7 +3987,7 @@ wget -q $<span style="color: #ffd700;">JENKINS_URL</span>/git/notifyCommit<span 
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-06-05 周五 00:06</p>
+<p class="date">Created: 2020-06-05 周五 17:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
