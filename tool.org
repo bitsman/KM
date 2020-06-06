@@ -1238,143 +1238,359 @@ interaction flow is like figure [[imggititactf]].
 [[file:./img/cmdflow.png]]
 
 ** command
-- config
-  + git config --global user.name "bitman":提交记录会用到
-  + git config --global user.email bitsman@163.com:提交记录会用到
-  + git config --unset --global user.name: 删除username
-  + git config --unset --global user.email: 删除useremail
-  + git config user.name: 查看user name
-  + git config user.email: 查看user email
-  + git --exec-path: 展示git安装位置
-- status
-  + git status: 显示完整信息；
-  + git status -s: 显示简略信息
-- directory
-  + git rev-parse --git-dir: 显示版本库.git目录所在的位置。
-  + git rev-parse --show-toplevel: 显示工作区根目录。
-  + git rev-parse --show-prefix: 相对于工作区根目录的相对目录。
-  + git rev-parse --show-cdup: 显示从当前目录（cd）后退（up）到工作区的根的深度。
-  + git rev-parse --symbolic --tags: 显示所有tag
-  + git rev-parse HEAD: 显示head对应的sha1；  
-- alias
-  + git config --global alias.st status
-  + git config --global alias.cm "commit -m"
-  + git config --global alias.co checkout
-  + git config --global alias.br branch
-- commit
-  + git commit --allow-empty -m "my message": 允许不修改文件做提交
-  + git commit -a -m "message": 工作区直接提交到版本库, 绕过stage区；
-  + git commit --amend -m "message": 修改最近的提交说明；
-- diff
-  + git diff: 工作区和stage区的文件做对比；
-  + git diff head（或master）: 工作区中的文件和版本库(HEAD)的文件做对比；
-  + git diff --cached（或--staged）: 版本库中的文件和stage区的文件做对比；
-  + git diff tagA tagB:比较里程碑A和B；
-  + git diff tagA：工作区和里程碑A比较；
-  + git diff --cached tagA: 比较stage区和里程碑A；
-  + git diff ID1 ID2 -- <file>:比较记录ID1和ID2下文件file的区别；
-- log
-  + git log：完整log信息
-  + git log --oneline：简略log信息
-  + git log --oneline --decorate：简略log信息加tag信息branch信息
-  + git log --graph --oneline:字符图显示分之log
-  + git log --stat -2：最近2次的log记录；
-- show
-  + git show tagname --stat:显示里程碑tagname及其提交；
-  + git show ID1:README > README.OLD:检出某文件的历史版本到其他文件名
-- reset:一般修改分支游标(master等)
-  + git reset HEAD(可不加): 用版本库的复位stage的文件，工作区不受影响；
-  + git reset --hard head(or ID)^: 回退到父版，工作区和stage区修改全部丢失；
-  + git reset -<file>: git add <file>反向操作；
-- rm
-  + git rm --cached <file> :从stage区删除file文件，工作区不受影响；
-  + git add -u:将工作区删除的文件，标记到stage区，做同一删除
-- add
-  + git add -A :工作区中所有改动以及新增文件添加到暂存区
-- checkout:一般修改HEAD
-  + git checkout HEAD(可不加): 汇总显示工作区、暂存区与HEAD的差异。
-  + git checkout .:用stage区复位工作区的文件，会清除工作区的改动；
-  + git checkout - .:用stage区复位工作区的文件，会清除工作区的改动；
-  + git checkout - <file>: 用stage区的file文件复位工作区的file文件
-  + git checkout HEAD .:用版本库的复位stage和工作区的文件；
-  + git checkout HEAD <file>: 用版本库的复位stage和工作区的file文件；
-  + git checkout <branch>: 检出branch分支。更新HEAD以指向branch分支，以
-    branch指向的树更新暂存区和工作区。
-  + git checkout branch - filename: 维持HEAD的指向不变。将branch所指向
-    的提交中的filename替换暂存区和工作区中相应的文件。注意会将暂存区和
-    工作区中的filename文件直接覆盖。
-  + git checkout -b <new_branch> [<commit>]:基于提交commit创建分支
-    new_branch并切换到new_branch分支上；
-- ls
-  + git ls-tree -l HEAD: 显示版本库中的文件树；
-  + git ls-files -s: 显示stage区的文件树；
-- clean
-  + git clean -fd:清除工作区中未加入版本库的文件和目录    
-- branch
-  + git branch: 显示本地分支列表，带星号的是当前分支；
-  + git branch <branchname>：创建分支（基于HEAD）；
-  + git branch <branchname> <commit>：创建分支（基于commit）；
-  + git branch -d <branchname>：删除分支，删除前检查是否已合并到其他分
-    支，否则拒绝删除；
-  + git branch -D <branchname>：强制删除分支；
-  + git branch -m <oldbranch> <newbranch>：重命名分支，如果版本库中存
-    在newbranch，则拒绝重命名；
-  + git branch -M <oldbranch> <newbranch>：强制重命名分支；
-- stash
-  + git stash:缓存工作区和stage区，再刷新工作区和stage区到之前的一致态
-  + git stash list: 列出缓存的列表；
-  + git stash pop: 弹出最新的stash缓存
-  + git stash apply:类似pop，但不删除缓存；
-  + git stash drop: 删除一个缓存
-  + git stash clear：删除所有缓存；
-  + git stash branch：基于进度创建分之；
-- reflog
-  + git reflog: 
-- tag
-  + git tag -m "message" tagname:打tag, 名字叫tagname
-  + git tag -a <tagname> [<commit>]：类似-m参数
-  + git tag <tagname> [<commit>]: 对提交commit建立tag为tagname；
-  + git tag -s <tagname> [<commit>]：创建带GPG签名的里程碑
-  + git tag -u <key-id> <tagname> [<commit>]：创建带GPG签名的里程碑，-u参数选择指定的私钥进行签名。
-  + git tag -d <tagname>：删除tag；
-  + git tag: 显示当前版本库的里程碑列表;
-  + git tag -n<number>: 显示当前版本库的里程碑列表number条；
-  + git tag -l v2*： 通配符只显示v2版本的子版本；
-- describe
-  + git describe: 将提交显示为一个易记的名称；
-  + git describe <commit>: 将提交commit显示为一个易记的名称；
-- archive
-  + git archive -o latest.zip HEAD:基于最新提交建立归档文件latest.zip
-  + git archive -o partial.tar  HEAD src doc:只将目录src和doc建到归档中
-  + git archive --format=tar --prefix=1.0/ v1.0 | gzip >foo-1.0.tar.gz:
-    基于里程碑v1.0建立归档，并且为归档中文件添加目录前缀1.0 
-- blame:
-  + git blame <file>: 逐行显示，在每行行首显示此行最早是在什么版本引入，
-    由谁引入
-- clone:
-  + git clone dir1 dir2: 将本地版本库dir1备份克隆到本地dir2；
-- pull
-  + git pull：在本地备份版本库中获取源库的更新，git pull=git fetch+git merge
-- push
-  + git push origin mytag：将本地里程碑mytag推送到远程origin；
-  + git push origin refs/tags/*：将本地所有里程碑推送到远程origin；
-  + git push origin:<tagname>: 删除远程origin的里程碑tagname
-- fetch
-  + git fetch: 拉取
-- remote
-  + git remote -v: 显示已经注册的远程版本库
-  + git remote set-url origin file:///path/to/repos/xxx.git: 修改远程版本地址
-  + git remote set-url --push origin /path/to/repos/xxx.git: 只修改push地址
-  + git remote rename new-remote user2：将远程版本库new-remote名称修改为user2
-  + git remote update： 获得所有远程版本的更新；
-  + git remote rm user2：删除远程版本库；
-- merge
-  + git merge origin/master: 合并origin的master到本地master
-  + git merge <branchname>：将分支branchname合并到当前分支（master）
-- patch
-  + git format-patch -s HEAD~3..HEAD：将最近三个提交转换为补丁文件；
-- gitk
-  + gitk --all：图形界面显示所有log日志
+*** git目录结构
+版本库.git目录，见表[[tblgitrepostr]]所示。
+#+CAPTION: GIT库分支操作
+#+NAME: tblgitrepostr
+#+attr_latex: :placement [H]
+|----------------+---------+----------+--------+--------------------------------------|
+| L1             | L2      | L3       | L4     | Description                          |
+|----------------+---------+----------+--------+--------------------------------------|
+|----------------+---------+----------+--------+--------------------------------------|
+| index          |         |          |        | 记录了STAGE区状态                    |
+| COMMIT_EDITMSG |         |          |        | 保存了上次提交日志                   |
+| config         |         |          |        | 版本库级的git配置文件,注册信息       |
+| description    |         |          |        | 库的描述信息                         |
+| gitk.cache     |         |          |        |                                      |
+| HEAD           |         |          |        | 内容："ref: refs/heads/master"       |
+| hooks          |         |          |        | 各种hook shell脚本                   |
+| info           |         |          |        |                                      |
+| ORIG_HEAD      |         |          |        | 内容是某commit ID                    |
+|----------------+---------+----------+--------+--------------------------------------|
+| logs           |         |          |        |                                      |
+|                | HEAD    |          |        | 最新的commit message                 |
+|                | refs    | heads    |        |                                      |
+|                |         |          | master | master指向某commit message           |
+|                |         |          | brch1  | brch1指向某commit message            |
+|                |         |          | ...    | ...                                  |
+|                |         | stash    |        |                                      |
+|----------------+---------+----------+--------+--------------------------------------|
+| objects        |         |          |        | 保存了文件副本                       |
+|                | ID[0:1] | ID[2:38] |        | ID[0:1]:ID的前两位做目录名           |
+|                |         |          |        | ID[2:38]:ID的剩余位做文件名          |
+|                | pack    |          |        |                                      |
+|                |         | ...      |        | remote库打包后的文件                 |
+|----------------+---------+----------+--------+--------------------------------------|
+| refs           |         |          |        |                                      |
+|                | heads   |          |        |                                      |
+|                |         | master   |        | master分支指向某commit ID            |
+|                |         | branch1  |        | 其他分支名指向某commit ID            |
+|                |         | ...      |        | ...                                  |
+|                | tags    |          |        |                                      |
+|                |         | tag1     |        | 里程碑1:内容是某commit ID            |
+|                |         | tag2     |        | 里程碑2:内容是某commit ID            |
+|                |         | ...      |        |                                      |
+|                | remotes |          |        |                                      |
+|                |         | origin   |        |                                      |
+|                |         |          | HEAD   | 内容:ref: refs/remotes/origin/master |
+|                |         |          | master | master分支指向某commit ID            |
+|                |         |          | ...    | ...                                  |
+|                | stash   |          |        | 保存的stash:内容是某commit ID        |
+|----------------+---------+----------+--------+--------------------------------------|
+- index: 实际上是一个包含文件索引的目录树，记录了文件名和时间戳、文件
+  长度等文件状态信息，但是没有存储文件内容；
+- objects: blob对象的hash ID的前两位做目录名，剩余的38位做文件名
+- refs:保存引用的命名空间
+
+**** objects目录关系
+#+CAPTION: OBJECTS目录关系
+#+NAME: tblobj
+#+attr_latex: :placement [H]
+|------------+-------------------+------------|
+| Commit     | Tree(Index)       | Blob       |
+|------------+-------------------+------------|
+|------------+-------------------+------------|
+| ID:e695606 | ID:f58da          | ID:fd3c069 |
+| Tree:f58da | (xxx.txt):fd3c069 |            |
+| Parent:a0c |                   |            |
+| Author:lxc |                   |            |
+|------------+-------------------+------------|
+| ID:a0c     | ...               | ...        |
+| Tree:190d8 |                   |            |
+| Parent:9e8 |                   |            |
+| Author:lxc |                   |            |
+|------------+-------------------+------------|
+- Parent:a0c找到ID:a0c，即找到上一次commit；
+- Tree:f58da找到Tree(Index):f58da; 
+- Tree(Index):f58da里面的fd3c069找到具体的文件内容(Blob):fd3c069;
+**** refs目录关系 
+***** heads
+目录下保存所有分支的"游标"文件, 主分支游标文件名是master，文件内容是某
+个commit ID
+***** tags
+目录下保存所有里程碑的"游标"文件，文件内容是某个commit ID。
+**** logs
+***** HEAD
+指向某个分支的log记录
+***** refs
+指向每个分支的log记录
+****** heads
+******* master
+master文件保存master分支的log记录；
+*** git配置文件
+git配置文件一共分为3级，一级是系统级，一级是全局，一级是项目级，其关系
+见表[[tblgitcfgfile]]所示。
+#+CAPTION: GIT配置文件
+#+NAME: tblgitcfgfile
+#+attr_latex: :placement [H]
+|----------+------------+----------+--------------------------------------------|
+| Position | Item       | Priority | Description                                |
+|----------+------------+----------+--------------------------------------------|
+|----------+------------+----------+--------------------------------------------|
+| .git     | config     | High     | .git目录下的config是版本库级别的配置文件   |
+| ~        | .gitconfig | Middle   | 用户主目录下的.gitconfig是全局性的配置文件 |
+| /etc     | gitconfig  | Low      | linux下gitconfig是系统级的配置文件         |
+|----------+------------+----------+--------------------------------------------|
+*** git文件状态
+git stage -s结果解析，两个M还可以叠加，见表[[tblgitfilestat]]所示。
+#+CAPTION: GIT文件状态
+#+NAME: tblgitfilestat
+#+attr_latex: :placement [H]
+|-------+-------+---------------------------------|
+| Mark0 | Mark1 | Description                     |
+|-------+-------+---------------------------------|
+|-------+-------+---------------------------------|
+|       | M     | 文件在STAGE区和WORK区对比有改动 |
+| M     |       | 文件在HEAD区和STAGE区对比有改动 |
+|-------+-------+---------------------------------|
+*** git文件比较
+git可以使用diff命令比较多个空间的文件状态。
+#+CAPTION: GIT文件比较命令
+#+attr_latex: :placement [H]
+|------+-------+------+---------+---------+------+------+------------------------------|
+| WORK | STAGE | HEAD | commit1 | commit2 | tag1 | tag2 | cmd                          |
+|------+-------+------+---------+---------+------+------+------------------------------|
+|------+-------+------+---------+---------+------+------+------------------------------|
+| *    | *     |      |         |         |      |      | diff                         |
+|------+-------+------+---------+---------+------+------+------------------------------|
+| *    |       | *    |         |         |      |      | diff HEAD                    |
+| *    |       | *    |         |         |      |      | diff master                  |
+|------+-------+------+---------+---------+------+------+------------------------------|
+|      | *     | *    |         |         |      |      | diff --staged                |
+|      | *     | *    |         |         |      |      | diff --cached                |
+|      |       |      |         |         |      |      | diff --cached HEAD           |
+|------+-------+------+---------+---------+------+------+------------------------------|
+|      |       |      |         |         | *    | *    | diff tag1 tag2               |
+| *    |       |      |         |         | *    |      | diff tag1                    |
+|      | *     |      |         |         | *    |      | diff --cached tag1           |
+|      |       |      | *       | *       |      |      | diff commit1 commit2 -- file |
+|      |       |      |         |         |      |      |                              |
+|------+-------+------+---------+---------+------+------+------------------------------|
+*** git文件添加
+#+CAPTION: GIT文件添加
+#+attr_latex:  :placement [H]
+|------+-------+------+-------------------------+----------------------|
+| WORK | STAGE | HEAD | cmd                     | Description          |
+|------+-------+------+-------------------------+----------------------|
+|------+-------+------+-------------------------+----------------------|
+| from | to    |      | add                     | 文件添加             |
+|------+-------+------+-------------------------+----------------------|
+*** git文件提交
+#+CAPTION: GIT文件提交
+#+attr_latex:  :placement [H]
+|------+-------+------+-------------------------+----------------------|
+| WORK | STAGE | HEAD | cmd                     | Description          |
+|------+-------+------+-------------------------+----------------------|
+|------+-------+------+-------------------------+----------------------|
+|      | from  | to   | commit -m "log"         | 文件添加             |
+|      | from  | to   | commit --amend -m "log" | 覆盖上次commit的提交 |
+|------+-------+------+-------------------------+----------------------|
+*** git文件回滚
+#+CAPTION: GIT文件回滚
+#+attr_latex:  :placement [H]
+|------+-------+------+----------------------+-------------------------|
+| WORK | STAGE | HEAD | cmd                  | description             |
+|------+-------+------+----------------------+-------------------------|
+|------+-------+------+----------------------+-------------------------|
+| to   | from  |      | checkout .           | 文件回滚                |
+| to   | from  |      | checkout -- .        | 文件回滚                |
+| to   | from  |      | checkout -- <file>   | 文件回滚                |
+| to   | to    | from | checkout HEAD .      | 文件回滚, 不修改HEAD    |
+| to   | to    | from | checkout HEAD <file> | 文件回滚                |
+|------+-------+------+----------------------+-------------------------|
+|      | to    | from | reset HEAD           | 目录树回滚              |
+| to   | to    | to   | reset --hard ID_old  | 都回滚到ID_old          |
+|      |       | to   | reset --soft ID_old  | 回滚HEAD到ID_old        |
+|      | to    | to   | reset --mixed ID_old | 回滚HEAD和STAGE到ID_old |
+|------+-------+------+----------------------+-------------------------|
+
+*** git文件删除
+#+CAPTION: GIT文件删除
+#+attr_latex:  :placement [H]
+|------+-------+------+--------------------+-------------|
+| WORK | STAGE | HEAD | cmd                | description |
+|------+-------+------+--------------------+-------------|
+|------+-------+------+--------------------+-------------|
+|      | rm    |      | rm --cached <file> | 文件删除    |
+|------+-------+------+--------------------+-------------|
+
+*** git文件追溯
+- git blame file：会对文件逐行显示，在每行的行首显示此行最早是在那个
+  commit ID引入，由谁引入。 
+*** git分支操作
+git branch -v：查看当前分支，即查看HEAD当前指向(master或其他分支)
+#+CAPTION: GIT分支操作
+#+attr_latex:  :placement [H]
+|------+-------+------+---------------------------+---------------------------------------|
+| WORK | STAGE | HEAD | cmd                       | description                           |
+|------+-------+------+---------------------------+---------------------------------------|
+|------+-------+------+---------------------------+---------------------------------------|
+| to   | to    | from | checkout <name>           | 检出name分支到WORK和STAGE             |
+|      |       |      |                           | HEAD指向brch分                        |
+|------+-------+------+---------------------------+---------------------------------------|
+| to   | to    | diff | checkout HEAD             | 汇总WORK和STAGE与当前分支的差异       |
+| to   | to    |      | checkout <name> -- <file> | name分支的file覆盖当前分的WORK和STAGE |
+|------+-------+------+---------------------------+---------------------------------------|
+|      |       |      | branch                    | 显示本地分支, *表示当前分支           |
+|------+-------+------+---------------------------+---------------------------------------|
+|      |       | *    | branch <name>             | 基于head创建名为name的分支            |
+|      |       |      | branch <name> <id>        | 基于commit id创建名为name的分支       |
+|------+-------+------+---------------------------+---------------------------------------|
+|      |       |      | branch -d <name>          | 删除已合并的name分支                  |
+|      |       |      | branch -D <name>          | 强制删除name分支                      |
+|------+-------+------+---------------------------+---------------------------------------|
+|      |       |      | branch -m <oldn> <newn>   | 重命名分支oldn为newn                  |
+|      |       |      | branch -M <oldn> <newn>   | 强制重命名分支oldn为newn              |
+|------+-------+------+---------------------------+---------------------------------------|
+|      |       |      | push origin <name>        | 将name分支推送到远程共享              |
+|      |       |      | push origin  :<name>      | 将远程的name分支删除                  |
+|      |       |      | branch -a                 | 查询远程所有分支                      |
+|------+-------+------+---------------------------+---------------------------------------|
+
+*** git暂存操作
+git暂存通常用户暂时保存当前工作环境，处理好冲突等事务后，再恢复环境继
+续当前事务。
+#+CAPTION: GIT暂存操作
+#+attr_latex:  :placement [H]
+|------+-------+------+---------+--------------------------+---------------|
+| WORK | STAGE | HEAD | stash   | cmd                      | description   |
+|------+-------+------+---------+--------------------------+---------------|
+|------+-------+------+---------+--------------------------+---------------|
+| from | from  |      | to      | stash                    | 暂存          |
+| to   |       |      | from    | stash pop stash1         | 将stash1恢复  |
+| to   | to    |      | from    | stash pop --index stash1 | 将stash1恢复  |
+|      |       |      | rm      | stash drop [stash1]      | 删除stash1    |
+|      |       |      | rm      | stash clear              | 删除所有stash |
+|      |       |      | display | stash list               | 显示所有stash |
+|------+-------+------+---------+--------------------------+---------------|
+
+*** git标签操作
+标签即tag，也叫里程碑，是对当前工程的一种状态命名。
+#+CAPTION: GIT标签操作
+#+attr_latex:  :placement [H]
+|-------------------------------------+--------------------------------|
+| cmd                                 | description                    |
+|-------------------------------------+--------------------------------|
+|-------------------------------------+--------------------------------|
+| git tag <tagname> [ID]              | 对ID创建里程碑                 |
+|-------------------------------------+--------------------------------|
+| git tag -a <tagname> [ID]           | 创建带msg的里程碑(弹出编辑框)  |
+| git tag -m <msg> <tagname> [ID]     | 同上(自动带上msg)              |
+|-------------------------------------+--------------------------------|
+| git tag -s <tagname> [ID]           | 创建带GPG签名的里程碑          |
+| git tag -u <pri-key> <tagname> [ID] | 创建带GPG签名的里程碑(pri-key) |
+|-------------------------------------+--------------------------------|
+| git tag -d <tagname>                | 删除里程碑                     |
+|-------------------------------------+--------------------------------|
+| git push origin <tagname>           | 推送tag到远程库                |
+| git push origin refs/tags/*         | 推送所有tag到远程库            |
+| git push origin  :<tagname>         | 删除远程库的里程碑             |
+|-------------------------------------+--------------------------------|
+*** git克隆操作
+#+CAPTION: GIT克隆操作
+#+attr_latex:  :placement [H]
+|-------+-------+--------------------------------+----------------------------|
+| path1 | path2 | cmd                            | Description                |
+|-------+-------+--------------------------------+----------------------------|
+|-------+-------+--------------------------------+----------------------------|
+|       |       | git remote -v                  | 可以在path2中获取注册信息  |
+| from  | to    | git clone /path1 /path2        | 对等克隆,path2可以是remote |
+| from  | to    | git clone --bare /path1 /path2 | 裸克隆,path2可以是remote   |
+|       | *     | git init --bare /path2         | 在path2中创建1个裸克隆     |
+|-------+-------+--------------------------------+----------------------------|
+
+*** git拉取操作
+pull操作=fetch操作+merge操作
+#+CAPTION: GIT拉取操作
+#+attr_latex:  :placement [H]
+|-------+-------+----------+-----------------------------|
+| path1 | path2 | cmd      | Description                 |
+|-------+-------+----------+-----------------------------|
+|-------+-------+----------+-----------------------------|
+| from  | to    | git pull | pull path1中的提交到path2中 |
+|-------+-------+----------+-----------------------------|
+
+*** git获取操作
+获取操作即fetch操作, 只更新到.git/refs/remotes/origin/master
+#+CAPTION: GIT获取操作
+#+attr_latex:  :placement [H]
+|--------+---------------------------------+-----------|
+| remote | .git/refs/remotes/origin/master | cmd       |
+|--------+---------------------------------+-----------|
+|--------+---------------------------------+-----------|
+| from   | to                              | git fetch |
+|--------+---------------------------------+-----------|
+
+*** git冲突操作
+git pull时遇到冲突时，需要分步解决冲突
+- 拉取：git fetch：拉取远程分支到refs/remotes/origin/master
+- 合并：git merge origin/master:合并远程分支到本地head分支(heads/master)
+- 解决冲突：
+  + 自动解决冲突
+  + 手动解决冲突：需要手动编辑文件或重命名文件
+*** git合并操作
+合并操作即merge操作，通常需要做冲突处理。
+#+CAPTION: GIT合并操作
+#+attr_latex:  :placement [H]
+|------------------+--------+---------------------+---------------------------------|
+| .git/refs/master | master | cmd                 |                                 |
+|------------------+--------+---------------------+---------------------------------|
+|------------------+--------+---------------------+---------------------------------|
+| to               | from   | merge origin/master | 将fetch来的master合到本地master |
+|------------------+--------+---------------------+---------------------------------|
+*** git变基操作
+一般都是将其他分支合并到master分支，变基操作是将master分支拉到其他分支，
+将其他分支变成master分支；
+#+CAPTION: GIT变基操作
+#+attr_latex:  :placement [H]
+|---------+--------+------------------+-------------------------|
+| branch1 | master | cmd              | Description             |
+|---------+--------+------------------+-------------------------|
+|---------+--------+------------------+-------------------------|
+| *       |        | checkout branch1 | 先切换到其他分支        |
+| to      | from   | rebase master    | 将master分支变到branch1 |
+|---------+--------+------------------+-------------------------|
+
+
+说明：
+- 变基操作可能遇到冲突，需要合并操作；
+
+*** git推送操作
+#+CAPTION: GIT推送操作
+#+attr_latex:  :placement [H]
+|-------+-------+------------------------+-------------------------------|
+| path1 | path2 | cmd                    | Description                   |
+|-------+-------+------------------------+-------------------------------|
+|-------+-------+------------------------+-------------------------------|
+| from  | to    | git push /path2        | (裸克隆)push path1到path2中   |
+| from  | to    | git push /path2 master | (init克隆)push path1到path2中 |
+|-------+-------+------------------------+-------------------------------|
+
+*** git二分查找
+git可以采用二分法查找某个commit是否引入bug，二分查找还支持run子命令自
+动行自动化测例；
+- git bisect start: 二分查找开始
+- git bisect bad ID1: 将commit ID1标记为有bug的状态
+- git bisect good ID2: 将commit ID2标记为无bug状态，git自动更新到ID1到
+  ID2中间位置的一个commit，继续测试并标记bad或者good，最终找到bug初始
+  出现位置;
+- git bisect reset: 撤销二分查找在库中遗留的临时文件，恢复查找前的状态；
+
+*** git归档操作
+- 基于最新提交建立归档文件: git archive -o latest.zip HEAD
+- 只将目录src和doc建立归档: git archive -o latest.tar HEAD src doc
+- 基于里程碑mytagname归档，且在归档中的文件添加目录前缀:
+  git archive -o latest.zip --prefix=bitman/ mytagname 
 * ssh
 ** 建立互信
 以下只在Linux上做了测试，好像两个机子必须用相同的账户名，测试用的root
