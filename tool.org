@@ -2002,3 +2002,18 @@ ssh可以利用公私密钥和目标服务器建立绑定，在服务器上保�
       test()  
 
 #+END_SRC
+* ipython
+** 模块自动加载
+ipython默认情况下不会自动重新加载模块，这样在高频繁的改动情况下会很不
+方便，而autoreload可以解决这个问题。 
+- 在命令行执行:ipython profile create创建配置文件
+  ~/.ipython/profile_default/ipython_config.py
+- 在配置文件中添加配置：
+  #+BEGIN_SRC shell -n 
+    c.InteractiveShellApp.exec_lines=['%load_ext autoreload','%autoreload 2']
+  #+END_SRC
+
+
+
+
+
