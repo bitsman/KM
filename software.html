@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-05 周五 00:05 -->
+<!-- 2020-06-16 周二 15:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>软件</title>
@@ -257,76 +257,362 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5d39a27">1. 编程语言</a>
+<li><a href="#org2e91b87">1. 软件测试</a>
 <ul>
-<li><a href="#org98a5c3f">1.1. C语言</a>
+<li><a href="#org2a59b67">1.1. 根据项目流程阶段划分</a>
 <ul>
-<li><a href="#org50e136e">1.1.1. 宏操作</a></li>
-<li><a href="#org31d52e9">1.1.2. 位操作</a></li>
-<li><a href="#org1f8a32d">1.1.3. 字符串操作</a></li>
-<li><a href="#org9dba733">1.1.4. 嵌入式</a></li>
+<li><a href="#orgc467dbc">1.1.1. 单元测试</a></li>
+<li><a href="#orgabc99b8">1.1.2. 集成测试</a></li>
+<li><a href="#org64441a6">1.1.3. 系统测试</a></li>
+<li><a href="#orgd65dade">1.1.4. 验收测试</a></li>
 </ul>
 </li>
-<li><a href="#org2ff7f3f">1.2. JAVA语言</a></li>
-<li><a href="#orgb366437">1.3. PYTHON语言</a>
+<li><a href="#org708340e">1.2. 根据模块细节可见程度划分</a>
 <ul>
-<li><a href="#org0d44d3a">1.3.1. base</a></li>
-<li><a href="#org4e77a06">1.3.2. numpy</a></li>
-<li><a href="#org0e4b190">1.3.3. matplotlib</a>
-<ul>
-<li><a href="#orgfe18f2e">1.3.3.1. 画XY轴离散点图</a></li>
+<li><a href="#orgb9ee870">1.2.1. 白盒测试</a></li>
+<li><a href="#org347c466">1.2.2. 黑盒测试</a></li>
+<li><a href="#orgb5d04ec">1.2.3. 灰盒测试</a></li>
 </ul>
 </li>
+<li><a href="#orge2858d6">1.3. 根据不同测试面划分</a>
+<ul>
+<li><a href="#org6beb880">1.3.1. 逻辑功能测试</a></li>
+<li><a href="#org8168948">1.3.2. 界面测试</a></li>
+<li><a href="#org63b6708">1.3.3. 易用性测试</a></li>
+<li><a href="#org9cfdc2e">1.3.4. 安装测试</a></li>
+<li><a href="#orgc102b3f">1.3.5. 兼容性测试</a></li>
+<li><a href="#org344a306">1.3.6. 安全测试</a></li>
+<li><a href="#orgb5cdbb3">1.3.7. 时间性能测试</a></li>
+<li><a href="#orgce0ccd2">1.3.8. 空间性能测试</a></li>
 </ul>
 </li>
+<li><a href="#orgbedc5ec">1.4. 根据测试手段划分</a>
+<ul>
+<li><a href="#orgcc539e7">1.4.1. 手工测试</a></li>
+<li><a href="#org1b964a3">1.4.2. 自动化测试</a></li>
 </ul>
 </li>
-<li><a href="#org36557c6">2. 状态机和信号量</a>
+<li><a href="#orgbad105d">1.5. 其他划分</a>
 <ul>
-<li><a href="#org9f60bfd">2.1. 断言</a></li>
-<li><a href="#org1cb8b0f">2.2. 信号量</a>
-<ul>
-<li><a href="#org4201731">2.2.1. 信号值</a></li>
-<li><a href="#orge198a95">2.2.2. 信号名</a></li>
-<li><a href="#org73875e1">2.2.3. 信号ID</a></li>
-<li><a href="#org695d3f1">2.2.4. 信号对象</a></li>
-<li><a href="#org7d731cd">2.2.5. 信号存储表</a></li>
-<li><a href="#org7bc56ef">2.2.6. 信号内部操作</a></li>
-<li><a href="#org101775e">2.2.7. 信号操作API</a></li>
-</ul>
-</li>
-<li><a href="#org47f570e">2.3. 状态机</a>
-<ul>
-<li><a href="#orge33b1ec">2.3.1. 状态机</a></li>
-<li><a href="#org55c2c2a">2.3.2. 状态名称</a></li>
-<li><a href="#orga1fa227">2.3.3. 状态处理函数</a></li>
-<li><a href="#orge48fc7e">2.3.4. 状态定义</a></li>
-<li><a href="#orgc693a86">2.3.5. 状态转换函数</a></li>
-</ul>
-</li>
-<li><a href="#orgd67f212">2.4. 应用</a>
-<ul>
-<li><a href="#org48cbb9c">2.4.1. 状态机转换</a></li>
-<li><a href="#org3e73fe3">2.4.2. 源码</a></li>
+<li><a href="#org12aff2f">1.5.1. 冒烟测试</a></li>
+<li><a href="#org9519e07">1.5.2. 回归测试</a></li>
+<li><a href="#org78365b3">1.5.3. 随机测试</a></li>
+<li><a href="#org4749a4b">1.5.4. 探索性测试</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#org5d39a27">2. 编程语言</a>
+<ul>
+<li><a href="#org98a5c3f">2.1. C语言</a>
+<ul>
+<li><a href="#org50e136e">2.1.1. 宏操作</a></li>
+<li><a href="#org31d52e9">2.1.2. 位操作</a></li>
+<li><a href="#org1f8a32d">2.1.3. 字符串操作</a></li>
+<li><a href="#org9dba733">2.1.4. 嵌入式</a></li>
+</ul>
+</li>
+<li><a href="#org2ff7f3f">2.2. JAVA语言</a></li>
+<li><a href="#orgb366437">2.3. PYTHON语言</a>
+<ul>
+<li><a href="#org0d44d3a">2.3.1. base</a></li>
+<li><a href="#org4e77a06">2.3.2. numpy</a></li>
+<li><a href="#org0e4b190">2.3.3. matplotlib</a>
+<ul>
+<li><a href="#orgfe18f2e">2.3.3.1. 画XY轴离散点图</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org36557c6">3. 状态机和信号量</a>
+<ul>
+<li><a href="#org9f60bfd">3.1. 断言</a></li>
+<li><a href="#org1cb8b0f">3.2. 信号量</a>
+<ul>
+<li><a href="#org4201731">3.2.1. 信号值</a></li>
+<li><a href="#orge198a95">3.2.2. 信号名</a></li>
+<li><a href="#org73875e1">3.2.3. 信号ID</a></li>
+<li><a href="#org695d3f1">3.2.4. 信号对象</a></li>
+<li><a href="#org7d731cd">3.2.5. 信号存储表</a></li>
+<li><a href="#org7bc56ef">3.2.6. 信号内部操作</a></li>
+<li><a href="#org101775e">3.2.7. 信号操作API</a></li>
+</ul>
+</li>
+<li><a href="#org3208e33">3.3. 状态机</a>
+<ul>
+<li><a href="#org47f570e">3.3.1. 状态机</a></li>
+<li><a href="#org55c2c2a">3.3.2. 状态名称</a></li>
+<li><a href="#orga1fa227">3.3.3. 状态处理函数</a></li>
+<li><a href="#orge48fc7e">3.3.4. 状态定义</a></li>
+<li><a href="#orgc693a86">3.3.5. 状态转换函数</a></li>
+</ul>
+</li>
+<li><a href="#orgd67f212">3.4. 应用</a>
+<ul>
+<li><a href="#org48cbb9c">3.4.1. 状态机转换</a></li>
+<li><a href="#org3e73fe3">3.4.2. 源码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="list-of-tables">
+<h2>List of Tables</h2>
+<div id="text-list-of-tables">
+<ul>
+<li><a href="#org53cb0cc"><span class="table-number">Table 1:</span> 设计和测试对应关系</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5d39a27" class="outline-2">
-<h2 id="org5d39a27"><span class="section-number-2">1</span> 编程语言</h2>
+<div id="outline-container-org2e91b87" class="outline-2">
+<h2 id="org2e91b87"><span class="section-number-2">1</span> 软件测试</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+软件测试根据看问题角度不同，有多种分类。
+</p>
+</div>
+<div id="outline-container-org2a59b67" class="outline-3">
+<h3 id="org2a59b67"><span class="section-number-3">1.1</span> 根据项目流程阶段划分</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+几种测试和设计的对应关系见表<a href="#org53cb0cc">1</a>所示。
+</p>
+<table id="org53cb0cc" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> 设计和测试对应关系</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">设计阶段</th>
+<th scope="col" class="org-left">测试阶段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">市场调研</td>
+<td class="org-left">验收测试</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">需求分析</td>
+<td class="org-left">系统测试</td>
+</tr>
+
+<tr>
+<td class="org-left">架构设计</td>
+<td class="org-left">集成测试</td>
+</tr>
+
+<tr>
+<td class="org-left">模块设计</td>
+<td class="org-left">单元测试</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgc467dbc" class="outline-4">
+<h4 id="orgc467dbc"><span class="section-number-4">1.1.1</span> 单元测试</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+单元测试，也叫模块测试，是对程序中的单个子程序或具有独立功能的代码段进
+行测试的过程。
+</p>
+</div>
+</div>
+<div id="outline-container-orgabc99b8" class="outline-4">
+<h4 id="orgabc99b8"><span class="section-number-4">1.1.2</span> 集成测试</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+集成测试是在单元测试基础上，先通过单元模块组装成系统或子系统，再进行测
+试。重点是检查模块间的接口是否正确。
+</p>
+</div>
+</div>
+<div id="outline-container-org64441a6" class="outline-4">
+<h4 id="org64441a6"><span class="section-number-4">1.1.3</span> 系统测试</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+系统测试是针对整个产品系统进行的测试，验证系统是否满足需求规格的定义，
+以及软件系统的正确性和性能等，是否满足其需求规格的要求。
+</p>
+</div>
+</div>
+<div id="outline-container-orgd65dade" class="outline-4">
+<h4 id="orgd65dade"><span class="section-number-4">1.1.4</span> 验收测试</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+验收测试是部署软件之前的最后一个测试阶段。目的是确保软件准备就绪，向客
+户展示该软件系统能够满足用户的需求。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org708340e" class="outline-3">
+<h3 id="org708340e"><span class="section-number-3">1.2</span> 根据模块细节可见程度划分</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgb9ee870" class="outline-4">
+<h4 id="orgb9ee870"><span class="section-number-4">1.2.1</span> 白盒测试</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+白盒测试，按照程序内部的结构测试程序，通过测试来检测产品内部动作是否按
+照设计规格说明书的规定正常进行，检验程序中的每条逻辑路径是否都能按照预
+定要求正确工作。
+</p>
+</div>
+</div>
+<div id="outline-container-org347c466" class="outline-4">
+<h4 id="org347c466"><span class="section-number-4">1.2.2</span> 黑盒测试</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+黑盒测试不关心内部结构和流程。只关心软件的输入和输出关系。
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5d04ec" class="outline-4">
+<h4 id="orgb5d04ec"><span class="section-number-4">1.2.3</span> 灰盒测试</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+灰盒测试，既关注输入输出关系，也关注内部表现。但没有白盒测试关注的那么
+详细完整。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge2858d6" class="outline-3">
+<h3 id="orge2858d6"><span class="section-number-3">1.3</span> 根据不同测试面划分</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org6beb880" class="outline-4">
+<h4 id="org6beb880"><span class="section-number-4">1.3.1</span> 逻辑功能测试</h4>
+</div>
+<div id="outline-container-org8168948" class="outline-4">
+<h4 id="org8168948"><span class="section-number-4">1.3.2</span> 界面测试</h4>
+</div>
+<div id="outline-container-org63b6708" class="outline-4">
+<h4 id="org63b6708"><span class="section-number-4">1.3.3</span> 易用性测试</h4>
+</div>
+<div id="outline-container-org9cfdc2e" class="outline-4">
+<h4 id="org9cfdc2e"><span class="section-number-4">1.3.4</span> 安装测试</h4>
+</div>
+<div id="outline-container-orgc102b3f" class="outline-4">
+<h4 id="orgc102b3f"><span class="section-number-4">1.3.5</span> 兼容性测试</h4>
+</div>
+<div id="outline-container-org344a306" class="outline-4">
+<h4 id="org344a306"><span class="section-number-4">1.3.6</span> 安全测试</h4>
+</div>
+<div id="outline-container-orgb5cdbb3" class="outline-4">
+<h4 id="orgb5cdbb3"><span class="section-number-4">1.3.7</span> 时间性能测试</h4>
+<div class="outline-text-4" id="text-1-3-7">
+<p>
+注意考核软件的一个具体的响应时间
+</p>
+</div>
+</div>
+<div id="outline-container-orgce0ccd2" class="outline-4">
+<h4 id="orgce0ccd2"><span class="section-number-4">1.3.8</span> 空间性能测试</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<p>
+主要指软件运行时消耗的系统资源，如CPU、内存、网络带宽等。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbedc5ec" class="outline-3">
+<h3 id="orgbedc5ec"><span class="section-number-3">1.4</span> 根据测试手段划分</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgcc539e7" class="outline-4">
+<h4 id="orgcc539e7"><span class="section-number-4">1.4.1</span> 手工测试</h4>
+</div>
+<div id="outline-container-org1b964a3" class="outline-4">
+<h4 id="org1b964a3"><span class="section-number-4">1.4.2</span> 自动化测试</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+自动化测试需要有几大原则。
+</p>
+<ul class="org-ul">
+<li>任务测试明确，不会频繁变动；</li>
+<li>每日构建后的测试验证；</li>
+<li>比较频繁的回归测试；</li>
+<li>软件系统界面稳定，变动少；</li>
+<li>需要在多个平台上运行的相同测试案例，组合遍历型测试，大量的重复任务；</li>
+<li>软件维护周期长；</li>
+<li>项目进度压力不太大；</li>
+<li>被测软件系统开发较为规范，能够保证系统的可测性；</li>
+<li>具备大量的自动化测试平台；</li>
+<li>测试人员具备较强的编程能力；</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbad105d" class="outline-3">
+<h3 id="orgbad105d"><span class="section-number-3">1.5</span> 其他划分</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org12aff2f" class="outline-4">
+<h4 id="org12aff2f"><span class="section-number-4">1.5.1</span> 冒烟测试</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+是指在对一个新版本进行大规模的系统测试前，先验证一下软件的基本功能是否
+实，是否具备可测性。测试小组在正式测试一个新版本前，先投入较少的人力和
+时验证一个软件的主要功能，如果主要功能都没有运行通过，也没必要进行深入
+测试。
+</p>
+</div>
+</div>
+<div id="outline-container-org9519e07" class="outline-4">
+<h4 id="org9519e07"><span class="section-number-4">1.5.2</span> 回归测试</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+是指确认问题是否得到修复，是否引入了新的问题。
+</p>
+</div>
+</div>
+<div id="outline-container-org78365b3" class="outline-4">
+<h4 id="org78365b3"><span class="section-number-4">1.5.3</span> 随机测试</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+指测试中的输入数据都是随机生成，模拟用户的真实操作，发现一些边缘性的错
+误。
+</p>
+</div>
+</div>
+<div id="outline-container-org4749a4b" class="outline-4">
+<h4 id="org4749a4b"><span class="section-number-4">1.5.4</span> 探索性测试</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+探索性测试可以说是一种测试思维技术，它没有很多实际的测试方法，技术和工
+具。探索性测试强调测试人员的主观能动性，抛弃繁杂的测试计划和测试用例设
+计过程，强调在碰到问题时及时改变测试策略。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d39a27" class="outline-2">
+<h2 id="org5d39a27"><span class="section-number-2">2</span> 编程语言</h2>
+<div class="outline-text-2" id="text-2">
 </div>
 <div id="outline-container-org98a5c3f" class="outline-3">
-<h3 id="org98a5c3f"><span class="section-number-3">1.1</span> C语言</h3>
-<div class="outline-text-3" id="text-1-1">
+<h3 id="org98a5c3f"><span class="section-number-3">2.1</span> C语言</h3>
+<div class="outline-text-3" id="text-2-1">
 </div>
 <div id="outline-container-org50e136e" class="outline-4">
-<h4 id="org50e136e"><span class="section-number-4">1.1.1</span> 宏操作</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<h4 id="org50e136e"><span class="section-number-4">2.1.1</span> 宏操作</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li><p>
 从注释来看是把x转换成字符串。
@@ -415,8 +701,8 @@ error C2015: too many characters in constant; 最后看看#x,估计你也明
 </div>
 </div>
 <div id="outline-container-org31d52e9" class="outline-4">
-<h4 id="org31d52e9"><span class="section-number-4">1.1.2</span> 位操作</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<h4 id="org31d52e9"><span class="section-number-4">2.1.2</span> 位操作</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
 <li><p>
 将最右侧0改为1：
@@ -536,8 +822,8 @@ GRAY码到二进制码
 </div>
 </div>
 <div id="outline-container-org1f8a32d" class="outline-4">
-<h4 id="org1f8a32d"><span class="section-number-4">1.1.3</span> 字符串操作</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<h4 id="org1f8a32d"><span class="section-number-4">2.1.3</span> 字符串操作</h4>
+<div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li><p>
 分割字符串：比如以任意几个字符串B作为A字符串的分割符号，A字符串可以
@@ -594,8 +880,8 @@ GRAY码到二进制码
 </div>
 
 <div id="outline-container-org9dba733" class="outline-4">
-<h4 id="org9dba733"><span class="section-number-4">1.1.4</span> 嵌入式</h4>
-<div class="outline-text-4" id="text-1-1-4">
+<h4 id="org9dba733"><span class="section-number-4">2.1.4</span> 嵌入式</h4>
+<div class="outline-text-4" id="text-2-1-4">
 <ul class="org-ul">
 <li><p>
 printf调试：可以如下步骤
@@ -622,15 +908,15 @@ printf调试：可以如下步骤
 </div>
 </div>
 <div id="outline-container-org2ff7f3f" class="outline-3">
-<h3 id="org2ff7f3f"><span class="section-number-3">1.2</span> JAVA语言</h3>
+<h3 id="org2ff7f3f"><span class="section-number-3">2.2</span> JAVA语言</h3>
 </div>
 <div id="outline-container-orgb366437" class="outline-3">
-<h3 id="orgb366437"><span class="section-number-3">1.3</span> PYTHON语言</h3>
-<div class="outline-text-3" id="text-1-3">
+<h3 id="orgb366437"><span class="section-number-3">2.3</span> PYTHON语言</h3>
+<div class="outline-text-3" id="text-2-3">
 </div>
 <div id="outline-container-org0d44d3a" class="outline-4">
-<h4 id="org0d44d3a"><span class="section-number-4">1.3.1</span> base</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<h4 id="org0d44d3a"><span class="section-number-4">2.3.1</span> base</h4>
+<div class="outline-text-4" id="text-2-3-1">
 <ul class="org-ul">
 <li><p>
 字符串转换为变量。
@@ -665,8 +951,8 @@ printf调试：可以如下步骤
 </div>
 </div>
 <div id="outline-container-org4e77a06" class="outline-4">
-<h4 id="org4e77a06"><span class="section-number-4">1.3.2</span> numpy</h4>
-<div class="outline-text-4" id="text-1-3-2">
+<h4 id="org4e77a06"><span class="section-number-4">2.3.2</span> numpy</h4>
+<div class="outline-text-4" id="text-2-3-2">
 <ul class="org-ul">
 <li>array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3],
 [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和data.max(0)是从每
@@ -682,15 +968,15 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org0e4b190" class="outline-4">
-<h4 id="org0e4b190"><span class="section-number-4">1.3.3</span> matplotlib</h4>
-<div class="outline-text-4" id="text-1-3-3">
+<h4 id="org0e4b190"><span class="section-number-4">2.3.3</span> matplotlib</h4>
+<div class="outline-text-4" id="text-2-3-3">
 <p>
 此包注意用于画图
 </p>
 </div>
 <div id="outline-container-orgfe18f2e" class="outline-5">
-<h5 id="orgfe18f2e"><span class="section-number-5">1.3.3.1</span> 画XY轴离散点图</h5>
-<div class="outline-text-5" id="text-1-3-3-1">
+<h5 id="orgfe18f2e"><span class="section-number-5">2.3.3.1</span> 画XY轴离散点图</h5>
+<div class="outline-text-5" id="text-2-3-3-1">
 <ol class="org-ol">
 <li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3,
 10), 其个数要一致；</li>
@@ -707,12 +993,12 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org36557c6" class="outline-2">
-<h2 id="org36557c6"><span class="section-number-2">2</span> 状态机和信号量</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org36557c6"><span class="section-number-2">3</span> 状态机和信号量</h2>
+<div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-org9f60bfd" class="outline-3">
-<h3 id="org9f60bfd"><span class="section-number-3">2.1</span> 断言</h3>
-<div class="outline-text-3" id="text-2-1">
+<h3 id="org9f60bfd"><span class="section-number-3">3.1</span> 断言</h3>
+<div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #87cefa; text-decoration: underline;">#ifdef</span> NF_NDEBUG
 <span class="linenr">2: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">NF_ASSERT</span>(<span style="color: #ffd700;">_exp</span>) ((<span style="color: #ffff00; font-size: 105%;">void</span>)0)
@@ -726,12 +1012,12 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org1cb8b0f" class="outline-3">
-<h3 id="org1cb8b0f"><span class="section-number-3">2.2</span> 信号量</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="org1cb8b0f"><span class="section-number-3">3.2</span> 信号量</h3>
+<div class="outline-text-3" id="text-3-2">
 </div>
 <div id="outline-container-org4201731" class="outline-4">
-<h4 id="org4201731"><span class="section-number-4">2.2.1</span> 信号值</h4>
-<div class="outline-text-4" id="text-2-2-1">
+<h4 id="org4201731"><span class="section-number-4">3.2.1</span> 信号值</h4>
+<div class="outline-text-4" id="text-3-2-1">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffff00; font-size: 105%;">uint32_t</span> <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span>;
 </pre>
@@ -739,8 +1025,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-orge198a95" class="outline-4">
-<h4 id="orge198a95"><span class="section-number-4">2.2.2</span> 信号名</h4>
-<div class="outline-text-4" id="text-2-2-2">
+<h4 id="orge198a95"><span class="section-number-4">3.2.2</span> 信号名</h4>
+<div class="outline-text-4" id="text-3-2-2">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffff00; font-size: 105%;">SignalName_T</span>;
 </pre>
@@ -748,8 +1034,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org73875e1" class="outline-4">
-<h4 id="org73875e1"><span class="section-number-4">2.2.3</span> 信号ID</h4>
-<div class="outline-text-4" id="text-2-2-3">
+<h4 id="org73875e1"><span class="section-number-4">3.2.3</span> 信号ID</h4>
+<div class="outline-text-4" id="text-3-2-3">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffff00; font-size: 105%;">uint32_t</span> <span style="color: #ffff00; font-size: 105%;">SignalID_T</span>;
 </pre>
@@ -757,8 +1043,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org695d3f1" class="outline-4">
-<h4 id="org695d3f1"><span class="section-number-4">2.2.4</span> 信号对象</h4>
-<div class="outline-text-4" id="text-2-2-4">
+<h4 id="org695d3f1"><span class="section-number-4">3.2.4</span> 信号对象</h4>
+<div class="outline-text-4" id="text-3-2-4">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sig</span>
 <span class="linenr">2: </span>{
@@ -770,8 +1056,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org7d731cd" class="outline-4">
-<h4 id="org7d731cd"><span class="section-number-4">2.2.5</span> 信号存储表</h4>
-<div class="outline-text-4" id="text-2-2-5">
+<h4 id="org7d731cd"><span class="section-number-4">3.2.5</span> 信号存储表</h4>
+<div class="outline-text-4" id="text-3-2-5">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #ffd700;">MAX_SIGNAL_NUM</span>    50  
 <span class="linenr">2: </span><span style="color: #ffb6c1; font-size: 105%;">static</span> <span style="color: #ffff00; font-size: 105%;">Signal_T</span> <span style="color: #ffd700;">Signal_SigList</span>[MAX_SIGNAL_NUM] = {0};
@@ -781,8 +1067,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org7bc56ef" class="outline-4">
-<h4 id="org7bc56ef"><span class="section-number-4">2.2.6</span> 信号内部操作</h4>
-<div class="outline-text-4" id="text-2-2-6">
+<h4 id="org7bc56ef"><span class="section-number-4">3.2.6</span> 信号内部操作</h4>
+<div class="outline-text-4" id="text-3-2-6">
 <ul class="org-ul">
 <li><p>
 信号搜索
@@ -847,8 +1133,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org101775e" class="outline-4">
-<h4 id="org101775e"><span class="section-number-4">2.2.7</span> 信号操作API</h4>
-<div class="outline-text-4" id="text-2-2-7">
+<h4 id="org101775e"><span class="section-number-4">3.2.7</span> 信号操作API</h4>
+<div class="outline-text-4" id="text-3-2-7">
 <ul class="org-ul">
 <li><p>
 通过信号名设置值
@@ -935,13 +1221,13 @@ numpy.angle()计算</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org47f570e" class="outline-3">
-<h3 id="org47f570e"><span class="section-number-3">2.3</span> 状态机</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org3208e33" class="outline-3">
+<h3 id="org3208e33"><span class="section-number-3">3.3</span> 状态机</h3>
+<div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-orge33b1ec" class="outline-4">
-<h4 id="orge33b1ec"><span class="section-number-4">2.3.1</span> 状态机</h4>
-<div class="outline-text-4" id="text-2-3-1">
+<div id="outline-container-org47f570e" class="outline-4">
+<h4 id="org47f570e"><span class="section-number-4">3.3.1</span> 状态机</h4>
+<div class="outline-text-4" id="text-3-3-1">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sta_machine</span>
 <span class="linenr">2: </span>{
@@ -954,8 +1240,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org55c2c2a" class="outline-4">
-<h4 id="org55c2c2a"><span class="section-number-4">2.3.2</span> 状态名称</h4>
-<div class="outline-text-4" id="text-2-3-2">
+<h4 id="org55c2c2a"><span class="section-number-4">3.3.2</span> 状态名称</h4>
+<div class="outline-text-4" id="text-3-3-2">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">const</span> <span style="color: #ffff00; font-size: 105%;">char</span>* <span style="color: #ffff00; font-size: 105%;">FSM_Name_T</span>;
 </pre>
@@ -963,8 +1249,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-orga1fa227" class="outline-4">
-<h4 id="orga1fa227"><span class="section-number-4">2.3.3</span> 状态处理函数</h4>
-<div class="outline-text-4" id="text-2-3-3">
+<h4 id="orga1fa227"><span class="section-number-4">3.3.3</span> 状态处理函数</h4>
+<div class="outline-text-4" id="text-3-3-3">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffff00; font-size: 105%;">void</span> (*<span style="color: #ffff00; font-size: 105%;">FSM_Handler_T</span>)(<span style="color: #ffff00; font-size: 105%;">FSM_T</span>* <span style="color: #ffd700;">me</span>, <span style="color: #ffff00; font-size: 105%;">SignalName_T</span> <span style="color: #ffd700;">name</span>, <span style="color: #ffff00; font-size: 105%;">SignalValue_T</span> <span style="color: #ffd700;">val</span>);
 </pre>
@@ -972,8 +1258,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-orge48fc7e" class="outline-4">
-<h4 id="orge48fc7e"><span class="section-number-4">2.3.4</span> 状态定义</h4>
-<div class="outline-text-4" id="text-2-3-4">
+<h4 id="orge48fc7e"><span class="section-number-4">3.3.4</span> 状态定义</h4>
+<div class="outline-text-4" id="text-3-3-4">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sta</span>
 <span class="linenr">2: </span>{
@@ -985,8 +1271,8 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-orgc693a86" class="outline-4">
-<h4 id="orgc693a86"><span class="section-number-4">2.3.5</span> 状态转换函数</h4>
-<div class="outline-text-4" id="text-2-3-5">
+<h4 id="orgc693a86"><span class="section-number-4">3.3.5</span> 状态转换函数</h4>
+<div class="outline-text-4" id="text-3-3-5">
 <ul class="org-ul">
 <li><p>
 检查信号状态并派发给状态机
@@ -1015,12 +1301,12 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-orgd67f212" class="outline-3">
-<h3 id="orgd67f212"><span class="section-number-3">2.4</span> 应用</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="orgd67f212"><span class="section-number-3">3.4</span> 应用</h3>
+<div class="outline-text-3" id="text-3-4">
 </div>
 <div id="outline-container-org48cbb9c" class="outline-4">
-<h4 id="org48cbb9c"><span class="section-number-4">2.4.1</span> 状态机转换</h4>
-<div class="outline-text-4" id="text-2-4-1">
+<h4 id="org48cbb9c"><span class="section-number-4">3.4.1</span> 状态机转换</h4>
+<div class="outline-text-4" id="text-3-4-1">
 
 <div id="org4ff882a" class="figure">
 <p><img src="./img/stmch_app.png" alt="stmch_app.png" />
@@ -1031,8 +1317,8 @@ numpy.angle()计算</li>
 </div>
 
 <div id="outline-container-org3e73fe3" class="outline-4">
-<h4 id="org3e73fe3"><span class="section-number-4">2.4.2</span> 源码</h4>
-<div class="outline-text-4" id="text-2-4-2">
+<h4 id="org3e73fe3"><span class="section-number-4">3.4.2</span> 源码</h4>
+<div class="outline-text-4" id="text-3-4-2">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #90ee90; font-style: italic;">//</span><span style="color: #90ee90; font-style: italic;">GetKeyState:windows api&#30417;&#27979;&#38190;&#30424;&#25353;&#38190;</span>
 <span class="linenr"> 2: </span><span style="color: #87cefa; text-decoration: underline;">#define</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">IS_KEY_PRESS</span>(<span style="color: #ffd700;">_key</span>) ((GetKeyState(_key) &gt;= 0) ? Bool_False : Bool_True )
@@ -1136,7 +1422,7 @@ numpy.angle()计算</li>
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-06-05 周五 00:05</p>
+<p class="date">Created: 2020-06-16 周二 15:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
