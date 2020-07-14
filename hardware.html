@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-05 周五 00:04 -->
+<!-- 2020-07-14 周二 11:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>硬件</title>
@@ -328,6 +328,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
+<li><a href="#orgd38f2d5">5.3. 测试</a></li>
 </ul>
 </li>
 </ul>
@@ -1977,12 +1978,51 @@ SVC异常必须立即得到相应，而PENDSVC则不是，他可以像普通中�
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgd38f2d5" class="outline-3">
+<h3 id="orgd38f2d5"><span class="section-number-3">5.3</span> 测试</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+芯片测试有很多种。
+</p>
+<ul class="org-ul">
+<li>BIST测试:Build-in Self Test，主要是在rtl设计时，植入的一种额外的辅助
+测试电路，以降低器件测试对ATE（Automatic Test Equipment）的依赖。属
+于DFT范畴。
+<ul class="org-ul">
+<li>LBIST：Logic BIST，测试随机逻辑电路。</li>
+<li>MBIST：Memory BIST，测试存储器。
+<ol class="org-ol">
+<li>RAM BIST</li>
+<li>ROM BIST</li>
+<li>FLASH BIST</li>
+</ol></li>
+</ul></li>
+<li>SCAN测试：是一种结构性测试，用jtag协议它将芯片内部的寄存器换成专门的
+寄存器，然后连接1条链路或多条，只需要在输入端输入测试pattern，在输出
+端对比输出。属于DFT范畴</li>
+<li>DFT：Design For Testability，可测性设计，是一种集成电路设计技术。将
+一些特殊结构在设计阶段植入电路，以便设计完成后进行测试。</li>
+<li>WAT测试：Wafer Acceptance Test，对专门的测试图形的测试，通过电参数来
+监控各步工艺是否正常和稳定。</li>
+<li>CP测试：Chip Probing测试，wafer级的电路测试。是整个wafer工艺，包括
+backgrinding和backmetal，对一些基本器件参数的测试，如vt(阈值电压) ，
+Rdson(导通电阻), BVdss(源漏击穿电压)，Igss(栅源漏电流)，Idss(漏源漏
+电流)等，一般测试机台的电压和功率不会很高。检测晶圆良率，调坏的die，
+反应晶圆厂的工艺水平。CP测试项比较多</li>
+<li>FT测试：Final Test，device级的电路测试，一般基于package芯片封装的测
+试，主要是对于这个CP passed的IC应用方面的测试，FT主要是把坏的chip调
+出来，检测封装的良率，反应封装厂的工艺水平。FT测试项不多，但是关键项
+重要。</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-06-05 周五 00:04</p>
+<p class="date">Created: 2020-07-14 周二 11:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

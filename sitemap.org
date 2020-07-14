@@ -1,5 +1,6 @@
 #+TITLE: Sitemap
 
+- [[file:hardware.org][硬件]]
 - [[file:software.org][软件]]
 - [[file:tool.org][工具]]
 - [[file:signal.org][信号与系统]]
@@ -9,7 +10,6 @@
 - [[file:math.org][数学]]
 - [[file:language.org][外语学习]]
 - [[file:index.org][比克曼的知识管理]]
-- [[file:hardware.org][硬件]]
 - [[file:encyclopedia.org][百科知识]]
 - [[file:decoration.org][装修日记]]
 - [[file:communication.org][通信]]
