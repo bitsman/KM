@@ -1615,7 +1615,35 @@ git可以采用二分法查找某个commit是否引入bug，二分查找还支�
 - 基于最新提交建立归档文件: git archive -o latest.zip HEAD
 - 只将目录src和doc建立归档: git archive -o latest.tar HEAD src doc
 - 基于里程碑mytagname归档，且在归档中的文件添加目录前缀:
-  git archive -o latest.zip --prefix=bitman/ mytagname 
+  git archive -o latest.zip --prefix=bitman/ mytagname
+*** git子模块
+所有的子模块可以独立建立git，以及独立的权限控制。
+- 子模块建库：像普通git一样的建库，上传文件；
+- 父项目建库：
+  + 像普通git一样的建库；
+  + 添加子模块：git submodule add <url> <local path> 添加子模块，并生
+    成.gitmodules
+  + 子模块初始化：git submodule init, 将.gitmodules子模块初始化
+    入.git/config中。
+  + 子模块更新：git submodule update, 将子模块git库的.git文件夹更新到
+    父项目.git/modules中, 同时拉取子模块文件
+  + 子模块上传：和普通文件/文件夹一样的上传子模块，尤其需要上
+    传.gitmodules文件夹
+  + 其他操作和“父项目克隆”操作一致
+
+- 父项目克隆：
+  + 克隆的项目库只包含.gitmodules文件记录了子模块信息，子模块具体文件
+    暂未实际拉取。
+  + 子模块初始化：git submodule init, 将.gitmodules子模块初始化
+    入.git/config中。
+  + 子模块更新：git submodule update, 将子模块git库的.git文件夹更新到
+    父项目.git/modules中, 同时拉取子模块文件
+  + 子模块拉取：
+    1. 所有子模块拉取：git submodule foreach git pull
+    2. 单个子模块拉取：进入对应子模块目录，git pull
+
+
+
 * ssh
 ** 建立互信
 以下只在Linux上做了测试，好像两个机子必须用相同的账户名，测试用的root

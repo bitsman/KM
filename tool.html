@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-15 周一 22:57 -->
+<!-- 2020-07-29 周三 21:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工具</title>
@@ -276,7 +276,7 @@ for the JavaScript code in this tag.
 <li><a href="#org6ae1ff6">1.2.2. 其他</a></li>
 <li><a href="#orgfdb6caf">1.2.3. 计算器</a></li>
 <li><a href="#org8356dde">1.2.4. 图片</a></li>
-<li><a href="#org8c28227">1.2.5. 字体</a></li>
+<li><a href="#orgd649acd">1.2.5. 字体</a></li>
 <li><a href="#org2a0cafc">1.2.6. 编码</a></li>
 <li><a href="#org4d6433f">1.2.7. 外部程序</a></li>
 </ul>
@@ -284,7 +284,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgd7701c9">1.3. elisp</a>
 <ul>
 <li><a href="#org55c6a61">1.3.1. 变量</a></li>
-<li><a href="#org38c99a5">1.3.2. 符号</a></li>
+<li><a href="#org6d835f6">1.3.2. 符号</a></li>
 <li><a href="#org73c68dd">1.3.3. 表达式</a></li>
 <li><a href="#orgf8adb14">1.3.4. 函数</a></li>
 <li><a href="#orgc39ce92">1.3.5. 功能</a></li>
@@ -297,7 +297,7 @@ for the JavaScript code in this tag.
 <li><a href="#orga8fda77">1.4.3. 块</a></li>
 <li><a href="#org8069ba5">1.4.4. 脚注</a></li>
 <li><a href="#org39701b8">1.4.5. 序号</a></li>
-<li><a href="#orgd649acd">1.4.6. 字体</a></li>
+<li><a href="#orgf56e614">1.4.6. 字体</a></li>
 <li><a href="#orge38da06">1.4.7. 公式</a></li>
 <li><a href="#org2113f80">1.4.8. 表格</a>
 <ul>
@@ -316,22 +316,22 @@ for the JavaScript code in this tag.
 <li><a href="#org3647546">1.4.15. 注释</a></li>
 <li><a href="#org8bc811e">1.4.16. 导出</a>
 <ul>
-<li><a href="#org66c66b7">1.4.16.1. 配置</a></li>
+<li><a href="#org9eef6d4">1.4.16.1. 配置</a></li>
 <li><a href="#orgd75ce86">1.4.16.2. beamer</a></li>
 <li><a href="#orgb1fc9a1">1.4.16.3. pdf</a></li>
 <li><a href="#org1509263">1.4.16.4. html</a></li>
 <li><a href="#orgfb12bf7">1.4.16.5. 特殊符号</a></li>
 </ul>
 </li>
-<li><a href="#orgd07fa61">1.4.17. latex</a></li>
+<li><a href="#org53f7091">1.4.17. latex</a></li>
 <li><a href="#orgbffb759">1.4.18. capture</a></li>
 </ul>
 </li>
 <li><a href="#org1cfbbcb">1.5. python-mode</a></li>
 <li><a href="#org5cff841">1.6. dired-mode</a></li>
-<li><a href="#orgd346407">1.7. git</a>
+<li><a href="#org7c9307d">1.7. git</a>
 <ul>
-<li><a href="#org9eef6d4">1.7.1. 配置</a></li>
+<li><a href="#orged66f8b">1.7.1. 配置</a></li>
 <li><a href="#org193f9b4">1.7.2. push</a></li>
 </ul>
 </li>
@@ -343,10 +343,10 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#org53f7091">2. latex</a>
+<li><a href="#orgefcf990">2. latex</a>
 <ul>
 <li><a href="#org3b88bbb">2.1. 方法</a></li>
-<li><a href="#org6d835f6">2.2. 符号</a>
+<li><a href="#org2a8e294">2.2. 符号</a>
 <ul>
 <li><a href="#org4e36336">2.2.1. 数学模式重音符号</a></li>
 <li><a href="#org8ac82f6">2.2.2. 小写希腊字母</a></li>
@@ -373,7 +373,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org074d352">3. keil</a></li>
 <li><a href="#org5114a23">4. iar</a></li>
-<li><a href="#org7c9307d">5. git</a>
+<li><a href="#org9baee8c">5. git</a>
 <ul>
 <li><a href="#orgaa9f8c8">5.1. gitolite</a>
 <ul>
@@ -426,6 +426,7 @@ for the JavaScript code in this tag.
 <li><a href="#org729b6bd">5.5.19. git推送操作</a></li>
 <li><a href="#org80bacfd">5.5.20. git二分查找</a></li>
 <li><a href="#org264025c">5.5.21. git归档操作</a></li>
+<li><a href="#orge3e357e">5.5.22. git子模块</a></li>
 </ul>
 </li>
 </ul>
@@ -520,7 +521,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>M-x eval-last-sexp 使当前 elisp 配置中光标前的那一条语句立刻生效；</li>
 <li>M-x eval-region 使当前 elisp 配置中选中的 region 中的语句立刻生效；</li>
-<li>M-x eval-<a href="#org0564737">buffer</a> 使当前的 <a href="#org0564737">buffer</a> 中的设置语句立刻生效；</li>
+<li>M-x eval-<a href="#orgf6040cd">buffer</a> 使当前的 <a href="#orgf6040cd">buffer</a> 中的设置语句立刻生效；</li>
 <li>M-x load-file ~/.emacs 载入 .emacs 文件，从而使其中的设置生效，要
 生效其它 elisp 文件只需要把 .emacs 文件名换成其它的即可。</li>
 </ul></li>
@@ -841,7 +842,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">C-F8</td>
-<td class="org-left">open-eshell-other-<a href="#org0564737">buffer</a></td>
+<td class="org-left">open-eshell-other-<a href="#orgf6040cd">buffer</a></td>
 <td class="org-left">在另一个buffer里面打开eshell</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1309,7 +1310,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">revert-<a href="#org0564737">buffer</a></td>
+<td class="org-left">revert-<a href="#orgf6040cd">buffer</a></td>
 <td class="org-left">刷新buffer</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1325,7 +1326,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">eval-current-<a href="#org0564737">buffer</a></td>
+<td class="org-left">eval-current-<a href="#orgf6040cd">buffer</a></td>
 <td class="org-left">当前配置立马生效</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1333,7 +1334,7 @@ cp /mingw64/bin/{libp11-kit-*.dll,libtasn1-*.dll} /c/emacs/bin
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">rename-<a href="#org0564737">buffer</a></td>
+<td class="org-left">rename-<a href="#orgf6040cd">buffer</a></td>
 <td class="org-left">重命名当前buffer</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -1388,8 +1389,8 @@ profiler-report；</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8c28227" class="outline-4">
-<h4 id="org8c28227"><span class="section-number-4">1.2.5</span> 字体</h4>
+<div id="outline-container-orgd649acd" class="outline-4">
+<h4 id="orgd649acd"><span class="section-number-4">1.2.5</span> 字体</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <ul class="org-ul">
 <li>eshell 查看系统字体:eshell:fc-list(或者fc-list.exe) (空格) :lang=zh-cn</li>
@@ -1401,7 +1402,7 @@ profiler-report；</li>
 <div class="outline-text-4" id="text-1-2-6">
 <ul class="org-ul">
 <li>设置编码格式:使用快捷键：C-x RET f 然后可以用 TAB 显示所有存在的编码。这个命令会改变文件！如果只是出现乱码，并且不想改
-变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#org0564737">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
+变文件本身，可以用命令C-x RET r ( M-x revert-<a href="#orgf6040cd">buffer</a>-with-coding-system)来用指定的编码重新读入这个文件。不改变当前文件
 编码，但将该文件另存为utf-8编码格式：C-x RET c(M-x universal-coding-system-argument ) utf-8</li>
 <li>对于org-mode导出HTML时，如果org-mode是gbk/utf-8，则导出的HTML也是gbk/utf-8；</li>
 </ul>
@@ -1447,8 +1448,8 @@ profiler-report；</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org38c99a5" class="outline-4">
-<h4 id="org38c99a5"><span class="section-number-4">1.3.2</span> 符号</h4>
+<div id="outline-container-org6d835f6" class="outline-4">
+<h4 id="org6d835f6"><span class="section-number-4">1.3.2</span> 符号</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 elisp中符号(symbol)是一个Lisp对象，它是一个数据结构，由以下4个部分组成，
@@ -1513,8 +1514,8 @@ concat：将字符串连接，如下
 </pre>
 </div></li>
 <li>file-name-sans-extension: 获得文件名，除了后缀名；</li>
-<li><a href="#org0564737">buffer</a>-file-name: 获得文件名，带后缀名；</li>
-<li>current-<a href="#org0564737">buffer</a>: 当前buffer名；</li>
+<li><a href="#orgf6040cd">buffer</a>-file-name: 获得文件名，带后缀名；</li>
+<li>current-<a href="#orgf6040cd">buffer</a>: 当前buffer名；</li>
 <li>progn: 该函数使其每个参数表达式被逐一求值，并返回最后1个表达式的值</li>
 <li>p: 末尾带p(predicate)的函数一般都是判断函数，返回true或false;</li>
 </ul>
@@ -1606,8 +1607,8 @@ org-mode在线<a href="http://orgmode.org/org.html">帮助文档</a>。
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd649acd" class="outline-4">
-<h4 id="orgd649acd"><span class="section-number-4">1.4.6</span> 字体</h4>
+<div id="outline-container-orgf56e614" class="outline-4">
+<h4 id="orgf56e614"><span class="section-number-4">1.4.6</span> 字体</h4>
 <div class="outline-text-4" id="text-1-4-6">
 <p>
 试试 <b>粗体</b> ，试试 <i>斜体</i> ,  试试删除线  <del>删除线</del> ，试试 <span class="underline">下划线</span>, 试试下标 H<sub>2</sub>O 试试上标 E=mc<sup>2</sup> ，等宽字体 <code>git</code>, <code>code</code>
@@ -1935,7 +1936,7 @@ gnuplot，见图\ref{img-gnuplot-test}所示：
 [[][]]定位过去就是 <a href="#org51fc1c0">1.4</a>, 并且可以使用C-c &amp;返回来, 使用C-c C-o可以打开
 标点。</li>
 <li>辐射链接：使用3个尖括号括起的锚点，可以将文档中所有的锚点链接起来，比如
-<a id="org0564737">buffer</a> ;</li>
+<a id="orgf6040cd">buffer</a> ;</li>
 <li>外部链接：包括链接到文件、网址、email等</li>
 <li>包含：可以在头部使用#+include:&ldquo;path/file&rdquo;包含某个文件，比如org，然后就可
 以将所有的org文件包含到一个文件里面统一导出；后面添加一定的开关可以导入特
@@ -2159,8 +2160,8 @@ org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org66c66b7" class="outline-5">
-<h5 id="org66c66b7"><span class="section-number-5">1.4.16.1</span> 配置</h5>
+<div id="outline-container-org9eef6d4" class="outline-5">
+<h5 id="org9eef6d4"><span class="section-number-5">1.4.16.1</span> 配置</h5>
 <div class="outline-text-5" id="text-1-4-16-1">
 <p>
 可以使用 <span class="underline">\#+opinion</span> 等关键字对文档导出做配置，也可以将这些配置写入某个 <span class="underline">filename</span>
@@ -2187,7 +2188,7 @@ org-mode转换到pdf需要在org-mode文件中头部使用如下头;
 <tbody>
 <tr>
 <td class="org-left">#+TITLE:</td>
-<td class="org-left">the title to be shown (default is the <a href="#org0564737">buffer</a> name)</td>
+<td class="org-left">the title to be shown (default is the <a href="#orgf6040cd">buffer</a> name)</td>
 </tr>
 
 <tr>
@@ -2491,8 +2492,8 @@ options: 带一定的<a href="http://orgmode.org/org.html#Export-settings">参�
 </div>
 </div>
 </div>
-<div id="outline-container-orgd07fa61" class="outline-4">
-<h4 id="orgd07fa61"><span class="section-number-4">1.4.17</span> latex</h4>
+<div id="outline-container-org53f7091" class="outline-4">
+<h4 id="org53f7091"><span class="section-number-4">1.4.17</span> latex</h4>
 <div class="outline-text-4" id="text-1-4-17">
 <p>
 可以使用cdlatex完成输入latex的各种模块。使用快捷键C-c {可以输入equation等的
@@ -2530,15 +2531,15 @@ test.zip * 就可以完成压缩，
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd346407" class="outline-3">
-<h3 id="orgd346407"><span class="section-number-3">1.7</span> git</h3>
+<div id="outline-container-org7c9307d" class="outline-3">
+<h3 id="org7c9307d"><span class="section-number-3">1.7</span> git</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 </p>
 </div>
-<div id="outline-container-org9eef6d4" class="outline-4">
-<h4 id="org9eef6d4"><span class="section-number-4">1.7.1</span> 配置</h4>
+<div id="outline-container-orged66f8b" class="outline-4">
+<h4 id="orged66f8b"><span class="section-number-4">1.7.1</span> 配置</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li>使用M-x git-config-init 配置用户名和email；</li>
@@ -2776,8 +2777,8 @@ run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如�
 </div>
 </div>
 
-<div id="outline-container-org53f7091" class="outline-2">
-<h2 id="org53f7091"><span class="section-number-2">2</span> latex</h2>
+<div id="outline-container-orgefcf990" class="outline-2">
+<h2 id="orgefcf990"><span class="section-number-2">2</span> latex</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 <div id="outline-container-org3b88bbb" class="outline-3">
@@ -2785,8 +2786,8 @@ run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如�
 <div class="outline-text-3" id="text-2-1">
 </div>
 </div>
-<div id="outline-container-org6d835f6" class="outline-3">
-<h3 id="org6d835f6"><span class="section-number-3">2.2</span> 符号</h3>
+<div id="outline-container-org2a8e294" class="outline-3">
+<h3 id="org2a8e294"><span class="section-number-3">2.2</span> 符号</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
 <div id="outline-container-org4e36336" class="outline-4">
@@ -2999,8 +3000,8 @@ run:经过make编译后，生成emtest.dll，然后再草稿buffer中使用如�
 </ul>
 </div>
 </div>
-<div id="outline-container-org7c9307d" class="outline-2">
-<h2 id="org7c9307d"><span class="section-number-2">5</span> git</h2>
+<div id="outline-container-org9baee8c" class="outline-2">
+<h2 id="org9baee8c"><span class="section-number-2">5</span> git</h2>
 <div class="outline-text-2" id="text-5">
 </div>
 <div id="outline-container-orgaa9f8c8" class="outline-3">
@@ -3807,7 +3808,7 @@ interaction flow is like figure <a href="#org84fecf4">22</a>.
 <div class="outline-text-5" id="text-5-5-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org14d9467"></a>heads<br />
+<li><a id="org18b96ab"></a>heads<br />
 <div class="outline-text-6" id="text-5-5-1-2-1">
 <p>
 目录下保存所有分支的&ldquo;游标&rdquo;文件, 主分支游标文件名是master，文件内容是某
@@ -3843,7 +3844,7 @@ interaction flow is like figure <a href="#org84fecf4">22</a>.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org18b96ab"></a>heads<br />
+<li><a id="org3068e29"></a>heads<br />
 <ol class="org-ol">
 <li><a id="orge6483e6"></a>master<br />
 <div class="outline-text-8" id="text-5-5-1-3-2-1-1">
@@ -5064,8 +5065,50 @@ git archive -o latest.zip &#x2013;prefix=bitman/ mytagname</li>
 </ul>
 </div>
 </div>
+<div id="outline-container-orge3e357e" class="outline-4">
+<h4 id="orge3e357e"><span class="section-number-4">5.5.22</span> git子模块</h4>
+<div class="outline-text-4" id="text-5-5-22">
+<p>
+所有的子模块可以独立建立git，以及独立的权限控制。
+</p>
+<ul class="org-ul">
+<li>子模块建库：像普通git一样的建库，上传文件；</li>
+<li>父项目建库：
+<ul class="org-ul">
+<li>像普通git一样的建库；</li>
+<li>添加子模块：git submodule add &lt;url&gt; &lt;local path&gt; 添加子模块，并生
+成.gitmodules</li>
+<li>子模块初始化：git submodule init, 将.gitmodules子模块初始化
+入.git/config中。</li>
+<li>子模块更新：git submodule update, 将子模块git库的.git文件夹更新到
+父项目.git/modules中, 同时拉取子模块文件</li>
+<li>子模块上传：和普通文件/文件夹一样的上传子模块，尤其需要上
+传.gitmodules文件夹</li>
+<li>其他操作和“父项目克隆”操作一致</li>
+</ul></li>
+
+<li>父项目克隆：
+<ul class="org-ul">
+<li>克隆的项目库只包含.gitmodules文件记录了子模块信息，子模块具体文件
+暂未实际拉取。</li>
+<li>子模块初始化：git submodule init, 将.gitmodules子模块初始化
+入.git/config中。</li>
+<li>子模块更新：git submodule update, 将子模块git库的.git文件夹更新到
+父项目.git/modules中, 同时拉取子模块文件</li>
+<li>子模块拉取：
+<ol class="org-ol">
+<li>所有子模块拉取：git submodule foreach git pull</li>
+<li>单个子模块拉取：进入对应子模块目录，git pull</li>
+</ol></li>
+</ul></li>
+</ul>
 </div>
 </div>
+</div>
+</div>
+
+
+
 <div id="outline-container-org8e769e0" class="outline-2">
 <h2 id="org8e769e0"><span class="section-number-2">6</span> ssh</h2>
 <div class="outline-text-2" id="text-6">
@@ -5562,7 +5605,7 @@ ipython默认情况下不会自动重新加载模块，这样在高频繁的改�
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-06-15 周一 22:57</p>
+<p class="date">Created: 2020-07-29 周三 21:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
