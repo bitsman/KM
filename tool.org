@@ -1628,7 +1628,7 @@ git可以采用二分法查找某个commit是否引入bug，二分查找还支�
   + 子模块更新：git submodule update, 将子模块git库的.git文件夹更新到
     父项目.git/modules中, 同时拉取子模块文件
   + 子模块上传：和普通文件/文件夹一样的上传子模块，尤其需要上
-    传.gitmodules文件夹
+    传.gitmodules文件
   + 其他操作和“父项目克隆”操作一致
 
 - 父项目克隆：
