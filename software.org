@@ -352,7 +352,7 @@
 5. 设置X轴说明：plt.xlabel('x label')
 6. 设置y轴说明：plt.ylabel('y label')
 7. 显示图：plt.show()
-<<<<<<< HEAD
+
 *** module
 - watermark:
   #+BEGIN_SRC python
@@ -441,8 +441,7 @@
         else:
             print("not image")
   #+END_SRC
-  
-=======
+
 * 状态机和信号量
 ** 断言
 #+BEGIN_SRC c -n
@@ -775,7 +774,6 @@ HEX格式常用Intel定义格式。两个字符表示一个字节的字面含义
 |---+----+------+----+-----------+----|
 
 表示为“:[1字节长度][2字节地址][1字节记录类型][n字节数据段][1字节校验和]” 
->>>>>>> c3fec3f7a89acb4fd4a4b87172cec5521e70d3e3
 
 - 起始：都是已冒号(0x3A)开始;
 - LL: 本条记录的数据字段长度，2个字符（1个字节）；
