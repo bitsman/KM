@@ -750,6 +750,8 @@ Snow covers Emacs
   test.zip * 就可以完成压缩，
   回车就压缩到test.zip里面了。其他如7z类似；
 - 正则标记：使用快捷键 %+m；
+- 目录编辑模式：C-x C-q进入目录编辑模式，可以批量修改文件名，按C-c C-c
+  或者C-x C-s保存生效
 ** git
 使用了git-emacs的插件，将命令M-x git-status绑定在了F1键上。
 *** 配置
@@ -1641,9 +1643,6 @@ git可以采用二分法查找某个commit是否引入bug，二分查找还支�
   + 子模块拉取：
     1. 所有子模块拉取：git submodule foreach git pull
     2. 单个子模块拉取：进入对应子模块目录，git pull
-
-
-
 * ssh
 ** 建立互信
 以下只在Linux上做了测试，好像两个机子必须用相同的账户名，测试用的root
