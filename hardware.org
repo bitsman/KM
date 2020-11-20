@@ -767,5 +767,30 @@ cortex-m包含R0～R15寄存器，其中R13作为堆栈指针寄存器SP，共�
   *a = b//STR     R5, [R4]
   #+end_src
   
-
+** 测试
+芯片测试有很多种。
+- BIST测试:Build-in Self Test，主要是在rtl设计时，植入的一种额外的辅助
+  测试电路，以降低器件测试对ATE（Automatic Test Equipment）的依赖。属
+  于DFT范畴。
+  + LBIST：Logic BIST，测试随机逻辑电路。
+  + MBIST：Memory BIST，测试存储器。
+    1. RAM BIST
+    2. ROM BIST
+    3. FLASH BIST
+- SCAN测试：是一种结构性测试，用jtag协议它将芯片内部的寄存器换成专门的
+  寄存器，然后连接1条链路或多条，只需要在输入端输入测试pattern，在输出
+  端对比输出。属于DFT范畴
+- DFT：Design For Testability，可测性设计，是一种集成电路设计技术。将
+  一些特殊结构在设计阶段植入电路，以便设计完成后进行测试。
+- WAT测试：Wafer Acceptance Test，对专门的测试图形的测试，通过电参数来
+  监控各步工艺是否正常和稳定。
+- CP测试：Chip Probing测试，wafer级的电路测试。是整个wafer工艺，包括
+  backgrinding和backmetal，对一些基本器件参数的测试，如vt(阈值电压) ，
+  Rdson(导通电阻), BVdss(源漏击穿电压)，Igss(栅源漏电流)，Idss(漏源漏
+  电流)等，一般测试机台的电压和功率不会很高。检测晶圆良率，调坏的die，
+  反应晶圆厂的工艺水平。CP测试项比较多
+- FT测试：Final Test，device级的电路测试，一般基于package芯片封装的测
+  试，主要是对于这个CP passed的IC应用方面的测试，FT主要是把坏的chip调
+  出来，检测封装的良率，反应封装厂的工艺水平。FT测试项不多，但是关键项
+  重要。
 

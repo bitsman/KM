@@ -1,5 +1,6 @@
 #+TITLE: Sitemap
 
+<<<<<<< HEAD
 - [[file:software.org][����]]
 - [[file:index.org][�ȿ�����֪ʶ����]]
 - [[file:tool.org][����]]
@@ -13,3 +14,19 @@
 - [[file:decoration.org][װ���ռ�]]
 - [[file:communication.org][ͨ��]]
 - [[file:algorithm.org][�㷨]]
+=======
+- [[file:software.org][软件]]
+- [[file:tool.org][工具]]
+- [[file:hardware.org][硬件]]
+- [[file:signal.org][信号与系统]]
+- [[file:security.org][°²È«]]
+- [[file:protocol.org][协议]]
+- [[file:os.org][操作系统]]
+- [[file:math.org][数学]]
+- [[file:language.org][外语学习]]
+- [[file:index.org][比克曼的知识管理]]
+- [[file:encyclopedia.org][百科知识]]
+- [[file:decoration.org][装修日记]]
+- [[file:communication.org][通信]]
+- [[file:algorithm.org][算法]]
+>>>>>>> c3fec3f7a89acb4fd4a4b87172cec5521e70d3e3

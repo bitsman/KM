@@ -6,6 +6,87 @@
 #+options: h:4 
 #+startup: overview
 
+* 软件测试
+软件测试根据看问题角度不同，有多种分类。
+** 根据项目流程阶段划分
+几种测试和设计的对应关系见表[[tbldsgtest]]所示。
+#+CAPTION: 设计和测试对应关系
+#+NAME: tbldsgtest
+#+attr_latex: :placement [H]
+|----------+----------|
+| 设计阶段 | 测试阶段 |
+|----------+----------|
+|----------+----------|
+| 市场调研 | 验收测试 |
+|----------+----------|
+| 需求分析 | 系统测试 |
+| 架构设计 | 集成测试 |
+| 模块设计 | 单元测试 |
+|----------+----------|
+
+*** 单元测试
+单元测试，也叫模块测试，是对程序中的单个子程序或具有独立功能的代码段进
+行测试的过程。
+*** 集成测试
+集成测试是在单元测试基础上，先通过单元模块组装成系统或子系统，再进行测
+试。重点是检查模块间的接口是否正确。
+*** 系统测试
+系统测试是针对整个产品系统进行的测试，验证系统是否满足需求规格的定义，
+以及软件系统的正确性和性能等，是否满足其需求规格的要求。
+*** 验收测试
+验收测试是部署软件之前的最后一个测试阶段。目的是确保软件准备就绪，向客
+户展示该软件系统能够满足用户的需求。
+** 根据模块细节可见程度划分
+*** 白盒测试
+白盒测试，按照程序内部的结构测试程序，通过测试来检测产品内部动作是否按
+照设计规格说明书的规定正常进行，检验程序中的每条逻辑路径是否都能按照预
+定要求正确工作。
+*** 黑盒测试
+黑盒测试不关心内部结构和流程。只关心软件的输入和输出关系。
+*** 灰盒测试
+灰盒测试，既关注输入输出关系，也关注内部表现。但没有白盒测试关注的那么
+详细完整。
+** 根据不同测试面划分
+*** 逻辑功能测试
+*** 界面测试
+*** 易用性测试
+*** 安装测试
+*** 兼容性测试
+*** 安全测试
+*** 时间性能测试
+注意考核软件的一个具体的响应时间
+*** 空间性能测试
+主要指软件运行时消耗的系统资源，如CPU、内存、网络带宽等。
+** 根据测试手段划分
+*** 手工测试
+*** 自动化测试
+自动化测试需要有几大原则。
+- 任务测试明确，不会频繁变动；
+- 每日构建后的测试验证；
+- 比较频繁的回归测试；
+- 软件系统界面稳定，变动少；
+- 需要在多个平台上运行的相同测试案例，组合遍历型测试，大量的重复任务；
+- 软件维护周期长；
+- 项目进度压力不太大；
+- 被测软件系统开发较为规范，能够保证系统的可测性；
+- 具备大量的自动化测试平台；
+- 测试人员具备较强的编程能力；
+** 其他划分
+*** 冒烟测试
+是指在对一个新版本进行大规模的系统测试前，先验证一下软件的基本功能是否
+实，是否具备可测性。测试小组在正式测试一个新版本前，先投入较少的人力和
+时验证一个软件的主要功能，如果主要功能都没有运行通过，也没必要进行深入
+测试。
+*** 回归测试
+是指确认问题是否得到修复，是否引入了新的问题。
+*** 随机测试
+指测试中的输入数据都是随机生成，模拟用户的真实操作，发现一些边缘性的错
+误。
+*** 探索性测试
+探索性测试可以说是一种测试思维技术，它没有很多实际的测试方法，技术和工
+具。探索性测试强调测试人员的主观能动性，抛弃繁杂的测试计划和测试用例设
+计过程，强调在碰到问题时及时改变测试策略。
+
 * 编程语言
 ** c
 *** 宏操作
@@ -158,6 +239,55 @@
         return B ;
     }
   #+end_src
+*** 字符串操作
+- 分割字符串：比如以任意几个字符串B作为A字符串的分割符号，A字符串可以
+  以B作为开头，结尾也可以有任意个B，中间也可以有任意个B。
+  #+BEGIN_SRC c -n 
+    /** 
+     ,* @brief 以demial分割string_org字符串，可以多次调用，分割完string_org
+     ,* 比较经典的是里面的map对demial的编码算法
+     ,* @param string_org 待分割字符串
+     ,* @param demial 分隔符
+     ,* @return NULL：没找到除demial的字符串，其他：找到的第一个字符串
+     ,*/
+    char *strtok(char *string_org, const char * demial)
+    {
+            static unsigned char* last;
+            unsigned char*str;
+            const unsigned char*ctrl = (const unsigned char*)demial;
+            unsigned char map[32];
+            int count;
+            memset(map, 0, sizeof(map));
+        //把demial的高5bit编码到map的index下标中，把demial的低3bit编码到
+        //map该下标的值中，下标和值中的每个1标识一个不同的demial;
+            do
+            {
+                    map[*ctrl >> 3] |= (1 << (*ctrl & 7));
+            } while (*ctrl++);
+            str = (string_org)?(unsigned char * )string_org:
+                last;
+            // 对str中每个字符取出来做map编码再比较，直到'\0'结束符
+            // 略去string_org以demial开头的字符串
+            while ((map[*str >> 3] & (1 << (*str & 7))) && *str)
+            {
+                    str++;
+            }
+            string_org = (char *)str;
+            for (; * str; str++)
+            {
+                    if (map[*str >> 3] & (1 << (*str & 7)))
+                    {
+                            ,*str++ = '\0';//找到1个demial就截取退出
+                            break;
+                    }
+            }
+            last = str;//保留剩下的未截取的字符串
+        //空字符串, 如最后1个参数后面添加一堆的空格"  test 1 2  "
+        return (string_org == (char *)str) ? NULL:
+            string_org;//截取了开头的demial到第2次demial之间的字符串
+    }
+  #+END_SRC
+
 *** 嵌入式
 - printf调试：可以如下步骤
   #+begin_src c
@@ -222,6 +352,7 @@
 5. 设置X轴说明：plt.xlabel('x label')
 6. 设置y轴说明：plt.ylabel('y label')
 7. 显示图：plt.show()
+<<<<<<< HEAD
 *** module
 - watermark:
   #+BEGIN_SRC python
@@ -311,5 +442,377 @@
             print("not image")
   #+END_SRC
   
+=======
+* 状态机和信号量
+** 断言
+#+BEGIN_SRC c -n
+  #ifdef NF_NDEBUG
+  #define NF_ASSERT(_exp) ((void)0)
+  #else
+  #define NF_ASSERT(_exp) ((_exp) ? (void)0 :
+              NF_Assert_Failed((const char * )__FILE__, __LINE__))
+  extern void NF_Assert_Failed(const char * file, NF_Int32U line);
+  #endif
+#+END_SRC 
+** 信号量
+*** 信号值
+#+BEGIN_SRC c -n 
+  typedef uint32_t SignalValue_T;
+#+END_SRC 
+*** 信号名
+#+BEGIN_SRC c -n 
+  typedef const char* SignalName_T;
+#+END_SRC
+*** 信号ID
+#+BEGIN_SRC c -n 
+  typedef uint32_t SignalID_T;
+#+END_SRC
+*** 信号对象
+#+BEGIN_SRC c -n 
+  typedef struct _sig
+  {
+      SignalName_T  Name;
+      SignalValue_T Value;
+  }Signal_T;
+#+END_SRC
+*** 信号存储表
+#+BEGIN_SRC c -n
+  #define MAX_SIGNAL_NUM    50  
+  static Signal_T Signal_SigList[MAX_SIGNAL_NUM] = {0};
+  static uint32_t Signal_SigListCnt = 0;
+#+END_SRC
+*** 信号内部操作
+- 信号搜索
+  #+BEGIN_SRC c -n 
+    //按信号名在表中查找信号对象
+    Signal_T* Signal_Search(SignalName_T name, SignalID_T* id_ret)
+    {
+        uint32_t i;
+  
+        //信号名不能为空
+        NF_ASSERT( name != NULL_PTR );
+  
+        for (i = 0; i < Signal_SigListCnt; i ++)
+        {
+            if ( strcmp(Signal_SigList[i].Name, name) == 0 )
+            {
+                //通过回调参数返回ID号
+                if (id_ret != NULL_PTR)
+                {
+                    *id_ret = i;
+                }
+  
+                return &(Signal_SigList[i]);
+            }
+        }
+        //没有找到，返回空指针
+        return NULL_PTR;
+    }
+  #+END_SRC
+- 创建信号
+  #+BEGIN_SRC c -n 
+    Signal_T* Signal_Create(SignalName_T name, SignalValue_T val, SignalID_T* id_ret)
+    {
+        //信号名不能为空
+        NF_ASSERT( name != NULL_PTR );
+        if (Signal_SigListCnt < MAX_SIGNAL_NUM)
+        {
+            Signal_SigList[Signal_SigListCnt].Name  = name;
+            Signal_SigList[Signal_SigListCnt].Value = val;
+            Signal_SigListCnt ++;
+            //通过回调参数返回ID号
+            if (id_ret != NULL_PTR)
+            {
+                ,*id_ret = Signal_SigListCnt - 1;
+            }
+            return &(Signal_SigList[Signal_SigListCnt - 1]);
+        }
+        else
+        {
+            //信号列表满，创建失败
+            //此时应加大头文件中最大信号数量宏MAX_SIGNAL_NUM
+            return NULL_PTR;
+        }
+    }
+  #+END_SRC
+*** 信号操作API
+- 通过信号名设置值
+  #+BEGIN_SRC c -n
+    SignalID_T Signal_Set(SignalName_T name, SignalValue_T val)
+    {
+        Signal_T* sig = NULL_PTR;
+        SignalID_T id;
+        //信号名不能为空
+        ASSERT( name != NULL_PTR );
+        sig = Signal_Search(name, &id);
+        if (sig != NULL_PTR)
+        {
+            sig->Value = val;
+            return id;
+        }
+        else
+        {
+            sig = Signal_Create(name, val, &id);
+            //断言失败则信号列表满，需增大NF_MAX_SIGNAL_NUM
+            ASSERT( sig != NULL_PTR );
+            return id;
+        }
+    }
+  #+END_SRC
+- 通过信号ID设置值
+  #+BEGIN_SRC c -n 
+    void Signal_SetID(SignalID_T id, SignalValue_T val)
+    {
+        //ID号需有效
+        ASSERT( id < Signal_SigListCnt );
+        if (id < Signal_SigListCnt)
+        {
+            Signal_SigList[id].Value = val;
+        }
+    }
+  #+END_SRC
+- 通过信号名获取值
+  #+BEGIN_SRC c -n
+    SignalValue_T Signal_Get(SignalName_T name)
+    {
+        Signal_T* sig = NULL_PTR;
+        //信号名不能为空
+        ASSERT( name != NULL_PTR );
+        sig = Signal_Search(name, NULL_PTR);
 
+        if (sig != NULL_PTR)
+        {
+            //搜索成功返回信号值
+            return sig->Value;
+        }
+        else
+        {
+            //搜索失败返回0
+            return 0;
+        }
+    }
+  #+END_SRC
+- 通过信号ID获取值
+  #+BEGIN_SRC c -n 
+    SignalValue_T Signal_GetID(SignalID_T id)
+    {
+        //ID号需有效
+        ASSERT( id < Signal_SigListCnt );
+
+        if (id < Signal_SigListCnt)
+        {
+            return Signal_SigList[id].Value;
+        }
+    }
+  #+END_SRC
+** 状态机
+*** 状态机
+#+BEGIN_SRC c -n
+  typedef struct _sta_machine
+  {
+      State_T     State;
+      FSM_Name_T  Name;
+  }FSM_T;
+
+#+END_SRC
+*** 状态名称
+#+BEGIN_SRC c -n 
+ typedef const char* FSM_Name_T;
+#+END_SRC
+*** 状态处理函数
+#+BEGIN_SRC c -n 
+  typedef void (*FSM_Handler_T)(FSM_T* me, SignalName_T name, SignalValue_T val);
+#+END_SRC
+*** 状态定义
+#+BEGIN_SRC c -n
+  typedef struct _sta
+  {
+      FSM_Handler_T Dispatch;
+      FSM_Name_T    Name;
+  }State_T;
+#+END_SRC
+*** 状态转换函数
+- 检查信号状态并派发给状态机
+  #+BEGIN_SRC c -n 
+    void FSM_CheckSignal(FSM_T* me, SignalName_T name)
+    {
+        ASSERT( me != NULL_PTR );
+        me->State.Dispatch(me, name, Signal_Get(name));
+    }
+  #+END_SRC
+- 转换状态机状态
+  #+BEGIN_SRC c -n
+    void FSM_Translate(FSM_T* me, State_T state) 
+    {
+        ASSERT( me != NULL_PTR );
+        me->State = state;
+    }   
+  #+END_SRC
+** 应用
+*** 状态机转换
+#+BEGIN_SRC plantuml :exports results :file ./img/stmch_app.png
+  state IDLE
+  state QDOWN
+  state QEDOWN
+
+  IDLE -right-> QDOWN: Q Press
+
+  QDOWN --> IDLE: Q Release
+  QDOWN -right-> QEDOWN: E Press
+
+  QEDOWN --> QDOWN: E Release
+  QEDOWN --> IDLE: Q Release
+#+END_SRC 
+#+CAPTION: 状态机应用
+#+NAME: imgstmchapp
+#+attr_latex: :placement [H] :width 0.6\textwidth
+#+results:
+[[file:./img/stmch_app.png]]
+
+*** 源码
+#+BEGIN_SRC c -n
+  //GetKeyState:windows api监测键盘按键
+  #define IS_KEY_PRESS(_key) ((GetKeyState(_key) >= 0) ? Bool_False : Bool_True )
+
+  //信号产生者
+  void Test_Key_Process(void)
+  {
+      if ( IS_KEY_PRESS('Q') ){
+          Signal_Set("key_q_press", 1);
+      }
+      else{
+          Signal_Set("key_q_press", 0);
+      }
+
+      if ( IS_KEY_PRESS('E') ){
+          Signal_Set("key_e_press", 1);
+      }
+      else{
+          Signal_Set("key_e_press", 0);
+      }
+  }
+
+  //状态机对象
+  FSM_T Test_FSM_QandE;
+
+  //状态机的三个状态处理函数
+  //IDLE状态处理函数
+  void Test_FSM_QandE_IDLE(FSM_T* me, SignalName_T name, SignalValue_T val)
+  {
+      if ( FSM_NameIs(name, "key_q_press") )
+      {
+          if ( val == 1 )
+          {
+              FSM_TRAN(Test_FSM_QandE_QDOWN);
+              printf("Test_FSM_QandE State Translate : IDLE --> QDOWN\n");
+          }
+      }
+  }
+
+  //QDOWN状态处理函数
+  void Test_FSM_QandE_QDOWN(FSM_T* me, SignalName_T name, SignalValue_T val)
+  {
+      if ( FSM_NameIs(name, "key_e_press") )
+      {
+          if ( val == 1 )
+          {
+              FSM_TRAN(Test_FSM_QandE_QEDOWN);
+              printf("Test_FSM_QandE State Translate : QDOWN --> QEDOWN\n");
+          }
+      }
+      else if( FSM_NameIs(name, "key_q_press") )
+      {
+          if ( val == 0 )
+          {
+              FSM_TRAN(Test_FSM_QandE_IDLE);
+              printf("Test_FSM_QandE State Translate : QDOWN --> IDLE\n");
+          }
+      }
+  }
+
+  //QEDOWN状态处理函数
+  void Test_FSM_QandE_QEDOWN(FSM_T* me, SignalName_T name, SignalValue_T val)
+  {
+      if ( FSM_NameIs(name, "key_e_press") )
+      {
+          if ( val == 0 )
+          {
+              FSM_TRAN(Test_FSM_QandE_QDOWN);
+              printf("Test_FSM_QandE State Translate : QEDOWN --> QDOWN\n");
+          }
+      }
+      else if( FSM_NameIs(name, "key_q_press") )
+      {
+          if ( val == 0 )
+          {
+              FSM_TRAN(Test_FSM_QandE_IDLE);
+              printf("Test_FSM_QandE State Translate : QEDOWN --> IDLE\n");
+          }
+      }
+  }
+
+  int main(void)
+  {
+      //初始化状态机
+      FSM_Translate(&Test_FSM_QandE, FSM_State(Test_FSM_QandE_IDLE));
+
+      for (;;)
+      {
+          Test_Key_Process();
+          FSM_CheckSignal(&Test_FSM_QandE, "key_q_press");
+          FSM_CheckSignal(&Test_FSM_QandE, "key_e_press");
+      }
+  }
+#+END_SRC
+* 机器码
+** BIN
+BIN格式实际上就是机器码顺序排列的镜像文件，没有文件格式信息。
+** HEX
+HEX格式常用Intel定义格式。两个字符表示一个字节的字面含义。
+|---+----+------+----+-----------+----|
+| : | LL | AAAA | TT | DDDDDD... | CC |
+|   |    |      |    |           |    |
+|---+----+------+----+-----------+----|
+
+表示为“:[1字节长度][2字节地址][1字节记录类型][n字节数据段][1字节校验和]” 
+>>>>>>> c3fec3f7a89acb4fd4a4b87172cec5521e70d3e3
+
+- 起始：都是已冒号(0x3A)开始;
+- LL: 本条记录的数据字段长度，2个字符（1个字节）；
+- AAAA：本条记录的数据字段的地址，地址从0x0000~0xFFFF（64K空间）;
+- TT：本条记录的类型
+  + 00：普通数据记录；
+  + 01：文件结束记录，HEX最后一条记录，固定为“:00000001FF”；
+  + 02：扩展段地址记录；扩展段地址记录也叫HEX86记录,它包括4-19位数据地
+    址段. 扩展段地址记总是有两个数据字节,外观如下::020000021200EA其中:02
+    是记录当中数据字节的数量；0000是地址域.对于扩展段地址记录,这个域总
+    是0000；02是记录类型02( 扩展段地址记录)；1200是地址段；EA是这个记
+    录的校验和；当一个扩展段地址记录被读取,存储于数据域的扩展段地址被
+    保存,它被应用于从Intel HEX文件读取来的随后的记录. 段地址保持有效,
+    直到它被另外一个扩展地址记录所改变。 通过把记录当中的地址域与被移
+    位的来自扩展段地址记录的地址数据相加(像加法一样的加，而不是偏移)获
+    得数据记录的绝对存储器地址。 如，来自数据记录地址域的地址0x2462，
+    扩展段地址记录数据域0x1200，绝对存储器地址0x2462+0x1200=0x00014462.
+  + 03：开始段地址记录；
+  + 04：扩展线性地址记录；当一 个扩展线性地址记录被读取,存储于数据域的
+    扩展线性地址被保存，它被应于从Intel HEX文件读取来的随后的记录.线性
+    地址保持有效, 到它被另外一个扩址记录所改变。通过把记录当中的地址域
+    与被移位的来自扩展线性地址记录的地址数据相加获得数据记录的绝对存储
+    器地址。以下的例子演示了这个过程:
+    :0200000480007A    //数据记录的绝对存储器地址高16位为0x8000
+    :100000001D000A00000000000000000000000000C9
+    :100010000000000085F170706F0104005D00BD00FC
+    第一行，是Extended Linear Address Record，里面的数据，也就是基地址
+    是0x8000，第二行是DataRecord，里面的地址值是0x0000。那么数据
+    1D000A00000000000000000000000000（共16个字节）要写入FLASH中的地址
+    为 (0x8000<< 16)| 0x0000，也就是写入FLASH的0x80000000这个地址；第
+    三行的数据写入地址为0x80000010.当一个HEX文件的数据超过64k的时候，
+    文件中就会出现多个Extended Linear Address Record。 
+  + 05：开始线性地址记录；其实就是入口地址，如keil map：Memory Map of
+    the image，Image Entry point : 0x08020189。则会有一条HEX记录为，
+    :040000050802018963
+- DDDD：是数据域,它代表一个字节的数据.一个记录可以有许多数据字节.记录
+  当中数据字节的数量必须和数据长度域(LL)中指定的数字相符. 
+- CC：是校验和域,它表示这个记录的校验和.校验和的计算是通过将记录当中所
+  有十六进制编码数字对的值相加,以256为模进行以下补足.
 
