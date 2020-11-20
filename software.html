@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-04-21 周日 00:26 -->
+<!-- 2019-05-10 周五 22:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>软件</title>
@@ -259,15 +259,15 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org1d551ea">1. 编程语言</a>
 <ul>
-<li><a href="#org237c348">1.1. C语言</a>
+<li><a href="#org06dd366">1.1. c</a>
 <ul>
 <li><a href="#org89a06dc">1.1.1. 宏操作</a></li>
 <li><a href="#orgf89ff60">1.1.2. 位操作</a></li>
 <li><a href="#org592c296">1.1.3. 嵌入式</a></li>
 </ul>
 </li>
-<li><a href="#orge09fe0b">1.2. JAVA语言</a></li>
-<li><a href="#org8ffe532">1.3. PYTHON语言</a>
+<li><a href="#org7e8fa7c">1.2. java</a></li>
+<li><a href="#orgd544496">1.3. python</a>
 <ul>
 <li><a href="#orgdf7dcc4">1.3.1. base</a></li>
 <li><a href="#org325bf78">1.3.2. numpy</a></li>
@@ -276,6 +276,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgf97c963">1.3.3.1. 画XY轴离散点图</a></li>
 </ul>
 </li>
+<li><a href="#org014b486">1.3.4. module</a></li>
 </ul>
 </li>
 </ul>
@@ -288,8 +289,8 @@ for the JavaScript code in this tag.
 <h2 id="org1d551ea"><span class="section-number-2">1</span> 编程语言</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org237c348" class="outline-3">
-<h3 id="org237c348"><span class="section-number-3">1.1</span> C语言</h3>
+<div id="outline-container-org06dd366" class="outline-3">
+<h3 id="org06dd366"><span class="section-number-3">1.1</span> c</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org89a06dc" class="outline-4">
@@ -531,11 +532,11 @@ printf调试：可以如下步骤
 </div>
 </div>
 </div>
-<div id="outline-container-orge09fe0b" class="outline-3">
-<h3 id="orge09fe0b"><span class="section-number-3">1.2</span> JAVA语言</h3>
+<div id="outline-container-org7e8fa7c" class="outline-3">
+<h3 id="org7e8fa7c"><span class="section-number-3">1.2</span> java</h3>
 </div>
-<div id="outline-container-org8ffe532" class="outline-3">
-<h3 id="org8ffe532"><span class="section-number-3">1.3</span> PYTHON语言</h3>
+<div id="outline-container-orgd544496" class="outline-3">
+<h3 id="orgd544496"><span class="section-number-3">1.3</span> python</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
 <div id="outline-container-orgdf7dcc4" class="outline-4">
@@ -614,13 +615,110 @@ numpy.angle()计算</li>
 </div>
 </div>
 </div>
+<div id="outline-container-org014b486" class="outline-4">
+<h4 id="org014b486"><span class="section-number-4">1.3.4</span> module</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li><p>
+watermark:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ffb6c1; font-size: 105%;">def</span> <span style="color: #1e90ff; font-size: 105%; font-weight: bold;">handle_waterprint</span> ():
+    <span style="color: #ffd700;">clipboard</span> = QApplication.clipboard()
+    <span style="color: #ffd700;">img</span> = ImageGrab.grabclipboard()
+
+    <span style="color: #ffd700;">outOriginFile</span> = <span style="color: #ffa07a;">"arch_origin/"</span>+ time.strftime(<span style="color: #ffa07a;">'%y%m%d_%H%M%S'</span>) + <span style="color: #ffa07a;">".png"</span>;
+
+    <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#21028;&#26029;&#26159;&#22270;&#29255;&#25165;&#36208;&#19979;&#38754;&#27969;&#31243;, &#21542;&#21017;&#25552;&#31034;&#38169;&#35823;</span>
+    <span style="color: #ffb6c1; font-size: 105%;">if</span> <span style="color: #87cefa; text-decoration: underline;">isinstance</span>(img, Image.Image):
+        img.save(outOriginFile, <span style="color: #ffa07a;">'PNG'</span>) 
+        <span style="color: #ffd700;">ttfFile</span> = <span style="color: #ffa07a;">"msyh.ttf"</span>
+        <span style="color: #ffd700;">text</span> = <span style="color: #ffa07a;">"&#23450;&#21046;&#30340;&#25991;&#26412; "</span> + time.strftime(<span style="color: #ffa07a;">'%Y-%m-%d %H:%M'</span>)
+        <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#26681;&#25454;&#23545;&#35282;&#32447;&#35282;&#24230;&#26469;</span>
+        <span style="color: #ffd700;">wi</span>, <span style="color: #ffd700;">he</span> = img.size
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#35282;&#24230;, &#21487;&#20197;&#26059;&#36716;&#25991;&#23383;</span>
+        <span style="color: #ffd700;">angle</span> = math.atan(he/wi) * 180 / math.pi 
+        <span style="color: #ffd700;">opacity</span> = 0.3
+        <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#20445;&#30041;&#21518;&#36793;&#39068;&#33394;&#20540;&#21442;&#25968;&#20250;&#26377;&#33945;&#23618;</span>
+        <span style="color: #ffd700;">watermark</span> = Image.new(<span style="color: #ffa07a;">'RGBA'</span>, img.size)  
+        <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#20445;&#30041;&#21518;&#36793;&#39068;&#33394;&#20540;&#21442;&#25968;&#20250;&#26377;&#33945;&#23618;</span>
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">watermark = Image.new('RGBA', img.size, (255,255,255))  </span>
+        <span style="color: #ffd700;">FONT</span> = ttfFile
+        <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#26234;&#33021;&#25918;&#22823;&#23383;&#20307;&#30340;&#21021;&#22987;&#22823;&#23567;</span>
+        <span style="color: #ffd700;">size</span> = 9
+        <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#24471;&#21040;&#23383;&#20307;  </span>
+        <span style="color: #ffd700;">n_font</span> = ImageFont.truetype(FONT, size) 
+
+        <span style="color: #ffd700;">n_width</span>, <span style="color: #ffd700;">n_height</span> = n_font.getsize(text)  
+        <span style="color: #ffd700;">text_box</span> = <span style="color: #87cefa; text-decoration: underline;">min</span>(watermark.size[0], watermark.size[1])  
+        <span style="color: #ffb6c1; font-size: 105%;">while</span> (n_width+n_height &lt;  text_box):  
+            <span style="color: #ffd700;">size</span> += 2  
+            <span style="color: #ffd700;">n_font</span> = ImageFont.truetype(FONT, size=size)  
+            <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#25991;&#23383;&#36880;&#28176;&#25918;&#22823;&#65292;&#20294;&#26159;&#35201;&#23567;&#20110;&#22270;&#29255;&#30340;&#23485;&#39640;&#26368;&#23567;&#20540; </span>
+            <span style="color: #ffd700;">n_width</span>, <span style="color: #ffd700;">n_height</span> = n_font.getsize(text)  
+
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">&#20351;&#29992;&#26368;&#26032;&#30340;&#23383;&#20307;&#22823;&#23567;</span>
+        <span style="color: #ffd700;">FontShadow</span> = ImageFont.truetype(FONT, size)
+
+        <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#23454;&#38469;&#25511;&#21046;&#20301;&#32622;</span>
+        <span style="color: #ffd700;">text_width</span> = (watermark.size[0] - n_width) / 2  
+        <span style="color: #ffd700;">text_height</span> = (watermark.size[1] - n_height) / 2  
+        <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">watermark = watermark.resize((text_width,text_height), Image.ANTIALIAS)  </span>
+        <span style="color: #90ee90; font-style: italic;">#</span><span style="color: #90ee90; font-style: italic;">&#22312;&#27700;&#21360;&#23618;&#21152;&#30011;&#31508;  </span>
+        <span style="color: #ffd700;">draw</span> = ImageDraw.Draw(watermark, <span style="color: #ffa07a;">'RGBA'</span>) 
+
+        <span style="color: #ffd700;">expand</span> = 5
+        <span style="color: #ffd700;">shapeRange</span> = (text_width - expand, text_height - expand, text_width + n_width + expand, text_height + n_height + expand)
+        draw.rectangle(shapeRange, <span style="color: #ffa07a;">'black'</span>, <span style="color: #ffa07a;">'white'</span>)
+
+        <span style="color: #ffd700;">expand</span> = 5
+        <span style="color: #ffd700;">shapeRange</span> = (text_width - expand, text_height - expand, text_width + n_width + expand, text_height + n_height + expand)
+        draw.rectangle(shapeRange, <span style="color: #ffa07a;">'black'</span>, <span style="color: #ffa07a;">'white'</span>) 
+
+        <span style="color: #90ee90; font-style: italic;">### </span><span style="color: #90ee90; font-style: italic;">&#31867;&#20284;&#38452;&#24433;&#30340;&#25928;&#26524;</span>
+        draw.text((text_width - 1,text_height - 1),  
+                  text, font=FontShadow, fill=<span style="color: #ffa07a;">"#FFFFFF"</span>, outline = <span style="color: #ffa07a;">"white"</span>) 
+
+        draw.text((text_width,text_height),  
+                  text, font=n_font, fill=<span style="color: #ffa07a;">"#CD6600"</span>)  
+
+        <span style="color: #ffd700;">additionText</span> = <span style="color: #ffa07a;">"&#38468;&#21152;&#25991;&#26412;"</span>
+        <span style="color: #ffd700;">border</span> = 2
+        draw.text((text_width, text_height +  n_height + expand + border),  
+                  additionText, font=n_font, fill=<span style="color: #ffa07a;">"#000000"</span>) 
+        draw.text((text_width + border, text_height +  n_height + expand),  
+                  additionText, font=n_font, fill=<span style="color: #ffa07a;">"#000000"</span>) 
+        draw.text((text_width, text_height +  n_height + expand - border),  
+                  additionText, font=n_font, fill=<span style="color: #ffa07a;">"#000000"</span>) 
+        draw.text((text_width - border, text_height +  n_height + expand),  
+                  additionText, font=n_font, fill=<span style="color: #ffa07a;">"#000000"</span>) 
+        draw.text((text_width, text_height +  n_height + expand),  
+                  additionText, font=n_font, fill=<span style="color: #ffa07a;">"#FFFFFF"</span>)  
+
+        <span style="color: #ffd700;">watermark</span> = watermark.rotate(angle, Image.BICUBIC)  
+        <span style="color: #ffd700;">alpha</span> = watermark.split()[3]  
+        <span style="color: #ffd700;">alpha</span> = ImageEnhance.Brightness(alpha).enhance(opacity)  
+        watermark.putalpha(alpha)  
+        <span style="color: #ffd700;">outFile</span> = <span style="color: #ffa07a;">"arch/"</span>+ time.strftime(<span style="color: #ffa07a;">'%y%m%d_%H%M%S'</span>) + <span style="color: #ffa07a;">".png"</span>;
+        Image.composite(watermark, img, watermark).save(outFile, <span style="color: #ffa07a;">'PNG'</span>)  
+
+        <span style="color: #90ee90; font-style: italic;">############# </span><span style="color: #90ee90; font-style: italic;">&#19979;&#38754;&#36825;&#20010;&#20284;&#20046;&#23481;&#26131;&#20986;&#38169;&#23548;&#33268;&#27515;&#25481;</span>
+        clipboard.setImage(QImage(outFile))
+        <span style="color: #90ee90; font-style: italic;"># </span><span style="color: #90ee90; font-style: italic;">print(clipboard)</span>
+    <span style="color: #ffb6c1; font-size: 105%;">else</span>:
+        <span style="color: #ffb6c1; font-size: 105%;">print</span>(<span style="color: #ffa07a;">"not image"</span>)
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2019-04-21 周日 00:26</p>
+<p class="date">Created: 2019-05-10 周五 22:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

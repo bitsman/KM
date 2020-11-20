@@ -7,7 +7,7 @@
 #+startup: overview
 
 * 编程语言
-** C语言
+** c
 *** 宏操作
 - 从注释来看是把x转换成字符串。
   #+begin_src c
@@ -176,8 +176,8 @@
       return ch;
     }
   #+end_src  
-** JAVA语言
-** PYTHON语言
+** java
+** python
 *** base
 - 字符串转换为变量。
   #+begin_src python
@@ -222,5 +222,94 @@
 5. 设置X轴说明：plt.xlabel('x label')
 6. 设置y轴说明：plt.ylabel('y label')
 7. 显示图：plt.show()
+*** module
+- watermark:
+  #+BEGIN_SRC python
+    def handle_waterprint ():
+        clipboard = QApplication.clipboard()
+        img = ImageGrab.grabclipboard()
+
+        outOriginFile = "arch_origin/"+ time.strftime('%y%m%d_%H%M%S') + ".png";
+
+        ### 判断是图片才走下面流程, 否则提示错误
+        if isinstance(img, Image.Image):
+            img.save(outOriginFile, 'PNG') 
+            ttfFile = "msyh.ttf"
+            text = "定制的文本 " + time.strftime('%Y-%m-%d %H:%M')
+            ### 根据对角线角度来
+            wi, he = img.size
+            # 角度, 可以旋转文字
+            angle = math.atan(he/wi) * 180 / math.pi 
+            opacity = 0.3
+            ### 保留后边颜色值参数会有蒙层
+            watermark = Image.new('RGBA', img.size)  
+            ### 保留后边颜色值参数会有蒙层
+            # watermark = Image.new('RGBA', img.size, (255,255,255))  
+            FONT = ttfFile
+            ### 智能放大字体的初始大小
+            size = 9
+            #得到字体  
+            n_font = ImageFont.truetype(FONT, size) 
+
+            n_width, n_height = n_font.getsize(text)  
+            text_box = min(watermark.size[0], watermark.size[1])  
+            while (n_width+n_height <  text_box):  
+                size += 2  
+                n_font = ImageFont.truetype(FONT, size=size)  
+                #文字逐渐放大，但是要小于图片的宽高最小值 
+                n_width, n_height = n_font.getsize(text)  
+
+            # 使用最新的字体大小
+            FontShadow = ImageFont.truetype(FONT, size)
+
+            ### 实际控制位置
+            text_width = (watermark.size[0] - n_width) / 2  
+            text_height = (watermark.size[1] - n_height) / 2  
+            #watermark = watermark.resize((text_width,text_height), Image.ANTIALIAS)  
+            #在水印层加画笔  
+            draw = ImageDraw.Draw(watermark, 'RGBA') 
+
+            expand = 5
+            shapeRange = (text_width - expand, text_height - expand, text_width + n_width + expand, text_height + n_height + expand)
+            draw.rectangle(shapeRange, 'black', 'white')
+
+            expand = 5
+            shapeRange = (text_width - expand, text_height - expand, text_width + n_width + expand, text_height + n_height + expand)
+            draw.rectangle(shapeRange, 'black', 'white') 
+
+            ### 类似阴影的效果
+            draw.text((text_width - 1,text_height - 1),  
+                      text, font=FontShadow, fill="#FFFFFF", outline = "white") 
+
+            draw.text((text_width,text_height),  
+                      text, font=n_font, fill="#CD6600")  
+
+            additionText = "附加文本"
+            border = 2
+            draw.text((text_width, text_height +  n_height + expand + border),  
+                      additionText, font=n_font, fill="#000000") 
+            draw.text((text_width + border, text_height +  n_height + expand),  
+                      additionText, font=n_font, fill="#000000") 
+            draw.text((text_width, text_height +  n_height + expand - border),  
+                      additionText, font=n_font, fill="#000000") 
+            draw.text((text_width - border, text_height +  n_height + expand),  
+                      additionText, font=n_font, fill="#000000") 
+            draw.text((text_width, text_height +  n_height + expand),  
+                      additionText, font=n_font, fill="#FFFFFF")  
+
+            watermark = watermark.rotate(angle, Image.BICUBIC)  
+            alpha = watermark.split()[3]  
+            alpha = ImageEnhance.Brightness(alpha).enhance(opacity)  
+            watermark.putalpha(alpha)  
+            outFile = "arch/"+ time.strftime('%y%m%d_%H%M%S') + ".png";
+            Image.composite(watermark, img, watermark).save(outFile, 'PNG')  
+
+            ############# 下面这个似乎容易出错导致死掉
+            clipboard.setImage(QImage(outFile))
+            # print(clipboard)
+        else:
+            print("not image")
+  #+END_SRC
+  
 
 
