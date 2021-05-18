@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-20 周五 23:37 -->
+<!-- 2020-11-23 ��һ 23:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>软件</title>
@@ -316,13 +316,14 @@ for the JavaScript code in this tag.
 <li><a href="#orgd544496">2.3. python</a>
 <ul>
 <li><a href="#orgdf7dcc4">2.3.1. base</a></li>
-<li><a href="#org325bf78">2.3.2. numpy</a></li>
-<li><a href="#org3cd2e9b">2.3.3. matplotlib</a>
+<li><a href="#org4201735">2.3.2. ipython</a></li>
+<li><a href="#org325bf78">2.3.3. numpy</a></li>
+<li><a href="#org3cd2e9b">2.3.4. matplotlib</a>
 <ul>
-<li><a href="#org327b3c7">2.3.3.1. 画XY轴离散点图</a></li>
+<li><a href="#org327b3c7">2.3.4.1. 画XY轴离散点图</a></li>
 </ul>
 </li>
-<li><a href="#org014b486">2.3.4. module</a></li>
+<li><a href="#org014b486">2.3.5. module</a></li>
 </ul>
 </li>
 </ul>
@@ -341,9 +342,9 @@ for the JavaScript code in this tag.
 <li><a href="#org499586f">3.2.7. 信号操作API</a></li>
 </ul>
 </li>
-<li><a href="#org9f6bbd9">3.3. 状态机</a>
+<li><a href="#org8df0e35">3.3. 状态机</a>
 <ul>
-<li><a href="#org7340c2a">3.3.1. 状态机</a></li>
+<li><a href="#org9f6bbd9">3.3.1. 状态机</a></li>
 <li><a href="#org91cc7e4">3.3.2. 状态名称</a></li>
 <li><a href="#orge5610f2">3.3.3. 状态处理函数</a></li>
 <li><a href="#org86fb6d6">3.3.4. 状态定义</a></li>
@@ -957,9 +958,28 @@ printf调试：可以如下步骤
 </ul>
 </div>
 </div>
-<div id="outline-container-org325bf78" class="outline-4">
-<h4 id="org325bf78"><span class="section-number-4">2.3.2</span> numpy</h4>
+<div id="outline-container-org4201735" class="outline-4">
+<h4 id="org4201735"><span class="section-number-4">2.3.2</span> ipython</h4>
 <div class="outline-text-4" id="text-2-3-2">
+<ul class="org-ul">
+<li>修改自动加载：如果代码发生更新，要实现ipython中引用的模块也自动更新，
+ipython提供了一个很好的扩展auto<sub>reload</sub>，命令参数如下所示,一般使用
+%autoreload 2就行：
+<ul class="org-ul">
+<li>%autoreload:  自动重载%aimport排除的模块之外的所有模块。</li>
+<li>%autoreload 0: 禁用自动重载</li>
+<li>%autoreload 1: 自动重载%aimport指定的模块。</li>
+<li>%autoreload 2: 自动重载%aimport排除的模块之外的所有模块。</li>
+<li>%aimport: 列出需要自动重载的模块和不需要重载的模块。</li>
+<li>%aimport foo: 重载模块foo并将它标记为需要自动重载。</li>
+<li>%aimport -foo: 将模块foo标记为不需要自动重载。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org325bf78" class="outline-4">
+<h4 id="org325bf78"><span class="section-number-4">2.3.3</span> numpy</h4>
+<div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li>array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3],
 [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和data.max(0)是从每
@@ -975,15 +995,15 @@ numpy.angle()计算</li>
 </div>
 </div>
 <div id="outline-container-org3cd2e9b" class="outline-4">
-<h4 id="org3cd2e9b"><span class="section-number-4">2.3.3</span> matplotlib</h4>
-<div class="outline-text-4" id="text-2-3-3">
+<h4 id="org3cd2e9b"><span class="section-number-4">2.3.4</span> matplotlib</h4>
+<div class="outline-text-4" id="text-2-3-4">
 <p>
 此包注意用于画图
 </p>
 </div>
 <div id="outline-container-org327b3c7" class="outline-5">
-<h5 id="org327b3c7"><span class="section-number-5">2.3.3.1</span> 画XY轴离散点图</h5>
-<div class="outline-text-5" id="text-2-3-3-1">
+<h5 id="org327b3c7"><span class="section-number-5">2.3.4.1</span> 画XY轴离散点图</h5>
+<div class="outline-text-5" id="text-2-3-4-1">
 <ol class="org-ol">
 <li>先获得x,y的取值范围，比如x=numpy.arange(0, 10), y=numpy.arange(3,
 10), 其个数要一致；</li>
@@ -999,8 +1019,8 @@ numpy.angle()计算</li>
 </div>
 
 <div id="outline-container-org014b486" class="outline-4">
-<h4 id="org014b486"><span class="section-number-4">2.3.4</span> module</h4>
-<div class="outline-text-4" id="text-2-3-4">
+<h4 id="org014b486"><span class="section-number-4">2.3.5</span> module</h4>
+<div class="outline-text-4" id="text-2-3-5">
 <ul class="org-ul">
 <li><p>
 watermark:
@@ -1327,12 +1347,12 @@ watermark:
 </div>
 </div>
 </div>
-<div id="outline-container-org9f6bbd9" class="outline-3">
-<h3 id="org9f6bbd9"><span class="section-number-3">3.3</span> 状态机</h3>
+<div id="outline-container-org8df0e35" class="outline-3">
+<h3 id="org8df0e35"><span class="section-number-3">3.3</span> 状态机</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-org7340c2a" class="outline-4">
-<h4 id="org7340c2a"><span class="section-number-4">3.3.1</span> 状态机</h4>
+<div id="outline-container-org9f6bbd9" class="outline-4">
+<h4 id="org9f6bbd9"><span class="section-number-4">3.3.1</span> 状态机</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sta_machine</span>
@@ -1632,7 +1652,7 @@ the image，Image Entry point : 0x08020189。则会有一条HEX记录为，
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-11-20 周五 23:37</p>
+<p class="date">Created: 2020-11-23 ��һ 23:10</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

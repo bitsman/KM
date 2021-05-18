@@ -330,6 +330,27 @@
   2. 查看已经导入的库，sys.modules
   3. 找到filecsv库的字符
   4. 重新导入模块，imp.reload(sys.modules['filecsv'])
+*** ipython
+- 修改自动加载：如果代码发生更新，要实现ipython中引用的模块也自动更新，
+  ipython提供了一个很好的扩展auto_reload，命令参数如下所示,一般使用
+  %autoreload 2就行：
+  + %load_ext autoreload: 需要先加载autoreload
+  + %autoreload:  自动重载%aimport排除的模块之外的所有模块。
+  + %autoreload 0: 禁用自动重载
+  + %autoreload 1: 自动重载%aimport指定的模块。
+  + %autoreload 2: 自动重载%aimport排除的模块之外的所有模块。
+  + %aimport: 列出需要自动重载的模块和不需要重载的模块。
+  + %aimport foo: 重载模块foo并将它标记为需要自动重载。
+  + %aimport -foo: 将模块foo标记为不需要自动重载。  
+- ipython启动就开启自动加载
+  + 如果这个文件不存在“~/.ipython/profile_default/ipython_config.py”；
+  + 创建这个文件：“ ipython profile create”
+  + 在文件末尾加入如下语句
+    #+BEGIN_SRC python
+      c.InteractiveShellApp.extensions = ['autoreload']  
+      c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+    #+end_SRC
+
 *** numpy
 - array矩阵的max和min静态属性：比如array矩阵data=array([[1, 5, 3],
   [8, 6, 1], [9, 0, 4], [4, 6, 5]]), data.min(0) 和data.max(0)是从每
