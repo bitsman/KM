@@ -1201,6 +1201,26 @@ conf/下面有个名为gitolite.conf的配置文件。
     #+BEGIN_SRC shell
       ssh -T git@github.com
     #+END_SRC
+- multiple remote sit for one repo:
+  1. remote origin
+     #+BEGIN_SRC shell 
+       git remote remove origin
+     #+END_SRC
+  2. add remote repo site
+     #+BEGIN_SRC shell
+       git remote add github git@github.com:bitsman/xxxx.git
+       git remote add gitee git@gitee.com:bitsman/xxxx.git
+     #+END_SRC
+  3. check setting
+     #+BEGIN_SRC shell
+       git remote -v
+     #+END_SRC
+  4. pull/push repo
+     #+BEGIN_SRC shell
+       git pull/push gitee master
+       git pull/push github master
+     #+END_SRC
+
 ** local repository creation
 - git init: repository initialize
 - git add test.txt testdir: add files or dir

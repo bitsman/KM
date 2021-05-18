@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-23 ��һ 23:10 -->
+<!-- 2021-05-18 周二 22:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>软件</title>
@@ -342,9 +342,9 @@ for the JavaScript code in this tag.
 <li><a href="#org499586f">3.2.7. 信号操作API</a></li>
 </ul>
 </li>
-<li><a href="#org8df0e35">3.3. 状态机</a>
+<li><a href="#org7a7910a">3.3. 状态机</a>
 <ul>
-<li><a href="#org9f6bbd9">3.3.1. 状态机</a></li>
+<li><a href="#org8df0e35">3.3.1. 状态机</a></li>
 <li><a href="#org91cc7e4">3.3.2. 状态名称</a></li>
 <li><a href="#orge5610f2">3.3.3. 状态处理函数</a></li>
 <li><a href="#org86fb6d6">3.3.4. 状态定义</a></li>
@@ -966,6 +966,7 @@ printf调试：可以如下步骤
 ipython提供了一个很好的扩展auto<sub>reload</sub>，命令参数如下所示,一般使用
 %autoreload 2就行：
 <ul class="org-ul">
+<li>%load<sub>ext</sub> autoreload: 需要先加载autoreload</li>
 <li>%autoreload:  自动重载%aimport排除的模块之外的所有模块。</li>
 <li>%autoreload 0: 禁用自动重载</li>
 <li>%autoreload 1: 自动重载%aimport指定的模块。</li>
@@ -974,9 +975,23 @@ ipython提供了一个很好的扩展auto<sub>reload</sub>，命令参数如下�
 <li>%aimport foo: 重载模块foo并将它标记为需要自动重载。</li>
 <li>%aimport -foo: 将模块foo标记为不需要自动重载。</li>
 </ul></li>
+<li>ipython启动就开启自动加载
+<ul class="org-ul">
+<li>如果这个文件不存在“~/.ipython/profile<sub>default</sub>/ipython<sub>config.py</sub>”；</li>
+<li>创建这个文件：“ ipython profile create”</li>
+<li><p>
+在文件末尾加入如下语句
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ffd700;">c.InteractiveShellApp.extensions</span> = [<span style="color: #ffa07a;">'autoreload'</span>]  
+<span style="color: #ffd700;">c.InteractiveShellApp.exec_lines</span> = [<span style="color: #ffa07a;">'%autoreload 2'</span>]
+</pre>
+</div></li>
+</ul></li>
 </ul>
 </div>
 </div>
+
 <div id="outline-container-org325bf78" class="outline-4">
 <h4 id="org325bf78"><span class="section-number-4">2.3.3</span> numpy</h4>
 <div class="outline-text-4" id="text-2-3-3">
@@ -1347,12 +1362,12 @@ watermark:
 </div>
 </div>
 </div>
-<div id="outline-container-org8df0e35" class="outline-3">
-<h3 id="org8df0e35"><span class="section-number-3">3.3</span> 状态机</h3>
+<div id="outline-container-org7a7910a" class="outline-3">
+<h3 id="org7a7910a"><span class="section-number-3">3.3</span> 状态机</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-org9f6bbd9" class="outline-4">
-<h4 id="org9f6bbd9"><span class="section-number-4">3.3.1</span> 状态机</h4>
+<div id="outline-container-org8df0e35" class="outline-4">
+<h4 id="org8df0e35"><span class="section-number-4">3.3.1</span> 状态机</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr">1: </span><span style="color: #ffb6c1; font-size: 105%;">typedef</span> <span style="color: #ffb6c1; font-size: 105%;">struct</span> <span style="color: #ffff00; font-size: 105%;">_sta_machine</span>
@@ -1652,7 +1667,7 @@ the image，Image Entry point : 0x08020189。则会有一条HEX记录为，
 <div id="postamble" class="status">
 <p class="author">Author: 比克曼</p>
 <p class="email">Email: <a href="mailto:bitman@163.com">bitman@163.com</a></p>
-<p class="date">Created: 2020-11-23 ��һ 23:10</p>
+<p class="date">Created: 2021-05-18 周二 22:03</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
