@@ -1,12 +1,4439 @@
 #+title: 外语学习
-#+author: 比克曼
+#+author: Lee
 #+latex_class: org-latex-pdf 
 #+toc: tables 
 #+latex: \clearpage\pagenumbering{arabic} 
 #+options: h:4 
 #+startup: overview
+* 毕业之际
+** 找什么工作
+what kind of job are you interested in?
+你想找什么样的工作？
+*** 温故而知新
+- 温顾：
+  大家都知道find a job是“找工作”的意思，当你询问别人想找什么样的工作
+  时，就可以说what kind of job do you want? 也可以说what kind of job
+  do youwant to have?
+- 知新：
+  想找的工作肯定是你感兴趣的工作了，因此，老外问你想找什么工作时，经常
+  会说what kind of job are you interested in?
+- 更多：
+  what kind of job are you fond of? 你对什么样的工作感兴趣？
+  what's your favorite job ? 你最喜欢什么工作？
 
-* 短语
+*** 对话练习
+A: it's said that there would be a job fair on Tuesday in our college.
+B: Yeah,  I head that, too.
+A: what kind of job are you interested in?
+B: A job which is related to my field of study.
+A：听说周二我们学校会举办一场招聘会。
+B：是的，我也听说了。
+A：你想找什么样的工作？
+B：与我专业相关的。
+A: What kind of job are you fond of？
+B: Actually, I don't know what my favorite career is.
+A: Oh, you should know the importance of career planning.
+B: Yeah, I know, but I just haven't got a clue about finding a job.
+A：你对什么工作感兴趣？
+B：实际上，我也不知道我喜欢的职业是什么。
+A：哦，你应该知道职业规划的重要性。
+B：是的，我知道，但是我对找工作一点头绪也没有。
+- job fair：招聘会
+- career planning：职业生涯规划，也可以表示为plans of career 或
+  occupational planning
+- get a clue about sth./doing sth，对（做）某事有头绪，有线索。
+** 没有工作经验
+*** 温故而知新
+I am a fresh graduate with no work experience.
+我是应届毕业生，没有什么工作经验。
+- 温顾：
+  形如没有工作经验的新手或者初入职场的人，一般会用green hand表示，所以
+  如果想要说“我是个新手，没有什么工作经验”就可以说I'm a green hand
+  without work experience.
+- 知新：
+  在英语中，newbie可以表示“新手，菜鸟”。但在口语中，老外形如刚毕业的
+  人时，经常用fresh graduate，“刚从学校出来没有工作经验的毕业生”就可
+  以表示为fresh graduate with no experience.
+- 更多：
+  I'm green hand with limited work experience. 我是个职场新手，工作经
+  验有限。
+  I've graduated from school recently and have no work experience. 我
+  最近刚从学校毕业，没什么工作经验。
+*** 对话练习
+A: Can you give me a brief introduction of your work experience?
+B: To be honest, I am a fresh graduate with no work experience.
+A: Oh, never mind. Can you talk about your own view on the industry?
+B: Of course. It's my honor to share with you.
+A：你能给我简要说一下你的工作经验吗？
+B：老实说，我是应届毕业生，没什么工作经验。
+A：哦，没关系。能说说你对这个行业的看法吗？
+B：当然，这是我的荣幸。
+
+A: Are you a fresh graduate?
+B: Yes，I'm a green hand without work experience.
+A: OK, which position that we offered is your favorite one?
+B: In my humble opinion, I think I am qualified for the position of
+your assistant
+A：你是应届毕业生吗？
+B：是的，我是应届毕业生，没有什么工作经验。
+A：好吧，我们提供的职位中，你对哪个比较感兴趣？
+B：请恕我直言，我想我能胜任您的助理一职。
+
+- to be honest的意思是“说实话，坦白讲”，还可以说成to be frank。
+- 让别人不要把事情放在心上或过于担忧时，就可以说never mind, 意思是“没
+  关系”
+- It's one's honor to do sth的意思是“……是我的荣幸”，也可以用I feel
+  honored to do sth.
+- in one's humble opinion 表示“恕我直言”，其中humble指“谦虚的”。此
+  外，也可以说No offence，意思是“不要见怪”。
+
+** 吸引人的工作
+Many graduates feel the allure of working in the IT industry.
+很多毕业生都认为IT行业的工作很吸引人。
+*** 温故而知新
+- 温顾：
+  我们已经知道很多可以表示“想要做某事”的表达，如want to do sth,
+  would like to do sth. 以及have sth in mind等，因此“我想在IT行业找一
+  份工作”就可以说成I want to find a job in the IT industry.
+- 知新：
+  allure 做名词时的意思是“诱惑力，吸引力”，feel the allure of doing
+  sth.表示“感到……的吸引力”，也就是“……很吸引人”的意思，所以，I
+  fell the allure of doing sth的意思是“我认为……很吸引人”。
+- 更多：
+  Many graduates want to work in big companies. 许多毕业生都希望在大公
+  司任职。
+*** 对话练习
+A: I heard that the click statistics of the IT related positions are
+very high on the job hunting sites.
+B: Yeah. Many graduates feel the allure of working in the IT industry.
+A: What's the main reason?
+B: I've no idea about that. Maybe computer technology becomes more
+important now.
+A：我听说在求职网站上，IT相关职位的点击率特别高。
+B：是的，很多毕业生都认为IT行业的工作很吸引人。
+A：最主要的原因是什么？
+B：我不知道，也许是因为计算机技术现在变得更重要了吧。
+
+A: What's your target position?
+B: It's my dream to work in a big company one day since I went to the
+college.
+A: Lots of graduates would like to work in big companies.
+B: I don't care how fierce the competition is. I just want to make my
+dream come true.
+A：你的目标职位是什么？
+B：我刚上大学的时候，就梦想有朝一日能在一家大公司工作。
+A：很多毕业生们都希望在大公司任职。
+B：我不在乎竞争有多激烈，我只想要梦想成真。
+
+- click statistics就是现在很流行的“点击率”的英文说法。
+- What's  your target position? 是面试官经常会问的一句话，其中target
+  position指的是应聘者的“目标职位”。
+
+* 投递简历
+** 投递简历
+I have sent my resume off. 我已经把简历发出去了。
+*** 温故而知新
+- 温顾：
+  大家熟悉的单词send可以表示“发邮件，邮寄包裹以及投发简历”如send
+  one's resume 意为“发简历”。另外，submit也可以表示“投发简历，提交
+  呈送”。
+- 知新：
+  老外们经常会用短语send off表示“发送，寄出”  。因此“发送简历”就可
+  以说send the resume off 或 send off the resume。
+- 更多：
+  I have submitted my resume. 我已经提交了我的简历
+  I've sent my resume together with the cover letter. 我已经把简历和求
+  职信一并发出去了。
+
+*** 对话练习
+A: Have you found a job?
+B: No, I'm not that kind of lucky dog. What about you ?
+A: I have sent my resume off but haven't got any answer by far.
+B: Don't give a pull. We can find a job sooner or later. 
+A: 你找到工作了吗？
+B：还没呢，我没那么幸运，你呢？
+A：我们已经把个人简历发出去了，但至今仍然是石沉大海。
+B：不要灰心，我们迟早会找到工作的。
+
+A: Do you have good news about your job hunting?
+B: If you want to know, I've sent my resume together with the cover
+letter, but I haven't got any answer yet.
+A: In fact, we two are in the same boat.
+
+A：你有关于找工作的好消息吗？
+B：既然你问到了，我已经把简历和求职信一并发出去了，但还没有收到回复呢。
+A：事实上，我们真是同病相怜。
+- lucky dog就是我们常说的“幸运的人”。
+- in the same boat相当于“同病相怜”，如果用于表示两个人都处在不顺的状
+  态，则译为“同一根绳上的蚂蚱”
+
+** 网上求职
+You can try job sites on the Internet
+你可以试试上求职网站。
+*** 温故而知新
+- 温顾：
+  我们经常说的“网上求职”可以表示为find a job on the Internet或hunt a
+  job on the Internet，与此相关的“在线求职网站”则可以用online job websites
+- 知新：
+  “尝试网上求职”除了用try to find/hunt a job on the Internet表示外，
+  还可以用try job sites on the Internet来表示。
+- 更多：
+  You may find jobs through online job sites. 你可以通过在线求职网站找
+  工作。
+  Finding jobs on the Internet is easy and efficient. 在线求职既简单又
+  高效。
+*** 对话练习
+A: I am tired of going to the job far from one place to another.
+B: You can try job sites on the Internet.
+A: Now you're talking! Thank you for your good advice.
+B: Not at all and good luck.
+A：我厌倦了每天在不同的招聘会之间奔波。
+B：你可以试试上求职网站。
+A：正和我意！谢谢你的好建议。
+B：别客气，祝你好运。
+
+A: It is said that you have got your desirable job last week.
+B: Yeah, finding jobs on the internet is easy and efficient.
+A: Can you give me some addresses of this kind of website?
+B: Sure, as much as you want.
+
+A: 据说你上周已经找到心仪的工作啦。
+B：是的，在线求职既简单又高效。
+A：你能给我一些这类网站的网址吗？
+B：当然了，想要多少都有。
+- be tired of doing sth. 相当于 be sick of doing sth, 意为“厌倦做某事”。
+- Now you're talking表示“你的建议”正合我意。
+* 交流心得
+** 询问找工作情况
+How is your job-hunting going? 你工作找的怎么样了?
+*** 温故而知新
+- 温顾：
+  问别人是否找到合适的工作时，我们经常会说Have you already found a
+  job? 也可能会用What's going on with your job-hunting？你找工作的事情
+  进展得怎么样了？
+- 知新：
+  How is...going ？是老外们经常挂嘴边的句子，表示“……的进展如
+  何，……怎么样了”，因此，询问别人找工作的进展时，就可以说How is
+  your job-hunting going？
+- 更多：
+  What's going on with your job-hunting？你工作找得怎么样了？
+  Is everything okay when finding jobs？你工作找得还顺利吗？
+*** 对话练习
+A: How is your job-hunting going？
+B: I'm sort of in trouble.
+A: What's wrong？
+B: I don't even know what kind of work I can do well。
+A：你工作找得怎么样了？
+B：差不多可以说是遇到麻烦了。
+A：怎么了？
+B：我甚至不知道我能做好什么样的工作。
+
+A：Is everything okay when finding jobs？
+B: No, no worse than right now.
+A: You mean you got stuck when finding jobs
+B: In some aspects, it can be said.
+A：你找工作找得还顺利吗？
+B：不好，从没有像现在这么糟糕过。
+A：你是说找工作遇到麻烦了？
+B：在某些方面，可以这么说。
+- sort of 相当于kind of，表示“差不多是那样”。
+- get stuck是“被……困住，不能继续前行”的意思，在对话中相当于have
+  trouble in finding jobs。
+** 求职进展
+I have been checking the job ads every day for a mouth.
+这个月以来，我天天都在看求职广告。
+*** 温故而知新
+- 温顾：
+  我们已经学过browse可以表示“快速浏览，大致翻看”。因此，找工作时“浏
+  览招聘信息、求职广告”就可以用browse表示，也可以用短语look through来
+  表达同样的意思。
+- 知新：
+  check 也有“查阅，查看信息”的意思，类似browse的含义。因此，找工作时
+  浏览招聘广告就可以用check the job ads表示。
+- 更多：
+  I've been looking through the job ads almost every day。我几乎每天都
+  在浏览招聘广告。
+  I scan the Situations Vacant columns of the local newspaper every
+  day。我每天都要看当地报纸的求职专栏。
+
+*** 对话练习
+A: I ran off my feet these days to find a job.
+B: So did I, I have been checking the job ads every day for a mouth.
+A: Is there any good position?
+B: No, Maybe it is not recruiting season.
+A：我这段时间为了找工作忙得焦头烂额。
+B：我也是，这个月以来，我天天都在看求职广告。
+A：有什么好职位吗？
+B：没有，也许现在不是招聘季。
+
+A: I'm out of breath when finding jobs this week.
+B: Because of the interview?
+A: Yes, And I scan the Situations Vacant columns of the local
+newspaper every day after the interviews.
+B: Don't be too hard on yourself.
+A：我这周来找工作找得快要踹不过气来了。
+B：因为面试吗？
+A：是啊，而且我每天面试后都要看当地报纸的求职专栏。
+B：别对自己太苛刻了。
+- run out off one's feet 表示“忙得焦头烂额，忙得不可开交”的意思
+- out of one's breath的意思是“踹不过气”，引申“因某事焦虑或忙碌”，
+  很夸张的表达
+** 工作难找
+It's really a hard time to find a good job. 现在好工作真的很难找。
+*** 温故而知新
+- 温顾：
+  表达“做某事很不容易”时，首先闪入脑海的可能是It's difficult(not
+  easy) to do sth. 还可以用tough job 形容一件很难做的事，如：Finding a
+  good job is really a tough job.找到一份好工作真是一件难事。
+- 知新：
+  hard time 可以表示“艰难时期”，It's really a hard time to do sth的
+  意思是“现在……做起来很难”。
+- 更多：
+  It's really tough to finding a good job。找个好工作可真难啊。
+  It's lucky to have a good job. 能有一个好工作真幸运。
+*** 对话练习
+A: How about your job hunting?
+B: Don't mention it, There is no appropriate position at all.
+A: It's really a hard times to find a good job.
+B: You got the point.
+A：你工作找得怎么样了？
+B：别提了，根本就没有合适职位。
+A：现在好工作真的很难找。
+B：你真是一语中的。
+
+A: It's really tough to find a good job.
+B: I know it would be not easy but never thought it would be so hard.
+A: Complaint can't help. We'd better buck up and be confident.
+B: Yeah. we should pull ourselves together.
+A：找个好工作可真是难啊。
+B：我知道不会太容易，但没想到会这么难。
+A：抱怨也没有用。还是振作起来，自信点吧。
+B：对，我们应该打起精神。
+- 如果别人一句话就说到点子上时，可以用You got the point表示“一语中的”。
+- buck up 和pull oneself together都可以表示“振作起来，打起精神”
+** WordBox
+*** 简历基本词汇
+|----------------------+------------|
+| EN                   | CN         |
+|----------------------+------------|
+|----------------------+------------|
+| date of birth        | 出生日期   |
+| native place         | 籍贯       |
+| autonomous region    | 自治区     |
+| province             | 省         |
+| current address      | 现居住地   |
+| present address      | 目前地址   |
+| home phone           | 住宅电话   |
+| postal code          | 邮政编码   |
+| marital status       | 婚姻状况   |
+| health condition     | 健康状况   |
+| married              | 已婚的     |
+| divorce              | 离异的     |
+| single               | 未婚的     |
+| separated            | 分居的     |
+| date of availability | 可到职时间 |
+| available            | 可到职的   |
+|----------------------+------------|
+*** 关于教育程度的词汇
+|----------------------------+----------|
+| EN                         | CN       |
+|----------------------------+----------|
+|----------------------------+----------|
+| educational background     | 教育程度 |
+| educational system         | 学制     |
+| extracurricular activities | 课外活动 |
+| curriculum                 | 课程     |
+| major                      | 主修     |
+| minor                      | 副修     |
+| social practice            | 社会实践 |
+| part-time jobs             | 兼职     |
+| rewards                    | 奖励     |
+| scholarship                | 奖学金   |
+| student council            | 学生会   |
+| semester                   | 学期     |
+| undergraduate              | 本科生   |
+| graduate student           | 研究生   |
+| master                     | 硕士     |
+| bachelor                   | 学士     |
+| post doctorate             | 博士后   |
+| president                  | 校长     |
+| doctor(Ph.D)               | 博士     |
+| vice-president             | 副校长   |
+| professor                  | 教授     |
+| associate professor        | 副教授   |
+| degree                     | 学位     |
+| dean                       | 院长     |
+| lecturer                   | 讲师     |
+| teaching assistant         | 助教     |
+|----------------------------+----------|
+
+* 查询资料
+** 了解公司信息
+You should make sure you know the services or products the company
+provides
+你需要确保你清楚那家公司提供的服务或产品。
+*** 温故而知新
+- 温顾：
+  “搞清楚，弄明白”可以用make sth. clear 表示，相信大家对此不陌生。在
+  口语中，我们还可以用短语figure out来表示“搞清楚，弄明白”。类似的，
+  还有短语know about表示了解……的情况。
+- 知新：
+  make sure 的意思是“确认，确保”，如：You'd better make sure you
+  know the related background information of the company you would
+  service你最好搞清楚你将供职的那家公司的相关背景。
+- 更多：
+  You'd better figure out the background information of the company in
+  detail你最好详细的弄清楚该公司的背景信息。It's really helpful for
+  you to know much about the company多了解公司的信息对你确实会有很大的
+  帮助。
+
+*** 对话练习
+A: What should I do before the job interview?
+B: In my view, you need to make sure you know the services or products
+the company provides. 
+A: Thank you for your useful suggestion.
+B: My pleasure. Wish you do a good job during the interview.
+A：面试前我该做些什么？
+B：在我看来，你需要确保你清楚那家公司提供的服务或产品。
+A：谢谢你有用的建议。
+B：不客气，希望你在面试中发挥良好。
+A: I got an interview the day after tomorrow.
+B: Great. You'd  better figure out the background information of the
+company in detail before the interview.
+A: I stayed up last night and learned some of it.
+B: Good for you.
+A：我后天有一个面试。
+B：太好了。在面试前，你最好详细的弄清楚该公司的背景信息。 
+A：我昨晚熬夜学习了一些。
+B：真有你的。
+- in one's view表示“在某人看来”，相当于in one's opinion。
+- stay up意思是“熬夜”，“熬通宵”则可以用sit up all night表示。
+- Good for you，是口语中对别人表示赞赏的流行句。但需要注意的是，如果说
+这句话时带有明显的讽刺语气时，则有责备的含义，可以理解为“看你做的好事”。
+** 了解面试注意事项
+The interviewers are always interested in what you ask them about
+their company面试官通常对应聘者就公司提出的问题很感兴趣
+*** 温故而知新
+- 温顾：对于 be interested in sth表示“对某事感兴趣”这一用法，我们都
+不陌生，需要注意的是，如果短语后接动词时要用进行时，即be interested in
+doing sth。
+- 知新：除了be interested in以外，短语take an interest in 及 have a
+taste for 也可以表示。
+- 更多：Asking some questions about their company might please the
+interviewers问一些关于公司的问题可能会使面试官高兴。The interviewers
+are eager to answer the questions you asked about their company 面试官
+很乐意回答你所问的关于他们公司的问题。
+*** 对话练习
+A: I'm all at sea when the interviewers asked me whether I have any
+questions about their company.
+B: My suggestion is the interviewers are always interested in what you
+ask them about their company. 
+A: I followed, and may I ask about the salary next time?
+B: Absolutely
+A：面试官问我关于他们公司我有什么问题时，我完全不知所措了。
+B：我的建议是面试官通常对应聘者就公司提出的问题很感兴趣。
+A：我知道了，下次我能问问关于薪水的问题吗？
+B：当然可以了。
+A: What kind of question can make the interviewer think that I am
+eager to get the job?
+B: As far I concerned, asking some questions about their company might
+please the interviewers.
+A: Thank you for your suggestion
+B: You’re welcome
+A：什么样的问题能让面试官认为我渴望得到那份工作？
+B：就我而言，问一些关于公司的问题可能会让面试官们高兴。
+A：谢谢你的建议
+B：不客气。
+- all at sea 的意思是“茫然，不知所措” 。
+- I follow(what you said)和I got it一样，都表示“我知道了，我懂你的意
+  思了”
+- as far as I'm concerned和in my opinion 意思相同，都表示“在我看来，
+  就我而言”
+* 面试穿着
+I have no idea which suit I should wear tomorrow.我不知道明天应该穿哪
+套衣服。
+** 该穿什么
+*** 温故而知新
+- 温顾：大家刚刚接触英语时就已经会用I don't know表示“我不知道”的意思，
+  因此可以用I don't know what to wear表示“我不知道该穿什么”
+- 知新：如果不想千篇一律的用I don't know可以改用I have no idea表达。这
+  样可以让口语表达更丰富。
+- 更多：I have no idea which suit I should choose tomorrow我不知道明天
+  面试时要穿哪套衣服。
+*** 对话练习
+A: I'm so excited that I received the manager's call to inform me
+there is an interview tomorrow.
+B: Congratulations!
+A: The problem is that I have no idea which suit I should wear tomorrow.
+B: The one which makes you look as fresh as paint.
+A：我接到经理的电话了说明天可以去面试了，这真让我兴奋不已。
+B：恭喜你。
+A：问题是我不知道明天应该穿哪套衣服。
+B：穿那套能让你看起来精力充沛的。
+A: Tomorrow you will have your first interview, are you ready?
+B: Sort of, I just don't know what kind of clothes I should wear for it.
+A: Don't be upset, Just wear the suit we bought last week, I'm sure
+you can handle it.
+B: Thanks you, dear, Yes, nothing can daunt me.
+A：明天你将参加你第一场面试，你准备好了吗？
+B：差不多吧，我不知道明天要穿什么衣服。
+A：不要烦恼，就穿上周咱们一起买的套装吧，我相信你能搞定的
+B：谢谢你，亲爱的，是的，没有什么能够吓到我。
+- as fresh as paint意为“精力充沛”，还可以用full of energy 表示同样的
+  含义
+- 现在口语中比较流行的“你能搞定”就可以用You can handle it表示
+- daunt的意思是“使胆怯，使气馁”。
+** 穿着建议
+I think that you should dress neatly and appropriately.我想你应该穿的
+整洁得体。
+*** 温故而知新
+- 温顾：“穿着得体”就是说“衣装整洁，得体大方”，而dress oneself
+  appropriately 就可以表达此意。
+- 知新：老外们说的dress neatly and appropriately和我们汉语中的“衣着得
+  体”意思差不多，如You should dress neatly and appropriately in some
+  occasions在某些场合，你应该穿得得体些。
+- 更多：Wearing fitly and neatly is okay穿着合适得体即可。I'm afraid
+  we'd better dress formally我想我们最好还是穿得正式点。
+*** 对话练习
+A: Good luck on your interview!
+B: Thank you ! Do you have any suggestion about the wear for
+tomorrow's interview?
+A: I think that you should dress neatly and appropriately.
+B: As you said
+A：祝你明天面试好运！
+B：谢谢！关于明天面试的穿着，你有什么建议吗？
+A：我想你应该穿得整洁得体。
+B：就按你说的办吧。
+A: What do you think if I wear my new jeans for tomorrow's interview?
+B: I'm  afraid we'd better dress formally
+A: Well, suggestion accepted.
+B: I think your blue dress is good.
+A：你觉得我明天穿我的新牛仔裤去面试怎么样？
+B： 我想我们还是穿得正式得体一些吧。
+A：好吧，接受建议。
+B：我觉得穿你那条蓝色的裙子不错。
+- as you said.表示“就按你说的办”。如果同意对方的建议，就可以用这句。
+- Suggestion accepted表示“接受建议”，同样用法的口语短句还有Apology
+  accepted意思是“接受道歉”。
+* 面试问题
+** 询问优点
+What are some of your strengths?你认为你的优点在哪里？
+*** 温故而知新
+- 温顾：询问某事的优缺点，我们会问What are your advantages and
+  disadvantages?这里的advantage和disadvantage就是优点和缺点的意思。
+- 知新：在面试中，面试官常会问到一个问题What are some of your
+  strengths? strengths有“力量”的意思，也有“优点，长处”的含义，也可
+  以用strong points表示。
+- 更多：What are your strong points？你的优点是什么？Can you tell me
+  some of your strengths？可以告诉我你有什么优点吗？
+*** 对话练习
+A: What are some of your strengths?
+B: I'm an easy-going and patient person.
+A: When you have conflict with your colleague, what will you do?
+B: I'll handle this kind of thing carefully. I hope we can work it out
+without hurting each others' feelings.
+A：现在谈谈你的优点吧。
+B：好的，我随和且有耐心。
+A: 当你和同事有冲突时，你会怎么做？
+B: 我会非常仔细的处理这些事，我希望我们能在不伤害彼此感情的基础上解决
+问题。
+A: What are your strong points?
+B: To be frank, my main advantage is my deep sense of duty.
+A: Excellent, We need responsible employee like you.
+B: It's nice of you say that, I wish I could meet your expectation.
+A：你的优点是什么？
+B：坦白讲，我最大的优点就是我有很强的责任心。
+A：太好了，我们需要的就是你这种负责任的员工。
+B：您能这么说我非常感谢。希望我能不辜负您的期望
+- work it out是口语中常说的短语，表示“成功的解决某事”。
+- to be frank的意思是“坦白讲”，还可以将其表示成frankly speaking.
+** 询问优势
+What makes you stand out from other applicants?让你从众多应聘者中脱颖
+而出的优点是什么？
+*** 温故而知新
+- 温顾：找工作要投简历、应聘职位，这里的应聘要用apply for 这个短语，和
+  “申请学校”用的是同一个词组，“应聘者”就是applicant，candidate也是
+  “候选人”的意思。
+- 知新：汉译英最难的是翻译四字成语，“脱颖而出”在英语里用stand out
+  from crowds表示，或简单的说成stand out。
+- 更多：Do you have any outstanding qualifications for this job?你有什
+  么做这份工作的特殊资质吗？Why are you the best person for this job？
+  你为什么是这个工作的最佳人选？
+*** 对话练习
+A: What makes you stand out from other applicants?
+B: My outstanding strength lies in getting my work done effectively
+within a short period of time.
+A: Do you prefer working alone or being in a team?
+B: I prefer working in a team. I'm a team-player. I think working with
+others can fully tap one's own potential.
+A：什么使你从众多应聘者中脱颖而出？
+B：我突出的优势是能在短时间内有效率的完成工作。
+A：你更喜欢一个人工作还是和团队一起工作？
+B：我更喜欢和团队一起工作。我是一个善于团队合作的人。我认为和其他人合
+作可以更好的开发一个人的潜能。
+
+A: Why are the best person for the job?
+B: I'm an expert at computer technology. 
+A: Good, Do you have some certificates?
+B: Yes, I got a Network Engineer last year.
+A：你为什么是从事这份工作的最佳人选？
+B：我精通计算机技术。
+A：很好，你有这方面的证书吗？
+B：有，去年我拿到了网络工程师资格证书。
+- lie in 表示“在于……”，还可以用短语rest with 表示。
+- tap one's potential表示“开发，激发某人的潜能”。
+- be an expert at……意为“擅长……”，类似表达还有be good at……
+** 询问缺点
+If asked to pick out your weakness, what would you say?如果请你指出你
+的缺点，你会怎么说？
+*** 温故而知新
+- 温顾：If asked to pick out your weakness, what would you say?里面if
+  引的从句中省略了主语和谓语you are，在以 if, when, though, as, as if
+  等连词引导的从句中，如果从句中主要动词时be，可将主语和动词be省掉。
+- 知新：weakness表示“弱点”，也可以用weak points表示。pick out是“挑
+  选出”。What would say？是口语中常用的询问对方意见的句子，如想问朋友
+  是否想跟你一起去看电影时就可以说I'd like to see a movie，what would
+  you say？
+- 更多：What is your biggest weakness？你最大的缺点是什么？What
+  according to you as your greatest weakness？对你来说，你最大的缺点是
+  什么？
+*** 对话练习
+A: If asked to pick out your weakness, what would you say?
+B: I'd say I'm a perfectionist.
+A: I'm assuming that you think being a perfectionist at work is a bad
+thing. 
+B: Well, it depends, To strive to be the best is a good thing, but on
+the other hands, we have to think about the big picture, like budget,
+time and manpower.
+A：如果请你指出你的缺点，你会怎么说？
+B：我会说我是个完美主义者。
+A：那我可以不可以认为你觉得在工作上是个完美主义者是件不好的事？
+B：嗯，这个得视情况而定，力求最好是件好事，但在另一方面，我们必须以大
+局为重，例如要考虑成本、时间和人力等。
+A: What is your biggest weakness?
+B: I think my weakness is not asking for help. I prefer to solve the
+problem by myself.
+A: Well, it is not very bad. But cooperating with others can be more
+efficient. 
+B: Thanks for your advice. I am on my way to change.
+A：你最大的缺点是什么？
+B：我认为我的缺点就是不爱寻求帮助。我喜欢自己解决问题。
+A：嗯，这也不是什么坏处。但是与他人合作确实更搞笑。
+B：谢谢您的建议。我正在改变中。
+- strive to表示“努力，力图”，也可以用短语endeavor to表示。
+- the big picture指的是“整个局面，大局”。
+** 询问社团经历
+Were you involved in any clubs at college?你在大学里参加过社团吗？
+*** 温故而知新
+- 温顾：表达“参加，参与”时，课本中最常见的是用短语take part in或
+  participate in。而大学里的各种“社团”，可以用society或club表示，如
+  “文学社”就是literary club。
+- 知新：在表示“参加时”，也可以be involved in这个短语，involve虽有
+  “牵扯，卷入”的含义，但也可以表示“参加，参与”。
+- 更多：Were you engaged in any club activities？你参加过社团活动吗？
+  What club activities did you usually take part in at college？在大学
+  时，你经常参加什么社团活动？
+*** 对话练习
+A: Were you involved in any clubs at college?
+B: Yes, I took an active part in our soccer team. I was elected as the
+captain of the team.
+A: Are you still playing soccer?
+B: Yes, me and a bunch of college buddies still play it on weekends
+whenever we got the time. It's fun and helps one to build up team
+spirit. 
+A：你在大学里参加过社团吗？
+B：参加过，我是大学足球队的积极分子，还被选为队长。
+A：你现在还踢足球吗？
+B：还踢。我和一群大学哥们周末一有时间就会去踢球。踢球很有意思，还能帮
+助塑造一个人的团队合作精神。
+A: What club activities did you usually take part in at college?
+B: I was chairman of student union in my college and took charge of
+badminton team
+A: Do you still keep in touch with other leaders of the student union? 
+B: Yes, always. To some degree, they are my co-workers or even teachers.
+A：在大学时你经常参加什么社团活动？
+B：我是我们院的学生会主席，还是羽毛球队的队长。
+A：你现在和其他的学生会干部还保持联系吗？
+B：是的，经常联系。从某种程度上说，他们就是我的良师益友。
+- “组长，队长”可以用team leader表示，但是“球队队长”要用captain。
+- buddy是美式口语中常说的朋友，近似“哥们”。
+** 询问职业目标
+What's your career objective?你的职业目标是什么？
+*** 温故而知新
+- 温顾：我们经常用goal表示“目标”的意思，因此“为自己设定目标”可以用
+  set goals for oneself表示。同样，“事业目标”可以表示为career goal。
+- 知新：objective 除了作形容词表示“客观的，不带偏见的”外，还可以用作
+  名词表示“目标，目的”。面试官在询问应聘者的职业目标时，经常会说
+  What's your career objective？
+- 更多：What's your career goal？你的职业目标是什么？Could you talk
+  about your long-term working plan？能谈谈你的长期职业计划吗？
+
+*** 对话练习
+A: What's your career objective?
+B: My career objective is to work in a large company and take on more
+challenging assignments.
+A: How do you plan to start your work to achieve your objective?
+B: I will make a long term plan, and update my knowledge constantly.
+A：你的职业目标是什么？
+B：我的目标是在一家大公司里工作，并承担更有挑战性的任务。
+A：你准备如何开展工作来实现你的目标？
+B： 我会制定一个长远的计划，并不断更新我的知识。
+
+A: Could you talk about your long-team working plan?
+B: I hope one day I can be a leader of a sales team.
+A: What will you do to make your dream come true if you were hired? 
+B: Above all, I think it is vital for me to accumulate experience.
+A：能谈谈你的长期职业计划吗？
+B： 我希望有一天我可以成为一个销售团队的领导者。
+A：如果我们聘用你，你打算怎么来实现你的梦想？
+B： 首先，我认为积累经验对我来说至关重要。
+- take on 的意思是“承担”，该短语还可以表示“呈现；穿上；接纳、采取
+  意见”等含义，如take on new ways of life采取新的生活方式。
+- long-term plan就是我们在做职业计划时常说的“长远计划”。
+- above all的意思是“首先，尤其是”，相当于the first and most
+  important。
+- be vital to sb 的意思是“对某人来说……至关重要”，同类表达还有be
+  very important to sb.
+** 小结
+*** 高频句
+- 接到面试通知
+  1. Please bring your resume as well as copies of your diploma and ID
+     card。请带好你的简历以及毕业证和身份证的复印件。
+  2. I was expecting your call. 我一直在等您的电话。
+- 了解公司背景
+  1. You should know the location of the company before the
+     interview.你应该在面试前了解公司所在地。
+  2. You need to make clear the company's services or products it
+     provides.你弄清楚公司提供的服务或产品。
+- 着装要得体
+  1. I have no idea which suit I should wear tomorrow.我不知道明天应该
+     穿哪一套衣服。
+  2. I think that we should dress neatly and appropriately我认为我们的
+     穿着应该整洁得体。
+  3. I am afraid your clothing doesn't  fit in with the formal
+     occasion like that. 你的衣服恐怕不适合那样正式的场合。 
+- 面试官最容易提的问题
+  1. What are some of your strengths?你认为你的优点有哪些？
+  2. If asked to pick out your weakness, what would you say?如果请你指
+     出你的缺点，你会说什么？
+  3. What's your career objective?你的职业目标是什么？
+- 准备询问面试官的问题
+  1. How do you put your commercial plan into practice?你们是如何把商
+     业计划付诸实践的？
+  2. What is the future potential of this field?这个行业的发展前景是什
+     么？
+  3. I'd like to know more about this position. 我想知道更多关于此职位
+     的信息。 
+*** 高频词
+- 简历  
+  |------------------------+------------|
+  | EN                     | CN         |
+  |------------------------+------------|
+  |------------------------+------------|
+  | education              | 教育       |
+  | educational background | 教育背景   |
+  | curriculum             | 课程       |
+  | major                  | 主修       |
+  | social practice        | 社会实践   |
+  | summer job             | 暑期工作   |
+  | resume                 | 简历       |
+  | work experience        | 工作经历   |
+  | responsibility         | 职责       |
+  | assist                 | 辅助       |
+  | effect                 | 效果，作用 |
+  | appointed              | 被任命的   |
+  | improve                | 提高，改进 |
+  | innovate               | 革新       |
+  | be promoted to         | 被提升为   |
+  | position desired       | 理想职位   |
+  | objective              | 目标       |
+  | accomplish             | 完成任务   |
+  |------------------------+------------|
+- 自我介绍
+  |-------------+--------------|
+  | EN          | CN           |
+  |-------------+--------------|
+  |-------------+--------------|
+  | adaptable   | 适应性强的   |
+  | earnest     | 认真的       |
+  | ambitious   | 有雄心壮志的 |
+  | frank       | 直率的       |
+  | analytical  | 善于分析的   |
+  | friendly    | 友好的       |
+  | cooperative | 有合作精神的 |
+  | active      | 活跃的       |
+  | efficient   | 有效率的     |
+  | creative    | 富创造力的   |
+  | energetic   | 精力充沛的   |
+  | dashing     | 有拼搏精神的       |
+  |-------------+--------------|
+- 业余爱好
+  |------------------+----------|
+  | EN               | CN       |
+  |------------------+----------|
+  |------------------+----------|
+  | hobby            | 业余爱好 |
+  | spare time       | 空闲时间 |
+  | travelling       | 旅游     |
+  | jogging          | 慢跑     |
+  | play tennis      | 打网球   |
+  | collect stamps   | 集邮     |
+  | go to see movies | 看电影   |
+  | listen to music  | 听音乐   |
+  |------------------+----------|
+  
+* 自我介绍
+** 毕业院校
+I graduated from Peking University我毕业于北京大学。
+*** 温故而知新
+- 温顾：面试时，一般会说I come from ……University，还可以间接的说I
+  was a student of ……
+- 知新：在表达“我毕业于……大学”时，最常用的就是I graduated from……
+- 更多：I've studied in Tsinghua University for four years我在清华大学
+  学了四年。I was once a student of Peking University我曾在北京大学上
+  学。 
+
+*** 对话练习
+A: What about your educational background?
+B: I graduated from Peking University and I got my doctorate.
+A: What's your target position?
+B: I come here to apply the position of Human Resource Executive
+A：你的教育背景如何？
+B： 我毕业于北京大学，并取得了博士学位。
+A：你的目标职位是什么？
+B： 我来到这里是为了应聘人力资源主管一职。
+
+A: Give me a brief introduction of your educational background, please.
+B: I've studied in Tsinghua University for four years. My major
+subject is Computer Science.
+A: Did you have any part-time jobs during university?
+B: I got my internship in Microsoft during the last semester and I was
+mainly responsible for handling customer inquires.
+A：请简单介绍一下你的教育背景吧。
+B： 我在清华大学学习了四年，主修计算机科学。
+A：你在大学里参加过兼职经历吗？
+B： 我在最后一个学期曾在微软公司实习，主要负责处理客户咨询。
+- be responsible for 表示“负责……”，此外，还可以用be in charge of
+- customer inquiry 意为“客户咨询”
+** 团队合作
+I'm a good team player.我是一名出色的团队合作者。
+*** 温故而知新
+- 温顾：大家对team/group spirit（团队精神）肯定不陌生。那么，想要表达
+  一个人很有团队精神，就可以说He is full of team/group spirit.
+- 知新：当老外表扬一个人很有团队精神时，经常说sb. is a good team
+  player. 这样的表达比我们熟悉的sb. is full of team/group spirit地道
+- 更多：I'm a good team worker.我是一个很好的团队合作伙伴。I have a
+  strong sense of team spirit我有很强的团队合作精神。
+
+*** 对话练习
+A: How would you describe yourself?
+B: I'm a good team player and I think my strong sense of
+responsibility may help me in the work.
+A: Good. Have you ever finished a mission by yourself?
+B: Yes, I always took charge of the machination part of events by
+myself in university.
+A：你会怎样描述你自己？
+B：我是个出色的团队合作者，而且我认为我强烈的责任感也会对工作有所帮助。
+A：不错。你有没有独立完成过一项任务？
+B：有，上大学时我就经常独自负责活动的策划工作
+
+A: What kind of person are you?
+B: I can adjust well to a new working environment and one of my strong
+points is that I have a spirit of innovation.
+A: What's your opinion about teamwork?
+B: I have a strong sense of team spirit and I hold the opinion that
+team work can save plenty of time.
+A：你是一个什么样的人？
+B：我能很快适应工作环境，而且我的优点之一是拥有创新精神。
+A：你怎么看待团队合作？
+B：我有着很好的团队合作精神，而且我认为团队合作可以节省大量的时间。
+- sense of responsibility 表示“强烈的责任感”，sense of……可以表示
+  “……感”
+- take charge of, in charge of 以及be responsible for 表达的含义相同，
+  都是“负责……”.
+- strong point表示“优点”，相当于advantage 或merit
+- hold the opinion表示“持有……的观点”。
+** 专长
+My specialty is English我的专长是英语。
+*** 温故而知新
+- 温顾：我们已经学过很多表达“擅长某方面”的说法了，有be good at, be
+  skilled in以及excel in/at等，如：He excels in math他很擅长数学
+- 知新：specialty做名词时意思是“专长，特色”，偏重“特殊的技能”。因
+  此，想表达“我的专长是……”时，就可以用My specialty is ……这句。另
+  外，这句话也有“我的专业是……”的含义。
+- 更多：I am good at math.我的数学很好。I'm  specialized in English英
+  语是我的专长。
+
+*** 对话练习
+A: What subject were you good at in college?
+B: My specialty was English at that time.
+A: How about your scores?
+B: I'm above the average in the order of score.
+A：你大学期间最擅长的科目是什么？
+B： 我那时候的专长是英语。
+A：你的成绩如何呢？
+B： 根据成绩排名的话，我属于中上水平。
+
+A: What's your major in college?
+B: I specialized in International Finance but I excelled in English.
+A: Can you tell me about that in detail?
+B: I got the first prize in the English Speech Contest when I was a sophomore.
+A：你大学的专业是什么？
+B： 我的专业是国际金融，但我比较擅长英语。
+A：你能详细说说吗？
+B： 我在大二的时候获得了英语演讲比赛第一名。
+- in the order of 意思是“按……排序”。
+- in detail相当于at length, 意为“详细的，详尽的”
+* 介绍工作经验
+** 经验丰富
+I have plenty of work experience in this area.
+*** 温故而知新
+- 温顾：我们都十分熟悉的单词experience即可表示“富有经验”，如“有经
+  验的雇员”用英文表示就是an experienced staff，而“在某一领域有经验”
+  则可以说成be experienced in……。
+- 知新：在说到“某一领域有经验”时，老外常用have experience in ……
+  area来表示，如：I have a lot of work experience in the Market
+  Research我在市场调研方面工作经验丰富。
+- 更多：I'm experienced in this area我在这一领域很有经验。I've worked
+  in this area for three years and have enough experience to solve
+  tough problems.我已在这个领域工作3年了，有足够的经验解决辣手问题。
+
+*** 对话练习
+A: Do you have any practical experience?
+B: Yes.I have plenty of work experience in this area.
+A: Can you speak it specifically?
+B: Sure
+A：你有实际工作经验吗？
+B： 是的，我在这个领域有丰富的经验。
+A：你能说得具体点吗？
+B： 当然可以
+
+A: Can you give me a summary of your work experience as a marketing manager?
+B: Of course. I've worked in this area for three years and have enough
+experience to solve tough problems.
+A: Good. What's your greatest weakness?
+B: I am a perfectionist, so maybe I tend to spend too much time
+checking my work
+A：你能就你作为市场部经理期间的工作给我做个总结吗？
+B： 当然可以，我在这个领域工作了3年，有足够的经验解决辣手问题
+A：很好，你最大的缺点是什么？
+B： 我是个完美主义者，所以我可能会花过多的时间去检查我的工作。
+- 如果想让别人详细的跟你说一件事，就可以用can you speak it
+  specifically或can you speak it in details?
+- tend to do sth.的意思是“倾向于做某事”，相当于be likely to do sth.
+
+** 主要负责什么
+I was mainly in charge of designing我主要负责设计。
+*** 温故而知新
+- 温顾：谈到“负责”时，大家首先想到的短语可能是be responsible for，其
+  实还可以用be up to 表示，如：The project is up to the new manager这
+  个项目由新经理负责。
+- 知新：in charge of能更加地道表示“负责”的含义，跟这个短语相似的in
+  the charge of的意思是“在……的掌管下”，不要弄混，此外，老外们还经
+  常用take charge of 来表示负责。
+- 更多：The designing part is in the charge of me设计部分由我负责。I
+  was responsible for the product development我负责产品研发。
+
+*** 对话练习
+A: What are you mainly responsible for in your last job?
+B: I was mainly in charge of designing.
+A: Would you mind working overtime?
+B: It depends. I can make it in a certain extent
+A：你上一份工作主要负责什么？
+B： 我主要负责设计
+A：你介意加班吗？
+B： 看情况而定，我可以接受一定程度的加班。
+
+A: Can you tell me your duties of your last job?
+B: I was responsible for the product development.
+A: Can I have the reason why you resigned?
+B: It's for personal reasons.
+A：你能告诉我你在上一份工作中的职责么？
+B： 我负责产品研发。
+A：我能知道你辞职的原因吗？
+B： 是我个人原因。
+- It depends在口语中表示“看情况而定”是最简单地道的表达。
+- I can make it 意思是“我能搞定”，相当于I can handle it.或I can deal
+  with it
+** 过去成就
+I am experienced in this area and worked very well before.我在这个领域
+很有经验，过去也做得很出色。
+*** 温故而知新
+- 温顾：我们已经知道have lots of experience in 和be experienced in 都
+  可表示“在某一领域有经验”，此外，可以用do well in 或do a good job来
+  表示“工作出色”的含义。
+- 知新：在口语中，老外如何表达“工作做得出色”呢？没错，简单的说work
+  well就可以了
+- 更多：I've worked in this area for many years and have done a good
+  job. 我在这个行业工作了很多年，工作也做得很出色。I spent the first
+  part of my life in this area and made some outstanding achievements
+  我的前半生取得了一些出色的成就。
+
+*** 对话练习
+A: Can you display some reasons that I should hire you?
+B: I am experienced in this area and worked very well before.
+A: Well, anything else?
+B: I have team spirit, sense of time; moreover, I work hard.
+A：你能给我说说我为什么要聘用你吗？
+B： 我在这个领域有丰富的经验，过去也做得很出色。
+A：不错，还有其他吗？
+B： 我是个有团队精神及时间观念的人，而且我工作很刻苦。
+
+A: Do you have any relevant experience in this area?
+B: Yeah, I spent the first part of my life in this area and made some
+outstanding achievements.
+A: That's good. Another question, can you work under stress?
+B: No problem.
+A：你有相关工作经验吗？
+B： 有，我的前半生都在这个领域奋斗，并取得了一些出色的成就。
+A：很好，还有一个问题，你能在压力下工作吗？
+B： 没问题。
+- anything else 表示“还有其他的吗”，当询问他人是否还有要补充的话时，
+  就可以这样说。
+- work under stress就是职场人士经常抱怨的“顶着压力工作”。
+* 谈论应聘原因
+** 发展机会
+I need more opportunities for career growth.我想有更多的职业发展机会。 
+*** 温故而知新
+- 温顾：用英文表达“需要，想有”的意思可以是want，wish，would like to
+  等，因此“我想要更多的职业发展机会”就可以说成I would like to have
+  more chance for career development. 
+- 知新：opportunities for career growth就是我们经常说的“职业发展机会”，
+  面试时，除了用I need more opportunities for career growth，表示“需
+  要更多的职业发展机会”外，还可以用I play much attention to the
+  opportunities  for career improvement.
+- 更多：I would focus on the opportunities for career growth我会比较关
+  注职业发展机会。I wish I can get more chances for long-term
+  development我希望我可以获得更多长远的发展机会。
+
+*** 对话练习
+A: What's your first consideration when finding jobs?
+B: I know that many people care about salary, but I need more
+opportunities for career growth.
+A: That's good, We have lots of on-the-job training courses for our stuff.
+B: That hits the spot! 
+A：找工作时你首先会考虑什么?
+B： 我知道很多人都比较在意工资，但我想有更多的职业发展机会。
+A：很好，我们为员工提供很多在职培训课程。
+B： 正合我意
+
+A: What is the most important factor for you when deciding whether to
+accept a job?
+B: I wish I can get more chances for long-term development.
+A: Glad to hear that，we offer each worker the equal promotion opportunities.
+B: That's too good to be true
+A：你在决定要不要接受一份工作时，哪个是最重要的考虑因素？
+B： 我希望我可以获得更多长远的发展机会。
+A：很高兴你能这么说，我们给每个员工都提供平等的晋升机会。
+B： 这真是好极了。
+- on-the-job training意为“在职培训”。
+- That hits the spot表示“正合我意”其中，hit the spot是一句习语，有
+  “使满足，正合需要”的含义，相当于as one's wish/hope
+- That's too good to be true 是“这真是好极了”，当你对某事表示赞赏时，
+  可这么说。
+** 运用专业知识
+I think your company will give me a chance to use what I've learned in
+the university我认为贵公司会给我机会运用我在大学里所学的知识
+*** 温故而知新
+- 温顾：在表达“给某人提供机会做某事”时，大家可能会想到offer sb a
+  chance/opportunity to do sth
+- 知新：表达“提供机会做某事”时，老外们还经常用give sb a chance to do
+  sth应们在面试时常说的I'm sure the company can give me a chance to
+  learn something的意思是“我相信贵公司可以给我提供学习一些东西的机会”。
+- 更多：I think your company will set a stage for me to display my
+  qualifications我想贵公司会给我提供一个展示自己资质的平台。I'm sure
+  that I would have the chance to put the knowledge that I learned in
+  school into use我确信我会得到让我可以学以致用的机会。
+
+*** 对话练习
+A: Why are you interested in working for us?
+B: I think your company will give me a chance to use what I've learned
+in the university.
+A: Sounds like that you have done some researches about our
+company.Good job
+B: Thanks
+A：你为什么对在我们公司工作感兴趣？
+B： 我认为贵公司会给我机会运用我在大学里所学的知识。
+A：听起来你似乎对我们公司做了些研究，做的不错。
+B： 谢谢。
+
+A: What attracted you to have an interview in our company?
+B: Now that you mentioned it, I'm sure that I would have the chance to
+put the knowledge that I learned in school into use.
+A: That's good. The task of this position requires a lot of
+professional knowledge.
+B: I'm looking forward to being your subordinate
+A：是什么吸引你来我公司面试的呢？
+B： 既然你问到了这个，我来是因为我确信我会得到，让我可以学以致用的机会。
+A：那太好了，这个职位需要用到大量专业知识。
+B： 我已经迫不及待的想成为您的下属了。
+- 表扬或称赞某人很好的完成某项工作时，就可以说good job而这个句子的完整
+  形则是You've done a good job
+- look forward to doing sth表示“期盼做某事”，注意这里to 是介词，后面
+  要动名词形式。
+* 谈论工资待遇
+** 询问工作
+I want to know the wage in the probation period
+我想问一下试用期的工资是多少？
+*** 温故而知新
+- 温顾：想表达“我想问一下……”的意思，大家可以用以前学过的I want to
+  ask about ……这一句型，或者也可以说I would like to learn something about……
+- 知新：老外常用probation period 表示“试用期”，想要和面试官谈论薪资，
+  你还可以更委婉的说I'm wondering if you can tell me some information
+  about the salary
+- 更多：Could we talk about my salary?我们能谈论一下我的薪酬吗？Is
+  that possible that you tell me my salary in the probation period?您
+  能不能告诉我试用期的工资是多少呢？
+*** 对话练习
+A: How long is my probation period?
+B: Generally speaking, three months.
+A: I want to know the wage in the probation period.
+B: During this period you can get 80% paid.
+A：我的试用期是多久？
+B： 一般是3个月。
+A：我想问一下试用期的工资是多少。
+B： 在这期间，你能拿到80%的工资。
+
+A: Is that possible that you tell me my salary in the probation period?
+B: You can get 80% of your salary and enjoy the statutory holidays.
+A: I don't follow it. Did you mean that I can't get full salary in the
+first few months?
+B: I'm afraid yes
+A：您能不能告诉我试用期期间我的工资是多少呢？
+B： 你可以获得薪水的80%并享有法定节假日。
+A：我没有听明白。您是说我在前几个月不能拿到全部的薪水吗？
+B： 恐怕是的
+- statutory holidays就是常说的“法定节假日”，还可以用regular holidays
+  表达相同的含义。
+- 如果你没有听懂别人的话，就可以说I don't follow it表示“我没有听懂你
+  的意思”。
+** 期望薪水
+I would require a salary of at least 2500dollars a month.我的期望薪水
+是每月2500美元以上。
+*** 温故而知新
+- 温顾：谈论薪水的时候，我们经常会用I hope that I can get……per
+  mouth.来表达“我希望我每个月的薪水是……”
+- 知新：在和面试官谈薪酬时，老外经常会用require这个词，比如“我希望我
+  的薪水可以达到每月5000元”就可以表示为I would require a salary of
+  5000 yuan per month.
+- 更多：I hope my salary would make me economically independent from
+  my parents我希望我的薪水可以让我在经济上独立，不再依赖父母。I hope
+  my salary will not be lower than 4500 yuan each month我希望我的薪水
+  不低于每月4500元。
+
+*** 对话练习
+A: How much salary are you expecting? 
+B: I would require a salary of at least 2500 dollars a month.
+A: I'm afraid we can't meet your expectation at the beginning.
+B: So how much can you afford each month?
+A：你的期望薪金是多少？
+B：我期望薪水是每月2500美元以上。
+A：恐怕刚开始我们没有办法支付这么多。
+B：那么您每月能付给我多少薪水呢？
+
+A: What's your required monthly salary?
+B: As a fresh graduate, I hope my salary would make me economically
+independent from my parents.
+A: I think you are a potential stock. I take a good view to you.
+B: It's nice of you to say that.
+A：你要求的月薪是多少呢？
+B： 作为一名刚毕业的大学生，我希望我的薪水可以让我在经济上独立，不再依
+赖父母。
+A：看来你是一支潜力股，我非常看好你。
+B： 您能这么说真是太好了。
+- meet one's expectation意为“达到某人的期望”，这个短语相当于satisfy
+  sb（让某人满意）。
+- 如果觉得一个人很有潜力，就可以用potential stock 来评价他，意思是“潜
+  力股”。
+- 口语中经常说的“我看好你”就是I take a good view to you还可以更直白
+  的说You are a promising guy.
+* 福利
+** 了解福利待遇
+Could I have some information about your benifit provisions?我可以了解
+一下贵公司的福利待遇吗？
+*** 温故而知新
+- 温顾：说到“知道，了解”我们最常用的英文表达式know，learn或者be
+  aware of，如果要表达“对……略知一二”，则可以用know little about
+  sth表示。
+- 知新：面试时，应聘者肯定想对薪酬和福利待遇有个大致的了解，老外遇到这
+  种情况时一般会说Can I have some information about the benefits of
+  this position？我能了解一下这个职位的福利待遇吗？
+- 更多：Could you tell me something about the benefits I can get from
+  this job?你能告诉我一些关于这项工作的福利待遇吗？Are we covered by a
+  benefits plan ？我们能不能享受福利计划？
+
+*** 对话练习
+A: Could I have some information about your benefit provisions?
+B: Sure, We provide all kinds of insurances and you will have paid
+vacation after the first year.
+A: Great. One more question, can I take part in the specific training
+courses?
+B: If necessary, yes.
+A：我可以了解一下贵公司的福利待遇吗？
+B： 当然了，我们提供各种保险，而且一年之后，你会有带薪假期。
+A：太好了，顺便问一句，我能参加专门的培训吗？
+B： 如果有需要的话，可以
+
+A: Are we covered by a benefits plan?
+B: Yes, This job pays for half of your medical expenses.Moreover, you
+have the chance to get the excellence award at the end of year.
+A: OK, I got it, thanks.
+B: You are welcome.
+A：我们有没有相关的福利计划？
+B： 有的，这份工作会为你支付一半的医疗费用。此外，年终的时候，你还有机
+会获得杰出员工奖。
+A：好的，我知道了，谢谢你。
+B： 不用客气。
+- paid vacation可表示“带薪假期”。
+- moreover相当于what's more在需要补充其他内容时经常用到。
+** 带薪假期
+Do the employees enjoy paid holidays?员工有带薪假期吗？
+*** 温故而知新
+- 温顾：应聘者询问是否有带薪假期时，一般会说Do I have paid holidays?
+  另外，还可以用大家熟悉的句子Can I get paid holiday？来询问。
+- 知新：在表示享受何种福利待遇时，老外经常会用enjoy这个词，即Can I
+  enjoy paid holidays？“你每年有5天的带薪年假”就可以说成You enjoy a
+  paid holiday of five days each year.
+- 更多：Can I enjoy paid holidays?我能享受带薪假期吗？Do we have
+  employee benefits such as medical insurance？我们有没有医疗保险类的
+  员工福利？
+
+*** 对话练习
+A: Would you mind if I ask something about the benefits?
+B: Go ahead.
+A: Thanks. Do the employees enjoy paid holidays?
+B: Absolutely yes
+A：你介意我问一些关于员工福利方面的问题吗？
+B：请说吧
+A：谢谢，请问员工有带薪假期吗？
+B： 当然
+
+A: Do we have employee benefits such as medical insurance?
+B: Yes, Our company gives employees good benefits and also buys
+everyone all kinds of insurance.
+A: That's great, I think the workers here will spare no effort to make
+contributions to the company. 
+B: In fact, that's true. 
+A：员工有没有医疗保险之类的福利？
+B： 有，我们公司给员工很好的福利，并为每名员工上齐所有种类的保险。
+A：太好了，我想这里的员工肯定会不遗余力的为公司做贡献的。
+B： 事实上，是这样的。
+- 允许某人继续做某事，就可以说Go ahead. 另外，Go on, 也可以用于这种情
+  况。
+- spare no effort to dosth相当于try one's best to do sth表示“竭尽全力
+  做，不遗余力做某事”。
+** 节假日福利
+Is there any benefit we can get in the holiday?节假日有什么福利吗？
+*** 温故而知新
+- 温顾：我们已经知道表达“享受福利待遇”时可以用enjoy这个词，那么询问
+  节假日有什么福利时，就可以说What kind of benefits can we enjoy in
+  the holidays?
+- 知新：要想知道有没有假期的福利，用there be 句型就可以了，即：Is
+  there any benefit we can get in the holidays?或Is there any benefits
+  the employee can enjoy in the holidays?
+- 更多：What kind of benefits can we enjoy in the holidays?节假日我们
+  可以享受什么福利？Is it possible that employees get additional
+  salary in the holidays?节假日期间员工有额外补助吗？
+
+*** 对话练习
+A: Sir, can I ask you one more question?
+B: Sure, I'll be all ears.
+A: Is there any benefits we can get in the holiday?
+B: Sorry to tell you that we only provide normal salary.
+A：先生，我能再问一个问题吗？
+B： 当然，我洗耳恭听。
+A：节假日有什么福利吗？
+B： 很抱歉的告诉你，我们仅提供正常的薪水。
+
+A: Is it possible that employees get additional salary in the holidays?
+B: Yes, We give employees allowance according to their length of service.
+A: So, can new employees get it, too?
+B: Of course.
+A：节假日期间员工有额外补助吗？
+B： 当然了，我们会根据工龄发给员工补助的
+A：那么新员工能得到吗？
+B： 当然
+- I'll be all ears就是口语中常说的“洗耳恭听”。
+- length of service指“工龄”。
+* 面试表现
+** 表现评价
+Do you have any comments on my performance today?您对我今天的表现有何
+评价？
+*** 温故而知新
+- 温顾：要表达“别人对你评价如何”，可以是What about……？或者What's
+  your opinion about……？如：What about my performance today？我今天
+  表现如何？
+- 知新：短语comment on sth的意思是“对……的评价”，在美国口语中，也经
+  常用have comment on sth表示“觉得……怎么样”。
+- 更多：How do you think about my performance during the interview？你
+  认为在今天的面试中我的表现如何？Can you evaluate my performance
+  today briefly？您能简短评价下我今天的表现吗？
+
+*** 对话练习
+A: Thank you for picking up time for my interview.
+B: Never mind, That's my job.
+A: Do you have any comments on my performance today?
+B: Pretty good.
+A：感谢你抽时间安排我的面试。
+B： 不要放在心上，这是我的工作。
+A：您对我今天的表现有何评价？
+B： 很好。
+
+A: How do you think about my performance during the interview?
+B: If I say not well, that must be finding a quarrel in a straw.
+A: Thanks. I think I'm flattered.
+B: To be candid with you, I really think you did a good job!
+A：您认为今天的面试我表现得怎么样？
+B： 如果我说不好，那肯定是吹毛求疵了。
+A：谢谢，您过奖了。
+B： 实话告诉你，我真的认为你表现得不错。
+- pretty good和very good一样，都可以用于表扬别人.
+- 俚语find a quarrel in a straw是“吹毛求疵，鸡蛋里挑骨头”的地道表达。
+- I'm flattered表示“你过奖了”。回应别人的夸奖时，这样说会显得比较谦
+  虚。
+** 是否能胜任
+Do you think I'm qualified for the position?
+*** 温故而知新
+- 温顾：我们十分熟悉的单词competent可以表示“能胜任的，有能力的”，因
+  此，要表达“能胜任某一职位”就可以说be competent for the position. 
+- 知新：除了be competent for外，老外们经常用be qualified for 表示“能
+  胜任”如I'm sure I am qualified for the work我确信我可以胜任那份工作。
+  be up to the position也可以用来表示。
+- 更多：Do you think I can meet the standards of a good manager?您认为
+  我符合一名优秀经理的标准吗？I think my personal ability is enough to
+  deal with all the possible problems that position will encounter我想
+  我的个人能力足以处理那个职位中可能遇到的所有问题。
+
+*** 对话练习
+A: Do you think I'm qualified for the position?
+B: As far as I am concerned, you are the best candidate.
+A: Really? You mean I may be a worker here?
+B: I can't tell you now, but you can check your e-mail tomorrow.
+A：您认为我能胜任这个职位吗？
+B： 就目前来看，你是最佳人选。
+A：真的吗？您是说我可能成为这里的一名员工了？
+B： 我现在还不能给你答复，但你可以在明天查看你的邮件。
+
+A: Do you think I can meet the standards of a good manager?
+B: According to your resume and your performance, my answer is "yes" .
+A: Thanks, I won't let you down.
+B: Ok, I'm waiting for your excellent performance when you are here.
+A：您认为我符合一名优秀经理的标准吗？
+B： 根据你的简历和表现，我的答案是“是的”。
+A：谢谢你，我不会让你失望的
+B： 好的，我期望你就职后的精彩表现。
+- as far as I am concerned 表示“就目前来看”，用in my view 则可以表达
+  “在我看来”的意思。
+- let sb down 和disappoint sb表示“让某人失望”
+** 面试官印象
+What did the interviewer say about your performance?面试官对你的表现怎
+么的?
+*** 温故而知新
+- 温顾：相信大家已经掌握了用have comments on sth表示“觉得……怎么样”
+  的用法，那么询问他人面试官如何评价他们的表现，就可以说What's the
+  interviewer's comment about your performance? 
+- 知新：事实上，要想询问对方别人如何评价他时，还可以简单的用What
+  did……say about……？这个句型，即What did the interviewer say about
+  your performance?
+- 更多：What's the interviewer's view about your performance？面试官对
+  你的表现有什么看法？How did the boss feel about your interview
+  performance？老板是怎么看待你的面试表现的？
+
+*** 对话练习
+A: What did the interviewer say about your performance?
+B: He just told me I've done a good job
+A: Good omen, You may already get the job
+B: I hope so.
+A：面试官对你的表现怎么说的？
+B： 他只告诉我说，我做的不错。
+A：好兆头，你可能已经得到那份工作了。
+B： 希望如此。
+
+A: How did the boss feel about your interview performance?
+B: He said that I might be a little nervous.I'm afraid I screwed it up.
+A: Don't be upset. Never give up until the last minute.
+B: Thank you for backing me up
+A：老板是怎么看待你的面试表现的？
+B： 他说我可能有点儿紧张，我恐怕是搞砸了
+A：不要担心，不到最后一刻不要放弃。
+B： 谢谢你支持我。
+- good omen就表示我们常常希望碰到的“好兆头”。
+- screw up 是“搞砸，弄糟”的意思，同类表达还有mess up和blow it.
+- back  sb up 相当于support sb意思是“支持某人”。
+* 通知上班
+
+** 通知录用
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 表示感谢
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 上班第一天
+
+** 新人报到
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 自我介绍
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 熟悉环境
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 问问题
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 虚心请教
+
+** 在哪打卡
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 求助
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 人事行政
+
+** 考勤记录
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 考核制度
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 迟到惩罚
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 工作时间
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 员工培训
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 部门及日常工作
+
+** 复印文件
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 复印件出故障
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 隶属部门
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 主管上司
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 工作职责
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 工作内容
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 完成工作
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 关于请假
+
+** 提前请假
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 请病假
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 申请请假
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 接打电话
+
+** 自报门户
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 询问对方找谁
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 预约见面
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 转接电话
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 回电话
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 收发邮件
+
+** 询问电子邮箱
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 抄送邮件
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 回复邮件
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 做简报
+
+** 简介公司
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 简介产品
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 简介销售数据
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 简介利润
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 拜访客户
+
+** 表达拜访意向
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 约好见面时间
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 等候见面
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 上门拜访
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 出差
+
+** 出差时间
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 出差行程
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 出差目的
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 登机出发
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 加班
+
+** 加班费
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 忙碌的一天
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 加班进行时
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 会议流程
+
+** 会议目的
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 议题有什么
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 会议开始
+
+** 人员是否到齐
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 会议开始
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 直奔主题
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 表达意见
+
+** 看法不同
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 询问想法
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 支持某人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 询问方案
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 会议进程
+
+** 特殊状况
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 补充内容
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 进入下一项议程
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 会议结束
+
+** 接近尾声
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 总结观点
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 业绩考核
+
+** 评价很高
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 称赞别人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 升职加薪
+
+** 升职了
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 申请加薪
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 工资涨幅
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 挨主管批评
+
+** 搞砸某事
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 失望之情
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 作保证
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 承认错误
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 与上司沟通
+
+** 询问是否有时间
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 询问建议
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 要命的最后期限
+
+** 所剩时间不多
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 申请延时
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 最后期限
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 干不完的工作
+
+** 踹不过气
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 从早忙到晚
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 受不了了
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 厌倦加班
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 工作瓶颈期
+
+** 想换工作
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 厌倦工作
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 茶水间闲聊
+** 开始闲聊
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 八卦别人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 八卦某事
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 开启话题
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 午间休息
+
+** 休息一会
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 午餐
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 带杯咖啡
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 人际交往
+
+** 寻求意见
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 相互学习
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 讨厌某人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 谈论别人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 打算跳槽
+
+** 朋友介绍新职位
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 高薪诱惑
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 提出辞职
+
+** 辞职了
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 递交辞职信
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 裁员解雇
+** 公司裁员
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 被炒鱿鱼
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 在职培训
+** 培训目的
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 参加培训资格
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 组织出游
+
+** 提出出游计划
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 推荐好地方
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 同事聚餐
+** 预定餐桌
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 举杯庆祝
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 公司年会
+** 熟悉同事
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 回顾工作
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 工作狂
+
+** 放不下工作
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 不要较真
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 积蓄不多
+
+** 控制开支
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 收入的分配
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 钱不够花
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 办公室恋情
+
+** 公司禁忌
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 流言四起
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 白领亚健康
+
+** 关心别人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 健身运动
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 健身益处
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 压力重重
+
+** 还按揭贷款
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 压力过大
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+** 身体不舒服
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+* 成家立业难
+** 贷款买房
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+** 安慰别人
+*** 温故而知新
+- 温顾：
+- 知新：
+- 更多：
+
+*** 对话练习
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+
+A: 
+B: 
+A: 
+B: 
+A：
+B： 
+A：
+B： 
+* 附录
+** 短语
 - up to a point:一定程度上,不完全如此,在一定程度上;
 - no longer necessary:不再有必要；
 - dilemma:困境；
@@ -788,7 +5215,7 @@
 - Phase drift 相移 
 - Phonon spectra 声子谱 
 - Photo conduction 光电导
--  Photo diode 光电二极管 
+- Photo diode 光电二极管 
 - Photoelectric cell 光电池 
 - Photoelectric effect 光电效应 
 - Photoenic devices 光子器件 
@@ -1003,8 +5430,8 @@
 - Worst-case device 最坏情况器件 
 - Yield 成品率 
 - Zener breakdown 齐纳击穿 
-- Zone melting: 区熔法 
-* 缩写
+  - Zone melting: 区熔法 
+** 缩写
 - IMU：inertial measurement units，惯性测量单元，常包含加速度和陀螺仪传感器； 
 - SVM: Support Vector Machine, 支持向量机；
 - ANN: artificial neural network，人工神经网络；

@@ -1,5 +1,6 @@
 #+TITLE: Sitemap
 
+- [[file:language.org][ÍâÓïÑ§Ï°]]
 - [[file:tool.org][¹¤¾ß]]
 - [[file:software.org][Èí¼þ]]
 - [[file:security.org][°²È«]]
@@ -9,7 +10,6 @@
 - [[file:signal.org][ÐÅºÅÓëÏµÍ³]]
 - [[file:protocol.org][Ð­Òé]]
 - [[file:math.org][ÊýÑ§]]
-- [[file:language.org][ÍâÓïÑ§Ï°]]
 - [[file:encyclopedia.org][°Ù¿ÆÖªÊ¶]]
 - [[file:decoration.org][×°ÐÞÈÕ¼Ç]]
 - [[file:communication.org][Í¨ÐÅ]]
